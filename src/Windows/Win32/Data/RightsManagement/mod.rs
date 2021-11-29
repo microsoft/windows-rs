@@ -43,15 +43,7 @@ pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, Param5: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMAcquireLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hsession: u32,
-    uflags: u32,
-    wszgroupidentitycredential: Param2,
-    wszrequestedrights: Param3,
-    wszcustomdata: Param4,
-    wszurl: Param5,
-    pvcontext: *mut ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMAcquireLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: u32, uflags: u32, wszgroupidentitycredential: Param2, wszrequestedrights: Param3, wszcustomdata: Param4, wszurl: Param5, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -162,16 +154,7 @@ impl ::core::fmt::Debug for DRMBOUNDLICENSEPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRMBOUNDLICENSEPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion
-            && self.hEnablingPrincipal == other.hEnablingPrincipal
-            && self.hSecureStore == other.hSecureStore
-            && self.wszRightsRequested == other.wszRightsRequested
-            && self.wszRightsGroup == other.wszRightsGroup
-            && self.idResource == other.idResource
-            && self.cAuthenticatorCount == other.cAuthenticatorCount
-            && self.rghAuthenticators == other.rghAuthenticators
-            && self.wszDefaultEnablingPrincipalCredentials == other.wszDefaultEnablingPrincipalCredentials
-            && self.dwFlags == other.dwFlags
+        self.uVersion == other.uVersion && self.hEnablingPrincipal == other.hEnablingPrincipal && self.hSecureStore == other.hSecureStore && self.wszRightsRequested == other.wszRightsRequested && self.wszRightsGroup == other.wszRightsGroup && self.idResource == other.idResource && self.cAuthenticatorCount == other.cAuthenticatorCount && self.rghAuthenticators == other.rghAuthenticators && self.wszDefaultEnablingPrincipalCredentials == other.wszDefaultEnablingPrincipalCredentials && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -181,7 +164,7 @@ unsafe impl ::windows::core::Abi for DRMBOUNDLICENSEPARAMS {
     type Abi = Self;
 }
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
-pub type DRMCALLBACK = unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type DRMCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
 #[inline]
@@ -305,7 +288,7 @@ pub unsafe fn DRMCreateBoundLicense<'a, Param2: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateClientSession<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pfncallback: ::core::option::Option<DRMCALLBACK>, ucallbackversion: u32, wszgroupidprovidertype: Param2, wszgroupid: Param3, phclient: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn DRMCreateClientSession<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pfncallback: DRMCALLBACK, ucallbackversion: u32, wszgroupidprovidertype: Param2, wszgroupid: Param3, phclient: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -361,33 +344,14 @@ pub unsafe fn DRMCreateEnablingPrincipal<'a, Param2: ::windows::core::IntoParam<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateIssuanceLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
-    psttimeuntil: *mut super::super::Foundation::SYSTEMTIME,
-    wszreferralinfoname: Param2,
-    wszreferralinfourl: Param3,
-    howner: u32,
-    wszissuancelicense: Param5,
-    hboundlicense: u32,
-    phissuancelicense: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMCreateIssuanceLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, wszreferralinfoname: Param2, wszreferralinfourl: Param3, howner: u32, wszissuancelicense: Param5, hboundlicense: u32, phissuancelicense: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DRMCreateIssuanceLicense(psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, wszreferralinfoname: super::super::Foundation::PWSTR, wszreferralinfourl: super::super::Foundation::PWSTR, howner: u32, wszissuancelicense: super::super::Foundation::PWSTR, hboundlicense: u32, phissuancelicense: *mut u32) -> ::windows::core::HRESULT;
         }
-        DRMCreateIssuanceLicense(
-            ::core::mem::transmute(psttimefrom),
-            ::core::mem::transmute(psttimeuntil),
-            wszreferralinfoname.into_param().abi(),
-            wszreferralinfourl.into_param().abi(),
-            ::core::mem::transmute(howner),
-            wszissuancelicense.into_param().abi(),
-            ::core::mem::transmute(hboundlicense),
-            ::core::mem::transmute(phissuancelicense),
-        )
-        .ok()
+        DRMCreateIssuanceLicense(::core::mem::transmute(psttimefrom), ::core::mem::transmute(psttimeuntil), wszreferralinfoname.into_param().abi(), wszreferralinfourl.into_param().abi(), ::core::mem::transmute(howner), wszissuancelicense.into_param().abi(), ::core::mem::transmute(hboundlicense), ::core::mem::transmute(phissuancelicense)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -760,19 +724,7 @@ pub unsafe fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut
         extern "system" {
             fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, uflags: u32, pudistributionpointnamelength: *mut u32, wszdistributionpointname: super::super::Foundation::PWSTR, pudistributionpointurllength: *mut u32, wszdistributionpointurl: super::super::Foundation::PWSTR, phowner: *mut u32, pfofficial: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        DRMGetIssuanceLicenseInfo(
-            ::core::mem::transmute(hissuancelicense),
-            ::core::mem::transmute(psttimefrom),
-            ::core::mem::transmute(psttimeuntil),
-            ::core::mem::transmute(uflags),
-            ::core::mem::transmute(pudistributionpointnamelength),
-            ::core::mem::transmute(wszdistributionpointname),
-            ::core::mem::transmute(pudistributionpointurllength),
-            ::core::mem::transmute(wszdistributionpointurl),
-            ::core::mem::transmute(phowner),
-            ::core::mem::transmute(pfofficial),
-        )
-        .ok()
+        DRMGetIssuanceLicenseInfo(::core::mem::transmute(hissuancelicense), ::core::mem::transmute(psttimefrom), ::core::mem::transmute(psttimeuntil), ::core::mem::transmute(uflags), ::core::mem::transmute(pudistributionpointnamelength), ::core::mem::transmute(wszdistributionpointname), ::core::mem::transmute(pudistributionpointurllength), ::core::mem::transmute(wszdistributionpointurl), ::core::mem::transmute(phowner), ::core::mem::transmute(pfofficial)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -793,40 +745,12 @@ pub unsafe fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelic
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetMetaData(
-    hissuancelicense: u32,
-    pucontentidlength: *mut u32,
-    wszcontentid: super::super::Foundation::PWSTR,
-    pucontentidtypelength: *mut u32,
-    wszcontentidtype: super::super::Foundation::PWSTR,
-    puskuidlength: *mut u32,
-    wszskuid: super::super::Foundation::PWSTR,
-    puskuidtypelength: *mut u32,
-    wszskuidtype: super::super::Foundation::PWSTR,
-    pucontenttypelength: *mut u32,
-    wszcontenttype: super::super::Foundation::PWSTR,
-    pucontentnamelength: *mut u32,
-    wszcontentname: super::super::Foundation::PWSTR,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMGetMetaData(hissuancelicense: u32, pucontentidlength: *mut u32, wszcontentid: super::super::Foundation::PWSTR, pucontentidtypelength: *mut u32, wszcontentidtype: super::super::Foundation::PWSTR, puskuidlength: *mut u32, wszskuid: super::super::Foundation::PWSTR, puskuidtypelength: *mut u32, wszskuidtype: super::super::Foundation::PWSTR, pucontenttypelength: *mut u32, wszcontenttype: super::super::Foundation::PWSTR, pucontentnamelength: *mut u32, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetMetaData(
-                hissuancelicense: u32,
-                pucontentidlength: *mut u32,
-                wszcontentid: super::super::Foundation::PWSTR,
-                pucontentidtypelength: *mut u32,
-                wszcontentidtype: super::super::Foundation::PWSTR,
-                puskuidlength: *mut u32,
-                wszskuid: super::super::Foundation::PWSTR,
-                puskuidtypelength: *mut u32,
-                wszskuidtype: super::super::Foundation::PWSTR,
-                pucontenttypelength: *mut u32,
-                wszcontenttype: super::super::Foundation::PWSTR,
-                pucontentnamelength: *mut u32,
-                wszcontentname: super::super::Foundation::PWSTR,
-            ) -> ::windows::core::HRESULT;
+            fn DRMGetMetaData(hissuancelicense: u32, pucontentidlength: *mut u32, wszcontentid: super::super::Foundation::PWSTR, pucontentidtypelength: *mut u32, wszcontentidtype: super::super::Foundation::PWSTR, puskuidlength: *mut u32, wszskuid: super::super::Foundation::PWSTR, puskuidtypelength: *mut u32, wszskuidtype: super::super::Foundation::PWSTR, pucontenttypelength: *mut u32, wszcontenttype: super::super::Foundation::PWSTR, pucontentnamelength: *mut u32, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
         DRMGetMetaData(
             ::core::mem::transmute(hissuancelicense),
@@ -878,7 +802,7 @@ pub unsafe fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *m
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetProcAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlibrary: u32, wszprocname: Param1, ppfnprocaddress: *mut ::core::option::Option<super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+pub unsafe fn DRMGetProcAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlibrary: u32, wszprocname: Param1, ppfnprocaddress: *mut super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -899,21 +823,7 @@ pub unsafe fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32,
         extern "system" {
             fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32, wszid: super::super::Foundation::PWSTR, puidtypelength: *mut u32, wszidtype: super::super::Foundation::PWSTR, puurllength: *mut u32, wszrl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        DRMGetRevocationPoint(
-            ::core::mem::transmute(hissuancelicense),
-            ::core::mem::transmute(puidlength),
-            ::core::mem::transmute(wszid),
-            ::core::mem::transmute(puidtypelength),
-            ::core::mem::transmute(wszidtype),
-            ::core::mem::transmute(puurllength),
-            ::core::mem::transmute(wszrl),
-            ::core::mem::transmute(pstfrequency),
-            ::core::mem::transmute(punamelength),
-            ::core::mem::transmute(wszname),
-            ::core::mem::transmute(pupublickeylength),
-            ::core::mem::transmute(wszpublickey),
-        )
-        .ok()
+        DRMGetRevocationPoint(::core::mem::transmute(hissuancelicense), ::core::mem::transmute(puidlength), ::core::mem::transmute(wszid), ::core::mem::transmute(puidtypelength), ::core::mem::transmute(wszidtype), ::core::mem::transmute(puurllength), ::core::mem::transmute(wszrl), ::core::mem::transmute(pstfrequency), ::core::mem::transmute(punamelength), ::core::mem::transmute(wszname), ::core::mem::transmute(pupublickeylength), ::core::mem::transmute(wszpublickey)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -976,64 +886,28 @@ pub unsafe fn DRMGetServiceLocation<'a, Param3: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetSignedIssuanceLicense<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    henv: u32,
-    hissuancelicense: u32,
-    uflags: u32,
-    pbsymkey: *mut u8,
-    cbsymkey: u32,
-    wszsymkeytype: Param5,
-    wszclientlicensorcertificate: Param6,
-    pfncallback: ::core::option::Option<DRMCALLBACK>,
-    wszurl: Param8,
-    pvcontext: *mut ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMGetSignedIssuanceLicense<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: Param5, wszclientlicensorcertificate: Param6, pfncallback: DRMCALLBACK, wszurl: Param8, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DRMGetSignedIssuanceLicense(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, wszclientlicensorcertificate: super::super::Foundation::PWSTR, pfncallback: ::windows::core::RawPtr, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        DRMGetSignedIssuanceLicense(
-            ::core::mem::transmute(henv),
-            ::core::mem::transmute(hissuancelicense),
-            ::core::mem::transmute(uflags),
-            ::core::mem::transmute(pbsymkey),
-            ::core::mem::transmute(cbsymkey),
-            wszsymkeytype.into_param().abi(),
-            wszclientlicensorcertificate.into_param().abi(),
-            ::core::mem::transmute(pfncallback),
-            wszurl.into_param().abi(),
-            ::core::mem::transmute(pvcontext),
-        )
-        .ok()
+        DRMGetSignedIssuanceLicense(::core::mem::transmute(henv), ::core::mem::transmute(hissuancelicense), ::core::mem::transmute(uflags), ::core::mem::transmute(pbsymkey), ::core::mem::transmute(cbsymkey), wszsymkeytype.into_param().abi(), wszclientlicensorcertificate.into_param().abi(), ::core::mem::transmute(pfncallback), wszurl.into_param().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetSignedIssuanceLicenseEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: Param5, pvreserved: *const ::core::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: ::core::option::Option<DRMCALLBACK>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DRMGetSignedIssuanceLicenseEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: Param5, pvreserved: *const ::core::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: DRMCALLBACK, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DRMGetSignedIssuanceLicenseEx(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, pvreserved: *const ::core::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        DRMGetSignedIssuanceLicenseEx(
-            ::core::mem::transmute(henv),
-            ::core::mem::transmute(hissuancelicense),
-            ::core::mem::transmute(uflags),
-            ::core::mem::transmute(pbsymkey),
-            ::core::mem::transmute(cbsymkey),
-            wszsymkeytype.into_param().abi(),
-            ::core::mem::transmute(pvreserved),
-            ::core::mem::transmute(henablingprincipal),
-            ::core::mem::transmute(hboundlicenseclc),
-            ::core::mem::transmute(pfncallback),
-            ::core::mem::transmute(pvcontext),
-        )
-        .ok()
+        DRMGetSignedIssuanceLicenseEx(::core::mem::transmute(henv), ::core::mem::transmute(hissuancelicense), ::core::mem::transmute(uflags), ::core::mem::transmute(pbsymkey), ::core::mem::transmute(cbsymkey), wszsymkeytype.into_param().abi(), ::core::mem::transmute(pvreserved), ::core::mem::transmute(henablingprincipal), ::core::mem::transmute(hboundlicenseclc), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pvcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1110,46 +984,12 @@ pub unsafe fn DRMGetUnboundLicenseObjectCount<'a, Param1: ::windows::core::IntoP
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetUsagePolicy(
-    hissuancelicense: u32,
-    uindex: u32,
-    peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE,
-    pfexclusion: *mut super::super::Foundation::BOOL,
-    punamelength: *mut u32,
-    wszname: super::super::Foundation::PWSTR,
-    puminversionlength: *mut u32,
-    wszminversion: super::super::Foundation::PWSTR,
-    pumaxversionlength: *mut u32,
-    wszmaxversion: super::super::Foundation::PWSTR,
-    pupublickeylength: *mut u32,
-    wszpublickey: super::super::Foundation::PWSTR,
-    pudigestalgorithmlength: *mut u32,
-    wszdigestalgorithm: super::super::Foundation::PWSTR,
-    pcbdigest: *mut u32,
-    pbdigest: *mut u8,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMGetUsagePolicy(hissuancelicense: u32, uindex: u32, peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE, pfexclusion: *mut super::super::Foundation::BOOL, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puminversionlength: *mut u32, wszminversion: super::super::Foundation::PWSTR, pumaxversionlength: *mut u32, wszmaxversion: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR, pudigestalgorithmlength: *mut u32, wszdigestalgorithm: super::super::Foundation::PWSTR, pcbdigest: *mut u32, pbdigest: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUsagePolicy(
-                hissuancelicense: u32,
-                uindex: u32,
-                peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE,
-                pfexclusion: *mut super::super::Foundation::BOOL,
-                punamelength: *mut u32,
-                wszname: super::super::Foundation::PWSTR,
-                puminversionlength: *mut u32,
-                wszminversion: super::super::Foundation::PWSTR,
-                pumaxversionlength: *mut u32,
-                wszmaxversion: super::super::Foundation::PWSTR,
-                pupublickeylength: *mut u32,
-                wszpublickey: super::super::Foundation::PWSTR,
-                pudigestalgorithmlength: *mut u32,
-                wszdigestalgorithm: super::super::Foundation::PWSTR,
-                pcbdigest: *mut u32,
-                pbdigest: *mut u8,
-            ) -> ::windows::core::HRESULT;
+            fn DRMGetUsagePolicy(hissuancelicense: u32, uindex: u32, peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE, pfexclusion: *mut super::super::Foundation::BOOL, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puminversionlength: *mut u32, wszminversion: super::super::Foundation::PWSTR, pumaxversionlength: *mut u32, wszmaxversion: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR, pudigestalgorithmlength: *mut u32, wszdigestalgorithm: super::super::Foundation::PWSTR, pcbdigest: *mut u32, pbdigest: *mut u8) -> ::windows::core::HRESULT;
         }
         DRMGetUsagePolicy(
             ::core::mem::transmute(hissuancelicense),
@@ -1253,15 +1093,7 @@ unsafe impl ::windows::core::Abi for DRMID {
 pub const DRMIDVERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMInitEnvironment<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    esecurityprovidertype: DRMSECURITYPROVIDERTYPE,
-    especification: DRMSPECTYPE,
-    wszsecurityprovider: Param2,
-    wszmanifestcredentials: Param3,
-    wszmachinecredentials: Param4,
-    phenv: *mut u32,
-    phdefaultlibrary: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMInitEnvironment<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: Param2, wszmanifestcredentials: Param3, wszmachinecredentials: Param4, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1454,15 +1286,7 @@ pub unsafe fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetMetaData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hissuancelicense: u32,
-    wszcontentid: Param1,
-    wszcontentidtype: Param2,
-    wszskuid: Param3,
-    wszskuidtype: Param4,
-    wszcontenttype: Param5,
-    wszcontentname: Param6,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMSetMetaData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, wszcontentid: Param1, wszcontentidtype: Param2, wszskuid: Param3, wszskuidtype: Param4, wszcontenttype: Param5, wszcontentname: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1490,16 +1314,7 @@ pub unsafe fn DRMSetNameAndDescription<'a, Param1: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetRevocationPoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hissuancelicense: u32,
-    fdelete: Param1,
-    wszid: Param2,
-    wszidtype: Param3,
-    wszurl: Param4,
-    pstfrequency: *mut super::super::Foundation::SYSTEMTIME,
-    wszname: Param6,
-    wszpublickey: Param7,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DRMSetRevocationPoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, wszid: Param2, wszidtype: Param3, wszurl: Param4, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: Param6, wszpublickey: Param7) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1513,16 +1328,7 @@ pub unsafe fn DRMSetRevocationPoint<'a, Param1: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetUsagePolicy<
-    'a,
-    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMSetUsagePolicy<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hissuancelicense: u32,
     eusagepolicytype: DRM_USAGEPOLICY_TYPE,
     fdelete: Param2,
@@ -1541,20 +1347,7 @@ pub unsafe fn DRMSetUsagePolicy<
         extern "system" {
             fn DRMSetUsagePolicy(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: super::super::Foundation::BOOL, fexclusion: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszminversion: super::super::Foundation::PWSTR, wszmaxversion: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR, wszdigestalgorithm: super::super::Foundation::PWSTR, pbdigest: *mut u8, cbdigest: u32) -> ::windows::core::HRESULT;
         }
-        DRMSetUsagePolicy(
-            ::core::mem::transmute(hissuancelicense),
-            ::core::mem::transmute(eusagepolicytype),
-            fdelete.into_param().abi(),
-            fexclusion.into_param().abi(),
-            wszname.into_param().abi(),
-            wszminversion.into_param().abi(),
-            wszmaxversion.into_param().abi(),
-            wszpublickey.into_param().abi(),
-            wszdigestalgorithm.into_param().abi(),
-            ::core::mem::transmute(pbdigest),
-            ::core::mem::transmute(cbdigest),
-        )
-        .ok()
+        DRMSetUsagePolicy(::core::mem::transmute(hissuancelicense), ::core::mem::transmute(eusagepolicytype), fdelete.into_param().abi(), fexclusion.into_param().abi(), wszname.into_param().abi(), wszminversion.into_param().abi(), wszmaxversion.into_param().abi(), wszpublickey.into_param().abi(), wszdigestalgorithm.into_param().abi(), ::core::mem::transmute(pbdigest), ::core::mem::transmute(cbdigest)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

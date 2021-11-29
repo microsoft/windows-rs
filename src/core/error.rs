@@ -77,7 +77,7 @@ impl Error {
 
     /// Returns the win32 error code if the underlying HRESULT's facility is win32
     pub fn win32_error(&self) -> Option<u32> {
-        let hresult = self.code.0;
+        let hresult = self.code.0 as u32;
         if ((hresult >> 16) & 0x7FF) == 7 {
             Some(hresult & 0xFFFF)
         } else {

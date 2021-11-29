@@ -137,22 +137,7 @@ impl ::core::fmt::Debug for CONVINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for CONVINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.hUser == other.hUser
-            && self.hConvPartner == other.hConvPartner
-            && self.hszSvcPartner == other.hszSvcPartner
-            && self.hszServiceReq == other.hszServiceReq
-            && self.hszTopic == other.hszTopic
-            && self.hszItem == other.hszItem
-            && self.wFmt == other.wFmt
-            && self.wType == other.wType
-            && self.wStatus == other.wStatus
-            && self.wConvst == other.wConvst
-            && self.wLastError == other.wLastError
-            && self.hConvList == other.hConvList
-            && self.ConvCtxt == other.ConvCtxt
-            && self.hwnd == other.hwnd
-            && self.hwndPartner == other.hwndPartner
+        self.cb == other.cb && self.hUser == other.hUser && self.hConvPartner == other.hConvPartner && self.hszSvcPartner == other.hszSvcPartner && self.hszServiceReq == other.hszServiceReq && self.hszTopic == other.hszTopic && self.hszItem == other.hszItem && self.wFmt == other.wFmt && self.wType == other.wType && self.wStatus == other.wStatus && self.wConvst == other.wConvst && self.wLastError == other.wLastError && self.hConvList == other.hConvList && self.ConvCtxt == other.ConvCtxt && self.hwnd == other.hwnd && self.hwndPartner == other.hwndPartner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -999,7 +984,7 @@ pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::core::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::core::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
+pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1012,7 +997,7 @@ pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::core::option::Opt
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::core::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
+pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1737,23 +1722,7 @@ impl ::core::default::Default for MONCBSTRUCT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for MONCBSTRUCT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MONCBSTRUCT")
-            .field("cb", &self.cb)
-            .field("dwTime", &self.dwTime)
-            .field("hTask", &self.hTask)
-            .field("dwRet", &self.dwRet)
-            .field("wType", &self.wType)
-            .field("wFmt", &self.wFmt)
-            .field("hConv", &self.hConv)
-            .field("hsz1", &self.hsz1)
-            .field("hsz2", &self.hsz2)
-            .field("hData", &self.hData)
-            .field("dwData1", &self.dwData1)
-            .field("dwData2", &self.dwData2)
-            .field("cc", &self.cc)
-            .field("cbData", &self.cbData)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("MONCBSTRUCT").field("cb", &self.cb).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("dwRet", &self.dwRet).field("wType", &self.wType).field("wFmt", &self.wFmt).field("hConv", &self.hConv).field("hsz1", &self.hsz1).field("hsz2", &self.hsz2).field("hData", &self.hData).field("dwData1", &self.dwData1).field("dwData2", &self.dwData2).field("cc", &self.cc).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1944,20 +1913,7 @@ impl ::core::default::Default for MONLINKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MONLINKSTRUCT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MONLINKSTRUCT")
-            .field("cb", &self.cb)
-            .field("dwTime", &self.dwTime)
-            .field("hTask", &self.hTask)
-            .field("fEstablished", &self.fEstablished)
-            .field("fNoData", &self.fNoData)
-            .field("hszSvc", &self.hszSvc)
-            .field("hszTopic", &self.hszTopic)
-            .field("hszItem", &self.hszItem)
-            .field("wFmt", &self.wFmt)
-            .field("fServer", &self.fServer)
-            .field("hConvServer", &self.hConvServer)
-            .field("hConvClient", &self.hConvClient)
-            .finish()
+        fmt.debug_struct("MONLINKSTRUCT").field("cb", &self.cb).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("fEstablished", &self.fEstablished).field("fNoData", &self.fNoData).field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).field("hszItem", &self.hszItem).field("wFmt", &self.wFmt).field("fServer", &self.fServer).field("hConvServer", &self.hConvServer).field("hConvClient", &self.hConvClient).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2026,7 +1982,7 @@ pub unsafe fn OpenClipboard<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
+pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {

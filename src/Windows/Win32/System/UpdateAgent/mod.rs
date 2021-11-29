@@ -268,18 +268,7 @@ impl IAutomaticUpdates2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn DetectNow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
@@ -611,18 +600,7 @@ impl IAutomaticUpdatesSettings2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn NotificationLevel(&self) -> ::windows::core::Result<AutomaticUpdatesNotificationLevel> {
         let mut result__: <AutomaticUpdatesNotificationLevel as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -785,18 +763,7 @@ impl IAutomaticUpdatesSettings3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn NotificationLevel(&self) -> ::windows::core::Result<AutomaticUpdatesNotificationLevel> {
         let mut result__: <AutomaticUpdatesNotificationLevel as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -1214,12 +1181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDown
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadCompletedCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, downloadjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDownloadCompletedCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, downloadjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDownloadCompletedCallbackArgs(pub ::windows::core::IUnknown);
@@ -1537,12 +1499,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDown
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadProgressChangedCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, downloadjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDownloadProgressChangedCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, downloadjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDownloadProgressChangedCallbackArgs(pub ::windows::core::IUnknown);
@@ -1982,12 +1939,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInst
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationCompletedCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, installationjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IInstallationCompletedCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, installationjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IInstallationCompletedCallbackArgs(pub ::windows::core::IUnknown);
@@ -2272,12 +2224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInst
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationProgressChangedCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, installationjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IInstallationProgressChangedCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, installationjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IInstallationProgressChangedCallbackArgs(pub ::windows::core::IUnknown);
@@ -2456,18 +2403,7 @@ impl IInvalidProductLicenseException {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Message(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -2610,12 +2546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISear
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchCompletedCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, searchjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISearchCompletedCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, searchjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISearchCompletedCallbackArgs(pub ::windows::core::IUnknown);
@@ -3388,18 +3319,7 @@ impl IUpdate2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -3768,18 +3688,7 @@ impl IUpdate3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -4173,18 +4082,7 @@ impl IUpdate4 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -4603,18 +4501,7 @@ impl IUpdate5 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -5250,18 +5137,7 @@ impl IUpdateDownloadContent2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -5975,18 +5851,7 @@ impl IUpdateHistoryEntry2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn Operation(&self) -> ::windows::core::Result<UpdateOperation> {
         let mut result__: <UpdateOperation as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -6600,18 +6465,7 @@ impl IUpdateInstaller2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -6837,18 +6691,7 @@ impl IUpdateInstaller3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -7103,18 +6946,7 @@ impl IUpdateInstaller4 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -7408,12 +7240,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpda
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateLockdown_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, flags: i32) -> ::windows::core::HRESULT,
-);
+pub struct IUpdateLockdown_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, flags: i32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUpdateSearcher(pub ::windows::core::IUnknown);
@@ -7598,18 +7425,7 @@ impl IUpdateSearcher2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn CanAutomaticallyUpgradeService(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -7820,18 +7636,7 @@ impl IUpdateSearcher3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn CanAutomaticallyUpgradeService(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8213,18 +8018,7 @@ impl IUpdateService2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -8600,18 +8394,7 @@ impl IUpdateServiceManager2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn Services(&self) -> ::windows::core::Result<IUpdateServiceCollection> {
         let mut result__: <IUpdateServiceCollection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8983,18 +8766,7 @@ impl IUpdateSession2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -9149,18 +8921,7 @@ impl IUpdateSession3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -9490,18 +9251,7 @@ impl IWindowsDriverUpdate {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -9901,18 +9651,7 @@ impl IWindowsDriverUpdate2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -10351,18 +10090,7 @@ impl IWindowsDriverUpdate3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -10826,18 +10554,7 @@ impl IWindowsDriverUpdate4 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -11331,18 +11048,7 @@ impl IWindowsDriverUpdate5 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {

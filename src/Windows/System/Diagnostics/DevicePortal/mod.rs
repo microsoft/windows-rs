@@ -53,15 +53,7 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest3<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-        &self,
-        request: Param0,
-        messagetype: super::super::super::Networking::Sockets::SocketMessageType,
-        protocol: Param2,
-        outboundbuffersizeinbytes: u32,
-        maxmessagesize: u32,
-        receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode,
-    ) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
+    pub fn GetServerMessageWebSocketForRequest3<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, request: Param0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: Param2, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -429,8 +421,7 @@ pub struct IDevicePortalWebSocketConnection_abi(
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))] usize,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))] usize,
-    #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))] usize,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))] usize,

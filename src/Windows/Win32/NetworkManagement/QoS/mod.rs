@@ -120,8 +120,8 @@ unsafe impl ::windows::core::Abi for AD_GUARANTEED {
 }
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
-pub type CBADMITRESULT = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32;
-pub type CBGETRSVPOBJECTS = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32;
+pub type CBADMITRESULT = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32>;
+pub type CBGETRSVPOBJECTS = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -222,15 +222,7 @@ impl ::core::default::Default for ENUMERATION_BUFFER {
 }
 impl ::core::fmt::Debug for ENUMERATION_BUFFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUMERATION_BUFFER")
-            .field("Length", &self.Length)
-            .field("OwnerProcessId", &self.OwnerProcessId)
-            .field("FlowNameLength", &self.FlowNameLength)
-            .field("FlowName", &self.FlowName)
-            .field("pFlow", &self.pFlow)
-            .field("NumberOfFilters", &self.NumberOfFilters)
-            .field("GenericFilter", &self.GenericFilter)
-            .finish()
+        fmt.debug_struct("ENUMERATION_BUFFER").field("Length", &self.Length).field("OwnerProcessId", &self.OwnerProcessId).field("FlowNameLength", &self.FlowNameLength).field("FlowName", &self.FlowName).field("pFlow", &self.pFlow).field("NumberOfFilters", &self.NumberOfFilters).field("GenericFilter", &self.GenericFilter).finish()
     }
 }
 impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
@@ -455,16 +447,7 @@ impl ::core::default::Default for FLOWSPEC {
 }
 impl ::core::fmt::Debug for FLOWSPEC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLOWSPEC")
-            .field("TokenRate", &self.TokenRate)
-            .field("TokenBucketSize", &self.TokenBucketSize)
-            .field("PeakBandwidth", &self.PeakBandwidth)
-            .field("Latency", &self.Latency)
-            .field("DelayVariation", &self.DelayVariation)
-            .field("ServiceType", &self.ServiceType)
-            .field("MaxSduSize", &self.MaxSduSize)
-            .field("MinimumPolicedSize", &self.MinimumPolicedSize)
-            .finish()
+        fmt.debug_struct("FLOWSPEC").field("TokenRate", &self.TokenRate).field("TokenBucketSize", &self.TokenBucketSize).field("PeakBandwidth", &self.PeakBandwidth).field("Latency", &self.Latency).field("DelayVariation", &self.DelayVariation).field("ServiceType", &self.ServiceType).field("MaxSduSize", &self.MaxSduSize).field("MinimumPolicedSize", &self.MinimumPolicedSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for FLOWSPEC {
@@ -617,17 +600,7 @@ impl ::core::default::Default for Gads_parms_t {
 }
 impl ::core::fmt::Debug for Gads_parms_t {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("Gads_parms_t")
-            .field("Gads_serv_hdr", &self.Gads_serv_hdr)
-            .field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr)
-            .field("Gads_Ctot", &self.Gads_Ctot)
-            .field("Gads_Dtot_hdr", &self.Gads_Dtot_hdr)
-            .field("Gads_Dtot", &self.Gads_Dtot)
-            .field("Gads_Csum_hdr", &self.Gads_Csum_hdr)
-            .field("Gads_Csum", &self.Gads_Csum)
-            .field("Gads_Dsum_hdr", &self.Gads_Dsum_hdr)
-            .field("Gads_Dsum", &self.Gads_Dsum)
-            .finish()
+        fmt.debug_struct("Gads_parms_t").field("Gads_serv_hdr", &self.Gads_serv_hdr).field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr).field("Gads_Ctot", &self.Gads_Ctot).field("Gads_Dtot_hdr", &self.Gads_Dtot_hdr).field("Gads_Dtot", &self.Gads_Dtot).field("Gads_Csum_hdr", &self.Gads_Csum_hdr).field("Gads_Csum", &self.Gads_Csum).field("Gads_Dsum_hdr", &self.Gads_Dsum_hdr).field("Gads_Dsum", &self.Gads_Dsum).finish()
     }
 }
 impl ::core::cmp::PartialEq for Gads_parms_t {
@@ -1296,16 +1269,16 @@ unsafe impl ::windows::core::Handle for LPM_HANDLE {}
 unsafe impl ::windows::core::Abi for LPM_HANDLE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
     pub ConfiguredLpmCount: i32,
-    pub AllocMemory: ::core::option::Option<PALLOCMEM>,
-    pub FreeMemory: ::core::option::Option<PFREEMEM>,
-    pub PcmAdmitResultCallback: ::core::option::Option<CBADMITRESULT>,
-    pub GetRsvpObjectsCallback: ::core::option::Option<CBGETRSVPOBJECTS>,
+    pub AllocMemory: PALLOCMEM,
+    pub FreeMemory: PFREEMEM,
+    pub PcmAdmitResultCallback: CBADMITRESULT,
+    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
 }
 impl LPM_INIT_INFO {}
 impl ::core::default::Default for LPM_INIT_INFO {
@@ -1320,18 +1293,12 @@ impl ::core::fmt::Debug for LPM_INIT_INFO {
 }
 impl ::core::cmp::PartialEq for LPM_INIT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.PcmVersionNumber == other.PcmVersionNumber
-            && self.ResultTimeLimit == other.ResultTimeLimit
-            && self.ConfiguredLpmCount == other.ConfiguredLpmCount
-            && self.AllocMemory.map(|f| f as usize) == other.AllocMemory.map(|f| f as usize)
-            && self.FreeMemory.map(|f| f as usize) == other.FreeMemory.map(|f| f as usize)
-            && self.PcmAdmitResultCallback.map(|f| f as usize) == other.PcmAdmitResultCallback.map(|f| f as usize)
-            && self.GetRsvpObjectsCallback.map(|f| f as usize) == other.GetRsvpObjectsCallback.map(|f| f as usize)
+        self.PcmVersionNumber == other.PcmVersionNumber && self.ResultTimeLimit == other.ResultTimeLimit && self.ConfiguredLpmCount == other.ConfiguredLpmCount && self.AllocMemory.map(|f| f as usize) == other.AllocMemory.map(|f| f as usize) && self.FreeMemory.map(|f| f as usize) == other.FreeMemory.map(|f| f as usize) && self.PcmAdmitResultCallback.map(|f| f as usize) == other.PcmAdmitResultCallback.map(|f| f as usize) && self.GetRsvpObjectsCallback.map(|f| f as usize) == other.GetRsvpObjectsCallback.map(|f| f as usize)
     }
 }
 impl ::core::cmp::Eq for LPM_INIT_INFO {}
 unsafe impl ::windows::core::Abi for LPM_INIT_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const LPM_OK: u32 = 0u32;
 pub const LPM_PE_ALL_TYPES: u32 = 0u32;
@@ -1367,7 +1334,7 @@ pub const Opt_Share_mask: u32 = 24u32;
 pub const Opt_Shared: u32 = 16u32;
 pub const Opt_SndSel_mask: u32 = 7u32;
 pub const Opt_Wildcard: u32 = 1u32;
-pub type PALLOCMEM = unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void;
+pub type PALLOCMEM = ::core::option::Option<unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PARAM_BUFFER {
@@ -1399,7 +1366,7 @@ pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
-pub type PFREEMEM = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void);
+pub type PFREEMEM = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct POLICY_DATA {
@@ -1791,13 +1758,7 @@ impl ::core::default::Default for QOS_DIFFSERV_RULE {
 }
 impl ::core::fmt::Debug for QOS_DIFFSERV_RULE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QOS_DIFFSERV_RULE")
-            .field("InboundDSField", &self.InboundDSField)
-            .field("ConformingOutboundDSField", &self.ConformingOutboundDSField)
-            .field("NonConformingOutboundDSField", &self.NonConformingOutboundDSField)
-            .field("ConformingUserPriority", &self.ConformingUserPriority)
-            .field("NonConformingUserPriority", &self.NonConformingUserPriority)
-            .finish()
+        fmt.debug_struct("QOS_DIFFSERV_RULE").field("InboundDSField", &self.InboundDSField).field("ConformingOutboundDSField", &self.ConformingOutboundDSField).field("NonConformingOutboundDSField", &self.NonConformingOutboundDSField).field("ConformingUserPriority", &self.ConformingUserPriority).field("NonConformingUserPriority", &self.NonConformingUserPriority).finish()
     }
 }
 impl ::core::cmp::PartialEq for QOS_DIFFSERV_RULE {
@@ -1900,14 +1861,7 @@ impl ::core::default::Default for QOS_FLOW_FUNDAMENTALS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QOS_FLOW_FUNDAMENTALS")
-            .field("BottleneckBandwidthSet", &self.BottleneckBandwidthSet)
-            .field("BottleneckBandwidth", &self.BottleneckBandwidth)
-            .field("AvailableBandwidthSet", &self.AvailableBandwidthSet)
-            .field("AvailableBandwidth", &self.AvailableBandwidth)
-            .field("RTTSet", &self.RTTSet)
-            .field("RTT", &self.RTT)
-            .finish()
+        fmt.debug_struct("QOS_FLOW_FUNDAMENTALS").field("BottleneckBandwidthSet", &self.BottleneckBandwidthSet).field("BottleneckBandwidth", &self.BottleneckBandwidth).field("AvailableBandwidthSet", &self.AvailableBandwidthSet).field("AvailableBandwidth", &self.AvailableBandwidth).field("RTTSet", &self.RTTSet).field("RTT", &self.RTT).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3252,15 +3206,15 @@ unsafe impl ::windows::core::Abi for TCG_PCClientTaggedEventStruct {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
-#[derive(:: core :: clone :: Clone)]
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST {
-    pub ClNotifyHandler: ::core::option::Option<TCI_NOTIFY_HANDLER>,
-    pub ClAddFlowCompleteHandler: ::core::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
-    pub ClModifyFlowCompleteHandler: ::core::option::Option<TCI_MOD_FLOW_COMPLETE_HANDLER>,
-    pub ClDeleteFlowCompleteHandler: ::core::option::Option<TCI_DEL_FLOW_COMPLETE_HANDLER>,
+    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
+    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl TCI_CLIENT_FUNC_LIST {}
@@ -3286,14 +3240,14 @@ impl ::core::cmp::PartialEq for TCI_CLIENT_FUNC_LIST {
 impl ::core::cmp::Eq for TCI_CLIENT_FUNC_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TCI_CLIENT_FUNC_LIST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_DEL_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_MOD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_NOTIFY_HANDLER = unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void);
+pub type TCI_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TC_GEN_FILTER {
@@ -3660,7 +3614,7 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const ::core::mem::ManuallyDrop<TCI_CLIENT_FUNC_LIST>, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(TcRegisterClient(::core::mem::transmute(tciversion), clregctx.into_param().abi(), ::core::mem::transmute(clienthandlerlist), ::core::mem::transmute(pclienthandle)))
     }

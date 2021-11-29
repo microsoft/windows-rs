@@ -216,20 +216,7 @@ extern "system" {
     pub fn Icmp6CreateFile() -> IcmpHandle;
     pub fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
-    pub fn Icmp6SendEcho2(
-        icmphandle: IcmpHandle,
-        event: super::super::Foundation::HANDLE,
-        apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE,
-        apccontext: *const ::core::ffi::c_void,
-        sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-        destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-        requestdata: *const ::core::ffi::c_void,
-        requestsize: u16,
-        requestoptions: *const ip_option_information,
-        replybuffer: *mut ::core::ffi::c_void,
-        replysize: u32,
-        timeout: u32,
-    ) -> u32;
+    pub fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn IcmpCloseHandle(icmphandle: IcmpHandle) -> super::super::Foundation::BOOL;
     pub fn IcmpCreateFile() -> IcmpHandle;

@@ -106,16 +106,7 @@ impl ::core::default::Default for DRT_BOOTSTRAP_PROVIDER {
 }
 impl ::core::fmt::Debug for DRT_BOOTSTRAP_PROVIDER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_BOOTSTRAP_PROVIDER")
-            .field("pvContext", &self.pvContext)
-            .field("Attach", &self.Attach)
-            .field("Detach", &self.Detach)
-            .field("InitResolve", &self.InitResolve)
-            .field("IssueResolve", &self.IssueResolve)
-            .field("EndResolve", &self.EndResolve)
-            .field("Register", &self.Register)
-            .field("Unregister", &self.Unregister)
-            .finish()
+        fmt.debug_struct("DRT_BOOTSTRAP_PROVIDER").field("pvContext", &self.pvContext).field("Attach", &self.Attach).field("Detach", &self.Detach).field("InitResolve", &self.InitResolve).field("IssueResolve", &self.IssueResolve).field("EndResolve", &self.EndResolve).field("Register", &self.Register).field("Unregister", &self.Unregister).finish()
     }
 }
 impl ::core::cmp::PartialEq for DRT_BOOTSTRAP_PROVIDER {
@@ -128,7 +119,7 @@ unsafe impl ::windows::core::Abi for DRT_BOOTSTRAP_PROVIDER {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = unsafe extern "system" fn(hr: ::windows::core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL);
+pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows::core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRT_DATA {
@@ -508,15 +499,7 @@ impl ::core::default::Default for DRT_SEARCH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRT_SEARCH_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_SEARCH_INFO")
-            .field("dwSize", &self.dwSize)
-            .field("fIterative", &self.fIterative)
-            .field("fAllowCurrentInstanceMatch", &self.fAllowCurrentInstanceMatch)
-            .field("fAnyMatchInRange", &self.fAnyMatchInRange)
-            .field("cMaxEndpoints", &self.cMaxEndpoints)
-            .field("pMaximumKey", &self.pMaximumKey)
-            .field("pMinimumKey", &self.pMinimumKey)
-            .finish()
+        fmt.debug_struct("DRT_SEARCH_INFO").field("dwSize", &self.dwSize).field("fIterative", &self.fIterative).field("fAllowCurrentInstanceMatch", &self.fAllowCurrentInstanceMatch).field("fAnyMatchInRange", &self.fAnyMatchInRange).field("cMaxEndpoints", &self.cMaxEndpoints).field("pMaximumKey", &self.pMaximumKey).field("pMinimumKey", &self.pMinimumKey).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -619,20 +602,7 @@ impl ::core::fmt::Debug for DRT_SECURITY_PROVIDER {
 }
 impl ::core::cmp::PartialEq for DRT_SECURITY_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
-        self.pvContext == other.pvContext
-            && self.Attach == other.Attach
-            && self.Detach == other.Detach
-            && self.RegisterKey == other.RegisterKey
-            && self.UnregisterKey == other.UnregisterKey
-            && self.ValidateAndUnpackPayload == other.ValidateAndUnpackPayload
-            && self.SecureAndPackPayload == other.SecureAndPackPayload
-            && self.FreeData == other.FreeData
-            && self.EncryptData == other.EncryptData
-            && self.DecryptData == other.DecryptData
-            && self.GetSerializedCredential == other.GetSerializedCredential
-            && self.ValidateRemoteCredential == other.ValidateRemoteCredential
-            && self.SignData == other.SignData
-            && self.VerifyData == other.VerifyData
+        self.pvContext == other.pvContext && self.Attach == other.Attach && self.Detach == other.Detach && self.RegisterKey == other.RegisterKey && self.UnregisterKey == other.UnregisterKey && self.ValidateAndUnpackPayload == other.ValidateAndUnpackPayload && self.SecureAndPackPayload == other.SecureAndPackPayload && self.FreeData == other.FreeData && self.EncryptData == other.EncryptData && self.DecryptData == other.DecryptData && self.GetSerializedCredential == other.GetSerializedCredential && self.ValidateRemoteCredential == other.ValidateRemoteCredential && self.SignData == other.SignData && self.VerifyData == other.VerifyData
     }
 }
 impl ::core::cmp::Eq for DRT_SECURITY_PROVIDER {}
@@ -1641,15 +1611,7 @@ impl ::core::default::Default for PEER_CONTACT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_CONTACT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_CONTACT")
-            .field("pwzPeerName", &self.pwzPeerName)
-            .field("pwzNickName", &self.pwzNickName)
-            .field("pwzDisplayName", &self.pwzDisplayName)
-            .field("pwzEmailAddress", &self.pwzEmailAddress)
-            .field("fWatch", &self.fWatch)
-            .field("WatcherPermissions", &self.WatcherPermissions)
-            .field("credentials", &self.credentials)
-            .finish()
+        fmt.debug_struct("PEER_CONTACT").field("pwzPeerName", &self.pwzPeerName).field("pwzNickName", &self.pwzNickName).field("pwzDisplayName", &self.pwzDisplayName).field("pwzEmailAddress", &self.pwzEmailAddress).field("fWatch", &self.fWatch).field("WatcherPermissions", &self.WatcherPermissions).field("credentials", &self.credentials).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1690,18 +1652,7 @@ impl ::core::default::Default for PEER_CREDENTIAL_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for PEER_CREDENTIAL_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_CREDENTIAL_INFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("pwzFriendlyName", &self.pwzFriendlyName)
-            .field("pPublicKey", &self.pPublicKey)
-            .field("pwzIssuerPeerName", &self.pwzIssuerPeerName)
-            .field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName)
-            .field("ftValidityStart", &self.ftValidityStart)
-            .field("ftValidityEnd", &self.ftValidityEnd)
-            .field("cRoles", &self.cRoles)
-            .field("pRoles", &self.pRoles)
-            .finish()
+        fmt.debug_struct("PEER_CREDENTIAL_INFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzFriendlyName", &self.pwzFriendlyName).field("pPublicKey", &self.pPublicKey).field("pwzIssuerPeerName", &self.pwzIssuerPeerName).field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName).field("ftValidityStart", &self.ftValidityStart).field("ftValidityEnd", &self.ftValidityEnd).field("cRoles", &self.cRoles).field("pRoles", &self.pRoles).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1822,14 +1773,7 @@ impl ::core::default::Default for PEER_EVENT_CONNECTION_CHANGE_DATA {
 }
 impl ::core::fmt::Debug for PEER_EVENT_CONNECTION_CHANGE_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_CONNECTION_CHANGE_DATA")
-            .field("dwSize", &self.dwSize)
-            .field("status", &self.status)
-            .field("ullConnectionId", &self.ullConnectionId)
-            .field("ullNodeId", &self.ullNodeId)
-            .field("ullNextConnectionId", &self.ullNextConnectionId)
-            .field("hrConnectionFailedReason", &self.hrConnectionFailedReason)
-            .finish()
+        fmt.debug_struct("PEER_EVENT_CONNECTION_CHANGE_DATA").field("dwSize", &self.dwSize).field("status", &self.status).field("ullConnectionId", &self.ullConnectionId).field("ullNodeId", &self.ullNodeId).field("ullNextConnectionId", &self.ullNextConnectionId).field("hrConnectionFailedReason", &self.hrConnectionFailedReason).finish()
     }
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_CONNECTION_CHANGE_DATA {
@@ -2335,18 +2279,7 @@ impl ::core::default::Default for PEER_GRAPH_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_GRAPH_PROPERTIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_GRAPH_PROPERTIES")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwScope", &self.dwScope)
-            .field("dwMaxRecordSize", &self.dwMaxRecordSize)
-            .field("pwzGraphId", &self.pwzGraphId)
-            .field("pwzCreatorId", &self.pwzCreatorId)
-            .field("pwzFriendlyName", &self.pwzFriendlyName)
-            .field("pwzComment", &self.pwzComment)
-            .field("ulPresenceLifetime", &self.ulPresenceLifetime)
-            .field("cPresenceMax", &self.cPresenceMax)
-            .finish()
+        fmt.debug_struct("PEER_GRAPH_PROPERTIES").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwScope", &self.dwScope).field("dwMaxRecordSize", &self.dwMaxRecordSize).field("pwzGraphId", &self.pwzGraphId).field("pwzCreatorId", &self.pwzCreatorId).field("pwzFriendlyName", &self.pwzFriendlyName).field("pwzComment", &self.pwzComment).field("ulPresenceLifetime", &self.ulPresenceLifetime).field("cPresenceMax", &self.cPresenceMax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2582,19 +2515,7 @@ impl ::core::fmt::Debug for PEER_GROUP_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_GROUP_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.pwzCloud == other.pwzCloud
-            && self.pwzClassifier == other.pwzClassifier
-            && self.pwzGroupPeerName == other.pwzGroupPeerName
-            && self.pwzCreatorPeerName == other.pwzCreatorPeerName
-            && self.pwzFriendlyName == other.pwzFriendlyName
-            && self.pwzComment == other.pwzComment
-            && self.ulMemberDataLifetime == other.ulMemberDataLifetime
-            && self.ulPresenceLifetime == other.ulPresenceLifetime
-            && self.dwAuthenticationSchemes == other.dwAuthenticationSchemes
-            && self.pwzGroupPassword == other.pwzGroupPassword
-            && self.groupPasswordRole == other.groupPasswordRole
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzCloud == other.pwzCloud && self.pwzClassifier == other.pwzClassifier && self.pwzGroupPeerName == other.pwzGroupPeerName && self.pwzCreatorPeerName == other.pwzCreatorPeerName && self.pwzFriendlyName == other.pwzFriendlyName && self.pwzComment == other.pwzComment && self.ulMemberDataLifetime == other.ulMemberDataLifetime && self.ulPresenceLifetime == other.ulPresenceLifetime && self.dwAuthenticationSchemes == other.dwAuthenticationSchemes && self.pwzGroupPassword == other.pwzGroupPassword && self.groupPasswordRole == other.groupPasswordRole
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2828,16 +2749,7 @@ impl ::core::default::Default for PEER_MEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for PEER_MEMBER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_MEMBER")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("pwzIdentity", &self.pwzIdentity)
-            .field("pwzAttributes", &self.pwzAttributes)
-            .field("ullNodeId", &self.ullNodeId)
-            .field("cAddresses", &self.cAddresses)
-            .field("pAddresses", &self.pAddresses)
-            .field("pCredentialInfo", &self.pCredentialInfo)
-            .finish()
+        fmt.debug_struct("PEER_MEMBER").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzIdentity", &self.pwzIdentity).field("pwzAttributes", &self.pwzAttributes).field("ullNodeId", &self.ullNodeId).field("cAddresses", &self.cAddresses).field("pAddresses", &self.pAddresses).field("pCredentialInfo", &self.pCredentialInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -3113,15 +3025,7 @@ impl ::core::default::Default for PEER_PNRP_REGISTRATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::fmt::Debug for PEER_PNRP_REGISTRATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_PNRP_REGISTRATION_INFO")
-            .field("pwzCloudName", &self.pwzCloudName)
-            .field("pwzPublishingIdentity", &self.pwzPublishingIdentity)
-            .field("cAddresses", &self.cAddresses)
-            .field("ppAddresses", &self.ppAddresses)
-            .field("wPort", &self.wPort)
-            .field("pwzComment", &self.pwzComment)
-            .field("payload", &self.payload)
-            .finish()
+        fmt.debug_struct("PEER_PNRP_REGISTRATION_INFO").field("pwzCloudName", &self.pwzCloudName).field("pwzPublishingIdentity", &self.pwzPublishingIdentity).field("cAddresses", &self.cAddresses).field("ppAddresses", &self.ppAddresses).field("wPort", &self.wPort).field("pwzComment", &self.pwzComment).field("payload", &self.payload).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3289,7 +3193,7 @@ impl ::core::convert::From<i32> for PEER_RECORD_FLAGS {
 unsafe impl ::windows::core::Abi for PEER_RECORD_FLAGS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_SECURITY_INTERFACE {
@@ -3299,10 +3203,10 @@ pub struct PEER_SECURITY_INTERFACE {
     pub cbSecurityInfo: u32,
     pub pbSecurityInfo: *mut u8,
     pub pvContext: *mut ::core::ffi::c_void,
-    pub pfnValidateRecord: ::core::option::Option<PFNPEER_VALIDATE_RECORD>,
-    pub pfnSecureRecord: ::core::option::Option<PFNPEER_SECURE_RECORD>,
-    pub pfnFreeSecurityData: ::core::option::Option<PFNPEER_FREE_SECURITY_DATA>,
-    pub pfnAuthFailed: ::core::option::Option<PFNPEER_ON_PASSWORD_AUTH_FAILED>,
+    pub pfnValidateRecord: PFNPEER_VALIDATE_RECORD,
+    pub pfnSecureRecord: PFNPEER_SECURE_RECORD,
+    pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
+    pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl PEER_SECURITY_INTERFACE {}
@@ -3315,36 +3219,20 @@ impl ::core::default::Default for PEER_SECURITY_INTERFACE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_SECURITY_INTERFACE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_SECURITY_INTERFACE")
-            .field("dwSize", &self.dwSize)
-            .field("pwzSspFilename", &self.pwzSspFilename)
-            .field("pwzPackageName", &self.pwzPackageName)
-            .field("cbSecurityInfo", &self.cbSecurityInfo)
-            .field("pbSecurityInfo", &self.pbSecurityInfo)
-            .field("pvContext", &self.pvContext)
-            .finish()
+        fmt.debug_struct("PEER_SECURITY_INTERFACE").field("dwSize", &self.dwSize).field("pwzSspFilename", &self.pwzSspFilename).field("pwzPackageName", &self.pwzPackageName).field("cbSecurityInfo", &self.cbSecurityInfo).field("pbSecurityInfo", &self.pbSecurityInfo).field("pvContext", &self.pvContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_SECURITY_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.pwzSspFilename == other.pwzSspFilename
-            && self.pwzPackageName == other.pwzPackageName
-            && self.cbSecurityInfo == other.cbSecurityInfo
-            && self.pbSecurityInfo == other.pbSecurityInfo
-            && self.pvContext == other.pvContext
-            && self.pfnValidateRecord.map(|f| f as usize) == other.pfnValidateRecord.map(|f| f as usize)
-            && self.pfnSecureRecord.map(|f| f as usize) == other.pfnSecureRecord.map(|f| f as usize)
-            && self.pfnFreeSecurityData.map(|f| f as usize) == other.pfnFreeSecurityData.map(|f| f as usize)
-            && self.pfnAuthFailed.map(|f| f as usize) == other.pfnAuthFailed.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.pwzSspFilename == other.pwzSspFilename && self.pwzPackageName == other.pwzPackageName && self.cbSecurityInfo == other.cbSecurityInfo && self.pbSecurityInfo == other.pbSecurityInfo && self.pvContext == other.pvContext && self.pfnValidateRecord.map(|f| f as usize) == other.pfnValidateRecord.map(|f| f as usize) && self.pfnSecureRecord.map(|f| f as usize) == other.pfnSecureRecord.map(|f| f as usize) && self.pfnFreeSecurityData.map(|f| f as usize) == other.pfnFreeSecurityData.map(|f| f as usize) && self.pfnAuthFailed.map(|f| f as usize) == other.pfnAuthFailed.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PEER_SECURITY_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_SECURITY_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -3400,12 +3288,12 @@ impl ::core::convert::From<i32> for PEER_WATCH_PERMISSION {
 unsafe impl ::windows::core::Abi for PEER_WATCH_PERMISSION {
     type Abi = Self;
 }
-pub type PFNPEER_FREE_SECURITY_DATA = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows::core::HRESULT;
-pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type PFNPEER_FREE_SECURITY_DATA = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows::core::HRESULT>;
+pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNPEER_SECURE_RECORD = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> ::windows::core::HRESULT;
+pub type PFNPEER_SECURE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNPEER_VALIDATE_RECORD = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows::core::HRESULT;
+pub type PFNPEER_VALIDATE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PNRPCLOUDINFO {
@@ -3460,17 +3348,7 @@ impl ::core::default::Default for PNRPINFO_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::fmt::Debug for PNRPINFO_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PNRPINFO_V1")
-            .field("dwSize", &self.dwSize)
-            .field("lpwszIdentity", &self.lpwszIdentity)
-            .field("nMaxResolve", &self.nMaxResolve)
-            .field("dwTimeout", &self.dwTimeout)
-            .field("dwLifetime", &self.dwLifetime)
-            .field("enResolveCriteria", &self.enResolveCriteria)
-            .field("dwFlags", &self.dwFlags)
-            .field("saHint", &self.saHint)
-            .field("enNameState", &self.enNameState)
-            .finish()
+        fmt.debug_struct("PNRPINFO_V1").field("dwSize", &self.dwSize).field("lpwszIdentity", &self.lpwszIdentity).field("nMaxResolve", &self.nMaxResolve).field("dwTimeout", &self.dwTimeout).field("dwLifetime", &self.dwLifetime).field("enResolveCriteria", &self.enResolveCriteria).field("dwFlags", &self.dwFlags).field("saHint", &self.saHint).field("enNameState", &self.enNameState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4533,16 +4411,7 @@ pub unsafe fn PeerDistServerOpenContentInformation<'a, Param5: ::windows::core::
         extern "system" {
             fn PeerDistServerOpenContentInformation(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, ullcontentoffset: u64, cbcontentlength: u64, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32;
         }
-        ::core::mem::transmute(PeerDistServerOpenContentInformation(
-            ::core::mem::transmute(hpeerdist),
-            ::core::mem::transmute(cbcontentidentifier),
-            ::core::mem::transmute(pcontentidentifier),
-            ::core::mem::transmute(ullcontentoffset),
-            ::core::mem::transmute(cbcontentlength),
-            hcompletionport.into_param().abi(),
-            ::core::mem::transmute(ulcompletionkey),
-            ::core::mem::transmute(phcontentinfo),
-        ))
+        ::core::mem::transmute(PeerDistServerOpenContentInformation(::core::mem::transmute(hpeerdist), ::core::mem::transmute(cbcontentidentifier), ::core::mem::transmute(pcontentidentifier), ::core::mem::transmute(ullcontentoffset), ::core::mem::transmute(cbcontentlength), hcompletionport.into_param().abi(), ::core::mem::transmute(ulcompletionkey), ::core::mem::transmute(phcontentinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4556,17 +4425,7 @@ pub unsafe fn PeerDistServerOpenContentInformationEx<'a, Param6: ::windows::core
         extern "system" {
             fn PeerDistServerOpenContentInformationEx(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, ullcontentoffset: u64, cbcontentlength: u64, pretrievaloptions: *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32;
         }
-        ::core::mem::transmute(PeerDistServerOpenContentInformationEx(
-            ::core::mem::transmute(hpeerdist),
-            ::core::mem::transmute(cbcontentidentifier),
-            ::core::mem::transmute(pcontentidentifier),
-            ::core::mem::transmute(ullcontentoffset),
-            ::core::mem::transmute(cbcontentlength),
-            ::core::mem::transmute(pretrievaloptions),
-            hcompletionport.into_param().abi(),
-            ::core::mem::transmute(ulcompletionkey),
-            ::core::mem::transmute(phcontentinfo),
-        ))
+        ::core::mem::transmute(PeerDistServerOpenContentInformationEx(::core::mem::transmute(hpeerdist), ::core::mem::transmute(cbcontentidentifier), ::core::mem::transmute(pcontentidentifier), ::core::mem::transmute(ullcontentoffset), ::core::mem::transmute(cbcontentlength), ::core::mem::transmute(pretrievaloptions), hcompletionport.into_param().abi(), ::core::mem::transmute(ulcompletionkey), ::core::mem::transmute(phcontentinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4608,16 +4467,7 @@ pub unsafe fn PeerDistServerPublishStream<'a, Param5: ::windows::core::IntoParam
         extern "system" {
             fn PeerDistServerPublishStream(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, cbcontentlength: u64, ppublishoptions: *const PEERDIST_PUBLICATION_OPTIONS, hcompletionport: super::super::Foundation::HANDLE, ulcompletionkey: usize, phstream: *mut isize) -> u32;
         }
-        ::core::mem::transmute(PeerDistServerPublishStream(
-            ::core::mem::transmute(hpeerdist),
-            ::core::mem::transmute(cbcontentidentifier),
-            ::core::mem::transmute(pcontentidentifier),
-            ::core::mem::transmute(cbcontentlength),
-            ::core::mem::transmute(ppublishoptions),
-            hcompletionport.into_param().abi(),
-            ::core::mem::transmute(ulcompletionkey),
-            ::core::mem::transmute(phstream),
-        ))
+        ::core::mem::transmute(PeerDistServerPublishStream(::core::mem::transmute(hpeerdist), ::core::mem::transmute(cbcontentidentifier), ::core::mem::transmute(pcontentidentifier), ::core::mem::transmute(cbcontentlength), ::core::mem::transmute(ppublishoptions), hcompletionport.into_param().abi(), ::core::mem::transmute(ulcompletionkey), ::core::mem::transmute(phstream)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4831,7 +4681,7 @@ pub unsafe fn PeerGraphCreate<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const ::core::mem::ManuallyDrop<PEER_SECURITY_INTERFACE>, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         PeerGraphCreate(::core::mem::transmute(pgraphproperties), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface), ::core::mem::transmute(phgraph)).ok()
     }
@@ -5077,20 +4927,12 @@ pub unsafe fn PeerGraphListen(hgraph: *const ::core::ffi::c_void, dwscope: u32, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerGraphOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    pwzgraphid: Param0,
-    pwzpeerid: Param1,
-    pwzdatabasename: Param2,
-    psecurityinterface: *const PEER_SECURITY_INTERFACE,
-    crecordtypesyncprecedence: u32,
-    precordtypesyncprecedence: *const ::windows::core::GUID,
-    phgraph: *mut *mut ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzgraphid: Param0, pwzpeerid: Param1, pwzdatabasename: Param2, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PeerGraphOpen(pwzgraphid: super::super::Foundation::PWSTR, pwzpeerid: super::super::Foundation::PWSTR, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const ::core::mem::ManuallyDrop<PEER_SECURITY_INTERFACE>, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn PeerGraphOpen(pwzgraphid: super::super::Foundation::PWSTR, pwzpeerid: super::super::Foundation::PWSTR, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         PeerGraphOpen(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface), ::core::mem::transmute(crecordtypesyncprecedence), ::core::mem::transmute(precordtypesyncprecedence), ::core::mem::transmute(phgraph)).ok()
     }

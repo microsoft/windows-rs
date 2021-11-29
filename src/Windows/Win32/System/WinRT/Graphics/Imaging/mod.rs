@@ -56,18 +56,7 @@ impl ISoftwareBitmapNativeFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMF2DBuffer2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>, Param4: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            data.into_param().abi(),
-            ::core::mem::transmute(subtype),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            forcereadonly.into_param().abi(),
-            ::core::mem::transmute(mindisplayaperture),
-            &<T as ::windows::core::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), data.into_param().abi(), ::core::mem::transmute(subtype), ::core::mem::transmute(width), ::core::mem::transmute(height), forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {

@@ -335,16 +335,7 @@ impl ::core::default::Default for HTTP_COOKED_URL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_COOKED_URL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_COOKED_URL")
-            .field("FullUrlLength", &self.FullUrlLength)
-            .field("HostLength", &self.HostLength)
-            .field("AbsPathLength", &self.AbsPathLength)
-            .field("QueryStringLength", &self.QueryStringLength)
-            .field("pFullUrl", &self.pFullUrl)
-            .field("pHost", &self.pHost)
-            .field("pAbsPath", &self.pAbsPath)
-            .field("pQueryString", &self.pQueryString)
-            .finish()
+        fmt.debug_struct("HTTP_COOKED_URL").field("FullUrlLength", &self.FullUrlLength).field("HostLength", &self.HostLength).field("AbsPathLength", &self.AbsPathLength).field("QueryStringLength", &self.QueryStringLength).field("pFullUrl", &self.pFullUrl).field("pHost", &self.pHost).field("pAbsPath", &self.pAbsPath).field("pQueryString", &self.pQueryString).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1002,20 +993,7 @@ impl ::core::fmt::Debug for HTTP_LOGGING_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for HTTP_LOGGING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.LoggingFlags == other.LoggingFlags
-            && self.SoftwareName == other.SoftwareName
-            && self.SoftwareNameLength == other.SoftwareNameLength
-            && self.DirectoryNameLength == other.DirectoryNameLength
-            && self.DirectoryName == other.DirectoryName
-            && self.Format == other.Format
-            && self.Fields == other.Fields
-            && self.pExtFields == other.pExtFields
-            && self.NumOfExtFields == other.NumOfExtFields
-            && self.MaxRecordSize == other.MaxRecordSize
-            && self.RolloverType == other.RolloverType
-            && self.RolloverSize == other.RolloverSize
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
+        self.Flags == other.Flags && self.LoggingFlags == other.LoggingFlags && self.SoftwareName == other.SoftwareName && self.SoftwareNameLength == other.SoftwareNameLength && self.DirectoryNameLength == other.DirectoryNameLength && self.DirectoryName == other.DirectoryName && self.Format == other.Format && self.Fields == other.Fields && self.pExtFields == other.pExtFields && self.NumOfExtFields == other.NumOfExtFields && self.MaxRecordSize == other.MaxRecordSize && self.RolloverType == other.RolloverType && self.RolloverSize == other.RolloverSize && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1551,19 +1529,7 @@ impl ::core::fmt::Debug for HTTP_QUIC_CONNECTION_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_CONNECTION_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.OpenTime == other.OpenTime
-            && self.CloseTime == other.CloseTime
-            && self.StartTime == other.StartTime
-            && self.ShutdownTime == other.ShutdownTime
-            && self.SecConfigCreateTime == other.SecConfigCreateTime
-            && self.SecConfigDeleteTime == other.SecConfigDeleteTime
-            && self.GetParamCount == other.GetParamCount
-            && self.GetParamSum == other.GetParamSum
-            && self.SetParamCount == other.SetParamCount
-            && self.SetParamSum == other.SetParamSum
-            && self.SetCallbackHandlerCount == other.SetCallbackHandlerCount
-            && self.SetCallbackHandlerSum == other.SetCallbackHandlerSum
-            && self.ControlStreamTimings == other.ControlStreamTimings
+        self.OpenTime == other.OpenTime && self.CloseTime == other.CloseTime && self.StartTime == other.StartTime && self.ShutdownTime == other.ShutdownTime && self.SecConfigCreateTime == other.SecConfigCreateTime && self.SecConfigDeleteTime == other.SecConfigDeleteTime && self.GetParamCount == other.GetParamCount && self.GetParamSum == other.GetParamSum && self.SetParamCount == other.SetParamCount && self.SetParamSum == other.SetParamSum && self.SetCallbackHandlerCount == other.SetCallbackHandlerCount && self.SetCallbackHandlerSum == other.SetCallbackHandlerSum && self.ControlStreamTimings == other.ControlStreamTimings
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_CONNECTION_API_TIMINGS {}
@@ -1624,24 +1590,7 @@ impl ::core::fmt::Debug for HTTP_QUIC_STREAM_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_STREAM_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.OpenCount == other.OpenCount
-            && self.OpenSum == other.OpenSum
-            && self.CloseCount == other.CloseCount
-            && self.CloseSum == other.CloseSum
-            && self.StartCount == other.StartCount
-            && self.StartSum == other.StartSum
-            && self.ShutdownCount == other.ShutdownCount
-            && self.ShutdownSum == other.ShutdownSum
-            && self.SendCount == other.SendCount
-            && self.SendSum == other.SendSum
-            && self.ReceiveSetEnabledCount == other.ReceiveSetEnabledCount
-            && self.ReceiveSetEnabledSum == other.ReceiveSetEnabledSum
-            && self.GetParamCount == other.GetParamCount
-            && self.GetParamSum == other.GetParamSum
-            && self.SetParamCount == other.SetParamCount
-            && self.SetParamSum == other.SetParamSum
-            && self.SetCallbackHandlerCount == other.SetCallbackHandlerCount
-            && self.SetCallbackHandlerSum == other.SetCallbackHandlerSum
+        self.OpenCount == other.OpenCount && self.OpenSum == other.OpenSum && self.CloseCount == other.CloseCount && self.CloseSum == other.CloseSum && self.StartCount == other.StartCount && self.StartSum == other.StartSum && self.ShutdownCount == other.ShutdownCount && self.ShutdownSum == other.ShutdownSum && self.SendCount == other.SendCount && self.SendSum == other.SendSum && self.ReceiveSetEnabledCount == other.ReceiveSetEnabledCount && self.ReceiveSetEnabledSum == other.ReceiveSetEnabledSum && self.GetParamCount == other.GetParamCount && self.GetParamSum == other.GetParamSum && self.SetParamCount == other.SetParamCount && self.SetParamSum == other.SetParamSum && self.SetCallbackHandlerCount == other.SetCallbackHandlerCount && self.SetCallbackHandlerSum == other.SetCallbackHandlerSum
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_STREAM_API_TIMINGS {}
@@ -1742,19 +1691,7 @@ impl ::core::fmt::Debug for HTTP_REQUEST_AUTH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_AUTH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.AuthStatus == other.AuthStatus
-            && self.SecStatus == other.SecStatus
-            && self.Flags == other.Flags
-            && self.AuthType == other.AuthType
-            && self.AccessToken == other.AccessToken
-            && self.ContextAttributes == other.ContextAttributes
-            && self.PackedContextLength == other.PackedContextLength
-            && self.PackedContextType == other.PackedContextType
-            && self.PackedContext == other.PackedContext
-            && self.MutualAuthDataLength == other.MutualAuthDataLength
-            && self.pMutualAuthData == other.pMutualAuthData
-            && self.PackageNameLength == other.PackageNameLength
-            && self.pPackageName == other.pPackageName
+        self.AuthStatus == other.AuthStatus && self.SecStatus == other.SecStatus && self.Flags == other.Flags && self.AuthType == other.AuthType && self.AccessToken == other.AccessToken && self.ContextAttributes == other.ContextAttributes && self.PackedContextLength == other.PackedContextLength && self.PackedContextType == other.PackedContextType && self.PackedContext == other.PackedContext && self.MutualAuthDataLength == other.MutualAuthDataLength && self.pMutualAuthData == other.pMutualAuthData && self.PackageNameLength == other.PackageNameLength && self.pPackageName == other.pPackageName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2174,24 +2111,7 @@ impl ::core::fmt::Debug for HTTP_REQUEST_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.ConnectionId == other.ConnectionId
-            && self.RequestId == other.RequestId
-            && self.UrlContext == other.UrlContext
-            && self.Version == other.Version
-            && self.Verb == other.Verb
-            && self.UnknownVerbLength == other.UnknownVerbLength
-            && self.RawUrlLength == other.RawUrlLength
-            && self.pUnknownVerb == other.pUnknownVerb
-            && self.pRawUrl == other.pRawUrl
-            && self.CookedUrl == other.CookedUrl
-            && self.Address == other.Address
-            && self.Headers == other.Headers
-            && self.BytesReceived == other.BytesReceived
-            && self.EntityChunkCount == other.EntityChunkCount
-            && self.pEntityChunks == other.pEntityChunks
-            && self.RawConnectionId == other.RawConnectionId
-            && self.pSslInfo == other.pSslInfo
+        self.Flags == other.Flags && self.ConnectionId == other.ConnectionId && self.RequestId == other.RequestId && self.UrlContext == other.UrlContext && self.Version == other.Version && self.Verb == other.Verb && self.UnknownVerbLength == other.UnknownVerbLength && self.RawUrlLength == other.RawUrlLength && self.pUnknownVerb == other.pUnknownVerb && self.pRawUrl == other.pRawUrl && self.CookedUrl == other.CookedUrl && self.Address == other.Address && self.Headers == other.Headers && self.BytesReceived == other.BytesReceived && self.EntityChunkCount == other.EntityChunkCount && self.pEntityChunks == other.pEntityChunks && self.RawConnectionId == other.RawConnectionId && self.pSslInfo == other.pSslInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2339,16 +2259,7 @@ impl ::core::default::Default for HTTP_RESPONSE_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_RESPONSE_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_RESPONSE_V1")
-            .field("Flags", &self.Flags)
-            .field("Version", &self.Version)
-            .field("StatusCode", &self.StatusCode)
-            .field("ReasonLength", &self.ReasonLength)
-            .field("pReason", &self.pReason)
-            .field("Headers", &self.Headers)
-            .field("EntityChunkCount", &self.EntityChunkCount)
-            .field("pEntityChunks", &self.pEntityChunks)
-            .finish()
+        fmt.debug_struct("HTTP_RESPONSE_V1").field("Flags", &self.Flags).field("Version", &self.Version).field("StatusCode", &self.StatusCode).field("ReasonLength", &self.ReasonLength).field("pReason", &self.pReason).field("Headers", &self.Headers).field("EntityChunkCount", &self.EntityChunkCount).field("pEntityChunks", &self.pEntityChunks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2510,16 +2421,7 @@ impl ::core::default::Default for HTTP_SERVER_AUTHENTICATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_SERVER_AUTHENTICATION_INFO")
-            .field("Flags", &self.Flags)
-            .field("AuthSchemes", &self.AuthSchemes)
-            .field("ReceiveMutualAuth", &self.ReceiveMutualAuth)
-            .field("ReceiveContextHandle", &self.ReceiveContextHandle)
-            .field("DisableNTLMCredentialCaching", &self.DisableNTLMCredentialCaching)
-            .field("ExFlags", &self.ExFlags)
-            .field("DigestParams", &self.DigestParams)
-            .field("BasicParams", &self.BasicParams)
-            .finish()
+        fmt.debug_struct("HTTP_SERVER_AUTHENTICATION_INFO").field("Flags", &self.Flags).field("AuthSchemes", &self.AuthSchemes).field("ReceiveMutualAuth", &self.ReceiveMutualAuth).field("ReceiveContextHandle", &self.ReceiveContextHandle).field("DisableNTLMCredentialCaching", &self.DisableNTLMCredentialCaching).field("ExFlags", &self.ExFlags).field("DigestParams", &self.DigestParams).field("BasicParams", &self.BasicParams).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3130,16 +3032,7 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.SslHashLength == other.SslHashLength
-            && self.pSslHash == other.pSslHash
-            && self.AppId == other.AppId
-            && self.pSslCertStoreName == other.pSslCertStoreName
-            && self.DefaultCertCheckMode == other.DefaultCertCheckMode
-            && self.DefaultRevocationFreshnessTime == other.DefaultRevocationFreshnessTime
-            && self.DefaultRevocationUrlRetrievalTimeout == other.DefaultRevocationUrlRetrievalTimeout
-            && self.pDefaultSslCtlIdentifier == other.pDefaultSslCtlIdentifier
-            && self.pDefaultSslCtlStoreName == other.pDefaultSslCtlStoreName
-            && self.DefaultFlags == other.DefaultFlags
+        self.SslHashLength == other.SslHashLength && self.pSslHash == other.pSslHash && self.AppId == other.AppId && self.pSslCertStoreName == other.pSslCertStoreName && self.DefaultCertCheckMode == other.DefaultCertCheckMode && self.DefaultRevocationFreshnessTime == other.DefaultRevocationFreshnessTime && self.DefaultRevocationUrlRetrievalTimeout == other.DefaultRevocationUrlRetrievalTimeout && self.pDefaultSslCtlIdentifier == other.pDefaultSslCtlIdentifier && self.pDefaultSslCtlStoreName == other.pDefaultSslCtlStoreName && self.DefaultFlags == other.DefaultFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3771,15 +3664,7 @@ impl ::core::default::Default for HTTP_SSL_PROTOCOL_INFO {
 }
 impl ::core::fmt::Debug for HTTP_SSL_PROTOCOL_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_SSL_PROTOCOL_INFO")
-            .field("Protocol", &self.Protocol)
-            .field("CipherType", &self.CipherType)
-            .field("CipherStrength", &self.CipherStrength)
-            .field("HashType", &self.HashType)
-            .field("HashStrength", &self.HashStrength)
-            .field("KeyExchangeType", &self.KeyExchangeType)
-            .field("KeyExchangeStrength", &self.KeyExchangeStrength)
-            .finish()
+        fmt.debug_struct("HTTP_SSL_PROTOCOL_INFO").field("Protocol", &self.Protocol).field("CipherType", &self.CipherType).field("CipherStrength", &self.CipherStrength).field("HashType", &self.HashType).field("HashStrength", &self.HashStrength).field("KeyExchangeType", &self.KeyExchangeType).field("KeyExchangeStrength", &self.KeyExchangeStrength).finish()
     }
 }
 impl ::core::cmp::PartialEq for HTTP_SSL_PROTOCOL_INFO {
@@ -3854,15 +3739,7 @@ impl ::core::default::Default for HTTP_TIMEOUT_LIMIT_INFO {
 }
 impl ::core::fmt::Debug for HTTP_TIMEOUT_LIMIT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_TIMEOUT_LIMIT_INFO")
-            .field("Flags", &self.Flags)
-            .field("EntityBody", &self.EntityBody)
-            .field("DrainEntityBody", &self.DrainEntityBody)
-            .field("RequestQueue", &self.RequestQueue)
-            .field("IdleConnection", &self.IdleConnection)
-            .field("HeaderWait", &self.HeaderWait)
-            .field("MinSendRate", &self.MinSendRate)
-            .finish()
+        fmt.debug_struct("HTTP_TIMEOUT_LIMIT_INFO").field("Flags", &self.Flags).field("EntityBody", &self.EntityBody).field("DrainEntityBody", &self.DrainEntityBody).field("RequestQueue", &self.RequestQueue).field("IdleConnection", &self.IdleConnection).field("HeaderWait", &self.HeaderWait).field("MinSendRate", &self.MinSendRate).finish()
     }
 }
 impl ::core::cmp::PartialEq for HTTP_TIMEOUT_LIMIT_INFO {
@@ -4095,18 +3972,7 @@ impl ::core::fmt::Debug for HTTP_WSK_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_WSK_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.ConnectCount == other.ConnectCount
-            && self.ConnectSum == other.ConnectSum
-            && self.DisconnectCount == other.DisconnectCount
-            && self.DisconnectSum == other.DisconnectSum
-            && self.SendCount == other.SendCount
-            && self.SendSum == other.SendSum
-            && self.ReceiveCount == other.ReceiveCount
-            && self.ReceiveSum == other.ReceiveSum
-            && self.ReleaseCount == other.ReleaseCount
-            && self.ReleaseSum == other.ReleaseSum
-            && self.ControlSocketCount == other.ControlSocketCount
-            && self.ControlSocketSum == other.ControlSocketSum
+        self.ConnectCount == other.ConnectCount && self.ConnectSum == other.ConnectSum && self.DisconnectCount == other.DisconnectCount && self.DisconnectSum == other.DisconnectSum && self.SendCount == other.SendCount && self.SendSum == other.SendSum && self.ReceiveCount == other.ReceiveCount && self.ReceiveSum == other.ReceiveSum && self.ReleaseCount == other.ReleaseCount && self.ReleaseSum == other.ReleaseSum && self.ControlSocketCount == other.ControlSocketCount && self.ControlSocketSum == other.ControlSocketSum
     }
 }
 impl ::core::cmp::Eq for HTTP_WSK_API_TIMINGS {}
@@ -4396,15 +4262,7 @@ pub unsafe fn HttpQueryRequestQueueProperty<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn HttpQueryRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(HttpQueryRequestQueueProperty(
-            requestqueuehandle.into_param().abi(),
-            ::core::mem::transmute(property),
-            ::core::mem::transmute(propertyinformation),
-            ::core::mem::transmute(propertyinformationlength),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(returnlength),
-            ::core::mem::transmute(reserved2),
-        ))
+        ::core::mem::transmute(HttpQueryRequestQueueProperty(requestqueuehandle.into_param().abi(), ::core::mem::transmute(property), ::core::mem::transmute(propertyinformation), ::core::mem::transmute(propertyinformationlength), ::core::mem::transmute(reserved1), ::core::mem::transmute(returnlength), ::core::mem::transmute(reserved2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4431,16 +4289,7 @@ pub unsafe fn HttpQueryServiceConfiguration<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn HttpQueryServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::core::ffi::c_void, inputlength: u32, poutput: *mut ::core::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::core::mem::transmute(HttpQueryServiceConfiguration(
-            servicehandle.into_param().abi(),
-            ::core::mem::transmute(configid),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(inputlength),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(outputlength),
-            ::core::mem::transmute(preturnlength),
-            ::core::mem::transmute(poverlapped),
-        ))
+        ::core::mem::transmute(HttpQueryServiceConfiguration(servicehandle.into_param().abi(), ::core::mem::transmute(configid), ::core::mem::transmute(pinput), ::core::mem::transmute(inputlength), ::core::mem::transmute(poutput), ::core::mem::transmute(outputlength), ::core::mem::transmute(preturnlength), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4481,15 +4330,7 @@ pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn HttpReceiveClientCertificate(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::core::mem::transmute(HttpReceiveClientCertificate(
-            requestqueuehandle.into_param().abi(),
-            ::core::mem::transmute(connectionid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(sslclientcertinfo),
-            ::core::mem::transmute(sslclientcertinfosize),
-            ::core::mem::transmute(bytesreceived),
-            ::core::mem::transmute(overlapped),
-        ))
+        ::core::mem::transmute(HttpReceiveClientCertificate(requestqueuehandle.into_param().abi(), ::core::mem::transmute(connectionid), ::core::mem::transmute(flags), ::core::mem::transmute(sslclientcertinfo), ::core::mem::transmute(sslclientcertinfosize), ::core::mem::transmute(bytesreceived), ::core::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4559,18 +4400,7 @@ pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn HttpSendHttpResponse(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32;
         }
-        ::core::mem::transmute(HttpSendHttpResponse(
-            requestqueuehandle.into_param().abi(),
-            ::core::mem::transmute(requestid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(httpresponse),
-            ::core::mem::transmute(cachepolicy),
-            ::core::mem::transmute(bytessent),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(overlapped),
-            ::core::mem::transmute(logdata),
-        ))
+        ::core::mem::transmute(HttpSendHttpResponse(requestqueuehandle.into_param().abi(), ::core::mem::transmute(requestid), ::core::mem::transmute(flags), ::core::mem::transmute(httpresponse), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(bytessent), ::core::mem::transmute(reserved1), ::core::mem::transmute(reserved2), ::core::mem::transmute(overlapped), ::core::mem::transmute(logdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4584,18 +4414,7 @@ pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn HttpSendResponseEntityBody(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::core::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32;
         }
-        ::core::mem::transmute(HttpSendResponseEntityBody(
-            requestqueuehandle.into_param().abi(),
-            ::core::mem::transmute(requestid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(entitychunkcount),
-            ::core::mem::transmute(entitychunks),
-            ::core::mem::transmute(bytessent),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(overlapped),
-            ::core::mem::transmute(logdata),
-        ))
+        ::core::mem::transmute(HttpSendResponseEntityBody(requestqueuehandle.into_param().abi(), ::core::mem::transmute(requestid), ::core::mem::transmute(flags), ::core::mem::transmute(entitychunkcount), ::core::mem::transmute(entitychunks), ::core::mem::transmute(bytessent), ::core::mem::transmute(reserved1), ::core::mem::transmute(reserved2), ::core::mem::transmute(overlapped), ::core::mem::transmute(logdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

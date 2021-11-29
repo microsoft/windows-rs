@@ -526,7 +526,7 @@ impl ::core::cmp::Eq for fts5_api {}
 unsafe impl ::windows::core::Abi for fts5_api {
     type Abi = Self;
 }
-pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
+pub type fts5_extension_function = ::core::option::Option<unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct fts5_tokenizer {
@@ -2580,7 +2580,7 @@ pub unsafe fn sqlite3_busy_timeout(param0: *mut sqlite3, ms: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32;
+pub type sqlite3_callback = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32>;
 #[inline]
 pub unsafe fn sqlite3_cancel_auto_extension(xentrypoint: isize) -> i32 {
     #[cfg(windows)]
@@ -3138,17 +3138,7 @@ pub unsafe fn sqlite3_create_function_v2<'a, Param1: ::windows::core::IntoParam<
         extern "system" {
             fn sqlite3_create_function_v2(db: *mut sqlite3, zfunctionname: super::super::Foundation::PSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32;
         }
-        ::core::mem::transmute(sqlite3_create_function_v2(
-            ::core::mem::transmute(db),
-            zfunctionname.into_param().abi(),
-            ::core::mem::transmute(narg),
-            ::core::mem::transmute(etextrep),
-            ::core::mem::transmute(papp),
-            ::core::mem::transmute(xfunc),
-            ::core::mem::transmute(xstep),
-            ::core::mem::transmute(xfinal),
-            ::core::mem::transmute(xdestroy),
-        ))
+        ::core::mem::transmute(sqlite3_create_function_v2(::core::mem::transmute(db), zfunctionname.into_param().abi(), ::core::mem::transmute(narg), ::core::mem::transmute(etextrep), ::core::mem::transmute(papp), ::core::mem::transmute(xfunc), ::core::mem::transmute(xstep), ::core::mem::transmute(xfinal), ::core::mem::transmute(xdestroy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3190,18 +3180,7 @@ pub unsafe fn sqlite3_create_window_function<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn sqlite3_create_window_function(db: *mut sqlite3, zfunctionname: super::super::Foundation::PSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32;
         }
-        ::core::mem::transmute(sqlite3_create_window_function(
-            ::core::mem::transmute(db),
-            zfunctionname.into_param().abi(),
-            ::core::mem::transmute(narg),
-            ::core::mem::transmute(etextrep),
-            ::core::mem::transmute(papp),
-            ::core::mem::transmute(xstep),
-            ::core::mem::transmute(xfinal),
-            ::core::mem::transmute(xvalue),
-            ::core::mem::transmute(xinverse),
-            ::core::mem::transmute(xdestroy),
-        ))
+        ::core::mem::transmute(sqlite3_create_window_function(::core::mem::transmute(db), zfunctionname.into_param().abi(), ::core::mem::transmute(narg), ::core::mem::transmute(etextrep), ::core::mem::transmute(papp), ::core::mem::transmute(xstep), ::core::mem::transmute(xfinal), ::core::mem::transmute(xvalue), ::core::mem::transmute(xinverse), ::core::mem::transmute(xdestroy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3367,7 +3346,7 @@ pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type sqlite3_destructor_type = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[inline]
 pub unsafe fn sqlite3_drop_modules(db: *mut sqlite3, azkeep: *const *const i8) -> i32 {
     #[cfg(windows)]
@@ -3777,19 +3756,7 @@ impl ::core::fmt::Debug for sqlite3_index_info {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info {
     fn eq(&self, other: &Self) -> bool {
-        self.nConstraint == other.nConstraint
-            && self.aConstraint == other.aConstraint
-            && self.nOrderBy == other.nOrderBy
-            && self.aOrderBy == other.aOrderBy
-            && self.aConstraintUsage == other.aConstraintUsage
-            && self.idxNum == other.idxNum
-            && self.idxStr == other.idxStr
-            && self.needToFreeIdxStr == other.needToFreeIdxStr
-            && self.orderByConsumed == other.orderByConsumed
-            && self.estimatedCost == other.estimatedCost
-            && self.estimatedRows == other.estimatedRows
-            && self.idxFlags == other.idxFlags
-            && self.colUsed == other.colUsed
+        self.nConstraint == other.nConstraint && self.aConstraint == other.aConstraint && self.nOrderBy == other.nOrderBy && self.aOrderBy == other.aOrderBy && self.aConstraintUsage == other.aConstraintUsage && self.idxNum == other.idxNum && self.idxStr == other.idxStr && self.needToFreeIdxStr == other.needToFreeIdxStr && self.orderByConsumed == other.orderByConsumed && self.estimatedCost == other.estimatedCost && self.estimatedRows == other.estimatedRows && self.idxFlags == other.idxFlags && self.colUsed == other.colUsed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3981,25 +3948,7 @@ impl ::core::fmt::Debug for sqlite3_io_methods {
 }
 impl ::core::cmp::PartialEq for sqlite3_io_methods {
     fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion
-            && self.xClose == other.xClose
-            && self.xRead == other.xRead
-            && self.xWrite == other.xWrite
-            && self.xTruncate == other.xTruncate
-            && self.xSync == other.xSync
-            && self.xFileSize == other.xFileSize
-            && self.xLock == other.xLock
-            && self.xUnlock == other.xUnlock
-            && self.xCheckReservedLock == other.xCheckReservedLock
-            && self.xFileControl == other.xFileControl
-            && self.xSectorSize == other.xSectorSize
-            && self.xDeviceCharacteristics == other.xDeviceCharacteristics
-            && self.xShmMap == other.xShmMap
-            && self.xShmLock == other.xShmLock
-            && self.xShmBarrier == other.xShmBarrier
-            && self.xShmUnmap == other.xShmUnmap
-            && self.xFetch == other.xFetch
-            && self.xUnfetch == other.xUnfetch
+        self.iVersion == other.iVersion && self.xClose == other.xClose && self.xRead == other.xRead && self.xWrite == other.xWrite && self.xTruncate == other.xTruncate && self.xSync == other.xSync && self.xFileSize == other.xFileSize && self.xLock == other.xLock && self.xUnlock == other.xUnlock && self.xCheckReservedLock == other.xCheckReservedLock && self.xFileControl == other.xFileControl && self.xSectorSize == other.xSectorSize && self.xDeviceCharacteristics == other.xDeviceCharacteristics && self.xShmMap == other.xShmMap && self.xShmLock == other.xShmLock && self.xShmBarrier == other.xShmBarrier && self.xShmUnmap == other.xShmUnmap && self.xFetch == other.xFetch && self.xUnfetch == other.xUnfetch
     }
 }
 impl ::core::cmp::Eq for sqlite3_io_methods {}
@@ -4114,7 +4063,7 @@ pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32;
+pub type sqlite3_loadext_entry = ::core::option::Option<unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sqlite3_log<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ierrcode: i32, zformat: Param1) {
@@ -4175,16 +4124,7 @@ impl ::core::default::Default for sqlite3_mem_methods {
 }
 impl ::core::fmt::Debug for sqlite3_mem_methods {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_mem_methods")
-            .field("xMalloc", &self.xMalloc)
-            .field("xFree", &self.xFree)
-            .field("xRealloc", &self.xRealloc)
-            .field("xSize", &self.xSize)
-            .field("xRoundup", &self.xRoundup)
-            .field("xInit", &self.xInit)
-            .field("xShutdown", &self.xShutdown)
-            .field("pAppData", &self.pAppData)
-            .finish()
+        fmt.debug_struct("sqlite3_mem_methods").field("xMalloc", &self.xMalloc).field("xFree", &self.xFree).field("xRealloc", &self.xRealloc).field("xSize", &self.xSize).field("xRoundup", &self.xRoundup).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("pAppData", &self.pAppData).finish()
     }
 }
 impl ::core::cmp::PartialEq for sqlite3_mem_methods {
@@ -4434,17 +4374,7 @@ impl ::core::default::Default for sqlite3_mutex_methods {
 }
 impl ::core::fmt::Debug for sqlite3_mutex_methods {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_mutex_methods")
-            .field("xMutexInit", &self.xMutexInit)
-            .field("xMutexEnd", &self.xMutexEnd)
-            .field("xMutexAlloc", &self.xMutexAlloc)
-            .field("xMutexFree", &self.xMutexFree)
-            .field("xMutexEnter", &self.xMutexEnter)
-            .field("xMutexTry", &self.xMutexTry)
-            .field("xMutexLeave", &self.xMutexLeave)
-            .field("xMutexHeld", &self.xMutexHeld)
-            .field("xMutexNotheld", &self.xMutexNotheld)
-            .finish()
+        fmt.debug_struct("sqlite3_mutex_methods").field("xMutexInit", &self.xMutexInit).field("xMutexEnd", &self.xMutexEnd).field("xMutexAlloc", &self.xMutexAlloc).field("xMutexFree", &self.xMutexFree).field("xMutexEnter", &self.xMutexEnter).field("xMutexTry", &self.xMutexTry).field("xMutexLeave", &self.xMutexLeave).field("xMutexHeld", &self.xMutexHeld).field("xMutexNotheld", &self.xMutexNotheld).finish()
     }
 }
 impl ::core::cmp::PartialEq for sqlite3_mutex_methods {
@@ -4589,19 +4519,7 @@ impl ::core::default::Default for sqlite3_pcache_methods {
 }
 impl ::core::fmt::Debug for sqlite3_pcache_methods {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_pcache_methods")
-            .field("pArg", &self.pArg)
-            .field("xInit", &self.xInit)
-            .field("xShutdown", &self.xShutdown)
-            .field("xCreate", &self.xCreate)
-            .field("xCachesize", &self.xCachesize)
-            .field("xPagecount", &self.xPagecount)
-            .field("xFetch", &self.xFetch)
-            .field("xUnpin", &self.xUnpin)
-            .field("xRekey", &self.xRekey)
-            .field("xTruncate", &self.xTruncate)
-            .field("xDestroy", &self.xDestroy)
-            .finish()
+        fmt.debug_struct("sqlite3_pcache_methods").field("pArg", &self.pArg).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("xCreate", &self.xCreate).field("xCachesize", &self.xCachesize).field("xPagecount", &self.xPagecount).field("xFetch", &self.xFetch).field("xUnpin", &self.xUnpin).field("xRekey", &self.xRekey).field("xTruncate", &self.xTruncate).field("xDestroy", &self.xDestroy).finish()
     }
 }
 impl ::core::cmp::PartialEq for sqlite3_pcache_methods {
@@ -4638,21 +4556,7 @@ impl ::core::default::Default for sqlite3_pcache_methods2 {
 }
 impl ::core::fmt::Debug for sqlite3_pcache_methods2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_pcache_methods2")
-            .field("iVersion", &self.iVersion)
-            .field("pArg", &self.pArg)
-            .field("xInit", &self.xInit)
-            .field("xShutdown", &self.xShutdown)
-            .field("xCreate", &self.xCreate)
-            .field("xCachesize", &self.xCachesize)
-            .field("xPagecount", &self.xPagecount)
-            .field("xFetch", &self.xFetch)
-            .field("xUnpin", &self.xUnpin)
-            .field("xRekey", &self.xRekey)
-            .field("xTruncate", &self.xTruncate)
-            .field("xDestroy", &self.xDestroy)
-            .field("xShrink", &self.xShrink)
-            .finish()
+        fmt.debug_struct("sqlite3_pcache_methods2").field("iVersion", &self.iVersion).field("pArg", &self.pArg).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("xCreate", &self.xCreate).field("xCachesize", &self.xCachesize).field("xPagecount", &self.xPagecount).field("xFetch", &self.xFetch).field("xUnpin", &self.xUnpin).field("xRekey", &self.xRekey).field("xTruncate", &self.xTruncate).field("xDestroy", &self.xDestroy).field("xShrink", &self.xShrink).finish()
     }
 }
 impl ::core::cmp::PartialEq for sqlite3_pcache_methods2 {
@@ -5272,22 +5176,7 @@ impl ::core::fmt::Debug for sqlite3_rtree_query_info {
 }
 impl ::core::cmp::PartialEq for sqlite3_rtree_query_info {
     fn eq(&self, other: &Self) -> bool {
-        self.pContext == other.pContext
-            && self.nParam == other.nParam
-            && self.aParam == other.aParam
-            && self.pUser == other.pUser
-            && self.xDelUser == other.xDelUser
-            && self.aCoord == other.aCoord
-            && self.anQueue == other.anQueue
-            && self.nCoord == other.nCoord
-            && self.iLevel == other.iLevel
-            && self.mxLevel == other.mxLevel
-            && self.iRowid == other.iRowid
-            && self.rParentScore == other.rParentScore
-            && self.eParentWithin == other.eParentWithin
-            && self.eWithin == other.eWithin
-            && self.rScore == other.rScore
-            && self.apSqlParam == other.apSqlParam
+        self.pContext == other.pContext && self.nParam == other.nParam && self.aParam == other.aParam && self.pUser == other.pUser && self.xDelUser == other.xDelUser && self.aCoord == other.aCoord && self.anQueue == other.anQueue && self.nCoord == other.nCoord && self.iLevel == other.iLevel && self.mxLevel == other.mxLevel && self.iRowid == other.iRowid && self.rParentScore == other.rParentScore && self.eParentWithin == other.eParentWithin && self.eWithin == other.eWithin && self.rScore == other.rScore && self.apSqlParam == other.apSqlParam
     }
 }
 impl ::core::cmp::Eq for sqlite3_rtree_query_info {}
@@ -5769,7 +5658,7 @@ pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
+pub type sqlite3_syscall_ptr = ::core::option::Option<unsafe extern "system" fn()>;
 #[inline]
 pub unsafe fn sqlite3_system_errno(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
@@ -5792,17 +5681,7 @@ pub unsafe fn sqlite3_table_column_metadata<'a, Param1: ::windows::core::IntoPar
         extern "system" {
             fn sqlite3_table_column_metadata(db: *mut sqlite3, zdbname: super::super::Foundation::PSTR, ztablename: super::super::Foundation::PSTR, zcolumnname: super::super::Foundation::PSTR, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32;
         }
-        ::core::mem::transmute(sqlite3_table_column_metadata(
-            ::core::mem::transmute(db),
-            zdbname.into_param().abi(),
-            ztablename.into_param().abi(),
-            zcolumnname.into_param().abi(),
-            ::core::mem::transmute(pzdatatype),
-            ::core::mem::transmute(pzcollseq),
-            ::core::mem::transmute(pnotnull),
-            ::core::mem::transmute(pprimarykey),
-            ::core::mem::transmute(pautoinc),
-        ))
+        ::core::mem::transmute(sqlite3_table_column_metadata(::core::mem::transmute(db), zdbname.into_param().abi(), ztablename.into_param().abi(), zcolumnname.into_param().abi(), ::core::mem::transmute(pzdatatype), ::core::mem::transmute(pzcollseq), ::core::mem::transmute(pnotnull), ::core::mem::transmute(pprimarykey), ::core::mem::transmute(pautoinc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

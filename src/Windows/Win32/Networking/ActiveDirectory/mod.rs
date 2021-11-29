@@ -1520,15 +1520,7 @@ impl ::core::default::Default for ADS_VLV {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ADS_VLV {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ADS_VLV")
-            .field("dwBeforeCount", &self.dwBeforeCount)
-            .field("dwAfterCount", &self.dwAfterCount)
-            .field("dwOffset", &self.dwOffset)
-            .field("dwContentCount", &self.dwContentCount)
-            .field("pszTarget", &self.pszTarget)
-            .field("dwContextIDLength", &self.dwContextIDLength)
-            .field("lpContextID", &self.lpContextID)
-            .finish()
+        fmt.debug_struct("ADS_VLV").field("dwBeforeCount", &self.dwBeforeCount).field("dwAfterCount", &self.dwAfterCount).field("dwOffset", &self.dwOffset).field("dwContentCount", &self.dwContentCount).field("pszTarget", &self.pszTarget).field("dwContextIDLength", &self.dwContextIDLength).field("lpContextID", &self.lpContextID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1927,17 +1919,17 @@ impl ::core::cmp::Eq for CQFORM {}
 unsafe impl ::windows::core::Abi for CQFORM {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
-    pub pPageProc: ::core::option::Option<LPCQPAGEPROC>,
+    pub pPageProc: LPCQPAGEPROC,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub idPageName: i32,
     pub idPageTemplate: i32,
-    pub pDlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1964,7 +1956,7 @@ impl ::core::cmp::PartialEq for CQPAGE {
 impl ::core::cmp::Eq for CQPAGE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for CQPAGE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const CQPM_CLEARFORM: u32 = 6u32;
 pub const CQPM_ENABLE: u32 = 3u32;
@@ -2008,17 +2000,7 @@ impl ::core::default::Default for DOMAINDESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOMAINDESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOMAINDESC")
-            .field("pszName", &self.pszName)
-            .field("pszPath", &self.pszPath)
-            .field("pszNCName", &self.pszNCName)
-            .field("pszTrustParent", &self.pszTrustParent)
-            .field("pszObjectClass", &self.pszObjectClass)
-            .field("ulFlags", &self.ulFlags)
-            .field("fDownLevel", &self.fDownLevel)
-            .field("pdChildList", &self.pdChildList)
-            .field("pdNextSibling", &self.pdNextSibling)
-            .finish()
+        fmt.debug_struct("DOMAINDESC").field("pszName", &self.pszName).field("pszPath", &self.pszPath).field("pszNCName", &self.pszNCName).field("pszTrustParent", &self.pszTrustParent).field("pszObjectClass", &self.pszObjectClass).field("ulFlags", &self.ulFlags).field("fDownLevel", &self.fDownLevel).field("pdChildList", &self.pdChildList).field("pdNextSibling", &self.pdNextSibling).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2058,17 +2040,7 @@ impl ::core::default::Default for DOMAIN_CONTROLLER_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOMAIN_CONTROLLER_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOMAIN_CONTROLLER_INFOA")
-            .field("DomainControllerName", &self.DomainControllerName)
-            .field("DomainControllerAddress", &self.DomainControllerAddress)
-            .field("DomainControllerAddressType", &self.DomainControllerAddressType)
-            .field("DomainGuid", &self.DomainGuid)
-            .field("DomainName", &self.DomainName)
-            .field("DnsForestName", &self.DnsForestName)
-            .field("Flags", &self.Flags)
-            .field("DcSiteName", &self.DcSiteName)
-            .field("ClientSiteName", &self.ClientSiteName)
-            .finish()
+        fmt.debug_struct("DOMAIN_CONTROLLER_INFOA").field("DomainControllerName", &self.DomainControllerName).field("DomainControllerAddress", &self.DomainControllerAddress).field("DomainControllerAddressType", &self.DomainControllerAddressType).field("DomainGuid", &self.DomainGuid).field("DomainName", &self.DomainName).field("DnsForestName", &self.DnsForestName).field("Flags", &self.Flags).field("DcSiteName", &self.DcSiteName).field("ClientSiteName", &self.ClientSiteName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2108,17 +2080,7 @@ impl ::core::default::Default for DOMAIN_CONTROLLER_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOMAIN_CONTROLLER_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOMAIN_CONTROLLER_INFOW")
-            .field("DomainControllerName", &self.DomainControllerName)
-            .field("DomainControllerAddress", &self.DomainControllerAddress)
-            .field("DomainControllerAddressType", &self.DomainControllerAddressType)
-            .field("DomainGuid", &self.DomainGuid)
-            .field("DomainName", &self.DomainName)
-            .field("DnsForestName", &self.DnsForestName)
-            .field("Flags", &self.Flags)
-            .field("DcSiteName", &self.DcSiteName)
-            .field("ClientSiteName", &self.ClientSiteName)
-            .finish()
+        fmt.debug_struct("DOMAIN_CONTROLLER_INFOW").field("DomainControllerName", &self.DomainControllerName).field("DomainControllerAddress", &self.DomainControllerAddress).field("DomainControllerAddressType", &self.DomainControllerAddressType).field("DomainGuid", &self.DomainGuid).field("DomainName", &self.DomainName).field("DnsForestName", &self.DnsForestName).field("Flags", &self.Flags).field("DcSiteName", &self.DcSiteName).field("ClientSiteName", &self.ClientSiteName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2242,17 +2204,7 @@ impl ::core::default::Default for DSBITEMA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSBITEMA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSBITEMA")
-            .field("cbStruct", &self.cbStruct)
-            .field("pszADsPath", &self.pszADsPath)
-            .field("pszClass", &self.pszClass)
-            .field("dwMask", &self.dwMask)
-            .field("dwState", &self.dwState)
-            .field("dwStateMask", &self.dwStateMask)
-            .field("szDisplayName", &self.szDisplayName)
-            .field("szIconLocation", &self.szIconLocation)
-            .field("iIconResID", &self.iIconResID)
-            .finish()
+        fmt.debug_struct("DSBITEMA").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2292,17 +2244,7 @@ impl ::core::default::Default for DSBITEMW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSBITEMW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSBITEMW")
-            .field("cbStruct", &self.cbStruct)
-            .field("pszADsPath", &self.pszADsPath)
-            .field("pszClass", &self.pszClass)
-            .field("dwMask", &self.dwMask)
-            .field("dwState", &self.dwState)
-            .field("dwStateMask", &self.dwStateMask)
-            .field("szDisplayName", &self.szDisplayName)
-            .field("szIconLocation", &self.szIconLocation)
-            .field("iIconResID", &self.iIconResID)
-            .finish()
+        fmt.debug_struct("DSBITEMW").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2337,7 +2279,7 @@ pub const DSBM_HELP: u32 = 103u32;
 pub const DSBM_QUERYINSERT: u32 = 100u32;
 pub const DSBM_QUERYINSERTA: u32 = 101u32;
 pub const DSBM_QUERYINSERTW: u32 = 100u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOA {
@@ -2349,7 +2291,7 @@ pub struct DSBROWSEINFOA {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -2389,30 +2331,16 @@ impl ::core::fmt::Debug for DSBROWSEINFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::cmp::PartialEq for DSBROWSEINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.hwndOwner == other.hwndOwner
-            && self.pszCaption == other.pszCaption
-            && self.pszTitle == other.pszTitle
-            && self.pszRoot == other.pszRoot
-            && self.pszPath == other.pszPath
-            && self.cchPath == other.cchPath
-            && self.dwFlags == other.dwFlags
-            && self.pfnCallback.map(|f| f as usize) == other.pfnCallback.map(|f| f as usize)
-            && self.lParam == other.lParam
-            && self.dwReturnFormat == other.dwReturnFormat
-            && self.pUserName == other.pUserName
-            && self.pPassword == other.pPassword
-            && self.pszObjectClass == other.pszObjectClass
-            && self.cchObjectClass == other.cchObjectClass
+        self.cbStruct == other.cbStruct && self.hwndOwner == other.hwndOwner && self.pszCaption == other.pszCaption && self.pszTitle == other.pszTitle && self.pszRoot == other.pszRoot && self.pszPath == other.pszPath && self.cchPath == other.cchPath && self.dwFlags == other.dwFlags && self.pfnCallback.map(|f| f as usize) == other.pfnCallback.map(|f| f as usize) && self.lParam == other.lParam && self.dwReturnFormat == other.dwReturnFormat && self.pUserName == other.pUserName && self.pPassword == other.pPassword && self.pszObjectClass == other.pszObjectClass && self.cchObjectClass == other.cchObjectClass
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::cmp::Eq for DSBROWSEINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for DSBROWSEINFOA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOW {
@@ -2424,7 +2352,7 @@ pub struct DSBROWSEINFOW {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -2464,28 +2392,14 @@ impl ::core::fmt::Debug for DSBROWSEINFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::cmp::PartialEq for DSBROWSEINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.hwndOwner == other.hwndOwner
-            && self.pszCaption == other.pszCaption
-            && self.pszTitle == other.pszTitle
-            && self.pszRoot == other.pszRoot
-            && self.pszPath == other.pszPath
-            && self.cchPath == other.cchPath
-            && self.dwFlags == other.dwFlags
-            && self.pfnCallback.map(|f| f as usize) == other.pfnCallback.map(|f| f as usize)
-            && self.lParam == other.lParam
-            && self.dwReturnFormat == other.dwReturnFormat
-            && self.pUserName == other.pUserName
-            && self.pPassword == other.pPassword
-            && self.pszObjectClass == other.pszObjectClass
-            && self.cchObjectClass == other.cchObjectClass
+        self.cbStruct == other.cbStruct && self.hwndOwner == other.hwndOwner && self.pszCaption == other.pszCaption && self.pszTitle == other.pszTitle && self.pszRoot == other.pszRoot && self.pszPath == other.pszPath && self.cchPath == other.cchPath && self.dwFlags == other.dwFlags && self.pfnCallback.map(|f| f as usize) == other.pfnCallback.map(|f| f as usize) && self.lParam == other.lParam && self.dwReturnFormat == other.dwReturnFormat && self.pUserName == other.pUserName && self.pPassword == other.pPassword && self.pszObjectClass == other.pszObjectClass && self.cchObjectClass == other.cchObjectClass
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::cmp::Eq for DSBROWSEINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for DSBROWSEINFOW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DSBS_CHECKED: u32 = 1u32;
 pub const DSBS_HIDDEN: u32 = 2u32;
@@ -2571,15 +2485,7 @@ impl ::core::default::Default for DSDISPLAYSPECOPTIONS {
 }
 impl ::core::fmt::Debug for DSDISPLAYSPECOPTIONS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSDISPLAYSPECOPTIONS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("offsetAttribPrefix", &self.offsetAttribPrefix)
-            .field("offsetUserName", &self.offsetUserName)
-            .field("offsetPassword", &self.offsetPassword)
-            .field("offsetServer", &self.offsetServer)
-            .field("offsetServerConfigPath", &self.offsetServerConfigPath)
-            .finish()
+        fmt.debug_struct("DSDISPLAYSPECOPTIONS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("offsetAttribPrefix", &self.offsetAttribPrefix).field("offsetUserName", &self.offsetUserName).field("offsetPassword", &self.offsetPassword).field("offsetServer", &self.offsetServer).field("offsetServerConfigPath", &self.offsetServerConfigPath).finish()
     }
 }
 impl ::core::cmp::PartialEq for DSDISPLAYSPECOPTIONS {
@@ -2754,15 +2660,7 @@ impl ::core::default::Default for DSOP_INIT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSOP_INIT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSOP_INIT_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("pwzTargetComputer", &self.pwzTargetComputer)
-            .field("cDsScopeInfos", &self.cDsScopeInfos)
-            .field("aDsScopeInfos", &self.aDsScopeInfos)
-            .field("flOptions", &self.flOptions)
-            .field("cAttributesToFetch", &self.cAttributesToFetch)
-            .field("apwzAttributeNames", &self.apwzAttributeNames)
-            .finish()
+        fmt.debug_struct("DSOP_INIT_INFO").field("cbSize", &self.cbSize).field("pwzTargetComputer", &self.pwzTargetComputer).field("cDsScopeInfos", &self.cDsScopeInfos).field("aDsScopeInfos", &self.aDsScopeInfos).field("flOptions", &self.flOptions).field("cAttributesToFetch", &self.cAttributesToFetch).field("apwzAttributeNames", &self.apwzAttributeNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2954,15 +2852,7 @@ impl ::core::default::Default for DSQUERYINITPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSQUERYINITPARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSQUERYINITPARAMS")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwFlags", &self.dwFlags)
-            .field("pDefaultScope", &self.pDefaultScope)
-            .field("pDefaultSaveLocation", &self.pDefaultSaveLocation)
-            .field("pUserName", &self.pUserName)
-            .field("pPassword", &self.pPassword)
-            .field("pServer", &self.pServer)
-            .finish()
+        fmt.debug_struct("DSQUERYINITPARAMS").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pDefaultScope", &self.pDefaultScope).field("pDefaultSaveLocation", &self.pDefaultSaveLocation).field("pUserName", &self.pUserName).field("pPassword", &self.pPassword).field("pServer", &self.pServer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3094,14 +2984,7 @@ impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSROLE_PRIMARY_DOMAIN_INFO_BASIC")
-            .field("MachineRole", &self.MachineRole)
-            .field("Flags", &self.Flags)
-            .field("DomainNameFlat", &self.DomainNameFlat)
-            .field("DomainNameDns", &self.DomainNameDns)
-            .field("DomainForestName", &self.DomainForestName)
-            .field("DomainGuid", &self.DomainGuid)
-            .finish()
+        fmt.debug_struct("DSROLE_PRIMARY_DOMAIN_INFO_BASIC").field("MachineRole", &self.MachineRole).field("Flags", &self.Flags).field("DomainNameFlat", &self.DomainNameFlat).field("DomainNameDns", &self.DomainNameDns).field("DomainForestName", &self.DomainForestName).field("DomainGuid", &self.DomainGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3225,15 +3108,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_1A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1A")
-            .field("NetbiosName", &self.NetbiosName)
-            .field("DnsHostName", &self.DnsHostName)
-            .field("SiteName", &self.SiteName)
-            .field("ComputerObjectName", &self.ComputerObjectName)
-            .field("ServerObjectName", &self.ServerObjectName)
-            .field("fIsPdc", &self.fIsPdc)
-            .field("fDsEnabled", &self.fDsEnabled)
-            .finish()
+        fmt.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1A").field("NetbiosName", &self.NetbiosName).field("DnsHostName", &self.DnsHostName).field("SiteName", &self.SiteName).field("ComputerObjectName", &self.ComputerObjectName).field("ServerObjectName", &self.ServerObjectName).field("fIsPdc", &self.fIsPdc).field("fDsEnabled", &self.fDsEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3271,15 +3146,7 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_1W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1W")
-            .field("NetbiosName", &self.NetbiosName)
-            .field("DnsHostName", &self.DnsHostName)
-            .field("SiteName", &self.SiteName)
-            .field("ComputerObjectName", &self.ComputerObjectName)
-            .field("ServerObjectName", &self.ServerObjectName)
-            .field("fIsPdc", &self.fIsPdc)
-            .field("fDsEnabled", &self.fDsEnabled)
-            .finish()
+        fmt.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1W").field("NetbiosName", &self.NetbiosName).field("DnsHostName", &self.DnsHostName).field("SiteName", &self.SiteName).field("ComputerObjectName", &self.ComputerObjectName).field("ServerObjectName", &self.ServerObjectName).field("fIsPdc", &self.fIsPdc).field("fDsEnabled", &self.fDsEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3345,20 +3212,7 @@ impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_2A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
-        self.NetbiosName == other.NetbiosName
-            && self.DnsHostName == other.DnsHostName
-            && self.SiteName == other.SiteName
-            && self.SiteObjectName == other.SiteObjectName
-            && self.ComputerObjectName == other.ComputerObjectName
-            && self.ServerObjectName == other.ServerObjectName
-            && self.NtdsDsaObjectName == other.NtdsDsaObjectName
-            && self.fIsPdc == other.fIsPdc
-            && self.fDsEnabled == other.fDsEnabled
-            && self.fIsGc == other.fIsGc
-            && self.SiteObjectGuid == other.SiteObjectGuid
-            && self.ComputerObjectGuid == other.ComputerObjectGuid
-            && self.ServerObjectGuid == other.ServerObjectGuid
-            && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
+        self.NetbiosName == other.NetbiosName && self.DnsHostName == other.DnsHostName && self.SiteName == other.SiteName && self.SiteObjectName == other.SiteObjectName && self.ComputerObjectName == other.ComputerObjectName && self.ServerObjectName == other.ServerObjectName && self.NtdsDsaObjectName == other.NtdsDsaObjectName && self.fIsPdc == other.fIsPdc && self.fDsEnabled == other.fDsEnabled && self.fIsGc == other.fIsGc && self.SiteObjectGuid == other.SiteObjectGuid && self.ComputerObjectGuid == other.ComputerObjectGuid && self.ServerObjectGuid == other.ServerObjectGuid && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3418,20 +3272,7 @@ impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_2W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
-        self.NetbiosName == other.NetbiosName
-            && self.DnsHostName == other.DnsHostName
-            && self.SiteName == other.SiteName
-            && self.SiteObjectName == other.SiteObjectName
-            && self.ComputerObjectName == other.ComputerObjectName
-            && self.ServerObjectName == other.ServerObjectName
-            && self.NtdsDsaObjectName == other.NtdsDsaObjectName
-            && self.fIsPdc == other.fIsPdc
-            && self.fDsEnabled == other.fDsEnabled
-            && self.fIsGc == other.fIsGc
-            && self.SiteObjectGuid == other.SiteObjectGuid
-            && self.ComputerObjectGuid == other.ComputerObjectGuid
-            && self.ServerObjectGuid == other.ServerObjectGuid
-            && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
+        self.NetbiosName == other.NetbiosName && self.DnsHostName == other.DnsHostName && self.SiteName == other.SiteName && self.SiteObjectName == other.SiteObjectName && self.ComputerObjectName == other.ComputerObjectName && self.ServerObjectName == other.ServerObjectName && self.NtdsDsaObjectName == other.NtdsDsaObjectName && self.fIsPdc == other.fIsPdc && self.fDsEnabled == other.fDsEnabled && self.fIsGc == other.fIsGc && self.SiteObjectGuid == other.SiteObjectGuid && self.ComputerObjectGuid == other.ComputerObjectGuid && self.ServerObjectGuid == other.ServerObjectGuid && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3493,21 +3334,7 @@ impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_3A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_3A {
     fn eq(&self, other: &Self) -> bool {
-        self.NetbiosName == other.NetbiosName
-            && self.DnsHostName == other.DnsHostName
-            && self.SiteName == other.SiteName
-            && self.SiteObjectName == other.SiteObjectName
-            && self.ComputerObjectName == other.ComputerObjectName
-            && self.ServerObjectName == other.ServerObjectName
-            && self.NtdsDsaObjectName == other.NtdsDsaObjectName
-            && self.fIsPdc == other.fIsPdc
-            && self.fDsEnabled == other.fDsEnabled
-            && self.fIsGc == other.fIsGc
-            && self.fIsRodc == other.fIsRodc
-            && self.SiteObjectGuid == other.SiteObjectGuid
-            && self.ComputerObjectGuid == other.ComputerObjectGuid
-            && self.ServerObjectGuid == other.ServerObjectGuid
-            && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
+        self.NetbiosName == other.NetbiosName && self.DnsHostName == other.DnsHostName && self.SiteName == other.SiteName && self.SiteObjectName == other.SiteObjectName && self.ComputerObjectName == other.ComputerObjectName && self.ServerObjectName == other.ServerObjectName && self.NtdsDsaObjectName == other.NtdsDsaObjectName && self.fIsPdc == other.fIsPdc && self.fDsEnabled == other.fDsEnabled && self.fIsGc == other.fIsGc && self.fIsRodc == other.fIsRodc && self.SiteObjectGuid == other.SiteObjectGuid && self.ComputerObjectGuid == other.ComputerObjectGuid && self.ServerObjectGuid == other.ServerObjectGuid && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3569,21 +3396,7 @@ impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_3W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_3W {
     fn eq(&self, other: &Self) -> bool {
-        self.NetbiosName == other.NetbiosName
-            && self.DnsHostName == other.DnsHostName
-            && self.SiteName == other.SiteName
-            && self.SiteObjectName == other.SiteObjectName
-            && self.ComputerObjectName == other.ComputerObjectName
-            && self.ServerObjectName == other.ServerObjectName
-            && self.NtdsDsaObjectName == other.NtdsDsaObjectName
-            && self.fIsPdc == other.fIsPdc
-            && self.fDsEnabled == other.fDsEnabled
-            && self.fIsGc == other.fIsGc
-            && self.fIsRodc == other.fIsRodc
-            && self.SiteObjectGuid == other.SiteObjectGuid
-            && self.ComputerObjectGuid == other.ComputerObjectGuid
-            && self.ServerObjectGuid == other.ServerObjectGuid
-            && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
+        self.NetbiosName == other.NetbiosName && self.DnsHostName == other.DnsHostName && self.SiteName == other.SiteName && self.SiteObjectName == other.SiteObjectName && self.ComputerObjectName == other.ComputerObjectName && self.ServerObjectName == other.ServerObjectName && self.NtdsDsaObjectName == other.NtdsDsaObjectName && self.fIsPdc == other.fIsPdc && self.fDsEnabled == other.fDsEnabled && self.fIsGc == other.fIsGc && self.fIsRodc == other.fIsRodc && self.SiteObjectGuid == other.SiteObjectGuid && self.ComputerObjectGuid == other.ComputerObjectGuid && self.ServerObjectGuid == other.ServerObjectGuid && self.NtdsDsaObjectGuid == other.NtdsDsaObjectGuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3622,16 +3435,7 @@ impl ::core::default::Default for DS_DOMAIN_TRUSTSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_DOMAIN_TRUSTSA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_DOMAIN_TRUSTSA")
-            .field("NetbiosDomainName", &self.NetbiosDomainName)
-            .field("DnsDomainName", &self.DnsDomainName)
-            .field("Flags", &self.Flags)
-            .field("ParentIndex", &self.ParentIndex)
-            .field("TrustType", &self.TrustType)
-            .field("TrustAttributes", &self.TrustAttributes)
-            .field("DomainSid", &self.DomainSid)
-            .field("DomainGuid", &self.DomainGuid)
-            .finish()
+        fmt.debug_struct("DS_DOMAIN_TRUSTSA").field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("Flags", &self.Flags).field("ParentIndex", &self.ParentIndex).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("DomainSid", &self.DomainSid).field("DomainGuid", &self.DomainGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3670,16 +3474,7 @@ impl ::core::default::Default for DS_DOMAIN_TRUSTSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_DOMAIN_TRUSTSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_DOMAIN_TRUSTSW")
-            .field("NetbiosDomainName", &self.NetbiosDomainName)
-            .field("DnsDomainName", &self.DnsDomainName)
-            .field("Flags", &self.Flags)
-            .field("ParentIndex", &self.ParentIndex)
-            .field("TrustType", &self.TrustType)
-            .field("TrustAttributes", &self.TrustAttributes)
-            .field("DomainSid", &self.DomainSid)
-            .field("DomainGuid", &self.DomainGuid)
-            .finish()
+        fmt.debug_struct("DS_DOMAIN_TRUSTSW").field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("Flags", &self.Flags).field("ParentIndex", &self.ParentIndex).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("DomainSid", &self.DomainSid).field("DomainGuid", &self.DomainGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3991,14 +3786,7 @@ impl ::core::default::Default for DS_REPL_ATTR_META_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_REPL_ATTR_META_DATA")
-            .field("pszAttributeName", &self.pszAttributeName)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .finish()
+        fmt.debug_struct("DS_REPL_ATTR_META_DATA").field("pszAttributeName", &self.pszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4036,15 +3824,7 @@ impl ::core::default::Default for DS_REPL_ATTR_META_DATA_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_REPL_ATTR_META_DATA_2")
-            .field("pszAttributeName", &self.pszAttributeName)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN)
-            .finish()
+        fmt.debug_struct("DS_REPL_ATTR_META_DATA_2").field("pszAttributeName", &self.pszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4082,15 +3862,7 @@ impl ::core::default::Default for DS_REPL_ATTR_META_DATA_BLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA_BLOB {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_REPL_ATTR_META_DATA_BLOB")
-            .field("oszAttributeName", &self.oszAttributeName)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN)
-            .finish()
+        fmt.debug_struct("DS_REPL_ATTR_META_DATA_BLOB").field("oszAttributeName", &self.oszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4867,18 +4639,7 @@ impl ::core::default::Default for DS_REPL_OPW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_REPL_OPW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_REPL_OPW")
-            .field("ftimeEnqueued", &self.ftimeEnqueued)
-            .field("ulSerialNumber", &self.ulSerialNumber)
-            .field("ulPriority", &self.ulPriority)
-            .field("OpType", &self.OpType)
-            .field("ulOptions", &self.ulOptions)
-            .field("pszNamingContext", &self.pszNamingContext)
-            .field("pszDsaDN", &self.pszDsaDN)
-            .field("pszDsaAddress", &self.pszDsaAddress)
-            .field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid)
-            .field("uuidDsaObjGuid", &self.uuidDsaObjGuid)
-            .finish()
+        fmt.debug_struct("DS_REPL_OPW").field("ftimeEnqueued", &self.ftimeEnqueued).field("ulSerialNumber", &self.ulSerialNumber).field("ulPriority", &self.ulPriority).field("OpType", &self.OpType).field("ulOptions", &self.ulOptions).field("pszNamingContext", &self.pszNamingContext).field("pszDsaDN", &self.pszDsaDN).field("pszDsaAddress", &self.pszDsaAddress).field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4919,18 +4680,7 @@ impl ::core::default::Default for DS_REPL_OPW_BLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_REPL_OPW_BLOB {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_REPL_OPW_BLOB")
-            .field("ftimeEnqueued", &self.ftimeEnqueued)
-            .field("ulSerialNumber", &self.ulSerialNumber)
-            .field("ulPriority", &self.ulPriority)
-            .field("OpType", &self.OpType)
-            .field("ulOptions", &self.ulOptions)
-            .field("oszNamingContext", &self.oszNamingContext)
-            .field("oszDsaDN", &self.oszDsaDN)
-            .field("oszDsaAddress", &self.oszDsaAddress)
-            .field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid)
-            .field("uuidDsaObjGuid", &self.uuidDsaObjGuid)
-            .finish()
+        fmt.debug_struct("DS_REPL_OPW_BLOB").field("ftimeEnqueued", &self.ftimeEnqueued).field("ulSerialNumber", &self.ulSerialNumber).field("ulPriority", &self.ulPriority).field("OpType", &self.OpType).field("ulOptions", &self.ulOptions).field("oszNamingContext", &self.oszNamingContext).field("oszDsaDN", &self.oszDsaDN).field("oszDsaAddress", &self.oszDsaAddress).field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5018,15 +4768,7 @@ impl ::core::default::Default for DS_REPL_QUEUE_STATISTICSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DS_REPL_QUEUE_STATISTICSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS_REPL_QUEUE_STATISTICSW")
-            .field("ftimeCurrentOpStarted", &self.ftimeCurrentOpStarted)
-            .field("cNumPendingOps", &self.cNumPendingOps)
-            .field("ftimeOldestSync", &self.ftimeOldestSync)
-            .field("ftimeOldestAdd", &self.ftimeOldestAdd)
-            .field("ftimeOldestMod", &self.ftimeOldestMod)
-            .field("ftimeOldestDel", &self.ftimeOldestDel)
-            .field("ftimeOldestUpdRefs", &self.ftimeOldestUpdRefs)
-            .finish()
+        fmt.debug_struct("DS_REPL_QUEUE_STATISTICSW").field("ftimeCurrentOpStarted", &self.ftimeCurrentOpStarted).field("cNumPendingOps", &self.cNumPendingOps).field("ftimeOldestSync", &self.ftimeOldestSync).field("ftimeOldestAdd", &self.ftimeOldestAdd).field("ftimeOldestMod", &self.ftimeOldestMod).field("ftimeOldestDel", &self.ftimeOldestDel).field("ftimeOldestUpdRefs", &self.ftimeOldestUpdRefs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5086,17 +4828,7 @@ impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.pszAttributeName == other.pszAttributeName
-            && self.pszObjectDn == other.pszObjectDn
-            && self.cbData == other.cbData
-            && self.pbData == other.pbData
-            && self.ftimeDeleted == other.ftimeDeleted
-            && self.ftimeCreated == other.ftimeCreated
-            && self.dwVersion == other.dwVersion
-            && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange
-            && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID
-            && self.usnOriginatingChange == other.usnOriginatingChange
-            && self.usnLocalChange == other.usnLocalChange
+        self.pszAttributeName == other.pszAttributeName && self.pszObjectDn == other.pszObjectDn && self.cbData == other.cbData && self.pbData == other.pbData && self.ftimeDeleted == other.ftimeDeleted && self.ftimeCreated == other.ftimeCreated && self.dwVersion == other.dwVersion && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID && self.usnOriginatingChange == other.usnOriginatingChange && self.usnLocalChange == other.usnLocalChange
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5152,18 +4884,7 @@ impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.pszAttributeName == other.pszAttributeName
-            && self.pszObjectDn == other.pszObjectDn
-            && self.cbData == other.cbData
-            && self.pbData == other.pbData
-            && self.ftimeDeleted == other.ftimeDeleted
-            && self.ftimeCreated == other.ftimeCreated
-            && self.dwVersion == other.dwVersion
-            && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange
-            && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID
-            && self.usnOriginatingChange == other.usnOriginatingChange
-            && self.usnLocalChange == other.usnLocalChange
-            && self.pszLastOriginatingDsaDN == other.pszLastOriginatingDsaDN
+        self.pszAttributeName == other.pszAttributeName && self.pszObjectDn == other.pszObjectDn && self.cbData == other.cbData && self.pbData == other.pbData && self.ftimeDeleted == other.ftimeDeleted && self.ftimeCreated == other.ftimeCreated && self.dwVersion == other.dwVersion && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID && self.usnOriginatingChange == other.usnOriginatingChange && self.usnLocalChange == other.usnLocalChange && self.pszLastOriginatingDsaDN == other.pszLastOriginatingDsaDN
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5219,18 +4940,7 @@ impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_BLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_BLOB {
     fn eq(&self, other: &Self) -> bool {
-        self.oszAttributeName == other.oszAttributeName
-            && self.oszObjectDn == other.oszObjectDn
-            && self.cbData == other.cbData
-            && self.obData == other.obData
-            && self.ftimeDeleted == other.ftimeDeleted
-            && self.ftimeCreated == other.ftimeCreated
-            && self.dwVersion == other.dwVersion
-            && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange
-            && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID
-            && self.usnOriginatingChange == other.usnOriginatingChange
-            && self.usnLocalChange == other.usnLocalChange
-            && self.oszLastOriginatingDsaDN == other.oszLastOriginatingDsaDN
+        self.oszAttributeName == other.oszAttributeName && self.oszObjectDn == other.oszObjectDn && self.cbData == other.cbData && self.obData == other.obData && self.ftimeDeleted == other.ftimeDeleted && self.ftimeCreated == other.ftimeCreated && self.dwVersion == other.dwVersion && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID && self.usnOriginatingChange == other.usnOriginatingChange && self.usnLocalChange == other.usnLocalChange && self.oszLastOriginatingDsaDN == other.oszLastOriginatingDsaDN
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5292,21 +5002,7 @@ impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_BLOB_EXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_BLOB_EXT {
     fn eq(&self, other: &Self) -> bool {
-        self.oszAttributeName == other.oszAttributeName
-            && self.oszObjectDn == other.oszObjectDn
-            && self.cbData == other.cbData
-            && self.obData == other.obData
-            && self.ftimeDeleted == other.ftimeDeleted
-            && self.ftimeCreated == other.ftimeCreated
-            && self.dwVersion == other.dwVersion
-            && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange
-            && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID
-            && self.usnOriginatingChange == other.usnOriginatingChange
-            && self.usnLocalChange == other.usnLocalChange
-            && self.oszLastOriginatingDsaDN == other.oszLastOriginatingDsaDN
-            && self.dwUserIdentifier == other.dwUserIdentifier
-            && self.dwPriorLinkState == other.dwPriorLinkState
-            && self.dwCurrentLinkState == other.dwCurrentLinkState
+        self.oszAttributeName == other.oszAttributeName && self.oszObjectDn == other.oszObjectDn && self.cbData == other.cbData && self.obData == other.obData && self.ftimeDeleted == other.ftimeDeleted && self.ftimeCreated == other.ftimeCreated && self.dwVersion == other.dwVersion && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID && self.usnOriginatingChange == other.usnOriginatingChange && self.usnLocalChange == other.usnLocalChange && self.oszLastOriginatingDsaDN == other.oszLastOriginatingDsaDN && self.dwUserIdentifier == other.dwUserIdentifier && self.dwPriorLinkState == other.dwPriorLinkState && self.dwCurrentLinkState == other.dwCurrentLinkState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5368,21 +5064,7 @@ impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_EXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_EXT {
     fn eq(&self, other: &Self) -> bool {
-        self.pszAttributeName == other.pszAttributeName
-            && self.pszObjectDn == other.pszObjectDn
-            && self.cbData == other.cbData
-            && self.pbData == other.pbData
-            && self.ftimeDeleted == other.ftimeDeleted
-            && self.ftimeCreated == other.ftimeCreated
-            && self.dwVersion == other.dwVersion
-            && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange
-            && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID
-            && self.usnOriginatingChange == other.usnOriginatingChange
-            && self.usnLocalChange == other.usnLocalChange
-            && self.pszLastOriginatingDsaDN == other.pszLastOriginatingDsaDN
-            && self.dwUserIdentifier == other.dwUserIdentifier
-            && self.dwPriorLinkState == other.dwPriorLinkState
-            && self.dwCurrentLinkState == other.dwCurrentLinkState
+        self.pszAttributeName == other.pszAttributeName && self.pszObjectDn == other.pszObjectDn && self.cbData == other.cbData && self.pbData == other.pbData && self.ftimeDeleted == other.ftimeDeleted && self.ftimeCreated == other.ftimeCreated && self.dwVersion == other.dwVersion && self.ftimeLastOriginatingChange == other.ftimeLastOriginatingChange && self.uuidLastOriginatingDsaInvocationID == other.uuidLastOriginatingDsaInvocationID && self.usnOriginatingChange == other.usnOriginatingChange && self.usnLocalChange == other.usnLocalChange && self.pszLastOriginatingDsaDN == other.pszLastOriginatingDsaDN && self.dwUserIdentifier == other.dwUserIdentifier && self.dwPriorLinkState == other.dwPriorLinkState && self.dwCurrentLinkState == other.dwCurrentLinkState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5894,16 +5576,7 @@ pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
 pub const DS_WS_FLAG: u32 = 8192u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hds: Param0,
-    flags: u32,
-    srcdomain: Param2,
-    srcprincipal: Param3,
-    srcdomaincontroller: Param4,
-    srcdomaincreds: *const ::core::ffi::c_void,
-    dstdomain: Param6,
-    dstprincipal: Param7,
-) -> u32 {
+pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, flags: u32, srcdomain: Param2, srcprincipal: Param3, srcdomaincontroller: Param4, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: Param6, dstprincipal: Param7) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5917,16 +5590,7 @@ pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hds: Param0,
-    flags: u32,
-    srcdomain: Param2,
-    srcprincipal: Param3,
-    srcdomaincontroller: Param4,
-    srcdomaincreds: *const ::core::ffi::c_void,
-    dstdomain: Param6,
-    dstprincipal: Param7,
-) -> u32 {
+pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, flags: u32, srcdomain: Param2, srcprincipal: Param3, srcdomaincontroller: Param4, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: Param6, dstprincipal: Param7) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6010,16 +5674,7 @@ pub unsafe fn DsBindA<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    servername: Param0,
-    annotation: Param1,
-    instanceguid: *const ::windows::core::GUID,
-    dnsdomainname: Param3,
-    authidentity: *const ::core::ffi::c_void,
-    serviceprincipalname: Param5,
-    bindflags: u32,
-    phds: *mut super::super::Foundation::HANDLE,
-) -> u32 {
+pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, annotation: Param1, instanceguid: *const ::windows::core::GUID, dnsdomainname: Param3, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6033,16 +5688,7 @@ pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    servername: Param0,
-    annotation: Param1,
-    instanceguid: *const ::windows::core::GUID,
-    dnsdomainname: Param3,
-    authidentity: *const ::core::ffi::c_void,
-    serviceprincipalname: Param5,
-    bindflags: u32,
-    phds: *mut super::super::Foundation::HANDLE,
-) -> u32 {
+pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, annotation: Param1, instanceguid: *const ::windows::core::GUID, dnsdomainname: Param3, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6201,7 +5847,7 @@ pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DsBrowseForContainerA(pinfo: *mut ::core::mem::ManuallyDrop<DSBROWSEINFOA>) -> i32;
+            fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32;
         }
         ::core::mem::transmute(DsBrowseForContainerA(::core::mem::transmute(pinfo)))
     }
@@ -6215,7 +5861,7 @@ pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DsBrowseForContainerW(pinfo: *mut ::core::mem::ManuallyDrop<DSBROWSEINFOW>) -> i32;
+            fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32;
         }
         ::core::mem::transmute(DsBrowseForContainerW(::core::mem::transmute(pinfo)))
     }
@@ -6287,17 +5933,7 @@ pub unsafe fn DsCrackSpn2A<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn DsCrackSpn2A(pszspn: super::super::Foundation::PSTR, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32;
         }
-        ::core::mem::transmute(DsCrackSpn2A(
-            pszspn.into_param().abi(),
-            ::core::mem::transmute(cspn),
-            ::core::mem::transmute(pcserviceclass),
-            ::core::mem::transmute(serviceclass),
-            ::core::mem::transmute(pcservicename),
-            ::core::mem::transmute(servicename),
-            ::core::mem::transmute(pcinstancename),
-            ::core::mem::transmute(instancename),
-            ::core::mem::transmute(pinstanceport),
-        ))
+        ::core::mem::transmute(DsCrackSpn2A(pszspn.into_param().abi(), ::core::mem::transmute(cspn), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6311,17 +5947,7 @@ pub unsafe fn DsCrackSpn2W<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn DsCrackSpn2W(pszspn: super::super::Foundation::PWSTR, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32;
         }
-        ::core::mem::transmute(DsCrackSpn2W(
-            pszspn.into_param().abi(),
-            ::core::mem::transmute(cspn),
-            ::core::mem::transmute(pcserviceclass),
-            ::core::mem::transmute(serviceclass),
-            ::core::mem::transmute(pcservicename),
-            ::core::mem::transmute(servicename),
-            ::core::mem::transmute(pcinstancename),
-            ::core::mem::transmute(instancename),
-            ::core::mem::transmute(pinstanceport),
-        ))
+        ::core::mem::transmute(DsCrackSpn2W(pszspn.into_param().abi(), ::core::mem::transmute(cspn), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6335,19 +5961,7 @@ pub unsafe fn DsCrackSpn3W<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn DsCrackSpn3W(pszspn: super::super::Foundation::PWSTR, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DsCrackSpn3W(
-            pszspn.into_param().abi(),
-            ::core::mem::transmute(cspn),
-            ::core::mem::transmute(pchostname),
-            ::core::mem::transmute(hostname),
-            ::core::mem::transmute(pcinstancename),
-            ::core::mem::transmute(instancename),
-            ::core::mem::transmute(pportnumber),
-            ::core::mem::transmute(pcdomainname),
-            ::core::mem::transmute(domainname),
-            ::core::mem::transmute(pcrealmname),
-            ::core::mem::transmute(realmname),
-        ))
+        ::core::mem::transmute(DsCrackSpn3W(pszspn.into_param().abi(), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pportnumber), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6361,20 +5975,7 @@ pub unsafe fn DsCrackSpn4W<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn DsCrackSpn4W(pszspn: super::super::Foundation::PWSTR, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pcportname: *mut u32, portname: super::super::Foundation::PWSTR, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DsCrackSpn4W(
-            pszspn.into_param().abi(),
-            ::core::mem::transmute(cspn),
-            ::core::mem::transmute(pchostname),
-            ::core::mem::transmute(hostname),
-            ::core::mem::transmute(pcinstancename),
-            ::core::mem::transmute(instancename),
-            ::core::mem::transmute(pcportname),
-            ::core::mem::transmute(portname),
-            ::core::mem::transmute(pcdomainname),
-            ::core::mem::transmute(domainname),
-            ::core::mem::transmute(pcrealmname),
-            ::core::mem::transmute(realmname),
-        ))
+        ::core::mem::transmute(DsCrackSpn4W(pszspn.into_param().abi(), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pcportname), ::core::mem::transmute(portname), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6388,16 +5989,7 @@ pub unsafe fn DsCrackSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn DsCrackSpnA(pszspn: super::super::Foundation::PSTR, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32;
         }
-        ::core::mem::transmute(DsCrackSpnA(
-            pszspn.into_param().abi(),
-            ::core::mem::transmute(pcserviceclass),
-            ::core::mem::transmute(serviceclass),
-            ::core::mem::transmute(pcservicename),
-            ::core::mem::transmute(servicename),
-            ::core::mem::transmute(pcinstancename),
-            ::core::mem::transmute(instancename),
-            ::core::mem::transmute(pinstanceport),
-        ))
+        ::core::mem::transmute(DsCrackSpnA(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6411,16 +6003,7 @@ pub unsafe fn DsCrackSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn DsCrackSpnW(pszspn: super::super::Foundation::PWSTR, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32;
         }
-        ::core::mem::transmute(DsCrackSpnW(
-            pszspn.into_param().abi(),
-            ::core::mem::transmute(pcserviceclass),
-            ::core::mem::transmute(serviceclass),
-            ::core::mem::transmute(pcservicename),
-            ::core::mem::transmute(servicename),
-            ::core::mem::transmute(pcinstancename),
-            ::core::mem::transmute(instancename),
-            ::core::mem::transmute(pinstanceport),
-        ))
+        ::core::mem::transmute(DsCrackSpnW(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6878,17 +6461,7 @@ pub unsafe fn DsGetSpnA<'a, Param1: ::windows::core::IntoParam<'a, super::super:
         extern "system" {
             fn DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: super::super::Foundation::PSTR, servicename: super::super::Foundation::PSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PSTR) -> u32;
         }
-        ::core::mem::transmute(DsGetSpnA(
-            ::core::mem::transmute(servicetype),
-            serviceclass.into_param().abi(),
-            servicename.into_param().abi(),
-            ::core::mem::transmute(instanceport),
-            ::core::mem::transmute(cinstancenames),
-            ::core::mem::transmute(pinstancenames),
-            ::core::mem::transmute(pinstanceports),
-            ::core::mem::transmute(pcspn),
-            ::core::mem::transmute(prpszspn),
-        ))
+        ::core::mem::transmute(DsGetSpnA(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6902,17 +6475,7 @@ pub unsafe fn DsGetSpnW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
         extern "system" {
             fn DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: super::super::Foundation::PWSTR, servicename: super::super::Foundation::PWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DsGetSpnW(
-            ::core::mem::transmute(servicetype),
-            serviceclass.into_param().abi(),
-            servicename.into_param().abi(),
-            ::core::mem::transmute(instanceport),
-            ::core::mem::transmute(cinstancenames),
-            ::core::mem::transmute(pinstancenames),
-            ::core::mem::transmute(pinstanceports),
-            ::core::mem::transmute(pcspn),
-            ::core::mem::transmute(prpszspn),
-        ))
+        ::core::mem::transmute(DsGetSpnW(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7394,15 +6957,7 @@ pub unsafe fn DsRemoveDsServerW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hds: Param0,
-    namecontext: Param1,
-    sourcedsadn: Param2,
-    transportdn: Param3,
-    sourcedsaaddress: Param4,
-    pschedule: *const SCHEDULE,
-    options: u32,
-) -> u32 {
+pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, sourcedsadn: Param2, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, options: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7416,15 +6971,7 @@ pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hds: Param0,
-    namecontext: Param1,
-    sourcedsadn: Param2,
-    transportdn: Param3,
-    sourcedsaaddress: Param4,
-    pschedule: *const SCHEDULE,
-    options: u32,
-) -> u32 {
+pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, sourcedsadn: Param2, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, options: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7493,34 +7040,14 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::cor
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hds: Param0,
-    infotype: DS_REPL_INFO_TYPE,
-    pszobject: Param2,
-    puuidforsourcedsaobjguid: *const ::windows::core::GUID,
-    pszattributename: Param4,
-    pszvalue: Param5,
-    dwflags: u32,
-    dwenumerationcontext: u32,
-    ppinfo: *mut *mut ::core::ffi::c_void,
-) -> u32 {
+pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, infotype: DS_REPL_INFO_TYPE, pszobject: Param2, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: Param4, pszvalue: Param5, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DsReplicaGetInfo2W(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: super::super::Foundation::PWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(DsReplicaGetInfo2W(
-            hds.into_param().abi(),
-            ::core::mem::transmute(infotype),
-            pszobject.into_param().abi(),
-            ::core::mem::transmute(puuidforsourcedsaobjguid),
-            pszattributename.into_param().abi(),
-            pszvalue.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dwenumerationcontext),
-            ::core::mem::transmute(ppinfo),
-        ))
+        ::core::mem::transmute(DsReplicaGetInfo2W(hds.into_param().abi(), ::core::mem::transmute(infotype), pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid), pszattributename.into_param().abi(), pszvalue.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwenumerationcontext), ::core::mem::transmute(ppinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7541,68 +7068,28 @@ pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hds: Param0,
-    namecontext: Param1,
-    puuidsourcedsa: *const ::windows::core::GUID,
-    transportdn: Param3,
-    sourcedsaaddress: Param4,
-    pschedule: *const SCHEDULE,
-    replicaflags: u32,
-    modifyfields: u32,
-    options: u32,
-) -> u32 {
+pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, puuidsourcedsa: *const ::windows::core::GUID, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DsReplicaModifyA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: super::super::Foundation::PSTR, sourcedsaaddress: super::super::Foundation::PSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
         }
-        ::core::mem::transmute(DsReplicaModifyA(
-            hds.into_param().abi(),
-            namecontext.into_param().abi(),
-            ::core::mem::transmute(puuidsourcedsa),
-            transportdn.into_param().abi(),
-            sourcedsaaddress.into_param().abi(),
-            ::core::mem::transmute(pschedule),
-            ::core::mem::transmute(replicaflags),
-            ::core::mem::transmute(modifyfields),
-            ::core::mem::transmute(options),
-        ))
+        ::core::mem::transmute(DsReplicaModifyA(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hds: Param0,
-    namecontext: Param1,
-    puuidsourcedsa: *const ::windows::core::GUID,
-    transportdn: Param3,
-    sourcedsaaddress: Param4,
-    pschedule: *const SCHEDULE,
-    replicaflags: u32,
-    modifyfields: u32,
-    options: u32,
-) -> u32 {
+pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, puuidsourcedsa: *const ::windows::core::GUID, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DsReplicaModifyW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: super::super::Foundation::PWSTR, sourcedsaaddress: super::super::Foundation::PWSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
         }
-        ::core::mem::transmute(DsReplicaModifyW(
-            hds.into_param().abi(),
-            namecontext.into_param().abi(),
-            ::core::mem::transmute(puuidsourcedsa),
-            transportdn.into_param().abi(),
-            sourcedsaaddress.into_param().abi(),
-            ::core::mem::transmute(pschedule),
-            ::core::mem::transmute(replicaflags),
-            ::core::mem::transmute(modifyfields),
-            ::core::mem::transmute(options),
-        ))
+        ::core::mem::transmute(DsReplicaModifyW(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8060,8 +7547,7 @@ pub struct IADs_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -8214,8 +7700,7 @@ pub struct IADsADSystemInfo_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -8361,8 +7846,7 @@ pub struct IADsAccessControlEntry_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnaccessmask: i32) -> ::windows::core::HRESULT,
@@ -8480,8 +7964,7 @@ pub struct IADsAccessControlList_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnaclrevision: i32) -> ::windows::core::HRESULT,
@@ -8589,8 +8072,7 @@ pub struct IADsAcl_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -8781,8 +8263,7 @@ pub struct IADsBackLink_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnremoteid: i32) -> ::windows::core::HRESULT,
@@ -8864,8 +8345,7 @@ pub struct IADsCaseIgnoreList_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -8891,18 +8371,7 @@ impl IADsClass {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -9169,8 +8638,7 @@ pub struct IADsClass_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -9329,8 +8797,7 @@ pub struct IADsCollection_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vitem: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
@@ -9359,18 +8826,7 @@ impl IADsComputer {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -9655,8 +9111,7 @@ pub struct IADsComputer_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -9766,18 +9221,7 @@ impl IADsComputerOperations {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -9925,8 +9369,7 @@ pub struct IADsComputerOperations_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10070,8 +9513,7 @@ pub struct IADsContainer_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10176,8 +9618,7 @@ pub struct IADsDNWithBinary_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -10270,8 +9711,7 @@ pub struct IADsDNWithString_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10349,8 +9789,7 @@ pub struct IADsDeleteOps_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnflags: i32) -> ::windows::core::HRESULT,
 );
@@ -10373,18 +9812,7 @@ impl IADsDomain {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -10584,8 +10012,7 @@ pub struct IADsDomain_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10709,8 +10136,7 @@ pub struct IADsEmail_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lntype: i32) -> ::windows::core::HRESULT,
@@ -10733,18 +10159,7 @@ impl IADsExtension {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IADsExtension {
@@ -10780,8 +10195,7 @@ pub struct IADsExtension_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwcode: u32, vardata1: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, vardata2: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, vardata3: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
@@ -10866,8 +10280,7 @@ pub struct IADsFaxNumber_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10897,18 +10310,7 @@ impl IADsFileService {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -11186,8 +10588,7 @@ pub struct IADsFileService_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -11281,18 +10682,7 @@ impl IADsFileServiceOperations {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -11480,8 +10870,7 @@ pub struct IADsFileServiceOperations_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -11536,18 +10925,7 @@ impl IADsFileShare {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -11725,8 +11103,7 @@ pub struct IADsFileShare_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -11787,18 +11164,7 @@ impl IADsGroup {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -11964,8 +11330,7 @@ pub struct IADsGroup_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12083,8 +11448,7 @@ pub struct IADsHold_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12171,8 +11535,7 @@ pub struct IADsLargeInteger_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnhighpart: i32) -> ::windows::core::HRESULT,
@@ -12198,18 +11561,7 @@ impl IADsLocality {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -12385,8 +11737,7 @@ pub struct IADsLocality_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12510,8 +11861,7 @@ pub struct IADsMembers_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12613,8 +11963,7 @@ pub struct IADsNameTranslate_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnchasereferral: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnsettype: i32, bstradspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -12649,18 +11998,7 @@ impl IADsNamespaces {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -12809,8 +12147,7 @@ pub struct IADsNamespaces_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -12921,8 +12258,7 @@ pub struct IADsNetAddress_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnaddresstype: i32) -> ::windows::core::HRESULT,
@@ -12950,18 +12286,7 @@ impl IADsO {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -13155,8 +12480,7 @@ pub struct IADsO_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13226,18 +12550,7 @@ impl IADsOU {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -13440,8 +12753,7 @@ pub struct IADsOU_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13569,8 +12881,7 @@ pub struct IADsObjectOptions_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnoption: i32, pvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -13650,8 +12961,7 @@ pub struct IADsOctetList_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -13727,8 +13037,7 @@ pub struct IADsOpenDSObject_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpszdnname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpszusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpszpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lnreserved: i32, ppoledsobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
@@ -13822,8 +13131,7 @@ pub struct IADsPath_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lntype: i32) -> ::windows::core::HRESULT,
@@ -13945,8 +13253,7 @@ pub struct IADsPathname_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstradspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lnsettype: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -14039,8 +13346,7 @@ pub struct IADsPostalAddress_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -14066,18 +13372,7 @@ impl IADsPrintJob {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -14292,8 +13587,7 @@ pub struct IADsPrintJob_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -14366,18 +13660,7 @@ impl IADsPrintJobOperations {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -14542,8 +13825,7 @@ pub struct IADsPrintJobOperations_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -14596,18 +13878,7 @@ impl IADsPrintQueue {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -14856,8 +14127,7 @@ pub struct IADsPrintQueue_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -14947,18 +14217,7 @@ impl IADsPrintQueueOperations {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -15115,8 +14374,7 @@ pub struct IADsPrintQueueOperations_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -15167,18 +14425,7 @@ impl IADsProperty {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -15361,8 +14608,7 @@ pub struct IADsProperty_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -15503,8 +14749,7 @@ pub struct IADsPropertyEntry_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -15620,8 +14865,7 @@ pub struct IADsPropertyList_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
@@ -15805,8 +15049,7 @@ pub struct IADsPropertyValue_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -15922,8 +15165,7 @@ pub struct IADsPropertyValue2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnadstype: *mut i32, pvprop: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -16033,8 +15275,7 @@ pub struct IADsReplicaPointer_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -16070,18 +15311,7 @@ impl IADsResource {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -16240,8 +15470,7 @@ pub struct IADsResource_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -16422,8 +15651,7 @@ pub struct IADsSecurityDescriptor_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnrevision: i32) -> ::windows::core::HRESULT,
@@ -16541,8 +15769,7 @@ pub struct IADsSecurityUtility_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, varpath: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, lpathformat: i32, lformat: i32, pvariant: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -16572,18 +15799,7 @@ impl IADsService {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -16825,8 +16041,7 @@ pub struct IADsService_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -16914,18 +16129,7 @@ impl IADsServiceOperations {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -17085,8 +16289,7 @@ pub struct IADsServiceOperations_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17139,18 +16342,7 @@ impl IADsSession {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -17318,8 +16510,7 @@ pub struct IADsSession_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17375,18 +16566,7 @@ impl IADsSyntax {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -17533,8 +16713,7 @@ pub struct IADsSyntax_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17641,8 +16820,7 @@ pub struct IADsTimestamp_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnwholeseconds: i32) -> ::windows::core::HRESULT,
@@ -17736,8 +16914,7 @@ pub struct IADsTypedName_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -17767,18 +16944,7 @@ impl IADsUser {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -18302,8 +17468,7 @@ pub struct IADsUser_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -18568,8 +17733,7 @@ pub struct IADsWinNTSystemInfo_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -18968,7 +18132,7 @@ impl IDsAdminNewObjExt {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi(), pdsadminnewobj.into_param().abi(), ::core::mem::transmute(pdispinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lpfnaddpage: ::core::option::Option<super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpfnaddpage), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SetObject<'a, Param0: ::windows::core::IntoParam<'a, IADs>>(&self, padsobj: Param0) -> ::windows::core::Result<()> {
@@ -19235,7 +18399,7 @@ impl IDsDisplaySpecifier {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(ppdscci)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumClassAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pszobjectclass: Param0, pcbenum: ::core::option::Option<LPDSENUMATTRIBUTES>, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumClassAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pszobjectclass: Param0, pcbenum: LPDSENUMATTRIBUTES, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(pcbenum), lparam.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -19546,18 +18710,7 @@ impl IPrivateDispatch {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IPrivateDispatch {
@@ -19595,8 +18748,7 @@ pub struct IPrivateDispatch_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
@@ -19654,11 +18806,11 @@ impl IQueryForm {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hkform.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn AddForms<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddformsproc: ::core::option::Option<LPCQADDFORMSPROC>, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddForms<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddformsproc: LPCQADDFORMSPROC, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(paddformsproc), lparam.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddpagesproc: ::core::option::Option<LPCQADDPAGESPROC>, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddpagesproc: LPCQADDPAGESPROC, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(paddpagesproc), lparam.into_param().abi()).ok()
     }
 }
@@ -19700,13 +18852,13 @@ pub struct IQueryForm_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQADDFORMSPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::core::HRESULT;
+pub type LPCQADDFORMSPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQADDPAGESPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::core::GUID, ppage: *mut ::core::mem::ManuallyDrop<CQPAGE>) -> ::windows::core::HRESULT;
+pub type LPCQADDPAGESPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::core::GUID, ppage: *mut CQPAGE) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut ::core::mem::ManuallyDrop<CQPAGE>, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
+pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
+pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT>;
 pub const LargeInteger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
@@ -19956,15 +19108,7 @@ pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
 pub const SecurityDescriptor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    vvarsecdes: Param0,
-    ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-    pdwsdlength: *mut u32,
-    pszservername: Param3,
-    username: Param4,
-    password: Param5,
-    dwflags: u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vvarsecdes: Param0, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: Param3, username: Param4, password: Param5, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

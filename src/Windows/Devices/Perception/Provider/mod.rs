@@ -1286,11 +1286,7 @@ unsafe impl ::core::marker::Sync for PerceptionPropertyChangeRequest {}
 pub struct PerceptionStartFaceAuthenticationHandler(::windows::core::IUnknown);
 impl PerceptionStartFaceAuthenticationHandler {
     pub fn new<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + 'static>(invoke: F) -> Self {
-        let com = PerceptionStartFaceAuthenticationHandler_box::<F> {
-            vtable: &PerceptionStartFaceAuthenticationHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = PerceptionStartFaceAuthenticationHandler_box::<F> { vtable: &PerceptionStartFaceAuthenticationHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, PerceptionFaceAuthenticationGroup>>(&self, sender: Param0) -> ::windows::core::Result<bool> {
@@ -1310,12 +1306,7 @@ unsafe impl ::windows::core::Interface for PerceptionStartFaceAuthenticationHand
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct PerceptionStartFaceAuthenticationHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct PerceptionStartFaceAuthenticationHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct PerceptionStartFaceAuthenticationHandler_box<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<bool> + 'static> {
     vtable: *const PerceptionStartFaceAuthenticationHandler_abi,
@@ -1326,13 +1317,9 @@ impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::w
     const VTABLE: PerceptionStartFaceAuthenticationHandler_abi = PerceptionStartFaceAuthenticationHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<PerceptionStartFaceAuthenticationHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<PerceptionStartFaceAuthenticationHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1367,11 +1354,7 @@ impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::w
 pub struct PerceptionStopFaceAuthenticationHandler(::windows::core::IUnknown);
 impl PerceptionStopFaceAuthenticationHandler {
     pub fn new<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = PerceptionStopFaceAuthenticationHandler_box::<F> {
-            vtable: &PerceptionStopFaceAuthenticationHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = PerceptionStopFaceAuthenticationHandler_box::<F> { vtable: &PerceptionStopFaceAuthenticationHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, PerceptionFaceAuthenticationGroup>>(&self, sender: Param0) -> ::windows::core::Result<()> {
@@ -1388,12 +1371,7 @@ unsafe impl ::windows::core::Interface for PerceptionStopFaceAuthenticationHandl
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct PerceptionStopFaceAuthenticationHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct PerceptionStopFaceAuthenticationHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct PerceptionStopFaceAuthenticationHandler_box<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const PerceptionStopFaceAuthenticationHandler_abi,
@@ -1404,13 +1382,9 @@ impl<F: FnMut(&::core::option::Option<PerceptionFaceAuthenticationGroup>) -> ::w
     const VTABLE: PerceptionStopFaceAuthenticationHandler_abi = PerceptionStopFaceAuthenticationHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<PerceptionStopFaceAuthenticationHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<PerceptionStopFaceAuthenticationHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)

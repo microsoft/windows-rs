@@ -1317,18 +1317,8 @@ pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = 1i32;
 pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = 2i32;
 pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = 4i32;
 pub const PEER_GROUP_ROLE_ADMIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 70807847, data2: 43606, data3: 17674, data4: [140, 229, 79, 86, 92, 103, 144, 244] };
-pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1131478409,
-    data2: 56344,
-    data3: 19707,
-    data4: [141, 191, 152, 83, 168, 169, 249, 5],
-};
-pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4046308551,
-    data2: 2135,
-    data3: 19616,
-    data4: [147, 252, 177, 187, 25, 163, 216, 194],
-};
+pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1131478409, data2: 56344, data3: 19707, data4: [141, 191, 152, 83, 168, 169, 249, 5] };
+pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4046308551, data2: 2135, data3: 19616, data4: [147, 252, 177, 187, 25, 163, 216, 194] };
 pub type PEER_GROUP_STATUS = i32;
 pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = 1i32;
 pub const PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = 2i32;

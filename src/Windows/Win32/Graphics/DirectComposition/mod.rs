@@ -229,13 +229,7 @@ impl ::core::default::Default for DCOMPOSITION_FRAME_STATISTICS {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for DCOMPOSITION_FRAME_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DCOMPOSITION_FRAME_STATISTICS")
-            .field("lastFrameTime", &self.lastFrameTime)
-            .field("currentCompositionRate", &self.currentCompositionRate)
-            .field("currentTime", &self.currentTime)
-            .field("timeFrequency", &self.timeFrequency)
-            .field("nextEstimatedFrameTime", &self.nextEstimatedFrameTime)
-            .finish()
+        fmt.debug_struct("DCOMPOSITION_FRAME_STATISTICS").field("lastFrameTime", &self.lastFrameTime).field("currentCompositionRate", &self.currentCompositionRate).field("currentTime", &self.currentTime).field("timeFrequency", &self.timeFrequency).field("nextEstimatedFrameTime", &self.nextEstimatedFrameTime).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1997,13 +1991,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCom
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDCompositionDeviceDebug_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDCompositionDeviceDebug_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionEffect(pub ::windows::core::IUnknown);
@@ -2157,12 +2145,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionF
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDCompositionFilterEffect_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, input: ::windows::core::RawPtr, flags: u32) -> ::windows::core::HRESULT,
-);
+pub struct IDCompositionFilterEffect_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, input: ::windows::core::RawPtr, flags: u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionGaussianBlurEffect(pub ::windows::core::IUnknown);
@@ -4065,12 +4048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCom
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDCompositionTarget_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDCompositionTarget_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDCompositionTransform(pub ::windows::core::IUnknown);

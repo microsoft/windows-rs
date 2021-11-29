@@ -780,11 +780,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn CreateWithEncodingOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>>(
-        encoderid: Param0,
-        stream: Param1,
-        encodingoptions: Param2,
-    ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>> {
+    pub fn CreateWithEncodingOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>>(encoderid: Param0, stream: Param1, encodingoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), encoderid.into_param().abi(), stream.into_param().abi(), encodingoptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BitmapEncoder>>(result__)

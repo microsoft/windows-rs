@@ -412,16 +412,7 @@ pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::N
         extern "system" {
             fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
-        CreateSortedAddressPairs(
-            ::core::mem::transmute(sourceaddresslist),
-            ::core::mem::transmute(sourceaddresscount),
-            ::core::mem::transmute(destinationaddresslist),
-            ::core::mem::transmute(destinationaddresscount),
-            ::core::mem::transmute(addresssortoptions),
-            ::core::mem::transmute(sortedaddresspairlist),
-            ::core::mem::transmute(sortedaddresspaircount),
-        )
-        .ok()
+        CreateSortedAddressPairs(::core::mem::transmute(sourceaddresslist), ::core::mem::transmute(sourceaddresscount), ::core::mem::transmute(destinationaddresslist), ::core::mem::transmute(destinationaddresscount), ::core::mem::transmute(addresssortoptions), ::core::mem::transmute(sortedaddresspairlist), ::core::mem::transmute(sortedaddresspaircount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -512,18 +503,7 @@ impl ::core::default::Default for DNS_INTERFACE_SETTINGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_INTERFACE_SETTINGS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_INTERFACE_SETTINGS")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Domain", &self.Domain)
-            .field("NameServer", &self.NameServer)
-            .field("SearchList", &self.SearchList)
-            .field("RegistrationEnabled", &self.RegistrationEnabled)
-            .field("RegisterAdapterName", &self.RegisterAdapterName)
-            .field("EnableLLMNR", &self.EnableLLMNR)
-            .field("QueryAdapterName", &self.QueryAdapterName)
-            .field("ProfileNameServer", &self.ProfileNameServer)
-            .finish()
+        fmt.debug_struct("DNS_INTERFACE_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Domain", &self.Domain).field("NameServer", &self.NameServer).field("SearchList", &self.SearchList).field("RegistrationEnabled", &self.RegistrationEnabled).field("RegisterAdapterName", &self.RegisterAdapterName).field("EnableLLMNR", &self.EnableLLMNR).field("QueryAdapterName", &self.QueryAdapterName).field("ProfileNameServer", &self.ProfileNameServer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1004,17 +984,7 @@ impl ::core::default::Default for FIXED_INFO_W2KSP1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FIXED_INFO_W2KSP1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FIXED_INFO_W2KSP1")
-            .field("HostName", &self.HostName)
-            .field("DomainName", &self.DomainName)
-            .field("CurrentDnsServer", &self.CurrentDnsServer)
-            .field("DnsServerList", &self.DnsServerList)
-            .field("NodeType", &self.NodeType)
-            .field("ScopeId", &self.ScopeId)
-            .field("EnableRouting", &self.EnableRouting)
-            .field("EnableProxy", &self.EnableProxy)
-            .field("EnableDns", &self.EnableDns)
-            .finish()
+        fmt.debug_struct("FIXED_INFO_W2KSP1").field("HostName", &self.HostName).field("DomainName", &self.DomainName).field("CurrentDnsServer", &self.CurrentDnsServer).field("DnsServerList", &self.DnsServerList).field("NodeType", &self.NodeType).field("ScopeId", &self.ScopeId).field("EnableRouting", &self.EnableRouting).field("EnableProxy", &self.EnableProxy).field("EnableDns", &self.EnableDns).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2007,19 +1977,7 @@ pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TC
         extern "system" {
             fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetPerTcp6ConnectionEStats(
-            ::core::mem::transmute(row),
-            ::core::mem::transmute(estatstype),
-            ::core::mem::transmute(rw),
-            ::core::mem::transmute(rwversion),
-            ::core::mem::transmute(rwsize),
-            ::core::mem::transmute(ros),
-            ::core::mem::transmute(rosversion),
-            ::core::mem::transmute(rossize),
-            ::core::mem::transmute(rod),
-            ::core::mem::transmute(rodversion),
-            ::core::mem::transmute(rodsize),
-        ))
+        ::core::mem::transmute(GetPerTcp6ConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(ros), ::core::mem::transmute(rosversion), ::core::mem::transmute(rossize), ::core::mem::transmute(rod), ::core::mem::transmute(rodversion), ::core::mem::transmute(rodsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2032,19 +1990,7 @@ pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
         extern "system" {
             fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetPerTcpConnectionEStats(
-            ::core::mem::transmute(row),
-            ::core::mem::transmute(estatstype),
-            ::core::mem::transmute(rw),
-            ::core::mem::transmute(rwversion),
-            ::core::mem::transmute(rwsize),
-            ::core::mem::transmute(ros),
-            ::core::mem::transmute(rosversion),
-            ::core::mem::transmute(rossize),
-            ::core::mem::transmute(rod),
-            ::core::mem::transmute(rodversion),
-            ::core::mem::transmute(rodsize),
-        ))
+        ::core::mem::transmute(GetPerTcpConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(ros), ::core::mem::transmute(rosversion), ::core::mem::transmute(rossize), ::core::mem::transmute(rod), ::core::mem::transmute(rodversion), ::core::mem::transmute(rodsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2820,12 +2766,7 @@ impl ::core::default::Default for INTERFACE_TIMESTAMP_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERFACE_TIMESTAMP_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERFACE_TIMESTAMP_CAPABILITIES")
-            .field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz)
-            .field("SupportsCrossTimestamp", &self.SupportsCrossTimestamp)
-            .field("HardwareCapabilities", &self.HardwareCapabilities)
-            .field("SoftwareCapabilities", &self.SoftwareCapabilities)
-            .finish()
+        fmt.debug_struct("INTERFACE_TIMESTAMP_CAPABILITIES").field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("SupportsCrossTimestamp", &self.SupportsCrossTimestamp).field("HardwareCapabilities", &self.HardwareCapabilities).field("SoftwareCapabilities", &self.SoftwareCapabilities).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3553,24 +3494,7 @@ impl ::core::fmt::Debug for IP_ADAPTER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IP_ADAPTER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next
-            && self.ComboIndex == other.ComboIndex
-            && self.AdapterName == other.AdapterName
-            && self.Description == other.Description
-            && self.AddressLength == other.AddressLength
-            && self.Address == other.Address
-            && self.Index == other.Index
-            && self.Type == other.Type
-            && self.DhcpEnabled == other.DhcpEnabled
-            && self.CurrentIpAddress == other.CurrentIpAddress
-            && self.IpAddressList == other.IpAddressList
-            && self.GatewayList == other.GatewayList
-            && self.DhcpServer == other.DhcpServer
-            && self.HaveWins == other.HaveWins
-            && self.PrimaryWinsServer == other.PrimaryWinsServer
-            && self.SecondaryWinsServer == other.SecondaryWinsServer
-            && self.LeaseObtained == other.LeaseObtained
-            && self.LeaseExpires == other.LeaseExpires
+        self.Next == other.Next && self.ComboIndex == other.ComboIndex && self.AdapterName == other.AdapterName && self.Description == other.Description && self.AddressLength == other.AddressLength && self.Address == other.Address && self.Index == other.Index && self.Type == other.Type && self.DhcpEnabled == other.DhcpEnabled && self.CurrentIpAddress == other.CurrentIpAddress && self.IpAddressList == other.IpAddressList && self.GatewayList == other.GatewayList && self.DhcpServer == other.DhcpServer && self.HaveWins == other.HaveWins && self.PrimaryWinsServer == other.PrimaryWinsServer && self.SecondaryWinsServer == other.SecondaryWinsServer && self.LeaseObtained == other.LeaseObtained && self.LeaseExpires == other.LeaseExpires
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4387,41 +4311,14 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn Icmp6SendEcho2<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    icmphandle: Param0,
-    event: Param1,
-    apcroutine: ::core::option::Option<super::super::System::WindowsProgramming::PIO_APC_ROUTINE>,
-    apccontext: *const ::core::ffi::c_void,
-    sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-    destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-    requestdata: *const ::core::ffi::c_void,
-    requestsize: u16,
-    requestoptions: *const ip_option_information,
-    replybuffer: *mut ::core::ffi::c_void,
-    replysize: u32,
-    timeout: u32,
-) -> u32 {
+pub unsafe fn Icmp6SendEcho2<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(icmphandle: Param0, event: Param1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::core::RawPtr, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32)
-                -> u32;
+            fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::core::RawPtr, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
-        ::core::mem::transmute(Icmp6SendEcho2(
-            icmphandle.into_param().abi(),
-            event.into_param().abi(),
-            ::core::mem::transmute(apcroutine),
-            ::core::mem::transmute(apccontext),
-            ::core::mem::transmute(sourceaddress),
-            ::core::mem::transmute(destinationaddress),
-            ::core::mem::transmute(requestdata),
-            ::core::mem::transmute(requestsize),
-            ::core::mem::transmute(requestoptions),
-            ::core::mem::transmute(replybuffer),
-            ::core::mem::transmute(replysize),
-            ::core::mem::transmute(timeout),
-        ))
+        ::core::mem::transmute(Icmp6SendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4486,94 +4383,35 @@ pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle
         extern "system" {
             fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
-        ::core::mem::transmute(IcmpSendEcho(
-            icmphandle.into_param().abi(),
-            ::core::mem::transmute(destinationaddress),
-            ::core::mem::transmute(requestdata),
-            ::core::mem::transmute(requestsize),
-            ::core::mem::transmute(requestoptions),
-            ::core::mem::transmute(replybuffer),
-            ::core::mem::transmute(replysize),
-            ::core::mem::transmute(timeout),
-        ))
+        ::core::mem::transmute(IcmpSendEcho(icmphandle.into_param().abi(), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    icmphandle: Param0,
-    event: Param1,
-    apcroutine: ::core::option::Option<super::super::System::WindowsProgramming::PIO_APC_ROUTINE>,
-    apccontext: *const ::core::ffi::c_void,
-    destinationaddress: u32,
-    requestdata: *const ::core::ffi::c_void,
-    requestsize: u16,
-    requestoptions: *const ip_option_information,
-    replybuffer: *mut ::core::ffi::c_void,
-    replysize: u32,
-    timeout: u32,
-) -> u32 {
+pub unsafe fn IcmpSendEcho2<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(icmphandle: Param0, event: Param1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::core::RawPtr, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
-        ::core::mem::transmute(IcmpSendEcho2(
-            icmphandle.into_param().abi(),
-            event.into_param().abi(),
-            ::core::mem::transmute(apcroutine),
-            ::core::mem::transmute(apccontext),
-            ::core::mem::transmute(destinationaddress),
-            ::core::mem::transmute(requestdata),
-            ::core::mem::transmute(requestsize),
-            ::core::mem::transmute(requestoptions),
-            ::core::mem::transmute(replybuffer),
-            ::core::mem::transmute(replysize),
-            ::core::mem::transmute(timeout),
-        ))
+        ::core::mem::transmute(IcmpSendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2Ex<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    icmphandle: Param0,
-    event: Param1,
-    apcroutine: ::core::option::Option<super::super::System::WindowsProgramming::PIO_APC_ROUTINE>,
-    apccontext: *const ::core::ffi::c_void,
-    sourceaddress: u32,
-    destinationaddress: u32,
-    requestdata: *const ::core::ffi::c_void,
-    requestsize: u16,
-    requestoptions: *const ip_option_information,
-    replybuffer: *mut ::core::ffi::c_void,
-    replysize: u32,
-    timeout: u32,
-) -> u32 {
+pub unsafe fn IcmpSendEcho2Ex<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(icmphandle: Param0, event: Param1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::core::RawPtr, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
-        ::core::mem::transmute(IcmpSendEcho2Ex(
-            icmphandle.into_param().abi(),
-            event.into_param().abi(),
-            ::core::mem::transmute(apcroutine),
-            ::core::mem::transmute(apccontext),
-            ::core::mem::transmute(sourceaddress),
-            ::core::mem::transmute(destinationaddress),
-            ::core::mem::transmute(requestdata),
-            ::core::mem::transmute(requestsize),
-            ::core::mem::transmute(requestoptions),
-            ::core::mem::transmute(replybuffer),
-            ::core::mem::transmute(replysize),
-            ::core::mem::transmute(timeout),
-        ))
+        ::core::mem::transmute(IcmpSendEcho2Ex(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4772,19 +4610,7 @@ impl ::core::fmt::Debug for MIBICMPSTATS {
 }
 impl ::core::cmp::PartialEq for MIBICMPSTATS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMsgs == other.dwMsgs
-            && self.dwErrors == other.dwErrors
-            && self.dwDestUnreachs == other.dwDestUnreachs
-            && self.dwTimeExcds == other.dwTimeExcds
-            && self.dwParmProbs == other.dwParmProbs
-            && self.dwSrcQuenchs == other.dwSrcQuenchs
-            && self.dwRedirects == other.dwRedirects
-            && self.dwEchos == other.dwEchos
-            && self.dwEchoReps == other.dwEchoReps
-            && self.dwTimestamps == other.dwTimestamps
-            && self.dwTimestampReps == other.dwTimestampReps
-            && self.dwAddrMasks == other.dwAddrMasks
-            && self.dwAddrMaskReps == other.dwAddrMaskReps
+        self.dwMsgs == other.dwMsgs && self.dwErrors == other.dwErrors && self.dwDestUnreachs == other.dwDestUnreachs && self.dwTimeExcds == other.dwTimeExcds && self.dwParmProbs == other.dwParmProbs && self.dwSrcQuenchs == other.dwSrcQuenchs && self.dwRedirects == other.dwRedirects && self.dwEchos == other.dwEchos && self.dwEchoReps == other.dwEchoReps && self.dwTimestamps == other.dwTimestamps && self.dwTimestampReps == other.dwTimestampReps && self.dwAddrMasks == other.dwAddrMasks && self.dwAddrMaskReps == other.dwAddrMaskReps
     }
 }
 impl ::core::cmp::Eq for MIBICMPSTATS {}
@@ -6075,22 +5901,7 @@ impl ::core::fmt::Debug for MIB_IPMCAST_MFE {
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_MFE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwGroup == other.dwGroup
-            && self.dwSource == other.dwSource
-            && self.dwSrcMask == other.dwSrcMask
-            && self.dwUpStrmNgbr == other.dwUpStrmNgbr
-            && self.dwInIfIndex == other.dwInIfIndex
-            && self.dwInIfProtocol == other.dwInIfProtocol
-            && self.dwRouteProtocol == other.dwRouteProtocol
-            && self.dwRouteNetwork == other.dwRouteNetwork
-            && self.dwRouteMask == other.dwRouteMask
-            && self.ulUpTime == other.ulUpTime
-            && self.ulExpiryTime == other.ulExpiryTime
-            && self.ulTimeOut == other.ulTimeOut
-            && self.ulNumOutIf == other.ulNumOutIf
-            && self.fFlags == other.fFlags
-            && self.dwReserved == other.dwReserved
-            && self.rgmioOutInfo == other.rgmioOutInfo
+        self.dwGroup == other.dwGroup && self.dwSource == other.dwSource && self.dwSrcMask == other.dwSrcMask && self.dwUpStrmNgbr == other.dwUpStrmNgbr && self.dwInIfIndex == other.dwInIfIndex && self.dwInIfProtocol == other.dwInIfProtocol && self.dwRouteProtocol == other.dwRouteProtocol && self.dwRouteNetwork == other.dwRouteNetwork && self.dwRouteMask == other.dwRouteMask && self.ulUpTime == other.ulUpTime && self.ulExpiryTime == other.ulExpiryTime && self.ulTimeOut == other.ulTimeOut && self.ulNumOutIf == other.ulNumOutIf && self.fFlags == other.fFlags && self.dwReserved == other.dwReserved && self.rgmioOutInfo == other.rgmioOutInfo
     }
 }
 impl ::core::cmp::Eq for MIB_IPMCAST_MFE {}
@@ -6149,23 +5960,7 @@ impl ::core::fmt::Debug for MIB_IPMCAST_MFE_STATS {
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_MFE_STATS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwGroup == other.dwGroup
-            && self.dwSource == other.dwSource
-            && self.dwSrcMask == other.dwSrcMask
-            && self.dwUpStrmNgbr == other.dwUpStrmNgbr
-            && self.dwInIfIndex == other.dwInIfIndex
-            && self.dwInIfProtocol == other.dwInIfProtocol
-            && self.dwRouteProtocol == other.dwRouteProtocol
-            && self.dwRouteNetwork == other.dwRouteNetwork
-            && self.dwRouteMask == other.dwRouteMask
-            && self.ulUpTime == other.ulUpTime
-            && self.ulExpiryTime == other.ulExpiryTime
-            && self.ulNumOutIf == other.ulNumOutIf
-            && self.ulInPkts == other.ulInPkts
-            && self.ulInOctets == other.ulInOctets
-            && self.ulPktsDifferentIf == other.ulPktsDifferentIf
-            && self.ulQueueOverflow == other.ulQueueOverflow
-            && self.rgmiosOutStats == other.rgmiosOutStats
+        self.dwGroup == other.dwGroup && self.dwSource == other.dwSource && self.dwSrcMask == other.dwSrcMask && self.dwUpStrmNgbr == other.dwUpStrmNgbr && self.dwInIfIndex == other.dwInIfIndex && self.dwInIfProtocol == other.dwInIfProtocol && self.dwRouteProtocol == other.dwRouteProtocol && self.dwRouteNetwork == other.dwRouteNetwork && self.dwRouteMask == other.dwRouteMask && self.ulUpTime == other.ulUpTime && self.ulExpiryTime == other.ulExpiryTime && self.ulNumOutIf == other.ulNumOutIf && self.ulInPkts == other.ulInPkts && self.ulInOctets == other.ulInOctets && self.ulPktsDifferentIf == other.ulPktsDifferentIf && self.ulQueueOverflow == other.ulQueueOverflow && self.rgmiosOutStats == other.rgmiosOutStats
     }
 }
 impl ::core::cmp::Eq for MIB_IPMCAST_MFE_STATS {}
@@ -6281,15 +6076,7 @@ impl ::core::default::Default for MIB_IPMCAST_OIF_STATS_LH {
 }
 impl ::core::fmt::Debug for MIB_IPMCAST_OIF_STATS_LH {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_OIF_STATS_LH")
-            .field("dwOutIfIndex", &self.dwOutIfIndex)
-            .field("dwNextHopAddr", &self.dwNextHopAddr)
-            .field("dwDialContext", &self.dwDialContext)
-            .field("ulTtlTooLow", &self.ulTtlTooLow)
-            .field("ulFragNeeded", &self.ulFragNeeded)
-            .field("ulOutPackets", &self.ulOutPackets)
-            .field("ulOutDiscards", &self.ulOutDiscards)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_OIF_STATS_LH").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwDialContext", &self.dwDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
     }
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_OIF_STATS_LH {
@@ -6320,15 +6107,7 @@ impl ::core::default::Default for MIB_IPMCAST_OIF_STATS_W2K {
 }
 impl ::core::fmt::Debug for MIB_IPMCAST_OIF_STATS_W2K {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_OIF_STATS_W2K")
-            .field("dwOutIfIndex", &self.dwOutIfIndex)
-            .field("dwNextHopAddr", &self.dwNextHopAddr)
-            .field("pvDialContext", &self.pvDialContext)
-            .field("ulTtlTooLow", &self.ulTtlTooLow)
-            .field("ulFragNeeded", &self.ulFragNeeded)
-            .field("ulOutPackets", &self.ulOutPackets)
-            .field("ulOutDiscards", &self.ulOutDiscards)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_OIF_STATS_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvDialContext", &self.pvDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
     }
 }
 impl ::core::cmp::PartialEq for MIB_IPMCAST_OIF_STATS_W2K {
@@ -7407,16 +7186,7 @@ impl ::core::default::Default for MIB_TCP6ROW_OWNER_PID {
 }
 impl ::core::fmt::Debug for MIB_TCP6ROW_OWNER_PID {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIB_TCP6ROW_OWNER_PID")
-            .field("ucLocalAddr", &self.ucLocalAddr)
-            .field("dwLocalScopeId", &self.dwLocalScopeId)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("ucRemoteAddr", &self.ucRemoteAddr)
-            .field("dwRemoteScopeId", &self.dwRemoteScopeId)
-            .field("dwRemotePort", &self.dwRemotePort)
-            .field("dwState", &self.dwState)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .finish()
+        fmt.debug_struct("MIB_TCP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("ucRemoteAddr", &self.ucRemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).field("dwState", &self.dwState).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
 impl ::core::cmp::PartialEq for MIB_TCP6ROW_OWNER_PID {
@@ -7553,15 +7323,7 @@ impl ::core::default::Default for MIB_TCPROW2 {
 }
 impl ::core::fmt::Debug for MIB_TCPROW2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIB_TCPROW2")
-            .field("dwState", &self.dwState)
-            .field("dwLocalAddr", &self.dwLocalAddr)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("dwRemoteAddr", &self.dwRemoteAddr)
-            .field("dwRemotePort", &self.dwRemotePort)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .field("dwOffloadState", &self.dwOffloadState)
-            .finish()
+        fmt.debug_struct("MIB_TCPROW2").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("dwOffloadState", &self.dwOffloadState).finish()
     }
 }
 impl ::core::cmp::PartialEq for MIB_TCPROW2 {
@@ -7638,16 +7400,7 @@ impl ::core::default::Default for MIB_TCPROW_OWNER_MODULE {
 }
 impl ::core::fmt::Debug for MIB_TCPROW_OWNER_MODULE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIB_TCPROW_OWNER_MODULE")
-            .field("dwState", &self.dwState)
-            .field("dwLocalAddr", &self.dwLocalAddr)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("dwRemoteAddr", &self.dwRemoteAddr)
-            .field("dwRemotePort", &self.dwRemotePort)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .field("liCreateTimestamp", &self.liCreateTimestamp)
-            .field("OwningModuleInfo", &self.OwningModuleInfo)
-            .finish()
+        fmt.debug_struct("MIB_TCPROW_OWNER_MODULE").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("OwningModuleInfo", &self.OwningModuleInfo).finish()
     }
 }
 impl ::core::cmp::PartialEq for MIB_TCPROW_OWNER_MODULE {
@@ -7766,21 +7519,7 @@ impl ::core::fmt::Debug for MIB_TCPSTATS2 {
 }
 impl ::core::cmp::PartialEq for MIB_TCPSTATS2 {
     fn eq(&self, other: &Self) -> bool {
-        self.RtoAlgorithm == other.RtoAlgorithm
-            && self.dwRtoMin == other.dwRtoMin
-            && self.dwRtoMax == other.dwRtoMax
-            && self.dwMaxConn == other.dwMaxConn
-            && self.dwActiveOpens == other.dwActiveOpens
-            && self.dwPassiveOpens == other.dwPassiveOpens
-            && self.dwAttemptFails == other.dwAttemptFails
-            && self.dwEstabResets == other.dwEstabResets
-            && self.dwCurrEstab == other.dwCurrEstab
-            && self.dw64InSegs == other.dw64InSegs
-            && self.dw64OutSegs == other.dw64OutSegs
-            && self.dwRetransSegs == other.dwRetransSegs
-            && self.dwInErrs == other.dwInErrs
-            && self.dwOutRsts == other.dwOutRsts
-            && self.dwNumConns == other.dwNumConns
+        self.RtoAlgorithm == other.RtoAlgorithm && self.dwRtoMin == other.dwRtoMin && self.dwRtoMax == other.dwRtoMax && self.dwMaxConn == other.dwMaxConn && self.dwActiveOpens == other.dwActiveOpens && self.dwPassiveOpens == other.dwPassiveOpens && self.dwAttemptFails == other.dwAttemptFails && self.dwEstabResets == other.dwEstabResets && self.dwCurrEstab == other.dwCurrEstab && self.dw64InSegs == other.dw64InSegs && self.dw64OutSegs == other.dw64OutSegs && self.dwRetransSegs == other.dwRetransSegs && self.dwInErrs == other.dwInErrs && self.dwOutRsts == other.dwOutRsts && self.dwNumConns == other.dwNumConns
     }
 }
 impl ::core::cmp::Eq for MIB_TCPSTATS2 {}
@@ -7890,21 +7629,7 @@ impl ::core::fmt::Debug for MIB_TCPSTATS_W2K {
 }
 impl ::core::cmp::PartialEq for MIB_TCPSTATS_W2K {
     fn eq(&self, other: &Self) -> bool {
-        self.dwRtoAlgorithm == other.dwRtoAlgorithm
-            && self.dwRtoMin == other.dwRtoMin
-            && self.dwRtoMax == other.dwRtoMax
-            && self.dwMaxConn == other.dwMaxConn
-            && self.dwActiveOpens == other.dwActiveOpens
-            && self.dwPassiveOpens == other.dwPassiveOpens
-            && self.dwAttemptFails == other.dwAttemptFails
-            && self.dwEstabResets == other.dwEstabResets
-            && self.dwCurrEstab == other.dwCurrEstab
-            && self.dwInSegs == other.dwInSegs
-            && self.dwOutSegs == other.dwOutSegs
-            && self.dwRetransSegs == other.dwRetransSegs
-            && self.dwInErrs == other.dwInErrs
-            && self.dwOutRsts == other.dwOutRsts
-            && self.dwNumConns == other.dwNumConns
+        self.dwRtoAlgorithm == other.dwRtoAlgorithm && self.dwRtoMin == other.dwRtoMin && self.dwRtoMax == other.dwRtoMax && self.dwMaxConn == other.dwMaxConn && self.dwActiveOpens == other.dwActiveOpens && self.dwPassiveOpens == other.dwPassiveOpens && self.dwAttemptFails == other.dwAttemptFails && self.dwEstabResets == other.dwEstabResets && self.dwCurrEstab == other.dwCurrEstab && self.dwInSegs == other.dwInSegs && self.dwOutSegs == other.dwOutSegs && self.dwRetransSegs == other.dwRetransSegs && self.dwInErrs == other.dwInErrs && self.dwOutRsts == other.dwOutRsts && self.dwNumConns == other.dwNumConns
     }
 }
 impl ::core::cmp::Eq for MIB_TCPSTATS_W2K {}
@@ -9199,7 +8924,7 @@ pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, ov
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: ::core::option::Option<PIPINTERFACE_CHANGE_CALLBACK>, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9213,7 +8938,7 @@ pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::core::IntoParam<'a,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyNetworkConnectivityHintChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: ::core::option::Option<PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK>, callercontext: *const ::core::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn NotifyNetworkConnectivityHintChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9241,7 +8966,7 @@ pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, o
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressfamily: u16, callback: ::core::option::Option<PIPFORWARD_CHANGE_CALLBACK>, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressfamily: u16, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9255,7 +8980,7 @@ pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: ::core::option::Option<PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK>, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9269,7 +8994,7 @@ pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MI
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: ::core::option::Option<PTEREDO_PORT_CHANGE_CALLBACK>, callercontext: *const ::core::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9283,7 +9008,7 @@ pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::core::IntoParam<'a, 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: ::core::option::Option<PUNICAST_IPADDRESS_CHANGE_CALLBACK>, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9360,17 +9085,7 @@ impl ::core::default::Default for PFLOGFRAME {
 }
 impl ::core::fmt::Debug for PFLOGFRAME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PFLOGFRAME")
-            .field("Timestamp", &self.Timestamp)
-            .field("pfeTypeOfFrame", &self.pfeTypeOfFrame)
-            .field("dwTotalSizeUsed", &self.dwTotalSizeUsed)
-            .field("dwFilterRule", &self.dwFilterRule)
-            .field("wSizeOfAdditionalData", &self.wSizeOfAdditionalData)
-            .field("wSizeOfIpHeader", &self.wSizeOfIpHeader)
-            .field("dwInterfaceName", &self.dwInterfaceName)
-            .field("dwIPIndex", &self.dwIPIndex)
-            .field("bPacketData", &self.bPacketData)
-            .finish()
+        fmt.debug_struct("PFLOGFRAME").field("Timestamp", &self.Timestamp).field("pfeTypeOfFrame", &self.pfeTypeOfFrame).field("dwTotalSizeUsed", &self.dwTotalSizeUsed).field("dwFilterRule", &self.dwFilterRule).field("wSizeOfAdditionalData", &self.wSizeOfAdditionalData).field("wSizeOfIpHeader", &self.wSizeOfIpHeader).field("dwInterfaceName", &self.dwInterfaceName).field("dwIPIndex", &self.dwIPIndex).field("bPacketData", &self.bPacketData).finish()
     }
 }
 impl ::core::cmp::PartialEq for PFLOGFRAME {
@@ -9426,19 +9141,7 @@ impl ::core::fmt::Debug for PF_FILTER_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for PF_FILTER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFilterFlags == other.dwFilterFlags
-            && self.dwRule == other.dwRule
-            && self.pfatType == other.pfatType
-            && self.SrcAddr == other.SrcAddr
-            && self.SrcMask == other.SrcMask
-            && self.DstAddr == other.DstAddr
-            && self.DstMask == other.DstMask
-            && self.dwProtocol == other.dwProtocol
-            && self.fLateBound == other.fLateBound
-            && self.wSrcPort == other.wSrcPort
-            && self.wDstPort == other.wDstPort
-            && self.wSrcPortHighRange == other.wSrcPortHighRange
-            && self.wDstPortHighRange == other.wDstPortHighRange
+        self.dwFilterFlags == other.dwFilterFlags && self.dwRule == other.dwRule && self.pfatType == other.pfatType && self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DstAddr == other.DstAddr && self.DstMask == other.DstMask && self.dwProtocol == other.dwProtocol && self.fLateBound == other.fLateBound && self.wSrcPort == other.wSrcPort && self.wDstPort == other.wDstPort && self.wSrcPortHighRange == other.wSrcPortHighRange && self.wDstPortHighRange == other.wDstPortHighRange
     }
 }
 impl ::core::cmp::Eq for PF_FILTER_DESCRIPTOR {}
@@ -9521,22 +9224,7 @@ impl ::core::fmt::Debug for PF_INTERFACE_STATS {
 }
 impl ::core::cmp::PartialEq for PF_INTERFACE_STATS {
     fn eq(&self, other: &Self) -> bool {
-        self.pvDriverContext == other.pvDriverContext
-            && self.dwFlags == other.dwFlags
-            && self.dwInDrops == other.dwInDrops
-            && self.dwOutDrops == other.dwOutDrops
-            && self.eaInAction == other.eaInAction
-            && self.eaOutAction == other.eaOutAction
-            && self.dwNumInFilters == other.dwNumInFilters
-            && self.dwNumOutFilters == other.dwNumOutFilters
-            && self.dwFrag == other.dwFrag
-            && self.dwSpoof == other.dwSpoof
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.liSYN == other.liSYN
-            && self.liTotalLogged == other.liTotalLogged
-            && self.dwLostLogEntries == other.dwLostLogEntries
-            && self.FilterInfo == other.FilterInfo
+        self.pvDriverContext == other.pvDriverContext && self.dwFlags == other.dwFlags && self.dwInDrops == other.dwInDrops && self.dwOutDrops == other.dwOutDrops && self.eaInAction == other.eaInAction && self.eaOutAction == other.eaOutAction && self.dwNumInFilters == other.dwNumInFilters && self.dwNumOutFilters == other.dwNumOutFilters && self.dwFrag == other.dwFrag && self.dwSpoof == other.dwSpoof && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.liSYN == other.liSYN && self.liTotalLogged == other.liTotalLogged && self.dwLostLogEntries == other.dwLostLogEntries && self.FilterInfo == other.FilterInfo
     }
 }
 impl ::core::cmp::Eq for PF_INTERFACE_STATS {}
@@ -9570,19 +9258,19 @@ impl ::core::cmp::Eq for PF_LATEBIND_INFO {}
 unsafe impl ::windows::core::Abi for PF_LATEBIND_INFO {
     type Abi = Self;
 }
-pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void);
+pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PIPFORWARD_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE);
+pub type PIPFORWARD_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PIPINTERFACE_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
+pub type PIPINTERFACE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT);
+pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT)>;
 pub const PROXY_ARP: u32 = 22u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE);
-pub type PTEREDO_PORT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE);
+pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE)>;
+pub type PTEREDO_PORT_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
+pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[inline]
 pub unsafe fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9799,7 +9487,7 @@ pub const ROUTE_MATCHING: u32 = 31u32;
 pub const ROUTE_SHORTER: u32 = 33u32;
 pub const ROUTE_STATE: u32 = 34u32;
 #[inline]
-pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: ::core::option::Option<PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK>, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
+pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10238,14 +9926,7 @@ impl ::core::default::Default for TCP_ESTATS_BANDWIDTH_ROD_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_BANDWIDTH_ROD_v0")
-            .field("OutboundBandwidth", &self.OutboundBandwidth)
-            .field("InboundBandwidth", &self.InboundBandwidth)
-            .field("OutboundInstability", &self.OutboundInstability)
-            .field("InboundInstability", &self.InboundInstability)
-            .field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked)
-            .field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_BANDWIDTH_ROD_v0").field("OutboundBandwidth", &self.OutboundBandwidth).field("InboundBandwidth", &self.InboundBandwidth).field("OutboundInstability", &self.OutboundInstability).field("InboundInstability", &self.InboundInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10332,20 +10013,7 @@ impl ::core::fmt::Debug for TCP_ESTATS_DATA_ROD_v0 {
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_DATA_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.DataBytesOut == other.DataBytesOut
-            && self.DataSegsOut == other.DataSegsOut
-            && self.DataBytesIn == other.DataBytesIn
-            && self.DataSegsIn == other.DataSegsIn
-            && self.SegsOut == other.SegsOut
-            && self.SegsIn == other.SegsIn
-            && self.SoftErrors == other.SoftErrors
-            && self.SoftErrorReason == other.SoftErrorReason
-            && self.SndUna == other.SndUna
-            && self.SndNxt == other.SndNxt
-            && self.SndMax == other.SndMax
-            && self.ThruBytesAcked == other.ThruBytesAcked
-            && self.RcvNxt == other.RcvNxt
-            && self.ThruBytesReceived == other.ThruBytesReceived
+        self.DataBytesOut == other.DataBytesOut && self.DataSegsOut == other.DataSegsOut && self.DataBytesIn == other.DataBytesIn && self.DataSegsIn == other.DataSegsIn && self.SegsOut == other.SegsOut && self.SegsIn == other.SegsIn && self.SoftErrors == other.SoftErrors && self.SoftErrorReason == other.SoftErrorReason && self.SndUna == other.SndUna && self.SndNxt == other.SndNxt && self.SndMax == other.SndMax && self.ThruBytesAcked == other.ThruBytesAcked && self.RcvNxt == other.RcvNxt && self.ThruBytesReceived == other.ThruBytesReceived
     }
 }
 impl ::core::cmp::Eq for TCP_ESTATS_DATA_ROD_v0 {}
@@ -10726,20 +10394,7 @@ impl ::core::fmt::Debug for TCP_ESTATS_REC_ROD_v0 {
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_REC_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.CurRwinSent == other.CurRwinSent
-            && self.MaxRwinSent == other.MaxRwinSent
-            && self.MinRwinSent == other.MinRwinSent
-            && self.LimRwin == other.LimRwin
-            && self.DupAckEpisodes == other.DupAckEpisodes
-            && self.DupAcksOut == other.DupAcksOut
-            && self.CeRcvd == other.CeRcvd
-            && self.EcnSent == other.EcnSent
-            && self.EcnNoncesRcvd == other.EcnNoncesRcvd
-            && self.CurReasmQueue == other.CurReasmQueue
-            && self.MaxReasmQueue == other.MaxReasmQueue
-            && self.CurAppRQueue == other.CurAppRQueue
-            && self.MaxAppRQueue == other.MaxAppRQueue
-            && self.WinScaleSent == other.WinScaleSent
+        self.CurRwinSent == other.CurRwinSent && self.MaxRwinSent == other.MaxRwinSent && self.MinRwinSent == other.MinRwinSent && self.LimRwin == other.LimRwin && self.DupAckEpisodes == other.DupAckEpisodes && self.DupAcksOut == other.DupAcksOut && self.CeRcvd == other.CeRcvd && self.EcnSent == other.EcnSent && self.EcnNoncesRcvd == other.EcnNoncesRcvd && self.CurReasmQueue == other.CurReasmQueue && self.MaxReasmQueue == other.MaxReasmQueue && self.CurAppRQueue == other.CurAppRQueue && self.MaxAppRQueue == other.MaxAppRQueue && self.WinScaleSent == other.WinScaleSent
     }
 }
 impl ::core::cmp::Eq for TCP_ESTATS_REC_ROD_v0 {}
@@ -10892,24 +10547,7 @@ impl ::core::fmt::Debug for TCP_ESTATS_SND_CONG_ROD_v0 {
 }
 impl ::core::cmp::PartialEq for TCP_ESTATS_SND_CONG_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.SndLimTransRwin == other.SndLimTransRwin
-            && self.SndLimTimeRwin == other.SndLimTimeRwin
-            && self.SndLimBytesRwin == other.SndLimBytesRwin
-            && self.SndLimTransCwnd == other.SndLimTransCwnd
-            && self.SndLimTimeCwnd == other.SndLimTimeCwnd
-            && self.SndLimBytesCwnd == other.SndLimBytesCwnd
-            && self.SndLimTransSnd == other.SndLimTransSnd
-            && self.SndLimTimeSnd == other.SndLimTimeSnd
-            && self.SndLimBytesSnd == other.SndLimBytesSnd
-            && self.SlowStart == other.SlowStart
-            && self.CongAvoid == other.CongAvoid
-            && self.OtherReductions == other.OtherReductions
-            && self.CurCwnd == other.CurCwnd
-            && self.MaxSsCwnd == other.MaxSsCwnd
-            && self.MaxCaCwnd == other.MaxCaCwnd
-            && self.CurSsthresh == other.CurSsthresh
-            && self.MaxSsthresh == other.MaxSsthresh
-            && self.MinSsthresh == other.MinSsthresh
+        self.SndLimTransRwin == other.SndLimTransRwin && self.SndLimTimeRwin == other.SndLimTimeRwin && self.SndLimBytesRwin == other.SndLimBytesRwin && self.SndLimTransCwnd == other.SndLimTransCwnd && self.SndLimTimeCwnd == other.SndLimTimeCwnd && self.SndLimBytesCwnd == other.SndLimBytesCwnd && self.SndLimTransSnd == other.SndLimTransSnd && self.SndLimTimeSnd == other.SndLimTimeSnd && self.SndLimBytesSnd == other.SndLimBytesSnd && self.SlowStart == other.SlowStart && self.CongAvoid == other.CongAvoid && self.OtherReductions == other.OtherReductions && self.CurCwnd == other.CurCwnd && self.MaxSsCwnd == other.MaxSsCwnd && self.MaxCaCwnd == other.MaxCaCwnd && self.CurSsthresh == other.CurSsthresh && self.MaxSsthresh == other.MaxSsthresh && self.MinSsthresh == other.MinSsthresh
     }
 }
 impl ::core::cmp::Eq for TCP_ESTATS_SND_CONG_ROD_v0 {}

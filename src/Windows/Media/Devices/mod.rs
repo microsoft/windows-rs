@@ -799,11 +799,7 @@ unsafe impl ::core::marker::Sync for CallControl {}
 pub struct CallControlEventHandler(::windows::core::IUnknown);
 impl CallControlEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = CallControlEventHandler_box::<F> {
-            vtable: &CallControlEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = CallControlEventHandler_box::<F> { vtable: &CallControlEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>>(&self, sender: Param0) -> ::windows::core::Result<()> {
@@ -820,12 +816,7 @@ unsafe impl ::windows::core::Interface for CallControlEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct CallControlEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct CallControlEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct CallControlEventHandler_box<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const CallControlEventHandler_abi,
@@ -836,13 +827,9 @@ impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<(
     const VTABLE: CallControlEventHandler_abi = CallControlEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<CallControlEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<CallControlEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1464,11 +1451,7 @@ unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
 pub struct DialRequestedEventHandler(::windows::core::IUnknown);
 impl DialRequestedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DialRequestedEventHandler_box::<F> {
-            vtable: &DialRequestedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = DialRequestedEventHandler_box::<F> { vtable: &DialRequestedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>, Param1: ::windows::core::IntoParam<'a, DialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -1485,12 +1468,7 @@ unsafe impl ::windows::core::Interface for DialRequestedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DialRequestedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct DialRequestedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct DialRequestedEventHandler_box<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const DialRequestedEventHandler_abi,
@@ -1501,13 +1479,9 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Dial
     const VTABLE: DialRequestedEventHandler_abi = DialRequestedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<DialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<DialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -4772,11 +4746,7 @@ unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
 pub struct KeypadPressedEventHandler(::windows::core::IUnknown);
 impl KeypadPressedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = KeypadPressedEventHandler_box::<F> {
-            vtable: &KeypadPressedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = KeypadPressedEventHandler_box::<F> { vtable: &KeypadPressedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>, Param1: ::windows::core::IntoParam<'a, KeypadPressedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -4793,12 +4763,7 @@ unsafe impl ::windows::core::Interface for KeypadPressedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct KeypadPressedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct KeypadPressedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct KeypadPressedEventHandler_box<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const KeypadPressedEventHandler_abi,
@@ -4809,13 +4774,9 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Keyp
     const VTABLE: KeypadPressedEventHandler_abi = KeypadPressedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<KeypadPressedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<KeypadPressedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -5853,11 +5814,7 @@ unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
 pub struct RedialRequestedEventHandler(::windows::core::IUnknown);
 impl RedialRequestedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = RedialRequestedEventHandler_box::<F> {
-            vtable: &RedialRequestedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = RedialRequestedEventHandler_box::<F> { vtable: &RedialRequestedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>, Param1: ::windows::core::IntoParam<'a, RedialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -5874,12 +5831,7 @@ unsafe impl ::windows::core::Interface for RedialRequestedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct RedialRequestedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct RedialRequestedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct RedialRequestedEventHandler_box<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const RedialRequestedEventHandler_abi,
@@ -5890,13 +5842,9 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Redi
     const VTABLE: RedialRequestedEventHandler_abi = RedialRequestedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<RedialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<RedialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)

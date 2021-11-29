@@ -3672,19 +3672,7 @@ impl InkStrokeBuilder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
-    pub fn CreateStrokeFromInkPoints2<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<InkPoint>>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Matrix3x2>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
-    >(
-        &self,
-        inkpoints: Param0,
-        transform: Param1,
-        strokestartedtime: Param2,
-        strokeduration: Param3,
-    ) -> ::windows::core::Result<InkStroke> {
+    pub fn CreateStrokeFromInkPoints2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<InkPoint>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Matrix3x2>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>>(&self, inkpoints: Param0, transform: Param1, strokestartedtime: Param2, strokeduration: Param3) -> ::windows::core::Result<InkStroke> {
         let this = &::windows::core::Interface::cast::<IInkStrokeBuilder3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -54,12 +54,7 @@ impl PalmRejectionDelayZonePreview {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
-    pub fn CreateForVisualWithViewportClip<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>, Param2: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param3: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>>(
-        inputpanelvisual: Param0,
-        inputpanelrect: Param1,
-        viewportvisual: Param2,
-        viewportrect: Param3,
-    ) -> ::windows::core::Result<PalmRejectionDelayZonePreview> {
+    pub fn CreateForVisualWithViewportClip<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>, Param2: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param3: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>>(inputpanelvisual: Param0, inputpanelrect: Param1, viewportvisual: Param2, viewportrect: Param3) -> ::windows::core::Result<PalmRejectionDelayZonePreview> {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), inputpanelvisual.into_param().abi(), inputpanelrect.into_param().abi(), viewportvisual.into_param().abi(), viewportrect.into_param().abi(), &mut result__).from_abi::<PalmRejectionDelayZonePreview>(result__)

@@ -496,18 +496,8 @@ pub type IPropertyStoreFactory = *mut ::core::ffi::c_void;
 pub type IPropertySystem = *mut ::core::ffi::c_void;
 pub type IPropertySystemChangeNotify = *mut ::core::ffi::c_void;
 pub type IPropertyUI = *mut ::core::ffi::c_void;
-pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2583879698,
-    data2: 25347,
-    data3: 19998,
-    data4: [185, 161, 99, 15, 128, 37, 146, 197],
-};
-pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3570011693,
-    data2: 28071,
-    data3: 19317,
-    data4: [169, 124, 95, 48, 111, 14, 174, 220],
-};
+pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2583879698, data2: 25347, data3: 19998, data4: [185, 161, 99, 15, 128, 37, 146, 197] };
+pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3570011693, data2: 28071, data3: 19317, data4: [169, 124, 95, 48, 111, 14, 174, 220] };
 pub type PDOPSTATUS = i32;
 pub const PDOPS_RUNNING: PDOPSTATUS = 1i32;
 pub const PDOPS_PAUSED: PDOPSTATUS = 2i32;

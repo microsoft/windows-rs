@@ -220,19 +220,7 @@ impl ::core::fmt::Debug for ANON_OBJECT_HEADER_BIGOBJ {
 }
 impl ::core::cmp::PartialEq for ANON_OBJECT_HEADER_BIGOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.Sig1 == other.Sig1
-            && self.Sig2 == other.Sig2
-            && self.Version == other.Version
-            && self.Machine == other.Machine
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.ClassID == other.ClassID
-            && self.SizeOfData == other.SizeOfData
-            && self.Flags == other.Flags
-            && self.MetaDataSize == other.MetaDataSize
-            && self.MetaDataOffset == other.MetaDataOffset
-            && self.NumberOfSections == other.NumberOfSections
-            && self.PointerToSymbolTable == other.PointerToSymbolTable
-            && self.NumberOfSymbols == other.NumberOfSymbols
+        self.Sig1 == other.Sig1 && self.Sig2 == other.Sig2 && self.Version == other.Version && self.Machine == other.Machine && self.TimeDateStamp == other.TimeDateStamp && self.ClassID == other.ClassID && self.SizeOfData == other.SizeOfData && self.Flags == other.Flags && self.MetaDataSize == other.MetaDataSize && self.MetaDataOffset == other.MetaDataOffset && self.NumberOfSections == other.NumberOfSections && self.PointerToSymbolTable == other.PointerToSymbolTable && self.NumberOfSymbols == other.NumberOfSymbols
     }
 }
 impl ::core::cmp::Eq for ANON_OBJECT_HEADER_BIGOBJ {}
@@ -261,18 +249,7 @@ impl ::core::default::Default for ANON_OBJECT_HEADER_V2 {
 }
 impl ::core::fmt::Debug for ANON_OBJECT_HEADER_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ANON_OBJECT_HEADER_V2")
-            .field("Sig1", &self.Sig1)
-            .field("Sig2", &self.Sig2)
-            .field("Version", &self.Version)
-            .field("Machine", &self.Machine)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("ClassID", &self.ClassID)
-            .field("SizeOfData", &self.SizeOfData)
-            .field("Flags", &self.Flags)
-            .field("MetaDataSize", &self.MetaDataSize)
-            .field("MetaDataOffset", &self.MetaDataOffset)
-            .finish()
+        fmt.debug_struct("ANON_OBJECT_HEADER_V2").field("Sig1", &self.Sig1).field("Sig2", &self.Sig2).field("Version", &self.Version).field("Machine", &self.Machine).field("TimeDateStamp", &self.TimeDateStamp).field("ClassID", &self.ClassID).field("SizeOfData", &self.SizeOfData).field("Flags", &self.Flags).field("MetaDataSize", &self.MetaDataSize).field("MetaDataOffset", &self.MetaDataOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for ANON_OBJECT_HEADER_V2 {
@@ -285,7 +262,7 @@ unsafe impl ::windows::core::Abi for ANON_OBJECT_HEADER_V2 {
     type Abi = Self;
 }
 pub const ANYSIZE_ARRAY: u32 = 1u32;
-pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void);
+pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPCOMMAND_ID(pub u32);
@@ -1546,16 +1523,7 @@ impl ::core::default::Default for DEV_BROADCAST_HANDLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEV_BROADCAST_HANDLE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_HANDLE")
-            .field("dbch_size", &self.dbch_size)
-            .field("dbch_devicetype", &self.dbch_devicetype)
-            .field("dbch_reserved", &self.dbch_reserved)
-            .field("dbch_handle", &self.dbch_handle)
-            .field("dbch_hdevnotify", &self.dbch_hdevnotify)
-            .field("dbch_eventguid", &self.dbch_eventguid)
-            .field("dbch_nameoffset", &self.dbch_nameoffset)
-            .field("dbch_data", &self.dbch_data)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_HANDLE").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).field("dbch_handle", &self.dbch_handle).field("dbch_hdevnotify", &self.dbch_hdevnotify).field("dbch_eventguid", &self.dbch_eventguid).field("dbch_nameoffset", &self.dbch_nameoffset).field("dbch_data", &self.dbch_data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1590,16 +1558,7 @@ impl ::core::default::Default for DEV_BROADCAST_HANDLE32 {
 }
 impl ::core::fmt::Debug for DEV_BROADCAST_HANDLE32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_HANDLE32")
-            .field("dbch_size", &self.dbch_size)
-            .field("dbch_devicetype", &self.dbch_devicetype)
-            .field("dbch_reserved", &self.dbch_reserved)
-            .field("dbch_handle", &self.dbch_handle)
-            .field("dbch_hdevnotify", &self.dbch_hdevnotify)
-            .field("dbch_eventguid", &self.dbch_eventguid)
-            .field("dbch_nameoffset", &self.dbch_nameoffset)
-            .field("dbch_data", &self.dbch_data)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_HANDLE32").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).field("dbch_handle", &self.dbch_handle).field("dbch_hdevnotify", &self.dbch_hdevnotify).field("dbch_eventguid", &self.dbch_eventguid).field("dbch_nameoffset", &self.dbch_nameoffset).field("dbch_data", &self.dbch_data).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE32 {
@@ -1631,16 +1590,7 @@ impl ::core::default::Default for DEV_BROADCAST_HANDLE64 {
 }
 impl ::core::fmt::Debug for DEV_BROADCAST_HANDLE64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_HANDLE64")
-            .field("dbch_size", &self.dbch_size)
-            .field("dbch_devicetype", &self.dbch_devicetype)
-            .field("dbch_reserved", &self.dbch_reserved)
-            .field("dbch_handle", &self.dbch_handle)
-            .field("dbch_hdevnotify", &self.dbch_hdevnotify)
-            .field("dbch_eventguid", &self.dbch_eventguid)
-            .field("dbch_nameoffset", &self.dbch_nameoffset)
-            .field("dbch_data", &self.dbch_data)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_HANDLE64").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).field("dbch_handle", &self.dbch_handle).field("dbch_hdevnotify", &self.dbch_hdevnotify).field("dbch_eventguid", &self.dbch_eventguid).field("dbch_nameoffset", &self.dbch_nameoffset).field("dbch_data", &self.dbch_data).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE64 {
@@ -3876,16 +3826,7 @@ impl ::core::default::Default for IMAGE_HOT_PATCH_BASE {
 }
 impl ::core::fmt::Debug for IMAGE_HOT_PATCH_BASE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGE_HOT_PATCH_BASE")
-            .field("SequenceNumber", &self.SequenceNumber)
-            .field("Flags", &self.Flags)
-            .field("OriginalTimeDateStamp", &self.OriginalTimeDateStamp)
-            .field("OriginalCheckSum", &self.OriginalCheckSum)
-            .field("CodeIntegrityInfo", &self.CodeIntegrityInfo)
-            .field("CodeIntegritySize", &self.CodeIntegritySize)
-            .field("PatchTable", &self.PatchTable)
-            .field("BufferOffset", &self.BufferOffset)
-            .finish()
+        fmt.debug_struct("IMAGE_HOT_PATCH_BASE").field("SequenceNumber", &self.SequenceNumber).field("Flags", &self.Flags).field("OriginalTimeDateStamp", &self.OriginalTimeDateStamp).field("OriginalCheckSum", &self.OriginalCheckSum).field("CodeIntegrityInfo", &self.CodeIntegrityInfo).field("CodeIntegritySize", &self.CodeIntegritySize).field("PatchTable", &self.PatchTable).field("BufferOffset", &self.BufferOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for IMAGE_HOT_PATCH_BASE {
@@ -3955,15 +3896,7 @@ impl ::core::default::Default for IMAGE_HOT_PATCH_INFO {
 }
 impl ::core::fmt::Debug for IMAGE_HOT_PATCH_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGE_HOT_PATCH_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SequenceNumber", &self.SequenceNumber)
-            .field("BaseImageList", &self.BaseImageList)
-            .field("BaseImageCount", &self.BaseImageCount)
-            .field("BufferOffset", &self.BufferOffset)
-            .field("ExtraPatchSize", &self.ExtraPatchSize)
-            .finish()
+        fmt.debug_struct("IMAGE_HOT_PATCH_INFO").field("Version", &self.Version).field("Size", &self.Size).field("SequenceNumber", &self.SequenceNumber).field("BaseImageList", &self.BaseImageList).field("BaseImageCount", &self.BaseImageCount).field("BufferOffset", &self.BufferOffset).field("ExtraPatchSize", &self.ExtraPatchSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for IMAGE_HOT_PATCH_INFO {
@@ -4719,14 +4652,7 @@ impl ::core::default::Default for IMAGE_RESOURCE_DIRECTORY {
 }
 impl ::core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGE_RESOURCE_DIRECTORY")
-            .field("Characteristics", &self.Characteristics)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("NumberOfNamedEntries", &self.NumberOfNamedEntries)
-            .field("NumberOfIdEntries", &self.NumberOfIdEntries)
-            .finish()
+        fmt.debug_struct("IMAGE_RESOURCE_DIRECTORY").field("Characteristics", &self.Characteristics).field("TimeDateStamp", &self.TimeDateStamp).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("NumberOfNamedEntries", &self.NumberOfNamedEntries).field("NumberOfIdEntries", &self.NumberOfIdEntries).finish()
     }
 }
 impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY {
@@ -4957,19 +4883,7 @@ impl ::core::fmt::Debug for IMAGE_SEPARATE_DEBUG_HEADER {
 }
 impl ::core::cmp::PartialEq for IMAGE_SEPARATE_DEBUG_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-            && self.Flags == other.Flags
-            && self.Machine == other.Machine
-            && self.Characteristics == other.Characteristics
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.CheckSum == other.CheckSum
-            && self.ImageBase == other.ImageBase
-            && self.SizeOfImage == other.SizeOfImage
-            && self.NumberOfSections == other.NumberOfSections
-            && self.ExportedNamesSize == other.ExportedNamesSize
-            && self.DebugDirectorySize == other.DebugDirectorySize
-            && self.SectionAlignment == other.SectionAlignment
-            && self.Reserved == other.Reserved
+        self.Signature == other.Signature && self.Flags == other.Flags && self.Machine == other.Machine && self.Characteristics == other.Characteristics && self.TimeDateStamp == other.TimeDateStamp && self.CheckSum == other.CheckSum && self.ImageBase == other.ImageBase && self.SizeOfImage == other.SizeOfImage && self.NumberOfSections == other.NumberOfSections && self.ExportedNamesSize == other.ExportedNamesSize && self.DebugDirectorySize == other.DebugDirectorySize && self.SectionAlignment == other.SectionAlignment && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for IMAGE_SEPARATE_DEBUG_HEADER {}
@@ -6240,15 +6154,7 @@ impl ::core::default::Default for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION 
 }
 impl ::core::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("SizeOfInformation", &self.SizeOfInformation)
-            .field("Flags", &self.Flags)
-            .field("AttributesOffset", &self.AttributesOffset)
-            .field("AttributeCount", &self.AttributeCount)
-            .field("Reserved", &self.Reserved)
-            .field("TypeId", &self.TypeId)
-            .finish()
+        fmt.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("SizeOfInformation", &self.SizeOfInformation).field("Flags", &self.Flags).field("AttributesOffset", &self.AttributesOffset).field("AttributeCount", &self.AttributeCount).field("Reserved", &self.Reserved).field("TypeId", &self.TypeId).finish()
     }
 }
 impl ::core::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
@@ -6591,7 +6497,7 @@ pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::core::ffi::c_void) -> i32;
+pub type PEXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::core::ffi::c_void) -> i32>;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
 pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19u32;
 pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: u32 = 43u32;
@@ -6613,14 +6519,14 @@ pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: u32 = 36u32;
 pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
-pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::core::ffi::c_void, reason: u32, reserved: *mut ::core::ffi::c_void);
+pub type PIMAGE_TLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dllhandle: *mut ::core::ffi::c_void, reason: u32, reserved: *mut ::core::ffi::c_void)>;
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32;
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: u32 = 0u32;
 pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: u32 = 3u32;
@@ -7212,16 +7118,7 @@ impl ::core::default::Default for PPM_IDLE_STATE_ACCOUNTING_EX {
 }
 impl ::core::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPM_IDLE_STATE_ACCOUNTING_EX")
-            .field("TotalTime", &self.TotalTime)
-            .field("IdleTransitions", &self.IdleTransitions)
-            .field("FailedTransitions", &self.FailedTransitions)
-            .field("InvalidBucketIndex", &self.InvalidBucketIndex)
-            .field("MinTimeUs", &self.MinTimeUs)
-            .field("MaxTimeUs", &self.MaxTimeUs)
-            .field("CancelledTransitions", &self.CancelledTransitions)
-            .field("IdleTimeBuckets", &self.IdleTimeBuckets)
-            .finish()
+        fmt.debug_struct("PPM_IDLE_STATE_ACCOUNTING_EX").field("TotalTime", &self.TotalTime).field("IdleTransitions", &self.IdleTransitions).field("FailedTransitions", &self.FailedTransitions).field("InvalidBucketIndex", &self.InvalidBucketIndex).field("MinTimeUs", &self.MinTimeUs).field("MaxTimeUs", &self.MaxTimeUs).field("CancelledTransitions", &self.CancelledTransitions).field("IdleTimeBuckets", &self.IdleTimeBuckets).finish()
     }
 }
 impl ::core::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING_EX {
@@ -7404,19 +7301,7 @@ impl ::core::default::Default for PPM_WMI_IDLE_STATE {
 }
 impl ::core::fmt::Debug for PPM_WMI_IDLE_STATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPM_WMI_IDLE_STATE")
-            .field("Latency", &self.Latency)
-            .field("Power", &self.Power)
-            .field("TimeCheck", &self.TimeCheck)
-            .field("PromotePercent", &self.PromotePercent)
-            .field("DemotePercent", &self.DemotePercent)
-            .field("StateType", &self.StateType)
-            .field("Reserved", &self.Reserved)
-            .field("StateFlags", &self.StateFlags)
-            .field("Context", &self.Context)
-            .field("IdleHandler", &self.IdleHandler)
-            .field("Reserved1", &self.Reserved1)
-            .finish()
+        fmt.debug_struct("PPM_WMI_IDLE_STATE").field("Latency", &self.Latency).field("Power", &self.Power).field("TimeCheck", &self.TimeCheck).field("PromotePercent", &self.PromotePercent).field("DemotePercent", &self.DemotePercent).field("StateType", &self.StateType).field("Reserved", &self.Reserved).field("StateFlags", &self.StateFlags).field("Context", &self.Context).field("IdleHandler", &self.IdleHandler).field("Reserved1", &self.Reserved1).finish()
     }
 }
 impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATE {
@@ -7561,20 +7446,7 @@ impl ::core::fmt::Debug for PPM_WMI_PERF_STATE {
 }
 impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Frequency == other.Frequency
-            && self.Power == other.Power
-            && self.PercentFrequency == other.PercentFrequency
-            && self.IncreaseLevel == other.IncreaseLevel
-            && self.DecreaseLevel == other.DecreaseLevel
-            && self.Type == other.Type
-            && self.IncreaseTime == other.IncreaseTime
-            && self.DecreaseTime == other.DecreaseTime
-            && self.Control == other.Control
-            && self.Status == other.Status
-            && self.HitCount == other.HitCount
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
+        self.Frequency == other.Frequency && self.Power == other.Power && self.PercentFrequency == other.PercentFrequency && self.IncreaseLevel == other.IncreaseLevel && self.DecreaseLevel == other.DecreaseLevel && self.Type == other.Type && self.IncreaseTime == other.IncreaseTime && self.DecreaseTime == other.DecreaseTime && self.Control == other.Control && self.Status == other.Status && self.HitCount == other.HitCount && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
     }
 }
 impl ::core::cmp::Eq for PPM_WMI_PERF_STATE {}
@@ -9170,11 +9042,11 @@ pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64);
+pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void);
-pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void);
+pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void)>;
+pub type PUMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void)>;
 pub const PcTeb: u32 = 24u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -10375,14 +10247,7 @@ impl ::core::default::Default for SERVERSILO_BASIC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVERSILO_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVERSILO_BASIC_INFORMATION")
-            .field("ServiceSessionId", &self.ServiceSessionId)
-            .field("State", &self.State)
-            .field("ExitStatus", &self.ExitStatus)
-            .field("IsDownlevelContainer", &self.IsDownlevelContainer)
-            .field("ApiSetSchema", &self.ApiSetSchema)
-            .field("HostApiSetSchema", &self.HostApiSetSchema)
-            .finish()
+        fmt.debug_struct("SERVERSILO_BASIC_INFORMATION").field("ServiceSessionId", &self.ServiceSessionId).field("State", &self.State).field("ExitStatus", &self.ExitStatus).field("IsDownlevelContainer", &self.IsDownlevelContainer).field("ApiSetSchema", &self.ApiSetSchema).field("HostApiSetSchema", &self.HostApiSetSchema).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11140,17 +11005,7 @@ impl ::core::fmt::Debug for TAPE_GET_DRIVE_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAPE_GET_DRIVE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.ECC == other.ECC
-            && self.Compression == other.Compression
-            && self.DataPadding == other.DataPadding
-            && self.ReportSetmarks == other.ReportSetmarks
-            && self.DefaultBlockSize == other.DefaultBlockSize
-            && self.MaximumBlockSize == other.MaximumBlockSize
-            && self.MinimumBlockSize == other.MinimumBlockSize
-            && self.MaximumPartitionCount == other.MaximumPartitionCount
-            && self.FeaturesLow == other.FeaturesLow
-            && self.FeaturesHigh == other.FeaturesHigh
-            && self.EOTWarningZoneSize == other.EOTWarningZoneSize
+        self.ECC == other.ECC && self.Compression == other.Compression && self.DataPadding == other.DataPadding && self.ReportSetmarks == other.ReportSetmarks && self.DefaultBlockSize == other.DefaultBlockSize && self.MaximumBlockSize == other.MaximumBlockSize && self.MinimumBlockSize == other.MinimumBlockSize && self.MaximumPartitionCount == other.MaximumPartitionCount && self.FeaturesLow == other.FeaturesLow && self.FeaturesHigh == other.FeaturesHigh && self.EOTWarningZoneSize == other.EOTWarningZoneSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11794,14 +11649,7 @@ impl ::core::default::Default for TRANSACTION_PROPERTIES_INFORMATION {
 }
 impl ::core::fmt::Debug for TRANSACTION_PROPERTIES_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_PROPERTIES_INFORMATION")
-            .field("IsolationLevel", &self.IsolationLevel)
-            .field("IsolationFlags", &self.IsolationFlags)
-            .field("Timeout", &self.Timeout)
-            .field("Outcome", &self.Outcome)
-            .field("DescriptionLength", &self.DescriptionLength)
-            .field("Description", &self.Description)
-            .finish()
+        fmt.debug_struct("TRANSACTION_PROPERTIES_INFORMATION").field("IsolationLevel", &self.IsolationLevel).field("IsolationFlags", &self.IsolationFlags).field("Timeout", &self.Timeout).field("Outcome", &self.Outcome).field("DescriptionLength", &self.DescriptionLength).field("Description", &self.Description).finish()
     }
 }
 impl ::core::cmp::PartialEq for TRANSACTION_PROPERTIES_INFORMATION {
@@ -12003,7 +11851,7 @@ unsafe impl ::windows::core::Abi for VolLockBroadcast {
 pub const WDT_INPROC64_CALL: u32 = 1349805143u32;
 pub const WDT_INPROC_CALL: u32 = 1215587415u32;
 pub const WDT_REMOTE_CALL: u32 = 1383359575u32;
-pub type WORKERCALLBACKFUNC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 pub const WRITE_DAC: u32 = 262144u32;
 pub const WRITE_NV_MEMORY_FLAG_FLUSH: u32 = 1u32;
 pub const WRITE_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2u32;
@@ -12341,16 +12189,7 @@ impl ::core::default::Default for userBITMAP {
 }
 impl ::core::fmt::Debug for userBITMAP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("userBITMAP")
-            .field("bmType", &self.bmType)
-            .field("bmWidth", &self.bmWidth)
-            .field("bmHeight", &self.bmHeight)
-            .field("bmWidthBytes", &self.bmWidthBytes)
-            .field("bmPlanes", &self.bmPlanes)
-            .field("bmBitsPixel", &self.bmBitsPixel)
-            .field("cbSize", &self.cbSize)
-            .field("pBuffer", &self.pBuffer)
-            .finish()
+        fmt.debug_struct("userBITMAP").field("bmType", &self.bmType).field("bmWidth", &self.bmWidth).field("bmHeight", &self.bmHeight).field("bmWidthBytes", &self.bmWidthBytes).field("bmPlanes", &self.bmPlanes).field("bmBitsPixel", &self.bmBitsPixel).field("cbSize", &self.cbSize).field("pBuffer", &self.pBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for userBITMAP {

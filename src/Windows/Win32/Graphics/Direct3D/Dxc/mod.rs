@@ -164,8 +164,8 @@ pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type DxcCreateInstance2Proc = unsafe extern "system" fn(pmalloc: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-pub type DxcCreateInstanceProc = unsafe extern "system" fn(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" fn(pmalloc: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -268,12 +268,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDxcA
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDxcAssembler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pshader: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDxcAssembler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pshader: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDxcBlob(pub ::windows::core::IUnknown);
@@ -311,13 +306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDxcB
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDxcBlob_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> *mut ::core::ffi::c_void,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> usize,
-);
+pub struct IDxcBlob_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> usize);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDxcBlobEncoding(pub ::windows::core::IUnknown);
@@ -593,33 +582,9 @@ pub struct IDxcBlobUtf8_abi(
 pub struct IDxcCompiler(pub ::windows::core::IUnknown);
 impl IDxcCompiler {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Compile<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(
-        &self,
-        psource: Param0,
-        psourcename: Param1,
-        pentrypoint: Param2,
-        ptargetprofile: Param3,
-        parguments: *const super::super::super::Foundation::PWSTR,
-        argcount: u32,
-        pdefines: *const DxcDefine,
-        definecount: u32,
-        pincludehandler: Param8,
-    ) -> ::windows::core::Result<IDxcOperationResult> {
+    pub unsafe fn Compile<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, pentrypoint: Param2, ptargetprofile: Param3, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param8) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            psource.into_param().abi(),
-            psourcename.into_param().abi(),
-            pentrypoint.into_param().abi(),
-            ptargetprofile.into_param().abi(),
-            ::core::mem::transmute(parguments),
-            ::core::mem::transmute(argcount),
-            ::core::mem::transmute(pdefines),
-            ::core::mem::transmute(definecount),
-            pincludehandler.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDxcOperationResult>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), &mut result__).from_abi::<IDxcOperationResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Preprocess<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param6) -> ::windows::core::Result<IDxcOperationResult> {
@@ -661,8 +626,7 @@ pub struct IDxcCompiler_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -673,33 +637,9 @@ pub struct IDxcCompiler_abi(
 pub struct IDxcCompiler2(pub ::windows::core::IUnknown);
 impl IDxcCompiler2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Compile<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(
-        &self,
-        psource: Param0,
-        psourcename: Param1,
-        pentrypoint: Param2,
-        ptargetprofile: Param3,
-        parguments: *const super::super::super::Foundation::PWSTR,
-        argcount: u32,
-        pdefines: *const DxcDefine,
-        definecount: u32,
-        pincludehandler: Param8,
-    ) -> ::windows::core::Result<IDxcOperationResult> {
+    pub unsafe fn Compile<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, pentrypoint: Param2, ptargetprofile: Param3, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param8) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            psource.into_param().abi(),
-            psourcename.into_param().abi(),
-            pentrypoint.into_param().abi(),
-            ptargetprofile.into_param().abi(),
-            ::core::mem::transmute(parguments),
-            ::core::mem::transmute(argcount),
-            ::core::mem::transmute(pdefines),
-            ::core::mem::transmute(definecount),
-            pincludehandler.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDxcOperationResult>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), &mut result__).from_abi::<IDxcOperationResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Preprocess<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param6) -> ::windows::core::Result<IDxcOperationResult> {
@@ -726,22 +666,7 @@ impl IDxcCompiler2 {
         ppdebugblobname: *mut super::super::super::Foundation::PWSTR,
         ppdebugblob: *mut ::core::option::Option<IDxcBlob>,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            psource.into_param().abi(),
-            psourcename.into_param().abi(),
-            pentrypoint.into_param().abi(),
-            ptargetprofile.into_param().abi(),
-            ::core::mem::transmute(parguments),
-            ::core::mem::transmute(argcount),
-            ::core::mem::transmute(pdefines),
-            ::core::mem::transmute(definecount),
-            pincludehandler.into_param().abi(),
-            ::core::mem::transmute(ppresult),
-            ::core::mem::transmute(ppdebugblobname),
-            ::core::mem::transmute(ppdebugblob),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), ::core::mem::transmute(ppresult), ::core::mem::transmute(ppdebugblobname), ::core::mem::transmute(ppdebugblob)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDxcCompiler2 {
@@ -794,28 +719,12 @@ pub struct IDxcCompiler2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        psource: ::windows::core::RawPtr,
-        psourcename: super::super::super::Foundation::PWSTR,
-        pentrypoint: super::super::super::Foundation::PWSTR,
-        ptargetprofile: super::super::super::Foundation::PWSTR,
-        parguments: *const super::super::super::Foundation::PWSTR,
-        argcount: u32,
-        pdefines: *const DxcDefine,
-        definecount: u32,
-        pincludehandler: ::windows::core::RawPtr,
-        ppresult: *mut ::windows::core::RawPtr,
-        ppdebugblobname: *mut super::super::super::Foundation::PWSTR,
-        ppdebugblob: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr, ppdebugblobname: *mut super::super::super::Foundation::PWSTR, ppdebugblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -1763,16 +1672,7 @@ impl IDxcUtils {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(iid), ::core::mem::transmute(ppvreflection)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BuildArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        psourcename: Param0,
-        pentrypoint: Param1,
-        ptargetprofile: Param2,
-        parguments: *const super::super::super::Foundation::PWSTR,
-        argcount: u32,
-        pdefines: *const DxcDefine,
-        definecount: u32,
-    ) -> ::windows::core::Result<IDxcCompilerArgs> {
+    pub unsafe fn BuildArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, psourcename: Param0, pentrypoint: Param1, ptargetprofile: Param2, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::Result<IDxcCompilerArgs> {
         let mut result__: <IDxcCompilerArgs as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), &mut result__).from_abi::<IDxcCompilerArgs>(result__)
     }
@@ -1863,12 +1763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDxcV
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDxcValidator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pshader: ::windows::core::RawPtr, flags: u32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDxcValidator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pshader: ::windows::core::RawPtr, flags: u32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDxcValidator2(pub ::windows::core::IUnknown);
@@ -2084,9 +1979,4 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDxcV
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDxcVersionInfo3_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pversionstring: *mut *mut i8) -> ::windows::core::HRESULT,
-);
+pub struct IDxcVersionInfo3_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pversionstring: *mut *mut i8) -> ::windows::core::HRESULT);

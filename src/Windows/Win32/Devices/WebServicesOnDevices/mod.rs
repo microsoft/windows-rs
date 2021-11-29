@@ -95,12 +95,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSDA
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDAsyncCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pasyncresult: ::windows::core::RawPtr, pasyncstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWSDAsyncCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pasyncresult: ::windows::core::RawPtr, pasyncstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWSDAsyncResult(pub ::windows::core::IUnknown);
@@ -304,7 +299,7 @@ pub struct IWSDDeviceHost_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszserviceid: super::super::Foundation::PWSTR, fdiscoverable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszserviceid: super::super::Foundation::PWSTR, pbody: *const ::core::ffi::c_void, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszserviceid: super::super::Foundation::PWSTR, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -513,11 +508,11 @@ pub struct IWSDEndpointProxy_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, presponsecontext: *const ::core::mem::ManuallyDrop<WSD_SYNCHRONOUS_RESPONSE_CONTEXT>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const ::core::mem::ManuallyDrop<WSD_SYNCHRONOUS_RESPONSE_CONTEXT>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, pasyncstate: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, presult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, presult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pasyncresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::HRESULT,
@@ -1278,7 +1273,7 @@ pub struct IWSDServiceMessaging_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, pmessageparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: ::windows::core::RawPtr, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -1380,9 +1375,9 @@ pub struct IWSDServiceProxy_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppservicemetadata: *mut *mut WSD_SERVICE_METADATA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, punknown: ::windows::core::RawPtr, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const WSD_OPERATION, punknown: ::windows::core::RawPtr, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppproxy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1556,35 +1551,35 @@ pub struct IWSDServiceProxyEventing_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppservicemetadata: *mut *mut WSD_SERVICE_METADATA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, punknown: ::windows::core::RawPtr, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const WSD_OPERATION, punknown: ::windows::core::RawPtr, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const ::core::mem::ManuallyDrop<WSD_OPERATION>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppproxy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, punknown: ::windows::core::RawPtr, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: ::windows::core::RawPtr, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, punknown: ::windows::core::RawPtr, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: ::windows::core::RawPtr, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, presult: ::windows::core::RawPtr, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::windows::core::RawPtr, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, presult: ::windows::core::RawPtr, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::windows::core::RawPtr, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: ::windows::core::RawPtr, pasynccallback: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const ::core::mem::ManuallyDrop<WSD_OPERATION>, dwoperationcount: u32, presult: ::windows::core::RawPtr, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::windows::core::RawPtr, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2311,98 +2306,22 @@ impl IWSDiscoveryPublisher {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Publish<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszid: Param0, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param4, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            pszid.into_param().abi(),
-            ::core::mem::transmute(ullmetadataversion),
-            ::core::mem::transmute(ullinstanceid),
-            ::core::mem::transmute(ullmessagenumber),
-            pszsessionid.into_param().abi(),
-            ::core::mem::transmute(ptypeslist),
-            ::core::mem::transmute(pscopeslist),
-            ::core::mem::transmute(pxaddrslist),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszid.into_param().abi(), ::core::mem::transmute(ullmetadataversion), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into_param().abi(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnPublish<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszid: Param0, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param3, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pszid.into_param().abi(), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into_param().abi(), ::core::mem::transmute(pany)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchProbe<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        pprobemessage: *const WSD_SOAP_MESSAGE,
-        pmessageparameters: Param1,
-        pszid: Param2,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: Param6,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pprobemessage),
-            pmessageparameters.into_param().abi(),
-            pszid.into_param().abi(),
-            ::core::mem::transmute(ullmetadataversion),
-            ::core::mem::transmute(ullinstanceid),
-            ::core::mem::transmute(ullmessagenumber),
-            pszsessionid.into_param().abi(),
-            ::core::mem::transmute(ptypeslist),
-            ::core::mem::transmute(pscopeslist),
-            ::core::mem::transmute(pxaddrslist),
-        )
-        .ok()
+    pub unsafe fn MatchProbe<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: Param1, pszid: Param2, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param6, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprobemessage), pmessageparameters.into_param().abi(), pszid.into_param().abi(), ::core::mem::transmute(ullmetadataversion), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into_param().abi(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchResolve<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        presolvemessage: *const WSD_SOAP_MESSAGE,
-        pmessageparameters: Param1,
-        pszid: Param2,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: Param6,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presolvemessage),
-            pmessageparameters.into_param().abi(),
-            pszid.into_param().abi(),
-            ::core::mem::transmute(ullmetadataversion),
-            ::core::mem::transmute(ullinstanceid),
-            ::core::mem::transmute(ullmessagenumber),
-            pszsessionid.into_param().abi(),
-            ::core::mem::transmute(ptypeslist),
-            ::core::mem::transmute(pscopeslist),
-            ::core::mem::transmute(pxaddrslist),
-        )
-        .ok()
+    pub unsafe fn MatchResolve<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: Param1, pszid: Param2, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param6, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(presolvemessage), pmessageparameters.into_param().abi(), pszid.into_param().abi(), ::core::mem::transmute(ullmetadataversion), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into_param().abi(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PublishEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        pszid: Param0,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: Param4,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-        pheaderany: *const WSDXML_ELEMENT,
-        preferenceparameterany: *const WSDXML_ELEMENT,
-        ppolicyany: *const WSDXML_ELEMENT,
-        pendpointreferenceany: *const WSDXML_ELEMENT,
-        pany: *const WSDXML_ELEMENT,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn PublishEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszid: Param0, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param4, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(
             ::core::mem::transmute_copy(self),
             pszid.into_param().abi(),
@@ -2422,24 +2341,7 @@ impl IWSDiscoveryPublisher {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchProbeEx<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        pprobemessage: *const WSD_SOAP_MESSAGE,
-        pmessageparameters: Param1,
-        pszid: Param2,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: Param6,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-        pheaderany: *const WSDXML_ELEMENT,
-        preferenceparameterany: *const WSDXML_ELEMENT,
-        ppolicyany: *const WSDXML_ELEMENT,
-        pendpointreferenceany: *const WSDXML_ELEMENT,
-        pany: *const WSDXML_ELEMENT,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn MatchProbeEx<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: Param1, pszid: Param2, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param6, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(pprobemessage),
@@ -2461,24 +2363,7 @@ impl IWSDiscoveryPublisher {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchResolveEx<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        presolvemessage: *const WSD_SOAP_MESSAGE,
-        pmessageparameters: Param1,
-        pszid: Param2,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: Param6,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-        pheaderany: *const WSDXML_ELEMENT,
-        preferenceparameterany: *const WSDXML_ELEMENT,
-        ppolicyany: *const WSDXML_ELEMENT,
-        pendpointreferenceany: *const WSDXML_ELEMENT,
-        pany: *const WSDXML_ELEMENT,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn MatchResolveEx<'a, Param1: ::windows::core::IntoParam<'a, IWSDMessageParameters>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: Param1, pszid: Param2, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: Param6, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(presolvemessage),
@@ -2551,63 +2436,11 @@ pub struct IWSDiscoveryPublisher_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::core::RawPtr, pszid: super::super::Foundation::PWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: super::super::Foundation::PWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pszid: super::super::Foundation::PWSTR,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: super::super::Foundation::PWSTR,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-        pheaderany: *const WSDXML_ELEMENT,
-        preferenceparameterany: *const WSDXML_ELEMENT,
-        ppolicyany: *const WSDXML_ELEMENT,
-        pendpointreferenceany: *const WSDXML_ELEMENT,
-        pany: *const WSDXML_ELEMENT,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszid: super::super::Foundation::PWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: super::super::Foundation::PWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pprobemessage: *const WSD_SOAP_MESSAGE,
-        pmessageparameters: ::windows::core::RawPtr,
-        pszid: super::super::Foundation::PWSTR,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: super::super::Foundation::PWSTR,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-        pheaderany: *const WSDXML_ELEMENT,
-        preferenceparameterany: *const WSDXML_ELEMENT,
-        ppolicyany: *const WSDXML_ELEMENT,
-        pendpointreferenceany: *const WSDXML_ELEMENT,
-        pany: *const WSDXML_ELEMENT,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::core::RawPtr, pszid: super::super::Foundation::PWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: super::super::Foundation::PWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        presolvemessage: *const WSD_SOAP_MESSAGE,
-        pmessageparameters: ::windows::core::RawPtr,
-        pszid: super::super::Foundation::PWSTR,
-        ullmetadataversion: u64,
-        ullinstanceid: u64,
-        ullmessagenumber: u64,
-        pszsessionid: super::super::Foundation::PWSTR,
-        ptypeslist: *const WSD_NAME_LIST,
-        pscopeslist: *const WSD_URI_LIST,
-        pxaddrslist: *const WSD_URI_LIST,
-        pheaderany: *const WSDXML_ELEMENT,
-        preferenceparameterany: *const WSDXML_ELEMENT,
-        ppolicyany: *const WSDXML_ELEMENT,
-        pendpointreferenceany: *const WSDXML_ELEMENT,
-        pany: *const WSDXML_ELEMENT,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::core::RawPtr, pszid: super::super::Foundation::PWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: super::super::Foundation::PWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pscopematchingrule: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pscopematchingrule: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2662,7 +2495,7 @@ pub struct IWSDiscoveryPublisherNotify_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
-pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT;
+pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3261,13 +3094,7 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSDGenerateFault<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWSDXMLContext>>(
-    pszcode: Param0,
-    pszsubcode: Param1,
-    pszreason: Param2,
-    pszdetail: Param3,
-    pcontext: Param4,
-) -> ::windows::core::Result<*mut WSD_SOAP_FAULT> {
+pub unsafe fn WSDGenerateFault<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszcode: Param0, pszsubcode: Param1, pszreason: Param2, pszdetail: Param3, pcontext: Param4) -> ::windows::core::Result<*mut WSD_SOAP_FAULT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4031,20 +3858,7 @@ impl ::core::default::Default for WSD_DATETIME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_DATETIME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSD_DATETIME")
-            .field("isPositive", &self.isPositive)
-            .field("year", &self.year)
-            .field("month", &self.month)
-            .field("day", &self.day)
-            .field("hour", &self.hour)
-            .field("minute", &self.minute)
-            .field("second", &self.second)
-            .field("millisecond", &self.millisecond)
-            .field("TZIsLocal", &self.TZIsLocal)
-            .field("TZIsPositive", &self.TZIsPositive)
-            .field("TZHour", &self.TZHour)
-            .field("TZMinute", &self.TZMinute)
-            .finish()
+        fmt.debug_struct("WSD_DATETIME").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).field("TZIsLocal", &self.TZIsLocal).field("TZIsPositive", &self.TZIsPositive).field("TZHour", &self.TZHour).field("TZMinute", &self.TZMinute).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4375,7 +4189,7 @@ unsafe impl ::windows::core::Abi for WSD_EVENTING_FILTER_ACTION {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_HANDLER_CONTEXT {
-    pub Handler: ::core::option::Option<PWSD_SOAP_MESSAGE_HANDLER>,
+    pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut ::core::ffi::c_void,
     pub Unknown: ::core::option::Option<::windows::core::IUnknown>,
 }
@@ -4677,13 +4491,13 @@ impl ::core::cmp::Eq for WSD_NAME_LIST {}
 unsafe impl ::windows::core::Abi for WSD_NAME_LIST {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
-    pub RequestStubFunction: ::core::option::Option<WSD_STUB_FUNCTION>,
+    pub RequestStubFunction: WSD_STUB_FUNCTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSD_OPERATION {}
@@ -4709,7 +4523,7 @@ impl ::core::cmp::PartialEq for WSD_OPERATION {
 impl ::core::cmp::Eq for WSD_OPERATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_OPERATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -5157,16 +4971,7 @@ impl ::core::default::Default for WSD_SECURITY_CERT_VALIDATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSD_SECURITY_CERT_VALIDATION")
-            .field("certMatchArray", &self.certMatchArray)
-            .field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount)
-            .field("hCertMatchStore", &self.hCertMatchStore)
-            .field("hCertIssuerStore", &self.hCertIssuerStore)
-            .field("dwCertCheckOptions", &self.dwCertCheckOptions)
-            .field("pszCNGHashAlgId", &self.pszCNGHashAlgId)
-            .field("pbCertHash", &self.pbCertHash)
-            .field("dwCertHashSize", &self.dwCertHashSize)
-            .finish()
+        fmt.debug_struct("WSD_SECURITY_CERT_VALIDATION").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).field("pszCNGHashAlgId", &self.pszCNGHashAlgId).field("pbCertHash", &self.pbCertHash).field("dwCertHashSize", &self.dwCertHashSize).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -5202,13 +5007,7 @@ impl ::core::default::Default for WSD_SECURITY_CERT_VALIDATION_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSD_SECURITY_CERT_VALIDATION_V1")
-            .field("certMatchArray", &self.certMatchArray)
-            .field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount)
-            .field("hCertMatchStore", &self.hCertMatchStore)
-            .field("hCertIssuerStore", &self.hCertIssuerStore)
-            .field("dwCertCheckOptions", &self.dwCertCheckOptions)
-            .finish()
+        fmt.debug_struct("WSD_SECURITY_CERT_VALIDATION_V1").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -5487,17 +5286,7 @@ impl ::core::default::Default for WSD_SOAP_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_SOAP_HEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSD_SOAP_HEADER")
-            .field("To", &self.To)
-            .field("Action", &self.Action)
-            .field("MessageID", &self.MessageID)
-            .field("RelatesTo", &self.RelatesTo)
-            .field("ReplyTo", &self.ReplyTo)
-            .field("From", &self.From)
-            .field("FaultTo", &self.FaultTo)
-            .field("AppSequence", &self.AppSequence)
-            .field("AnyHeaders", &self.AnyHeaders)
-            .finish()
+        fmt.debug_struct("WSD_SOAP_HEADER").field("To", &self.To).field("Action", &self.Action).field("MessageID", &self.MessageID).field("RelatesTo", &self.RelatesTo).field("ReplyTo", &self.ReplyTo).field("From", &self.From).field("FaultTo", &self.FaultTo).field("AppSequence", &self.AppSequence).field("AnyHeaders", &self.AnyHeaders).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5547,7 +5336,7 @@ unsafe impl ::windows::core::Abi for WSD_SOAP_MESSAGE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows::core::RawPtr, session: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT;
+pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows::core::RawPtr, session: ::windows::core::RawPtr, event: *mut ::core::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -5641,15 +5430,7 @@ impl ::core::default::Default for WSD_THIS_MODEL_METADATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSD_THIS_MODEL_METADATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSD_THIS_MODEL_METADATA")
-            .field("Manufacturer", &self.Manufacturer)
-            .field("ManufacturerUrl", &self.ManufacturerUrl)
-            .field("ModelName", &self.ModelName)
-            .field("ModelNumber", &self.ModelNumber)
-            .field("ModelUrl", &self.ModelUrl)
-            .field("PresentationUrl", &self.PresentationUrl)
-            .field("Any", &self.Any)
-            .finish()
+        fmt.debug_struct("WSD_THIS_MODEL_METADATA").field("Manufacturer", &self.Manufacturer).field("ManufacturerUrl", &self.ManufacturerUrl).field("ModelName", &self.ModelName).field("ModelNumber", &self.ModelNumber).field("ModelUrl", &self.ModelUrl).field("PresentationUrl", &self.PresentationUrl).field("Any", &self.Any).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

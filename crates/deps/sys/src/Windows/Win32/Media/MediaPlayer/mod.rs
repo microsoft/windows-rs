@@ -1,18 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_WMPMediaPluginRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1433004021,
-    data2: 16971,
-    data3: 19347,
-    data4: [137, 202, 121, 209, 121, 36, 104, 154],
-};
-pub const CLSID_WMPSkinManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2997353810,
-    data2: 12319,
-    data3: 17224,
-    data4: [185, 58, 99, 140, 109, 228, 146, 41],
-};
+pub const CLSID_WMPMediaPluginRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1433004021, data2: 16971, data3: 19347, data4: [137, 202, 121, 209, 121, 36, 104, 154] };
+pub const CLSID_WMPSkinManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2997353810, data2: 12319, data3: 17224, data4: [185, 58, 99, 140, 109, 228, 146, 41] };
 pub const CLSID_XFeedsManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4268429763, data2: 50990, data3: 16481, data4: [134, 198, 157, 22, 49, 33, 242, 41] };
 pub const DISPID_DELTA: u32 = 50u32;
 pub const DISPID_FEEDENCLOSURE_AsyncDownload: u32 = 24579u32;
@@ -556,24 +546,9 @@ pub type FEEDS_XML_SORT_PROPERTY = i32;
 pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = 0i32;
 pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = 1i32;
 pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = 2i32;
-pub const FeedFolderWatcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 672137709,
-    data2: 30565,
-    data3: 19632,
-    data4: [132, 175, 233, 179, 135, 175, 1, 255],
-};
-pub const FeedWatcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 413561723,
-    data2: 62515,
-    data3: 18055,
-    data4: [137, 188, 161, 180, 223, 185, 241, 35],
-};
-pub const FeedsManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4209726660,
-    data2: 63087,
-    data3: 18438,
-    data4: [131, 160, 128, 82, 153, 245, 227, 173],
-};
+pub const FeedFolderWatcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 672137709, data2: 30565, data3: 19632, data4: [132, 175, 233, 179, 135, 175, 1, 255] };
+pub const FeedWatcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 413561723, data2: 62515, data3: 18055, data4: [137, 188, 161, 180, 223, 185, 241, 35] };
+pub const FeedsManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4209726660, data2: 63087, data3: 18438, data4: [131, 160, 128, 82, 153, 245, 227, 173] };
 pub type IFeed = *mut ::core::ffi::c_void;
 pub type IFeed2 = *mut ::core::ffi::c_void;
 pub type IFeedEnclosure = *mut ::core::ffi::c_void;
@@ -911,12 +886,7 @@ pub const WMPUE_EC_USER: u32 = 33024u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_DELETED_ITEMS: u32 = 1u32;
 pub const WMP_PLUGINTYPE_DSP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1681177322, data2: 18772, data3: 18829, data4: [171, 213, 43, 7, 18, 62, 31, 4] };
-pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4012487028,
-    data2: 49991,
-    data3: 17612,
-    data4: [154, 79, 35, 153, 17, 143, 243, 140],
-};
+pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4012487028, data2: 49991, data3: 17612, data4: [154, 79, 35, 153, 17, 143, 243, 140] };
 pub const WMP_PLUGINTYPE_RENDERING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2824160577, data2: 4445, data3: 16490, data4: [164, 199, 81, 17, 28, 51, 1, 131] };
 #[repr(C, packed(1))]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
@@ -944,94 +914,29 @@ impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
         *self
     }
 }
-pub const WMProfile_V40_100Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2409225688,
-    data2: 26244,
-    data3: 17771,
-    data4: [160, 163, 51, 225, 49, 104, 149, 240],
-};
+pub const WMProfile_V40_100Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2409225688, data2: 26244, data3: 17771, data4: [160, 163, 51, 225, 49, 104, 149, 240] };
 pub const WMProfile_V40_128Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2480782866, data2: 5084, data3: 20018, data4: [163, 94, 64, 55, 142, 52, 39, 154] };
-pub const WMProfile_V40_16AMRadio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 256632863,
-    data2: 54653,
-    data3: 16865,
-    data4: [178, 227, 47, 173, 152, 107, 254, 194],
-};
-pub const WMProfile_V40_1MBVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3024628300,
-    data2: 52247,
-    data3: 19207,
-    data4: [169, 78, 152, 24, 213, 224, 241, 63],
-};
+pub const WMProfile_V40_16AMRadio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 256632863, data2: 54653, data3: 16865, data4: [178, 227, 47, 173, 152, 107, 254, 194] };
+pub const WMProfile_V40_1MBVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3024628300, data2: 52247, data3: 19207, data4: [169, 78, 152, 24, 213, 224, 241, 63] };
 pub const WMProfile_V40_250Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1410875843, data2: 37689, data3: 20347, data4: [154, 34, 177, 21, 64, 137, 78, 66] };
 pub const WMProfile_V40_2856100MBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1511793158, data2: 56414, data3: 16774, data4: [190, 178, 76, 90, 153, 75, 19, 46] };
-pub const WMProfile_V40_288FMRadioMono: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2141552584,
-    data2: 28324,
-    data3: 17989,
-    data4: [138, 191, 182, 229, 168, 248, 20, 161],
-};
+pub const WMProfile_V40_288FMRadioMono: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2141552584, data2: 28324, data3: 17989, data4: [138, 191, 182, 229, 168, 248, 20, 161] };
 pub const WMProfile_V40_288FMRadioStereo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 587002982, data2: 43584, data3: 17183, data4: [162, 137, 6, 208, 234, 26, 30, 64] };
 pub const WMProfile_V40_288VideoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2892070701, data2: 27838, data3: 20100, data4: [142, 154, 206, 21, 26, 18, 163, 84] };
-pub const WMProfile_V40_288VideoVoice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3140207220,
-    data2: 3766,
-    data3: 19881,
-    data4: [181, 80, 236, 247, 242, 185, 148, 143],
-};
-pub const WMProfile_V40_288VideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2884825101,
-    data2: 54613,
-    data3: 18453,
-    data4: [148, 206, 130, 117, 243, 167, 11, 254],
-};
-pub const WMProfile_V40_3MBVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1429686976,
-    data2: 12443,
-    data3: 17302,
-    data4: [184, 143, 230, 226, 146, 17, 63, 40],
-};
-pub const WMProfile_V40_512Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1883508333,
-    data2: 50415,
-    data3: 20356,
-    data4: [140, 208, 213, 194, 134, 134, 231, 132],
-};
+pub const WMProfile_V40_288VideoVoice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3140207220, data2: 3766, data3: 19881, data4: [181, 80, 236, 247, 242, 185, 148, 143] };
+pub const WMProfile_V40_288VideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2884825101, data2: 54613, data3: 18453, data4: [148, 206, 130, 117, 243, 167, 11, 254] };
+pub const WMProfile_V40_3MBVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1429686976, data2: 12443, data3: 17302, data4: [184, 143, 230, 226, 146, 17, 63, 40] };
+pub const WMProfile_V40_512Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1883508333, data2: 50415, data3: 20356, data4: [140, 208, 213, 194, 134, 134, 231, 132] };
 pub const WMProfile_V40_56DialUpStereo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3892473735, data2: 59653, data3: 17812, data4: [163, 199, 0, 208, 0, 65, 209, 217] };
 pub const WMProfile_V40_56DialUpVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3793163195, data2: 25903, data3: 19883, data4: [153, 222, 113, 224, 68, 0, 39, 15] };
-pub const WMProfile_V40_56DialUpVideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3075931920,
-    data2: 21007,
-    data3: 18249,
-    data4: [163, 153, 183, 128, 226, 252, 146, 80],
-};
-pub const WMProfile_V40_64Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1210102775,
-    data2: 52204,
-    data3: 16860,
-    data4: [147, 145, 120, 89, 135, 20, 200, 229],
-};
-pub const WMProfile_V40_6VoiceAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3574110090,
-    data2: 4512,
-    data3: 19733,
-    data4: [176, 218, 172, 220, 153, 212, 248, 144],
-};
+pub const WMProfile_V40_56DialUpVideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3075931920, data2: 21007, data3: 18249, data4: [163, 153, 183, 128, 226, 252, 146, 80] };
+pub const WMProfile_V40_64Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1210102775, data2: 52204, data3: 16860, data4: [147, 145, 120, 89, 135, 20, 200, 229] };
+pub const WMProfile_V40_6VoiceAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3574110090, data2: 4512, data3: 19733, data4: [176, 218, 172, 220, 153, 212, 248, 144] };
 pub const WMProfile_V40_96Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 251268835, data2: 40548, data3: 16866, data4: [131, 127, 60, 0, 56, 243, 39, 186] };
 pub const WMProfile_V40_DialUpMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4252977137, data2: 29350, data3: 17828, data4: [128, 240, 58, 236, 239, 195, 44, 7] };
 pub const WMProfile_V40_IntranetMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2194486049, data2: 43338, data3: 20476, data4: [156, 43, 9, 44, 16, 202, 22, 231] };
-pub const WMProfile_V70_100Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3656632626,
-    data2: 24233,
-    data3: 19565,
-    data4: [137, 180, 38, 134, 229, 21, 66, 110],
-};
-pub const WMProfile_V70_128Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3326932442,
-    data2: 57157,
-    data3: 16595,
-    data4: [128, 39, 222, 105, 141, 104, 220, 102],
-};
+pub const WMProfile_V70_100Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3656632626, data2: 24233, data3: 19565, data4: [137, 180, 38, 134, 229, 21, 66, 110] };
+pub const WMProfile_V70_128Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3326932442, data2: 57157, data3: 16595, data4: [128, 39, 222, 105, 141, 104, 220, 102] };
 pub const WMProfile_V70_1500FilmContentVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4138071775, data2: 60991, data3: 17228, data4: [164, 51, 82, 60, 229, 95, 81, 107] };
 pub const WMProfile_V70_1500Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 193533514, data2: 21648, data3: 18054, data4: [158, 55, 90, 128, 136, 78, 81, 70] };
 pub const WMProfile_V70_150VideoPDA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 256321895, data2: 58310, data3: 18327, data4: [150, 148, 240, 48, 76, 94, 47, 23] };
@@ -1039,155 +944,50 @@ pub const WMProfile_V70_2000Video: ::windows_sys::core::GUID = ::windows_sys::co
 pub const WMProfile_V70_225VideoPDA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4116620659, data2: 19458, data3: 17077, data4: [144, 38, 168, 38, 12, 67, 138, 159] };
 pub const WMProfile_V70_256Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2951125818, data2: 16447, data3: 18971, data4: [128, 7, 14, 33, 207, 179, 223, 132] };
 pub const WMProfile_V70_2856100MBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 132086309, data2: 16354, data3: 19035, data4: [139, 30, 52, 139, 7, 33, 202, 112] };
-pub const WMProfile_V70_288FMRadioMono: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3222448179,
-    data2: 41019,
-    data3: 17573,
-    data4: [150, 220, 237, 149, 204, 101, 88, 45],
-};
+pub const WMProfile_V70_288FMRadioMono: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3222448179, data2: 41019, data3: 17573, data4: [150, 220, 237, 149, 204, 101, 88, 45] };
 pub const WMProfile_V70_288FMRadioStereo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3916261321, data2: 6713, data3: 19908, data4: [185, 0, 177, 24, 77, 200, 54, 32] };
 pub const WMProfile_V70_288VideoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1488691438, data2: 35178, data3: 18760, data4: [153, 83, 133, 183, 54, 248, 57, 71] };
 pub const WMProfile_V70_288VideoVoice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3109221262, data2: 32188, data3: 17715, data4: [169, 202, 176, 11, 28, 110, 152, 0] };
 pub const WMProfile_V70_288VideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1889742379, data2: 58079, data3: 20157, data4: [145, 5, 217, 202, 25, 74, 45, 80] };
-pub const WMProfile_V70_384Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4090781627,
-    data2: 34690,
-    data3: 17631,
-    data4: [151, 198, 134, 120, 226, 249, 177, 61],
-};
+pub const WMProfile_V70_384Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4090781627, data2: 34690, data3: 17631, data4: [151, 198, 134, 120, 226, 249, 177, 61] };
 pub const WMProfile_V70_56DialUpStereo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1733224295, data2: 2377, data3: 20396, data4: [135, 94, 244, 201, 194, 146, 1, 59] };
-pub const WMProfile_V70_56VideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3740900928,
-    data2: 22460,
-    data3: 19123,
-    data4: [178, 209, 182, 227, 202, 246, 66, 87],
-};
-pub const WMProfile_V70_64Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2996633542,
-    data2: 61745,
-    data3: 16859,
-    data4: [181, 232, 153, 216, 176, 185, 69, 244],
-};
+pub const WMProfile_V70_56VideoWebServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3740900928, data2: 22460, data3: 19123, data4: [178, 209, 182, 227, 202, 246, 66, 87] };
+pub const WMProfile_V70_64Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2996633542, data2: 61745, data3: 16859, data4: [181, 232, 153, 216, 176, 185, 69, 244] };
 pub const WMProfile_V70_64AudioISDN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2447287384, data2: 40288, data3: 16914, data4: [156, 89, 212, 9, 25, 201, 57, 228] };
 pub const WMProfile_V70_64VideoISDN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3266815977, data2: 31630, data3: 18834, data4: [161, 161, 6, 130, 23, 163, 179, 17] };
-pub const WMProfile_V70_6VoiceAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3938099135,
-    data2: 46671,
-    data3: 18867,
-    data4: [170, 12, 115, 251, 221, 21, 10, 208],
-};
-pub const WMProfile_V70_700FilmContentVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2054453536,
-    data2: 9289,
-    data3: 19830,
-    data4: [153, 203, 253, 176, 201, 4, 132, 212],
-};
+pub const WMProfile_V70_6VoiceAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3938099135, data2: 46671, data3: 18867, data4: [170, 12, 115, 251, 221, 21, 10, 208] };
+pub const WMProfile_V70_700FilmContentVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2054453536, data2: 9289, data3: 19830, data4: [153, 203, 253, 176, 201, 4, 132, 212] };
 pub const WMProfile_V70_768Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 52882358, data2: 63342, data3: 18788, data4: [176, 219, 231, 41, 151, 141, 53, 238] };
 pub const WMProfile_V70_96Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2849290265, data2: 5836, data3: 19033, data4: [159, 55, 105, 61, 187, 3, 2, 214] };
 pub const WMProfile_V70_DialUpMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1528227659, data2: 16488, data3: 17845, data4: [184, 14, 123, 248, 200, 13, 44, 47] };
 pub const WMProfile_V70_IntranetMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 72909020, data2: 13494, data3: 19625, data4: [163, 38, 115, 85, 126, 209, 67, 243] };
-pub const WMProfile_V80_100768VideoMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1541102094,
-    data2: 38814,
-    data3: 18387,
-    data4: [149, 150, 115, 179, 134, 57, 42, 85],
-};
-pub const WMProfile_V80_100Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2732785844,
-    data2: 49876,
-    data3: 20416,
-    data4: [181, 221, 236, 189, 148, 141, 192, 223],
-};
-pub const WMProfile_V80_128StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1081840720,
-    data2: 35804,
-    data3: 20197,
-    data4: [136, 184, 111, 82, 123, 217, 65, 242],
-};
-pub const WMProfile_V80_1400NTSCVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2468158446,
-    data2: 24954,
-    data3: 19405,
-    data4: [153, 5, 204, 208, 120, 102, 131, 238],
-};
+pub const WMProfile_V80_100768VideoMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1541102094, data2: 38814, data3: 18387, data4: [149, 150, 115, 179, 134, 57, 42, 85] };
+pub const WMProfile_V80_100Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732785844, data2: 49876, data3: 20416, data4: [181, 221, 236, 189, 148, 141, 192, 223] };
+pub const WMProfile_V80_128StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1081840720, data2: 35804, data3: 20197, data4: [136, 184, 111, 82, 123, 217, 65, 242] };
+pub const WMProfile_V80_1400NTSCVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2468158446, data2: 24954, data3: 19405, data4: [153, 5, 204, 208, 120, 102, 131, 238] };
 pub const WMProfile_V80_150VideoPDA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2934009338, data2: 11284, data3: 18991, data4: [173, 63, 163, 3, 64, 49, 120, 79] };
 pub const WMProfile_V80_255VideoPDA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4276993247, data2: 16300, data3: 19603, data4: [172, 13, 71, 148, 30, 199, 44, 11] };
 pub const WMProfile_V80_256Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3150402816, data2: 13266, data3: 17510, data4: [184, 107, 18, 43, 32, 28, 201, 174] };
 pub const WMProfile_V80_288100VideoMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3631361129, data2: 9241, data3: 19254, data4: [180, 224, 110, 23, 182, 5, 100, 229] };
-pub const WMProfile_V80_28856VideoMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3597213892,
-    data2: 49695,
-    data3: 20168,
-    data4: [160, 180, 149, 207, 43, 213, 127, 196],
-};
-pub const WMProfile_V80_288MonoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2124616301,
-    data2: 57786,
-    data3: 18198,
-    data4: [137, 175, 246, 92, 238, 12, 12, 103],
-};
-pub const WMProfile_V80_288StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2118953820,
-    data2: 13788,
-    data3: 17851,
-    data4: [167, 192, 25, 178, 128, 112, 208, 204],
-};
-pub const WMProfile_V80_288Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1039562969,
-    data2: 4946,
-    data3: 16774,
-    data4: [187, 248, 116, 240, 193, 155, 106, 226],
-};
-pub const WMProfile_V80_288VideoOnly: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2353378503,
-    data2: 19179,
-    data3: 20344,
-    data4: [165, 236, 136, 66, 11, 157, 173, 239],
-};
-pub const WMProfile_V80_32StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1620082591,
-    data2: 45906,
-    data3: 18405,
-    data4: [178, 16, 14, 241, 244, 126, 159, 157],
-};
-pub const WMProfile_V80_384PALVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2452080274,
-    data2: 44642,
-    data3: 20338,
-    data4: [167, 234, 115, 96, 98, 208, 226, 30],
-};
+pub const WMProfile_V80_28856VideoMBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3597213892, data2: 49695, data3: 20168, data4: [160, 180, 149, 207, 43, 213, 127, 196] };
+pub const WMProfile_V80_288MonoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2124616301, data2: 57786, data3: 18198, data4: [137, 175, 246, 92, 238, 12, 12, 103] };
+pub const WMProfile_V80_288StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2118953820, data2: 13788, data3: 17851, data4: [167, 192, 25, 178, 128, 112, 208, 204] };
+pub const WMProfile_V80_288Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1039562969, data2: 4946, data3: 16774, data4: [187, 248, 116, 240, 193, 155, 106, 226] };
+pub const WMProfile_V80_288VideoOnly: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2353378503, data2: 19179, data3: 20344, data4: [165, 236, 136, 66, 11, 157, 173, 239] };
+pub const WMProfile_V80_32StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1620082591, data2: 45906, data3: 18405, data4: [178, 16, 14, 241, 244, 126, 159, 157] };
+pub const WMProfile_V80_384PALVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2452080274, data2: 44642, data3: 20338, data4: [167, 234, 115, 96, 98, 208, 226, 30] };
 pub const WMProfile_V80_384Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 699403307, data2: 2473, data3: 18621, data4: [173, 9, 205, 174, 17, 125, 29, 167] };
-pub const WMProfile_V80_48StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1591765989,
-    data2: 18731,
-    data3: 18442,
-    data4: [138, 143, 18, 243, 115, 236, 249, 212],
-};
+pub const WMProfile_V80_48StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1591765989, data2: 18731, data3: 18442, data4: [138, 143, 18, 243, 115, 236, 249, 212] };
 pub const WMProfile_V80_56Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 625904278, data2: 9746, data3: 16476, data4: [128, 57, 240, 191, 114, 92, 237, 125] };
-pub const WMProfile_V80_56VideoOnly: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1848273237,
-    data2: 33247,
-    data3: 18755,
-    data4: [186, 80, 104, 169, 134, 167, 8, 246],
-};
+pub const WMProfile_V80_56VideoOnly: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1848273237, data2: 33247, data3: 18755, data4: [186, 80, 104, 169, 134, 167, 8, 246] };
 pub const WMProfile_V80_64StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 163273668, data2: 12662, data3: 17791, data4: [141, 214, 60, 217, 25, 18, 62, 45] };
-pub const WMProfile_V80_700NTSCVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3368196191,
-    data2: 58841,
-    data3: 17720,
-    data4: [158, 35, 155, 33, 191, 120, 247, 69],
-};
+pub const WMProfile_V80_700NTSCVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3368196191, data2: 58841, data3: 17720, data4: [158, 35, 155, 33, 191, 120, 247, 69] };
 pub const WMProfile_V80_700PALVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3962145097, data2: 25499, data3: 17890, data4: [150, 253, 74, 179, 45, 89, 25, 194] };
 pub const WMProfile_V80_768Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1959792898, data2: 59162, data3: 18464, data4: [143, 13, 19, 210, 236, 30, 72, 114] };
 pub const WMProfile_V80_96StereoAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 533207344, data2: 25074, data3: 17263, data4: [157, 51, 52, 159, 42, 28, 15, 16] };
 pub const WMProfile_V80_BESTVBRVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 75774394, data2: 12444, data3: 17422, data4: [156, 180, 61, 204, 163, 117, 100, 35] };
 pub const WMProfile_V80_FAIRVBRVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 890284130, data2: 22608, data3: 18566, data4: [131, 95, 215, 142, 198, 166, 64, 66] };
-pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 252762579,
-    data2: 15108,
-    data3: 20400,
-    data4: [163, 211, 136, 212, 172, 133, 74, 204],
-};
+pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 252762579, data2: 15108, data3: 20400, data4: [163, 211, 136, 212, 172, 133, 74, 204] };
 pub const WindowsMediaPlayer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1811229266, data2: 14666, data3: 4563, data4: [177, 83, 0, 192, 79, 121, 250, 166] };
 pub type _WMPOCXEvents = *mut ::core::ffi::c_void;
 pub const g_szAllAuthors: &'static str = "AllAuthors";

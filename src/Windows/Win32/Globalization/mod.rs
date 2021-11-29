@@ -39,15 +39,15 @@ pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 pub const C3_VOWELMARK: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CALINFO_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+pub type CALINFO_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CALINFO_ENUMPROCEXA = unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL;
+pub type CALINFO_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CALINFO_ENUMPROCEXEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::PWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+pub type CALINFO_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::PWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CALINFO_ENUMPROCEXW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL;
+pub type CALINFO_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CALINFO_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+pub type CALINFO_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 pub const CAL_GREGORIAN: u32 = 1u32;
 pub const CAL_GREGORIAN_ARABIC: u32 = 10u32;
 pub const CAL_GREGORIAN_ME_FRENCH: u32 = 9u32;
@@ -159,9 +159,9 @@ pub const CMLangConvertCharset: ::windows::core::GUID = ::windows::core::GUID::f
 pub const CMLangString: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
 pub const CMultiLanguage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 #[cfg(feature = "Win32_Foundation")]
-pub type CODEPAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+pub type CODEPAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CODEPAGE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+pub type CODEPAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPARE_STRING_FLAGS(pub u32);
@@ -471,16 +471,7 @@ impl ::core::default::Default for CURRENCYFMTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CURRENCYFMTA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CURRENCYFMTA")
-            .field("NumDigits", &self.NumDigits)
-            .field("LeadingZero", &self.LeadingZero)
-            .field("Grouping", &self.Grouping)
-            .field("lpDecimalSep", &self.lpDecimalSep)
-            .field("lpThousandSep", &self.lpThousandSep)
-            .field("NegativeOrder", &self.NegativeOrder)
-            .field("PositiveOrder", &self.PositiveOrder)
-            .field("lpCurrencySymbol", &self.lpCurrencySymbol)
-            .finish()
+        fmt.debug_struct("CURRENCYFMTA").field("NumDigits", &self.NumDigits).field("LeadingZero", &self.LeadingZero).field("Grouping", &self.Grouping).field("lpDecimalSep", &self.lpDecimalSep).field("lpThousandSep", &self.lpThousandSep).field("NegativeOrder", &self.NegativeOrder).field("PositiveOrder", &self.PositiveOrder).field("lpCurrencySymbol", &self.lpCurrencySymbol).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -519,16 +510,7 @@ impl ::core::default::Default for CURRENCYFMTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CURRENCYFMTW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CURRENCYFMTW")
-            .field("NumDigits", &self.NumDigits)
-            .field("LeadingZero", &self.LeadingZero)
-            .field("Grouping", &self.Grouping)
-            .field("lpDecimalSep", &self.lpDecimalSep)
-            .field("lpThousandSep", &self.lpThousandSep)
-            .field("NegativeOrder", &self.NegativeOrder)
-            .field("PositiveOrder", &self.PositiveOrder)
-            .field("lpCurrencySymbol", &self.lpCurrencySymbol)
-            .finish()
+        fmt.debug_struct("CURRENCYFMTW").field("NumDigits", &self.NumDigits).field("LeadingZero", &self.LeadingZero).field("Grouping", &self.Grouping).field("lpDecimalSep", &self.lpDecimalSep).field("lpThousandSep", &self.lpThousandSep).field("NegativeOrder", &self.NegativeOrder).field("PositiveOrder", &self.PositiveOrder).field("lpCurrencySymbol", &self.lpCurrencySymbol).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -558,34 +540,14 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(
-    lplocalename: Param0,
-    dwcmpflags: COMPARE_STRING_FLAGS,
-    lpstring1: Param2,
-    cchcount1: i32,
-    lpstring2: Param4,
-    cchcount2: i32,
-    lpversioninformation: *mut NLSVERSIONINFO,
-    lpreserved: *mut ::core::ffi::c_void,
-    lparam: Param8,
-) -> i32 {
+pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: Param2, cchcount1: i32, lpstring2: Param4, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: Param8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CompareStringEx(lplocalename: super::Foundation::PWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: super::Foundation::LPARAM) -> i32;
         }
-        ::core::mem::transmute(CompareStringEx(
-            lplocalename.into_param().abi(),
-            ::core::mem::transmute(dwcmpflags),
-            lpstring1.into_param().abi(),
-            ::core::mem::transmute(cchcount1),
-            lpstring2.into_param().abi(),
-            ::core::mem::transmute(cchcount2),
-            ::core::mem::transmute(lpversioninformation),
-            ::core::mem::transmute(lpreserved),
-            lparam.into_param().abi(),
-        ))
+        ::core::mem::transmute(CompareStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwcmpflags), lpstring1.into_param().abi(), ::core::mem::transmute(cchcount1), lpstring2.into_param().abi(), ::core::mem::transmute(cchcount2), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -632,15 +594,15 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type DATEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+pub type DATEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type DATEFMT_ENUMPROCEXA = unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL;
+pub type DATEFMT_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type DATEFMT_ENUMPROCEXEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+pub type DATEFMT_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type DATEFMT_ENUMPROCEXW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL;
+pub type DATEFMT_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type DATEFMT_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+pub type DATEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DetectEncodingInfo {
@@ -876,7 +838,7 @@ impl ::core::ops::Not for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: ::core::option::Option<CALINFO_ENUMPROCA>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -890,7 +852,7 @@ pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: ::core::option::Option<CALINF
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: ::core::option::Option<CALINFO_ENUMPROCEXA>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -904,7 +866,7 @@ pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: ::core::option::Option<CA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(pcalinfoenumprocexex: ::core::option::Option<CALINFO_ENUMPROCEXEX>, lplocalename: Param1, calendar: u32, lpreserved: Param3, caltype: u32, lparam: Param5) -> super::Foundation::BOOL {
+pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: Param1, calendar: u32, lpreserved: Param3, caltype: u32, lparam: Param5) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -918,7 +880,7 @@ pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: ::core::option::Option<CALINFO_ENUMPROCEXW>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -932,7 +894,7 @@ pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: ::core::option::Option<CA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: ::core::option::Option<CALINFO_ENUMPROCW>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -946,7 +908,7 @@ pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: ::core::option::Option<CALINF
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: ::core::option::Option<DATEFMT_ENUMPROCA>, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -960,7 +922,7 @@ pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: ::core::option::Option<DATEFMT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: ::core::option::Option<DATEFMT_ENUMPROCEXA>, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -974,7 +936,7 @@ pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: ::core::option::Option<DAT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lpdatefmtenumprocexex: ::core::option::Option<DATEFMT_ENUMPROCEXEX>, lplocalename: Param1, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: Param3) -> super::Foundation::BOOL {
+pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: Param1, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -988,7 +950,7 @@ pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: ::core::option::Option<DATEFMT_ENUMPROCEXW>, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1002,7 +964,7 @@ pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: ::core::option::Option<DAT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: ::core::option::Option<DATEFMT_ENUMPROCW>, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1016,7 +978,7 @@ pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: ::core::option::Option<DATEFMT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: ::core::option::Option<LANGGROUPLOCALE_ENUMPROCA>, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
+pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1030,7 +992,7 @@ pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: ::core::optio
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: ::core::option::Option<LANGGROUPLOCALE_ENUMPROCW>, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
+pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1044,7 +1006,7 @@ pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: ::core::optio
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: ::core::option::Option<CODEPAGE_ENUMPROCA>, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1058,7 +1020,7 @@ pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: ::core::option::Option<CO
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: ::core::option::Option<CODEPAGE_ENUMPROCW>, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1072,7 +1034,7 @@ pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: ::core::option::Option<CO
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: ::core::option::Option<GEO_ENUMPROC>) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1086,7 +1048,7 @@ pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: ::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(geoclass: u32, geoenumproc: ::core::option::Option<GEO_ENUMNAMEPROC>, data: Param2) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1100,7 +1062,7 @@ pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: ::core::option::Option<LANGUAGEGROUP_ENUMPROCA>, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1114,7 +1076,7 @@ pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: ::core::option:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: ::core::option::Option<LANGUAGEGROUP_ENUMPROCW>, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1128,7 +1090,7 @@ pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: ::core::option:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: ::core::option::Option<LOCALE_ENUMPROCA>, dwflags: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1142,7 +1104,7 @@ pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: ::core::option::Option<LOCALE
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocaleenumprocex: ::core::option::Option<LOCALE_ENUMPROCEX>, dwflags: u32, lparam: Param2, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: Param2, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1156,7 +1118,7 @@ pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: ::core::option::Option<LOCALE_ENUMPROCW>, dwflags: u32) -> super::Foundation::BOOL {
+pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1170,7 +1132,7 @@ pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: ::core::option::Option<LOCALE
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: ::core::option::Option<TIMEFMT_ENUMPROCA>, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
+pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1184,7 +1146,7 @@ pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: ::core::option::Option<TIMEFMT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lptimefmtenumprocex: ::core::option::Option<TIMEFMT_ENUMPROCEX>, lplocalename: Param1, dwflags: u32, lparam: Param3) -> super::Foundation::BOOL {
+pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: Param1, dwflags: u32, lparam: Param3) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1198,7 +1160,7 @@ pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: ::core::option::Option<TIMEFMT_ENUMPROCW>, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
+pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1212,7 +1174,7 @@ pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: ::core::option::Option<TIMEFMT
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: ::core::option::Option<UILANGUAGE_ENUMPROCA>, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
+pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1226,7 +1188,7 @@ pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: ::core::option::Option<UILA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: ::core::option::Option<UILANGUAGE_ENUMPROCW>, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
+pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1282,19 +1244,7 @@ impl ::core::fmt::Debug for FILEMUIINFO {
 }
 impl ::core::cmp::PartialEq for FILEMUIINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFileType == other.dwFileType
-            && self.pChecksum == other.pChecksum
-            && self.pServiceChecksum == other.pServiceChecksum
-            && self.dwLanguageNameOffset == other.dwLanguageNameOffset
-            && self.dwTypeIDMainSize == other.dwTypeIDMainSize
-            && self.dwTypeIDMainOffset == other.dwTypeIDMainOffset
-            && self.dwTypeNameMainOffset == other.dwTypeNameMainOffset
-            && self.dwTypeIDMUISize == other.dwTypeIDMUISize
-            && self.dwTypeIDMUIOffset == other.dwTypeIDMUIOffset
-            && self.dwTypeNameMUIOffset == other.dwTypeNameMUIOffset
-            && self.abBuffer == other.abBuffer
+        self.dwSize == other.dwSize && self.dwVersion == other.dwVersion && self.dwFileType == other.dwFileType && self.pChecksum == other.pChecksum && self.pServiceChecksum == other.pServiceChecksum && self.dwLanguageNameOffset == other.dwLanguageNameOffset && self.dwTypeIDMainSize == other.dwTypeIDMainSize && self.dwTypeIDMainOffset == other.dwTypeIDMainOffset && self.dwTypeNameMainOffset == other.dwTypeNameMainOffset && self.dwTypeIDMUISize == other.dwTypeIDMUISize && self.dwTypeIDMUIOffset == other.dwTypeIDMUIOffset && self.dwTypeNameMUIOffset == other.dwTypeNameMUIOffset && self.abBuffer == other.abBuffer
     }
 }
 impl ::core::cmp::Eq for FILEMUIINFO {}
@@ -1391,36 +1341,14 @@ pub unsafe fn FindNLSString<'a, Param2: ::windows::core::IntoParam<'a, super::Fo
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(
-    lplocalename: Param0,
-    dwfindnlsstringflags: u32,
-    lpstringsource: Param2,
-    cchsource: i32,
-    lpstringvalue: Param4,
-    cchvalue: i32,
-    pcchfound: *mut i32,
-    lpversioninformation: *const NLSVERSIONINFO,
-    lpreserved: *const ::core::ffi::c_void,
-    sorthandle: Param9,
-) -> i32 {
+pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwfindnlsstringflags: u32, lpstringsource: Param2, cchsource: i32, lpstringvalue: Param4, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: Param9) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn FindNLSStringEx(lplocalename: super::Foundation::PWSTR, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
         }
-        ::core::mem::transmute(FindNLSStringEx(
-            lplocalename.into_param().abi(),
-            ::core::mem::transmute(dwfindnlsstringflags),
-            lpstringsource.into_param().abi(),
-            ::core::mem::transmute(cchsource),
-            lpstringvalue.into_param().abi(),
-            ::core::mem::transmute(cchvalue),
-            ::core::mem::transmute(pcchfound),
-            ::core::mem::transmute(lpversioninformation),
-            ::core::mem::transmute(lpreserved),
-            sorthandle.into_param().abi(),
-        ))
+        ::core::mem::transmute(FindNLSStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwfindnlsstringflags), lpstringsource.into_param().abi(), ::core::mem::transmute(cchsource), lpstringvalue.into_param().abi(), ::core::mem::transmute(cchvalue), ::core::mem::transmute(pcchfound), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1469,9 +1397,9 @@ pub unsafe fn FoldStringW<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
 }
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type GEO_ENUMNAMEPROC = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+pub type GEO_ENUMNAMEPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type GEO_ENUMPROC = unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL;
+pub type GEO_ENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GOFFSET {
@@ -2567,12 +2495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnum
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumSpellingError_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IEnumSpellingError_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
 pub const IME_CMODE_CHARCODE: u32 = 32u32;
 pub const IME_CMODE_CHINESE: u32 = 1u32;
@@ -2999,18 +2922,7 @@ impl IMLangString {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), psrcmlstr.into_param().abi(), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen)).ok()
     }
     pub unsafe fn GetMLStr<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, lsrcpos: i32, lsrclen: i32, punkouter: Param2, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lsrcpos),
-            ::core::mem::transmute(lsrclen),
-            punkouter.into_param().abi(),
-            ::core::mem::transmute(dwclscontext),
-            ::core::mem::transmute(piid),
-            ::core::mem::transmute(ppdestmlstr),
-            ::core::mem::transmute(pldestpos),
-            ::core::mem::transmute(pldestlen),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), punkouter.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(piid), ::core::mem::transmute(ppdestmlstr), ::core::mem::transmute(pldestpos), ::core::mem::transmute(pldestlen)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IMLangString {
@@ -3065,18 +2977,7 @@ impl IMLangStringAStr {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), psrcmlstr.into_param().abi(), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen)).ok()
     }
     pub unsafe fn GetMLStr<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, lsrcpos: i32, lsrclen: i32, punkouter: Param2, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lsrcpos),
-            ::core::mem::transmute(lsrclen),
-            punkouter.into_param().abi(),
-            ::core::mem::transmute(dwclscontext),
-            ::core::mem::transmute(piid),
-            ::core::mem::transmute(ppdestmlstr),
-            ::core::mem::transmute(pldestpos),
-            ::core::mem::transmute(pldestlen),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), punkouter.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(piid), ::core::mem::transmute(ppdestmlstr), ::core::mem::transmute(pldestpos), ::core::mem::transmute(pldestlen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAStr<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: Param3, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
@@ -3087,37 +2988,14 @@ impl IMLangStringAStr {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: super::Foundation::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lsrcpos),
-            ::core::mem::transmute(lsrclen),
-            ::core::mem::transmute(ucodepagein),
-            ::core::mem::transmute(pucodepageout),
-            ::core::mem::transmute(pszdest),
-            ::core::mem::transmute(cchdest),
-            ::core::mem::transmute(pcchactual),
-            ::core::mem::transmute(plactuallen),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), ::core::mem::transmute(ucodepagein), ::core::mem::transmute(pucodepageout), ::core::mem::transmute(pszdest), ::core::mem::transmute(cchdest), ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufA>, pldestlen: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrcmaxlen), ::core::mem::transmute(pudestcodepage), ::core::mem::transmute(ppdestbuf), ::core::mem::transmute(pldestlen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut super::Foundation::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lsrcpos),
-            ::core::mem::transmute(lsrclen),
-            ::core::mem::transmute(lflags),
-            ::core::mem::transmute(ucodepagein),
-            ::core::mem::transmute(cchrequest),
-            ::core::mem::transmute(pucodepageout),
-            ::core::mem::transmute(ppszdest),
-            ::core::mem::transmute(pcchdest),
-            ::core::mem::transmute(pldestlen),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), ::core::mem::transmute(lflags), ::core::mem::transmute(ucodepagein), ::core::mem::transmute(cchrequest), ::core::mem::transmute(pucodepageout), ::core::mem::transmute(ppszdest), ::core::mem::transmute(pcchdest), ::core::mem::transmute(pldestlen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnlockAStr<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(&self, pszsrc: Param0, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
@@ -3334,18 +3212,7 @@ impl IMLangStringWStr {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), psrcmlstr.into_param().abi(), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen)).ok()
     }
     pub unsafe fn GetMLStr<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, lsrcpos: i32, lsrclen: i32, punkouter: Param2, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lsrcpos),
-            ::core::mem::transmute(lsrclen),
-            punkouter.into_param().abi(),
-            ::core::mem::transmute(dwclscontext),
-            ::core::mem::transmute(piid),
-            ::core::mem::transmute(ppdestmlstr),
-            ::core::mem::transmute(pldestpos),
-            ::core::mem::transmute(pldestlen),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), punkouter.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(piid), ::core::mem::transmute(ppdestmlstr), ::core::mem::transmute(pldestpos), ::core::mem::transmute(pldestlen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWStr<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, ldestpos: i32, ldestlen: i32, pszsrc: Param2, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
@@ -3851,32 +3718,11 @@ impl IMultiLanguage3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DetectOutboundCodePage<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, dwflags: u32, lpwidecharstr: Param1, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwflags),
-            lpwidecharstr.into_param().abi(),
-            ::core::mem::transmute(cchwidechar),
-            ::core::mem::transmute(puipreferredcodepages),
-            ::core::mem::transmute(npreferredcodepages),
-            ::core::mem::transmute(puidetectedcodepages),
-            ::core::mem::transmute(pndetectedcodepages),
-            lpspecialchar.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), lpwidecharstr.into_param().abi(), ::core::mem::transmute(cchwidechar), ::core::mem::transmute(puipreferredcodepages), ::core::mem::transmute(npreferredcodepages), ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn DetectOutboundCodePageInIStream<'a, Param1: ::windows::core::IntoParam<'a, super::System::Com::IStream>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, dwflags: u32, pstrin: Param1, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwflags),
-            pstrin.into_param().abi(),
-            ::core::mem::transmute(puipreferredcodepages),
-            ::core::mem::transmute(npreferredcodepages),
-            ::core::mem::transmute(puidetectedcodepages),
-            ::core::mem::transmute(pndetectedcodepages),
-            lpspecialchar.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pstrin.into_param().abi(), ::core::mem::transmute(puipreferredcodepages), ::core::mem::transmute(npreferredcodepages), ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IMultiLanguage3 {
@@ -4606,12 +4452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpel
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpellCheckerChangedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISpellCheckerChangedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISpellCheckerFactory(pub ::windows::core::IUnknown);
@@ -4972,13 +4813,13 @@ pub unsafe fn IsWellFormedTag<'a, Param0: ::windows::core::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LANGGROUPLOCALE_ENUMPROCA = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PSTR, param3: isize) -> super::Foundation::BOOL;
+pub type LANGGROUPLOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PSTR, param3: isize) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LANGGROUPLOCALE_ENUMPROCW = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PWSTR, param3: isize) -> super::Foundation::BOOL;
+pub type LANGGROUPLOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PWSTR, param3: isize) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LANGUAGEGROUP_ENUMPROCA = unsafe extern "system" fn(param0: u32, param1: super::Foundation::PSTR, param2: super::Foundation::PSTR, param3: u32, param4: isize) -> super::Foundation::BOOL;
+pub type LANGUAGEGROUP_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: super::Foundation::PSTR, param2: super::Foundation::PSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LANGUAGEGROUP_ENUMPROCW = unsafe extern "system" fn(param0: u32, param1: super::Foundation::PWSTR, param2: super::Foundation::PWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL;
+pub type LANGUAGEGROUP_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: super::Foundation::PWSTR, param2: super::Foundation::PWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LCIDToLocaleName(locale: u32, lpname: super::Foundation::PWSTR, cchname: i32, dwflags: u32) -> i32 {
@@ -5031,17 +4872,7 @@ pub unsafe fn LCMapStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
         extern "system" {
             fn LCMapStringEx(lplocalename: super::Foundation::PWSTR, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
         }
-        ::core::mem::transmute(LCMapStringEx(
-            lplocalename.into_param().abi(),
-            ::core::mem::transmute(dwmapflags),
-            lpsrcstr.into_param().abi(),
-            ::core::mem::transmute(cchsrc),
-            ::core::mem::transmute(lpdeststr),
-            ::core::mem::transmute(cchdest),
-            ::core::mem::transmute(lpversioninformation),
-            ::core::mem::transmute(lpreserved),
-            sorthandle.into_param().abi(),
-        ))
+        ::core::mem::transmute(LCMapStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwmapflags), lpsrcstr.into_param().abi(), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5109,11 +4940,11 @@ pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LOCALE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+pub type LOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LOCALE_ENUMPROCEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+pub type LOCALE_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LOCALE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+pub type LOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 pub const LOCALE_FONTSIGNATURE: u32 = 88u32;
 pub const LOCALE_ICALENDARTYPE: u32 = 4105u32;
 pub const LOCALE_ICENTURY: u32 = 36u32;
@@ -5402,7 +5233,7 @@ impl ::core::cmp::Eq for MAPPING_ENUM_OPTIONS {}
 unsafe impl ::windows::core::Abi for MAPPING_ENUM_OPTIONS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MAPPING_OPTIONS {
@@ -5414,10 +5245,10 @@ pub struct MAPPING_OPTIONS {
     pub pszInputContentType: super::Foundation::PWSTR,
     pub pszOutputContentType: super::Foundation::PWSTR,
     pub pszUILanguage: super::Foundation::PWSTR,
-    pub pfnRecognizeCallback: ::core::option::Option<PFN_MAPPINGCALLBACKPROC>,
+    pub pfnRecognizeCallback: PFN_MAPPINGCALLBACKPROC,
     pub pRecognizeCallerData: *mut ::core::ffi::c_void,
     pub dwRecognizeCallerDataSize: u32,
-    pub pfnActionCallback: ::core::option::Option<PFN_MAPPINGCALLBACKPROC>,
+    pub pfnActionCallback: PFN_MAPPINGCALLBACKPROC,
     pub pActionCallerData: *mut ::core::ffi::c_void,
     pub dwActionCallerDataSize: u32,
     pub dwServiceFlag: u32,
@@ -5477,7 +5308,7 @@ impl ::core::cmp::PartialEq for MAPPING_OPTIONS {
 impl ::core::cmp::Eq for MAPPING_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MAPPING_OPTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -5503,16 +5334,7 @@ impl ::core::default::Default for MAPPING_PROPERTY_BAG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MAPPING_PROPERTY_BAG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MAPPING_PROPERTY_BAG")
-            .field("Size", &self.Size)
-            .field("prgResultRanges", &self.prgResultRanges)
-            .field("dwRangesCount", &self.dwRangesCount)
-            .field("pServiceData", &self.pServiceData)
-            .field("dwServiceDataSize", &self.dwServiceDataSize)
-            .field("pCallerData", &self.pCallerData)
-            .field("dwCallerDataSize", &self.dwCallerDataSize)
-            .field("pContext", &self.pContext)
-            .finish()
+        fmt.debug_struct("MAPPING_PROPERTY_BAG").field("Size", &self.Size).field("prgResultRanges", &self.prgResultRanges).field("dwRangesCount", &self.dwRangesCount).field("pServiceData", &self.pServiceData).field("dwServiceDataSize", &self.dwServiceDataSize).field("pCallerData", &self.pCallerData).field("dwCallerDataSize", &self.dwCallerDataSize).field("pContext", &self.pContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5907,7 +5729,7 @@ pub unsafe fn MappingRecognizeText<'a, Param1: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: super::Foundation::PWSTR, dwlength: u32, dwindex: u32, poptions: *const ::core::mem::ManuallyDrop<MAPPING_OPTIONS>, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
+            fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: super::Foundation::PWSTR, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
         }
         MappingRecognizeText(::core::mem::transmute(pserviceinfo), psztext.into_param().abi(), ::core::mem::transmute(dwlength), ::core::mem::transmute(dwindex), ::core::mem::transmute(poptions), ::core::mem::transmute(pbag)).ok()
     }
@@ -6177,7 +5999,7 @@ pub unsafe fn NotifyUILanguageChange<'a, Param1: ::windows::core::IntoParam<'a, 
 pub const OFFLINE_SERVICES: u32 = 2u32;
 pub const ONLINE_SERVICES: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_MAPPINGCALLBACKPROC = unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::core::ffi::c_void, dwdatasize: u32, result: ::windows::core::HRESULT);
+pub type PFN_MAPPINGCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::core::ffi::c_void, dwdatasize: u32, result: ::windows::core::HRESULT)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RFC1766INFO {
@@ -6855,19 +6677,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn ScriptGetFontAlternateGlyphs(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptGetFontAlternateGlyphs(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(psc),
-            ::core::mem::transmute(psa),
-            ::core::mem::transmute(tagscript),
-            ::core::mem::transmute(taglangsys),
-            ::core::mem::transmute(tagfeature),
-            ::core::mem::transmute(wglyphid),
-            ::core::mem::transmute(cmaxalternates),
-            ::core::mem::transmute(palternateglyphs),
-            ::core::mem::transmute(pcalternates),
-        )
-        .ok()
+        ScriptGetFontAlternateGlyphs(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), ::core::mem::transmute(taglangsys), ::core::mem::transmute(tagfeature), ::core::mem::transmute(wglyphid), ::core::mem::transmute(cmaxalternates), ::core::mem::transmute(palternateglyphs), ::core::mem::transmute(pcalternates)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7053,50 +6863,12 @@ pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(
-    hdc: Param0,
-    psc: *mut *mut ::core::ffi::c_void,
-    psa: *mut SCRIPT_ANALYSIS,
-    tagscript: u32,
-    taglangsys: u32,
-    rcrangechars: *const i32,
-    rprangeproperties: *const *const textrange_properties,
-    cranges: i32,
-    pwcchars: Param8,
-    pwlogclust: *const u16,
-    pcharprops: *const script_charprop,
-    cchars: i32,
-    pwglyphs: *const u16,
-    pglyphprops: *const script_glyphprop,
-    cglyphs: i32,
-    piadvance: *mut i32,
-    pgoffset: *mut GOFFSET,
-    pabc: *mut super::Graphics::Gdi::ABC,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: Param8, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ScriptPlaceOpenType(
-                hdc: super::Graphics::Gdi::HDC,
-                psc: *mut *mut ::core::ffi::c_void,
-                psa: *mut SCRIPT_ANALYSIS,
-                tagscript: u32,
-                taglangsys: u32,
-                rcrangechars: *const i32,
-                rprangeproperties: *const *const textrange_properties,
-                cranges: i32,
-                pwcchars: super::Foundation::PWSTR,
-                pwlogclust: *const u16,
-                pcharprops: *const script_charprop,
-                cchars: i32,
-                pwglyphs: *const u16,
-                pglyphprops: *const script_glyphprop,
-                cglyphs: i32,
-                piadvance: *mut i32,
-                pgoffset: *mut GOFFSET,
-                pabc: *mut super::Graphics::Gdi::ABC,
-            ) -> ::windows::core::HRESULT;
+            fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
         }
         ScriptPlaceOpenType(
             hdc.into_param().abi(),
@@ -7132,21 +6904,7 @@ pub unsafe fn ScriptPositionSingleGlyph<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn ScriptPositionSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows::core::HRESULT;
         }
-        ScriptPositionSingleGlyph(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(psc),
-            ::core::mem::transmute(psa),
-            ::core::mem::transmute(tagscript),
-            ::core::mem::transmute(taglangsys),
-            ::core::mem::transmute(tagfeature),
-            ::core::mem::transmute(lparameter),
-            ::core::mem::transmute(wglyphid),
-            ::core::mem::transmute(iadvance),
-            goffset.into_param().abi(),
-            ::core::mem::transmute(pioutadvance),
-            ::core::mem::transmute(poutgoffset),
-        )
-        .ok()
+        ScriptPositionSingleGlyph(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), ::core::mem::transmute(taglangsys), ::core::mem::transmute(tagfeature), ::core::mem::transmute(lparameter), ::core::mem::transmute(wglyphid), ::core::mem::transmute(iadvance), goffset.into_param().abi(), ::core::mem::transmute(pioutadvance), ::core::mem::transmute(poutgoffset)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7174,43 +6932,14 @@ pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
         extern "system" {
             fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptShape(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(psc),
-            pwcchars.into_param().abi(),
-            ::core::mem::transmute(cchars),
-            ::core::mem::transmute(cmaxglyphs),
-            ::core::mem::transmute(psa),
-            ::core::mem::transmute(pwoutglyphs),
-            ::core::mem::transmute(pwlogclust),
-            ::core::mem::transmute(psva),
-            ::core::mem::transmute(pcglyphs),
-        )
-        .ok()
+        ScriptShape(hdc.into_param().abi(), ::core::mem::transmute(psc), pwcchars.into_param().abi(), ::core::mem::transmute(cchars), ::core::mem::transmute(cmaxglyphs), ::core::mem::transmute(psa), ::core::mem::transmute(pwoutglyphs), ::core::mem::transmute(pwlogclust), ::core::mem::transmute(psva), ::core::mem::transmute(pcglyphs)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(
-    hdc: Param0,
-    psc: *mut *mut ::core::ffi::c_void,
-    psa: *mut SCRIPT_ANALYSIS,
-    tagscript: u32,
-    taglangsys: u32,
-    rcrangechars: *const i32,
-    rprangeproperties: *const *const textrange_properties,
-    cranges: i32,
-    pwcchars: Param8,
-    cchars: i32,
-    cmaxglyphs: i32,
-    pwlogclust: *mut u16,
-    pcharprops: *mut script_charprop,
-    pwoutglyphs: *mut u16,
-    poutglyphprops: *mut script_glyphprop,
-    pcglyphs: *mut i32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: Param8, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7249,22 +6978,7 @@ pub unsafe fn ScriptStringAnalyse<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        ScriptStringAnalyse(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(pstring),
-            ::core::mem::transmute(cstring),
-            ::core::mem::transmute(cglyphs),
-            ::core::mem::transmute(icharset),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(ireqwidth),
-            ::core::mem::transmute(pscontrol),
-            ::core::mem::transmute(psstate),
-            ::core::mem::transmute(pidx),
-            ::core::mem::transmute(ptabdef),
-            ::core::mem::transmute(pbinclass),
-            ::core::mem::transmute(pssa),
-        )
-        .ok()
+        ScriptStringAnalyse(hdc.into_param().abi(), ::core::mem::transmute(pstring), ::core::mem::transmute(cstring), ::core::mem::transmute(cglyphs), ::core::mem::transmute(icharset), ::core::mem::transmute(dwflags), ::core::mem::transmute(ireqwidth), ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(pidx), ::core::mem::transmute(ptabdef), ::core::mem::transmute(pbinclass), ::core::mem::transmute(pssa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7426,23 +7140,7 @@ pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
         extern "system" {
             fn ScriptTextOut(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: super::Foundation::PWSTR, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::HRESULT;
         }
-        ScriptTextOut(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(psc),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(fuoptions),
-            ::core::mem::transmute(lprc),
-            ::core::mem::transmute(psa),
-            pwcreserved.into_param().abi(),
-            ::core::mem::transmute(ireserved),
-            ::core::mem::transmute(pwglyphs),
-            ::core::mem::transmute(cglyphs),
-            ::core::mem::transmute(piadvance),
-            ::core::mem::transmute(pijustify),
-            ::core::mem::transmute(pgoffset),
-        )
-        .ok()
+        ScriptTextOut(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(fuoptions), ::core::mem::transmute(lprc), ::core::mem::transmute(psa), pwcreserved.into_param().abi(), ::core::mem::transmute(ireserved), ::core::mem::transmute(pwglyphs), ::core::mem::transmute(cglyphs), ::core::mem::transmute(piadvance), ::core::mem::transmute(pijustify), ::core::mem::transmute(pgoffset)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7615,11 +7313,11 @@ pub unsafe fn SetUserGeoName<'a, Param0: ::windows::core::IntoParam<'a, super::F
 }
 pub const SpellCheckerFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 #[cfg(feature = "Win32_Foundation")]
-pub type TIMEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+pub type TIMEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type TIMEFMT_ENUMPROCEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+pub type TIMEFMT_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type TIMEFMT_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+pub type TIMEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TIME_FORMAT_FLAGS(pub u32);
@@ -7764,7 +7462,7 @@ pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct UBiDi(pub u8);
-pub type UBiDiClassCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection;
+pub type UBiDiClassCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UBiDiDirection(pub i32);
@@ -8333,7 +8031,7 @@ impl ::core::convert::From<i32> for UCPMapRangeOption {
 unsafe impl ::windows::core::Abi for UCPMapRangeOption {
     type Abi = Self;
 }
-pub type UCPMapValueFilter = unsafe extern "system" fn(context: *const ::core::ffi::c_void, value: u32) -> u32;
+pub type UCPMapValueFilter = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, value: u32) -> u32>;
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
 pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
 pub const UCPTRIE_FAST_DATA_MASK: i32 = 63i32;
@@ -8686,8 +8384,8 @@ impl ::core::convert::From<i32> for UCharDirection {
 unsafe impl ::windows::core::Abi for UCharDirection {
     type Abi = Self;
 }
-pub type UCharEnumTypeRange = unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8;
-#[derive(:: core :: clone :: Clone)]
+pub type UCharEnumTypeRange = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UCharIterator {
     pub context: *mut ::core::ffi::c_void,
@@ -8696,16 +8394,16 @@ pub struct UCharIterator {
     pub index: i32,
     pub limit: i32,
     pub reservedField: i32,
-    pub getIndex: ::core::option::Option<UCharIteratorGetIndex>,
-    pub r#move: ::core::option::Option<UCharIteratorMove>,
-    pub hasNext: ::core::option::Option<UCharIteratorHasNext>,
-    pub hasPrevious: ::core::option::Option<UCharIteratorHasPrevious>,
-    pub current: ::core::option::Option<UCharIteratorCurrent>,
-    pub next: ::core::option::Option<UCharIteratorNext>,
-    pub previous: ::core::option::Option<UCharIteratorPrevious>,
-    pub reservedFn: ::core::option::Option<UCharIteratorReserved>,
-    pub getState: ::core::option::Option<UCharIteratorGetState>,
-    pub setState: ::core::option::Option<UCharIteratorSetState>,
+    pub getIndex: UCharIteratorGetIndex,
+    pub r#move: UCharIteratorMove,
+    pub hasNext: UCharIteratorHasNext,
+    pub hasPrevious: UCharIteratorHasPrevious,
+    pub current: UCharIteratorCurrent,
+    pub next: UCharIteratorNext,
+    pub previous: UCharIteratorPrevious,
+    pub reservedFn: UCharIteratorReserved,
+    pub getState: UCharIteratorGetState,
+    pub setState: UCharIteratorSetState,
 }
 impl UCharIterator {}
 impl ::core::default::Default for UCharIterator {
@@ -8740,15 +8438,15 @@ impl ::core::cmp::PartialEq for UCharIterator {
 }
 impl ::core::cmp::Eq for UCharIterator {}
 unsafe impl ::windows::core::Abi for UCharIterator {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type UCharIteratorCurrent = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i32;
-pub type UCharIteratorGetIndex = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, origin: UCharIteratorOrigin) -> i32;
-pub type UCharIteratorGetState = unsafe extern "system" fn(iter: *const ::core::mem::ManuallyDrop<UCharIterator>) -> u32;
-pub type UCharIteratorHasNext = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i8;
-pub type UCharIteratorHasPrevious = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i8;
-pub type UCharIteratorMove = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, delta: i32, origin: UCharIteratorOrigin) -> i32;
-pub type UCharIteratorNext = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i32;
+pub type UCharIteratorCurrent = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorGetIndex = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
+pub type UCharIteratorGetState = ::core::option::Option<unsafe extern "system" fn(iter: *const UCharIterator) -> u32>;
+pub type UCharIteratorHasNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
+pub type UCharIteratorHasPrevious = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
+pub type UCharIteratorMove = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32>;
+pub type UCharIteratorNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UCharIteratorOrigin(pub i32);
@@ -8765,9 +8463,9 @@ impl ::core::convert::From<i32> for UCharIteratorOrigin {
 unsafe impl ::windows::core::Abi for UCharIteratorOrigin {
     type Abi = Self;
 }
-pub type UCharIteratorPrevious = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i32;
-pub type UCharIteratorReserved = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, something: i32) -> i32;
-pub type UCharIteratorSetState = unsafe extern "system" fn(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, state: u32, perrorcode: *mut UErrorCode);
+pub type UCharIteratorPrevious = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorReserved = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32>;
+pub type UCharIteratorSetState = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UCharNameChoice(pub i32);
@@ -8925,7 +8623,7 @@ unsafe impl ::windows::core::Abi for UConverterCallbackReason {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type UConverterFromUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
+pub type UConverterFromUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8950,16 +8648,7 @@ impl ::core::default::Default for UConverterFromUnicodeArgs {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for UConverterFromUnicodeArgs {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UConverterFromUnicodeArgs")
-            .field("size", &self.size)
-            .field("flush", &self.flush)
-            .field("converter", &self.converter)
-            .field("source", &self.source)
-            .field("sourceLimit", &self.sourceLimit)
-            .field("target", &self.target)
-            .field("targetLimit", &self.targetLimit)
-            .field("offsets", &self.offsets)
-            .finish()
+        fmt.debug_struct("UConverterFromUnicodeArgs").field("size", &self.size).field("flush", &self.flush).field("converter", &self.converter).field("source", &self.source).field("sourceLimit", &self.sourceLimit).field("target", &self.target).field("targetLimit", &self.targetLimit).field("offsets", &self.offsets).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8991,7 +8680,7 @@ unsafe impl ::windows::core::Abi for UConverterPlatform {
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct UConverterSelector(pub u8);
 #[cfg(feature = "Win32_Foundation")]
-pub type UConverterToUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
+pub type UConverterToUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -9016,16 +8705,7 @@ impl ::core::default::Default for UConverterToUnicodeArgs {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for UConverterToUnicodeArgs {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UConverterToUnicodeArgs")
-            .field("size", &self.size)
-            .field("flush", &self.flush)
-            .field("converter", &self.converter)
-            .field("source", &self.source)
-            .field("sourceLimit", &self.sourceLimit)
-            .field("target", &self.target)
-            .field("targetLimit", &self.targetLimit)
-            .field("offsets", &self.offsets)
-            .finish()
+        fmt.debug_struct("UConverterToUnicodeArgs").field("size", &self.size).field("flush", &self.flush).field("converter", &self.converter).field("source", &self.source).field("sourceLimit", &self.sourceLimit).field("target", &self.target).field("targetLimit", &self.targetLimit).field("offsets", &self.offsets).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9553,7 +9233,7 @@ unsafe impl ::windows::core::Abi for UEastAsianWidth {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type UEnumCharNamesFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8;
+pub type UEnumCharNamesFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8>;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct UEnumeration(pub u8);
@@ -9927,9 +9607,9 @@ pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
 pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type UILANGUAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: isize) -> super::Foundation::BOOL;
+pub type UILANGUAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: isize) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type UILANGUAGE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: isize) -> super::Foundation::BOOL;
+pub type UILANGUAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: isize) -> super::Foundation::BOOL>;
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -10370,9 +10050,9 @@ impl ::core::convert::From<i32> for UMeasurementSystem {
 unsafe impl ::windows::core::Abi for UMeasurementSystem {
     type Abi = Self;
 }
-pub type UMemAllocFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
-pub type UMemFreeFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void);
-pub type UMemReallocFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
+pub type UMemAllocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
+pub type UMemFreeFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void)>;
+pub type UMemReallocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UMessagePatternApostropheMode(pub i32);
@@ -10431,7 +10111,7 @@ unsafe impl ::windows::core::Abi for UMessagePatternPartType {
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct UMutableCPTrie(pub u8);
-pub type UNESCAPE_CHAR_AT = unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16;
+pub type UNESCAPE_CHAR_AT = ::core::option::Option<unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UNICODERANGE {
@@ -11033,8 +10713,8 @@ impl ::core::convert::From<i32> for UPropertyNameChoice {
 unsafe impl ::windows::core::Abi for UPropertyNameChoice {
     type Abi = Self;
 }
-pub type URegexFindProgressCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, matchindex: i64) -> i8;
-pub type URegexMatchCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8;
+pub type URegexFindProgressCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, matchindex: i64) -> i8>;
+pub type URegexMatchCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct URegexpFlag(pub i32);
@@ -11572,7 +11252,7 @@ impl ::core::convert::From<i32> for USpoofChecks {
 unsafe impl ::windows::core::Abi for USpoofChecks {
     type Abi = Self;
 }
-pub type UStringCaseMapper = unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
+pub type UStringCaseMapper = ::core::option::Option<unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32>;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct UStringPrepProfile(pub u8);
@@ -11756,30 +11436,30 @@ impl ::core::cmp::Eq for UText {}
 unsafe impl ::windows::core::Abi for UText {
     type Abi = Self;
 }
-pub type UTextAccess = unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8;
-pub type UTextClone = unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText;
-pub type UTextClose = unsafe extern "system" fn(ut: *mut UText);
-pub type UTextCopy = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode);
-pub type UTextExtract = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
-#[derive(:: core :: clone :: Clone)]
+pub type UTextAccess = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
+pub type UTextClone = ::core::option::Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
+pub type UTextClose = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText)>;
+pub type UTextCopy = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
+pub type UTextExtract = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,
     pub reserved2: i32,
     pub reserved3: i32,
-    pub clone: ::core::option::Option<UTextClone>,
-    pub nativeLength: ::core::option::Option<UTextNativeLength>,
-    pub access: ::core::option::Option<UTextAccess>,
-    pub extract: ::core::option::Option<UTextExtract>,
-    pub replace: ::core::option::Option<UTextReplace>,
-    pub copy: ::core::option::Option<UTextCopy>,
-    pub mapOffsetToNative: ::core::option::Option<UTextMapOffsetToNative>,
-    pub mapNativeIndexToUTF16: ::core::option::Option<UTextMapNativeIndexToUTF16>,
-    pub close: ::core::option::Option<UTextClose>,
-    pub spare1: ::core::option::Option<UTextClose>,
-    pub spare2: ::core::option::Option<UTextClose>,
-    pub spare3: ::core::option::Option<UTextClose>,
+    pub clone: UTextClone,
+    pub nativeLength: UTextNativeLength,
+    pub access: UTextAccess,
+    pub extract: UTextExtract,
+    pub replace: UTextReplace,
+    pub copy: UTextCopy,
+    pub mapOffsetToNative: UTextMapOffsetToNative,
+    pub mapNativeIndexToUTF16: UTextMapNativeIndexToUTF16,
+    pub close: UTextClose,
+    pub spare1: UTextClose,
+    pub spare2: UTextClose,
+    pub spare3: UTextClose,
 }
 impl UTextFuncs {}
 impl ::core::default::Default for UTextFuncs {
@@ -11814,12 +11494,12 @@ impl ::core::cmp::PartialEq for UTextFuncs {
 }
 impl ::core::cmp::Eq for UTextFuncs {}
 unsafe impl ::windows::core::Abi for UTextFuncs {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type UTextMapNativeIndexToUTF16 = unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32;
-pub type UTextMapOffsetToNative = unsafe extern "system" fn(ut: *const UText) -> i64;
-pub type UTextNativeLength = unsafe extern "system" fn(ut: *mut UText) -> i64;
-pub type UTextReplace = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32;
+pub type UTextMapNativeIndexToUTF16 = ::core::option::Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
+pub type UTextMapOffsetToNative = ::core::option::Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
+pub type UTextNativeLength = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText) -> i64>;
+pub type UTextReplace = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UTimeScaleValue(pub i32);
@@ -11949,10 +11629,10 @@ unsafe impl ::windows::core::Abi for UTimeZoneTransitionType {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type UTraceData = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8);
-pub type UTraceEntry = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32);
+pub type UTraceData = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8)>;
+pub type UTraceEntry = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type UTraceExit = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, fmt: super::Foundation::PSTR, args: *mut i8);
+pub type UTraceExit = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, fmt: super::Foundation::PSTR, args: *mut i8)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UTraceFunctionNumber(pub i32);
@@ -12273,16 +11953,7 @@ pub unsafe fn WideCharToMultiByte<'a, Param2: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn WideCharToMultiByte(codepage: u32, dwflags: u32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpdefaultchar: super::Foundation::PSTR, lpuseddefaultchar: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WideCharToMultiByte(
-            ::core::mem::transmute(codepage),
-            ::core::mem::transmute(dwflags),
-            lpwidecharstr.into_param().abi(),
-            ::core::mem::transmute(cchwidechar),
-            ::core::mem::transmute(lpmultibytestr),
-            ::core::mem::transmute(cbmultibyte),
-            lpdefaultchar.into_param().abi(),
-            ::core::mem::transmute(lpuseddefaultchar),
-        ))
+        ::core::mem::transmute(WideCharToMultiByte(::core::mem::transmute(codepage), ::core::mem::transmute(dwflags), lpwidecharstr.into_param().abi(), ::core::mem::transmute(cchwidechar), ::core::mem::transmute(lpmultibytestr), ::core::mem::transmute(cbmultibyte), lpdefaultchar.into_param().abi(), ::core::mem::transmute(lpuseddefaultchar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12851,7 +12522,7 @@ pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut ::core::option::Option<UEnumCharNamesFn>, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode) {
+pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesFn, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12864,7 +12535,7 @@ pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut ::core::option:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn u_enumCharTypes(enumrange: *mut ::core::option::Option<UCharEnumTypeRange>, context: *const ::core::ffi::c_void) {
+pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13705,7 +13376,7 @@ pub unsafe fn u_parseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut ::core::option::Option<UMemAllocFn>, r: *mut ::core::option::Option<UMemReallocFn>, f: *mut ::core::option::Option<UMemFreeFn>, status: *mut UErrorCode) {
+pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut UMemAllocFn, r: *mut UMemReallocFn, f: *mut UMemFreeFn, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13762,7 +13433,7 @@ pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharItera
     {
         #[link(name = "windows")]
         extern "system" {
-            fn u_strCompareIter(iter1: *mut ::core::mem::ManuallyDrop<UCharIterator>, iter2: *mut ::core::mem::ManuallyDrop<UCharIterator>, codepointorder: i8) -> i32;
+            fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32;
         }
         ::core::mem::transmute(u_strCompareIter(::core::mem::transmute(iter1), ::core::mem::transmute(iter2), ::core::mem::transmute(codepointorder)))
     }
@@ -13817,16 +13488,7 @@ pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, Param3: ::windows::core::Into
         extern "system" {
             fn u_strFromJavaModifiedUTF8WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: super::Foundation::PSTR, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
-        ::core::mem::transmute(u_strFromJavaModifiedUTF8WithSub(
-            ::core::mem::transmute(dest),
-            ::core::mem::transmute(destcapacity),
-            ::core::mem::transmute(pdestlength),
-            src.into_param().abi(),
-            ::core::mem::transmute(srclength),
-            ::core::mem::transmute(subchar),
-            ::core::mem::transmute(pnumsubstitutions),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(u_strFromJavaModifiedUTF8WithSub(::core::mem::transmute(dest), ::core::mem::transmute(destcapacity), ::core::mem::transmute(pdestlength), src.into_param().abi(), ::core::mem::transmute(srclength), ::core::mem::transmute(subchar), ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13852,16 +13514,7 @@ pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestleng
         extern "system" {
             fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16;
         }
-        ::core::mem::transmute(u_strFromUTF32WithSub(
-            ::core::mem::transmute(dest),
-            ::core::mem::transmute(destcapacity),
-            ::core::mem::transmute(pdestlength),
-            ::core::mem::transmute(src),
-            ::core::mem::transmute(srclength),
-            ::core::mem::transmute(subchar),
-            ::core::mem::transmute(pnumsubstitutions),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(u_strFromUTF32WithSub(::core::mem::transmute(dest), ::core::mem::transmute(destcapacity), ::core::mem::transmute(pdestlength), ::core::mem::transmute(src), ::core::mem::transmute(srclength), ::core::mem::transmute(subchar), ::core::mem::transmute(pnumsubstitutions), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14414,7 +14067,7 @@ pub unsafe fn u_unescape<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn u_unescapeAt(charat: ::core::option::Option<UNESCAPE_CHAR_AT>, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14576,7 +14229,7 @@ pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDire
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut ::core::option::Option<UBiDiClassCallback>, context: *const *const ::core::ffi::c_void) {
+pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14940,7 +14593,7 @@ pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: ::core::option::Option<UBiDiClassCallback>, newcontext: *const ::core::ffi::c_void, oldfn: *mut ::core::option::Option<UBiDiClassCallback>, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) {
+pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15090,20 +14743,7 @@ pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src:
         extern "system" {
             fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32;
         }
-        ::core::mem::transmute(ubiditransform_transform(
-            ::core::mem::transmute(pbiditransform),
-            ::core::mem::transmute(src),
-            ::core::mem::transmute(srclength),
-            ::core::mem::transmute(dest),
-            ::core::mem::transmute(destsize),
-            ::core::mem::transmute(inparalevel),
-            ::core::mem::transmute(inorder),
-            ::core::mem::transmute(outparalevel),
-            ::core::mem::transmute(outorder),
-            ::core::mem::transmute(domirroring),
-            ::core::mem::transmute(shapingoptions),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(ubiditransform_transform(::core::mem::transmute(pbiditransform), ::core::mem::transmute(src), ::core::mem::transmute(srclength), ::core::mem::transmute(dest), ::core::mem::transmute(destsize), ::core::mem::transmute(inparalevel), ::core::mem::transmute(inorder), ::core::mem::transmute(outparalevel), ::core::mem::transmute(outorder), ::core::mem::transmute(domirroring), ::core::mem::transmute(shapingoptions), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16470,21 +16110,7 @@ pub unsafe fn ucnv_convertEx<'a, Param3: ::windows::core::IntoParam<'a, super::F
         extern "system" {
             fn ucnv_convertEx(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: super::Foundation::PSTR, source: *const *const i8, sourcelimit: super::Foundation::PSTR, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_convertEx(
-            ::core::mem::transmute(targetcnv),
-            ::core::mem::transmute(sourcecnv),
-            ::core::mem::transmute(target),
-            targetlimit.into_param().abi(),
-            ::core::mem::transmute(source),
-            sourcelimit.into_param().abi(),
-            ::core::mem::transmute(pivotstart),
-            ::core::mem::transmute(pivotsource),
-            ::core::mem::transmute(pivottarget),
-            ::core::mem::transmute(pivotlimit),
-            ::core::mem::transmute(reset),
-            ::core::mem::transmute(flush),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(ucnv_convertEx(::core::mem::transmute(targetcnv), ::core::mem::transmute(sourcecnv), ::core::mem::transmute(target), targetlimit.into_param().abi(), ::core::mem::transmute(source), sourcelimit.into_param().abi(), ::core::mem::transmute(pivotstart), ::core::mem::transmute(pivotsource), ::core::mem::transmute(pivottarget), ::core::mem::transmute(pivotlimit), ::core::mem::transmute(reset), ::core::mem::transmute(flush), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16723,7 +16349,7 @@ pub unsafe fn ucnv_getDisplayName<'a, Param1: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut ::core::option::Option<UConverterFromUCallback>, context: *const *const ::core::ffi::c_void) {
+pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16886,7 +16512,7 @@ pub unsafe fn ucnv_getSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut ::core::option::Option<UConverterToUCallback>, context: *const *const ::core::ffi::c_void) {
+pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17112,7 +16738,7 @@ pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: ::core::option::Option<UConverterFromUCallback>, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::core::option::Option<UConverterFromUCallback>, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
+pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17153,7 +16779,7 @@ pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: ::core::option::Option<UConverterToUCallback>, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::core::option::Option<UConverterToUCallback>, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
+pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17753,7 +17379,7 @@ pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharItera
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
+            fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32;
         }
         ::core::mem::transmute(ucol_nextSortKeyPart(::core::mem::transmute(coll), ::core::mem::transmute(iter), ::core::mem::transmute(state), ::core::mem::transmute(dest), ::core::mem::transmute(count), ::core::mem::transmute(status)))
     }
@@ -17988,7 +17614,7 @@ pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ucol_strcollIter(coll: *const UCollator, siter: *mut ::core::mem::ManuallyDrop<UCharIterator>, titer: *mut ::core::mem::ManuallyDrop<UCharIterator>, status: *mut UErrorCode) -> UCollationResult;
+            fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult;
         }
         ::core::mem::transmute(ucol_strcollIter(::core::mem::transmute(coll), ::core::mem::transmute(siter), ::core::mem::transmute(titer), ::core::mem::transmute(status)))
     }
@@ -18036,7 +17662,7 @@ pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::core::option::Option<UCPMapValueFilter>, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
+pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18075,7 +17701,7 @@ pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::core::option::Option<UCPMapValueFilter>, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
+pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18993,16 +18619,7 @@ pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *c
         extern "system" {
             fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict;
         }
-        ::core::mem::transmute(udatpg_addPattern(
-            ::core::mem::transmute(dtpg),
-            ::core::mem::transmute(pattern),
-            ::core::mem::transmute(patternlength),
-            ::core::mem::transmute(r#override),
-            ::core::mem::transmute(conflictingpattern),
-            ::core::mem::transmute(capacity),
-            ::core::mem::transmute(plength),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(udatpg_addPattern(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(r#override), ::core::mem::transmute(conflictingpattern), ::core::mem::transmute(capacity), ::core::mem::transmute(plength), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19224,16 +18841,7 @@ pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, patt
         extern "system" {
             fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
-        ::core::mem::transmute(udatpg_replaceFieldTypes(
-            ::core::mem::transmute(dtpg),
-            ::core::mem::transmute(pattern),
-            ::core::mem::transmute(patternlength),
-            ::core::mem::transmute(skeleton),
-            ::core::mem::transmute(skeletonlength),
-            ::core::mem::transmute(dest),
-            ::core::mem::transmute(destcapacity),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(udatpg_replaceFieldTypes(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(skeleton), ::core::mem::transmute(skeletonlength), ::core::mem::transmute(dest), ::core::mem::transmute(destcapacity), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19246,17 +18854,7 @@ pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c
         extern "system" {
             fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32;
         }
-        ::core::mem::transmute(udatpg_replaceFieldTypesWithOptions(
-            ::core::mem::transmute(dtpg),
-            ::core::mem::transmute(pattern),
-            ::core::mem::transmute(patternlength),
-            ::core::mem::transmute(skeleton),
-            ::core::mem::transmute(skeletonlength),
-            ::core::mem::transmute(options),
-            ::core::mem::transmute(dest),
-            ::core::mem::transmute(destcapacity),
-            ::core::mem::transmute(perrorcode),
-        ))
+        ::core::mem::transmute(udatpg_replaceFieldTypesWithOptions(::core::mem::transmute(dtpg), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(skeleton), ::core::mem::transmute(skeletonlength), ::core::mem::transmute(options), ::core::mem::transmute(dest), ::core::mem::transmute(destcapacity), ::core::mem::transmute(perrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19886,7 +19484,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_current32(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i32;
+            fn uiter_current32(iter: *mut UCharIterator) -> i32;
         }
         ::core::mem::transmute(uiter_current32(::core::mem::transmute(iter)))
     }
@@ -19899,7 +19497,7 @@ pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_getState(iter: *const ::core::mem::ManuallyDrop<UCharIterator>) -> u32;
+            fn uiter_getState(iter: *const UCharIterator) -> u32;
         }
         ::core::mem::transmute(uiter_getState(::core::mem::transmute(iter)))
     }
@@ -19912,7 +19510,7 @@ pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_next32(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i32;
+            fn uiter_next32(iter: *mut UCharIterator) -> i32;
         }
         ::core::mem::transmute(uiter_next32(::core::mem::transmute(iter)))
     }
@@ -19925,7 +19523,7 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_previous32(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>) -> i32;
+            fn uiter_previous32(iter: *mut UCharIterator) -> i32;
         }
         ::core::mem::transmute(uiter_previous32(::core::mem::transmute(iter)))
     }
@@ -19938,7 +19536,7 @@ pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_setState(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, state: u32, perrorcode: *mut UErrorCode);
+            fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode);
         }
         ::core::mem::transmute(uiter_setState(::core::mem::transmute(iter), ::core::mem::transmute(state), ::core::mem::transmute(perrorcode)))
     }
@@ -19951,7 +19549,7 @@ pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_setString(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, s: *const u16, length: i32);
+            fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32);
         }
         ::core::mem::transmute(uiter_setString(::core::mem::transmute(iter), ::core::mem::transmute(s), ::core::mem::transmute(length)))
     }
@@ -19965,7 +19563,7 @@ pub unsafe fn uiter_setUTF16BE<'a, Param1: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_setUTF16BE(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, s: super::Foundation::PSTR, length: i32);
+            fn uiter_setUTF16BE(iter: *mut UCharIterator, s: super::Foundation::PSTR, length: i32);
         }
         ::core::mem::transmute(uiter_setUTF16BE(::core::mem::transmute(iter), s.into_param().abi(), ::core::mem::transmute(length)))
     }
@@ -19979,7 +19577,7 @@ pub unsafe fn uiter_setUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn uiter_setUTF8(iter: *mut ::core::mem::ManuallyDrop<UCharIterator>, s: super::Foundation::PSTR, length: i32);
+            fn uiter_setUTF8(iter: *mut UCharIterator, s: super::Foundation::PSTR, length: i32);
         }
         ::core::mem::transmute(uiter_setUTF8(::core::mem::transmute(iter), s.into_param().abi(), ::core::mem::transmute(length)))
     }
@@ -21252,7 +20850,7 @@ pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::core::option::Option<UCPMapValueFilter>, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
+pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -22501,7 +22099,7 @@ pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErro
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut ::core::option::Option<URegexFindProgressCallback>, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -22514,7 +22112,7 @@ pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut ::core::option::Option<URegexMatchCallback>, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -22958,7 +22556,7 @@ pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: ::core::option::Option<URegexFindProgressCallback>, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -22971,7 +22569,7 @@ pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, ca
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: ::core::option::Option<URegexMatchCallback>, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
+pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -23357,16 +22955,7 @@ pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTim
         extern "system" {
             fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32;
         }
-        ::core::mem::transmute(ureldatefmt_combineDateAndTime(
-            ::core::mem::transmute(reldatefmt),
-            ::core::mem::transmute(relativedatestring),
-            ::core::mem::transmute(relativedatestringlen),
-            ::core::mem::transmute(timestring),
-            ::core::mem::transmute(timestringlen),
-            ::core::mem::transmute(result),
-            ::core::mem::transmute(resultcapacity),
-            ::core::mem::transmute(status),
-        ))
+        ::core::mem::transmute(ureldatefmt_combineDateAndTime(::core::mem::transmute(reldatefmt), ::core::mem::transmute(relativedatestring), ::core::mem::transmute(relativedatestringlen), ::core::mem::transmute(timestring), ::core::mem::transmute(timestringlen), ::core::mem::transmute(result), ::core::mem::transmute(resultcapacity), ::core::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -25885,7 +25474,7 @@ pub unsafe fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut ::core::option::Option<UTraceEntry>, x: *mut ::core::option::Option<UTraceExit>, d: *mut ::core::option::Option<UTraceData>) {
+pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -25912,7 +25501,7 @@ pub unsafe fn utrace_getLevel() -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: ::core::option::Option<UTraceEntry>, x: ::core::option::Option<UTraceExit>, d: ::core::option::Option<UTraceData>) {
+pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

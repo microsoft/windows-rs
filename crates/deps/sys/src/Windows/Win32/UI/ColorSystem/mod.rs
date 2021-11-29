@@ -294,12 +294,7 @@ impl ::core::clone::Clone for BlackInformation {
         *self
     }
 }
-pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2696151776,
-    data2: 33344,
-    data3: 16479,
-    data4: [138, 22, 138, 91, 77, 242, 240, 221],
-};
+pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2696151776, data2: 33344, data3: 16479, data4: [138, 22, 138, 91, 77, 242, 240, 221] };
 pub const CMM_DESCRIPTION: u32 = 5u32;
 pub const CMM_DLL_VERSION: u32 = 3u32;
 pub const CMM_DRIVER_VERSION: u32 = 2u32;

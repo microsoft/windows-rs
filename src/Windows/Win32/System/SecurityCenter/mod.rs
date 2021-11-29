@@ -284,18 +284,7 @@ impl IWscProduct2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -474,18 +463,7 @@ impl IWscProduct3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -807,7 +785,7 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: ::core::option::Option<super::Threading::LPTHREAD_START_ROUTINE>, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

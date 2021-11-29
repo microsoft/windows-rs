@@ -74,11 +74,11 @@ unsafe impl ::windows::core::Abi for HREPORTSTORE {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: super::super::Foundation::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows::core::HRESULT;
+pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: super::super::Foundation::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: super::super::Foundation::PWSTR, pchname: *mut u32, pwszvalue: super::super::Foundation::PWSTR, pchvalue: *mut u32) -> ::windows::core::HRESULT;
+pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: super::super::Foundation::PWSTR, pchname: *mut u32, pwszvalue: super::super::Foundation::PWSTR, pchvalue: *mut u32) -> ::windows::core::HRESULT>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REPORT_STORE_TYPES(pub i32);
@@ -171,17 +171,7 @@ impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwMask == other.dwMask
-            && self.dwDumpFlags == other.dwDumpFlags
-            && self.bOnlyThisThread == other.bOnlyThisThread
-            && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags
-            && self.dwOtherThreadFlags == other.dwOtherThreadFlags
-            && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags
-            && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags
-            && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags
-            && self.dwOtherModuleFlags == other.dwOtherModuleFlags
-            && self.wzPreferredModuleList == other.wzPreferredModuleList
+        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -239,19 +229,7 @@ impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwMask == other.dwMask
-            && self.dwDumpFlags == other.dwDumpFlags
-            && self.bOnlyThisThread == other.bOnlyThisThread
-            && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags
-            && self.dwOtherThreadFlags == other.dwOtherThreadFlags
-            && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags
-            && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags
-            && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags
-            && self.dwOtherModuleFlags == other.dwOtherModuleFlags
-            && self.wzPreferredModuleList == other.wzPreferredModuleList
-            && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags
-            && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
+        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -570,16 +548,7 @@ impl ::core::default::Default for WER_REPORT_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WER_REPORT_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_INFORMATION")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .finish()
+        fmt.debug_struct("WER_REPORT_INFORMATION").field("dwSize", &self.dwSize).field("hProcess", &self.hProcess).field("wzConsentKey", &self.wzConsentKey).field("wzFriendlyEventName", &self.wzFriendlyEventName).field("wzApplicationName", &self.wzApplicationName).field("wzApplicationPath", &self.wzApplicationPath).field("wzDescription", &self.wzDescription).field("hwndParent", &self.hwndParent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -695,19 +664,7 @@ impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V4 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.hProcess == other.hProcess
-            && self.wzConsentKey == other.wzConsentKey
-            && self.wzFriendlyEventName == other.wzFriendlyEventName
-            && self.wzApplicationName == other.wzApplicationName
-            && self.wzApplicationPath == other.wzApplicationPath
-            && self.wzDescription == other.wzDescription
-            && self.hwndParent == other.hwndParent
-            && self.wzNamespacePartner == other.wzNamespacePartner
-            && self.wzNamespaceGroup == other.wzNamespaceGroup
-            && self.rgbApplicationIdentity == other.rgbApplicationIdentity
-            && self.hSnapshot == other.hSnapshot
-            && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken
+        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -767,20 +724,7 @@ impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V5 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.hProcess == other.hProcess
-            && self.wzConsentKey == other.wzConsentKey
-            && self.wzFriendlyEventName == other.wzFriendlyEventName
-            && self.wzApplicationName == other.wzApplicationName
-            && self.wzApplicationPath == other.wzApplicationPath
-            && self.wzDescription == other.wzDescription
-            && self.hwndParent == other.hwndParent
-            && self.wzNamespacePartner == other.wzNamespacePartner
-            && self.wzNamespaceGroup == other.wzNamespaceGroup
-            && self.rgbApplicationIdentity == other.rgbApplicationIdentity
-            && self.hSnapshot == other.hSnapshot
-            && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken
-            && self.submitResultMax == other.submitResultMax
+        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken && self.submitResultMax == other.submitResultMax
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -936,23 +880,7 @@ impl ::core::fmt::Debug for WER_REPORT_METADATA_V3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-            && self.BucketId == other.BucketId
-            && self.ReportId == other.ReportId
-            && self.CreationTime == other.CreationTime
-            && self.SizeInBytes == other.SizeInBytes
-            && self.CabId == other.CabId
-            && self.ReportStatus == other.ReportStatus
-            && self.ReportIntegratorId == other.ReportIntegratorId
-            && self.NumberOfFiles == other.NumberOfFiles
-            && self.SizeOfFileNames == other.SizeOfFileNames
-            && self.FileNames == other.FileNames
-            && self.FriendlyEventName == other.FriendlyEventName
-            && self.ApplicationName == other.ApplicationName
-            && self.ApplicationPath == other.ApplicationPath
-            && self.Description == other.Description
-            && self.BucketIdString == other.BucketIdString
-            && self.LegacyBucketId == other.LegacyBucketId
+        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames && self.FriendlyEventName == other.FriendlyEventName && self.ApplicationName == other.ApplicationName && self.ApplicationPath == other.ApplicationPath && self.Description == other.Description && self.BucketIdString == other.BucketIdString && self.LegacyBucketId == other.LegacyBucketId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1694,8 +1622,8 @@ pub unsafe fn WerUnregisterRuntimeExceptionModule<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type pfn_ADDEREXCLUDEDAPPLICATIONA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> EFaultRepRetVal;
+pub type pfn_ADDEREXCLUDEDAPPLICATIONA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> EFaultRepRetVal>;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfn_ADDEREXCLUDEDAPPLICATIONW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> EFaultRepRetVal;
+pub type pfn_ADDEREXCLUDEDAPPLICATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> EFaultRepRetVal>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type pfn_REPORTFAULT = unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal;
+pub type pfn_REPORTFAULT = ::core::option::Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;

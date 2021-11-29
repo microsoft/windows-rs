@@ -120,12 +120,7 @@ pub const DXGI_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: DXGI_COMPUTE_PREEMPTION
 pub const DXGI_COMPUTE_PREEMPTION_THREAD_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = 3i32;
 pub const DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = 4i32;
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
-pub const DXGI_DEBUG_ALL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3834307203,
-    data2: 55936,
-    data3: 18699,
-    data4: [135, 230, 67, 233, 169, 207, 218, 8],
-};
+pub const DXGI_DEBUG_ALL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3834307203, data2: 55936, data3: 18699, data4: [135, 230, 67, 233, 169, 207, 218, 8] };
 pub const DXGI_DEBUG_APP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 114126337, data2: 16921, data3: 20157, data4: [135, 9, 39, 237, 35, 54, 12, 98] };
 pub const DXGI_DEBUG_BINARY_VERSION: u32 = 1u32;
 pub const DXGI_DEBUG_DX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 902682620, data2: 5042, data3: 16925, data4: [165, 215, 126, 68, 81, 40, 125, 100] };

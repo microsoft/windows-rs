@@ -189,17 +189,7 @@ impl IMDSPDevice2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(ppaudioformatex),
-            ::core::mem::transmute(pnaudioformatcount),
-            ::core::mem::transmute(ppvideoformatex),
-            ::core::mem::transmute(pnvideoformatcount),
-            ::core::mem::transmute(ppfiletype),
-            ::core::mem::transmute(pnfiletypecount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
@@ -335,17 +325,7 @@ impl IMDSPDevice3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(ppaudioformatex),
-            ::core::mem::transmute(pnaudioformatcount),
-            ::core::mem::transmute(ppvideoformatex),
-            ::core::mem::transmute(pnvideoformatcount),
-            ::core::mem::transmute(ppfiletype),
-            ::core::mem::transmute(pnfiletypecount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
@@ -555,15 +535,7 @@ pub struct IMDSPDeviceControl_abi(
 pub struct IMDSPDirectTransfer(pub ::windows::core::IUnknown);
 impl IMDSPDirectTransfer {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransferToDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        pwszsourcefilepath: Param0,
-        psourceoperation: Param1,
-        fuflags: u32,
-        pwszdestinationname: Param3,
-        psourcemetadata: Param4,
-        ptransferprogress: Param5,
-    ) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn TransferToDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwszsourcefilepath: Param0, psourceoperation: Param1, fuflags: u32, pwszdestinationname: Param3, psourcemetadata: Param4, ptransferprogress: Param5) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwszsourcefilepath.into_param().abi(), psourceoperation.into_param().abi(), ::core::mem::transmute(fuflags), pwszdestinationname.into_param().abi(), psourcemetadata.into_param().abi(), ptransferprogress.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
@@ -1897,12 +1869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPS
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureAuthenticate_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ISCPSecureAuthenticate_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISCPSecureAuthenticate2(pub ::windows::core::IUnknown);
@@ -2206,33 +2173,10 @@ impl ISCPSecureQuery {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(abmac)).ok()
     }
     pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fuflags),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(dwappsec),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstorageglobals.into_param().abi(),
-            ::core::mem::transmute(ppexchange),
-            ::core::mem::transmute(abmac),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwappsec), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
     pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstgglobals.into_param().abi(),
-            ::core::mem::transmute(pprights),
-            ::core::mem::transmute(pnrightscount),
-            ::core::mem::transmute(abmac),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureQuery {
@@ -2283,56 +2227,13 @@ impl ISCPSecureQuery2 {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(abmac)).ok()
     }
     pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fuflags),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(dwappsec),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstorageglobals.into_param().abi(),
-            ::core::mem::transmute(ppexchange),
-            ::core::mem::transmute(abmac),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwappsec), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
     pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstgglobals.into_param().abi(),
-            ::core::mem::transmute(pprights),
-            ::core::mem::transmute(pnrightscount),
-            ::core::mem::transmute(abmac),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: Param6,
-        pappcertapp: *const u8,
-        dwappcertapplen: u32,
-        pappcertsp: *const u8,
-        dwappcertsplen: u32,
-        pszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwrevocationurllen: *mut u32,
-        pdwrevocationbitflag: *mut u32,
-        pqwfilesize: *mut u64,
-        punknown: Param15,
-        ppexchange: *mut ::core::option::Option<ISCPSecureExchange>,
-        abmac: *mut u8,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(fuflags),
@@ -2412,28 +2313,7 @@ pub struct ISCPSecureQuery2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: ::windows::core::RawPtr,
-        pappcertapp: *const u8,
-        dwappcertapplen: u32,
-        pappcertsp: *const u8,
-        dwappcertsplen: u32,
-        pszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwrevocationurllen: *mut u32,
-        pdwrevocationbitflag: *mut u32,
-        pqwfilesize: *mut u64,
-        punknown: ::windows::core::RawPtr,
-        ppexchange: *mut ::windows::core::RawPtr,
-        abmac: *mut u8,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2448,56 +2328,13 @@ impl ISCPSecureQuery3 {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(abmac)).ok()
     }
     pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fuflags),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(dwappsec),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstorageglobals.into_param().abi(),
-            ::core::mem::transmute(ppexchange),
-            ::core::mem::transmute(abmac),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwappsec), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
     pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstgglobals.into_param().abi(),
-            ::core::mem::transmute(pprights),
-            ::core::mem::transmute(pnrightscount),
-            ::core::mem::transmute(abmac),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: Param6,
-        pappcertapp: *const u8,
-        dwappcertapplen: u32,
-        pappcertsp: *const u8,
-        dwappcertsplen: u32,
-        pszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwrevocationurllen: *mut u32,
-        pdwrevocationbitflag: *mut u32,
-        pqwfilesize: *mut u64,
-        punknown: Param15,
-        ppexchange: *mut ::core::option::Option<ISCPSecureExchange>,
-        abmac: *mut u8,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(fuflags),
@@ -2522,41 +2359,10 @@ impl ISCPSecureQuery3 {
         .ok()
     }
     pub unsafe fn GetRightsOnClearChannel<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprogresscallback: Param5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(pbspsessionkey),
-            ::core::mem::transmute(dwsessionkeylen),
-            pstgglobals.into_param().abi(),
-            pprogresscallback.into_param().abi(),
-            ::core::mem::transmute(pprights),
-            ::core::mem::transmute(pnrightscount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(dwsize), ::core::mem::transmute(pbspsessionkey), ::core::mem::transmute(dwsessionkeylen), pstgglobals.into_param().abi(), pprogresscallback.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeDecisionOnClearChannel<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param7: ::windows::core::IntoParam<'a, IWMDMProgress3>, Param16: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: Param6,
-        pprogresscallback: Param7,
-        pappcertapp: *const u8,
-        dwappcertapplen: u32,
-        pappcertsp: *const u8,
-        dwappcertsplen: u32,
-        pszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwrevocationurllen: *mut u32,
-        pdwrevocationbitflag: *mut u32,
-        pqwfilesize: *mut u64,
-        punknown: Param16,
-        ppexchange: *mut ::core::option::Option<ISCPSecureExchange>,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeDecisionOnClearChannel<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param7: ::windows::core::IntoParam<'a, IWMDMProgress3>, Param16: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, pprogresscallback: Param7, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param16, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(fuflags),
@@ -2656,52 +2462,10 @@ pub struct ISCPSecureQuery3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: ::windows::core::RawPtr,
-        pappcertapp: *const u8,
-        dwappcertapplen: u32,
-        pappcertsp: *const u8,
-        dwappcertsplen: u32,
-        pszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwrevocationurllen: *mut u32,
-        pdwrevocationbitflag: *mut u32,
-        pqwfilesize: *mut u64,
-        punknown: ::windows::core::RawPtr,
-        ppexchange: *mut ::windows::core::RawPtr,
-        abmac: *mut u8,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: ::windows::core::RawPtr,
-        pprogresscallback: ::windows::core::RawPtr,
-        pappcertapp: *const u8,
-        dwappcertapplen: u32,
-        pappcertsp: *const u8,
-        dwappcertsplen: u32,
-        pszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwrevocationurllen: *mut u32,
-        pdwrevocationbitflag: *mut u32,
-        pqwfilesize: *mut u64,
-        punknown: ::windows::core::RawPtr,
-        ppexchange: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -2896,17 +2660,7 @@ impl IWMDMDevice2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(ppaudioformatex),
-            ::core::mem::transmute(pnaudioformatcount),
-            ::core::mem::transmute(ppvideoformatex),
-            ::core::mem::transmute(pnvideoformatcount),
-            ::core::mem::transmute(ppfiletype),
-            ::core::mem::transmute(pnfiletypecount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
@@ -3042,17 +2796,7 @@ impl IWMDMDevice3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(ppaudioformatex),
-            ::core::mem::transmute(pnaudioformatcount),
-            ::core::mem::transmute(ppvideoformatex),
-            ::core::mem::transmute(pnvideoformatcount),
-            ::core::mem::transmute(ppfiletype),
-            ::core::mem::transmute(pnfiletypecount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()> {
@@ -4867,16 +4611,7 @@ impl IWMDMStorageControl2 {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        fumode: u32,
-        pwszfilesource: Param1,
-        pwszfiledest: Param2,
-        poperation: Param3,
-        pprogress: Param4,
-        punknown: Param5,
-        ppnewobject: *mut ::core::option::Option<IWMDMStorage>,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, pwszfilesource: Param1, pwszfiledest: Param2, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
 }
@@ -4965,44 +4700,12 @@ impl IWMDMStorageControl3 {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        fumode: u32,
-        pwszfilesource: Param1,
-        pwszfiledest: Param2,
-        poperation: Param3,
-        pprogress: Param4,
-        punknown: Param5,
-        ppnewobject: *mut ::core::option::Option<IWMDMStorage>,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, pwszfilesource: Param1, pwszfiledest: Param2, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert3<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMOperation>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>, Param6: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        fumode: u32,
-        futype: u32,
-        pwszfilesource: Param2,
-        pwszfiledest: Param3,
-        poperation: Param4,
-        pprogress: Param5,
-        pmetadata: Param6,
-        punknown: Param7,
-        ppnewobject: *mut ::core::option::Option<IWMDMStorage>,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fumode),
-            ::core::mem::transmute(futype),
-            pwszfilesource.into_param().abi(),
-            pwszfiledest.into_param().abi(),
-            poperation.into_param().abi(),
-            pprogress.into_param().abi(),
-            pmetadata.into_param().abi(),
-            punknown.into_param().abi(),
-            ::core::mem::transmute(ppnewobject),
-        )
-        .ok()
+    pub unsafe fn Insert3<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMOperation>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>, Param6: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, futype: u32, pwszfilesource: Param2, pwszfiledest: Param3, poperation: Param4, pprogress: Param5, pmetadata: Param6, punknown: Param7, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(fumode), ::core::mem::transmute(futype), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), pmetadata.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorageControl3 {
@@ -5735,15 +5438,7 @@ impl ::core::default::Default for WMDMRIGHTS {
 }
 impl ::core::fmt::Debug for WMDMRIGHTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WMDMRIGHTS")
-            .field("cbSize", &self.cbSize)
-            .field("dwContentType", &self.dwContentType)
-            .field("fuFlags", &self.fuFlags)
-            .field("fuRights", &self.fuRights)
-            .field("dwAppSec", &self.dwAppSec)
-            .field("dwPlaybackCount", &self.dwPlaybackCount)
-            .field("ExpirationDate", &self.ExpirationDate)
-            .finish()
+        fmt.debug_struct("WMDMRIGHTS").field("cbSize", &self.cbSize).field("dwContentType", &self.dwContentType).field("fuFlags", &self.fuFlags).field("fuRights", &self.fuRights).field("dwAppSec", &self.dwAppSec).field("dwPlaybackCount", &self.dwPlaybackCount).field("ExpirationDate", &self.ExpirationDate).finish()
     }
 }
 impl ::core::cmp::PartialEq for WMDMRIGHTS {
@@ -6348,19 +6043,7 @@ impl ::core::default::Default for _BITMAPINFOHEADER {
 }
 impl ::core::fmt::Debug for _BITMAPINFOHEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_BITMAPINFOHEADER")
-            .field("biSize", &self.biSize)
-            .field("biWidth", &self.biWidth)
-            .field("biHeight", &self.biHeight)
-            .field("biPlanes", &self.biPlanes)
-            .field("biBitCount", &self.biBitCount)
-            .field("biCompression", &self.biCompression)
-            .field("biSizeImage", &self.biSizeImage)
-            .field("biXPelsPerMeter", &self.biXPelsPerMeter)
-            .field("biYPelsPerMeter", &self.biYPelsPerMeter)
-            .field("biClrUsed", &self.biClrUsed)
-            .field("biClrImportant", &self.biClrImportant)
-            .finish()
+        fmt.debug_struct("_BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
     }
 }
 impl ::core::cmp::PartialEq for _BITMAPINFOHEADER {
@@ -6428,15 +6111,7 @@ impl ::core::default::Default for _WAVEFORMATEX {
 }
 impl ::core::fmt::Debug for _WAVEFORMATEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_WAVEFORMATEX")
-            .field("wFormatTag", &self.wFormatTag)
-            .field("nChannels", &self.nChannels)
-            .field("nSamplesPerSec", &self.nSamplesPerSec)
-            .field("nAvgBytesPerSec", &self.nAvgBytesPerSec)
-            .field("nBlockAlign", &self.nBlockAlign)
-            .field("wBitsPerSample", &self.wBitsPerSample)
-            .field("cbSize", &self.cbSize)
-            .finish()
+        fmt.debug_struct("_WAVEFORMATEX").field("wFormatTag", &self.wFormatTag).field("nChannels", &self.nChannels).field("nSamplesPerSec", &self.nSamplesPerSec).field("nAvgBytesPerSec", &self.nAvgBytesPerSec).field("nBlockAlign", &self.nBlockAlign).field("wBitsPerSample", &self.wBitsPerSample).field("cbSize", &self.cbSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for _WAVEFORMATEX {

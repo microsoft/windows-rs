@@ -421,19 +421,7 @@ impl ::core::default::Default for GPOBROWSEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GPOBROWSEINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GPOBROWSEINFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("lpTitle", &self.lpTitle)
-            .field("lpInitialOU", &self.lpInitialOU)
-            .field("lpDSPath", &self.lpDSPath)
-            .field("dwDSPathSize", &self.dwDSPathSize)
-            .field("lpName", &self.lpName)
-            .field("dwNameSize", &self.dwNameSize)
-            .field("gpoType", &self.gpoType)
-            .field("gpoHint", &self.gpoHint)
-            .finish()
+        fmt.debug_struct("GPOBROWSEINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hwndOwner", &self.hwndOwner).field("lpTitle", &self.lpTitle).field("lpInitialOU", &self.lpInitialOU).field("lpDSPath", &self.lpDSPath).field("dwDSPathSize", &self.dwDSPathSize).field("lpName", &self.lpName).field("dwNameSize", &self.dwNameSize).field("gpoType", &self.gpoType).field("gpoHint", &self.gpoHint).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1013,18 +1001,7 @@ impl IGPM2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdomain: Param0, bstrdomaincontroller: Param1, ldcflags: i32) -> ::windows::core::Result<IGPMDomain> {
@@ -2300,18 +2277,7 @@ impl IGPMConstants2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn PermGPOApply(&self) -> ::windows::core::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -2918,18 +2884,7 @@ impl IGPMDomain2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainController(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -3128,18 +3083,7 @@ impl IGPMDomain3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainController(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -3464,17 +3408,7 @@ impl IGPMGPO {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CopyTo<'a, Param1: ::windows::core::IntoParam<'a, IGPMDomain>>(&self, lflags: i32, pigpmdomain: Param1, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lflags),
-            pigpmdomain.into_param().abi(),
-            ::core::mem::transmute(pvarnewdisplayname),
-            ::core::mem::transmute(pvarmigrationtable),
-            ::core::mem::transmute(pvargpmprogress),
-            ::core::mem::transmute(pvargpmcancel),
-            ::core::mem::transmute(ppigpmresult),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(lflags), pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, lflags: i32, psd: Param1) -> ::windows::core::Result<()> {
@@ -3579,18 +3513,15 @@ pub struct IGPMGPO_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gpmreporttype: GPMReportType, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, psd: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -3618,18 +3549,7 @@ impl IGPMGPO2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -3729,17 +3649,7 @@ impl IGPMGPO2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CopyTo<'a, Param1: ::windows::core::IntoParam<'a, IGPMDomain>>(&self, lflags: i32, pigpmdomain: Param1, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lflags),
-            pigpmdomain.into_param().abi(),
-            ::core::mem::transmute(pvarnewdisplayname),
-            ::core::mem::transmute(pvarmigrationtable),
-            ::core::mem::transmute(pvargpmprogress),
-            ::core::mem::transmute(pvargpmcancel),
-            ::core::mem::transmute(ppigpmresult),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(lflags), pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, lflags: i32, psd: Param1) -> ::windows::core::Result<()> {
@@ -3873,18 +3783,15 @@ pub struct IGPMGPO2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gpmreporttype: GPMReportType, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, psd: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -3916,18 +3823,7 @@ impl IGPMGPO3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -4027,17 +3923,7 @@ impl IGPMGPO3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CopyTo<'a, Param1: ::windows::core::IntoParam<'a, IGPMDomain>>(&self, lflags: i32, pigpmdomain: Param1, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lflags),
-            pigpmdomain.into_param().abi(),
-            ::core::mem::transmute(pvarnewdisplayname),
-            ::core::mem::transmute(pvarmigrationtable),
-            ::core::mem::transmute(pvargpmprogress),
-            ::core::mem::transmute(pvargpmcancel),
-            ::core::mem::transmute(ppigpmresult),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(lflags), pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, lflags: i32, psd: Param1) -> ::windows::core::Result<()> {
@@ -4203,18 +4089,15 @@ pub struct IGPMGPO3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gpmreporttype: GPMReportType, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarmigrationtable: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lflags: i32, psd: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -5810,35 +5693,8 @@ impl IGPMStarterGPO {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(
-        &self,
-        bstrsavefile: Param0,
-        boverwrite: i16,
-        bsaveassystem: i16,
-        bstrlanguage: *const super::Com::VARIANT,
-        bstrauthor: *const super::Com::VARIANT,
-        bstrproduct: *const super::Com::VARIANT,
-        bstruniqueid: *const super::Com::VARIANT,
-        bstrversion: *const super::Com::VARIANT,
-        pvargpmprogress: *const super::Com::VARIANT,
-        pvargpmcancel: *mut super::Com::VARIANT,
-        ppigpmresult: *mut ::core::option::Option<IGPMResult>,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).21)(
-            ::core::mem::transmute_copy(self),
-            bstrsavefile.into_param().abi(),
-            ::core::mem::transmute(boverwrite),
-            ::core::mem::transmute(bsaveassystem),
-            ::core::mem::transmute(bstrlanguage),
-            ::core::mem::transmute(bstrauthor),
-            ::core::mem::transmute(bstrproduct),
-            ::core::mem::transmute(bstruniqueid),
-            ::core::mem::transmute(bstrversion),
-            ::core::mem::transmute(pvargpmprogress),
-            ::core::mem::transmute(pvargpmcancel),
-            ::core::mem::transmute(ppigpmresult),
-        )
-        .ok()
+    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsavefile: Param0, boverwrite: i16, bsaveassystem: i16, bstrlanguage: *const super::Com::VARIANT, bstrauthor: *const super::Com::VARIANT, bstrproduct: *const super::Com::VARIANT, bstruniqueid: *const super::Com::VARIANT, bstrversion: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), bstrsavefile.into_param().abi(), ::core::mem::transmute(boverwrite), ::core::mem::transmute(bsaveassystem), ::core::mem::transmute(bstrlanguage), ::core::mem::transmute(bstrauthor), ::core::mem::transmute(bstrproduct), ::core::mem::transmute(bstruniqueid), ::core::mem::transmute(bstrversion), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Backup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0, bstrcomment: Param1, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
@@ -5951,23 +5807,9 @@ pub struct IGPMStarterGPO_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrsavefile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        boverwrite: i16,
-        bsaveassystem: i16,
-        bstrlanguage: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        bstrauthor: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        bstrproduct: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        bstruniqueid: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        bstrversion: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>,
-        ppigpmresult: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrsavefile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwrite: i16, bsaveassystem: i16, bstrlanguage: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrauthor: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrproduct: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstruniqueid: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrversion: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvarnewdisplayname: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
@@ -7240,22 +7082,7 @@ impl ::core::fmt::Debug for MANAGEDAPPLICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MANAGEDAPPLICATION {
     fn eq(&self, other: &Self) -> bool {
-        self.pszPackageName == other.pszPackageName
-            && self.pszPublisher == other.pszPublisher
-            && self.dwVersionHi == other.dwVersionHi
-            && self.dwVersionLo == other.dwVersionLo
-            && self.dwRevision == other.dwRevision
-            && self.GpoId == other.GpoId
-            && self.pszPolicyName == other.pszPolicyName
-            && self.ProductId == other.ProductId
-            && self.Language == other.Language
-            && self.pszOwner == other.pszOwner
-            && self.pszCompany == other.pszCompany
-            && self.pszComments == other.pszComments
-            && self.pszContact == other.pszContact
-            && self.pszSupportUrl == other.pszSupportUrl
-            && self.dwPathType == other.dwPathType
-            && self.bInstalled == other.bInstalled
+        self.pszPackageName == other.pszPackageName && self.pszPublisher == other.pszPublisher && self.dwVersionHi == other.dwVersionHi && self.dwVersionLo == other.dwVersionLo && self.dwRevision == other.dwRevision && self.GpoId == other.GpoId && self.pszPolicyName == other.pszPolicyName && self.ProductId == other.ProductId && self.Language == other.Language && self.pszOwner == other.pszOwner && self.pszCompany == other.pszCompany && self.pszComments == other.pszComments && self.pszContact == other.pszContact && self.pszSupportUrl == other.pszSupportUrl && self.dwPathType == other.dwPathType && self.bInstalled == other.bInstalled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7279,13 +7106,13 @@ pub const NODEID_RSOPUserSWSettings: ::windows::core::GUID = ::windows::core::GU
 pub const NODEID_User: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_UserSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-pub type PFNGENERATEGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const ::core::mem::ManuallyDrop<RSOP_TARGET>, pusertarget: *const ::core::mem::ManuallyDrop<RSOP_TARGET>) -> u32;
+pub type PFNGENERATEGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const ::core::mem::ManuallyDrop<RSOP_TARGET>, pusertarget: *const ::core::mem::ManuallyDrop<RSOP_TARGET>) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-pub type PFNPROCESSGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr) -> u32;
+pub type PFNPROCESSGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
-pub type PFNPROCESSGROUPPOLICYEX = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, pwbemservices: ::windows::core::RawPtr, prsopstatus: *mut ::windows::core::HRESULT) -> u32;
+pub type PFNPROCESSGROUPPOLICYEX = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, pwbemservices: ::windows::core::RawPtr, prsopstatus: *mut ::windows::core::HRESULT) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNSTATUSMESSAGECALLBACK = unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32;
+pub type PFNSTATUSMESSAGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32>;
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -7311,15 +7138,7 @@ impl ::core::default::Default for POLICYSETTINGSTATUSINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for POLICYSETTINGSTATUSINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POLICYSETTINGSTATUSINFO")
-            .field("szKey", &self.szKey)
-            .field("szEventSource", &self.szEventSource)
-            .field("szEventLogName", &self.szEventLogName)
-            .field("dwEventID", &self.dwEventID)
-            .field("dwErrorCode", &self.dwErrorCode)
-            .field("status", &self.status)
-            .field("timeLogged", &self.timeLogged)
-            .finish()
+        fmt.debug_struct("POLICYSETTINGSTATUSINFO").field("szKey", &self.szKey).field("szEventSource", &self.szEventSource).field("szEventLogName", &self.szEventLogName).field("dwEventID", &self.dwEventID).field("dwErrorCode", &self.dwErrorCode).field("status", &self.status).field("timeLogged", &self.timeLogged).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7458,51 +7277,14 @@ pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(
-    psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-    pprincipalselfsid: Param1,
-    prsoptoken: *const ::core::ffi::c_void,
-    dwdesiredaccessmask: u32,
-    pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST,
-    objecttypelistlength: u32,
-    pgenericmapping: *const super::super::Security::GENERIC_MAPPING,
-    pprivilegeset: *const super::super::Security::PRIVILEGE_SET,
-    pdwprivilegesetlength: *const u32,
-    pdwgrantedaccessmask: *mut u32,
-    pbaccessstatus: *mut i32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, pprincipalselfsid: Param1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RsopAccessCheckByType(
-                psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-                pprincipalselfsid: super::super::Foundation::PSID,
-                prsoptoken: *const ::core::ffi::c_void,
-                dwdesiredaccessmask: u32,
-                pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST,
-                objecttypelistlength: u32,
-                pgenericmapping: *const super::super::Security::GENERIC_MAPPING,
-                pprivilegeset: *const super::super::Security::PRIVILEGE_SET,
-                pdwprivilegesetlength: *const u32,
-                pdwgrantedaccessmask: *mut u32,
-                pbaccessstatus: *mut i32,
-            ) -> ::windows::core::HRESULT;
+            fn RsopAccessCheckByType(psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, pprincipalselfsid: super::super::Foundation::PSID, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
         }
-        RsopAccessCheckByType(
-            ::core::mem::transmute(psecuritydescriptor),
-            pprincipalselfsid.into_param().abi(),
-            ::core::mem::transmute(prsoptoken),
-            ::core::mem::transmute(dwdesiredaccessmask),
-            ::core::mem::transmute(pobjecttypelist),
-            ::core::mem::transmute(objecttypelistlength),
-            ::core::mem::transmute(pgenericmapping),
-            ::core::mem::transmute(pprivilegeset),
-            ::core::mem::transmute(pdwprivilegesetlength),
-            ::core::mem::transmute(pdwgrantedaccessmask),
-            ::core::mem::transmute(pbaccessstatus),
-        )
-        .ok()
+        RsopAccessCheckByType(::core::mem::transmute(psecuritydescriptor), pprincipalselfsid.into_param().abi(), ::core::mem::transmute(prsoptoken), ::core::mem::transmute(dwdesiredaccessmask), ::core::mem::transmute(pobjecttypelist), ::core::mem::transmute(objecttypelistlength), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pprivilegeset), ::core::mem::transmute(pdwprivilegesetlength), ::core::mem::transmute(pdwgrantedaccessmask), ::core::mem::transmute(pbaccessstatus)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

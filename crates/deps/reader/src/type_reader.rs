@@ -160,6 +160,10 @@ impl TypeReader {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.def.first())
     }
 
+    pub fn get_namespace(&self, namespace: &str) -> Option<&TypeTree> {
+        self.types.get_namespace(namespace)
+    }
+
     pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
         self.get_type(type_name).and_then(|def| if let ElementType::TypeDef(def) = def { Some(def.clone()) } else { None }).unwrap_or_else(|| panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
     }
@@ -267,14 +271,4 @@ fn is_well_known(type_name: TypeName) -> bool {
 
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
-const WELL_KNOWN_TYPES: [(TypeName, ElementType); 9] = [
-    (TypeName::GUID, ElementType::GUID),
-    (TypeName::IUnknown, ElementType::IUnknown),
-    (TypeName::HResult, ElementType::HRESULT),
-    (TypeName::HRESULT, ElementType::HRESULT),
-    (TypeName::HSTRING, ElementType::String),
-    (TypeName::IInspectable, ElementType::IInspectable),
-    (TypeName::LARGE_INTEGER, ElementType::I64),
-    (TypeName::ULARGE_INTEGER, ElementType::U64),
-    (TypeName::Type, ElementType::TypeName),
-];
+const WELL_KNOWN_TYPES: [(TypeName, ElementType); 9] = [(TypeName::GUID, ElementType::GUID), (TypeName::IUnknown, ElementType::IUnknown), (TypeName::HResult, ElementType::HRESULT), (TypeName::HRESULT, ElementType::HRESULT), (TypeName::HSTRING, ElementType::String), (TypeName::IInspectable, ElementType::IInspectable), (TypeName::LARGE_INTEGER, ElementType::I64), (TypeName::ULARGE_INTEGER, ElementType::U64), (TypeName::Type, ElementType::TypeName)];

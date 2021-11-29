@@ -907,15 +907,7 @@ impl ::core::default::Default for BackgroundUploadProgress {
 }
 impl ::core::fmt::Debug for BackgroundUploadProgress {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BackgroundUploadProgress")
-            .field("BytesReceived", &self.BytesReceived)
-            .field("BytesSent", &self.BytesSent)
-            .field("TotalBytesToReceive", &self.TotalBytesToReceive)
-            .field("TotalBytesToSend", &self.TotalBytesToSend)
-            .field("Status", &self.Status)
-            .field("HasResponseChanged", &self.HasResponseChanged)
-            .field("HasRestarted", &self.HasRestarted)
-            .finish()
+        fmt.debug_struct("BackgroundUploadProgress").field("BytesReceived", &self.BytesReceived).field("BytesSent", &self.BytesSent).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("TotalBytesToSend", &self.TotalBytesToSend).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
     }
 }
 impl ::core::cmp::PartialEq for BackgroundUploadProgress {
@@ -977,13 +969,7 @@ impl BackgroundUploader {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    pub fn CreateUploadWithSubTypeAndBoundaryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-        &self,
-        uri: Param0,
-        parts: Param1,
-        subtype: Param2,
-        boundary: Param3,
-    ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>> {
+    pub fn CreateUploadWithSubTypeAndBoundaryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, uri: Param0, parts: Param1, subtype: Param2, boundary: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -86,29 +86,8 @@ pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::core::IntoParam<'a, su
 pub struct IEffectivePermission(pub ::windows::core::IUnknown);
 impl IEffectivePermission {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectivePermission<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        pguidobjecttype: *const ::windows::core::GUID,
-        pusersid: Param1,
-        pszservername: Param2,
-        psd: *mut super::super::SECURITY_DESCRIPTOR,
-        ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST,
-        pcobjecttypelistlength: *mut u32,
-        ppgrantedaccesslist: *mut *mut u32,
-        pcgrantedaccesslistlength: *mut u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pguidobjecttype),
-            pusersid.into_param().abi(),
-            pszservername.into_param().abi(),
-            ::core::mem::transmute(psd),
-            ::core::mem::transmute(ppobjecttypelist),
-            ::core::mem::transmute(pcobjecttypelistlength),
-            ::core::mem::transmute(ppgrantedaccesslist),
-            ::core::mem::transmute(pcgrantedaccesslistlength),
-        )
-        .ok()
+    pub unsafe fn GetEffectivePermission<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: Param2, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidobjecttype), pusersid.into_param().abi(), pszservername.into_param().abi(), ::core::mem::transmute(psd), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IEffectivePermission {

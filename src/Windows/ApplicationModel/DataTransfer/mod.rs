@@ -1576,11 +1576,7 @@ unsafe impl ::core::marker::Sync for DataProviderDeferral {}
 pub struct DataProviderHandler(::windows::core::IUnknown);
 impl DataProviderHandler {
     pub fn new<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DataProviderHandler_box::<F> {
-            vtable: &DataProviderHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = DataProviderHandler_box::<F> { vtable: &DataProviderHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, DataProviderRequest>>(&self, request: Param0) -> ::windows::core::Result<()> {
@@ -1597,12 +1593,7 @@ unsafe impl ::windows::core::Interface for DataProviderHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DataProviderHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct DataProviderHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct DataProviderHandler_box<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const DataProviderHandler_abi,
@@ -1613,13 +1604,9 @@ impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::
     const VTABLE: DataProviderHandler_abi = DataProviderHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<DataProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<DataProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -3414,11 +3401,7 @@ unsafe impl ::core::marker::Sync for ShareProvider {}
 pub struct ShareProviderHandler(::windows::core::IUnknown);
 impl ShareProviderHandler {
     pub fn new<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ShareProviderHandler_box::<F> {
-            vtable: &ShareProviderHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ShareProviderHandler_box::<F> { vtable: &ShareProviderHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ShareProviderOperation>>(&self, operation: Param0) -> ::windows::core::Result<()> {
@@ -3435,12 +3418,7 @@ unsafe impl ::windows::core::Interface for ShareProviderHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ShareProviderHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ShareProviderHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ShareProviderHandler_box<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ShareProviderHandler_abi,
@@ -3451,13 +3429,9 @@ impl<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::cor
     const VTABLE: ShareProviderHandler_abi = ShareProviderHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ShareProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ShareProviderHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)

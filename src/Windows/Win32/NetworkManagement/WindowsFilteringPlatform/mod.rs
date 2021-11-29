@@ -30,14 +30,7 @@ impl ::core::default::Default for ARP_HEADER {
 }
 impl ::core::fmt::Debug for ARP_HEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ARP_HEADER")
-            .field("HardwareAddressSpace", &self.HardwareAddressSpace)
-            .field("ProtocolAddressSpace", &self.ProtocolAddressSpace)
-            .field("HardwareAddressLength", &self.HardwareAddressLength)
-            .field("ProtocolAddressLength", &self.ProtocolAddressLength)
-            .field("Opcode", &self.Opcode)
-            .field("SenderHardwareAddress", &self.SenderHardwareAddress)
-            .finish()
+        fmt.debug_struct("ARP_HEADER").field("HardwareAddressSpace", &self.HardwareAddressSpace).field("ProtocolAddressSpace", &self.ProtocolAddressSpace).field("HardwareAddressLength", &self.HardwareAddressLength).field("ProtocolAddressLength", &self.ProtocolAddressLength).field("Opcode", &self.Opcode).field("SenderHardwareAddress", &self.SenderHardwareAddress).finish()
     }
 }
 impl ::core::cmp::PartialEq for ARP_HEADER {
@@ -646,15 +639,7 @@ impl ::core::default::Default for FWPM_CALLOUT0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_CALLOUT0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_CALLOUT0")
-            .field("calloutKey", &self.calloutKey)
-            .field("displayData", &self.displayData)
-            .field("flags", &self.flags)
-            .field("providerKey", &self.providerKey)
-            .field("providerData", &self.providerData)
-            .field("applicableLayer", &self.applicableLayer)
-            .field("calloutId", &self.calloutId)
-            .finish()
+        fmt.debug_struct("FWPM_CALLOUT0").field("calloutKey", &self.calloutKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("applicableLayer", &self.applicableLayer).field("calloutId", &self.calloutId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -700,7 +685,7 @@ impl ::core::cmp::Eq for FWPM_CALLOUT_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_CALLOUT_CHANGE0 {
     type Abi = Self;
 }
-pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
+pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0)>;
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33486ab5_6d5e_4e65_a00b_a7afed0ba9a1);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x079b1010_f1c5_4fcd_ae05_da41107abd0b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1106,7 +1091,7 @@ unsafe impl ::windows::core::Abi for FWPM_CONNECTION0_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FWPM_CONNECTION_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0);
+pub type FWPM_CONNECTION_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0)>;
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1208,7 +1193,7 @@ impl ::core::cmp::Eq for FWPM_DISPLAY_DATA0 {}
 unsafe impl ::windows::core::Abi for FWPM_DISPLAY_DATA0 {
     type Abi = Self;
 }
-pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = unsafe extern "system" fn(notification: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void);
+pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(notification: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_ENGINE_OPTION(pub i32);
@@ -1367,7 +1352,7 @@ impl ::core::cmp::Eq for FWPM_FILTER_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_FILTER_CHANGE0 {
     type Abi = Self;
 }
-pub type FWPM_FILTER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0);
+pub type FWPM_FILTER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1421,17 +1406,7 @@ impl ::core::default::Default for FWPM_FILTER_ENUM_TEMPLATE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for FWPM_FILTER_ENUM_TEMPLATE0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_FILTER_ENUM_TEMPLATE0")
-            .field("providerKey", &self.providerKey)
-            .field("layerKey", &self.layerKey)
-            .field("enumType", &self.enumType)
-            .field("flags", &self.flags)
-            .field("providerContextTemplate", &self.providerContextTemplate)
-            .field("numFilterConditions", &self.numFilterConditions)
-            .field("filterCondition", &self.filterCondition)
-            .field("actionMask", &self.actionMask)
-            .field("calloutKey", &self.calloutKey)
-            .finish()
+        fmt.debug_struct("FWPM_FILTER_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).field("layerKey", &self.layerKey).field("enumType", &self.enumType).field("flags", &self.flags).field("providerContextTemplate", &self.providerContextTemplate).field("numFilterConditions", &self.numFilterConditions).field("filterCondition", &self.filterCondition).field("actionMask", &self.actionMask).field("calloutKey", &self.calloutKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2100,15 +2075,15 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5__0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT1);
+pub type FWPM_NET_EVENT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT1)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK1 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT2);
+pub type FWPM_NET_EVENT_CALLBACK1 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT2)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK2 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3);
+pub type FWPM_NET_EVENT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK3 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4_);
+pub type FWPM_NET_EVENT_CALLBACK3 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4_)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK4 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5_);
+pub type FWPM_NET_EVENT_CALLBACK4 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5_)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2200,15 +2175,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_ALLOW0")
-            .field("filterId", &self.filterId)
-            .field("layerId", &self.layerId)
-            .field("reauthReason", &self.reauthReason)
-            .field("originalProfile", &self.originalProfile)
-            .field("currentProfile", &self.currentProfile)
-            .field("msFwpDirection", &self.msFwpDirection)
-            .field("isLoopback", &self.isLoopback)
-            .finish()
+        fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_ALLOW0").field("filterId", &self.filterId).field("layerId", &self.layerId).field("reauthReason", &self.reauthReason).field("originalProfile", &self.originalProfile).field("currentProfile", &self.currentProfile).field("msFwpDirection", &self.msFwpDirection).field("isLoopback", &self.isLoopback).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2272,15 +2239,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP1")
-            .field("filterId", &self.filterId)
-            .field("layerId", &self.layerId)
-            .field("reauthReason", &self.reauthReason)
-            .field("originalProfile", &self.originalProfile)
-            .field("currentProfile", &self.currentProfile)
-            .field("msFwpDirection", &self.msFwpDirection)
-            .field("isLoopback", &self.isLoopback)
-            .finish()
+        fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP1").field("filterId", &self.filterId).field("layerId", &self.layerId).field("reauthReason", &self.reauthReason).field("originalProfile", &self.originalProfile).field("currentProfile", &self.currentProfile).field("msFwpDirection", &self.msFwpDirection).field("isLoopback", &self.isLoopback).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2408,25 +2367,7 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     fn eq(&self, other: &Self) -> bool {
-        self.localMacAddr == other.localMacAddr
-            && self.remoteMacAddr == other.remoteMacAddr
-            && self.mediaType == other.mediaType
-            && self.ifType == other.ifType
-            && self.etherType == other.etherType
-            && self.ndisPortNumber == other.ndisPortNumber
-            && self.reserved == other.reserved
-            && self.vlanTag == other.vlanTag
-            && self.ifLuid == other.ifLuid
-            && self.filterId == other.filterId
-            && self.layerId == other.layerId
-            && self.reauthReason == other.reauthReason
-            && self.originalProfile == other.originalProfile
-            && self.currentProfile == other.currentProfile
-            && self.msFwpDirection == other.msFwpDirection
-            && self.isLoopback == other.isLoopback
-            && self.vSwitchId == other.vSwitchId
-            && self.vSwitchSourcePort == other.vSwitchSourcePort
-            && self.vSwitchDestinationPort == other.vSwitchDestinationPort
+        self.localMacAddr == other.localMacAddr && self.remoteMacAddr == other.remoteMacAddr && self.mediaType == other.mediaType && self.ifType == other.ifType && self.etherType == other.etherType && self.ndisPortNumber == other.ndisPortNumber && self.reserved == other.reserved && self.vlanTag == other.vlanTag && self.ifLuid == other.ifLuid && self.filterId == other.filterId && self.layerId == other.layerId && self.reauthReason == other.reauthReason && self.originalProfile == other.originalProfile && self.currentProfile == other.currentProfile && self.msFwpDirection == other.msFwpDirection && self.isLoopback == other.isLoopback && self.vSwitchId == other.vSwitchId && self.vSwitchSourcePort == other.vSwitchSourcePort && self.vSwitchDestinationPort == other.vSwitchDestinationPort
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2769,17 +2710,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("reserved2", &self.reserved2)
-            .field("reserved3", &self.reserved3)
-            .field("reserved4", &self.reserved4)
-            .field("reserved5", &self.reserved5)
-            .field("reserved6", &self.reserved6)
-            .field("reserved7", &self.reserved7)
-            .field("reserved8", &self.reserved8)
-            .field("reserved9", &self.reserved9)
-            .field("reserved10", &self.reserved10)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("reserved2", &self.reserved2).field("reserved3", &self.reserved3).field("reserved4", &self.reserved4).field("reserved5", &self.reserved5).field("reserved6", &self.reserved6).field("reserved7", &self.reserved7).field("reserved8", &self.reserved8).field("reserved9", &self.reserved9).field("reserved10", &self.reserved10).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3002,17 +2933,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
 }
 impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_EM_FAILURE0")
-            .field("failureErrorCode", &self.failureErrorCode)
-            .field("failurePoint", &self.failurePoint)
-            .field("flags", &self.flags)
-            .field("emState", &self.emState)
-            .field("saRole", &self.saRole)
-            .field("emAuthMethod", &self.emAuthMethod)
-            .field("endCertHash", &self.endCertHash)
-            .field("mmId", &self.mmId)
-            .field("qmFilterId", &self.qmFilterId)
-            .finish()
+        fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_EM_FAILURE0").field("failureErrorCode", &self.failureErrorCode).field("failurePoint", &self.failurePoint).field("flags", &self.flags).field("emState", &self.emState).field("saRole", &self.saRole).field("emAuthMethod", &self.emAuthMethod).field("endCertHash", &self.endCertHash).field("mmId", &self.mmId).field("qmFilterId", &self.qmFilterId).finish()
     }
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
@@ -3127,18 +3048,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
 }
 impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE0")
-            .field("failureErrorCode", &self.failureErrorCode)
-            .field("failurePoint", &self.failurePoint)
-            .field("flags", &self.flags)
-            .field("keyingModuleType", &self.keyingModuleType)
-            .field("mmState", &self.mmState)
-            .field("saRole", &self.saRole)
-            .field("mmAuthMethod", &self.mmAuthMethod)
-            .field("endCertHash", &self.endCertHash)
-            .field("mmId", &self.mmId)
-            .field("mmFilterId", &self.mmFilterId)
-            .finish()
+        fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE0").field("failureErrorCode", &self.failureErrorCode).field("failurePoint", &self.failurePoint).field("flags", &self.flags).field("keyingModuleType", &self.keyingModuleType).field("mmState", &self.mmState).field("saRole", &self.saRole).field("mmAuthMethod", &self.mmAuthMethod).field("endCertHash", &self.endCertHash).field("mmId", &self.mmId).field("mmFilterId", &self.mmFilterId).finish()
     }
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
@@ -3732,7 +3642,7 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CHANGE0 {
     type Abi = Self;
 }
-pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0);
+pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -4039,7 +3949,7 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     type Abi = Self;
 }
-pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0);
+pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
@@ -4224,16 +4134,7 @@ impl ::core::default::Default for FWPM_SESSION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for FWPM_SESSION0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FWPM_SESSION0")
-            .field("sessionKey", &self.sessionKey)
-            .field("displayData", &self.displayData)
-            .field("flags", &self.flags)
-            .field("txnWaitTimeoutInMSec", &self.txnWaitTimeoutInMSec)
-            .field("processId", &self.processId)
-            .field("sid", &self.sid)
-            .field("username", &self.username)
-            .field("kernelMode", &self.kernelMode)
-            .finish()
+        fmt.debug_struct("FWPM_SESSION0").field("sessionKey", &self.sessionKey).field("displayData", &self.displayData).field("flags", &self.flags).field("txnWaitTimeoutInMSec", &self.txnWaitTimeoutInMSec).field("processId", &self.processId).field("sid", &self.sid).field("username", &self.username).field("kernelMode", &self.kernelMode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -4470,7 +4371,7 @@ impl ::core::cmp::Eq for FWPM_SUBLAYER_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_SUBLAYER_CHANGE0 {
     type Abi = Self;
 }
-pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0);
+pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
@@ -4635,7 +4536,7 @@ impl ::core::cmp::Eq for FWPM_SYSTEM_PORTS_BY_TYPE0 {}
 unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     type Abi = Self;
 }
-pub type FWPM_SYSTEM_PORTS_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0);
+pub type FWPM_SYSTEM_PORTS_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SYSTEM_PORT_TYPE(pub i32);
@@ -4779,7 +4680,7 @@ unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0_0_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FWPM_VSWITCH_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32;
+pub type FWPM_VSWITCH_EVENT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
@@ -5591,16 +5492,7 @@ pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<'a, Param0: ::windows::core::Into
         extern "system" {
             fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmCalloutGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(key),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(FwpmCalloutGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5621,7 +5513,7 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_CALLOUT_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5747,7 +5639,7 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::core::IntoPa
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_CONNECTION_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5775,7 +5667,7 @@ pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::core::option::Option<FWPM_DYNAMIC_KEYWORD_CALLBACK0>, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6006,16 +5898,7 @@ pub unsafe fn FwpmFilterGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn FwpmFilterGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmFilterGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(key),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(FwpmFilterGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6036,7 +5919,7 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoP
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_FILTER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6126,16 +6009,7 @@ pub unsafe fn FwpmIPsecTunnelAdd1<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn FwpmIPsecTunnelAdd1(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmIPsecTunnelAdd1(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(mainmodepolicy),
-            ::core::mem::transmute(tunnelpolicy),
-            ::core::mem::transmute(numfilterconditions),
-            ::core::mem::transmute(filterconditions),
-            ::core::mem::transmute(keymodkey),
-            ::core::mem::transmute(sd),
-        ))
+        ::core::mem::transmute(FwpmIPsecTunnelAdd1(enginehandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(mainmodepolicy), ::core::mem::transmute(tunnelpolicy), ::core::mem::transmute(numfilterconditions), ::core::mem::transmute(filterconditions), ::core::mem::transmute(keymodkey), ::core::mem::transmute(sd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6149,16 +6023,7 @@ pub unsafe fn FwpmIPsecTunnelAdd2<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn FwpmIPsecTunnelAdd2(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmIPsecTunnelAdd2(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(mainmodepolicy),
-            ::core::mem::transmute(tunnelpolicy),
-            ::core::mem::transmute(numfilterconditions),
-            ::core::mem::transmute(filterconditions),
-            ::core::mem::transmute(keymodkey),
-            ::core::mem::transmute(sd),
-        ))
+        ::core::mem::transmute(FwpmIPsecTunnelAdd2(enginehandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(mainmodepolicy), ::core::mem::transmute(tunnelpolicy), ::core::mem::transmute(numfilterconditions), ::core::mem::transmute(filterconditions), ::core::mem::transmute(keymodkey), ::core::mem::transmute(sd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6172,16 +6037,7 @@ pub unsafe fn FwpmIPsecTunnelAdd3<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn FwpmIPsecTunnelAdd3(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3_, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3_, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmIPsecTunnelAdd3(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(mainmodepolicy),
-            ::core::mem::transmute(tunnelpolicy),
-            ::core::mem::transmute(numfilterconditions),
-            ::core::mem::transmute(filterconditions),
-            ::core::mem::transmute(keymodkey),
-            ::core::mem::transmute(sd),
-        ))
+        ::core::mem::transmute(FwpmIPsecTunnelAdd3(enginehandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(mainmodepolicy), ::core::mem::transmute(tunnelpolicy), ::core::mem::transmute(numfilterconditions), ::core::mem::transmute(filterconditions), ::core::mem::transmute(keymodkey), ::core::mem::transmute(sd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6279,16 +6135,7 @@ pub unsafe fn FwpmLayerGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn FwpmLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmLayerGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(key),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(FwpmLayerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6421,7 +6268,7 @@ pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6435,7 +6282,7 @@ pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK1>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6449,7 +6296,7 @@ pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK2>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6463,7 +6310,7 @@ pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK3>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6477,7 +6324,7 @@ pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK4>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6848,16 +6695,7 @@ pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<'a, Param0: ::windows::co
         extern "system" {
             fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmProviderContextGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(key),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(FwpmProviderContextGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6878,7 +6716,7 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::co
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6997,16 +6835,7 @@ pub unsafe fn FwpmProviderGetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
         extern "system" {
             fn FwpmProviderGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmProviderGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(key),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(FwpmProviderGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7027,7 +6856,7 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_PROVIDER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7202,16 +7031,7 @@ pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
         extern "system" {
             fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(FwpmSubLayerGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(key),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(FwpmSubLayerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7232,7 +7052,7 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_SUBLAYER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7288,7 +7108,7 @@ pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *mut ::core::ffi::c_void, callback: ::core::option::Option<FWPM_SYSTEM_PORTS_CALLBACK0>, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *mut ::core::ffi::c_void, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7358,7 +7178,7 @@ pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_VSWITCH_EVENT_CALLBACK0>, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9104,13 +8924,7 @@ impl ::core::default::Default for IKEEXT_COMMON_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IKEEXT_COMMON_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEEXT_COMMON_STATISTICS0")
-            .field("v4Statistics", &self.v4Statistics)
-            .field("v6Statistics", &self.v6Statistics)
-            .field("totalPacketsReceived", &self.totalPacketsReceived)
-            .field("totalInvalidPacketsReceived", &self.totalInvalidPacketsReceived)
-            .field("currentQueuedWorkitems", &self.currentQueuedWorkitems)
-            .finish()
+        fmt.debug_struct("IKEEXT_COMMON_STATISTICS0").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("totalPacketsReceived", &self.totalPacketsReceived).field("totalInvalidPacketsReceived", &self.totalInvalidPacketsReceived).field("currentQueuedWorkitems", &self.currentQueuedWorkitems).finish()
     }
 }
 impl ::core::cmp::PartialEq for IKEEXT_COMMON_STATISTICS0 {
@@ -9139,13 +8953,7 @@ impl ::core::default::Default for IKEEXT_COMMON_STATISTICS1 {
 }
 impl ::core::fmt::Debug for IKEEXT_COMMON_STATISTICS1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEEXT_COMMON_STATISTICS1")
-            .field("v4Statistics", &self.v4Statistics)
-            .field("v6Statistics", &self.v6Statistics)
-            .field("totalPacketsReceived", &self.totalPacketsReceived)
-            .field("totalInvalidPacketsReceived", &self.totalInvalidPacketsReceived)
-            .field("currentQueuedWorkitems", &self.currentQueuedWorkitems)
-            .finish()
+        fmt.debug_struct("IKEEXT_COMMON_STATISTICS1").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("totalPacketsReceived", &self.totalPacketsReceived).field("totalInvalidPacketsReceived", &self.totalInvalidPacketsReceived).field("currentQueuedWorkitems", &self.currentQueuedWorkitems).finish()
     }
 }
 impl ::core::cmp::PartialEq for IKEEXT_COMMON_STATISTICS1 {
@@ -10140,14 +9948,7 @@ impl ::core::default::Default for IKEEXT_KEYMODULE_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEEXT_KEYMODULE_STATISTICS0")
-            .field("v4Statistics", &self.v4Statistics)
-            .field("v6Statistics", &self.v6Statistics)
-            .field("errorFrequencyTable", &self.errorFrequencyTable)
-            .field("mainModeNegotiationTime", &self.mainModeNegotiationTime)
-            .field("quickModeNegotiationTime", &self.quickModeNegotiationTime)
-            .field("extendedModeNegotiationTime", &self.extendedModeNegotiationTime)
-            .finish()
+        fmt.debug_struct("IKEEXT_KEYMODULE_STATISTICS0").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("errorFrequencyTable", &self.errorFrequencyTable).field("mainModeNegotiationTime", &self.mainModeNegotiationTime).field("quickModeNegotiationTime", &self.quickModeNegotiationTime).field("extendedModeNegotiationTime", &self.extendedModeNegotiationTime).finish()
     }
 }
 impl ::core::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS0 {
@@ -10177,14 +9978,7 @@ impl ::core::default::Default for IKEEXT_KEYMODULE_STATISTICS1 {
 }
 impl ::core::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEEXT_KEYMODULE_STATISTICS1")
-            .field("v4Statistics", &self.v4Statistics)
-            .field("v6Statistics", &self.v6Statistics)
-            .field("errorFrequencyTable", &self.errorFrequencyTable)
-            .field("mainModeNegotiationTime", &self.mainModeNegotiationTime)
-            .field("quickModeNegotiationTime", &self.quickModeNegotiationTime)
-            .field("extendedModeNegotiationTime", &self.extendedModeNegotiationTime)
-            .finish()
+        fmt.debug_struct("IKEEXT_KEYMODULE_STATISTICS1").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("errorFrequencyTable", &self.errorFrequencyTable).field("mainModeNegotiationTime", &self.mainModeNegotiationTime).field("quickModeNegotiationTime", &self.quickModeNegotiationTime).field("extendedModeNegotiationTime", &self.extendedModeNegotiationTime).finish()
     }
 }
 impl ::core::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS1 {
@@ -10311,16 +10105,7 @@ impl ::core::default::Default for IKEEXT_POLICY0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_POLICY0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEEXT_POLICY0")
-            .field("softExpirationTime", &self.softExpirationTime)
-            .field("numAuthenticationMethods", &self.numAuthenticationMethods)
-            .field("authenticationMethods", &self.authenticationMethods)
-            .field("initiatorImpersonationType", &self.initiatorImpersonationType)
-            .field("numIkeProposals", &self.numIkeProposals)
-            .field("ikeProposals", &self.ikeProposals)
-            .field("flags", &self.flags)
-            .field("maxDynamicFilters", &self.maxDynamicFilters)
-            .finish()
+        fmt.debug_struct("IKEEXT_POLICY0").field("softExpirationTime", &self.softExpirationTime).field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).field("numIkeProposals", &self.numIkeProposals).field("ikeProposals", &self.ikeProposals).field("flags", &self.flags).field("maxDynamicFilters", &self.maxDynamicFilters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11107,15 +10892,7 @@ impl ::core::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
 }
 impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
-        self.invalidSpisOnInbound == other.invalidSpisOnInbound
-            && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound
-            && self.authenticationFailuresOnInbound == other.authenticationFailuresOnInbound
-            && self.udpEspValidationFailuresOnInbound == other.udpEspValidationFailuresOnInbound
-            && self.replayCheckFailuresOnInbound == other.replayCheckFailuresOnInbound
-            && self.invalidClearTextInbound == other.invalidClearTextInbound
-            && self.saNotInitializedOnInbound == other.saNotInitializedOnInbound
-            && self.receiveOverIncorrectSaInbound == other.receiveOverIncorrectSaInbound
-            && self.secureReceivesNotMatchingFilters == other.secureReceivesNotMatchingFilters
+        self.invalidSpisOnInbound == other.invalidSpisOnInbound && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound && self.authenticationFailuresOnInbound == other.authenticationFailuresOnInbound && self.udpEspValidationFailuresOnInbound == other.udpEspValidationFailuresOnInbound && self.replayCheckFailuresOnInbound == other.replayCheckFailuresOnInbound && self.invalidClearTextInbound == other.invalidClearTextInbound && self.saNotInitializedOnInbound == other.saNotInitializedOnInbound && self.receiveOverIncorrectSaInbound == other.receiveOverIncorrectSaInbound && self.secureReceivesNotMatchingFilters == other.secureReceivesNotMatchingFilters
     }
 }
 impl ::core::cmp::Eq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {}
@@ -11160,16 +10937,7 @@ impl ::core::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
 }
 impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
-        self.invalidSpisOnInbound == other.invalidSpisOnInbound
-            && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound
-            && self.authenticationFailuresOnInbound == other.authenticationFailuresOnInbound
-            && self.udpEspValidationFailuresOnInbound == other.udpEspValidationFailuresOnInbound
-            && self.replayCheckFailuresOnInbound == other.replayCheckFailuresOnInbound
-            && self.invalidClearTextInbound == other.invalidClearTextInbound
-            && self.saNotInitializedOnInbound == other.saNotInitializedOnInbound
-            && self.receiveOverIncorrectSaInbound == other.receiveOverIncorrectSaInbound
-            && self.secureReceivesNotMatchingFilters == other.secureReceivesNotMatchingFilters
-            && self.totalDropPacketsInbound == other.totalDropPacketsInbound
+        self.invalidSpisOnInbound == other.invalidSpisOnInbound && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound && self.authenticationFailuresOnInbound == other.authenticationFailuresOnInbound && self.udpEspValidationFailuresOnInbound == other.udpEspValidationFailuresOnInbound && self.replayCheckFailuresOnInbound == other.replayCheckFailuresOnInbound && self.invalidClearTextInbound == other.invalidClearTextInbound && self.saNotInitializedOnInbound == other.saNotInitializedOnInbound && self.receiveOverIncorrectSaInbound == other.receiveOverIncorrectSaInbound && self.secureReceivesNotMatchingFilters == other.secureReceivesNotMatchingFilters && self.totalDropPacketsInbound == other.totalDropPacketsInbound
     }
 }
 impl ::core::cmp::Eq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {}
@@ -11195,15 +10963,7 @@ impl ::core::default::Default for IPSEC_AGGREGATE_SA_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IPSEC_AGGREGATE_SA_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_AGGREGATE_SA_STATISTICS0")
-            .field("activeSas", &self.activeSas)
-            .field("pendingSaNegotiations", &self.pendingSaNegotiations)
-            .field("totalSasAdded", &self.totalSasAdded)
-            .field("totalSasDeleted", &self.totalSasDeleted)
-            .field("successfulRekeys", &self.successfulRekeys)
-            .field("activeTunnels", &self.activeTunnels)
-            .field("offloadedSas", &self.offloadedSas)
-            .finish()
+        fmt.debug_struct("IPSEC_AGGREGATE_SA_STATISTICS0").field("activeSas", &self.activeSas).field("pendingSaNegotiations", &self.pendingSaNegotiations).field("totalSasAdded", &self.totalSasAdded).field("totalSasDeleted", &self.totalSasDeleted).field("successfulRekeys", &self.successfulRekeys).field("activeTunnels", &self.activeTunnels).field("offloadedSas", &self.offloadedSas).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_SA_STATISTICS0 {
@@ -11231,12 +10991,7 @@ impl ::core::default::Default for IPSEC_AH_DROP_PACKET_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IPSEC_AH_DROP_PACKET_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_AH_DROP_PACKET_STATISTICS0")
-            .field("invalidSpisOnInbound", &self.invalidSpisOnInbound)
-            .field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound)
-            .field("replayCheckFailuresOnInbound", &self.replayCheckFailuresOnInbound)
-            .field("saNotInitializedOnInbound", &self.saNotInitializedOnInbound)
-            .finish()
+        fmt.debug_struct("IPSEC_AH_DROP_PACKET_STATISTICS0").field("invalidSpisOnInbound", &self.invalidSpisOnInbound).field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound).field("replayCheckFailuresOnInbound", &self.replayCheckFailuresOnInbound).field("saNotInitializedOnInbound", &self.saNotInitializedOnInbound).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_AH_DROP_PACKET_STATISTICS0 {
@@ -11583,13 +11338,7 @@ impl ::core::default::Default for IPSEC_DOSP_STATE0 {
 }
 impl ::core::fmt::Debug for IPSEC_DOSP_STATE0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_DOSP_STATE0")
-            .field("publicHostV6Addr", &self.publicHostV6Addr)
-            .field("internalHostV6Addr", &self.internalHostV6Addr)
-            .field("totalInboundIPv6IPsecAuthPackets", &self.totalInboundIPv6IPsecAuthPackets)
-            .field("totalOutboundIPv6IPsecAuthPackets", &self.totalOutboundIPv6IPsecAuthPackets)
-            .field("durationSecs", &self.durationSecs)
-            .finish()
+        fmt.debug_struct("IPSEC_DOSP_STATE0").field("publicHostV6Addr", &self.publicHostV6Addr).field("internalHostV6Addr", &self.internalHostV6Addr).field("totalInboundIPv6IPsecAuthPackets", &self.totalInboundIPv6IPsecAuthPackets).field("totalOutboundIPv6IPsecAuthPackets", &self.totalOutboundIPv6IPsecAuthPackets).field("durationSecs", &self.durationSecs).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_DOSP_STATE0 {
@@ -11722,13 +11471,7 @@ impl ::core::default::Default for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_ESP_DROP_PACKET_STATISTICS0")
-            .field("invalidSpisOnInbound", &self.invalidSpisOnInbound)
-            .field("decryptionFailuresOnInbound", &self.decryptionFailuresOnInbound)
-            .field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound)
-            .field("replayCheckFailuresOnInbound", &self.replayCheckFailuresOnInbound)
-            .field("saNotInitializedOnInbound", &self.saNotInitializedOnInbound)
-            .finish()
+        fmt.debug_struct("IPSEC_ESP_DROP_PACKET_STATISTICS0").field("invalidSpisOnInbound", &self.invalidSpisOnInbound).field("decryptionFailuresOnInbound", &self.decryptionFailuresOnInbound).field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound).field("replayCheckFailuresOnInbound", &self.replayCheckFailuresOnInbound).field("saNotInitializedOnInbound", &self.saNotInitializedOnInbound).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
@@ -11993,15 +11736,15 @@ impl ::core::cmp::Eq for IPSEC_KEY_MANAGER0 {}
 unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER0 {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: ::windows::core::GUID,
     pub flags: u32,
-    pub keyDictationCheck: ::core::option::Option<IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0>,
-    pub keyDictation: ::core::option::Option<IPSEC_KEY_MANAGER_DICTATE_KEY0>,
-    pub keyNotify: ::core::option::Option<IPSEC_KEY_MANAGER_NOTIFY_KEY0>,
+    pub keyDictationCheck: IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0,
+    pub keyDictation: IPSEC_KEY_MANAGER_DICTATE_KEY0,
+    pub keyNotify: IPSEC_KEY_MANAGER_NOTIFY_KEY0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_KEY_MANAGER_CALLBACKS0 {}
@@ -12027,15 +11770,15 @@ impl ::core::cmp::PartialEq for IPSEC_KEY_MANAGER_CALLBACKS0 {
 impl ::core::cmp::Eq for IPSEC_KEY_MANAGER_CALLBACKS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER_CALLBACKS0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32;
+pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = ::core::option::Option<unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32>;
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32);
+pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = ::core::option::Option<unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1);
+pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = ::core::option::Option<unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_PFS_GROUP(pub i32);
@@ -12526,7 +12269,7 @@ impl ::core::cmp::Eq for IPSEC_SA_CONTEXT1 {}
 unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT1 {
     type Abi = Self;
 }
-pub type IPSEC_SA_CONTEXT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0);
+pub type IPSEC_SA_CONTEXT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IPSEC_SA_CONTEXT_CHANGE0 {
@@ -12884,14 +12627,7 @@ impl ::core::default::Default for IPSEC_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IPSEC_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_STATISTICS0")
-            .field("aggregateSaStatistics", &self.aggregateSaStatistics)
-            .field("espDropPacketStatistics", &self.espDropPacketStatistics)
-            .field("ahDropPacketStatistics", &self.ahDropPacketStatistics)
-            .field("aggregateDropPacketStatistics", &self.aggregateDropPacketStatistics)
-            .field("inboundTrafficStatistics", &self.inboundTrafficStatistics)
-            .field("outboundTrafficStatistics", &self.outboundTrafficStatistics)
-            .finish()
+        fmt.debug_struct("IPSEC_STATISTICS0").field("aggregateSaStatistics", &self.aggregateSaStatistics).field("espDropPacketStatistics", &self.espDropPacketStatistics).field("ahDropPacketStatistics", &self.ahDropPacketStatistics).field("aggregateDropPacketStatistics", &self.aggregateDropPacketStatistics).field("inboundTrafficStatistics", &self.inboundTrafficStatistics).field("outboundTrafficStatistics", &self.outboundTrafficStatistics).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_STATISTICS0 {
@@ -12921,14 +12657,7 @@ impl ::core::default::Default for IPSEC_STATISTICS1 {
 }
 impl ::core::fmt::Debug for IPSEC_STATISTICS1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_STATISTICS1")
-            .field("aggregateSaStatistics", &self.aggregateSaStatistics)
-            .field("espDropPacketStatistics", &self.espDropPacketStatistics)
-            .field("ahDropPacketStatistics", &self.ahDropPacketStatistics)
-            .field("aggregateDropPacketStatistics", &self.aggregateDropPacketStatistics)
-            .field("inboundTrafficStatistics", &self.inboundTrafficStatistics)
-            .field("outboundTrafficStatistics", &self.outboundTrafficStatistics)
-            .finish()
+        fmt.debug_struct("IPSEC_STATISTICS1").field("aggregateSaStatistics", &self.aggregateSaStatistics).field("espDropPacketStatistics", &self.espDropPacketStatistics).field("ahDropPacketStatistics", &self.ahDropPacketStatistics).field("aggregateDropPacketStatistics", &self.aggregateDropPacketStatistics).field("inboundTrafficStatistics", &self.inboundTrafficStatistics).field("outboundTrafficStatistics", &self.outboundTrafficStatistics).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_STATISTICS1 {
@@ -13274,13 +13003,7 @@ impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
 }
 impl ::core::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_TRAFFIC_SELECTOR_POLICY0_")
-            .field("flags", &self.flags)
-            .field("numLocalTrafficSelectors", &self.numLocalTrafficSelectors)
-            .field("localTrafficSelectors", &self.localTrafficSelectors)
-            .field("numRemoteTrafficSelectors", &self.numRemoteTrafficSelectors)
-            .field("remoteTrafficSelectors", &self.remoteTrafficSelectors)
-            .finish()
+        fmt.debug_struct("IPSEC_TRAFFIC_SELECTOR_POLICY0_").field("flags", &self.flags).field("numLocalTrafficSelectors", &self.numLocalTrafficSelectors).field("localTrafficSelectors", &self.localTrafficSelectors).field("numRemoteTrafficSelectors", &self.numRemoteTrafficSelectors).field("remoteTrafficSelectors", &self.remoteTrafficSelectors).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
@@ -13310,14 +13033,7 @@ impl ::core::default::Default for IPSEC_TRAFFIC_STATISTICS0 {
 }
 impl ::core::fmt::Debug for IPSEC_TRAFFIC_STATISTICS0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_TRAFFIC_STATISTICS0")
-            .field("encryptedByteCount", &self.encryptedByteCount)
-            .field("authenticatedAHByteCount", &self.authenticatedAHByteCount)
-            .field("authenticatedESPByteCount", &self.authenticatedESPByteCount)
-            .field("transportByteCount", &self.transportByteCount)
-            .field("tunnelByteCount", &self.tunnelByteCount)
-            .field("offloadByteCount", &self.offloadByteCount)
-            .finish()
+        fmt.debug_struct("IPSEC_TRAFFIC_STATISTICS0").field("encryptedByteCount", &self.encryptedByteCount).field("authenticatedAHByteCount", &self.authenticatedAHByteCount).field("authenticatedESPByteCount", &self.authenticatedESPByteCount).field("transportByteCount", &self.transportByteCount).field("tunnelByteCount", &self.tunnelByteCount).field("offloadByteCount", &self.offloadByteCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS0 {
@@ -13348,15 +13064,7 @@ impl ::core::default::Default for IPSEC_TRAFFIC_STATISTICS1 {
 }
 impl ::core::fmt::Debug for IPSEC_TRAFFIC_STATISTICS1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_TRAFFIC_STATISTICS1")
-            .field("encryptedByteCount", &self.encryptedByteCount)
-            .field("authenticatedAHByteCount", &self.authenticatedAHByteCount)
-            .field("authenticatedESPByteCount", &self.authenticatedESPByteCount)
-            .field("transportByteCount", &self.transportByteCount)
-            .field("tunnelByteCount", &self.tunnelByteCount)
-            .field("offloadByteCount", &self.offloadByteCount)
-            .field("totalSuccessfulPackets", &self.totalSuccessfulPackets)
-            .finish()
+        fmt.debug_struct("IPSEC_TRAFFIC_STATISTICS1").field("encryptedByteCount", &self.encryptedByteCount).field("authenticatedAHByteCount", &self.authenticatedAHByteCount).field("authenticatedESPByteCount", &self.authenticatedESPByteCount).field("transportByteCount", &self.transportByteCount).field("tunnelByteCount", &self.tunnelByteCount).field("offloadByteCount", &self.offloadByteCount).field("totalSuccessfulPackets", &self.totalSuccessfulPackets).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS1 {
@@ -13421,14 +13129,7 @@ impl ::core::default::Default for IPSEC_TRANSPORT_POLICY0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_TRANSPORT_POLICY0")
-            .field("numIpsecProposals", &self.numIpsecProposals)
-            .field("ipsecProposals", &self.ipsecProposals)
-            .field("flags", &self.flags)
-            .field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds)
-            .field("saIdleTimeout", &self.saIdleTimeout)
-            .field("emPolicy", &self.emPolicy)
-            .finish()
+        fmt.debug_struct("IPSEC_TRANSPORT_POLICY0").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13465,14 +13166,7 @@ impl ::core::default::Default for IPSEC_TRANSPORT_POLICY1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_TRANSPORT_POLICY1")
-            .field("numIpsecProposals", &self.numIpsecProposals)
-            .field("ipsecProposals", &self.ipsecProposals)
-            .field("flags", &self.flags)
-            .field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds)
-            .field("saIdleTimeout", &self.saIdleTimeout)
-            .field("emPolicy", &self.emPolicy)
-            .finish()
+        fmt.debug_struct("IPSEC_TRANSPORT_POLICY1").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13509,14 +13203,7 @@ impl ::core::default::Default for IPSEC_TRANSPORT_POLICY2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPSEC_TRANSPORT_POLICY2")
-            .field("numIpsecProposals", &self.numIpsecProposals)
-            .field("ipsecProposals", &self.ipsecProposals)
-            .field("flags", &self.flags)
-            .field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds)
-            .field("saIdleTimeout", &self.saIdleTimeout)
-            .field("emPolicy", &self.emPolicy)
-            .finish()
+        fmt.debug_struct("IPSEC_TRANSPORT_POLICY2").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14925,7 +14612,7 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::core::IntoPa
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IPsecKeyManagerAddAndRegister0(enginehandle: super::super::Foundation::HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const ::core::mem::ManuallyDrop<IPSEC_KEY_MANAGER_CALLBACKS0>, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn IPsecKeyManagerAddAndRegister0(enginehandle: super::super::Foundation::HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(IPsecKeyManagerAddAndRegister0(enginehandle.into_param().abi(), ::core::mem::transmute(keymanager), ::core::mem::transmute(keymanagercallbacks), ::core::mem::transmute(keymgmthandle)))
     }
@@ -14941,16 +14628,7 @@ pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::core::
         extern "system" {
             fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(IPsecKeyManagerGetSecurityInfoByKey0(
-            enginehandle.into_param().abi(),
-            ::core::mem::transmute(reserved),
-            ::core::mem::transmute(securityinfo),
-            ::core::mem::transmute(sidowner),
-            ::core::mem::transmute(sidgroup),
-            ::core::mem::transmute(dacl),
-            ::core::mem::transmute(sacl),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(IPsecKeyManagerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15237,7 +14915,7 @@ pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::core::option::Option<IPSEC_SA_CONTEXT_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

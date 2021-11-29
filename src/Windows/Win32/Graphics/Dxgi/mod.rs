@@ -95,17 +95,7 @@ impl ::core::default::Default for DXGI_ADAPTER_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGI_ADAPTER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_ADAPTER_DESC")
-            .field("Description", &self.Description)
-            .field("VendorId", &self.VendorId)
-            .field("DeviceId", &self.DeviceId)
-            .field("SubSysId", &self.SubSysId)
-            .field("Revision", &self.Revision)
-            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
-            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
-            .field("SharedSystemMemory", &self.SharedSystemMemory)
-            .field("AdapterLuid", &self.AdapterLuid)
-            .finish()
+        fmt.debug_struct("DXGI_ADAPTER_DESC").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -146,18 +136,7 @@ impl ::core::default::Default for DXGI_ADAPTER_DESC1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGI_ADAPTER_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_ADAPTER_DESC1")
-            .field("Description", &self.Description)
-            .field("VendorId", &self.VendorId)
-            .field("DeviceId", &self.DeviceId)
-            .field("SubSysId", &self.SubSysId)
-            .field("Revision", &self.Revision)
-            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
-            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
-            .field("SharedSystemMemory", &self.SharedSystemMemory)
-            .field("AdapterLuid", &self.AdapterLuid)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DXGI_ADAPTER_DESC1").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -219,18 +198,7 @@ impl ::core::fmt::Debug for DXGI_ADAPTER_DESC2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_ADAPTER_DESC2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Description == other.Description
-            && self.VendorId == other.VendorId
-            && self.DeviceId == other.DeviceId
-            && self.SubSysId == other.SubSysId
-            && self.Revision == other.Revision
-            && self.DedicatedVideoMemory == other.DedicatedVideoMemory
-            && self.DedicatedSystemMemory == other.DedicatedSystemMemory
-            && self.SharedSystemMemory == other.SharedSystemMemory
-            && self.AdapterLuid == other.AdapterLuid
-            && self.Flags == other.Flags
-            && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity
-            && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
+        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -286,18 +254,7 @@ impl ::core::fmt::Debug for DXGI_ADAPTER_DESC3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_ADAPTER_DESC3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Description == other.Description
-            && self.VendorId == other.VendorId
-            && self.DeviceId == other.DeviceId
-            && self.SubSysId == other.SubSysId
-            && self.Revision == other.Revision
-            && self.DedicatedVideoMemory == other.DedicatedVideoMemory
-            && self.DedicatedSystemMemory == other.DedicatedSystemMemory
-            && self.SharedSystemMemory == other.SharedSystemMemory
-            && self.AdapterLuid == other.AdapterLuid
-            && self.Flags == other.Flags
-            && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity
-            && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
+        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -622,15 +579,7 @@ impl ::core::default::Default for DXGI_FRAME_STATISTICS_MEDIA {
 }
 impl ::core::fmt::Debug for DXGI_FRAME_STATISTICS_MEDIA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_FRAME_STATISTICS_MEDIA")
-            .field("PresentCount", &self.PresentCount)
-            .field("PresentRefreshCount", &self.PresentRefreshCount)
-            .field("SyncRefreshCount", &self.SyncRefreshCount)
-            .field("SyncQPCTime", &self.SyncQPCTime)
-            .field("SyncGPUTime", &self.SyncGPUTime)
-            .field("CompositionMode", &self.CompositionMode)
-            .field("ApprovedPresentDuration", &self.ApprovedPresentDuration)
-            .finish()
+        fmt.debug_struct("DXGI_FRAME_STATISTICS_MEDIA").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).field("CompositionMode", &self.CompositionMode).field("ApprovedPresentDuration", &self.ApprovedPresentDuration).finish()
     }
 }
 impl ::core::cmp::PartialEq for DXGI_FRAME_STATISTICS_MEDIA {
@@ -734,16 +683,7 @@ impl ::core::default::Default for DXGI_HDR_METADATA_HDR10 {
 }
 impl ::core::fmt::Debug for DXGI_HDR_METADATA_HDR10 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_HDR_METADATA_HDR10")
-            .field("RedPrimary", &self.RedPrimary)
-            .field("GreenPrimary", &self.GreenPrimary)
-            .field("BluePrimary", &self.BluePrimary)
-            .field("WhitePoint", &self.WhitePoint)
-            .field("MaxMasteringLuminance", &self.MaxMasteringLuminance)
-            .field("MinMasteringLuminance", &self.MinMasteringLuminance)
-            .field("MaxContentLightLevel", &self.MaxContentLightLevel)
-            .field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel)
-            .finish()
+        fmt.debug_struct("DXGI_HDR_METADATA_HDR10").field("RedPrimary", &self.RedPrimary).field("GreenPrimary", &self.GreenPrimary).field("BluePrimary", &self.BluePrimary).field("WhitePoint", &self.WhitePoint).field("MaxMasteringLuminance", &self.MaxMasteringLuminance).field("MinMasteringLuminance", &self.MinMasteringLuminance).field("MaxContentLightLevel", &self.MaxContentLightLevel).field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel).finish()
     }
 }
 impl ::core::cmp::PartialEq for DXGI_HDR_METADATA_HDR10 {
@@ -1714,20 +1654,7 @@ impl ::core::fmt::Debug for DXGI_OUTPUT_DESC1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DXGI_OUTPUT_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName
-            && self.DesktopCoordinates == other.DesktopCoordinates
-            && self.AttachedToDesktop == other.AttachedToDesktop
-            && self.Rotation == other.Rotation
-            && self.Monitor == other.Monitor
-            && self.BitsPerColor == other.BitsPerColor
-            && self.ColorSpace == other.ColorSpace
-            && self.RedPrimary == other.RedPrimary
-            && self.GreenPrimary == other.GreenPrimary
-            && self.BluePrimary == other.BluePrimary
-            && self.WhitePoint == other.WhitePoint
-            && self.MinLuminance == other.MinLuminance
-            && self.MaxLuminance == other.MaxLuminance
-            && self.MaxFullFrameLuminance == other.MaxFullFrameLuminance
+        self.DeviceName == other.DeviceName && self.DesktopCoordinates == other.DesktopCoordinates && self.AttachedToDesktop == other.AttachedToDesktop && self.Rotation == other.Rotation && self.Monitor == other.Monitor && self.BitsPerColor == other.BitsPerColor && self.ColorSpace == other.ColorSpace && self.RedPrimary == other.RedPrimary && self.GreenPrimary == other.GreenPrimary && self.BluePrimary == other.BluePrimary && self.WhitePoint == other.WhitePoint && self.MinLuminance == other.MinLuminance && self.MaxLuminance == other.MaxLuminance && self.MaxFullFrameLuminance == other.MaxFullFrameLuminance
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -2053,16 +1980,7 @@ impl ::core::default::Default for DXGI_SWAP_CHAIN_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_SWAP_CHAIN_DESC")
-            .field("BufferDesc", &self.BufferDesc)
-            .field("SampleDesc", &self.SampleDesc)
-            .field("BufferUsage", &self.BufferUsage)
-            .field("BufferCount", &self.BufferCount)
-            .field("OutputWindow", &self.OutputWindow)
-            .field("Windowed", &self.Windowed)
-            .field("SwapEffect", &self.SwapEffect)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DXGI_SWAP_CHAIN_DESC").field("BufferDesc", &self.BufferDesc).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("OutputWindow", &self.OutputWindow).field("Windowed", &self.Windowed).field("SwapEffect", &self.SwapEffect).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2104,19 +2022,7 @@ impl ::core::default::Default for DXGI_SWAP_CHAIN_DESC1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_SWAP_CHAIN_DESC1")
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("Format", &self.Format)
-            .field("Stereo", &self.Stereo)
-            .field("SampleDesc", &self.SampleDesc)
-            .field("BufferUsage", &self.BufferUsage)
-            .field("BufferCount", &self.BufferCount)
-            .field("Scaling", &self.Scaling)
-            .field("SwapEffect", &self.SwapEffect)
-            .field("AlphaMode", &self.AlphaMode)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DXGI_SWAP_CHAIN_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("Stereo", &self.Stereo).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("Scaling", &self.Scaling).field("SwapEffect", &self.SwapEffect).field("AlphaMode", &self.AlphaMode).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3014,12 +2920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGI
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXGIDebug_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::HRESULT,
-);
+pub struct IDXGIDebug_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDXGIDebug1(pub ::windows::core::IUnknown);
@@ -6099,14 +6000,7 @@ impl IDXGIFactoryMedia {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hsurface.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGISwapChain1>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, IDXGIResource>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(
-        &self,
-        pdevice: Param0,
-        hsurface: Param1,
-        pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC,
-        pyuvdecodebuffers: Param3,
-        prestricttooutput: Param4,
-    ) -> ::windows::core::Result<IDXGIDecodeSwapChain> {
+    pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, IDXGIResource>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hsurface: Param1, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: Param3, prestricttooutput: Param4) -> ::windows::core::Result<IDXGIDecodeSwapChain> {
         let mut result__: <IDXGIDecodeSwapChain as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hsurface.into_param().abi(), ::core::mem::transmute(pdesc), pyuvdecodebuffers.into_param().abi(), prestricttooutput.into_param().abi(), &mut result__).from_abi::<IDXGIDecodeSwapChain>(result__)
     }
@@ -10405,10 +10299,4 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGr
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXGraphicsAnalysis_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr),
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr),
-);
+pub struct IDXGraphicsAnalysis_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr), pub unsafe extern "system" fn(this: ::windows::core::RawPtr));

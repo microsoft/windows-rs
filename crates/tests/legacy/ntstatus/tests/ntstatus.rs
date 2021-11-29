@@ -11,13 +11,13 @@ fn test() -> Result<()> {
     assert_eq!(status.ok().is_ok(), true);
 
     let status = STATUS_NOT_FOUND;
-    assert_eq!(status.0, 0xC000_0225);
+    assert_eq!(status.0, -1073741275);
     assert_eq!(status.is_ok(), false);
     assert_eq!(status.is_err(), true);
     assert_eq!(status.ok().is_ok(), false);
 
     let error = status.ok().unwrap_err();
-    assert_eq!(error.code(), HRESULT(0xD000_0225));
+    assert_eq!(error.code(), HRESULT(-805305819));
 
     unsafe {
         let mut provider = BCRYPT_ALG_HANDLE::default();

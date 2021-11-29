@@ -589,11 +589,7 @@ unsafe impl ::core::marker::Sync for ContextRequestedEventArgs {}
 pub struct DoubleTappedEventHandler(::windows::core::IUnknown);
 impl DoubleTappedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DoubleTappedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DoubleTappedEventHandler_box::<F> {
-            vtable: &DoubleTappedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = DoubleTappedEventHandler_box::<F> { vtable: &DoubleTappedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, DoubleTappedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -610,12 +606,7 @@ unsafe impl ::windows::core::Interface for DoubleTappedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DoubleTappedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct DoubleTappedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct DoubleTappedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DoubleTappedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const DoubleTappedEventHandler_abi,
@@ -626,13 +617,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: DoubleTappedEventHandler_abi = DoubleTappedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<DoubleTappedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<DoubleTappedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -652,11 +639,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <DoubleTappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <DoubleTappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <DoubleTappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <DoubleTappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -1578,11 +1561,7 @@ unsafe impl ::core::marker::Sync for GettingFocusEventArgs {}
 pub struct HoldingEventHandler(::windows::core::IUnknown);
 impl HoldingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<HoldingRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = HoldingEventHandler_box::<F> {
-            vtable: &HoldingEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = HoldingEventHandler_box::<F> { vtable: &HoldingEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, HoldingRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -1599,12 +1578,7 @@ unsafe impl ::windows::core::Interface for HoldingEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct HoldingEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct HoldingEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct HoldingEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<HoldingRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const HoldingEventHandler_abi,
@@ -1615,13 +1589,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: HoldingEventHandler_abi = HoldingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<HoldingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<HoldingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1641,11 +1611,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <HoldingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <HoldingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <HoldingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <HoldingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -3791,11 +3757,7 @@ impl ::windows::core::DefaultType for InputScopeNameValue {
 pub struct KeyEventHandler(::windows::core::IUnknown);
 impl KeyEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<KeyRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = KeyEventHandler_box::<F> {
-            vtable: &KeyEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = KeyEventHandler_box::<F> { vtable: &KeyEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, KeyRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -3812,12 +3774,7 @@ unsafe impl ::windows::core::Interface for KeyEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct KeyEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct KeyEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct KeyEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<KeyRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const KeyEventHandler_abi,
@@ -3828,13 +3785,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: KeyEventHandler_abi = KeyEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<KeyEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<KeyEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -3854,11 +3807,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <KeyRoutedEventArgs as ::windows::core::Abi>::Abi as *const <KeyRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <KeyRoutedEventArgs as ::windows::core::Abi>::Abi as *const <KeyRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -4471,11 +4420,7 @@ unsafe impl ::core::marker::Sync for LosingFocusEventArgs {}
 pub struct ManipulationCompletedEventHandler(::windows::core::IUnknown);
 impl ManipulationCompletedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationCompletedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationCompletedEventHandler_box::<F> {
-            vtable: &ManipulationCompletedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ManipulationCompletedEventHandler_box::<F> { vtable: &ManipulationCompletedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ManipulationCompletedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -4492,12 +4437,7 @@ unsafe impl ::windows::core::Interface for ManipulationCompletedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ManipulationCompletedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ManipulationCompletedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ManipulationCompletedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationCompletedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ManipulationCompletedEventHandler_abi,
@@ -4508,13 +4448,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: ManipulationCompletedEventHandler_abi = ManipulationCompletedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ManipulationCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ManipulationCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -4534,11 +4470,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ManipulationCompletedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationCompletedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ManipulationCompletedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationCompletedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -4687,11 +4619,7 @@ unsafe impl ::core::marker::Sync for ManipulationCompletedRoutedEventArgs {}
 pub struct ManipulationDeltaEventHandler(::windows::core::IUnknown);
 impl ManipulationDeltaEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationDeltaRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationDeltaEventHandler_box::<F> {
-            vtable: &ManipulationDeltaEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ManipulationDeltaEventHandler_box::<F> { vtable: &ManipulationDeltaEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ManipulationDeltaRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -4708,12 +4636,7 @@ unsafe impl ::windows::core::Interface for ManipulationDeltaEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ManipulationDeltaEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ManipulationDeltaEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ManipulationDeltaEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationDeltaRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ManipulationDeltaEventHandler_abi,
@@ -4724,13 +4647,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: ManipulationDeltaEventHandler_abi = ManipulationDeltaEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ManipulationDeltaEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ManipulationDeltaEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -4750,11 +4669,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ManipulationDeltaRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationDeltaRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ManipulationDeltaRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationDeltaRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -4915,11 +4830,7 @@ unsafe impl ::core::marker::Sync for ManipulationDeltaRoutedEventArgs {}
 pub struct ManipulationInertiaStartingEventHandler(::windows::core::IUnknown);
 impl ManipulationInertiaStartingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationInertiaStartingRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationInertiaStartingEventHandler_box::<F> {
-            vtable: &ManipulationInertiaStartingEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ManipulationInertiaStartingEventHandler_box::<F> { vtable: &ManipulationInertiaStartingEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ManipulationInertiaStartingRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -4936,12 +4847,7 @@ unsafe impl ::windows::core::Interface for ManipulationInertiaStartingEventHandl
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ManipulationInertiaStartingEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ManipulationInertiaStartingEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ManipulationInertiaStartingEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationInertiaStartingRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ManipulationInertiaStartingEventHandler_abi,
@@ -4952,13 +4858,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: ManipulationInertiaStartingEventHandler_abi = ManipulationInertiaStartingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ManipulationInertiaStartingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ManipulationInertiaStartingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -4978,11 +4880,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ManipulationInertiaStartingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationInertiaStartingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ManipulationInertiaStartingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationInertiaStartingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -5315,11 +5213,7 @@ unsafe impl ::core::marker::Sync for ManipulationPivot {}
 pub struct ManipulationStartedEventHandler(::windows::core::IUnknown);
 impl ManipulationStartedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationStartedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationStartedEventHandler_box::<F> {
-            vtable: &ManipulationStartedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ManipulationStartedEventHandler_box::<F> { vtable: &ManipulationStartedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ManipulationStartedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -5336,12 +5230,7 @@ unsafe impl ::windows::core::Interface for ManipulationStartedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ManipulationStartedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ManipulationStartedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ManipulationStartedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationStartedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ManipulationStartedEventHandler_abi,
@@ -5352,13 +5241,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: ManipulationStartedEventHandler_abi = ManipulationStartedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ManipulationStartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ManipulationStartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -5378,11 +5263,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ManipulationStartedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationStartedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ManipulationStartedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationStartedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -5523,11 +5404,7 @@ unsafe impl ::core::marker::Sync for ManipulationStartedRoutedEventArgs {}
 pub struct ManipulationStartingEventHandler(::windows::core::IUnknown);
 impl ManipulationStartingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationStartingRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationStartingEventHandler_box::<F> {
-            vtable: &ManipulationStartingEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ManipulationStartingEventHandler_box::<F> { vtable: &ManipulationStartingEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ManipulationStartingRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -5544,12 +5421,7 @@ unsafe impl ::windows::core::Interface for ManipulationStartingEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ManipulationStartingEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ManipulationStartingEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ManipulationStartingEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<ManipulationStartingRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ManipulationStartingEventHandler_abi,
@@ -5560,13 +5432,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: ManipulationStartingEventHandler_abi = ManipulationStartingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ManipulationStartingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ManipulationStartingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -5586,11 +5454,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ManipulationStartingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationStartingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ManipulationStartingRoutedEventArgs as ::windows::core::Abi>::Abi as *const <ManipulationStartingRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -5914,11 +5778,7 @@ unsafe impl ::core::marker::Sync for Pointer {}
 pub struct PointerEventHandler(::windows::core::IUnknown);
 impl PointerEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PointerRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = PointerEventHandler_box::<F> {
-            vtable: &PointerEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = PointerEventHandler_box::<F> { vtable: &PointerEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PointerRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -5935,12 +5795,7 @@ unsafe impl ::windows::core::Interface for PointerEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct PointerEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct PointerEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct PointerEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PointerRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const PointerEventHandler_abi,
@@ -5951,13 +5806,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: PointerEventHandler_abi = PointerEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<PointerEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<PointerEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -5977,11 +5828,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <PointerRoutedEventArgs as ::windows::core::Abi>::Abi as *const <PointerRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -6199,11 +6046,7 @@ unsafe impl ::core::marker::Sync for ProcessKeyboardAcceleratorEventArgs {}
 pub struct RightTappedEventHandler(::windows::core::IUnknown);
 impl RightTappedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RightTappedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = RightTappedEventHandler_box::<F> {
-            vtable: &RightTappedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = RightTappedEventHandler_box::<F> { vtable: &RightTappedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, RightTappedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -6220,12 +6063,7 @@ unsafe impl ::windows::core::Interface for RightTappedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct RightTappedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct RightTappedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct RightTappedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<RightTappedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const RightTappedEventHandler_abi,
@@ -6236,13 +6074,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: RightTappedEventHandler_abi = RightTappedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<RightTappedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<RightTappedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -6262,11 +6096,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <RightTappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <RightTappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <RightTappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <RightTappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -6577,11 +6407,7 @@ impl ::windows::core::DefaultType for StandardUICommandKind {
 pub struct TappedEventHandler(::windows::core::IUnknown);
 impl TappedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<TappedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = TappedEventHandler_box::<F> {
-            vtable: &TappedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = TappedEventHandler_box::<F> { vtable: &TappedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, TappedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -6598,12 +6424,7 @@ unsafe impl ::windows::core::Interface for TappedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct TappedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct TappedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct TappedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<TappedRoutedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const TappedEventHandler_abi,
@@ -6614,13 +6435,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: TappedEventHandler_abi = TappedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<TappedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<TappedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -6640,11 +6457,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <TappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <TappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <TappedRoutedEventArgs as ::windows::core::Abi>::Abi as *const <TappedRoutedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]

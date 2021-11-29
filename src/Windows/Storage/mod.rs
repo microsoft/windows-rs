@@ -1088,11 +1088,7 @@ impl ::windows::core::DefaultType for ApplicationDataLocality {
 pub struct ApplicationDataSetVersionHandler(::windows::core::IUnknown);
 impl ApplicationDataSetVersionHandler {
     pub fn new<F: FnMut(&::core::option::Option<SetVersionRequest>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ApplicationDataSetVersionHandler_box::<F> {
-            vtable: &ApplicationDataSetVersionHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ApplicationDataSetVersionHandler_box::<F> { vtable: &ApplicationDataSetVersionHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, SetVersionRequest>>(&self, setversionrequest: Param0) -> ::windows::core::Result<()> {
@@ -1109,12 +1105,7 @@ unsafe impl ::windows::core::Interface for ApplicationDataSetVersionHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ApplicationDataSetVersionHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, setversionrequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ApplicationDataSetVersionHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, setversionrequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ApplicationDataSetVersionHandler_box<F: FnMut(&::core::option::Option<SetVersionRequest>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ApplicationDataSetVersionHandler_abi,
@@ -1125,13 +1116,9 @@ impl<F: FnMut(&::core::option::Option<SetVersionRequest>) -> ::windows::core::Re
     const VTABLE: ApplicationDataSetVersionHandler_abi = ApplicationDataSetVersionHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ApplicationDataSetVersionHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ApplicationDataSetVersionHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -7194,11 +7181,7 @@ pub struct StreamedFileDataRequestedHandler(::windows::core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequestedHandler {
     pub fn new<F: FnMut(&::core::option::Option<StreamedFileDataRequest>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = StreamedFileDataRequestedHandler_box::<F> {
-            vtable: &StreamedFileDataRequestedHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = StreamedFileDataRequestedHandler_box::<F> { vtable: &StreamedFileDataRequestedHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -7219,12 +7202,7 @@ unsafe impl ::windows::core::Interface for StreamedFileDataRequestedHandler {
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct StreamedFileDataRequestedHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct StreamedFileDataRequestedHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
 struct StreamedFileDataRequestedHandler_box<F: FnMut(&::core::option::Option<StreamedFileDataRequest>) -> ::windows::core::Result<()> + 'static> {
@@ -7237,13 +7215,9 @@ impl<F: FnMut(&::core::option::Option<StreamedFileDataRequest>) -> ::windows::co
     const VTABLE: StreamedFileDataRequestedHandler_abi = StreamedFileDataRequestedHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<StreamedFileDataRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<StreamedFileDataRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)

@@ -120,17 +120,7 @@ impl ::core::default::Default for DMO_MEDIA_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DMO_MEDIA_TYPE")
-            .field("majortype", &self.majortype)
-            .field("subtype", &self.subtype)
-            .field("bFixedSizeSamples", &self.bFixedSizeSamples)
-            .field("bTemporalCompression", &self.bTemporalCompression)
-            .field("lSampleSize", &self.lSampleSize)
-            .field("formattype", &self.formattype)
-            .field("pUnk", &self.pUnk)
-            .field("cbFormat", &self.cbFormat)
-            .field("pbFormat", &self.pbFormat)
-            .finish()
+        fmt.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

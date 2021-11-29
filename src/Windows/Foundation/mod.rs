@@ -12,11 +12,7 @@ pub mod Numerics;
 pub struct AsyncActionCompletedHandler(::windows::core::IUnknown);
 impl AsyncActionCompletedHandler {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncActionCompletedHandler_box::<F> {
-            vtable: &AsyncActionCompletedHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = AsyncActionCompletedHandler_box::<F> { vtable: &AsyncActionCompletedHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IAsyncAction>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()> {
@@ -33,12 +29,7 @@ unsafe impl ::windows::core::Interface for AsyncActionCompletedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncActionCompletedHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, asyncinfo: ::windows::core::RawPtr, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
-);
+pub struct AsyncActionCompletedHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, asyncinfo: ::windows::core::RawPtr, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct AsyncActionCompletedHandler_box<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::core::Result<()> + 'static> {
     vtable: *const AsyncActionCompletedHandler_abi,
@@ -49,13 +40,9 @@ impl<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::
     const VTABLE: AsyncActionCompletedHandler_abi = AsyncActionCompletedHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<AsyncActionCompletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<AsyncActionCompletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -85,11 +72,7 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, &<TProgress as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncActionProgressHandler_box::<TProgress, F> {
-            vtable: &AsyncActionProgressHandler_box::<TProgress, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = AsyncActionProgressHandler_box::<TProgress, F> { vtable: &AsyncActionProgressHandler_box::<TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IAsyncActionWithProgress<TProgress>>, Param1: ::windows::core::IntoParam<'a, TProgress>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::core::Result<()> {
@@ -128,13 +111,9 @@ impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option
     const VTABLE: AsyncActionProgressHandler_abi<TProgress> = AsyncActionProgressHandler_abi::<TProgress>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<TProgress>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<AsyncActionProgressHandler<TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<AsyncActionProgressHandler<TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -154,11 +133,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, asyncinfo: ::windows::core::RawPtr, progressinfo: <TProgress as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&asyncinfo as *const <IAsyncActionWithProgress<TProgress> as ::windows::core::Abi>::Abi as *const <IAsyncActionWithProgress<TProgress> as ::windows::core::DefaultType>::DefaultType),
-            &*(&progressinfo as *const <TProgress as ::windows::core::Abi>::Abi as *const <TProgress as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&asyncinfo as *const <IAsyncActionWithProgress<TProgress> as ::windows::core::Abi>::Abi as *const <IAsyncActionWithProgress<TProgress> as ::windows::core::DefaultType>::DefaultType), &*(&progressinfo as *const <TProgress as ::windows::core::Abi>::Abi as *const <TProgress as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -168,11 +143,7 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionWithProgressCompletedHandler<TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncActionWithProgressCompletedHandler_box::<TProgress, F> {
-            vtable: &AsyncActionWithProgressCompletedHandler_box::<TProgress, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = AsyncActionWithProgressCompletedHandler_box::<TProgress, F> { vtable: &AsyncActionWithProgressCompletedHandler_box::<TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IAsyncActionWithProgress<TProgress>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()> {
@@ -211,13 +182,9 @@ impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option
     const VTABLE: AsyncActionWithProgressCompletedHandler_abi<TProgress> = AsyncActionWithProgressCompletedHandler_abi::<TProgress>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<TProgress>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<AsyncActionWithProgressCompletedHandler<TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<AsyncActionWithProgressCompletedHandler<TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -247,11 +214,7 @@ where
     TResult: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static> AsyncOperationCompletedHandler<TResult> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncOperation<TResult>>, AsyncStatus) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationCompletedHandler_box::<TResult, F> {
-            vtable: &AsyncOperationCompletedHandler_box::<TResult, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = AsyncOperationCompletedHandler_box::<TResult, F> { vtable: &AsyncOperationCompletedHandler_box::<TResult, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IAsyncOperation<TResult>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()> {
@@ -290,13 +253,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::
     const VTABLE: AsyncOperationCompletedHandler_abi<TResult> = AsyncOperationCompletedHandler_abi::<TResult>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<TResult>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<AsyncOperationCompletedHandler<TResult> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<AsyncOperationCompletedHandler<TResult> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -327,11 +286,7 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> AsyncOperationProgressHandler<TResult, TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationProgressHandler_box::<TResult, TProgress, F> {
-            vtable: &AsyncOperationProgressHandler_box::<TResult, TProgress, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = AsyncOperationProgressHandler_box::<TResult, TProgress, F> { vtable: &AsyncOperationProgressHandler_box::<TResult, TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Param1: ::windows::core::IntoParam<'a, TProgress>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::core::Result<()> {
@@ -373,13 +328,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     const VTABLE: AsyncOperationProgressHandler_abi<TResult, TProgress> = AsyncOperationProgressHandler_abi::<TResult, TProgress>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<TResult>, ::core::marker::PhantomData::<TProgress>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<AsyncOperationProgressHandler<TResult, TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<AsyncOperationProgressHandler<TResult, TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -399,11 +350,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, asyncinfo: ::windows::core::RawPtr, progressinfo: <TProgress as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&asyncinfo as *const <IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Abi>::Abi as *const <IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::DefaultType>::DefaultType),
-            &*(&progressinfo as *const <TProgress as ::windows::core::Abi>::Abi as *const <TProgress as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&asyncinfo as *const <IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Abi>::Abi as *const <IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::DefaultType>::DefaultType), &*(&progressinfo as *const <TProgress as ::windows::core::Abi>::Abi as *const <TProgress as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -414,11 +361,7 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F> {
-            vtable: &AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F> { vtable: &AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()> {
@@ -460,13 +403,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     const VTABLE: AsyncOperationWithProgressCompletedHandler_abi<TResult, TProgress> = AsyncOperationWithProgressCompletedHandler_abi::<TResult, TProgress>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<TResult>, ::core::marker::PhantomData::<TProgress>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<AsyncOperationWithProgressCompletedHandler<TResult, TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<AsyncOperationWithProgressCompletedHandler<TResult, TProgress> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -645,11 +584,7 @@ unsafe impl ::core::marker::Sync for Deferral {}
 pub struct DeferralCompletedHandler(::windows::core::IUnknown);
 impl DeferralCompletedHandler {
     pub fn new<F: FnMut() -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DeferralCompletedHandler_box::<F> {
-            vtable: &DeferralCompletedHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = DeferralCompletedHandler_box::<F> { vtable: &DeferralCompletedHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
@@ -666,12 +601,7 @@ unsafe impl ::windows::core::Interface for DeferralCompletedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DeferralCompletedHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct DeferralCompletedHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct DeferralCompletedHandler_box<F: FnMut() -> ::windows::core::Result<()> + 'static> {
     vtable: *const DeferralCompletedHandler_abi,
@@ -682,13 +612,9 @@ impl<F: FnMut() -> ::windows::core::Result<()> + 'static> DeferralCompletedHandl
     const VTABLE: DeferralCompletedHandler_abi = DeferralCompletedHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<DeferralCompletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<DeferralCompletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -718,11 +644,7 @@ where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = EventHandler_box::<T, F> {
-            vtable: &EventHandler_box::<T, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = EventHandler_box::<T, F> { vtable: &EventHandler_box::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, T>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
@@ -761,13 +683,9 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
     const VTABLE: EventHandler_abi<T> = EventHandler_abi::<T>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<T>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<EventHandler<T> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<EventHandler<T> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -3905,11 +3823,7 @@ where
     TResult: ::windows::core::RuntimeType + 'static;
 impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
     pub fn new<F: FnMut(&<TSender as ::windows::core::DefaultType>::DefaultType, &<TResult as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = TypedEventHandler_box::<TSender, TResult, F> {
-            vtable: &TypedEventHandler_box::<TSender, TResult, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = TypedEventHandler_box::<TSender, TResult, F> { vtable: &TypedEventHandler_box::<TSender, TResult, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, TSender>, Param1: ::windows::core::IntoParam<'a, TResult>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
@@ -3951,13 +3865,9 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
     const VTABLE: TypedEventHandler_abi<TSender, TResult> = TypedEventHandler_abi::<TSender, TResult>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<TSender>, ::core::marker::PhantomData::<TResult>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<TypedEventHandler<TSender, TResult> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<TypedEventHandler<TSender, TResult> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)

@@ -114,21 +114,7 @@ impl ::core::fmt::Debug for CI_STATE {
 }
 impl ::core::cmp::PartialEq for CI_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.cWordList == other.cWordList
-            && self.cPersistentIndex == other.cPersistentIndex
-            && self.cQueries == other.cQueries
-            && self.cDocuments == other.cDocuments
-            && self.cFreshTest == other.cFreshTest
-            && self.dwMergeProgress == other.dwMergeProgress
-            && self.eState == other.eState
-            && self.cFilteredDocuments == other.cFilteredDocuments
-            && self.cTotalDocuments == other.cTotalDocuments
-            && self.cPendingScans == other.cPendingScans
-            && self.dwIndexSize == other.dwIndexSize
-            && self.cUniqueKeys == other.cUniqueKeys
-            && self.cSecQDocuments == other.cSecQDocuments
-            && self.dwPropCacheSize == other.dwPropCacheSize
+        self.cbStruct == other.cbStruct && self.cWordList == other.cWordList && self.cPersistentIndex == other.cPersistentIndex && self.cQueries == other.cQueries && self.cDocuments == other.cDocuments && self.cFreshTest == other.cFreshTest && self.dwMergeProgress == other.dwMergeProgress && self.eState == other.eState && self.cFilteredDocuments == other.cFilteredDocuments && self.cTotalDocuments == other.cTotalDocuments && self.cPendingScans == other.cPendingScans && self.dwIndexSize == other.dwIndexSize && self.cUniqueKeys == other.cUniqueKeys && self.cSecQDocuments == other.cSecQDocuments && self.dwPropCacheSize == other.dwPropCacheSize
     }
 }
 impl ::core::cmp::Eq for CI_STATE {}

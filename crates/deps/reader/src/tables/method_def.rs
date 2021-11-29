@@ -101,10 +101,7 @@ impl MethodDef {
                     return_param = Some(param);
                     None
                 } else {
-                    Some(MethodParam {
-                        param,
-                        signature: reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef"),
-                    })
+                    Some(MethodParam { param, signature: reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef") })
                 }
             })
             .collect();

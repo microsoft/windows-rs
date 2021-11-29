@@ -7,11 +7,7 @@ fn create_dispatcher() -> DispatcherQueueController {
     // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
 
-    let options = DispatcherQueueOptions {
-        dwSize: core::mem::size_of::<DispatcherQueueOptions>() as u32,
-        threadType: DQTYPE_THREAD_CURRENT,
-        apartmentType: DQTAT_COM_NONE,
-    };
+    let options = DispatcherQueueOptions { dwSize: core::mem::size_of::<DispatcherQueueOptions>() as u32, threadType: DQTYPE_THREAD_CURRENT, apartmentType: DQTAT_COM_NONE };
 
     unsafe { CreateDispatcherQueueController(options).unwrap() }
 }

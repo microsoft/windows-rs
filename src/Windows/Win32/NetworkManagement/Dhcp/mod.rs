@@ -579,18 +579,7 @@ impl ::core::default::Default for DHCPV6PrefixLeaseInformation {
 }
 impl ::core::fmt::Debug for DHCPV6PrefixLeaseInformation {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6PrefixLeaseInformation")
-            .field("nPrefixes", &self.nPrefixes)
-            .field("prefixArray", &self.prefixArray)
-            .field("iaid", &self.iaid)
-            .field("T1", &self.T1)
-            .field("T2", &self.T2)
-            .field("MaxLeaseExpirationTime", &self.MaxLeaseExpirationTime)
-            .field("LastRenewalTime", &self.LastRenewalTime)
-            .field("status", &self.status)
-            .field("ServerId", &self.ServerId)
-            .field("ServerIdLen", &self.ServerIdLen)
-            .finish()
+        fmt.debug_struct("DHCPV6PrefixLeaseInformation").field("nPrefixes", &self.nPrefixes).field("prefixArray", &self.prefixArray).field("iaid", &self.iaid).field("T1", &self.T1).field("T2", &self.T2).field("MaxLeaseExpirationTime", &self.MaxLeaseExpirationTime).field("LastRenewalTime", &self.LastRenewalTime).field("status", &self.status).field("ServerId", &self.ServerId).field("ServerIdLen", &self.ServerIdLen).finish()
     }
 }
 impl ::core::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
@@ -626,16 +615,7 @@ impl ::core::default::Default for DHCPV6_BIND_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_BIND_ELEMENT")
-            .field("Flags", &self.Flags)
-            .field("fBoundToDHCPServer", &self.fBoundToDHCPServer)
-            .field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress)
-            .field("AdapterSubnetAddress", &self.AdapterSubnetAddress)
-            .field("IfDescription", &self.IfDescription)
-            .field("IpV6IfIndex", &self.IpV6IfIndex)
-            .field("IfIdSize", &self.IfIdSize)
-            .field("IfId", &self.IfId)
-            .finish()
+        fmt.debug_struct("DHCPV6_BIND_ELEMENT").field("Flags", &self.Flags).field("fBoundToDHCPServer", &self.fBoundToDHCPServer).field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress).field("AdapterSubnetAddress", &self.AdapterSubnetAddress).field("IfDescription", &self.IfDescription).field("IpV6IfIndex", &self.IpV6IfIndex).field("IfIdSize", &self.IfIdSize).field("IfId", &self.IfId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1217,15 +1197,7 @@ impl ::core::default::Default for DHCP_BIND_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_BIND_ELEMENT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_BIND_ELEMENT")
-            .field("Flags", &self.Flags)
-            .field("fBoundToDHCPServer", &self.fBoundToDHCPServer)
-            .field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress)
-            .field("AdapterSubnetAddress", &self.AdapterSubnetAddress)
-            .field("IfDescription", &self.IfDescription)
-            .field("IfIdSize", &self.IfIdSize)
-            .field("IfId", &self.IfId)
-            .finish()
+        fmt.debug_struct("DHCP_BIND_ELEMENT").field("Flags", &self.Flags).field("fBoundToDHCPServer", &self.fBoundToDHCPServer).field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress).field("AdapterSubnetAddress", &self.AdapterSubnetAddress).field("IfDescription", &self.IfDescription).field("IfIdSize", &self.IfIdSize).field("IfId", &self.IfId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1301,18 +1273,18 @@ impl ::core::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
 unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CALLOUT_TABLE {
-    pub DhcpControlHook: ::core::option::Option<LPDHCP_CONTROL>,
-    pub DhcpNewPktHook: ::core::option::Option<LPDHCP_NEWPKT>,
-    pub DhcpPktDropHook: ::core::option::Option<LPDHCP_DROP_SEND>,
-    pub DhcpPktSendHook: ::core::option::Option<LPDHCP_DROP_SEND>,
-    pub DhcpAddressDelHook: ::core::option::Option<LPDHCP_PROB>,
-    pub DhcpAddressOfferHook: ::core::option::Option<LPDHCP_GIVE_ADDRESS>,
-    pub DhcpHandleOptionsHook: ::core::option::Option<LPDHCP_HANDLE_OPTIONS>,
-    pub DhcpDeleteClientHook: ::core::option::Option<LPDHCP_DELETE_CLIENT>,
+    pub DhcpControlHook: LPDHCP_CONTROL,
+    pub DhcpNewPktHook: LPDHCP_NEWPKT,
+    pub DhcpPktDropHook: LPDHCP_DROP_SEND,
+    pub DhcpPktSendHook: LPDHCP_DROP_SEND,
+    pub DhcpAddressDelHook: LPDHCP_PROB,
+    pub DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS,
+    pub DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS,
+    pub DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT,
     pub DhcpExtensionHook: *mut ::core::ffi::c_void,
     pub DhcpReservedHook: *mut ::core::ffi::c_void,
 }
@@ -1349,7 +1321,7 @@ impl ::core::cmp::PartialEq for DHCP_CALLOUT_TABLE {
 impl ::core::cmp::Eq for DHCP_CALLOUT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1477,15 +1449,7 @@ impl ::core::default::Default for DHCP_CLASS_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_CLASS_INFO_V6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO_V6")
-            .field("ClassName", &self.ClassName)
-            .field("ClassComment", &self.ClassComment)
-            .field("ClassDataLength", &self.ClassDataLength)
-            .field("IsVendor", &self.IsVendor)
-            .field("EnterpriseNumber", &self.EnterpriseNumber)
-            .field("Flags", &self.Flags)
-            .field("ClassData", &self.ClassData)
-            .finish()
+        fmt.debug_struct("DHCP_CLASS_INFO_V6").field("ClassName", &self.ClassName).field("ClassComment", &self.ClassComment).field("ClassDataLength", &self.ClassDataLength).field("IsVendor", &self.IsVendor).field("EnterpriseNumber", &self.EnterpriseNumber).field("Flags", &self.Flags).field("ClassData", &self.ClassData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1551,19 +1515,7 @@ impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
-            && self.Status == other.Status
-            && self.ProbationEnds == other.ProbationEnds
-            && self.QuarantineCapable == other.QuarantineCapable
-            && self.FilterStatus == other.FilterStatus
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1628,15 +1580,7 @@ impl ::core::default::Default for DHCP_CLIENT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_CLIENT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1869,21 +1813,7 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
-            && self.Status == other.Status
-            && self.ProbationEnds == other.ProbationEnds
-            && self.QuarantineCapable == other.QuarantineCapable
-            && self.FilterStatus == other.FilterStatus
-            && self.PolicyName == other.PolicyName
-            && self.Properties == other.Properties
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus && self.PolicyName == other.PolicyName && self.Properties == other.Properties
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1976,20 +1906,7 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
-            && self.Status == other.Status
-            && self.ProbationEnds == other.ProbationEnds
-            && self.QuarantineCapable == other.QuarantineCapable
-            && self.FilterStatus == other.FilterStatus
-            && self.PolicyName == other.PolicyName
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus && self.PolicyName == other.PolicyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2055,16 +1972,7 @@ impl ::core::default::Default for DHCP_CLIENT_INFO_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V4 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_V4")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_V4").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2104,17 +2012,7 @@ impl ::core::default::Default for DHCP_CLIENT_INFO_V5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V5 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_V5")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_V5").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).field("AddressState", &self.AddressState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2154,17 +2052,7 @@ impl ::core::default::Default for DHCP_CLIENT_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_V6")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("ClientDUID", &self.ClientDUID)
-            .field("AddressType", &self.AddressType)
-            .field("IAID", &self.IAID)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientValidLeaseExpires", &self.ClientValidLeaseExpires)
-            .field("ClientPrefLeaseExpires", &self.ClientPrefLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_V6").field("ClientIpAddress", &self.ClientIpAddress).field("ClientDUID", &self.ClientDUID).field("AddressType", &self.AddressType).field("IAID", &self.IAID).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientValidLeaseExpires", &self.ClientValidLeaseExpires).field("ClientPrefLeaseExpires", &self.ClientPrefLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2226,18 +2114,7 @@ impl ::core::fmt::Debug for DHCP_CLIENT_INFO_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
-            && self.Status == other.Status
-            && self.ProbationEnds == other.ProbationEnds
-            && self.QuarantineCapable == other.QuarantineCapable
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2333,20 +2210,7 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
-        self.PrimaryServer == other.PrimaryServer
-            && self.SecondaryServer == other.SecondaryServer
-            && self.Mode == other.Mode
-            && self.ServerType == other.ServerType
-            && self.State == other.State
-            && self.PrevState == other.PrevState
-            && self.Mclt == other.Mclt
-            && self.SafePeriod == other.SafePeriod
-            && self.RelationshipName == other.RelationshipName
-            && self.PrimaryServerName == other.PrimaryServerName
-            && self.SecondaryServerName == other.SecondaryServerName
-            && self.pScopes == other.pScopes
-            && self.Percentage == other.Percentage
-            && self.SharedSecret == other.SharedSecret
+        self.PrimaryServer == other.PrimaryServer && self.SecondaryServer == other.SecondaryServer && self.Mode == other.Mode && self.ServerType == other.ServerType && self.State == other.State && self.PrevState == other.PrevState && self.Mclt == other.Mclt && self.SafePeriod == other.SafePeriod && self.RelationshipName == other.RelationshipName && self.PrimaryServerName == other.PrimaryServerName && self.SecondaryServerName == other.SecondaryServerName && self.pScopes == other.pScopes && self.Percentage == other.Percentage && self.SharedSecret == other.SharedSecret
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2420,15 +2284,7 @@ impl ::core::default::Default for DHCP_FAILOVER_STATISTICS {
 }
 impl ::core::fmt::Debug for DHCP_FAILOVER_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FAILOVER_STATISTICS")
-            .field("NumAddr", &self.NumAddr)
-            .field("AddrFree", &self.AddrFree)
-            .field("AddrInUse", &self.AddrInUse)
-            .field("PartnerAddrFree", &self.PartnerAddrFree)
-            .field("ThisAddrFree", &self.ThisAddrFree)
-            .field("PartnerAddrInUse", &self.PartnerAddrInUse)
-            .field("ThisAddrInUse", &self.ThisAddrInUse)
-            .finish()
+        fmt.debug_struct("DHCP_FAILOVER_STATISTICS").field("NumAddr", &self.NumAddr).field("AddrFree", &self.AddrFree).field("AddrInUse", &self.AddrInUse).field("PartnerAddrFree", &self.PartnerAddrFree).field("ThisAddrFree", &self.ThisAddrFree).field("PartnerAddrInUse", &self.PartnerAddrInUse).field("ThisAddrInUse", &self.ThisAddrInUse).finish()
     }
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
@@ -2877,14 +2733,7 @@ impl ::core::default::Default for DHCP_IP_RESERVATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_IP_RESERVATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION_INFO")
-            .field("ReservedIpAddress", &self.ReservedIpAddress)
-            .field("ReservedForClient", &self.ReservedForClient)
-            .field("ReservedClientName", &self.ReservedClientName)
-            .field("ReservedClientDesc", &self.ReservedClientDesc)
-            .field("bAllowedClientTypes", &self.bAllowedClientTypes)
-            .field("fOptionsPresent", &self.fOptionsPresent)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RESERVATION_INFO").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("ReservedClientName", &self.ReservedClientName).field("ReservedClientDesc", &self.ReservedClientDesc).field("bAllowedClientTypes", &self.bAllowedClientTypes).field("fOptionsPresent", &self.fOptionsPresent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2976,18 +2825,7 @@ impl ::core::default::Default for DHCP_MIB_INFO {
 }
 impl ::core::fmt::Debug for DHCP_MIB_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_MIB_INFO")
-            .field("Discovers", &self.Discovers)
-            .field("Offers", &self.Offers)
-            .field("Requests", &self.Requests)
-            .field("Acks", &self.Acks)
-            .field("Naks", &self.Naks)
-            .field("Declines", &self.Declines)
-            .field("Releases", &self.Releases)
-            .field("ServerStartTime", &self.ServerStartTime)
-            .field("Scopes", &self.Scopes)
-            .field("ScopeInfo", &self.ScopeInfo)
-            .finish()
+        fmt.debug_struct("DHCP_MIB_INFO").field("Discovers", &self.Discovers).field("Offers", &self.Offers).field("Requests", &self.Requests).field("Acks", &self.Acks).field("Naks", &self.Naks).field("Declines", &self.Declines).field("Releases", &self.Releases).field("ServerStartTime", &self.ServerStartTime).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).finish()
     }
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO {
@@ -3055,25 +2893,7 @@ impl ::core::fmt::Debug for DHCP_MIB_INFO_V5 {
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
-        self.Discovers == other.Discovers
-            && self.Offers == other.Offers
-            && self.Requests == other.Requests
-            && self.Acks == other.Acks
-            && self.Naks == other.Naks
-            && self.Declines == other.Declines
-            && self.Releases == other.Releases
-            && self.ServerStartTime == other.ServerStartTime
-            && self.QtnNumLeases == other.QtnNumLeases
-            && self.QtnPctQtnLeases == other.QtnPctQtnLeases
-            && self.QtnProbationLeases == other.QtnProbationLeases
-            && self.QtnNonQtnLeases == other.QtnNonQtnLeases
-            && self.QtnExemptLeases == other.QtnExemptLeases
-            && self.QtnCapableClients == other.QtnCapableClients
-            && self.QtnIASErrors == other.QtnIASErrors
-            && self.DelayedOffers == other.DelayedOffers
-            && self.ScopesWithDelayedOffers == other.ScopesWithDelayedOffers
-            && self.Scopes == other.Scopes
-            && self.ScopeInfo == other.ScopeInfo
+        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients && self.QtnIASErrors == other.QtnIASErrors && self.DelayedOffers == other.DelayedOffers && self.ScopesWithDelayedOffers == other.ScopesWithDelayedOffers && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::core::cmp::Eq for DHCP_MIB_INFO_V5 {}
@@ -3183,23 +3003,7 @@ impl ::core::fmt::Debug for DHCP_MIB_INFO_VQ {
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        self.Discovers == other.Discovers
-            && self.Offers == other.Offers
-            && self.Requests == other.Requests
-            && self.Acks == other.Acks
-            && self.Naks == other.Naks
-            && self.Declines == other.Declines
-            && self.Releases == other.Releases
-            && self.ServerStartTime == other.ServerStartTime
-            && self.QtnNumLeases == other.QtnNumLeases
-            && self.QtnPctQtnLeases == other.QtnPctQtnLeases
-            && self.QtnProbationLeases == other.QtnProbationLeases
-            && self.QtnNonQtnLeases == other.QtnNonQtnLeases
-            && self.QtnExemptLeases == other.QtnExemptLeases
-            && self.QtnCapableClients == other.QtnCapableClients
-            && self.QtnIASErrors == other.QtnIASErrors
-            && self.Scopes == other.Scopes
-            && self.ScopeInfo == other.ScopeInfo
+        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients && self.QtnIASErrors == other.QtnIASErrors && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::core::cmp::Eq for DHCP_MIB_INFO_VQ {}
@@ -3747,17 +3551,7 @@ impl ::core::default::Default for DHCP_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_POLICY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY")
-            .field("PolicyName", &self.PolicyName)
-            .field("IsGlobalPolicy", &self.IsGlobalPolicy)
-            .field("Subnet", &self.Subnet)
-            .field("ProcessingOrder", &self.ProcessingOrder)
-            .field("Conditions", &self.Conditions)
-            .field("Expressions", &self.Expressions)
-            .field("Ranges", &self.Ranges)
-            .field("Description", &self.Description)
-            .field("Enabled", &self.Enabled)
-            .finish()
+        fmt.debug_struct("DHCP_POLICY").field("PolicyName", &self.PolicyName).field("IsGlobalPolicy", &self.IsGlobalPolicy).field("Subnet", &self.Subnet).field("ProcessingOrder", &self.ProcessingOrder).field("Conditions", &self.Conditions).field("Expressions", &self.Expressions).field("Ranges", &self.Ranges).field("Description", &self.Description).field("Enabled", &self.Enabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3831,18 +3625,7 @@ impl ::core::default::Default for DHCP_POLICY_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_POLICY_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY_EX")
-            .field("PolicyName", &self.PolicyName)
-            .field("IsGlobalPolicy", &self.IsGlobalPolicy)
-            .field("Subnet", &self.Subnet)
-            .field("ProcessingOrder", &self.ProcessingOrder)
-            .field("Conditions", &self.Conditions)
-            .field("Expressions", &self.Expressions)
-            .field("Ranges", &self.Ranges)
-            .field("Description", &self.Description)
-            .field("Enabled", &self.Enabled)
-            .field("Properties", &self.Properties)
-            .finish()
+        fmt.debug_struct("DHCP_POLICY_EX").field("PolicyName", &self.PolicyName).field("IsGlobalPolicy", &self.IsGlobalPolicy).field("Subnet", &self.Subnet).field("ProcessingOrder", &self.ProcessingOrder).field("Conditions", &self.Conditions).field("Expressions", &self.Expressions).field("Ranges", &self.Ranges).field("Description", &self.Description).field("Enabled", &self.Enabled).field("Properties", &self.Properties).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3965,16 +3748,7 @@ impl ::core::default::Default for DHCP_POL_COND {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_POL_COND {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POL_COND")
-            .field("ParentExpr", &self.ParentExpr)
-            .field("Type", &self.Type)
-            .field("OptionID", &self.OptionID)
-            .field("SubOptionID", &self.SubOptionID)
-            .field("VendorName", &self.VendorName)
-            .field("Operator", &self.Operator)
-            .field("Value", &self.Value)
-            .field("ValueLength", &self.ValueLength)
-            .finish()
+        fmt.debug_struct("DHCP_POL_COND").field("ParentExpr", &self.ParentExpr).field("Type", &self.Type).field("OptionID", &self.OptionID).field("SubOptionID", &self.SubOptionID).field("VendorName", &self.VendorName).field("Operator", &self.Operator).field("Value", &self.Value).field("ValueLength", &self.ValueLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4525,17 +4299,7 @@ impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO")
-            .field("APIProtocolSupport", &self.APIProtocolSupport)
-            .field("DatabaseName", &self.DatabaseName)
-            .field("DatabasePath", &self.DatabasePath)
-            .field("BackupPath", &self.BackupPath)
-            .field("BackupInterval", &self.BackupInterval)
-            .field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag)
-            .field("RestoreFlag", &self.RestoreFlag)
-            .field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval)
-            .field("DebugFlag", &self.DebugFlag)
-            .finish()
+        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO").field("APIProtocolSupport", &self.APIProtocolSupport).field("DatabaseName", &self.DatabaseName).field("DatabasePath", &self.DatabasePath).field("BackupPath", &self.BackupPath).field("BackupInterval", &self.BackupInterval).field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag).field("RestoreFlag", &self.RestoreFlag).field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval).field("DebugFlag", &self.DebugFlag).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4599,19 +4363,7 @@ impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V4 {
     fn eq(&self, other: &Self) -> bool {
-        self.APIProtocolSupport == other.APIProtocolSupport
-            && self.DatabaseName == other.DatabaseName
-            && self.DatabasePath == other.DatabasePath
-            && self.BackupPath == other.BackupPath
-            && self.BackupInterval == other.BackupInterval
-            && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag
-            && self.RestoreFlag == other.RestoreFlag
-            && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval
-            && self.DebugFlag == other.DebugFlag
-            && self.dwPingRetries == other.dwPingRetries
-            && self.cbBootTableString == other.cbBootTableString
-            && self.wszBootTableString == other.wszBootTableString
-            && self.fAuditLog == other.fAuditLog
+        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag && self.dwPingRetries == other.dwPingRetries && self.cbBootTableString == other.cbBootTableString && self.wszBootTableString == other.wszBootTableString && self.fAuditLog == other.fAuditLog
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4645,17 +4397,7 @@ impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO_V6")
-            .field("UnicastFlag", &self.UnicastFlag)
-            .field("RapidCommitFlag", &self.RapidCommitFlag)
-            .field("PreferredLifetime", &self.PreferredLifetime)
-            .field("ValidLifetime", &self.ValidLifetime)
-            .field("T1", &self.T1)
-            .field("T2", &self.T2)
-            .field("PreferredLifetimeIATA", &self.PreferredLifetimeIATA)
-            .field("ValidLifetimeIATA", &self.ValidLifetimeIATA)
-            .field("fAuditLog", &self.fAuditLog)
-            .finish()
+        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO_V6").field("UnicastFlag", &self.UnicastFlag).field("RapidCommitFlag", &self.RapidCommitFlag).field("PreferredLifetime", &self.PreferredLifetime).field("ValidLifetime", &self.ValidLifetime).field("T1", &self.T1).field("T2", &self.T2).field("PreferredLifetimeIATA", &self.PreferredLifetimeIATA).field("ValidLifetimeIATA", &self.ValidLifetimeIATA).field("fAuditLog", &self.fAuditLog).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4725,22 +4467,7 @@ impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        self.APIProtocolSupport == other.APIProtocolSupport
-            && self.DatabaseName == other.DatabaseName
-            && self.DatabasePath == other.DatabasePath
-            && self.BackupPath == other.BackupPath
-            && self.BackupInterval == other.BackupInterval
-            && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag
-            && self.RestoreFlag == other.RestoreFlag
-            && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval
-            && self.DebugFlag == other.DebugFlag
-            && self.dwPingRetries == other.dwPingRetries
-            && self.cbBootTableString == other.cbBootTableString
-            && self.wszBootTableString == other.wszBootTableString
-            && self.fAuditLog == other.fAuditLog
-            && self.QuarantineOn == other.QuarantineOn
-            && self.QuarDefFail == other.QuarDefFail
-            && self.QuarRuntimeStatus == other.QuarRuntimeStatus
+        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag && self.dwPingRetries == other.dwPingRetries && self.cbBootTableString == other.cbBootTableString && self.wszBootTableString == other.wszBootTableString && self.fAuditLog == other.fAuditLog && self.QuarantineOn == other.QuarantineOn && self.QuarDefFail == other.QuarDefFail && self.QuarRuntimeStatus == other.QuarRuntimeStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5449,15 +5176,7 @@ impl ::core::default::Default for DHCP_SUBNET_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_SUBNET_INFO_V6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_INFO_V6")
-            .field("SubnetAddress", &self.SubnetAddress)
-            .field("Prefix", &self.Prefix)
-            .field("Preference", &self.Preference)
-            .field("SubnetName", &self.SubnetName)
-            .field("SubnetComment", &self.SubnetComment)
-            .field("State", &self.State)
-            .field("ScopeId", &self.ScopeId)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_INFO_V6").field("SubnetAddress", &self.SubnetAddress).field("Prefix", &self.Prefix).field("Preference", &self.Preference).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("State", &self.State).field("ScopeId", &self.ScopeId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5499,19 +5218,7 @@ impl ::core::default::Default for DHCP_SUBNET_INFO_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_SUBNET_INFO_VQ {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_INFO_VQ")
-            .field("SubnetAddress", &self.SubnetAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("SubnetName", &self.SubnetName)
-            .field("SubnetComment", &self.SubnetComment)
-            .field("PrimaryHost", &self.PrimaryHost)
-            .field("SubnetState", &self.SubnetState)
-            .field("QuarantineOn", &self.QuarantineOn)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_INFO_VQ").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).field("QuarantineOn", &self.QuarantineOn).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6173,72 +5880,28 @@ pub unsafe fn DhcpEnumOptionValues<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionValuesV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    serveripaddress: Param0,
-    flags: u32,
-    classname: Param2,
-    vendorname: Param3,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY,
-    optionsread: *mut u32,
-    optionstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumOptionValuesV5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionValuesV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumOptionValuesV5(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(flags),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::core::mem::transmute(scopeinfo),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(optionvalues),
-            ::core::mem::transmute(optionsread),
-            ::core::mem::transmute(optionstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumOptionValuesV5(serveripaddress.into_param().abi(), ::core::mem::transmute(flags), classname.into_param().abi(), vendorname.into_param().abi(), ::core::mem::transmute(scopeinfo), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(optionvalues), ::core::mem::transmute(optionsread), ::core::mem::transmute(optionstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionValuesV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    serveripaddress: Param0,
-    flags: u32,
-    classname: Param2,
-    vendorname: Param3,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY,
-    optionsread: *mut u32,
-    optionstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumOptionValuesV6<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionValuesV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumOptionValuesV6(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(flags),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::core::mem::transmute(scopeinfo),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(optionvalues),
-            ::core::mem::transmute(optionsread),
-            ::core::mem::transmute(optionstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumOptionValuesV6(serveripaddress.into_param().abi(), ::core::mem::transmute(flags), classname.into_param().abi(), vendorname.into_param().abi(), ::core::mem::transmute(scopeinfo), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(optionvalues), ::core::mem::transmute(optionsread), ::core::mem::transmute(optionstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6266,17 +5929,7 @@ pub unsafe fn DhcpEnumOptionsV5<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn DhcpEnumOptionsV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumOptionsV5(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(flags),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(options),
-            ::core::mem::transmute(optionsread),
-            ::core::mem::transmute(optionstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumOptionsV5(serveripaddress.into_param().abi(), ::core::mem::transmute(flags), classname.into_param().abi(), vendorname.into_param().abi(), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(options), ::core::mem::transmute(optionsread), ::core::mem::transmute(optionstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6290,17 +5943,7 @@ pub unsafe fn DhcpEnumOptionsV6<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn DhcpEnumOptionsV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumOptionsV6(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(flags),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(options),
-            ::core::mem::transmute(optionsread),
-            ::core::mem::transmute(optionstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumOptionsV6(serveripaddress.into_param().abi(), ::core::mem::transmute(flags), classname.into_param().abi(), vendorname.into_param().abi(), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(options), ::core::mem::transmute(optionsread), ::core::mem::transmute(optionstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6342,15 +5985,7 @@ pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<'a, Param0: ::windows::core:
         extern "system" {
             fn DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumSubnetClientsFilterStatusInfo(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(clientinfo),
-            ::core::mem::transmute(clientsread),
-            ::core::mem::transmute(clientstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(clientinfo), ::core::mem::transmute(clientsread), ::core::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6420,16 +6055,7 @@ pub unsafe fn DhcpEnumSubnetElements<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn DhcpEnumSubnetElements(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumSubnetElements(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(enumelementtype),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(enumelementinfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumSubnetElements(serveripaddress.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(enumelementtype), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(enumelementinfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6443,16 +6069,7 @@ pub unsafe fn DhcpEnumSubnetElementsV4<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn DhcpEnumSubnetElementsV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumSubnetElementsV4(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(enumelementtype),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(enumelementinfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumSubnetElementsV4(serveripaddress.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(enumelementtype), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(enumelementinfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6466,16 +6083,7 @@ pub unsafe fn DhcpEnumSubnetElementsV5<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn DhcpEnumSubnetElementsV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumSubnetElementsV5(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(enumelementtype),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(enumelementinfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumSubnetElementsV5(serveripaddress.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(enumelementtype), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(enumelementinfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6489,16 +6097,7 @@ pub unsafe fn DhcpEnumSubnetElementsV6<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn DhcpEnumSubnetElementsV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpEnumSubnetElementsV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::core::mem::transmute(enumelementtype),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(enumelementinfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpEnumSubnetElementsV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::core::mem::transmute(enumelementtype), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(enumelementinfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6973,18 +6572,7 @@ pub unsafe fn DhcpHlprAddV4PolicyCondition<'a, Param5: ::windows::core::IntoPara
         extern "system" {
             fn DhcpHlprAddV4PolicyCondition(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: super::super::Foundation::PWSTR, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpHlprAddV4PolicyCondition(
-            ::core::mem::transmute(policy),
-            ::core::mem::transmute(parentexpr),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(optionid),
-            ::core::mem::transmute(suboptionid),
-            vendorname.into_param().abi(),
-            ::core::mem::transmute(operator),
-            ::core::mem::transmute(value),
-            ::core::mem::transmute(valuelength),
-            ::core::mem::transmute(conditionindex),
-        ))
+        ::core::mem::transmute(DhcpHlprAddV4PolicyCondition(::core::mem::transmute(policy), ::core::mem::transmute(parentexpr), ::core::mem::transmute(r#type), ::core::mem::transmute(optionid), ::core::mem::transmute(suboptionid), vendorname.into_param().abi(), ::core::mem::transmute(operator), ::core::mem::transmute(value), ::core::mem::transmute(valuelength), ::core::mem::transmute(conditionindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7019,16 +6607,7 @@ pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const D
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprCreateV4Policy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    policyname: Param0,
-    fglobalpolicy: Param1,
-    subnet: u32,
-    processingorder: u32,
-    rootoperator: DHCP_POL_LOGIC_OPER,
-    description: Param5,
-    enabled: Param6,
-    policy: *mut *mut DHCP_POLICY,
-) -> u32 {
+pub unsafe fn DhcpHlprCreateV4Policy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(policyname: Param0, fglobalpolicy: Param1, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: Param5, enabled: Param6, policy: *mut *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7042,16 +6621,7 @@ pub unsafe fn DhcpHlprCreateV4Policy<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprCreateV4PolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    policyname: Param0,
-    fglobalpolicy: Param1,
-    subnet: u32,
-    processingorder: u32,
-    rootoperator: DHCP_POL_LOGIC_OPER,
-    description: Param5,
-    enabled: Param6,
-    policy: *mut *mut DHCP_POLICY_EX,
-) -> u32 {
+pub unsafe fn DhcpHlprCreateV4PolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(policyname: Param0, fglobalpolicy: Param1, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: Param5, enabled: Param6, policy: *mut *mut DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7428,34 +6998,14 @@ pub unsafe fn DhcpRemoveSubnetElementV6<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRequestParams<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param5: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    flags: u32,
-    reserved: *mut ::core::ffi::c_void,
-    adaptername: Param2,
-    classid: *mut DHCPCAPI_CLASSID,
-    sendparams: Param4,
-    recdparams: Param5,
-    buffer: *mut u8,
-    psize: *mut u32,
-    requestidstr: Param8,
-) -> u32 {
+pub unsafe fn DhcpRequestParams<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param5: ::windows::core::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: Param2, classid: *mut DHCPCAPI_CLASSID, sendparams: Param4, recdparams: Param5, buffer: *mut u8, psize: *mut u32, requestidstr: Param8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DhcpRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DhcpRequestParams(
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(reserved),
-            adaptername.into_param().abi(),
-            ::core::mem::transmute(classid),
-            sendparams.into_param().abi(),
-            recdparams.into_param().abi(),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(psize),
-            requestidstr.into_param().abi(),
-        ))
+        ::core::mem::transmute(DhcpRequestParams(::core::mem::transmute(flags), ::core::mem::transmute(reserved), adaptername.into_param().abi(), ::core::mem::transmute(classid), sendparams.into_param().abi(), recdparams.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(psize), requestidstr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8125,16 +7675,7 @@ pub unsafe fn DhcpV4EnumPolicies<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn DhcpV4EnumPolicies(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpV4EnumPolicies(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            fglobalpolicy.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(enuminfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpV4EnumPolicies(serveripaddress.into_param().abi(), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), fglobalpolicy.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(enuminfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8148,16 +7689,7 @@ pub unsafe fn DhcpV4EnumPoliciesEx<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn DhcpV4EnumPoliciesEx(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpV4EnumPoliciesEx(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            globalpolicy.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(enuminfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpV4EnumPoliciesEx(serveripaddress.into_param().abi(), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), globalpolicy.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(enuminfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8199,15 +7731,7 @@ pub unsafe fn DhcpV4EnumSubnetReservations<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn DhcpV4EnumSubnetReservations(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::core::mem::transmute(DhcpV4EnumSubnetReservations(
-            serveripaddress.into_param().abi(),
-            ::core::mem::transmute(subnetaddress),
-            ::core::mem::transmute(resumehandle),
-            ::core::mem::transmute(preferredmaximum),
-            ::core::mem::transmute(enumelementinfo),
-            ::core::mem::transmute(elementsread),
-            ::core::mem::transmute(elementstotal),
-        ))
+        ::core::mem::transmute(DhcpV4EnumSubnetReservations(serveripaddress.into_param().abi(), ::core::mem::transmute(subnetaddress), ::core::mem::transmute(resumehandle), ::core::mem::transmute(preferredmaximum), ::core::mem::transmute(enumelementinfo), ::core::mem::transmute(elementsread), ::core::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8905,16 +8429,16 @@ unsafe impl ::windows::core::Abi for FSM_STATE {
     type Abi = Self;
 }
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
-pub type LPDHCP_CONTROL = unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32;
-pub type LPDHCP_DELETE_CLIENT = unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32;
-pub type LPDHCP_DROP_SEND = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPDHCP_CONTROL = ::core::option::Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32>;
+pub type LPDHCP_DELETE_CLIENT = ::core::option::Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
+pub type LPDHCP_DROP_SEND = ::core::option::Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDHCP_ENTRY_POINT_FUNC = unsafe extern "system" fn(chaindlls: super::super::Foundation::PWSTR, calloutversion: u32, callouttbl: *mut ::core::mem::ManuallyDrop<DHCP_CALLOUT_TABLE>) -> u32;
-pub type LPDHCP_GIVE_ADDRESS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPDHCP_ENTRY_POINT_FUNC = ::core::option::Option<unsafe extern "system" fn(chaindlls: super::super::Foundation::PWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
+pub type LPDHCP_GIVE_ADDRESS = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDHCP_HANDLE_OPTIONS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32;
-pub type LPDHCP_NEWPKT = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut *mut ::core::ffi::c_void, processit: *mut i32) -> u32;
-pub type LPDHCP_PROB = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPDHCP_HANDLE_OPTIONS = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
+pub type LPDHCP_NEWPKT = ::core::option::Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut *mut ::core::ffi::c_void, processit: *mut i32) -> u32>;
+pub type LPDHCP_PROB = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
 pub const MCLT: u32 = 1u32;

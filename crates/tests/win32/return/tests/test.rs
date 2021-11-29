@@ -26,8 +26,8 @@ fn functions() -> Result<()> {
         // Sanity check against well-known values.
         assert!(S_OK.0 == 0);
         assert!(STATUS_SUCCESS.0 == 0);
-        assert!(E_APPLICATION_EXITING.0 == 0x8000001A);
-        assert!(STATUS_NOT_FOUND.0 == 0xC0000225);
+        assert!(E_APPLICATION_EXITING.0 == -2147483622);
+        assert!(STATUS_NOT_FOUND.0 == -1073741275);
 
         let result: Result<()> = ReturnHresult(S_OK.0);
         assert!(result.is_ok());

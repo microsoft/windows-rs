@@ -4,23 +4,7 @@
 pub struct ITpmVirtualSmartCardManager(pub ::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManager {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(
-        &self,
-        pszfriendlyname: Param0,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        fgenerate: Param10,
-        pstatuscallback: Param11,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
@@ -76,8 +60,7 @@ pub struct ITpmVirtualSmartCardManager_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszinstanceid: super::super::Foundation::PWSTR, pstatuscallback: ::windows::core::RawPtr, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -87,23 +70,7 @@ pub struct ITpmVirtualSmartCardManager_abi(
 pub struct ITpmVirtualSmartCardManager2(pub ::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManager2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(
-        &self,
-        pszfriendlyname: Param0,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        fgenerate: Param10,
-        pstatuscallback: Param11,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
@@ -129,25 +96,7 @@ impl ITpmVirtualSmartCardManager2 {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(
-        &self,
-        pszfriendlyname: Param0,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        pbpinpolicy: *const u8,
-        cbpinpolicy: u32,
-        fgenerate: Param12,
-        pstatuscallback: Param13,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: Param12, pstatuscallback: Param13, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
@@ -220,31 +169,11 @@ pub struct ITpmVirtualSmartCardManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszinstanceid: super::super::Foundation::PWSTR, pstatuscallback: ::windows::core::RawPtr, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pszfriendlyname: super::super::Foundation::PWSTR,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        pbpinpolicy: *const u8,
-        cbpinpolicy: u32,
-        fgenerate: super::super::Foundation::BOOL,
-        pstatuscallback: ::windows::core::RawPtr,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -252,23 +181,7 @@ pub struct ITpmVirtualSmartCardManager2_abi(
 pub struct ITpmVirtualSmartCardManager3(pub ::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManager3 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(
-        &self,
-        pszfriendlyname: Param0,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        fgenerate: Param10,
-        pstatuscallback: Param11,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
@@ -294,25 +207,7 @@ impl ITpmVirtualSmartCardManager3 {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(
-        &self,
-        pszfriendlyname: Param0,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        pbpinpolicy: *const u8,
-        cbpinpolicy: u32,
-        fgenerate: Param12,
-        pstatuscallback: Param13,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: Param12, pstatuscallback: Param13, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
@@ -335,24 +230,7 @@ impl ITpmVirtualSmartCardManager3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCardWithAttestation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param13: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param14: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(
-        &self,
-        pszfriendlyname: Param0,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        pbpinpolicy: *const u8,
-        cbpinpolicy: u32,
-        attestationtype: TPMVSC_ATTESTATION_TYPE,
-        fgenerate: Param13,
-        pstatuscallback: Param14,
-    ) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+    pub unsafe fn CreateVirtualSmartCardWithAttestation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param13: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param14: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: Param13, pstatuscallback: Param14) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -446,52 +324,13 @@ pub struct ITpmVirtualSmartCardManager3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszinstanceid: super::super::Foundation::PWSTR, pstatuscallback: ::windows::core::RawPtr, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pszfriendlyname: super::super::Foundation::PWSTR,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        pbpinpolicy: *const u8,
-        cbpinpolicy: u32,
-        fgenerate: super::super::Foundation::BOOL,
-        pstatuscallback: ::windows::core::RawPtr,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-        pfneedreboot: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pszfriendlyname: super::super::Foundation::PWSTR,
-        badminalgid: u8,
-        pbadminkey: *const u8,
-        cbadminkey: u32,
-        pbadminkcv: *const u8,
-        cbadminkcv: u32,
-        pbpuk: *const u8,
-        cbpuk: u32,
-        pbpin: *const u8,
-        cbpin: u32,
-        pbpinpolicy: *const u8,
-        cbpinpolicy: u32,
-        attestationtype: TPMVSC_ATTESTATION_TYPE,
-        fgenerate: super::super::Foundation::BOOL,
-        pstatuscallback: ::windows::core::RawPtr,
-        ppszinstanceid: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]

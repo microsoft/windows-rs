@@ -62,8 +62,7 @@ pub struct IDummyMBNUCMExt_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
@@ -471,12 +470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMbnC
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionProfileEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMbnConnectionProfileEvents_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMbnConnectionProfileManager(pub ::windows::core::IUnknown);
@@ -1977,12 +1971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMbnS
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSignalEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMbnSignalEvents_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMbnSms(pub ::windows::core::IUnknown);
@@ -2820,19 +2809,7 @@ impl ::core::fmt::Debug for MBN_INTERFACE_CAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_INTERFACE_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.cellularClass == other.cellularClass
-            && self.voiceClass == other.voiceClass
-            && self.dataClass == other.dataClass
-            && self.customDataClass == other.customDataClass
-            && self.gsmBandClass == other.gsmBandClass
-            && self.cdmaBandClass == other.cdmaBandClass
-            && self.customBandClass == other.customBandClass
-            && self.smsCaps == other.smsCaps
-            && self.controlCaps == other.controlCaps
-            && self.deviceID == other.deviceID
-            && self.manufacturer == other.manufacturer
-            && self.model == other.model
-            && self.firmwareInfo == other.firmwareInfo
+        self.cellularClass == other.cellularClass && self.voiceClass == other.voiceClass && self.dataClass == other.dataClass && self.customDataClass == other.customDataClass && self.gsmBandClass == other.gsmBandClass && self.cdmaBandClass == other.cdmaBandClass && self.customBandClass == other.customBandClass && self.smsCaps == other.smsCaps && self.controlCaps == other.controlCaps && self.deviceID == other.deviceID && self.manufacturer == other.manufacturer && self.model == other.model && self.firmwareInfo == other.firmwareInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3439,20 +3416,7 @@ impl ::core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
 }
 impl ::core::cmp::PartialEq for __mbnapi_ReferenceRemainingTypes__ {
     fn eq(&self, other: &Self) -> bool {
-        self.bandClass == other.bandClass
-            && self.contextConstants == other.contextConstants
-            && self.ctrlCaps == other.ctrlCaps
-            && self.dataClass == other.dataClass
-            && self.interfaceCapsConstants == other.interfaceCapsConstants
-            && self.pinConstants == other.pinConstants
-            && self.providerConstants == other.providerConstants
-            && self.providerState == other.providerState
-            && self.registrationConstants == other.registrationConstants
-            && self.signalConstants == other.signalConstants
-            && self.smsCaps == other.smsCaps
-            && self.smsConstants == other.smsConstants
-            && self.wwaextSmsConstants == other.wwaextSmsConstants
-            && self.smsStatusFlag == other.smsStatusFlag
+        self.bandClass == other.bandClass && self.contextConstants == other.contextConstants && self.ctrlCaps == other.ctrlCaps && self.dataClass == other.dataClass && self.interfaceCapsConstants == other.interfaceCapsConstants && self.pinConstants == other.pinConstants && self.providerConstants == other.providerConstants && self.providerState == other.providerState && self.registrationConstants == other.registrationConstants && self.signalConstants == other.signalConstants && self.smsCaps == other.smsCaps && self.smsConstants == other.smsConstants && self.wwaextSmsConstants == other.wwaextSmsConstants && self.smsStatusFlag == other.smsStatusFlag
     }
 }
 impl ::core::cmp::Eq for __mbnapi_ReferenceRemainingTypes__ {}

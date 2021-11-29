@@ -137,16 +137,7 @@ impl ::core::default::Default for ADDRINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ADDRINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ADDRINFOA")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_next", &self.ai_next)
-            .finish()
+        fmt.debug_struct("ADDRINFOA").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_next", &self.ai_next).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -359,14 +350,7 @@ impl ::core::default::Default for ATM_BLLI {
 }
 impl ::core::fmt::Debug for ATM_BLLI {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ATM_BLLI")
-            .field("Layer2Protocol", &self.Layer2Protocol)
-            .field("Layer2UserSpecifiedProtocol", &self.Layer2UserSpecifiedProtocol)
-            .field("Layer3Protocol", &self.Layer3Protocol)
-            .field("Layer3UserSpecifiedProtocol", &self.Layer3UserSpecifiedProtocol)
-            .field("Layer3IPI", &self.Layer3IPI)
-            .field("SnapID", &self.SnapID)
-            .finish()
+        fmt.debug_struct("ATM_BLLI").field("Layer2Protocol", &self.Layer2Protocol).field("Layer2UserSpecifiedProtocol", &self.Layer2UserSpecifiedProtocol).field("Layer3Protocol", &self.Layer3Protocol).field("Layer3UserSpecifiedProtocol", &self.Layer3UserSpecifiedProtocol).field("Layer3IPI", &self.Layer3IPI).field("SnapID", &self.SnapID).finish()
     }
 }
 impl ::core::cmp::PartialEq for ATM_BLLI {
@@ -418,17 +402,7 @@ impl ::core::fmt::Debug for ATM_BLLI_IE {
 }
 impl ::core::cmp::PartialEq for ATM_BLLI_IE {
     fn eq(&self, other: &Self) -> bool {
-        self.Layer2Protocol == other.Layer2Protocol
-            && self.Layer2Mode == other.Layer2Mode
-            && self.Layer2WindowSize == other.Layer2WindowSize
-            && self.Layer2UserSpecifiedProtocol == other.Layer2UserSpecifiedProtocol
-            && self.Layer3Protocol == other.Layer3Protocol
-            && self.Layer3Mode == other.Layer3Mode
-            && self.Layer3DefaultPacketSize == other.Layer3DefaultPacketSize
-            && self.Layer3PacketWindowSize == other.Layer3PacketWindowSize
-            && self.Layer3UserSpecifiedProtocol == other.Layer3UserSpecifiedProtocol
-            && self.Layer3IPI == other.Layer3IPI
-            && self.SnapID == other.SnapID
+        self.Layer2Protocol == other.Layer2Protocol && self.Layer2Mode == other.Layer2Mode && self.Layer2WindowSize == other.Layer2WindowSize && self.Layer2UserSpecifiedProtocol == other.Layer2UserSpecifiedProtocol && self.Layer3Protocol == other.Layer3Protocol && self.Layer3Mode == other.Layer3Mode && self.Layer3DefaultPacketSize == other.Layer3DefaultPacketSize && self.Layer3PacketWindowSize == other.Layer3PacketWindowSize && self.Layer3UserSpecifiedProtocol == other.Layer3UserSpecifiedProtocol && self.Layer3IPI == other.Layer3IPI && self.SnapID == other.SnapID
     }
 }
 impl ::core::cmp::Eq for ATM_BLLI_IE {}
@@ -452,13 +426,7 @@ impl ::core::default::Default for ATM_BROADBAND_BEARER_CAPABILITY_IE {
 }
 impl ::core::fmt::Debug for ATM_BROADBAND_BEARER_CAPABILITY_IE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ATM_BROADBAND_BEARER_CAPABILITY_IE")
-            .field("BearerClass", &self.BearerClass)
-            .field("TrafficType", &self.TrafficType)
-            .field("TimingRequirements", &self.TimingRequirements)
-            .field("ClippingSusceptability", &self.ClippingSusceptability)
-            .field("UserPlaneConnectionConfig", &self.UserPlaneConnectionConfig)
-            .finish()
+        fmt.debug_struct("ATM_BROADBAND_BEARER_CAPABILITY_IE").field("BearerClass", &self.BearerClass).field("TrafficType", &self.TrafficType).field("TimingRequirements", &self.TimingRequirements).field("ClippingSusceptability", &self.ClippingSusceptability).field("UserPlaneConnectionConfig", &self.UserPlaneConnectionConfig).finish()
     }
 }
 impl ::core::cmp::PartialEq for ATM_BROADBAND_BEARER_CAPABILITY_IE {
@@ -630,15 +598,7 @@ impl ::core::default::Default for ATM_TD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ATM_TD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ATM_TD")
-            .field("PeakCellRate_CLP0", &self.PeakCellRate_CLP0)
-            .field("PeakCellRate_CLP01", &self.PeakCellRate_CLP01)
-            .field("SustainableCellRate_CLP0", &self.SustainableCellRate_CLP0)
-            .field("SustainableCellRate_CLP01", &self.SustainableCellRate_CLP01)
-            .field("MaxBurstSize_CLP0", &self.MaxBurstSize_CLP0)
-            .field("MaxBurstSize_CLP01", &self.MaxBurstSize_CLP01)
-            .field("Tagging", &self.Tagging)
-            .finish()
+        fmt.debug_struct("ATM_TD").field("PeakCellRate_CLP0", &self.PeakCellRate_CLP0).field("PeakCellRate_CLP01", &self.PeakCellRate_CLP01).field("SustainableCellRate_CLP0", &self.SustainableCellRate_CLP0).field("SustainableCellRate_CLP01", &self.SustainableCellRate_CLP01).field("MaxBurstSize_CLP0", &self.MaxBurstSize_CLP0).field("MaxBurstSize_CLP01", &self.MaxBurstSize_CLP01).field("Tagging", &self.Tagging).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -724,16 +684,7 @@ pub unsafe fn AcceptEx<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param
         extern "system" {
             fn AcceptEx(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AcceptEx(
-            slistensocket.into_param().abi(),
-            sacceptsocket.into_param().abi(),
-            ::core::mem::transmute(lpoutputbuffer),
-            ::core::mem::transmute(dwreceivedatalength),
-            ::core::mem::transmute(dwlocaladdresslength),
-            ::core::mem::transmute(dwremoteaddresslength),
-            ::core::mem::transmute(lpdwbytesreceived),
-            ::core::mem::transmute(lpoverlapped),
-        ))
+        ::core::mem::transmute(AcceptEx(slistensocket.into_param().abi(), sacceptsocket.into_param().abi(), ::core::mem::transmute(lpoutputbuffer), ::core::mem::transmute(dwreceivedatalength), ::core::mem::transmute(dwlocaladdresslength), ::core::mem::transmute(dwremoteaddresslength), ::core::mem::transmute(lpdwbytesreceived), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1105,52 +1056,21 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, d
         extern "system" {
             fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32);
         }
-        ::core::mem::transmute(GetAcceptExSockaddrs(
-            ::core::mem::transmute(lpoutputbuffer),
-            ::core::mem::transmute(dwreceivedatalength),
-            ::core::mem::transmute(dwlocaladdresslength),
-            ::core::mem::transmute(dwremoteaddresslength),
-            ::core::mem::transmute(localsockaddr),
-            ::core::mem::transmute(localsockaddrlength),
-            ::core::mem::transmute(remotesockaddr),
-            ::core::mem::transmute(remotesockaddrlength),
-        ))
+        ::core::mem::transmute(GetAcceptExSockaddrs(::core::mem::transmute(lpoutputbuffer), ::core::mem::transmute(dwreceivedatalength), ::core::mem::transmute(dwlocaladdresslength), ::core::mem::transmute(dwremoteaddresslength), ::core::mem::transmute(localsockaddr), ::core::mem::transmute(localsockaddrlength), ::core::mem::transmute(remotesockaddr), ::core::mem::transmute(remotesockaddrlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    pname: Param0,
-    pservicename: Param1,
-    dwnamespace: u32,
-    lpnspid: *const ::windows::core::GUID,
-    hints: *const addrinfoexA,
-    ppresult: *mut *mut addrinfoexA,
-    timeout: *const timeval,
-    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: ::core::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
-    lpnamehandle: *mut super::super::Foundation::HANDLE,
-) -> i32 {
+pub unsafe fn GetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pservicename: Param1, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
-        ::core::mem::transmute(GetAddrInfoExA(
-            pname.into_param().abi(),
-            pservicename.into_param().abi(),
-            ::core::mem::transmute(dwnamespace),
-            ::core::mem::transmute(lpnspid),
-            ::core::mem::transmute(hints),
-            ::core::mem::transmute(ppresult),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-            ::core::mem::transmute(lpnamehandle),
-        ))
+        ::core::mem::transmute(GetAddrInfoExA(pname.into_param().abi(), pservicename.into_param().abi(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1185,36 +1105,14 @@ pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::S
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    pname: Param0,
-    pservicename: Param1,
-    dwnamespace: u32,
-    lpnspid: *const ::windows::core::GUID,
-    hints: *const addrinfoexW,
-    ppresult: *mut *mut addrinfoexW,
-    timeout: *const timeval,
-    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: ::core::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
-    lphandle: *mut super::super::Foundation::HANDLE,
-) -> i32 {
+pub unsafe fn GetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pservicename: Param1, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
-        ::core::mem::transmute(GetAddrInfoExW(
-            pname.into_param().abi(),
-            pservicename.into_param().abi(),
-            ::core::mem::transmute(dwnamespace),
-            ::core::mem::transmute(lpnspid),
-            ::core::mem::transmute(hints),
-            ::core::mem::transmute(ppresult),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-            ::core::mem::transmute(lphandle),
-        ))
+        ::core::mem::transmute(GetAddrInfoExW(pname.into_param().abi(), pservicename.into_param().abi(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lphandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1240,20 +1138,9 @@ pub unsafe fn GetAddressByNameA<'a, Param2: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAddressByNameA(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const ::core::mem::ManuallyDrop<SERVICE_ASYNC_INFO>, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PSTR, lpdwaliasbufferlength: *mut u32) -> i32;
+            fn GetAddressByNameA(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PSTR, lpdwaliasbufferlength: *mut u32) -> i32;
         }
-        ::core::mem::transmute(GetAddressByNameA(
-            ::core::mem::transmute(dwnamespace),
-            ::core::mem::transmute(lpservicetype),
-            lpservicename.into_param().abi(),
-            ::core::mem::transmute(lpiprotocols),
-            ::core::mem::transmute(dwresolution),
-            ::core::mem::transmute(lpserviceasyncinfo),
-            ::core::mem::transmute(lpcsaddrbuffer),
-            ::core::mem::transmute(lpdwbufferlength),
-            lpaliasbuffer.into_param().abi(),
-            ::core::mem::transmute(lpdwaliasbufferlength),
-        ))
+        ::core::mem::transmute(GetAddressByNameA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpservicetype), lpservicename.into_param().abi(), ::core::mem::transmute(lpiprotocols), ::core::mem::transmute(dwresolution), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpcsaddrbuffer), ::core::mem::transmute(lpdwbufferlength), lpaliasbuffer.into_param().abi(), ::core::mem::transmute(lpdwaliasbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1265,20 +1152,9 @@ pub unsafe fn GetAddressByNameW<'a, Param2: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAddressByNameW(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const ::core::mem::ManuallyDrop<SERVICE_ASYNC_INFO>, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32;
+            fn GetAddressByNameW(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32;
         }
-        ::core::mem::transmute(GetAddressByNameW(
-            ::core::mem::transmute(dwnamespace),
-            ::core::mem::transmute(lpservicetype),
-            lpservicename.into_param().abi(),
-            ::core::mem::transmute(lpiprotocols),
-            ::core::mem::transmute(dwresolution),
-            ::core::mem::transmute(lpserviceasyncinfo),
-            ::core::mem::transmute(lpcsaddrbuffer),
-            ::core::mem::transmute(lpdwbufferlength),
-            lpaliasbuffer.into_param().abi(),
-            ::core::mem::transmute(lpdwaliasbufferlength),
-        ))
+        ::core::mem::transmute(GetAddressByNameW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpservicetype), lpservicename.into_param().abi(), ::core::mem::transmute(lpiprotocols), ::core::mem::transmute(dwresolution), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpcsaddrbuffer), ::core::mem::transmute(lpdwbufferlength), lpaliasbuffer.into_param().abi(), ::core::mem::transmute(lpdwaliasbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1346,7 +1222,7 @@ pub unsafe fn GetServiceA<'a, Param2: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetServiceA(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const ::core::mem::ManuallyDrop<SERVICE_ASYNC_INFO>) -> i32;
+            fn GetServiceA(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
         }
         ::core::mem::transmute(GetServiceA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpguid), lpservicename.into_param().abi(), ::core::mem::transmute(dwproperties), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpserviceasyncinfo)))
     }
@@ -1360,7 +1236,7 @@ pub unsafe fn GetServiceW<'a, Param2: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetServiceW(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const ::core::mem::ManuallyDrop<SERVICE_ASYNC_INFO>) -> i32;
+            fn GetServiceW(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: super::super::Foundation::PWSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
         }
         ::core::mem::transmute(GetServiceW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpguid), lpservicename.into_param().abi(), ::core::mem::transmute(dwproperties), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpserviceasyncinfo)))
     }
@@ -2420,16 +2296,7 @@ impl ::core::default::Default for LM_IRPARMS {
 }
 impl ::core::fmt::Debug for LM_IRPARMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LM_IRPARMS")
-            .field("nTXDataBytes", &self.nTXDataBytes)
-            .field("nRXDataBytes", &self.nRXDataBytes)
-            .field("nBaudRate", &self.nBaudRate)
-            .field("thresholdTime", &self.thresholdTime)
-            .field("discTime", &self.discTime)
-            .field("nMSLinkTurn", &self.nMSLinkTurn)
-            .field("nTXPackets", &self.nTXPackets)
-            .field("nRXPackets", &self.nRXPackets)
-            .finish()
+        fmt.debug_struct("LM_IRPARMS").field("nTXDataBytes", &self.nTXDataBytes).field("nRXDataBytes", &self.nRXDataBytes).field("nBaudRate", &self.nBaudRate).field("thresholdTime", &self.thresholdTime).field("discTime", &self.discTime).field("nMSLinkTurn", &self.nMSLinkTurn).field("nTXPackets", &self.nTXPackets).field("nRXPackets", &self.nRXPackets).finish()
     }
 }
 impl ::core::cmp::PartialEq for LM_IRPARMS {
@@ -2443,179 +2310,179 @@ unsafe impl ::windows::core::Abi for LM_IRPARMS {
 }
 pub const LOG2_BITS_PER_BYTE: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPBLOCKINGCALLBACK = unsafe extern "system" fn(dwcontext: usize) -> super::super::Foundation::BOOL;
+pub type LPBLOCKINGCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcontext: usize) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
-pub type LPCONDITIONPROC = unsafe extern "system" fn(lpcallerid: *mut WSABUF, lpcallerdata: *mut WSABUF, lpsqos: *mut super::super::NetworkManagement::QoS::QOS, lpgqos: *mut super::super::NetworkManagement::QoS::QOS, lpcalleeid: *mut WSABUF, lpcalleedata: *mut WSABUF, g: *mut u32, dwcallbackdata: usize) -> i32;
+pub type LPCONDITIONPROC = ::core::option::Option<unsafe extern "system" fn(lpcallerid: *mut WSABUF, lpcallerdata: *mut WSABUF, lpsqos: *mut super::super::NetworkManagement::QoS::QOS, lpgqos: *mut super::super::NetworkManagement::QoS::QOS, lpcalleeid: *mut WSABUF, lpcalleedata: *mut WSABUF, g: *mut u32, dwcallbackdata: usize) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_ACCEPTEX = unsafe extern "system" fn(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+pub type LPFN_ACCEPTEX = ::core::option::Option<unsafe extern "system" fn(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_CONNECTEX = unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpsendbuffer: *const ::core::ffi::c_void, dwsenddatalength: u32, lpdwbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+pub type LPFN_CONNECTEX = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpsendbuffer: *const ::core::ffi::c_void, dwsenddatalength: u32, lpdwbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_DISCONNECTEX = unsafe extern "system" fn(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
+pub type LPFN_DISCONNECTEX = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_GETACCEPTEXSOCKADDRS = unsafe extern "system" fn(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32);
-pub type LPFN_NSPAPI = unsafe extern "system" fn() -> u32;
-pub type LPFN_RIOCLOSECOMPLETIONQUEUE = unsafe extern "system" fn(cq: *const RIO_CQ_t);
+pub type LPFN_GETACCEPTEXSOCKADDRS = ::core::option::Option<unsafe extern "system" fn(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32)>;
+pub type LPFN_NSPAPI = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+pub type LPFN_RIOCLOSECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOCREATECOMPLETIONQUEUE = unsafe extern "system" fn(queuesize: u32, notificationcompletion: *const RIO_NOTIFICATION_COMPLETION) -> *mut RIO_CQ_t;
-pub type LPFN_RIOCREATEREQUESTQUEUE = unsafe extern "system" fn(socket: SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: *const RIO_CQ_t, sendcq: *const RIO_CQ_t, socketcontext: *const ::core::ffi::c_void) -> *mut RIO_RQ_t;
-pub type LPFN_RIODEQUEUECOMPLETION = unsafe extern "system" fn(cq: *const RIO_CQ_t, array: *mut RIORESULT, arraysize: u32) -> u32;
-pub type LPFN_RIODEREGISTERBUFFER = unsafe extern "system" fn(bufferid: *const RIO_BUFFERID_t);
-pub type LPFN_RIONOTIFY = unsafe extern "system" fn(cq: *const RIO_CQ_t) -> i32;
+pub type LPFN_RIOCREATECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(queuesize: u32, notificationcompletion: *const RIO_NOTIFICATION_COMPLETION) -> *mut RIO_CQ_t>;
+pub type LPFN_RIOCREATEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(socket: SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: *const RIO_CQ_t, sendcq: *const RIO_CQ_t, socketcontext: *const ::core::ffi::c_void) -> *mut RIO_RQ_t>;
+pub type LPFN_RIODEQUEUECOMPLETION = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t, array: *mut RIORESULT, arraysize: u32) -> u32>;
+pub type LPFN_RIODEREGISTERBUFFER = ::core::option::Option<unsafe extern "system" fn(bufferid: *const RIO_BUFFERID_t)>;
+pub type LPFN_RIONOTIFY = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIORECEIVE = unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-pub type LPFN_RIORECEIVEEX = unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> i32;
+pub type LPFN_RIORECEIVE = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFN_RIORECEIVEEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOREGISTERBUFFER = unsafe extern "system" fn(databuffer: super::super::Foundation::PSTR, datalength: u32) -> *mut RIO_BUFFERID_t;
+pub type LPFN_RIOREGISTERBUFFER = ::core::option::Option<unsafe extern "system" fn(databuffer: super::super::Foundation::PSTR, datalength: u32) -> *mut RIO_BUFFERID_t>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIORESIZECOMPLETIONQUEUE = unsafe extern "system" fn(cq: *const RIO_CQ_t, queuesize: u32) -> super::super::Foundation::BOOL;
+pub type LPFN_RIORESIZECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t, queuesize: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIORESIZEREQUESTQUEUE = unsafe extern "system" fn(rq: *const RIO_RQ_t, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> super::super::Foundation::BOOL;
+pub type LPFN_RIORESIZEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(rq: *const RIO_RQ_t, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOSEND = unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPFN_RIOSEND = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOSENDEX = unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPFN_RIOSENDEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_TRANSMITFILE = unsafe extern "system" fn(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL;
+pub type LPFN_TRANSMITFILE = ::core::option::Option<unsafe extern "system" fn(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_TRANSMITPACKETS = unsafe extern "system" fn(hsocket: SOCKET, lppacketarray: *const TRANSMIT_PACKETS_ELEMENT, nelementcount: u32, nsendsize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32) -> super::super::Foundation::BOOL;
-pub type LPFN_WSAPOLL = unsafe extern "system" fn(fdarray: *mut WSAPOLLFD, nfds: u32, timeout: i32) -> i32;
+pub type LPFN_TRANSMITPACKETS = ::core::option::Option<unsafe extern "system" fn(hsocket: SOCKET, lppacketarray: *const TRANSMIT_PACKETS_ELEMENT, nelementcount: u32, nsendsize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type LPFN_WSAPOLL = ::core::option::Option<unsafe extern "system" fn(fdarray: *mut WSAPOLLFD, nfds: u32, timeout: i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_WSARECVMSG = unsafe extern "system" fn(s: SOCKET, lpmsg: *mut WSAMSG, lpdwnumberofbytesrecvd: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
+pub type LPFN_WSARECVMSG = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpmsg: *mut WSAMSG, lpdwnumberofbytesrecvd: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFN_WSASENDMSG = unsafe extern "system" fn(s: SOCKET, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
+pub type LPFN_WSASENDMSG = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED);
-pub type LPNSPCLEANUP = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID) -> i32;
+pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED)>;
+pub type LPNSPCLEANUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPNSPGETSERVICECLASSINFO = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpdwbufsize: *const u32, lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32;
+pub type LPNSPGETSERVICECLASSINFO = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpdwbufsize: *const u32, lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPNSPINSTALLSERVICECLASS = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32;
+pub type LPNSPINSTALLSERVICECLASS = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPNSPIOCTL = unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const ::core::mem::ManuallyDrop<WSACOMPLETION>, lpthreadid: *const WSATHREADID) -> i32;
+pub type LPNSPIOCTL = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION, lpthreadid: *const WSATHREADID) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNSPLOOKUPSERVICEBEGIN = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpqsrestrictions: *const WSAQUERYSETW, lpserviceclassinfo: *const WSASERVICECLASSINFOW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32;
+pub type LPNSPLOOKUPSERVICEBEGIN = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpqsrestrictions: *const WSAQUERYSETW, lpserviceclassinfo: *const WSASERVICECLASSINFOW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPNSPLOOKUPSERVICEEND = unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32;
+pub type LPNSPLOOKUPSERVICEEND = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNSPLOOKUPSERVICENEXT = unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETW) -> i32;
-pub type LPNSPREMOVESERVICECLASS = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID) -> i32;
+pub type LPNSPLOOKUPSERVICENEXT = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETW) -> i32>;
+pub type LPNSPREMOVESERVICECLASS = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpserviceclassid: *const ::windows::core::GUID) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNSPSETSERVICE = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpserviceclassinfo: *const WSASERVICECLASSINFOW, lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32;
+pub type LPNSPSETSERVICE = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpserviceclassinfo: *const WSASERVICECLASSINFOW, lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
-pub type LPNSPSTARTUP = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpnsproutines: *mut ::core::mem::ManuallyDrop<NSP_ROUTINE>) -> i32;
-pub type LPNSPV2CLEANUP = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, pvclientsessionarg: *const ::core::ffi::c_void) -> i32;
-pub type LPNSPV2CLIENTSESSIONRUNDOWN = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, pvclientsessionarg: *const ::core::ffi::c_void);
+pub type LPNSPSTARTUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpnsproutines: *mut NSP_ROUTINE) -> i32>;
+pub type LPNSPV2CLEANUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, pvclientsessionarg: *const ::core::ffi::c_void) -> i32>;
+pub type LPNSPV2CLIENTSESSIONRUNDOWN = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, pvclientsessionarg: *const ::core::ffi::c_void)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNSPV2LOOKUPSERVICEBEGIN = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpqsrestrictions: *const WSAQUERYSET2W, dwcontrolflags: u32, lpvclientsessionarg: *const ::core::ffi::c_void, lphlookup: *mut super::super::Foundation::HANDLE) -> i32;
+pub type LPNSPV2LOOKUPSERVICEBEGIN = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpqsrestrictions: *const WSAQUERYSET2W, dwcontrolflags: u32, lpvclientsessionarg: *const ::core::ffi::c_void, lphlookup: *mut super::super::Foundation::HANDLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPNSPV2LOOKUPSERVICEEND = unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32;
+pub type LPNSPV2LOOKUPSERVICEEND = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNSPV2LOOKUPSERVICENEXTEX = unsafe extern "system" fn(hasynccall: super::super::Foundation::HANDLE, hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *const u32, lpqsresults: *mut WSAQUERYSET2W);
+pub type LPNSPV2LOOKUPSERVICENEXTEX = ::core::option::Option<unsafe extern "system" fn(hasynccall: super::super::Foundation::HANDLE, hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *const u32, lpqsresults: *mut WSAQUERYSET2W)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNSPV2SETSERVICEEX = unsafe extern "system" fn(hasynccall: super::super::Foundation::HANDLE, lpproviderid: *const ::windows::core::GUID, lpqsreginfo: *const WSAQUERYSET2W, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32, lpvclientsessionarg: *const ::core::ffi::c_void);
-pub type LPNSPV2STARTUP = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, ppvclientsessionarg: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPNSPV2SETSERVICEEX = ::core::option::Option<unsafe extern "system" fn(hasynccall: super::super::Foundation::HANDLE, lpproviderid: *const ::windows::core::GUID, lpqsreginfo: *const WSAQUERYSET2W, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32, lpvclientsessionarg: *const ::core::ffi::c_void)>;
+pub type LPNSPV2STARTUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, ppvclientsessionarg: *mut *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPSERVICE_CALLBACK_PROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, hasynctaskhandle: super::super::Foundation::HANDLE);
+pub type LPSERVICE_CALLBACK_PROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, hasynctaskhandle: super::super::Foundation::HANDLE)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUCLOSEEVENT = unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL;
-pub type LPWPUCLOSESOCKETHANDLE = unsafe extern "system" fn(s: SOCKET, lperrno: *mut i32) -> i32;
+pub type LPWPUCLOSEEVENT = ::core::option::Option<unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
+pub type LPWPUCLOSESOCKETHANDLE = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUCLOSETHREAD = unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32;
+pub type LPWPUCLOSETHREAD = ::core::option::Option<unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWPUCOMPLETEOVERLAPPEDREQUEST = unsafe extern "system" fn(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32;
+pub type LPWPUCOMPLETEOVERLAPPEDREQUEST = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUCREATEEVENT = unsafe extern "system" fn(lperrno: *mut i32) -> super::super::Foundation::HANDLE;
-pub type LPWPUCREATESOCKETHANDLE = unsafe extern "system" fn(dwcatalogentryid: u32, dwcontext: usize, lperrno: *mut i32) -> SOCKET;
-pub type LPWPUFDISSET = unsafe extern "system" fn(s: SOCKET, fdset: *const fd_set) -> i32;
+pub type LPWPUCREATEEVENT = ::core::option::Option<unsafe extern "system" fn(lperrno: *mut i32) -> super::super::Foundation::HANDLE>;
+pub type LPWPUCREATESOCKETHANDLE = ::core::option::Option<unsafe extern "system" fn(dwcatalogentryid: u32, dwcontext: usize, lperrno: *mut i32) -> SOCKET>;
+pub type LPWPUFDISSET = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, fdset: *const fd_set) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUGETPROVIDERPATH = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32;
-pub type LPWPUMODIFYIFSHANDLE = unsafe extern "system" fn(dwcatalogentryid: u32, proposedhandle: SOCKET, lperrno: *mut i32) -> SOCKET;
+pub type LPWPUGETPROVIDERPATH = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32>;
+pub type LPWPUMODIFYIFSHANDLE = ::core::option::Option<unsafe extern "system" fn(dwcatalogentryid: u32, proposedhandle: SOCKET, lperrno: *mut i32) -> SOCKET>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUOPENCURRENTTHREAD = unsafe extern "system" fn(lpthreadid: *mut WSATHREADID, lperrno: *mut i32) -> i32;
+pub type LPWPUOPENCURRENTTHREAD = ::core::option::Option<unsafe extern "system" fn(lpthreadid: *mut WSATHREADID, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUPOSTMESSAGE = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type LPWPUPOSTMESSAGE = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUQUERYBLOCKINGCALLBACK = unsafe extern "system" fn(dwcatalogentryid: u32, lplpfncallback: *mut ::windows::core::RawPtr, lpdwcontext: *mut usize, lperrno: *mut i32) -> i32;
-pub type LPWPUQUERYSOCKETHANDLECONTEXT = unsafe extern "system" fn(s: SOCKET, lpcontext: *mut usize, lperrno: *mut i32) -> i32;
+pub type LPWPUQUERYBLOCKINGCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcatalogentryid: u32, lplpfncallback: *mut ::windows::core::RawPtr, lpdwcontext: *mut usize, lperrno: *mut i32) -> i32>;
+pub type LPWPUQUERYSOCKETHANDLECONTEXT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpcontext: *mut usize, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUQUEUEAPC = unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lpfnuserapc: ::windows::core::RawPtr, dwcontext: usize, lperrno: *mut i32) -> i32;
+pub type LPWPUQUEUEAPC = ::core::option::Option<unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lpfnuserapc: ::windows::core::RawPtr, dwcontext: usize, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPURESETEVENT = unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL;
+pub type LPWPURESETEVENT = ::core::option::Option<unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWPUSETEVENT = unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL;
+pub type LPWPUSETEVENT = ::core::option::Option<unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = unsafe extern "system" fn(dwerror: u32, cbtransferred: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32);
-pub type LPWSAUSERAPC = unsafe extern "system" fn(dwcontext: usize);
-pub type LPWSCDEINSTALLPROVIDER = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32;
+pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerror: u32, cbtransferred: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32)>;
+pub type LPWSAUSERAPC = ::core::option::Option<unsafe extern "system" fn(dwcontext: usize)>;
+pub type LPWSCDEINSTALLPROVIDER = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSCENABLENSPROVIDER = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, fenable: super::super::Foundation::BOOL) -> i32;
-pub type LPWSCENUMPROTOCOLS = unsafe extern "system" fn(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32;
+pub type LPWSCENABLENSPROVIDER = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, fenable: super::super::Foundation::BOOL) -> i32>;
+pub type LPWSCENUMPROTOCOLS = ::core::option::Option<unsafe extern "system" fn(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSCGETPROVIDERPATH = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32;
+pub type LPWSCGETPROVIDERPATH = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSCINSTALLNAMESPACE = unsafe extern "system" fn(lpszidentifier: super::super::Foundation::PWSTR, lpszpathname: super::super::Foundation::PWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32;
+pub type LPWSCINSTALLNAMESPACE = ::core::option::Option<unsafe extern "system" fn(lpszidentifier: super::super::Foundation::PWSTR, lpszpathname: super::super::Foundation::PWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSCINSTALLPROVIDER = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
-pub type LPWSCUNINSTALLNAMESPACE = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID) -> i32;
+pub type LPWSCINSTALLPROVIDER = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32>;
+pub type LPWSCUNINSTALLNAMESPACE = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSCUPDATEPROVIDER = unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
-pub type LPWSCWRITENAMESPACEORDER = unsafe extern "system" fn(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32;
-pub type LPWSCWRITEPROVIDERORDER = unsafe extern "system" fn(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32;
+pub type LPWSCUPDATEPROVIDER = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32>;
+pub type LPWSCWRITENAMESPACEORDER = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32>;
+pub type LPWSCWRITEPROVIDERORDER = ::core::option::Option<unsafe extern "system" fn(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
-pub type LPWSPACCEPT = unsafe extern "system" fn(s: SOCKET, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: ::windows::core::RawPtr, dwcallbackdata: usize, lperrno: *mut i32) -> SOCKET;
+pub type LPWSPACCEPT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: ::windows::core::RawPtr, dwcallbackdata: usize, lperrno: *mut i32) -> SOCKET>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPADDRESSTOSTRING = unsafe extern "system" fn(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpszaddressstring: super::super::Foundation::PWSTR, lpdwaddressstringlength: *mut u32, lperrno: *mut i32) -> i32;
+pub type LPWSPADDRESSTOSTRING = ::core::option::Option<unsafe extern "system" fn(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpszaddressstring: super::super::Foundation::PWSTR, lpdwaddressstringlength: *mut u32, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPASYNCSELECT = unsafe extern "system" fn(s: SOCKET, hwnd: super::super::Foundation::HWND, wmsg: u32, levent: i32, lperrno: *mut i32) -> i32;
+pub type LPWSPASYNCSELECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, hwnd: super::super::Foundation::HWND, wmsg: u32, levent: i32, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPBIND = unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lperrno: *mut i32) -> i32;
-pub type LPWSPCANCELBLOCKINGCALL = unsafe extern "system" fn(lperrno: *mut i32) -> i32;
-pub type LPWSPCLEANUP = unsafe extern "system" fn(lperrno: *mut i32) -> i32;
-pub type LPWSPCLOSESOCKET = unsafe extern "system" fn(s: SOCKET, lperrno: *mut i32) -> i32;
+pub type LPWSPBIND = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lperrno: *mut i32) -> i32>;
+pub type LPWSPCANCELBLOCKINGCALL = ::core::option::Option<unsafe extern "system" fn(lperrno: *mut i32) -> i32>;
+pub type LPWSPCLEANUP = ::core::option::Option<unsafe extern "system" fn(lperrno: *mut i32) -> i32>;
+pub type LPWSPCLOSESOCKET = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
-pub type LPWSPCONNECT = unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, lperrno: *mut i32) -> i32;
-pub type LPWSPDUPLICATESOCKET = unsafe extern "system" fn(s: SOCKET, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOW, lperrno: *mut i32) -> i32;
+pub type LPWSPCONNECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, lperrno: *mut i32) -> i32>;
+pub type LPWSPDUPLICATESOCKET = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOW, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPENUMNETWORKEVENTS = unsafe extern "system" fn(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lpnetworkevents: *mut WSANETWORKEVENTS, lperrno: *mut i32) -> i32;
+pub type LPWSPENUMNETWORKEVENTS = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lpnetworkevents: *mut WSANETWORKEVENTS, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPEVENTSELECT = unsafe extern "system" fn(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lnetworkevents: i32, lperrno: *mut i32) -> i32;
+pub type LPWSPEVENTSELECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lnetworkevents: i32, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSPGETOVERLAPPEDRESULT = unsafe extern "system" fn(s: SOCKET, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: super::super::Foundation::BOOL, lpdwflags: *mut u32, lperrno: *mut i32) -> super::super::Foundation::BOOL;
+pub type LPWSPGETOVERLAPPEDRESULT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: super::super::Foundation::BOOL, lpdwflags: *mut u32, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPGETPEERNAME = unsafe extern "system" fn(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32, lperrno: *mut i32) -> i32;
+pub type LPWSPGETPEERNAME = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
-pub type LPWSPGETQOSBYNAME = unsafe extern "system" fn(s: SOCKET, lpqosname: *const WSABUF, lpqos: *mut super::super::NetworkManagement::QoS::QOS, lperrno: *mut i32) -> super::super::Foundation::BOOL;
+pub type LPWSPGETQOSBYNAME = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpqosname: *const WSABUF, lpqos: *mut super::super::NetworkManagement::QoS::QOS, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPGETSOCKNAME = unsafe extern "system" fn(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32, lperrno: *mut i32) -> i32;
+pub type LPWSPGETSOCKNAME = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPGETSOCKOPT = unsafe extern "system" fn(s: SOCKET, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: *mut i32, lperrno: *mut i32) -> i32;
+pub type LPWSPGETSOCKOPT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: *mut i32, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSPIOCTL = unsafe extern "system" fn(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32;
+pub type LPWSPIOCTL = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
-pub type LPWSPJOINLEAF = unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, dwflags: u32, lperrno: *mut i32) -> SOCKET;
-pub type LPWSPLISTEN = unsafe extern "system" fn(s: SOCKET, backlog: i32, lperrno: *mut i32) -> i32;
+pub type LPWSPJOINLEAF = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, dwflags: u32, lperrno: *mut i32) -> SOCKET>;
+pub type LPWSPLISTEN = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, backlog: i32, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSPRECV = unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *const i32) -> i32;
+pub type LPWSPRECV = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *const i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPRECVDISCONNECT = unsafe extern "system" fn(s: SOCKET, lpinbounddisconnectdata: *const WSABUF, lperrno: *mut i32) -> i32;
+pub type LPWSPRECVDISCONNECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpinbounddisconnectdata: *const WSABUF, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSPRECVFROM = unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32;
-pub type LPWSPSELECT = unsafe extern "system" fn(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exceptfds: *mut fd_set, timeout: *const timeval, lperrno: *mut i32) -> i32;
+pub type LPWSPRECVFROM = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
+pub type LPWSPSELECT = ::core::option::Option<unsafe extern "system" fn(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exceptfds: *mut fd_set, timeout: *const timeval, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSPSEND = unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32;
+pub type LPWSPSEND = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPSENDDISCONNECT = unsafe extern "system" fn(s: SOCKET, lpoutbounddisconnectdata: *const WSABUF, lperrno: *mut i32) -> i32;
+pub type LPWSPSENDDISCONNECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoutbounddisconnectdata: *const WSABUF, lperrno: *mut i32) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPWSPSENDTO = unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32;
+pub type LPWSPSENDTO = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPSETSOCKOPT = unsafe extern "system" fn(s: SOCKET, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: i32, lperrno: *mut i32) -> i32;
-pub type LPWSPSHUTDOWN = unsafe extern "system" fn(s: SOCKET, how: i32, lperrno: *mut i32) -> i32;
-pub type LPWSPSOCKET = unsafe extern "system" fn(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, g: u32, dwflags: u32, lperrno: *mut i32) -> SOCKET;
+pub type LPWSPSETSOCKOPT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: i32, lperrno: *mut i32) -> i32>;
+pub type LPWSPSHUTDOWN = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, how: i32, lperrno: *mut i32) -> i32>;
+pub type LPWSPSOCKET = ::core::option::Option<unsafe extern "system" fn(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, g: u32, dwflags: u32, lperrno: *mut i32) -> SOCKET>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
-pub type LPWSPSTARTUP = unsafe extern "system" fn(wversionrequested: u16, lpwspdata: *const WSPData, lpprotocolinfo: *const WSAPROTOCOL_INFOW, upcalltable: ::core::mem::ManuallyDrop<WSPUPCALLTABLE>, lpproctable: *mut ::core::mem::ManuallyDrop<WSPPROC_TABLE>) -> i32;
+pub type LPWSPSTARTUP = ::core::option::Option<unsafe extern "system" fn(wversionrequested: u16, lpwspdata: *const WSPData, lpprotocolinfo: *const WSAPROTOCOL_INFOW, upcalltable: WSPUPCALLTABLE, lpproctable: *mut WSPPROC_TABLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWSPSTRINGTOADDRESS = unsafe extern "system" fn(addressstring: super::super::Foundation::PWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32, lperrno: *mut i32) -> i32;
+pub type LPWSPSTRINGTOADDRESS = ::core::option::Option<unsafe extern "system" fn(addressstring: super::super::Foundation::PWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32, lperrno: *mut i32) -> i32>;
 pub const LSP_CRYPTO_COMPRESS: u32 = 64u32;
 pub const LSP_FIREWALL: u32 = 8u32;
 pub const LSP_INBOUND_MODIFY: u32 = 16u32;
@@ -2819,19 +2686,7 @@ impl ::core::default::Default for NETRESOURCE2A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NETRESOURCE2A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETRESOURCE2A")
-            .field("dwScope", &self.dwScope)
-            .field("dwType", &self.dwType)
-            .field("dwUsage", &self.dwUsage)
-            .field("dwDisplayType", &self.dwDisplayType)
-            .field("lpLocalName", &self.lpLocalName)
-            .field("lpRemoteName", &self.lpRemoteName)
-            .field("lpComment", &self.lpComment)
-            .field("ns_info", &self.ns_info)
-            .field("ServiceType", &self.ServiceType)
-            .field("dwProtocols", &self.dwProtocols)
-            .field("lpiProtocols", &self.lpiProtocols)
-            .finish()
+        fmt.debug_struct("NETRESOURCE2A").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwUsage", &self.dwUsage).field("dwDisplayType", &self.dwDisplayType).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("ns_info", &self.ns_info).field("ServiceType", &self.ServiceType).field("dwProtocols", &self.dwProtocols).field("lpiProtocols", &self.lpiProtocols).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2873,19 +2728,7 @@ impl ::core::default::Default for NETRESOURCE2W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NETRESOURCE2W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETRESOURCE2W")
-            .field("dwScope", &self.dwScope)
-            .field("dwType", &self.dwType)
-            .field("dwUsage", &self.dwUsage)
-            .field("dwDisplayType", &self.dwDisplayType)
-            .field("lpLocalName", &self.lpLocalName)
-            .field("lpRemoteName", &self.lpRemoteName)
-            .field("lpComment", &self.lpComment)
-            .field("ns_info", &self.ns_info)
-            .field("ServiceType", &self.ServiceType)
-            .field("dwProtocols", &self.dwProtocols)
-            .field("lpiProtocols", &self.lpiProtocols)
-            .finish()
+        fmt.debug_struct("NETRESOURCE2W").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwUsage", &self.dwUsage).field("dwDisplayType", &self.dwDisplayType).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("ns_info", &self.ns_info).field("ServiceType", &self.ServiceType).field("dwProtocols", &self.dwProtocols).field("lpiProtocols", &self.lpiProtocols).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3640,20 +3483,20 @@ unsafe impl ::windows::core::Abi for NL_SUFFIX_ORIGIN {
 pub const NSPROTO_IPX: u32 = 1000u32;
 pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
-    pub NSPv2Startup: ::core::option::Option<LPNSPV2STARTUP>,
-    pub NSPv2Cleanup: ::core::option::Option<LPNSPV2CLEANUP>,
-    pub NSPv2LookupServiceBegin: ::core::option::Option<LPNSPV2LOOKUPSERVICEBEGIN>,
-    pub NSPv2LookupServiceNextEx: ::core::option::Option<LPNSPV2LOOKUPSERVICENEXTEX>,
-    pub NSPv2LookupServiceEnd: ::core::option::Option<LPNSPV2LOOKUPSERVICEEND>,
-    pub NSPv2SetServiceEx: ::core::option::Option<LPNSPV2SETSERVICEEX>,
-    pub NSPv2ClientSessionRundown: ::core::option::Option<LPNSPV2CLIENTSESSIONRUNDOWN>,
+    pub NSPv2Startup: LPNSPV2STARTUP,
+    pub NSPv2Cleanup: LPNSPV2CLEANUP,
+    pub NSPv2LookupServiceBegin: LPNSPV2LOOKUPSERVICEBEGIN,
+    pub NSPv2LookupServiceNextEx: LPNSPV2LOOKUPSERVICENEXTEX,
+    pub NSPv2LookupServiceEnd: LPNSPV2LOOKUPSERVICEEND,
+    pub NSPv2SetServiceEx: LPNSPV2SETSERVICEEX,
+    pub NSPv2ClientSessionRundown: LPNSPV2CLIENTSESSIONRUNDOWN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl NSPV2_ROUTINE {}
@@ -3688,24 +3531,24 @@ impl ::core::cmp::PartialEq for NSPV2_ROUTINE {
 impl ::core::cmp::Eq for NSPV2_ROUTINE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for NSPV2_ROUTINE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 pub struct NSP_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
-    pub NSPCleanup: ::core::option::Option<LPNSPCLEANUP>,
-    pub NSPLookupServiceBegin: ::core::option::Option<LPNSPLOOKUPSERVICEBEGIN>,
-    pub NSPLookupServiceNext: ::core::option::Option<LPNSPLOOKUPSERVICENEXT>,
-    pub NSPLookupServiceEnd: ::core::option::Option<LPNSPLOOKUPSERVICEEND>,
-    pub NSPSetService: ::core::option::Option<LPNSPSETSERVICE>,
-    pub NSPInstallServiceClass: ::core::option::Option<LPNSPINSTALLSERVICECLASS>,
-    pub NSPRemoveServiceClass: ::core::option::Option<LPNSPREMOVESERVICECLASS>,
-    pub NSPGetServiceClassInfo: ::core::option::Option<LPNSPGETSERVICECLASSINFO>,
-    pub NSPIoctl: ::core::option::Option<LPNSPIOCTL>,
+    pub NSPCleanup: LPNSPCLEANUP,
+    pub NSPLookupServiceBegin: LPNSPLOOKUPSERVICEBEGIN,
+    pub NSPLookupServiceNext: LPNSPLOOKUPSERVICENEXT,
+    pub NSPLookupServiceEnd: LPNSPLOOKUPSERVICEEND,
+    pub NSPSetService: LPNSPSETSERVICE,
+    pub NSPInstallServiceClass: LPNSPINSTALLSERVICECLASS,
+    pub NSPRemoveServiceClass: LPNSPREMOVESERVICECLASS,
+    pub NSPGetServiceClassInfo: LPNSPGETSERVICECLASSINFO,
+    pub NSPIoctl: LPNSPIOCTL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 impl NSP_ROUTINE {}
@@ -3742,7 +3585,7 @@ impl ::core::cmp::PartialEq for NSP_ROUTINE {
 impl ::core::cmp::Eq for NSP_ROUTINE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for NSP_ROUTINE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const NSTYPE_DYNAMIC: u32 = 2u32;
 pub const NSTYPE_ENUMERABLE: u32 = 4u32;
@@ -4027,16 +3870,7 @@ impl ::core::default::Default for PROTOCOL_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROTOCOL_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROTOCOL_INFOA")
-            .field("dwServiceFlags", &self.dwServiceFlags)
-            .field("iAddressFamily", &self.iAddressFamily)
-            .field("iMaxSockAddr", &self.iMaxSockAddr)
-            .field("iMinSockAddr", &self.iMinSockAddr)
-            .field("iSocketType", &self.iSocketType)
-            .field("iProtocol", &self.iProtocol)
-            .field("dwMessageSize", &self.dwMessageSize)
-            .field("lpProtocol", &self.lpProtocol)
-            .finish()
+        fmt.debug_struct("PROTOCOL_INFOA").field("dwServiceFlags", &self.dwServiceFlags).field("iAddressFamily", &self.iAddressFamily).field("iMaxSockAddr", &self.iMaxSockAddr).field("iMinSockAddr", &self.iMinSockAddr).field("iSocketType", &self.iSocketType).field("iProtocol", &self.iProtocol).field("dwMessageSize", &self.dwMessageSize).field("lpProtocol", &self.lpProtocol).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4075,16 +3909,7 @@ impl ::core::default::Default for PROTOCOL_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROTOCOL_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROTOCOL_INFOW")
-            .field("dwServiceFlags", &self.dwServiceFlags)
-            .field("iAddressFamily", &self.iAddressFamily)
-            .field("iMaxSockAddr", &self.iMaxSockAddr)
-            .field("iMinSockAddr", &self.iMinSockAddr)
-            .field("iSocketType", &self.iSocketType)
-            .field("iProtocol", &self.iProtocol)
-            .field("dwMessageSize", &self.dwMessageSize)
-            .field("lpProtocol", &self.lpProtocol)
-            .finish()
+        fmt.debug_struct("PROTOCOL_INFOW").field("dwServiceFlags", &self.dwServiceFlags).field("iAddressFamily", &self.iAddressFamily).field("iMaxSockAddr", &self.iMaxSockAddr).field("iMinSockAddr", &self.iMinSockAddr).field("iSocketType", &self.iSocketType).field("iProtocol", &self.iProtocol).field("dwMessageSize", &self.dwMessageSize).field("lpProtocol", &self.lpProtocol).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4109,15 +3934,7 @@ pub unsafe fn ProcessSocketNotifications<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn ProcessSocketNotifications(completionport: super::super::Foundation::HANDLE, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ProcessSocketNotifications(
-            completionport.into_param().abi(),
-            ::core::mem::transmute(registrationcount),
-            ::core::mem::transmute(registrationinfos),
-            ::core::mem::transmute(timeoutms),
-            ::core::mem::transmute(completioncount),
-            ::core::mem::transmute(completionportentries),
-            ::core::mem::transmute(receivedentrycount),
-        ))
+        ::core::mem::transmute(ProcessSocketNotifications(completionport.into_param().abi(), ::core::mem::transmute(registrationcount), ::core::mem::transmute(registrationinfos), ::core::mem::transmute(timeoutms), ::core::mem::transmute(completioncount), ::core::mem::transmute(completionportentries), ::core::mem::transmute(receivedentrycount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4447,24 +4264,24 @@ pub const RIO_CORRUPT_CQ: u32 = 4294967295u32;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct RIO_CQ_t(pub u8);
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RIO_EXTENSION_FUNCTION_TABLE {
     pub cbSize: u32,
-    pub RIOReceive: ::core::option::Option<LPFN_RIORECEIVE>,
-    pub RIOReceiveEx: ::core::option::Option<LPFN_RIORECEIVEEX>,
-    pub RIOSend: ::core::option::Option<LPFN_RIOSEND>,
-    pub RIOSendEx: ::core::option::Option<LPFN_RIOSENDEX>,
-    pub RIOCloseCompletionQueue: ::core::option::Option<LPFN_RIOCLOSECOMPLETIONQUEUE>,
-    pub RIOCreateCompletionQueue: ::core::option::Option<LPFN_RIOCREATECOMPLETIONQUEUE>,
-    pub RIOCreateRequestQueue: ::core::option::Option<LPFN_RIOCREATEREQUESTQUEUE>,
-    pub RIODequeueCompletion: ::core::option::Option<LPFN_RIODEQUEUECOMPLETION>,
-    pub RIODeregisterBuffer: ::core::option::Option<LPFN_RIODEREGISTERBUFFER>,
-    pub RIONotify: ::core::option::Option<LPFN_RIONOTIFY>,
-    pub RIORegisterBuffer: ::core::option::Option<LPFN_RIOREGISTERBUFFER>,
-    pub RIOResizeCompletionQueue: ::core::option::Option<LPFN_RIORESIZECOMPLETIONQUEUE>,
-    pub RIOResizeRequestQueue: ::core::option::Option<LPFN_RIORESIZEREQUESTQUEUE>,
+    pub RIOReceive: LPFN_RIORECEIVE,
+    pub RIOReceiveEx: LPFN_RIORECEIVEEX,
+    pub RIOSend: LPFN_RIOSEND,
+    pub RIOSendEx: LPFN_RIOSENDEX,
+    pub RIOCloseCompletionQueue: LPFN_RIOCLOSECOMPLETIONQUEUE,
+    pub RIOCreateCompletionQueue: LPFN_RIOCREATECOMPLETIONQUEUE,
+    pub RIOCreateRequestQueue: LPFN_RIOCREATEREQUESTQUEUE,
+    pub RIODequeueCompletion: LPFN_RIODEQUEUECOMPLETION,
+    pub RIODeregisterBuffer: LPFN_RIODEREGISTERBUFFER,
+    pub RIONotify: LPFN_RIONOTIFY,
+    pub RIORegisterBuffer: LPFN_RIOREGISTERBUFFER,
+    pub RIOResizeCompletionQueue: LPFN_RIORESIZECOMPLETIONQUEUE,
+    pub RIOResizeRequestQueue: LPFN_RIORESIZEREQUESTQUEUE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl RIO_EXTENSION_FUNCTION_TABLE {}
@@ -4503,7 +4320,7 @@ impl ::core::cmp::PartialEq for RIO_EXTENSION_FUNCTION_TABLE {
 impl ::core::cmp::Eq for RIO_EXTENSION_FUNCTION_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RIO_EXTENSION_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const RIO_MAX_CQ_SIZE: u32 = 134217728u32;
 pub const RIO_MSG_COMMIT_ONLY: u32 = 8u32;
@@ -4813,19 +4630,7 @@ impl ::core::fmt::Debug for RM_SENDER_STATS {
 }
 impl ::core::cmp::PartialEq for RM_SENDER_STATS {
     fn eq(&self, other: &Self) -> bool {
-        self.DataBytesSent == other.DataBytesSent
-            && self.TotalBytesSent == other.TotalBytesSent
-            && self.NaksReceived == other.NaksReceived
-            && self.NaksReceivedTooLate == other.NaksReceivedTooLate
-            && self.NumOutstandingNaks == other.NumOutstandingNaks
-            && self.NumNaksAfterRData == other.NumNaksAfterRData
-            && self.RepairPacketsSent == other.RepairPacketsSent
-            && self.BufferSpaceAvailable == other.BufferSpaceAvailable
-            && self.TrailingEdgeSeqId == other.TrailingEdgeSeqId
-            && self.LeadingEdgeSeqId == other.LeadingEdgeSeqId
-            && self.RateKBitsPerSecOverall == other.RateKBitsPerSecOverall
-            && self.RateKBitsPerSecLast == other.RateKBitsPerSecLast
-            && self.TotalODataPacketsSent == other.TotalODataPacketsSent
+        self.DataBytesSent == other.DataBytesSent && self.TotalBytesSent == other.TotalBytesSent && self.NaksReceived == other.NaksReceived && self.NaksReceivedTooLate == other.NaksReceivedTooLate && self.NumOutstandingNaks == other.NumOutstandingNaks && self.NumNaksAfterRData == other.NumNaksAfterRData && self.RepairPacketsSent == other.RepairPacketsSent && self.BufferSpaceAvailable == other.BufferSpaceAvailable && self.TrailingEdgeSeqId == other.TrailingEdgeSeqId && self.LeadingEdgeSeqId == other.LeadingEdgeSeqId && self.RateKBitsPerSecOverall == other.RateKBitsPerSecOverall && self.RateKBitsPerSecLast == other.RateKBitsPerSecLast && self.TotalODataPacketsSent == other.TotalODataPacketsSent
     }
 }
 impl ::core::cmp::Eq for RM_SENDER_STATS {}
@@ -5333,14 +5138,7 @@ impl ::core::default::Default for SERVICE_ADDRESS {
 }
 impl ::core::fmt::Debug for SERVICE_ADDRESS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_ADDRESS")
-            .field("dwAddressType", &self.dwAddressType)
-            .field("dwAddressFlags", &self.dwAddressFlags)
-            .field("dwAddressLength", &self.dwAddressLength)
-            .field("dwPrincipalLength", &self.dwPrincipalLength)
-            .field("lpAddress", &self.lpAddress)
-            .field("lpPrincipal", &self.lpPrincipal)
-            .finish()
+        fmt.debug_struct("SERVICE_ADDRESS").field("dwAddressType", &self.dwAddressType).field("dwAddressFlags", &self.dwAddressFlags).field("dwAddressLength", &self.dwAddressLength).field("dwPrincipalLength", &self.dwPrincipalLength).field("lpAddress", &self.lpAddress).field("lpPrincipal", &self.lpPrincipal).finish()
     }
 }
 impl ::core::cmp::PartialEq for SERVICE_ADDRESS {
@@ -5381,11 +5179,11 @@ unsafe impl ::windows::core::Abi for SERVICE_ADDRESSES {
 pub const SERVICE_ADDRESS_FLAG_RPC_CN: u32 = 1u32;
 pub const SERVICE_ADDRESS_FLAG_RPC_DG: u32 = 2u32;
 pub const SERVICE_ADDRESS_FLAG_RPC_NB: u32 = 4u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_ASYNC_INFO {
-    pub lpServiceCallbackProc: ::core::option::Option<LPSERVICE_CALLBACK_PROC>,
+    pub lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub hAsyncTaskHandle: super::super::Foundation::HANDLE,
 }
@@ -5413,7 +5211,7 @@ impl ::core::cmp::PartialEq for SERVICE_ASYNC_INFO {
 impl ::core::cmp::Eq for SERVICE_ASYNC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_ASYNC_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const SERVICE_FLAG_DEFER: u32 = 1u32;
 pub const SERVICE_FLAG_HARD: u32 = 2u32;
@@ -5443,18 +5241,7 @@ impl ::core::default::Default for SERVICE_INFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for SERVICE_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_INFOA")
-            .field("lpServiceType", &self.lpServiceType)
-            .field("lpServiceName", &self.lpServiceName)
-            .field("lpComment", &self.lpComment)
-            .field("lpLocale", &self.lpLocale)
-            .field("dwDisplayHint", &self.dwDisplayHint)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwTime", &self.dwTime)
-            .field("lpMachineName", &self.lpMachineName)
-            .field("lpServiceAddress", &self.lpServiceAddress)
-            .field("ServiceSpecificInfo", &self.ServiceSpecificInfo)
-            .finish()
+        fmt.debug_struct("SERVICE_INFOA").field("lpServiceType", &self.lpServiceType).field("lpServiceName", &self.lpServiceName).field("lpComment", &self.lpComment).field("lpLocale", &self.lpLocale).field("dwDisplayHint", &self.dwDisplayHint).field("dwVersion", &self.dwVersion).field("dwTime", &self.dwTime).field("lpMachineName", &self.lpMachineName).field("lpServiceAddress", &self.lpServiceAddress).field("ServiceSpecificInfo", &self.ServiceSpecificInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5495,18 +5282,7 @@ impl ::core::default::Default for SERVICE_INFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for SERVICE_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_INFOW")
-            .field("lpServiceType", &self.lpServiceType)
-            .field("lpServiceName", &self.lpServiceName)
-            .field("lpComment", &self.lpComment)
-            .field("lpLocale", &self.lpLocale)
-            .field("dwDisplayHint", &self.dwDisplayHint)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwTime", &self.dwTime)
-            .field("lpMachineName", &self.lpMachineName)
-            .field("lpServiceAddress", &self.lpServiceAddress)
-            .field("ServiceSpecificInfo", &self.ServiceSpecificInfo)
-            .finish()
+        fmt.debug_struct("SERVICE_INFOW").field("lpServiceType", &self.lpServiceType).field("lpServiceName", &self.lpServiceName).field("lpComment", &self.lpComment).field("lpLocale", &self.lpLocale).field("dwDisplayHint", &self.dwDisplayHint).field("dwVersion", &self.dwVersion).field("dwTime", &self.dwTime).field("lpMachineName", &self.lpMachineName).field("lpServiceAddress", &self.lpServiceAddress).field("ServiceSpecificInfo", &self.ServiceSpecificInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6330,16 +6106,7 @@ impl ::core::default::Default for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
 }
 impl ::core::fmt::Debug for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SOCKET_SECURITY_QUERY_INFO_IPSEC2")
-            .field("SecurityProtocol", &self.SecurityProtocol)
-            .field("Flags", &self.Flags)
-            .field("PeerApplicationAccessTokenHandle", &self.PeerApplicationAccessTokenHandle)
-            .field("PeerMachineAccessTokenHandle", &self.PeerMachineAccessTokenHandle)
-            .field("MmSaId", &self.MmSaId)
-            .field("QmSaId", &self.QmSaId)
-            .field("NegotiationWinerr", &self.NegotiationWinerr)
-            .field("SaLookupContext", &self.SaLookupContext)
-            .finish()
+        fmt.debug_struct("SOCKET_SECURITY_QUERY_INFO_IPSEC2").field("SecurityProtocol", &self.SecurityProtocol).field("Flags", &self.Flags).field("PeerApplicationAccessTokenHandle", &self.PeerApplicationAccessTokenHandle).field("PeerMachineAccessTokenHandle", &self.PeerMachineAccessTokenHandle).field("MmSaId", &self.MmSaId).field("QmSaId", &self.QmSaId).field("NegotiationWinerr", &self.NegotiationWinerr).field("SaLookupContext", &self.SaLookupContext).finish()
     }
 }
 impl ::core::cmp::PartialEq for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
@@ -6487,17 +6254,7 @@ impl ::core::fmt::Debug for SOCKET_SECURITY_SETTINGS_IPSEC {
 }
 impl ::core::cmp::PartialEq for SOCKET_SECURITY_SETTINGS_IPSEC {
     fn eq(&self, other: &Self) -> bool {
-        self.SecurityProtocol == other.SecurityProtocol
-            && self.SecurityFlags == other.SecurityFlags
-            && self.IpsecFlags == other.IpsecFlags
-            && self.AuthipMMPolicyKey == other.AuthipMMPolicyKey
-            && self.AuthipQMPolicyKey == other.AuthipQMPolicyKey
-            && self.Reserved == other.Reserved
-            && self.Reserved2 == other.Reserved2
-            && self.UserNameStringLen == other.UserNameStringLen
-            && self.DomainNameStringLen == other.DomainNameStringLen
-            && self.PasswordStringLen == other.PasswordStringLen
-            && self.AllStrings == other.AllStrings
+        self.SecurityProtocol == other.SecurityProtocol && self.SecurityFlags == other.SecurityFlags && self.IpsecFlags == other.IpsecFlags && self.AuthipMMPolicyKey == other.AuthipMMPolicyKey && self.AuthipQMPolicyKey == other.AuthipQMPolicyKey && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.UserNameStringLen == other.UserNameStringLen && self.DomainNameStringLen == other.DomainNameStringLen && self.PasswordStringLen == other.PasswordStringLen && self.AllStrings == other.AllStrings
     }
 }
 impl ::core::cmp::Eq for SOCKET_SECURITY_SETTINGS_IPSEC {}
@@ -6629,80 +6386,28 @@ pub const SO_UPDATE_CONNECT_CONTEXT: u32 = 28688u32;
 pub const SO_USELOOPBACK: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn SetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    pname: Param0,
-    pservicename: Param1,
-    paddresses: *const SOCKET_ADDRESS,
-    dwaddresscount: u32,
-    lpblob: *const super::super::System::Com::BLOB,
-    dwflags: u32,
-    dwnamespace: u32,
-    lpnspid: *const ::windows::core::GUID,
-    timeout: *const timeval,
-    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: ::core::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
-    lpnamehandle: *mut super::super::Foundation::HANDLE,
-) -> i32 {
+pub unsafe fn SetAddrInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pservicename: Param1, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
-        ::core::mem::transmute(SetAddrInfoExA(
-            pname.into_param().abi(),
-            pservicename.into_param().abi(),
-            ::core::mem::transmute(paddresses),
-            ::core::mem::transmute(dwaddresscount),
-            ::core::mem::transmute(lpblob),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dwnamespace),
-            ::core::mem::transmute(lpnspid),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-            ::core::mem::transmute(lpnamehandle),
-        ))
+        ::core::mem::transmute(SetAddrInfoExA(pname.into_param().abi(), pservicename.into_param().abi(), ::core::mem::transmute(paddresses), ::core::mem::transmute(dwaddresscount), ::core::mem::transmute(lpblob), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn SetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    pname: Param0,
-    pservicename: Param1,
-    paddresses: *const SOCKET_ADDRESS,
-    dwaddresscount: u32,
-    lpblob: *const super::super::System::Com::BLOB,
-    dwflags: u32,
-    dwnamespace: u32,
-    lpnspid: *const ::windows::core::GUID,
-    timeout: *const timeval,
-    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: ::core::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
-    lpnamehandle: *mut super::super::Foundation::HANDLE,
-) -> i32 {
+pub unsafe fn SetAddrInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pservicename: Param1, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
-        ::core::mem::transmute(SetAddrInfoExW(
-            pname.into_param().abi(),
-            pservicename.into_param().abi(),
-            ::core::mem::transmute(paddresses),
-            ::core::mem::transmute(dwaddresscount),
-            ::core::mem::transmute(lpblob),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dwnamespace),
-            ::core::mem::transmute(lpnspid),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-            ::core::mem::transmute(lpnamehandle),
-        ))
+        ::core::mem::transmute(SetAddrInfoExW(pname.into_param().abi(), pservicename.into_param().abi(), ::core::mem::transmute(paddresses), ::core::mem::transmute(dwaddresscount), ::core::mem::transmute(lpblob), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6714,7 +6419,7 @@ pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const ::core::mem::ManuallyDrop<SERVICE_ASYNC_INFO>, lpdwstatusflags: *mut u32) -> i32;
+            fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
         }
         ::core::mem::transmute(SetServiceA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwoperation), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpserviceinfo), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpdwstatusflags)))
     }
@@ -6728,7 +6433,7 @@ pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const ::core::mem::ManuallyDrop<SERVICE_ASYNC_INFO>, lpdwstatusflags: *mut u32) -> i32;
+            fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
         }
         ::core::mem::transmute(SetServiceW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwoperation), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpserviceinfo), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpdwstatusflags)))
     }
@@ -6909,25 +6614,7 @@ impl ::core::fmt::Debug for TCP_INFO_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCP_INFO_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-            && self.Mss == other.Mss
-            && self.ConnectionTimeMs == other.ConnectionTimeMs
-            && self.TimestampsEnabled == other.TimestampsEnabled
-            && self.RttUs == other.RttUs
-            && self.MinRttUs == other.MinRttUs
-            && self.BytesInFlight == other.BytesInFlight
-            && self.Cwnd == other.Cwnd
-            && self.SndWnd == other.SndWnd
-            && self.RcvWnd == other.RcvWnd
-            && self.RcvBuf == other.RcvBuf
-            && self.BytesOut == other.BytesOut
-            && self.BytesIn == other.BytesIn
-            && self.BytesReordered == other.BytesReordered
-            && self.BytesRetrans == other.BytesRetrans
-            && self.FastRetrans == other.FastRetrans
-            && self.DupAcksIn == other.DupAcksIn
-            && self.TimeoutEpisodes == other.TimeoutEpisodes
-            && self.SynRetrans == other.SynRetrans
+        self.State == other.State && self.Mss == other.Mss && self.ConnectionTimeMs == other.ConnectionTimeMs && self.TimestampsEnabled == other.TimestampsEnabled && self.RttUs == other.RttUs && self.MinRttUs == other.MinRttUs && self.BytesInFlight == other.BytesInFlight && self.Cwnd == other.Cwnd && self.SndWnd == other.SndWnd && self.RcvWnd == other.RcvWnd && self.RcvBuf == other.RcvBuf && self.BytesOut == other.BytesOut && self.BytesIn == other.BytesIn && self.BytesReordered == other.BytesReordered && self.BytesRetrans == other.BytesRetrans && self.FastRetrans == other.FastRetrans && self.DupAcksIn == other.DupAcksIn && self.TimeoutEpisodes == other.TimeoutEpisodes && self.SynRetrans == other.SynRetrans
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7718,7 +7405,7 @@ pub unsafe fn WPUCompleteOverlappedRequest<'a, Param0: ::windows::core::IntoPara
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
-pub unsafe fn WSAAccept<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: ::core::option::Option<LPCONDITIONPROC>, dwcallbackdata: usize) -> SOCKET {
+pub unsafe fn WSAAccept<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: LPCONDITIONPROC, dwcallbackdata: usize) -> SOCKET {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7765,7 +7452,7 @@ pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID, pnspv2routine: *const ::core::mem::ManuallyDrop<NSPV2_ROUTINE>) -> i32;
+            fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID, pnspv2routine: *const NSPV2_ROUTINE) -> i32;
         }
         ::core::mem::transmute(WSAAdvertiseProvider(::core::mem::transmute(puuidproviderid), ::core::mem::transmute(pnspv2routine)))
     }
@@ -7903,12 +7590,7 @@ impl ::core::cmp::Eq for WSABUF {}
 unsafe impl ::windows::core::Abi for WSABUF {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::clone::Clone for WSACOMPLETION {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION {
@@ -7933,20 +7615,15 @@ impl ::core::cmp::PartialEq for WSACOMPLETION {
 impl ::core::cmp::Eq for WSACOMPLETION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSACOMPLETION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::clone::Clone for WSACOMPLETION_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub union WSACOMPLETION_0 {
     pub WindowMessage: WSACOMPLETION_0_3,
     pub Event: WSACOMPLETION_0_1,
-    pub Apc: ::core::mem::ManuallyDrop<WSACOMPLETION_0_0>,
+    pub Apc: WSACOMPLETION_0_0,
     pub Port: WSACOMPLETION_0_2,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7967,14 +7644,14 @@ impl ::core::cmp::PartialEq for WSACOMPLETION_0 {
 impl ::core::cmp::Eq for WSACOMPLETION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSACOMPLETION_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION_0_0 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
-    pub lpfnCompletionProc: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
+    pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION_0_0 {}
@@ -8000,7 +7677,7 @@ impl ::core::cmp::PartialEq for WSACOMPLETION_0_0 {
 impl ::core::cmp::Eq for WSACOMPLETION_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSACOMPLETION_0_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -8195,84 +7872,35 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::core::IntoParam<'a, SOCKET
         extern "system" {
             fn WSAConnectByList(s: SOCKET, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WSAConnectByList(
-            s.into_param().abi(),
-            ::core::mem::transmute(socketaddress),
-            ::core::mem::transmute(localaddresslength),
-            ::core::mem::transmute(localaddress),
-            ::core::mem::transmute(remoteaddresslength),
-            ::core::mem::transmute(remoteaddress),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(WSAConnectByList(s.into_param().abi(), ::core::mem::transmute(socketaddress), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByNameA<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    s: Param0,
-    nodename: Param1,
-    servicename: Param2,
-    localaddresslength: *mut u32,
-    localaddress: *mut SOCKADDR,
-    remoteaddresslength: *mut u32,
-    remoteaddress: *mut SOCKADDR,
-    timeout: *const timeval,
-    reserved: *mut super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WSAConnectByNameA<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, nodename: Param1, servicename: Param2, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSAConnectByNameA(s: SOCKET, nodename: super::super::Foundation::PSTR, servicename: super::super::Foundation::PSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WSAConnectByNameA(
-            s.into_param().abi(),
-            nodename.into_param().abi(),
-            servicename.into_param().abi(),
-            ::core::mem::transmute(localaddresslength),
-            ::core::mem::transmute(localaddress),
-            ::core::mem::transmute(remoteaddresslength),
-            ::core::mem::transmute(remoteaddress),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(WSAConnectByNameA(s.into_param().abi(), nodename.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByNameW<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    s: Param0,
-    nodename: Param1,
-    servicename: Param2,
-    localaddresslength: *mut u32,
-    localaddress: *mut SOCKADDR,
-    remoteaddresslength: *mut u32,
-    remoteaddress: *mut SOCKADDR,
-    timeout: *const timeval,
-    reserved: *mut super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WSAConnectByNameW<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(s: Param0, nodename: Param1, servicename: Param2, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSAConnectByNameW(s: SOCKET, nodename: super::super::Foundation::PWSTR, servicename: super::super::Foundation::PWSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WSAConnectByNameW(
-            s.into_param().abi(),
-            nodename.into_param().abi(),
-            servicename.into_param().abi(),
-            ::core::mem::transmute(localaddresslength),
-            ::core::mem::transmute(localaddress),
-            ::core::mem::transmute(remoteaddresslength),
-            ::core::mem::transmute(remoteaddress),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(WSAConnectByNameW(s.into_param().abi(), nodename.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8319,15 +7947,7 @@ impl ::core::default::Default for WSAData {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSAData {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSAData")
-            .field("wVersion", &self.wVersion)
-            .field("wHighVersion", &self.wHighVersion)
-            .field("iMaxSockets", &self.iMaxSockets)
-            .field("iMaxUdpDg", &self.iMaxUdpDg)
-            .field("lpVendorInfo", &self.lpVendorInfo)
-            .field("szDescription", &self.szDescription)
-            .field("szSystemStatus", &self.szSystemStatus)
-            .finish()
+        fmt.debug_struct("WSAData").field("wVersion", &self.wVersion).field("wHighVersion", &self.wHighVersion).field("iMaxSockets", &self.iMaxSockets).field("iMaxUdpDg", &self.iMaxUdpDg).field("lpVendorInfo", &self.lpVendorInfo).field("szDescription", &self.szDescription).field("szSystemStatus", &self.szSystemStatus).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8372,15 +7992,7 @@ impl ::core::default::Default for WSAData {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSAData {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSAData")
-            .field("wVersion", &self.wVersion)
-            .field("wHighVersion", &self.wHighVersion)
-            .field("szDescription", &self.szDescription)
-            .field("szSystemStatus", &self.szSystemStatus)
-            .field("iMaxSockets", &self.iMaxSockets)
-            .field("iMaxUdpDg", &self.iMaxUdpDg)
-            .field("lpVendorInfo", &self.lpVendorInfo)
-            .finish()
+        fmt.debug_struct("WSAData").field("wVersion", &self.wVersion).field("wHighVersion", &self.wHighVersion).field("szDescription", &self.szDescription).field("szSystemStatus", &self.szSystemStatus).field("iMaxSockets", &self.iMaxSockets).field("iMaxUdpDg", &self.iMaxUdpDg).field("lpVendorInfo", &self.lpVendorInfo).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8400,7 +8012,7 @@ unsafe impl ::windows::core::Abi for WSAData {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSADeleteSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSADeleteSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8744,24 +8356,14 @@ pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASS
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAIoctl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSAIoctl<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSAIoctl(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSAIoctl(
-            s.into_param().abi(),
-            ::core::mem::transmute(dwiocontrolcode),
-            ::core::mem::transmute(lpvinbuffer),
-            ::core::mem::transmute(cbinbuffer),
-            ::core::mem::transmute(lpvoutbuffer),
-            ::core::mem::transmute(cboutbuffer),
-            ::core::mem::transmute(lpcbbytesreturned),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-        ))
+        ::core::mem::transmute(WSAIoctl(s.into_param().abi(), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpvinbuffer), ::core::mem::transmute(cbinbuffer), ::core::mem::transmute(lpvoutbuffer), ::core::mem::transmute(cboutbuffer), ::core::mem::transmute(lpcbbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9152,18 +8754,9 @@ pub unsafe fn WSANSPIoctl<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSANSPIoctl(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const ::core::mem::ManuallyDrop<WSACOMPLETION>) -> i32;
+            fn WSANSPIoctl(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION) -> i32;
         }
-        ::core::mem::transmute(WSANSPIoctl(
-            hlookup.into_param().abi(),
-            ::core::mem::transmute(dwcontrolcode),
-            ::core::mem::transmute(lpvinbuffer),
-            ::core::mem::transmute(cbinbuffer),
-            ::core::mem::transmute(lpvoutbuffer),
-            ::core::mem::transmute(cboutbuffer),
-            ::core::mem::transmute(lpcbbytesreturned),
-            ::core::mem::transmute(lpcompletion),
-        ))
+        ::core::mem::transmute(WSANSPIoctl(hlookup.into_param().abi(), ::core::mem::transmute(dwcontrolcode), ::core::mem::transmute(lpvinbuffer), ::core::mem::transmute(cbinbuffer), ::core::mem::transmute(lpvoutbuffer), ::core::mem::transmute(cboutbuffer), ::core::mem::transmute(lpcbbytesreturned), ::core::mem::transmute(lpcompletion)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9480,7 +9073,7 @@ pub unsafe fn WSAProviderCompleteAsyncCall<'a, Param0: ::windows::core::IntoPara
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9543,20 +9136,7 @@ impl ::core::fmt::Debug for WSAQUERYSET2A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WSAQUERYSET2A {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpszServiceInstanceName == other.lpszServiceInstanceName
-            && self.lpVersion == other.lpVersion
-            && self.lpszComment == other.lpszComment
-            && self.dwNameSpace == other.dwNameSpace
-            && self.lpNSProviderId == other.lpNSProviderId
-            && self.lpszContext == other.lpszContext
-            && self.dwNumberOfProtocols == other.dwNumberOfProtocols
-            && self.lpafpProtocols == other.lpafpProtocols
-            && self.lpszQueryString == other.lpszQueryString
-            && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs
-            && self.lpcsaBuffer == other.lpcsaBuffer
-            && self.dwOutputFlags == other.dwOutputFlags
-            && self.lpBlob == other.lpBlob
+        self.dwSize == other.dwSize && self.lpszServiceInstanceName == other.lpszServiceInstanceName && self.lpVersion == other.lpVersion && self.lpszComment == other.lpszComment && self.dwNameSpace == other.dwNameSpace && self.lpNSProviderId == other.lpNSProviderId && self.lpszContext == other.lpszContext && self.dwNumberOfProtocols == other.dwNumberOfProtocols && self.lpafpProtocols == other.lpafpProtocols && self.lpszQueryString == other.lpszQueryString && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs && self.lpcsaBuffer == other.lpcsaBuffer && self.dwOutputFlags == other.dwOutputFlags && self.lpBlob == other.lpBlob
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9616,20 +9196,7 @@ impl ::core::fmt::Debug for WSAQUERYSET2W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WSAQUERYSET2W {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpszServiceInstanceName == other.lpszServiceInstanceName
-            && self.lpVersion == other.lpVersion
-            && self.lpszComment == other.lpszComment
-            && self.dwNameSpace == other.dwNameSpace
-            && self.lpNSProviderId == other.lpNSProviderId
-            && self.lpszContext == other.lpszContext
-            && self.dwNumberOfProtocols == other.dwNumberOfProtocols
-            && self.lpafpProtocols == other.lpafpProtocols
-            && self.lpszQueryString == other.lpszQueryString
-            && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs
-            && self.lpcsaBuffer == other.lpcsaBuffer
-            && self.dwOutputFlags == other.dwOutputFlags
-            && self.lpBlob == other.lpBlob
+        self.dwSize == other.dwSize && self.lpszServiceInstanceName == other.lpszServiceInstanceName && self.lpVersion == other.lpVersion && self.lpszComment == other.lpszComment && self.dwNameSpace == other.dwNameSpace && self.lpNSProviderId == other.lpNSProviderId && self.lpszContext == other.lpszContext && self.dwNumberOfProtocols == other.dwNumberOfProtocols && self.lpafpProtocols == other.lpafpProtocols && self.lpszQueryString == other.lpszQueryString && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs && self.lpcsaBuffer == other.lpcsaBuffer && self.dwOutputFlags == other.dwOutputFlags && self.lpBlob == other.lpBlob
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9691,21 +9258,7 @@ impl ::core::fmt::Debug for WSAQUERYSETA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WSAQUERYSETA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpszServiceInstanceName == other.lpszServiceInstanceName
-            && self.lpServiceClassId == other.lpServiceClassId
-            && self.lpVersion == other.lpVersion
-            && self.lpszComment == other.lpszComment
-            && self.dwNameSpace == other.dwNameSpace
-            && self.lpNSProviderId == other.lpNSProviderId
-            && self.lpszContext == other.lpszContext
-            && self.dwNumberOfProtocols == other.dwNumberOfProtocols
-            && self.lpafpProtocols == other.lpafpProtocols
-            && self.lpszQueryString == other.lpszQueryString
-            && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs
-            && self.lpcsaBuffer == other.lpcsaBuffer
-            && self.dwOutputFlags == other.dwOutputFlags
-            && self.lpBlob == other.lpBlob
+        self.dwSize == other.dwSize && self.lpszServiceInstanceName == other.lpszServiceInstanceName && self.lpServiceClassId == other.lpServiceClassId && self.lpVersion == other.lpVersion && self.lpszComment == other.lpszComment && self.dwNameSpace == other.dwNameSpace && self.lpNSProviderId == other.lpNSProviderId && self.lpszContext == other.lpszContext && self.dwNumberOfProtocols == other.dwNumberOfProtocols && self.lpafpProtocols == other.lpafpProtocols && self.lpszQueryString == other.lpszQueryString && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs && self.lpcsaBuffer == other.lpcsaBuffer && self.dwOutputFlags == other.dwOutputFlags && self.lpBlob == other.lpBlob
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9767,21 +9320,7 @@ impl ::core::fmt::Debug for WSAQUERYSETW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WSAQUERYSETW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpszServiceInstanceName == other.lpszServiceInstanceName
-            && self.lpServiceClassId == other.lpServiceClassId
-            && self.lpVersion == other.lpVersion
-            && self.lpszComment == other.lpszComment
-            && self.dwNameSpace == other.dwNameSpace
-            && self.lpNSProviderId == other.lpNSProviderId
-            && self.lpszContext == other.lpszContext
-            && self.dwNumberOfProtocols == other.dwNumberOfProtocols
-            && self.lpafpProtocols == other.lpafpProtocols
-            && self.lpszQueryString == other.lpszQueryString
-            && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs
-            && self.lpcsaBuffer == other.lpcsaBuffer
-            && self.dwOutputFlags == other.dwOutputFlags
-            && self.lpBlob == other.lpBlob
+        self.dwSize == other.dwSize && self.lpszServiceInstanceName == other.lpszServiceInstanceName && self.lpServiceClassId == other.lpServiceClassId && self.lpVersion == other.lpVersion && self.lpszComment == other.lpszComment && self.dwNameSpace == other.dwNameSpace && self.lpNSProviderId == other.lpNSProviderId && self.lpszContext == other.lpszContext && self.dwNumberOfProtocols == other.dwNumberOfProtocols && self.lpafpProtocols == other.lpafpProtocols && self.lpszQueryString == other.lpszQueryString && self.dwNumberOfCsAddrs == other.dwNumberOfCsAddrs && self.lpcsaBuffer == other.lpcsaBuffer && self.dwOutputFlags == other.dwOutputFlags && self.lpBlob == other.lpBlob
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9792,29 +9331,21 @@ unsafe impl ::windows::core::Abi for WSAQUERYSETW {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSAQuerySocketSecurity(socket: SOCKET, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSAQuerySocketSecurity(
-            socket.into_param().abi(),
-            ::core::mem::transmute(securityquerytemplate),
-            ::core::mem::transmute(securityquerytemplatelen),
-            ::core::mem::transmute(securityqueryinfo),
-            ::core::mem::transmute(securityqueryinfolen),
-            ::core::mem::transmute(overlapped),
-            ::core::mem::transmute(completionroutine),
-        ))
+        ::core::mem::transmute(WSAQuerySocketSecurity(socket.into_param().abi(), ::core::mem::transmute(securityquerytemplate), ::core::mem::transmute(securityquerytemplatelen), ::core::mem::transmute(securityqueryinfo), ::core::mem::transmute(securityqueryinfolen), ::core::mem::transmute(overlapped), ::core::mem::transmute(completionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSARecv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSARecv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9856,24 +9387,14 @@ pub unsafe fn WSARecvEx<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: P
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSARecvFrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSARecvFrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSARecvFrom(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSARecvFrom(
-            s.into_param().abi(),
-            ::core::mem::transmute(lpbuffers),
-            ::core::mem::transmute(dwbuffercount),
-            ::core::mem::transmute(lpnumberofbytesrecvd),
-            ::core::mem::transmute(lpflags),
-            ::core::mem::transmute(lpfrom),
-            ::core::mem::transmute(lpfromlen),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-        ))
+        ::core::mem::transmute(WSARecvFrom(s.into_param().abi(), ::core::mem::transmute(lpbuffers), ::core::mem::transmute(dwbuffercount), ::core::mem::transmute(lpnumberofbytesrecvd), ::core::mem::transmute(lpflags), ::core::mem::transmute(lpfrom), ::core::mem::transmute(lpfromlen), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9918,7 +9439,7 @@ pub unsafe fn WSARevertImpersonation() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSASENDMSG {
@@ -9926,7 +9447,7 @@ pub struct WSASENDMSG {
     pub dwFlags: u32,
     pub lpNumberOfBytesSent: *mut u32,
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
-    pub lpCompletionRoutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
+    pub lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSASENDMSG {}
@@ -9952,7 +9473,7 @@ impl ::core::cmp::PartialEq for WSASENDMSG {
 impl ::core::cmp::Eq for WSASENDMSG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSASENDMSG {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -10027,7 +9548,7 @@ unsafe impl ::windows::core::Abi for WSASERVICECLASSINFOW {
 pub const WSASYS_STATUS_LEN: u32 = 128u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSASend<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSASend<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10055,7 +9576,7 @@ pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::core::IntoParam<'a, SOCKE
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSASendMsg<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(handle: Param0, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSASendMsg<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(handle: Param0, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10069,36 +9590,26 @@ pub unsafe fn WSASendMsg<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(han
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSASendTo<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSASendTo<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSASendTo(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSASendTo(
-            s.into_param().abi(),
-            ::core::mem::transmute(lpbuffers),
-            ::core::mem::transmute(dwbuffercount),
-            ::core::mem::transmute(lpnumberofbytessent),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(lpto),
-            ::core::mem::transmute(itolen),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-        ))
+        ::core::mem::transmute(WSASendTo(s.into_param().abi(), ::core::mem::transmute(lpbuffers), ::core::mem::transmute(dwbuffercount), ::core::mem::transmute(lpnumberofbytessent), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpto), ::core::mem::transmute(itolen), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSASetBlockingHook(lpblockfunc: ::core::option::Option<super::super::Foundation::FARPROC>) -> ::core::option::Option<super::super::Foundation::FARPROC> {
+pub unsafe fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC) -> super::super::Foundation::FARPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSASetBlockingHook(lpblockfunc: ::windows::core::RawPtr) -> ::core::option::Option<super::super::Foundation::FARPROC>;
+            fn WSASetBlockingHook(lpblockfunc: ::windows::core::RawPtr) -> super::super::Foundation::FARPROC;
         }
         ::core::mem::transmute(WSASetBlockingHook(::core::mem::transmute(lpblockfunc)))
     }
@@ -10162,7 +9673,7 @@ pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSA
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10176,7 +9687,7 @@ pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
+pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(socket: Param0, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10791,34 +10302,14 @@ pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::core::IntoParam<'a,
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    lpproviderid: *const ::windows::core::GUID,
-    lpszproviderdllpath: Param1,
-    lpszproviderdllpath32: Param2,
-    lpszlspname: Param3,
-    dwserviceflags: u32,
-    lpprotocolinfolist: *mut WSAPROTOCOL_INFOW,
-    dwnumberofentries: u32,
-    lpdwcatalogentryid: *mut u32,
-    lperrno: *mut i32,
-) -> i32 {
+pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpszproviderdllpath32: Param2, lpszlspname: Param3, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSCInstallProviderAndChains64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpszproviderdllpath32: super::super::Foundation::PWSTR, lpszlspname: super::super::Foundation::PWSTR, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCInstallProviderAndChains64_32(
-            ::core::mem::transmute(lpproviderid),
-            lpszproviderdllpath.into_param().abi(),
-            lpszproviderdllpath32.into_param().abi(),
-            lpszlspname.into_param().abi(),
-            ::core::mem::transmute(dwserviceflags),
-            ::core::mem::transmute(lpprotocolinfolist),
-            ::core::mem::transmute(dwnumberofentries),
-            ::core::mem::transmute(lpdwcatalogentryid),
-            ::core::mem::transmute(lperrno),
-        ))
+        ::core::mem::transmute(WSCInstallProviderAndChains64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), lpszproviderdllpath32.into_param().abi(), lpszlspname.into_param().abi(), ::core::mem::transmute(dwserviceflags), ::core::mem::transmute(lpprotocolinfolist), ::core::mem::transmute(dwnumberofentries), ::core::mem::transmute(lpdwcatalogentryid), ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11042,40 +10533,40 @@ impl ::core::cmp::Eq for WSPData {}
 unsafe impl ::windows::core::Abi for WSPData {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 pub struct WSPPROC_TABLE {
-    pub lpWSPAccept: ::core::option::Option<LPWSPACCEPT>,
-    pub lpWSPAddressToString: ::core::option::Option<LPWSPADDRESSTOSTRING>,
-    pub lpWSPAsyncSelect: ::core::option::Option<LPWSPASYNCSELECT>,
-    pub lpWSPBind: ::core::option::Option<LPWSPBIND>,
-    pub lpWSPCancelBlockingCall: ::core::option::Option<LPWSPCANCELBLOCKINGCALL>,
-    pub lpWSPCleanup: ::core::option::Option<LPWSPCLEANUP>,
-    pub lpWSPCloseSocket: ::core::option::Option<LPWSPCLOSESOCKET>,
-    pub lpWSPConnect: ::core::option::Option<LPWSPCONNECT>,
-    pub lpWSPDuplicateSocket: ::core::option::Option<LPWSPDUPLICATESOCKET>,
-    pub lpWSPEnumNetworkEvents: ::core::option::Option<LPWSPENUMNETWORKEVENTS>,
-    pub lpWSPEventSelect: ::core::option::Option<LPWSPEVENTSELECT>,
-    pub lpWSPGetOverlappedResult: ::core::option::Option<LPWSPGETOVERLAPPEDRESULT>,
-    pub lpWSPGetPeerName: ::core::option::Option<LPWSPGETPEERNAME>,
-    pub lpWSPGetSockName: ::core::option::Option<LPWSPGETSOCKNAME>,
-    pub lpWSPGetSockOpt: ::core::option::Option<LPWSPGETSOCKOPT>,
-    pub lpWSPGetQOSByName: ::core::option::Option<LPWSPGETQOSBYNAME>,
-    pub lpWSPIoctl: ::core::option::Option<LPWSPIOCTL>,
-    pub lpWSPJoinLeaf: ::core::option::Option<LPWSPJOINLEAF>,
-    pub lpWSPListen: ::core::option::Option<LPWSPLISTEN>,
-    pub lpWSPRecv: ::core::option::Option<LPWSPRECV>,
-    pub lpWSPRecvDisconnect: ::core::option::Option<LPWSPRECVDISCONNECT>,
-    pub lpWSPRecvFrom: ::core::option::Option<LPWSPRECVFROM>,
-    pub lpWSPSelect: ::core::option::Option<LPWSPSELECT>,
-    pub lpWSPSend: ::core::option::Option<LPWSPSEND>,
-    pub lpWSPSendDisconnect: ::core::option::Option<LPWSPSENDDISCONNECT>,
-    pub lpWSPSendTo: ::core::option::Option<LPWSPSENDTO>,
-    pub lpWSPSetSockOpt: ::core::option::Option<LPWSPSETSOCKOPT>,
-    pub lpWSPShutdown: ::core::option::Option<LPWSPSHUTDOWN>,
-    pub lpWSPSocket: ::core::option::Option<LPWSPSOCKET>,
-    pub lpWSPStringToAddress: ::core::option::Option<LPWSPSTRINGTOADDRESS>,
+    pub lpWSPAccept: LPWSPACCEPT,
+    pub lpWSPAddressToString: LPWSPADDRESSTOSTRING,
+    pub lpWSPAsyncSelect: LPWSPASYNCSELECT,
+    pub lpWSPBind: LPWSPBIND,
+    pub lpWSPCancelBlockingCall: LPWSPCANCELBLOCKINGCALL,
+    pub lpWSPCleanup: LPWSPCLEANUP,
+    pub lpWSPCloseSocket: LPWSPCLOSESOCKET,
+    pub lpWSPConnect: LPWSPCONNECT,
+    pub lpWSPDuplicateSocket: LPWSPDUPLICATESOCKET,
+    pub lpWSPEnumNetworkEvents: LPWSPENUMNETWORKEVENTS,
+    pub lpWSPEventSelect: LPWSPEVENTSELECT,
+    pub lpWSPGetOverlappedResult: LPWSPGETOVERLAPPEDRESULT,
+    pub lpWSPGetPeerName: LPWSPGETPEERNAME,
+    pub lpWSPGetSockName: LPWSPGETSOCKNAME,
+    pub lpWSPGetSockOpt: LPWSPGETSOCKOPT,
+    pub lpWSPGetQOSByName: LPWSPGETQOSBYNAME,
+    pub lpWSPIoctl: LPWSPIOCTL,
+    pub lpWSPJoinLeaf: LPWSPJOINLEAF,
+    pub lpWSPListen: LPWSPLISTEN,
+    pub lpWSPRecv: LPWSPRECV,
+    pub lpWSPRecvDisconnect: LPWSPRECVDISCONNECT,
+    pub lpWSPRecvFrom: LPWSPRECVFROM,
+    pub lpWSPSelect: LPWSPSELECT,
+    pub lpWSPSend: LPWSPSEND,
+    pub lpWSPSendDisconnect: LPWSPSENDDISCONNECT,
+    pub lpWSPSendTo: LPWSPSENDTO,
+    pub lpWSPSetSockOpt: LPWSPSETSOCKOPT,
+    pub lpWSPShutdown: LPWSPSHUTDOWN,
+    pub lpWSPSocket: LPWSPSOCKET,
+    pub lpWSPStringToAddress: LPWSPSTRINGTOADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 impl WSPPROC_TABLE {}
@@ -11130,27 +10621,27 @@ impl ::core::cmp::PartialEq for WSPPROC_TABLE {
 impl ::core::cmp::Eq for WSPPROC_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WSPPROC_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSPUPCALLTABLE {
-    pub lpWPUCloseEvent: ::core::option::Option<LPWPUCLOSEEVENT>,
-    pub lpWPUCloseSocketHandle: ::core::option::Option<LPWPUCLOSESOCKETHANDLE>,
-    pub lpWPUCreateEvent: ::core::option::Option<LPWPUCREATEEVENT>,
-    pub lpWPUCreateSocketHandle: ::core::option::Option<LPWPUCREATESOCKETHANDLE>,
-    pub lpWPUFDIsSet: ::core::option::Option<LPWPUFDISSET>,
-    pub lpWPUGetProviderPath: ::core::option::Option<LPWPUGETPROVIDERPATH>,
-    pub lpWPUModifyIFSHandle: ::core::option::Option<LPWPUMODIFYIFSHANDLE>,
-    pub lpWPUPostMessage: ::core::option::Option<LPWPUPOSTMESSAGE>,
-    pub lpWPUQueryBlockingCallback: ::core::option::Option<LPWPUQUERYBLOCKINGCALLBACK>,
-    pub lpWPUQuerySocketHandleContext: ::core::option::Option<LPWPUQUERYSOCKETHANDLECONTEXT>,
-    pub lpWPUQueueApc: ::core::option::Option<LPWPUQUEUEAPC>,
-    pub lpWPUResetEvent: ::core::option::Option<LPWPURESETEVENT>,
-    pub lpWPUSetEvent: ::core::option::Option<LPWPUSETEVENT>,
-    pub lpWPUOpenCurrentThread: ::core::option::Option<LPWPUOPENCURRENTTHREAD>,
-    pub lpWPUCloseThread: ::core::option::Option<LPWPUCLOSETHREAD>,
+    pub lpWPUCloseEvent: LPWPUCLOSEEVENT,
+    pub lpWPUCloseSocketHandle: LPWPUCLOSESOCKETHANDLE,
+    pub lpWPUCreateEvent: LPWPUCREATEEVENT,
+    pub lpWPUCreateSocketHandle: LPWPUCREATESOCKETHANDLE,
+    pub lpWPUFDIsSet: LPWPUFDISSET,
+    pub lpWPUGetProviderPath: LPWPUGETPROVIDERPATH,
+    pub lpWPUModifyIFSHandle: LPWPUMODIFYIFSHANDLE,
+    pub lpWPUPostMessage: LPWPUPOSTMESSAGE,
+    pub lpWPUQueryBlockingCallback: LPWPUQUERYBLOCKINGCALLBACK,
+    pub lpWPUQuerySocketHandleContext: LPWPUQUERYSOCKETHANDLECONTEXT,
+    pub lpWPUQueueApc: LPWPUQUEUEAPC,
+    pub lpWPUResetEvent: LPWPURESETEVENT,
+    pub lpWPUSetEvent: LPWPUSETEVENT,
+    pub lpWPUOpenCurrentThread: LPWPUOPENCURRENTTHREAD,
+    pub lpWPUCloseThread: LPWPUCLOSETHREAD,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSPUPCALLTABLE {}
@@ -11190,7 +10681,7 @@ impl ::core::cmp::PartialEq for WSPUPCALLTABLE {
 impl ::core::cmp::Eq for WSPUPCALLTABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSPUPCALLTABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const WSS_OPERATION_IN_PROGRESS: i32 = 259i32;
 pub const XP1_CONNECTIONLESS: u32 = 1u32;
@@ -11279,16 +10770,7 @@ impl ::core::default::Default for addrinfoW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for addrinfoW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("addrinfoW")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_next", &self.ai_next)
-            .finish()
+        fmt.debug_struct("addrinfoW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_next", &self.ai_next).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11526,20 +11008,7 @@ impl ::core::fmt::Debug for addrinfoex3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for addrinfoex3 {
     fn eq(&self, other: &Self) -> bool {
-        self.ai_flags == other.ai_flags
-            && self.ai_family == other.ai_family
-            && self.ai_socktype == other.ai_socktype
-            && self.ai_protocol == other.ai_protocol
-            && self.ai_addrlen == other.ai_addrlen
-            && self.ai_canonname == other.ai_canonname
-            && self.ai_addr == other.ai_addr
-            && self.ai_blob == other.ai_blob
-            && self.ai_bloblen == other.ai_bloblen
-            && self.ai_provider == other.ai_provider
-            && self.ai_next == other.ai_next
-            && self.ai_version == other.ai_version
-            && self.ai_fqdn == other.ai_fqdn
-            && self.ai_interfaceindex == other.ai_interfaceindex
+        self.ai_flags == other.ai_flags && self.ai_family == other.ai_family && self.ai_socktype == other.ai_socktype && self.ai_protocol == other.ai_protocol && self.ai_addrlen == other.ai_addrlen && self.ai_canonname == other.ai_canonname && self.ai_addr == other.ai_addr && self.ai_blob == other.ai_blob && self.ai_bloblen == other.ai_bloblen && self.ai_provider == other.ai_provider && self.ai_next == other.ai_next && self.ai_version == other.ai_version && self.ai_fqdn == other.ai_fqdn && self.ai_interfaceindex == other.ai_interfaceindex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11601,21 +11070,7 @@ impl ::core::fmt::Debug for addrinfoex4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for addrinfoex4 {
     fn eq(&self, other: &Self) -> bool {
-        self.ai_flags == other.ai_flags
-            && self.ai_family == other.ai_family
-            && self.ai_socktype == other.ai_socktype
-            && self.ai_protocol == other.ai_protocol
-            && self.ai_addrlen == other.ai_addrlen
-            && self.ai_canonname == other.ai_canonname
-            && self.ai_addr == other.ai_addr
-            && self.ai_blob == other.ai_blob
-            && self.ai_bloblen == other.ai_bloblen
-            && self.ai_provider == other.ai_provider
-            && self.ai_next == other.ai_next
-            && self.ai_version == other.ai_version
-            && self.ai_fqdn == other.ai_fqdn
-            && self.ai_interfaceindex == other.ai_interfaceindex
-            && self.ai_resolutionhandle == other.ai_resolutionhandle
+        self.ai_flags == other.ai_flags && self.ai_family == other.ai_family && self.ai_socktype == other.ai_socktype && self.ai_protocol == other.ai_protocol && self.ai_addrlen == other.ai_addrlen && self.ai_canonname == other.ai_canonname && self.ai_addr == other.ai_addr && self.ai_blob == other.ai_blob && self.ai_bloblen == other.ai_bloblen && self.ai_provider == other.ai_provider && self.ai_next == other.ai_next && self.ai_version == other.ai_version && self.ai_fqdn == other.ai_fqdn && self.ai_interfaceindex == other.ai_interfaceindex && self.ai_resolutionhandle == other.ai_resolutionhandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11679,22 +11134,7 @@ impl ::core::fmt::Debug for addrinfoex5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for addrinfoex5 {
     fn eq(&self, other: &Self) -> bool {
-        self.ai_flags == other.ai_flags
-            && self.ai_family == other.ai_family
-            && self.ai_socktype == other.ai_socktype
-            && self.ai_protocol == other.ai_protocol
-            && self.ai_addrlen == other.ai_addrlen
-            && self.ai_canonname == other.ai_canonname
-            && self.ai_addr == other.ai_addr
-            && self.ai_blob == other.ai_blob
-            && self.ai_bloblen == other.ai_bloblen
-            && self.ai_provider == other.ai_provider
-            && self.ai_next == other.ai_next
-            && self.ai_version == other.ai_version
-            && self.ai_fqdn == other.ai_fqdn
-            && self.ai_interfaceindex == other.ai_interfaceindex
-            && self.ai_resolutionhandle == other.ai_resolutionhandle
-            && self.ai_ttl == other.ai_ttl
+        self.ai_flags == other.ai_flags && self.ai_family == other.ai_family && self.ai_socktype == other.ai_socktype && self.ai_protocol == other.ai_protocol && self.ai_addrlen == other.ai_addrlen && self.ai_canonname == other.ai_canonname && self.ai_addr == other.ai_addr && self.ai_blob == other.ai_blob && self.ai_bloblen == other.ai_bloblen && self.ai_provider == other.ai_provider && self.ai_next == other.ai_next && self.ai_version == other.ai_version && self.ai_fqdn == other.ai_fqdn && self.ai_interfaceindex == other.ai_interfaceindex && self.ai_resolutionhandle == other.ai_resolutionhandle && self.ai_ttl == other.ai_ttl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11764,25 +11204,7 @@ impl ::core::fmt::Debug for addrinfoex6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for addrinfoex6 {
     fn eq(&self, other: &Self) -> bool {
-        self.ai_flags == other.ai_flags
-            && self.ai_family == other.ai_family
-            && self.ai_socktype == other.ai_socktype
-            && self.ai_protocol == other.ai_protocol
-            && self.ai_addrlen == other.ai_addrlen
-            && self.ai_canonname == other.ai_canonname
-            && self.ai_addr == other.ai_addr
-            && self.ai_blob == other.ai_blob
-            && self.ai_bloblen == other.ai_bloblen
-            && self.ai_provider == other.ai_provider
-            && self.ai_next == other.ai_next
-            && self.ai_version == other.ai_version
-            && self.ai_fqdn == other.ai_fqdn
-            && self.ai_interfaceindex == other.ai_interfaceindex
-            && self.ai_resolutionhandle == other.ai_resolutionhandle
-            && self.ai_ttl == other.ai_ttl
-            && self.ai_numservers == other.ai_numservers
-            && self.ai_servers == other.ai_servers
-            && self.ai_responseflags == other.ai_responseflags
+        self.ai_flags == other.ai_flags && self.ai_family == other.ai_family && self.ai_socktype == other.ai_socktype && self.ai_protocol == other.ai_protocol && self.ai_addrlen == other.ai_addrlen && self.ai_canonname == other.ai_canonname && self.ai_addr == other.ai_addr && self.ai_blob == other.ai_blob && self.ai_bloblen == other.ai_bloblen && self.ai_provider == other.ai_provider && self.ai_next == other.ai_next && self.ai_version == other.ai_version && self.ai_fqdn == other.ai_fqdn && self.ai_interfaceindex == other.ai_interfaceindex && self.ai_resolutionhandle == other.ai_resolutionhandle && self.ai_ttl == other.ai_ttl && self.ai_numservers == other.ai_numservers && self.ai_servers == other.ai_servers && self.ai_responseflags == other.ai_responseflags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11818,19 +11240,7 @@ impl ::core::default::Default for addrinfoexA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for addrinfoexA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("addrinfoexA")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .finish()
+        fmt.debug_struct("addrinfoexA").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11872,19 +11282,7 @@ impl ::core::default::Default for addrinfoexW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for addrinfoexW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("addrinfoexW")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .finish()
+        fmt.debug_struct("addrinfoexW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

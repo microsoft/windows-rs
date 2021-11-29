@@ -12,12 +12,7 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
-pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4012177033,
-    data2: 5368,
-    data3: 19858,
-    data4: [180, 175, 215, 177, 240, 231, 15, 212],
-};
+pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4012177033, data2: 5368, data3: 19858, data4: [180, 175, 215, 177, 240, 231, 15, 212] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {

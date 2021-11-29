@@ -383,17 +383,7 @@ impl ::core::default::Default for CONSOLE_SCREEN_BUFFER_INFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFOEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX")
-            .field("cbSize", &self.cbSize)
-            .field("dwSize", &self.dwSize)
-            .field("dwCursorPosition", &self.dwCursorPosition)
-            .field("wAttributes", &self.wAttributes)
-            .field("srWindow", &self.srWindow)
-            .field("dwMaximumWindowSize", &self.dwMaximumWindowSize)
-            .field("wPopupAttributes", &self.wPopupAttributes)
-            .field("bFullscreenSupported", &self.bFullscreenSupported)
-            .field("ColorTable", &self.ColorTable)
-            .finish()
+        fmt.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX").field("cbSize", &self.cbSize).field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).field("wPopupAttributes", &self.wPopupAttributes).field("bFullscreenSupported", &self.bFullscreenSupported).field("ColorTable", &self.ColorTable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1364,7 +1354,7 @@ pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 pub const NUMLOCK_ON: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PHANDLER_ROUTINE = unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL;
+pub type PHANDLER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1666,7 +1656,7 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetConsoleCtrlHandler<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(handlerroutine: ::core::option::Option<PHANDLER_ROUTINE>, add: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SetConsoleCtrlHandler<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(handlerroutine: PHANDLER_ROUTINE, add: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

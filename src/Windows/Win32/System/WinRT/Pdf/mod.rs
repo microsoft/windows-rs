@@ -84,7 +84,7 @@ unsafe impl ::windows::core::Abi for PDF_RENDER_PARAMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-pub type PFN_PDF_CREATE_RENDERER = unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn PdfCreateRenderer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(pdevice: Param0) -> ::windows::core::Result<IPdfRendererNative> {

@@ -151,15 +151,7 @@ impl ::core::default::Default for RM_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RM_PROCESS_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RM_PROCESS_INFO")
-            .field("Process", &self.Process)
-            .field("strAppName", &self.strAppName)
-            .field("strServiceShortName", &self.strServiceShortName)
-            .field("ApplicationType", &self.ApplicationType)
-            .field("AppStatus", &self.AppStatus)
-            .field("TSSessionId", &self.TSSessionId)
-            .field("bRestartable", &self.bRestartable)
-            .finish()
+        fmt.debug_struct("RM_PROCESS_INFO").field("Process", &self.Process).field("strAppName", &self.strAppName).field("strServiceShortName", &self.strServiceShortName).field("ApplicationType", &self.ApplicationType).field("AppStatus", &self.AppStatus).field("TSSessionId", &self.TSSessionId).field("bRestartable", &self.bRestartable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -237,7 +229,7 @@ impl ::core::cmp::Eq for RM_UNIQUE_PROCESS {}
 unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
     type Abi = Self;
 }
-pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);
+pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RmAddFilter<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3, filteraction: RM_FILTER_ACTION) -> u32 {
@@ -348,7 +340,7 @@ pub unsafe fn RmRemoveFilter<'a, Param1: ::windows::core::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::core::option::Option<RM_WRITE_STATUS_CALLBACK>) -> u32 {
+pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -361,7 +353,7 @@ pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::c
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::core::option::Option<RM_WRITE_STATUS_CALLBACK>) -> u32 {
+pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

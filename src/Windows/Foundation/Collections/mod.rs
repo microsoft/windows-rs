@@ -1755,11 +1755,7 @@ where
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
     pub fn new<F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = MapChangedEventHandler_box::<K, V, F> {
-            vtable: &MapChangedEventHandler_box::<K, V, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = MapChangedEventHandler_box::<K, V, F> { vtable: &MapChangedEventHandler_box::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IObservableMap<K, V>>, Param1: ::windows::core::IntoParam<'a, IMapChangedEventArgs<K>>>(&self, sender: Param0, event: Param1) -> ::windows::core::Result<()> {
@@ -1801,13 +1797,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     const VTABLE: MapChangedEventHandler_abi<K, V> = MapChangedEventHandler_abi::<K, V>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<MapChangedEventHandler<K, V> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<MapChangedEventHandler<K, V> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1827,11 +1819,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, event: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <IObservableMap<K, V> as ::windows::core::Abi>::Abi as *const <IObservableMap<K, V> as ::windows::core::DefaultType>::DefaultType),
-            &*(&event as *const <IMapChangedEventArgs<K> as ::windows::core::Abi>::Abi as *const <IMapChangedEventArgs<K> as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <IObservableMap<K, V> as ::windows::core::Abi>::Abi as *const <IObservableMap<K, V> as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <IMapChangedEventArgs<K> as ::windows::core::Abi>::Abi as *const <IMapChangedEventArgs<K> as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -2500,11 +2488,7 @@ where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     pub fn new<F: FnMut(&::core::option::Option<IObservableVector<T>>, &::core::option::Option<IVectorChangedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = VectorChangedEventHandler_box::<T, F> {
-            vtable: &VectorChangedEventHandler_box::<T, F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = VectorChangedEventHandler_box::<T, F> { vtable: &VectorChangedEventHandler_box::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IObservableVector<T>>, Param1: ::windows::core::IntoParam<'a, IVectorChangedEventArgs>>(&self, sender: Param0, event: Param1) -> ::windows::core::Result<()> {
@@ -2543,13 +2527,9 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
     const VTABLE: VectorChangedEventHandler_abi<T> = VectorChangedEventHandler_abi::<T>(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke, ::core::marker::PhantomData::<T>);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<VectorChangedEventHandler<T> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<VectorChangedEventHandler<T> as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -2569,10 +2549,6 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, event: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <IObservableVector<T> as ::windows::core::Abi>::Abi as *const <IObservableVector<T> as ::windows::core::DefaultType>::DefaultType),
-            &*(&event as *const <IVectorChangedEventArgs as ::windows::core::Abi>::Abi as *const <IVectorChangedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <IObservableVector<T> as ::windows::core::Abi>::Abi as *const <IObservableVector<T> as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <IVectorChangedEventArgs as ::windows::core::Abi>::Abi as *const <IVectorChangedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }

@@ -683,22 +683,7 @@ impl ::core::fmt::Debug for COLORINFO {
 }
 impl ::core::cmp::PartialEq for COLORINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Red == other.Red
-            && self.Green == other.Green
-            && self.Blue == other.Blue
-            && self.Cyan == other.Cyan
-            && self.Magenta == other.Magenta
-            && self.Yellow == other.Yellow
-            && self.AlignmentWhite == other.AlignmentWhite
-            && self.RedGamma == other.RedGamma
-            && self.GreenGamma == other.GreenGamma
-            && self.BlueGamma == other.BlueGamma
-            && self.MagentaInCyanDye == other.MagentaInCyanDye
-            && self.YellowInCyanDye == other.YellowInCyanDye
-            && self.CyanInMagentaDye == other.CyanInMagentaDye
-            && self.YellowInMagentaDye == other.YellowInMagentaDye
-            && self.CyanInYellowDye == other.CyanInYellowDye
-            && self.MagentaInYellowDye == other.MagentaInYellowDye
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue && self.Cyan == other.Cyan && self.Magenta == other.Magenta && self.Yellow == other.Yellow && self.AlignmentWhite == other.AlignmentWhite && self.RedGamma == other.RedGamma && self.GreenGamma == other.GreenGamma && self.BlueGamma == other.BlueGamma && self.MagentaInCyanDye == other.MagentaInCyanDye && self.YellowInCyanDye == other.YellowInCyanDye && self.CyanInMagentaDye == other.CyanInMagentaDye && self.YellowInMagentaDye == other.YellowInMagentaDye && self.CyanInYellowDye == other.CyanInYellowDye && self.MagentaInYellowDye == other.MagentaInYellowDye
     }
 }
 impl ::core::cmp::Eq for COLORINFO {}
@@ -990,14 +975,7 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_MATRIX_V2 {
 }
 impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COLORSPACE_TRANSFORM_MATRIX_V2")
-            .field("StageControlLookupTable1DDegamma", &self.StageControlLookupTable1DDegamma)
-            .field("LookupTable1DDegamma", &self.LookupTable1DDegamma)
-            .field("StageControlColorMatrix3x3", &self.StageControlColorMatrix3x3)
-            .field("ColorMatrix3x3", &self.ColorMatrix3x3)
-            .field("StageControlLookupTable1DRegamma", &self.StageControlLookupTable1DRegamma)
-            .field("LookupTable1DRegamma", &self.LookupTable1DRegamma)
-            .finish()
+        fmt.debug_struct("COLORSPACE_TRANSFORM_MATRIX_V2").field("StageControlLookupTable1DDegamma", &self.StageControlLookupTable1DDegamma).field("LookupTable1DDegamma", &self.LookupTable1DDegamma).field("StageControlColorMatrix3x3", &self.StageControlColorMatrix3x3).field("ColorMatrix3x3", &self.ColorMatrix3x3).field("StageControlLookupTable1DRegamma", &self.StageControlLookupTable1DRegamma).field("LookupTable1DRegamma", &self.LookupTable1DRegamma).finish()
     }
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_V2 {
@@ -1211,18 +1189,7 @@ impl ::core::default::Default for DEVINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for DEVINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVINFO")
-            .field("flGraphicsCaps", &self.flGraphicsCaps)
-            .field("lfDefaultFont", &self.lfDefaultFont)
-            .field("lfAnsiVarFont", &self.lfAnsiVarFont)
-            .field("lfAnsiFixFont", &self.lfAnsiFixFont)
-            .field("cFonts", &self.cFonts)
-            .field("iDitherFormat", &self.iDitherFormat)
-            .field("cxDither", &self.cxDither)
-            .field("cyDither", &self.cyDither)
-            .field("hpalDefault", &self.hpalDefault)
-            .field("flGraphicsCaps2", &self.flGraphicsCaps2)
-            .finish()
+        fmt.debug_struct("DEVINFO").field("flGraphicsCaps", &self.flGraphicsCaps).field("lfDefaultFont", &self.lfDefaultFont).field("lfAnsiVarFont", &self.lfAnsiVarFont).field("lfAnsiFixFont", &self.lfAnsiFixFont).field("cFonts", &self.cFonts).field("iDitherFormat", &self.iDitherFormat).field("cxDither", &self.cxDither).field("cyDither", &self.cyDither).field("hpalDefault", &self.hpalDefault).field("flGraphicsCaps2", &self.flGraphicsCaps2).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2796,12 +2763,12 @@ impl ::core::cmp::Eq for DRH_APIBITMAPDATA {}
 unsafe impl ::windows::core::Abi for DRH_APIBITMAPDATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRIVEROBJ {
     pub pvObj: *mut ::core::ffi::c_void,
-    pub pFreeProc: ::core::option::Option<FREEOBJPROC>,
+    pub pFreeProc: FREEOBJPROC,
     pub hdev: HDEV,
     pub dhpdev: DHPDEV,
 }
@@ -2829,7 +2796,7 @@ impl ::core::cmp::PartialEq for DRIVEROBJ {
 impl ::core::cmp::Eq for DRIVEROBJ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVEROBJ {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2858,11 +2825,11 @@ impl ::core::cmp::Eq for DRVENABLEDATA {}
 unsafe impl ::windows::core::Abi for DRVENABLEDATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRVFN {
     pub iFunc: u32,
-    pub pfn: ::core::option::Option<PFN>,
+    pub pfn: PFN,
 }
 impl DRVFN {}
 impl ::core::default::Default for DRVFN {
@@ -2882,7 +2849,7 @@ impl ::core::cmp::PartialEq for DRVFN {
 }
 impl ::core::cmp::Eq for DRVFN {}
 unsafe impl ::windows::core::Abi for DRVFN {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DRVQUERY_USERMODE: u32 = 1u32;
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
@@ -3222,16 +3189,7 @@ impl ::core::default::Default for ENG_TIME_FIELDS {
 }
 impl ::core::fmt::Debug for ENG_TIME_FIELDS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENG_TIME_FIELDS")
-            .field("usYear", &self.usYear)
-            .field("usMonth", &self.usMonth)
-            .field("usDay", &self.usDay)
-            .field("usHour", &self.usHour)
-            .field("usMinute", &self.usMinute)
-            .field("usSecond", &self.usSecond)
-            .field("usMilliseconds", &self.usMilliseconds)
-            .field("usWeekday", &self.usWeekday)
-            .finish()
+        fmt.debug_struct("ENG_TIME_FIELDS").field("usYear", &self.usYear).field("usMonth", &self.usMonth).field("usDay", &self.usDay).field("usHour", &self.usHour).field("usMinute", &self.usMinute).field("usSecond", &self.usSecond).field("usMilliseconds", &self.usMilliseconds).field("usWeekday", &self.usWeekday).finish()
     }
 }
 impl ::core::cmp::PartialEq for ENG_TIME_FIELDS {
@@ -3326,19 +3284,7 @@ pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask:
         extern "system" {
             fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngBitBlt(
-            ::core::mem::transmute(psotrg),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomask),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(prcltrg),
-            ::core::mem::transmute(pptlsrc),
-            ::core::mem::transmute(pptlmask),
-            ::core::mem::transmute(pbo),
-            ::core::mem::transmute(pptlbrush),
-            ::core::mem::transmute(rop4),
-        ))
+        ::core::mem::transmute(EngBitBlt(::core::mem::transmute(psotrg), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomask), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(prcltrg), ::core::mem::transmute(pptlsrc), ::core::mem::transmute(pptlmask), ::core::mem::transmute(pbo), ::core::mem::transmute(pptlbrush), ::core::mem::transmute(rop4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3641,18 +3587,7 @@ pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *m
         extern "system" {
             fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::core::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngGradientFill(
-            ::core::mem::transmute(psodest),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pvertex),
-            ::core::mem::transmute(nvertex),
-            ::core::mem::transmute(pmesh),
-            ::core::mem::transmute(nmesh),
-            ::core::mem::transmute(prclextents),
-            ::core::mem::transmute(pptlditherorg),
-            ::core::mem::transmute(ulmode),
-        ))
+        ::core::mem::transmute(EngGradientFill(::core::mem::transmute(psodest), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pvertex), ::core::mem::transmute(nvertex), ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ::core::mem::transmute(prclextents), ::core::mem::transmute(pptlditherorg), ::core::mem::transmute(ulmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3764,19 +3699,7 @@ pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut
         extern "system" {
             fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngPlgBlt(
-            ::core::mem::transmute(psotrg),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomsk),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pca),
-            ::core::mem::transmute(pptlbrushorg),
-            ::core::mem::transmute(pptfx),
-            ::core::mem::transmute(prcl),
-            ::core::mem::transmute(pptl),
-            ::core::mem::transmute(imode),
-        ))
+        ::core::mem::transmute(EngPlgBlt(::core::mem::transmute(psotrg), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomsk), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pca), ::core::mem::transmute(pptlbrushorg), ::core::mem::transmute(pptfx), ::core::mem::transmute(prcl), ::core::mem::transmute(pptl), ::core::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3830,19 +3753,7 @@ pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask
         extern "system" {
             fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngStretchBlt(
-            ::core::mem::transmute(psodest),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomask),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pca),
-            ::core::mem::transmute(pptlhtorg),
-            ::core::mem::transmute(prcldest),
-            ::core::mem::transmute(prclsrc),
-            ::core::mem::transmute(pptlmask),
-            ::core::mem::transmute(imode),
-        ))
+        ::core::mem::transmute(EngStretchBlt(::core::mem::transmute(psodest), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomask), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pca), ::core::mem::transmute(pptlhtorg), ::core::mem::transmute(prcldest), ::core::mem::transmute(prclsrc), ::core::mem::transmute(pptlmask), ::core::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3856,21 +3767,7 @@ pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psom
         extern "system" {
             fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngStretchBltROP(
-            ::core::mem::transmute(psodest),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomask),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pca),
-            ::core::mem::transmute(pptlhtorg),
-            ::core::mem::transmute(prcldest),
-            ::core::mem::transmute(prclsrc),
-            ::core::mem::transmute(pptlmask),
-            ::core::mem::transmute(imode),
-            ::core::mem::transmute(pbo),
-            ::core::mem::transmute(rop4),
-        ))
+        ::core::mem::transmute(EngStretchBltROP(::core::mem::transmute(psodest), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomask), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pca), ::core::mem::transmute(pptlhtorg), ::core::mem::transmute(prcldest), ::core::mem::transmute(prclsrc), ::core::mem::transmute(pptlmask), ::core::mem::transmute(imode), ::core::mem::transmute(pbo), ::core::mem::transmute(rop4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3884,18 +3781,7 @@ pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *m
         extern "system" {
             fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngStrokeAndFillPath(
-            ::core::mem::transmute(pso),
-            ::core::mem::transmute(ppo),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxo),
-            ::core::mem::transmute(pbostroke),
-            ::core::mem::transmute(plineattrs),
-            ::core::mem::transmute(pbofill),
-            ::core::mem::transmute(pptlbrushorg),
-            ::core::mem::transmute(mixfill),
-            ::core::mem::transmute(floptions),
-        ))
+        ::core::mem::transmute(EngStrokeAndFillPath(::core::mem::transmute(pso), ::core::mem::transmute(ppo), ::core::mem::transmute(pco), ::core::mem::transmute(pxo), ::core::mem::transmute(pbostroke), ::core::mem::transmute(plineattrs), ::core::mem::transmute(pbofill), ::core::mem::transmute(pptlbrushorg), ::core::mem::transmute(mixfill), ::core::mem::transmute(floptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3923,18 +3809,7 @@ pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOB
         extern "system" {
             fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngTextOut(
-            ::core::mem::transmute(pso),
-            ::core::mem::transmute(pstro),
-            ::core::mem::transmute(pfo),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(prclextra),
-            ::core::mem::transmute(prclopaque),
-            ::core::mem::transmute(pbofore),
-            ::core::mem::transmute(pboopaque),
-            ::core::mem::transmute(pptlorg),
-            ::core::mem::transmute(mix),
-        ))
+        ::core::mem::transmute(EngTextOut(::core::mem::transmute(pso), ::core::mem::transmute(pstro), ::core::mem::transmute(pfo), ::core::mem::transmute(pco), ::core::mem::transmute(prclextra), ::core::mem::transmute(prclopaque), ::core::mem::transmute(pbofore), ::core::mem::transmute(pboopaque), ::core::mem::transmute(pptlorg), ::core::mem::transmute(mix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4527,17 +4402,7 @@ impl ::core::default::Default for FONTDIFF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FONTDIFF {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FONTDIFF")
-            .field("jReserved1", &self.jReserved1)
-            .field("jReserved2", &self.jReserved2)
-            .field("jReserved3", &self.jReserved3)
-            .field("bWeight", &self.bWeight)
-            .field("usWinWeight", &self.usWinWeight)
-            .field("fsSelection", &self.fsSelection)
-            .field("fwdAveCharWidth", &self.fwdAveCharWidth)
-            .field("fwdMaxCharInc", &self.fwdMaxCharInc)
-            .field("ptlCaret", &self.ptlCaret)
-            .finish()
+        fmt.debug_struct("FONTDIFF").field("jReserved1", &self.jReserved1).field("jReserved2", &self.jReserved2).field("jReserved3", &self.jReserved3).field("bWeight", &self.bWeight).field("usWinWeight", &self.usWinWeight).field("fsSelection", &self.fsSelection).field("fwdAveCharWidth", &self.fwdAveCharWidth).field("fwdMaxCharInc", &self.fwdMaxCharInc).field("ptlCaret", &self.ptlCaret).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4571,15 +4436,7 @@ impl ::core::default::Default for FONTINFO {
 }
 impl ::core::fmt::Debug for FONTINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FONTINFO")
-            .field("cjThis", &self.cjThis)
-            .field("flCaps", &self.flCaps)
-            .field("cGlyphsSupported", &self.cGlyphsSupported)
-            .field("cjMaxGlyph1", &self.cjMaxGlyph1)
-            .field("cjMaxGlyph4", &self.cjMaxGlyph4)
-            .field("cjMaxGlyph8", &self.cjMaxGlyph8)
-            .field("cjMaxGlyph32", &self.cjMaxGlyph32)
-            .finish()
+        fmt.debug_struct("FONTINFO").field("cjThis", &self.cjThis).field("flCaps", &self.flCaps).field("cGlyphsSupported", &self.cGlyphsSupported).field("cjMaxGlyph1", &self.cjMaxGlyph1).field("cjMaxGlyph4", &self.cjMaxGlyph4).field("cjMaxGlyph8", &self.cjMaxGlyph8).field("cjMaxGlyph32", &self.cjMaxGlyph32).finish()
     }
 }
 impl ::core::cmp::PartialEq for FONTINFO {
@@ -4617,18 +4474,7 @@ impl ::core::default::Default for FONTOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FONTOBJ {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FONTOBJ")
-            .field("iUniq", &self.iUniq)
-            .field("iFace", &self.iFace)
-            .field("cxMax", &self.cxMax)
-            .field("flFontType", &self.flFontType)
-            .field("iTTUniq", &self.iTTUniq)
-            .field("iFile", &self.iFile)
-            .field("sizLogResPpi", &self.sizLogResPpi)
-            .field("ulStyleSize", &self.ulStyleSize)
-            .field("pvConsumer", &self.pvConsumer)
-            .field("pvProducer", &self.pvProducer)
-            .finish()
+        fmt.debug_struct("FONTOBJ").field("iUniq", &self.iUniq).field("iFace", &self.iFace).field("cxMax", &self.cxMax).field("flFontType", &self.flFontType).field("iTTUniq", &self.iTTUniq).field("iFile", &self.iFile).field("sizLogResPpi", &self.sizLogResPpi).field("ulStyleSize", &self.ulStyleSize).field("pvConsumer", &self.pvConsumer).field("pvProducer", &self.pvProducer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4840,7 +4686,7 @@ pub const FO_VERT_FACE: u32 = 8388608u32;
 pub const FP_ALTERNATEMODE: i32 = 1i32;
 pub const FP_WINDINGMODE: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut ::core::mem::ManuallyDrop<DRIVEROBJ>) -> super::super::Foundation::BOOL;
+pub type FREEOBJPROC = ::core::option::Option<unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -8051,178 +7897,178 @@ impl ::core::cmp::Eq for PERBANDINFO {}
 unsafe impl ::windows::core::Abi for PERBANDINFO {
     type Abi = Self;
 }
-pub type PFN = unsafe extern "system" fn() -> isize;
+pub type PFN = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvAccumulateD3DDirtyRect = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAccumulateD3DDirtyRect = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvAlphaBlend = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BLENDOBJ) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAlphaBlend = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BLENDOBJ) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvAssertMode = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAssertMode = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvAssociateSharedSurface = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAssociateSharedSurface = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvBitBlt = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::POINTL, param8: *mut BRUSHOBJ, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL;
-pub type PFN_DrvCompletePDEV = unsafe extern "system" fn(param0: DHPDEV, param1: HDEV);
+pub type PFN_DrvBitBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::POINTL, param8: *mut BRUSHOBJ, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvCompletePDEV = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: HDEV)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvCopyBits = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+pub type PFN_DrvCopyBits = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvCreateDeviceBitmap = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP;
+pub type PFN_DrvCreateDeviceBitmap = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvCreateDeviceBitmapEx = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP;
-pub type PFN_DrvDeleteDeviceBitmap = unsafe extern "system" fn(param0: DHSURF);
-pub type PFN_DrvDeleteDeviceBitmapEx = unsafe extern "system" fn(param0: DHSURF);
+pub type PFN_DrvCreateDeviceBitmapEx = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP>;
+pub type PFN_DrvDeleteDeviceBitmap = ::core::option::Option<unsafe extern "system" fn(param0: DHSURF)>;
+pub type PFN_DrvDeleteDeviceBitmapEx = ::core::option::Option<unsafe extern "system" fn(param0: DHSURF)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvDeriveSurface = unsafe extern "system" fn(param0: *mut super::super::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::Graphics::DirectDraw::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP;
+pub type PFN_DrvDeriveSurface = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::Graphics::DirectDraw::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP>;
 #[cfg(feature = "Win32_Graphics_OpenGL")]
-pub type PFN_DrvDescribePixelFormat = unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32;
+pub type PFN_DrvDescribePixelFormat = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvDestroyFont = unsafe extern "system" fn(param0: *mut FONTOBJ);
-pub type PFN_DrvDisableDirectDraw = unsafe extern "system" fn(param0: DHPDEV);
-pub type PFN_DrvDisableDriver = unsafe extern "system" fn();
-pub type PFN_DrvDisablePDEV = unsafe extern "system" fn(param0: DHPDEV);
-pub type PFN_DrvDisableSurface = unsafe extern "system" fn(param0: DHPDEV);
-pub type PFN_DrvDitherColor = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32;
+pub type PFN_DrvDestroyFont = ::core::option::Option<unsafe extern "system" fn(param0: *mut FONTOBJ)>;
+pub type PFN_DrvDisableDirectDraw = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDisableDriver = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PFN_DrvDisablePDEV = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDisableSurface = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV)>;
+pub type PFN_DrvDitherColor = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvDrawEscape = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::core::ffi::c_void) -> u32;
+pub type PFN_DrvDrawEscape = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_CALLBACKS>, param2: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_SURFACECALLBACKS>, param3: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_PALETTECALLBACKS>) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEnableDirectDraw = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_CALLBACKS, param2: *mut super::super::Graphics::DirectDraw::DD_SURFACECALLBACKS, param3: *mut super::super::Graphics::DirectDraw::DD_PALETTECALLBACKS) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvEnableDriver = unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEnableDriver = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut DRVENABLEDATA) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvEnablePDEV = unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut HSURF, param4: u32, param5: *mut GDIINFO, param6: u32, param7: *mut DEVINFO, param8: HDEV, param9: super::super::Foundation::PWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV;
-pub type PFN_DrvEnableSurface = unsafe extern "system" fn(param0: DHPDEV) -> HSURF;
+pub type PFN_DrvEnablePDEV = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut HSURF, param4: u32, param5: *mut GDIINFO, param6: u32, param7: *mut DEVINFO, param8: HDEV, param9: super::super::Foundation::PWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV>;
+pub type PFN_DrvEnableSurface = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV) -> HSURF>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvEndDoc = unsafe extern "system" fn(pso: *mut SURFOBJ, fl: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEndDoc = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ, fl: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvEndDxInterop = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEndDxInterop = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvEscape = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: u32, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut ::core::ffi::c_void) -> u32;
+pub type PFN_DrvEscape = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: u32, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvFillPath = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvFillPath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvFontManagement = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void) -> u32;
-pub type PFN_DrvFree = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize);
+pub type PFN_DrvFontManagement = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void) -> u32>;
+pub type PFN_DrvFree = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
-pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::mem::ManuallyDrop<super::super::Graphics::DirectDraw::DD_HALINFO>, param2: *mut u32, param3: *mut super::super::Graphics::DirectDraw::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvGetDirectDrawInfo = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Graphics::DirectDraw::DD_HALINFO, param2: *mut u32, param3: *mut super::super::Graphics::DirectDraw::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvGetGlyphMode = unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32;
+pub type PFN_DrvGetGlyphMode = ::core::option::Option<unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut FONTOBJ) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvGetModes = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32;
-pub type PFN_DrvGetTrueTypeFile = unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::core::ffi::c_void;
+pub type PFN_DrvGetModes = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32>;
+pub type PFN_DrvGetTrueTypeFile = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::core::ffi::c_void>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvGradientFill = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut ::core::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvGradientFill = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut ::core::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvIcmCheckBitmapBits = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL;
+pub type PFN_DrvIcmCheckBitmapBits = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
-pub type PFN_DrvIcmCreateColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE;
+pub type PFN_DrvIcmCreateColorTransform = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: *mut ::core::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvIcmDeleteColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+pub type PFN_DrvIcmDeleteColorTransform = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvIcmSetDeviceGammaRamp = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PFN_DrvIcmSetDeviceGammaRamp = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvLineTo = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvLineTo = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvLoadFontFile = unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize;
+pub type PFN_DrvLoadFontFile = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvLockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvLockDisplayArea = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvMovePointer = unsafe extern "system" fn(pso: *mut SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvMovePointer = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvNextBand = unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+pub type PFN_DrvNextBand = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvNotify = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut ::core::ffi::c_void);
+pub type PFN_DrvNotify = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvPaint = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvPaint = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CLIPOBJ, param2: *mut BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvPlgBlt = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut POINTFIX, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvPlgBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut POINTFIX, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryAdvanceWidths = unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: *mut u32, param4: *mut ::core::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvQueryAdvanceWidths = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: *mut u32, param4: *mut ::core::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryDeviceSupport = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut ::core::ffi::c_void, param6: u32, param7: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PFN_DrvQueryDeviceSupport = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut ::core::ffi::c_void, param6: u32, param7: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvQueryFont = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut IFIMETRICS;
-pub type PFN_DrvQueryFontCaps = unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32;
+pub type PFN_DrvQueryFont = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut IFIMETRICS>;
+pub type PFN_DrvQueryFontCaps = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryFontData = unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut GLYPHDATA, param5: *mut ::core::ffi::c_void, param6: u32) -> i32;
-pub type PFN_DrvQueryFontFile = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32;
-pub type PFN_DrvQueryFontTree = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut ::core::ffi::c_void;
+pub type PFN_DrvQueryFontData = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: u32, param4: *mut GLYPHDATA, param5: *mut ::core::ffi::c_void, param6: u32) -> i32>;
+pub type PFN_DrvQueryFontFile = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32>;
+pub type PFN_DrvQueryFontTree = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryGlyphAttrs = unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR;
+pub type PFN_DrvQueryGlyphAttrs = ::core::option::Option<unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryPerBandInfo = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PERBANDINFO) -> super::super::Foundation::BOOL;
+pub type PFN_DrvQueryPerBandInfo = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PERBANDINFO) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQuerySpoolType = unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+pub type PFN_DrvQuerySpoolType = ::core::option::Option<unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvQueryTrueTypeOutline = unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32;
+pub type PFN_DrvQueryTrueTypeOutline = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryTrueTypeSection = unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32;
-pub type PFN_DrvQueryTrueTypeTable = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32;
+pub type PFN_DrvQueryTrueTypeSection = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
+pub type PFN_DrvQueryTrueTypeTable = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvRealizeBrush = unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL;
-pub type PFN_DrvRenderHint = unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const ::core::ffi::c_void) -> i32;
-pub type PFN_DrvResetDevice = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::ffi::c_void) -> u32;
+pub type PFN_DrvRealizeBrush = ::core::option::Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvRenderHint = ::core::option::Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const ::core::ffi::c_void) -> i32>;
+pub type PFN_DrvResetDevice = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvResetPDEV = unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL;
+pub type PFN_DrvResetPDEV = ::core::option::Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSaveScreenBits = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize;
+pub type PFN_DrvSaveScreenBits = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSendPage = unsafe extern "system" fn(param0: *mut SURFOBJ) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSendPage = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSetPalette = unsafe extern "system" fn(param0: DHPDEV, param1: *mut PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSetPalette = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSetPixelFormat = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSetPixelFormat = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSetPointerShape = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32;
+pub type PFN_DrvSetPointerShape = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvStartBanding = unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartBanding = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvStartDoc = unsafe extern "system" fn(pso: *mut SURFOBJ, pwszdocname: super::super::Foundation::PWSTR, dwjobid: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartDoc = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ, pwszdocname: super::super::Foundation::PWSTR, dwjobid: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvStartDxInterop = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartDxInterop = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvStartPage = unsafe extern "system" fn(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartPage = ::core::option::Option<unsafe extern "system" fn(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvStretchBlt = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStretchBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStretchBltROP = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvStrokeAndFillPath = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStrokeAndFillPath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvStrokePath = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut LINEATTRS, param7: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStrokePath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut LINEATTRS, param7: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSurfaceComplete = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSurfaceComplete = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSwapBuffers = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut WNDOBJ) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSwapBuffers = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut WNDOBJ) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSynchronize = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvSynchronize = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSynchronizeRedirectionBitmaps = unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS;
+pub type PFN_DrvSynchronizeRedirectionBitmaps = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSynchronizeSurface = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32);
+pub type PFN_DrvSynchronizeSurface = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvTextOut = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut STROBJ, param2: *mut FONTOBJ, param3: *mut CLIPOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BRUSHOBJ, param7: *mut BRUSHOBJ, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvTextOut = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut STROBJ, param2: *mut FONTOBJ, param3: *mut CLIPOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut BRUSHOBJ, param7: *mut BRUSHOBJ, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvTransparentBlt = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvTransparentBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvUnloadFontFile = unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL;
+pub type PFN_DrvUnloadFontFile = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvUnlockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvUnlockDisplayArea = ::core::option::Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngCombineRgn = unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32;
+pub type PFN_EngCombineRgn = ::core::option::Option<unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngCopyRgn = unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32;
+pub type PFN_EngCopyRgn = ::core::option::Option<unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngCreateRectRgn = unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE;
+pub type PFN_EngCreateRectRgn = ::core::option::Option<unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngDeleteRgn = unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE);
+pub type PFN_EngDeleteRgn = ::core::option::Option<unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngIntersectRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+pub type PFN_EngIntersectRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngSubtractRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+pub type PFN_EngSubtractRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngUnionRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+pub type PFN_EngUnionRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngXorRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+pub type PFN_EngXorRgn = ::core::option::Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8389,7 +8235,7 @@ pub const PRIMARY_ORDER_BAC: u32 = 2u32;
 pub const PRIMARY_ORDER_BCA: u32 = 3u32;
 pub const PRIMARY_ORDER_CAB: u32 = 5u32;
 pub const PRIMARY_ORDER_CBA: u32 = 4u32;
-pub type PVIDEO_WIN32K_CALLOUT = unsafe extern "system" fn(params: *mut ::core::ffi::c_void);
+pub type PVIDEO_WIN32K_CALLOUT = ::core::option::Option<unsafe extern "system" fn(params: *mut ::core::ffi::c_void)>;
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
 pub const QAW_GETWIDTHS: u32 = 0u32;
 pub const QC_1BIT: u32 = 2u32;
@@ -8543,7 +8389,7 @@ unsafe impl ::windows::core::Abi for SET_ACTIVE_COLOR_PROFILE_NAME {
     type Abi = Self;
 }
 pub const SGI_EXTRASPACE: u32 = 0u32;
-pub type SORTCOMP = unsafe extern "system" fn(pv1: *const ::core::ffi::c_void, pv2: *const ::core::ffi::c_void) -> i32;
+pub type SORTCOMP = ::core::option::Option<unsafe extern "system" fn(pv1: *const ::core::ffi::c_void, pv2: *const ::core::ffi::c_void) -> i32>;
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
 pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;
@@ -8713,21 +8559,7 @@ impl ::core::default::Default for SURFOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SURFOBJ {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SURFOBJ")
-            .field("dhsurf", &self.dhsurf)
-            .field("hsurf", &self.hsurf)
-            .field("dhpdev", &self.dhpdev)
-            .field("hdev", &self.hdev)
-            .field("sizlBitmap", &self.sizlBitmap)
-            .field("cjBits", &self.cjBits)
-            .field("pvBits", &self.pvBits)
-            .field("pvScan0", &self.pvScan0)
-            .field("lDelta", &self.lDelta)
-            .field("iUniq", &self.iUniq)
-            .field("iBitmapFormat", &self.iBitmapFormat)
-            .field("iType", &self.iType)
-            .field("fjBitmap", &self.fjBitmap)
-            .finish()
+        fmt.debug_struct("SURFOBJ").field("dhsurf", &self.dhsurf).field("hsurf", &self.hsurf).field("dhpdev", &self.dhpdev).field("hdev", &self.hdev).field("sizlBitmap", &self.sizlBitmap).field("cjBits", &self.cjBits).field("pvBits", &self.pvBits).field("pvScan0", &self.pvScan0).field("lDelta", &self.lDelta).field("iUniq", &self.iUniq).field("iBitmapFormat", &self.iBitmapFormat).field("iType", &self.iType).field("fjBitmap", &self.fjBitmap).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9147,19 +8979,7 @@ impl ::core::fmt::Debug for VIDEO_BANK_SELECT {
 }
 impl ::core::cmp::PartialEq for VIDEO_BANK_SELECT {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Size == other.Size
-            && self.BankingFlags == other.BankingFlags
-            && self.BankingType == other.BankingType
-            && self.PlanarHCBankingType == other.PlanarHCBankingType
-            && self.BitmapWidthInBytes == other.BitmapWidthInBytes
-            && self.BitmapSize == other.BitmapSize
-            && self.Granularity == other.Granularity
-            && self.PlanarHCGranularity == other.PlanarHCGranularity
-            && self.CodeOffset == other.CodeOffset
-            && self.PlanarHCBankCodeOffset == other.PlanarHCBankCodeOffset
-            && self.PlanarHCEnableCodeOffset == other.PlanarHCEnableCodeOffset
-            && self.PlanarHCDisableCodeOffset == other.PlanarHCDisableCodeOffset
+        self.Length == other.Length && self.Size == other.Size && self.BankingFlags == other.BankingFlags && self.BankingType == other.BankingType && self.PlanarHCBankingType == other.PlanarHCBankingType && self.BitmapWidthInBytes == other.BitmapWidthInBytes && self.BitmapSize == other.BitmapSize && self.Granularity == other.Granularity && self.PlanarHCGranularity == other.PlanarHCGranularity && self.CodeOffset == other.CodeOffset && self.PlanarHCBankCodeOffset == other.PlanarHCBankCodeOffset && self.PlanarHCEnableCodeOffset == other.PlanarHCEnableCodeOffset && self.PlanarHCDisableCodeOffset == other.PlanarHCDisableCodeOffset
     }
 }
 impl ::core::cmp::Eq for VIDEO_BANK_SELECT {}
@@ -10373,12 +10193,12 @@ impl ::core::cmp::Eq for VIDEO_VDM {}
 unsafe impl ::windows::core::Abi for VIDEO_VDM {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_WIN32K_CALLBACKS {
     pub PhysDisp: *mut ::core::ffi::c_void,
-    pub Callout: ::core::option::Option<PVIDEO_WIN32K_CALLOUT>,
+    pub Callout: PVIDEO_WIN32K_CALLOUT,
     pub bACPI: u32,
     pub pPhysDeviceObject: super::super::Foundation::HANDLE,
     pub DualviewFlags: u32,
@@ -10407,7 +10227,7 @@ impl ::core::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS {
 impl ::core::cmp::Eq for VIDEO_WIN32K_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -10433,16 +10253,7 @@ impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VIDEO_WIN32K_CALLBACKS_PARAMS")
-            .field("CalloutType", &self.CalloutType)
-            .field("PhysDisp", &self.PhysDisp)
-            .field("Param", &self.Param)
-            .field("Status", &self.Status)
-            .field("LockUserSession", &self.LockUserSession)
-            .field("IsPostDevice", &self.IsPostDevice)
-            .field("SurpriseRemoval", &self.SurpriseRemoval)
-            .field("WaitForQueueReady", &self.WaitForQueueReady)
-            .finish()
+        fmt.debug_struct("VIDEO_WIN32K_CALLBACKS_PARAMS").field("CalloutType", &self.CalloutType).field("PhysDisp", &self.PhysDisp).field("Param", &self.Param).field("Status", &self.Status).field("LockUserSession", &self.LockUserSession).field("IsPostDevice", &self.IsPostDevice).field("SurpriseRemoval", &self.SurpriseRemoval).field("WaitForQueueReady", &self.WaitForQueueReady).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10546,7 +10357,7 @@ unsafe impl ::windows::core::Abi for WNDOBJ {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WNDOBJCHANGEPROC = unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32);
+pub type WNDOBJCHANGEPROC = ::core::option::Option<unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32)>;
 pub const WNDOBJ_SETUP: u32 = 4354u32;
 pub const WOC_CHANGED: u32 = 16u32;
 pub const WOC_DELETE: u32 = 32u32;

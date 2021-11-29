@@ -4,20 +4,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
     pub fn D3D11CreateDevice(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub fn D3D11CreateDeviceAndSwapChain(
-        padapter: super::Dxgi::IDXGIAdapter,
-        drivertype: super::Direct3D::D3D_DRIVER_TYPE,
-        software: super::super::Foundation::HINSTANCE,
-        flags: D3D11_CREATE_DEVICE_FLAG,
-        pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL,
-        featurelevels: u32,
-        sdkversion: u32,
-        pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC,
-        ppswapchain: *mut super::Dxgi::IDXGISwapChain,
-        ppdevice: *mut ID3D11Device,
-        pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL,
-        ppimmediatecontext: *mut ID3D11DeviceContext,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn D3D11CreateDeviceAndSwapChain(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: ID3D11ShaderTrace, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
     pub fn D3DX11CreateFFT(pdevicecontext: ID3D11DeviceContext, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
@@ -92,18 +79,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1107292806,
-    data2: 27360,
-    data3: 19779,
-    data4: [157, 85, 164, 110, 158, 253, 21, 138],
-};
-pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 101796827,
-    data2: 13603,
-    data3: 18186,
-    data4: [141, 202, 251, 194, 132, 81, 84, 240],
-};
+pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1107292806, data2: 27360, data3: 19779, data4: [157, 85, 164, 110, 158, 253, 21, 138] };
+pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 101796827, data2: 13603, data3: 18186, data4: [141, 202, 251, 194, 132, 81, 84, 240] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
@@ -152,12 +129,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1346721368,
-    data2: 16199,
-    data3: 17250,
-    data4: [191, 153, 191, 223, 205, 233, 237, 41],
-};
+pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1346721368, data2: 16199, data3: 17250, data4: [191, 153, 191, 223, 205, 233, 237, 41] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
@@ -214,12 +186,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1645533650,
-    data2: 17196,
-    data3: 19131,
-    data4: [159, 206, 33, 110, 234, 38, 158, 59],
-};
+pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1645533650, data2: 17196, data3: 19131, data4: [159, 206, 33, 110, 234, 38, 158, 59] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
@@ -279,12 +246,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3155892389,
-    data2: 45563,
-    data3: 17067,
-    data4: [189, 148, 181, 130, 139, 75, 247, 190],
-};
+pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3155892389, data2: 45563, data3: 17067, data4: [189, 148, 181, 130, 139, 75, 247, 190] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
@@ -344,18 +306,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_EN
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3960967623,
-    data2: 56019,
-    data3: 20245,
-    data4: [158, 195, 250, 169, 61, 96, 212, 240],
-};
-pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3961279389,
-    data2: 36095,
-    data3: 20010,
-    data4: [188, 196, 245, 105, 47, 153, 244, 128],
-};
+pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3960967623, data2: 56019, data3: 20245, data4: [158, 195, 250, 169, 61, 96, 212, 240] };
+pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3961279389, data2: 36095, data3: 20010, data4: [188, 196, 245, 105, 47, 153, 244, 128] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
@@ -404,18 +356,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2208160931,
-    data2: 39758,
-    data3: 16868,
-    data4: [176, 83, 137, 43, 210, 161, 30, 231],
-};
-pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 738470750,
-    data2: 35847,
-    data3: 18133,
-    data4: [170, 190, 143, 117, 203, 173, 76, 49],
-};
+pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2208160931, data2: 39758, data3: 16868, data4: [176, 83, 137, 43, 210, 161, 30, 231] };
+pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 738470750, data2: 35847, data3: 18133, data4: [170, 190, 143, 117, 203, 173, 76, 49] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
@@ -480,12 +422,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2823730564,
-    data2: 50325,
-    data3: 18602,
-    data4: [185, 77, 139, 210, 214, 251, 206, 5],
-};
+pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2823730564, data2: 50325, data3: 18602, data4: [185, 77, 139, 210, 214, 251, 206, 5] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
@@ -501,12 +438,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     }
 }
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687927515, data2: 61684, data3: 17977, data4: [161, 91, 36, 57, 63, 195, 171, 172] };
-pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 229771187,
-    data2: 37968,
-    data3: 18086,
-    data4: [130, 222, 27, 150, 212, 79, 156, 242],
-};
+pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 229771187, data2: 37968, data3: 18086, data4: [130, 222, 27, 150, 212, 79, 156, 242] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
@@ -942,12 +874,7 @@ pub type D3D11_CRYPTO_SESSION_STATUS = i32;
 pub const D3D11_CRYPTO_SESSION_STATUS_OK: D3D11_CRYPTO_SESSION_STATUS = 0i32;
 pub const D3D11_CRYPTO_SESSION_STATUS_KEY_LOST: D3D11_CRYPTO_SESSION_STATUS = 1i32;
 pub const D3D11_CRYPTO_SESSION_STATUS_KEY_AND_CONTENT_LOST: D3D11_CRYPTO_SESSION_STATUS = 2i32;
-pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2607535889,
-    data2: 20340,
-    data3: 16841,
-    data4: [158, 123, 11, 226, 215, 217, 59, 79],
-};
+pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2607535889, data2: 20340, data3: 16841, data4: [158, 123, 11, 226, 215, 217, 59, 79] };
 pub const D3D11_CS_4_X_BUCKET00_MAX_BYTES_TGSM_WRITABLE_PER_THREAD: u32 = 256u32;
 pub const D3D11_CS_4_X_BUCKET00_MAX_NUM_THREADS_PER_GROUP: u32 = 64u32;
 pub const D3D11_CS_4_X_BUCKET01_MAX_BYTES_TGSM_WRITABLE_PER_THREAD: u32 = 240u32;
@@ -1019,116 +946,41 @@ pub const D3D11_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1u32;
 pub const D3D11_DEBUG_FEATURE_NEVER_DISCARD_OFFERED_RESOURCE: u32 = 16u32;
 pub const D3D11_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4u32;
 pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1110283033, data2: 40225, data3: 19383, data4: [147, 113, 250, 245, 168, 44, 62, 4] };
-pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2957005365,
-    data2: 49469,
-    data3: 17650,
-    data4: [154, 229, 221, 72, 224, 142, 91, 103],
-};
-pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2312547407,
-    data2: 2546,
-    data3: 16937,
-    data4: [178, 205, 55, 116, 10, 109, 253, 129],
-};
-pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 387084297,
-    data2: 40975,
-    data3: 19681,
-    data4: [153, 78, 191, 64, 129, 246, 243, 240],
-};
-pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 763412182,
-    data2: 40108,
-    data3: 18485,
-    data4: [158, 145, 50, 123, 188, 79, 158, 232],
-};
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3099479243,
-    data2: 53075,
-    data3: 18106,
-    data4: [141, 89, 214, 184, 166, 218, 93, 42],
-};
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1765211919,
-    data2: 17841,
-    data3: 16739,
-    data4: [156, 193, 100, 110, 246, 148, 97, 8],
-};
+pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2957005365, data2: 49469, data3: 17650, data4: [154, 229, 221, 72, 224, 142, 91, 103] };
+pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2312547407, data2: 2546, data3: 16937, data4: [178, 205, 55, 116, 10, 109, 253, 129] };
+pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 387084297, data2: 40975, data3: 19681, data4: [153, 78, 191, 64, 129, 246, 243, 240] };
+pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 763412182, data2: 40108, data3: 18485, data4: [158, 145, 50, 123, 188, 79, 158, 232] };
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3099479243, data2: 53075, data3: 18106, data4: [141, 89, 214, 184, 166, 218, 93, 42] };
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1765211919, data2: 17841, data3: 16739, data4: [156, 193, 100, 110, 246, 148, 97, 8] };
 pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
 pub const D3D11_DECODER_PROFILE_H264_IDCT_FGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_H264_IDCT_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_H264_MOCOMP_FGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_H264_VLD_FGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1885052290,
-    data2: 30415,
-    data3: 18902,
-    data4: [183, 230, 172, 136, 114, 219, 1, 60],
-};
+pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1885052290, data2: 30415, data3: 18902, data4: [183, 230, 172, 136, 114, 219, 1, 60] };
 pub const D3D11_DECODER_PROFILE_H264_VLD_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
 pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3589296121,
-    data2: 13336,
-    data3: 17880,
-    data4: [149, 97, 50, 167, 106, 174, 45, 221],
-};
+pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3589296121, data2: 13336, data3: 17880, data4: [149, 97, 50, 167, 106, 174, 45, 221] };
 pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
 pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
-pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1866385177,
-    data2: 14133,
-    data3: 17100,
-    data4: [128, 99, 101, 204, 60, 179, 102, 22],
-};
+pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1866385177, data2: 14133, data3: 17100, data4: [128, 99, 101, 204, 60, 179, 102, 22] };
 pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3206720768, data2: 1002, data3: 18064, data4: [128, 119, 71, 51, 70, 32, 155, 126] };
-pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3869897803,
-    data2: 25008,
-    data3: 17763,
-    data4: [158, 164, 99, 210, 163, 198, 254, 102],
-};
+pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3869897803, data2: 25008, data3: 17763, data4: [158, 164, 99, 210, 163, 198, 254, 102] };
 pub const D3D11_DECODER_PROFILE_MPEG2_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
-pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2255052562,
-    data2: 13326,
-    data3: 20228,
-    data4: [159, 211, 146, 83, 221, 50, 116, 96],
-};
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2878966619,
-    data2: 16984,
-    data3: 17577,
-    data4: [159, 235, 148, 229, 151, 166, 186, 174],
-};
+pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2255052562, data2: 13326, data3: 20228, data4: [159, 211, 146, 83, 221, 50, 116, 96] };
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2878966619, data2: 16984, data3: 17577, data4: [159, 235, 148, 229, 151, 166, 186, 174] };
 pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4023799156,
-    data2: 51688,
-    data3: 16855,
-    data4: [165, 233, 233, 176, 227, 159, 163, 25],
-};
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4023799156, data2: 51688, data3: 16855, data4: [165, 233, 233, 176, 227, 159, 163, 25] };
 pub const D3D11_DECODER_PROFILE_VC1_D2010: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_VC1_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_VC1_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_VC1_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_VC1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2428017130,
-    data2: 14946,
-    data3: 18181,
-    data4: [136, 179, 141, 240, 75, 39, 68, 231],
-};
+pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2428017130, data2: 14946, data3: 18181, data4: [136, 179, 141, 240, 75, 39, 68, 231] };
 pub const D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
-pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1178011640,
-    data2: 41424,
-    data3: 17797,
-    data4: [135, 109, 131, 170, 109, 96, 184, 158],
-};
+pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1178011640, data2: 41424, data3: 17797, data4: [135, 109, 131, 170, 109, 96, 184, 158] };
 pub const D3D11_DECODER_PROFILE_WMV8_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DECODER_PROFILE_WMV9_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
@@ -1953,12 +1805,7 @@ pub const D3D11_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D11_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
-pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2971078026,
-    data2: 25229,
-    data3: 19875,
-    data4: [173, 59, 130, 221, 176, 139, 73, 112],
-};
+pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2971078026, data2: 25229, data3: 19875, data4: [173, 59, 130, 221, 176, 139, 73, 112] };
 #[repr(C)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     pub HWProtectionFunctionID: u32,
@@ -5802,12 +5649,7 @@ pub const D3D_SHADER_REQUIRES_LEVEL_9_COMPARISON_FILTERING: u32 = 128u32;
 pub const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: u32 = 16u32;
 pub const D3D_SHADER_REQUIRES_TILED_RESOURCES: u32 = 256u32;
 pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4u32;
-pub const DXGI_DEBUG_D3D11: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1268330875,
-    data2: 44089,
-    data3: 19110,
-    data4: [187, 11, 186, 160, 71, 132, 121, 143],
-};
+pub const DXGI_DEBUG_D3D11: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1268330875, data2: 44089, data3: 19110, data4: [187, 11, 186, 160, 71, 132, 121, 143] };
 pub type ID3D11Asynchronous = *mut ::core::ffi::c_void;
 pub type ID3D11AuthenticatedChannel = *mut ::core::ffi::c_void;
 pub type ID3D11BlendState = *mut ::core::ffi::c_void;
@@ -5903,7 +5745,5 @@ pub type ID3DX11SegmentedScan = *mut ::core::ffi::c_void;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D11_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut ID3D11Device, param8: *mut super::Direct3D::D3D_FEATURE_LEVEL, param9: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
-pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = ::core::option::Option<
-    unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, param8: *mut super::Dxgi::IDXGISwapChain, param9: *mut ID3D11Device, param10: *mut super::Direct3D::D3D_FEATURE_LEVEL, param11: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT,
->;
+pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = ::core::option::Option<unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, param8: *mut super::Dxgi::IDXGISwapChain, param9: *mut ID3D11Device, param10: *mut super::Direct3D::D3D_FEATURE_LEVEL, param11: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT>;
 pub const _FACD3D11: u32 = 2172u32;

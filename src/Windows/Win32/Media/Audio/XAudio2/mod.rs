@@ -476,14 +476,7 @@ impl IXAPO {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: Param4) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(inputprocessparametercount),
-            ::core::mem::transmute(pinputprocessparameters),
-            ::core::mem::transmute(outputprocessparametercount),
-            ::core::mem::transmute(poutputprocessparameters),
-            isenabled.into_param().abi(),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputprocessparametercount), ::core::mem::transmute(pinputprocessparameters), ::core::mem::transmute(outputprocessparametercount), ::core::mem::transmute(poutputprocessparameters), isenabled.into_param().abi()))
     }
     pub unsafe fn CalcInputFrames(&self, outputframecount: u32) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputframecount)))

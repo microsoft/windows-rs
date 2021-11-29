@@ -24,17 +24,7 @@ impl ::core::default::Default for ACTCTXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ACTCTXA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ACTCTXA")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpSource", &self.lpSource)
-            .field("wProcessorArchitecture", &self.wProcessorArchitecture)
-            .field("wLangId", &self.wLangId)
-            .field("lpAssemblyDirectory", &self.lpAssemblyDirectory)
-            .field("lpResourceName", &self.lpResourceName)
-            .field("lpApplicationName", &self.lpApplicationName)
-            .field("hModule", &self.hModule)
-            .finish()
+        fmt.debug_struct("ACTCTXA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpSource", &self.lpSource).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wLangId", &self.wLangId).field("lpAssemblyDirectory", &self.lpAssemblyDirectory).field("lpResourceName", &self.lpResourceName).field("lpApplicationName", &self.lpApplicationName).field("hModule", &self.hModule).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -74,17 +64,7 @@ impl ::core::default::Default for ACTCTXW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ACTCTXW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ACTCTXW")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpSource", &self.lpSource)
-            .field("wProcessorArchitecture", &self.wProcessorArchitecture)
-            .field("wLangId", &self.wLangId)
-            .field("lpAssemblyDirectory", &self.lpAssemblyDirectory)
-            .field("lpResourceName", &self.lpResourceName)
-            .field("lpApplicationName", &self.lpApplicationName)
-            .field("hModule", &self.hModule)
-            .finish()
+        fmt.debug_struct("ACTCTXW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpSource", &self.lpSource).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("wLangId", &self.wLangId).field("lpAssemblyDirectory", &self.lpAssemblyDirectory).field("lpResourceName", &self.lpResourceName).field("lpApplicationName", &self.lpApplicationName).field("hModule", &self.hModule).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -177,18 +157,7 @@ impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.ulDataFormatVersion == other.ulDataFormatVersion
-            && self.lpData == other.lpData
-            && self.ulLength == other.ulLength
-            && self.lpSectionGlobalData == other.lpSectionGlobalData
-            && self.ulSectionGlobalDataLength == other.ulSectionGlobalDataLength
-            && self.lpSectionBase == other.lpSectionBase
-            && self.ulSectionTotalLength == other.ulSectionTotalLength
-            && self.hActCtx == other.hActCtx
-            && self.ulAssemblyRosterIndex == other.ulAssemblyRosterIndex
-            && self.ulFlags == other.ulFlags
-            && self.AssemblyMetadata == other.AssemblyMetadata
+        self.cbSize == other.cbSize && self.ulDataFormatVersion == other.ulDataFormatVersion && self.lpData == other.lpData && self.ulLength == other.ulLength && self.lpSectionGlobalData == other.lpSectionGlobalData && self.ulSectionGlobalDataLength == other.ulSectionGlobalDataLength && self.lpSectionBase == other.lpSectionBase && self.ulSectionTotalLength == other.ulSectionTotalLength && self.hActCtx == other.hActCtx && self.ulAssemblyRosterIndex == other.ulAssemblyRosterIndex && self.ulFlags == other.ulFlags && self.AssemblyMetadata == other.AssemblyMetadata
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -358,18 +327,7 @@ impl ::core::fmt::Debug for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.ulFormatVersion == other.ulFormatVersion
-            && self.ulAssemblyCount == other.ulAssemblyCount
-            && self.ulRootManifestPathType == other.ulRootManifestPathType
-            && self.ulRootManifestPathChars == other.ulRootManifestPathChars
-            && self.ulRootConfigurationPathType == other.ulRootConfigurationPathType
-            && self.ulRootConfigurationPathChars == other.ulRootConfigurationPathChars
-            && self.ulAppDirPathType == other.ulAppDirPathType
-            && self.ulAppDirPathChars == other.ulAppDirPathChars
-            && self.lpRootManifestPath == other.lpRootManifestPath
-            && self.lpRootConfigurationPath == other.lpRootConfigurationPath
-            && self.lpAppDirPath == other.lpAppDirPath
+        self.dwFlags == other.dwFlags && self.ulFormatVersion == other.ulFormatVersion && self.ulAssemblyCount == other.ulAssemblyCount && self.ulRootManifestPathType == other.ulRootManifestPathType && self.ulRootManifestPathChars == other.ulRootManifestPathChars && self.ulRootConfigurationPathType == other.ulRootConfigurationPathType && self.ulRootConfigurationPathChars == other.ulRootConfigurationPathChars && self.ulAppDirPathType == other.ulAppDirPathType && self.ulAppDirPathChars == other.ulAppDirPathChars && self.lpRootManifestPath == other.lpRootManifestPath && self.lpRootConfigurationPath == other.lpRootConfigurationPath && self.lpAppDirPath == other.lpAppDirPath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -752,26 +710,14 @@ pub unsafe fn ApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ApplyPatchToFileByBuffers(
-            ::core::mem::transmute(patchfilemapped),
-            ::core::mem::transmute(patchfilesize),
-            ::core::mem::transmute(oldfilemapped),
-            ::core::mem::transmute(oldfilesize),
-            ::core::mem::transmute(newfilebuffer),
-            ::core::mem::transmute(newfilebuffersize),
-            ::core::mem::transmute(newfileactualsize),
-            ::core::mem::transmute(newfiletime),
-            ::core::mem::transmute(applyoptionflags),
-            ::core::mem::transmute(progresscallback),
-            ::core::mem::transmute(callbackcontext),
-        ))
+        ::core::mem::transmute(ApplyPatchToFileByBuffers(::core::mem::transmute(patchfilemapped), ::core::mem::transmute(patchfilesize), ::core::mem::transmute(oldfilemapped), ::core::mem::transmute(oldfilesize), ::core::mem::transmute(newfilebuffer), ::core::mem::transmute(newfilebuffersize), ::core::mem::transmute(newfileactualsize), ::core::mem::transmute(newfiletime), ::core::mem::transmute(applyoptionflags), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -792,14 +738,7 @@ pub unsafe fn ApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    patchfilehandle: Param0,
-    oldfilehandle: Param1,
-    newfilehandle: Param2,
-    applyoptionflags: u32,
-    progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>,
-    callbackcontext: *const ::core::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, oldfilehandle: Param1, newfilehandle: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -813,7 +752,7 @@ pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -827,7 +766,7 @@ pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -925,114 +864,42 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDeltaA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    filetypeset: i64,
-    setflags: i64,
-    resetflags: i64,
-    lpsourcename: Param3,
-    lptargetname: Param4,
-    lpsourceoptionsname: Param5,
-    lptargetoptionsname: Param6,
-    globaloptions: Param7,
-    lptargetfiletime: *const super::super::Foundation::FILETIME,
-    hashalgid: u32,
-    lpdeltaname: Param10,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDeltaA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: Param3, lptargetname: Param4, lpsourceoptionsname: Param5, lptargetoptionsname: Param6, globaloptions: Param7, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateDeltaA(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: super::super::Foundation::PSTR, lptargetname: super::super::Foundation::PSTR, lpsourceoptionsname: super::super::Foundation::PSTR, lptargetoptionsname: super::super::Foundation::PSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateDeltaA(
-            ::core::mem::transmute(filetypeset),
-            ::core::mem::transmute(setflags),
-            ::core::mem::transmute(resetflags),
-            lpsourcename.into_param().abi(),
-            lptargetname.into_param().abi(),
-            lpsourceoptionsname.into_param().abi(),
-            lptargetoptionsname.into_param().abi(),
-            globaloptions.into_param().abi(),
-            ::core::mem::transmute(lptargetfiletime),
-            ::core::mem::transmute(hashalgid),
-            lpdeltaname.into_param().abi(),
-        ))
+        ::core::mem::transmute(CreateDeltaA(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), lpsourcename.into_param().abi(), lptargetname.into_param().abi(), lpsourceoptionsname.into_param().abi(), lptargetoptionsname.into_param().abi(), globaloptions.into_param().abi(), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), lpdeltaname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDeltaB<'a, Param3: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param4: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param5: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param6: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>>(
-    filetypeset: i64,
-    setflags: i64,
-    resetflags: i64,
-    source: Param3,
-    target: Param4,
-    sourceoptions: Param5,
-    targetoptions: Param6,
-    globaloptions: Param7,
-    lptargetfiletime: *const super::super::Foundation::FILETIME,
-    hashalgid: u32,
-    lpdelta: *mut DELTA_OUTPUT,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDeltaB<'a, Param3: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param4: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param5: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param6: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>>(filetypeset: i64, setflags: i64, resetflags: i64, source: Param3, target: Param4, sourceoptions: Param5, targetoptions: Param6, globaloptions: Param7, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateDeltaB(
-            ::core::mem::transmute(filetypeset),
-            ::core::mem::transmute(setflags),
-            ::core::mem::transmute(resetflags),
-            source.into_param().abi(),
-            target.into_param().abi(),
-            sourceoptions.into_param().abi(),
-            targetoptions.into_param().abi(),
-            globaloptions.into_param().abi(),
-            ::core::mem::transmute(lptargetfiletime),
-            ::core::mem::transmute(hashalgid),
-            ::core::mem::transmute(lpdelta),
-        ))
+        ::core::mem::transmute(CreateDeltaB(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), source.into_param().abi(), target.into_param().abi(), sourceoptions.into_param().abi(), targetoptions.into_param().abi(), globaloptions.into_param().abi(), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), ::core::mem::transmute(lpdelta)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDeltaW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    filetypeset: i64,
-    setflags: i64,
-    resetflags: i64,
-    lpsourcename: Param3,
-    lptargetname: Param4,
-    lpsourceoptionsname: Param5,
-    lptargetoptionsname: Param6,
-    globaloptions: Param7,
-    lptargetfiletime: *const super::super::Foundation::FILETIME,
-    hashalgid: u32,
-    lpdeltaname: Param10,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDeltaW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: Param3, lptargetname: Param4, lpsourceoptionsname: Param5, lptargetoptionsname: Param6, globaloptions: Param7, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateDeltaW(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: super::super::Foundation::PWSTR, lptargetname: super::super::Foundation::PWSTR, lpsourceoptionsname: super::super::Foundation::PWSTR, lptargetoptionsname: super::super::Foundation::PWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateDeltaW(
-            ::core::mem::transmute(filetypeset),
-            ::core::mem::transmute(setflags),
-            ::core::mem::transmute(resetflags),
-            lpsourcename.into_param().abi(),
-            lptargetname.into_param().abi(),
-            lpsourceoptionsname.into_param().abi(),
-            lptargetoptionsname.into_param().abi(),
-            globaloptions.into_param().abi(),
-            ::core::mem::transmute(lptargetfiletime),
-            ::core::mem::transmute(hashalgid),
-            lpdeltaname.into_param().abi(),
-        ))
+        ::core::mem::transmute(CreateDeltaW(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), lpsourcename.into_param().abi(), lptargetname.into_param().abi(), lpsourceoptionsname.into_param().abi(), lptargetoptionsname.into_param().abi(), globaloptions.into_param().abi(), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), lpdeltaname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1044,7 +911,7 @@ pub unsafe fn CreatePatchFileA<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePatchFileA(oldfilename: super::super::Foundation::PSTR, newfilename: super::super::Foundation::PSTR, patchfilename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>) -> super::super::Foundation::BOOL;
+            fn CreatePatchFileA(oldfilename: super::super::Foundation::PSTR, newfilename: super::super::Foundation::PSTR, patchfilename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CreatePatchFileA(oldfilename.into_param().abi(), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
     }
@@ -1058,7 +925,7 @@ pub unsafe fn CreatePatchFileByHandles<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePatchFileByHandles(oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>) -> super::super::Foundation::BOOL;
+            fn CreatePatchFileByHandles(oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CreatePatchFileByHandles(oldfilehandle.into_param().abi(), newfilehandle.into_param().abi(), patchfilehandle.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
     }
@@ -1067,78 +934,42 @@ pub unsafe fn CreatePatchFileByHandles<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    oldfilecount: u32,
-    oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H,
-    newfilehandle: Param2,
-    patchfilehandle: Param3,
-    optionflags: u32,
-    optiondata: *const PATCH_OPTION_DATA,
-    progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>,
-    callbackcontext: *const ::core::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: Param2, patchfilehandle: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePatchFileByHandlesEx(
-            ::core::mem::transmute(oldfilecount),
-            ::core::mem::transmute(oldfileinfoarray),
-            newfilehandle.into_param().abi(),
-            patchfilehandle.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(progresscallback),
-            ::core::mem::transmute(callbackcontext),
-        ))
+        ::core::mem::transmute(CreatePatchFileByHandlesEx(::core::mem::transmute(oldfilecount), ::core::mem::transmute(oldfileinfoarray), newfilehandle.into_param().abi(), patchfilehandle.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePatchFileExA(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: super::super::Foundation::PSTR, patchfilename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn CreatePatchFileExA(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: super::super::Foundation::PSTR, patchfilename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePatchFileExA(
-            ::core::mem::transmute(oldfilecount),
-            ::core::mem::transmute(oldfileinfoarray),
-            newfilename.into_param().abi(),
-            patchfilename.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(progresscallback),
-            ::core::mem::transmute(callbackcontext),
-        ))
+        ::core::mem::transmute(CreatePatchFileExA(::core::mem::transmute(oldfilecount), ::core::mem::transmute(oldfileinfoarray), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePatchFileExW(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: super::super::Foundation::PWSTR, patchfilename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn CreatePatchFileExW(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: super::super::Foundation::PWSTR, patchfilename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePatchFileExW(
-            ::core::mem::transmute(oldfilecount),
-            ::core::mem::transmute(oldfileinfoarray),
-            newfilename.into_param().abi(),
-            patchfilename.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(progresscallback),
-            ::core::mem::transmute(callbackcontext),
-        ))
+        ::core::mem::transmute(CreatePatchFileExW(::core::mem::transmute(oldfilecount), ::core::mem::transmute(oldfileinfoarray), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1150,7 +981,7 @@ pub unsafe fn CreatePatchFileW<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePatchFileW(oldfilename: super::super::Foundation::PWSTR, newfilename: super::super::Foundation::PWSTR, patchfilename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>) -> super::super::Foundation::BOOL;
+            fn CreatePatchFileW(oldfilename: super::super::Foundation::PWSTR, newfilename: super::super::Foundation::PWSTR, patchfilename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CreatePatchFileW(oldfilename.into_param().abi(), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
     }
@@ -1209,15 +1040,7 @@ impl ::core::default::Default for DELTA_HEADER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DELTA_HEADER_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DELTA_HEADER_INFO")
-            .field("FileTypeSet", &self.FileTypeSet)
-            .field("FileType", &self.FileType)
-            .field("Flags", &self.Flags)
-            .field("TargetSize", &self.TargetSize)
-            .field("TargetFileTime", &self.TargetFileTime)
-            .field("TargetHashAlgId", &self.TargetHashAlgId)
-            .field("TargetHash", &self.TargetHash)
-            .finish()
+        fmt.debug_struct("DELTA_HEADER_INFO").field("FileTypeSet", &self.FileTypeSet).field("FileType", &self.FileType).field("Flags", &self.Flags).field("TargetSize", &self.TargetSize).field("TargetFileTime", &self.TargetFileTime).field("TargetHashAlgId", &self.TargetHashAlgId).field("TargetHash", &self.TargetHash).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1767,17 +1590,7 @@ pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn GetFilePatchSignatureA(filename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureA(
-            filename.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(ignorerangecount),
-            ::core::mem::transmute(ignorerangearray),
-            ::core::mem::transmute(retainrangecount),
-            ::core::mem::transmute(retainrangearray),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureA(filename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(ignorerangecount), ::core::mem::transmute(ignorerangearray), ::core::mem::transmute(retainrangecount), ::core::mem::transmute(retainrangearray), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1791,18 +1604,7 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesiz
         extern "system" {
             fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureByBuffer(
-            ::core::mem::transmute(filebufferwritable),
-            ::core::mem::transmute(filesize),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(ignorerangecount),
-            ::core::mem::transmute(ignorerangearray),
-            ::core::mem::transmute(retainrangecount),
-            ::core::mem::transmute(retainrangearray),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureByBuffer(::core::mem::transmute(filebufferwritable), ::core::mem::transmute(filesize), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(ignorerangecount), ::core::mem::transmute(ignorerangearray), ::core::mem::transmute(retainrangecount), ::core::mem::transmute(retainrangearray), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1816,17 +1618,7 @@ pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureByHandle(
-            filehandle.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(ignorerangecount),
-            ::core::mem::transmute(ignorerangearray),
-            ::core::mem::transmute(retainrangecount),
-            ::core::mem::transmute(retainrangearray),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureByHandle(filehandle.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(ignorerangecount), ::core::mem::transmute(ignorerangearray), ::core::mem::transmute(retainrangecount), ::core::mem::transmute(retainrangearray), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1840,17 +1632,7 @@ pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn GetFilePatchSignatureW(filename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureW(
-            filename.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(ignorerangecount),
-            ::core::mem::transmute(ignorerangearray),
-            ::core::mem::transmute(retainrangecount),
-            ::core::mem::transmute(retainrangearray),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureW(filename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(ignorerangecount), ::core::mem::transmute(ignorerangearray), ::core::mem::transmute(retainrangecount), ::core::mem::transmute(retainrangearray), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2036,18 +1818,7 @@ impl IAssemblyName {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reserved<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, refiid: *const ::windows::core::GUID, punkreserved1: Param1, punkreserved2: Param2, szreserved: Param3, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(refiid),
-            punkreserved1.into_param().abi(),
-            punkreserved2.into_param().abi(),
-            szreserved.into_param().abi(),
-            ::core::mem::transmute(llreserved),
-            ::core::mem::transmute(pvreserved),
-            ::core::mem::transmute(cbreserved),
-            ::core::mem::transmute(ppreserved),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(refiid), punkreserved1.into_param().abi(), punkreserved2.into_param().abi(), szreserved.into_param().abi(), ::core::mem::transmute(llreserved), ::core::mem::transmute(pvreserved), ::core::mem::transmute(cbreserved), ::core::mem::transmute(ppreserved)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -3113,9 +2884,9 @@ unsafe impl ::windows::core::Abi for INSTALLUILEVEL {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
+pub type INSTALLUI_HANDLERA = ::core::option::Option<unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32;
+pub type INSTALLUI_HANDLERW = ::core::option::Option<unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32>;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMApplicationInfo(pub ::windows::core::IUnknown);
@@ -3526,12 +3297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMAp
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMApplicationInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppappinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMApplicationInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppappinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMBackgroundServiceAgentInfo(pub ::windows::core::IUnknown);
@@ -3689,12 +3455,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMBa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMBackgroundServiceAgentInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbsainfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMBackgroundServiceAgentInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbsainfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMBackgroundWorkerInfo(pub ::windows::core::IUnknown);
@@ -3800,12 +3561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMBa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMBackgroundWorkerInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbwinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMBackgroundWorkerInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbwinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMDeploymentManager(pub ::windows::core::IUnknown);
@@ -3851,41 +3607,13 @@ impl IPMDeploymentManager {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLicenseChallenge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packagepath: Param0, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            packagepath.into_param().abi(),
-            ::core::mem::transmute(ppbchallenge),
-            ::core::mem::transmute(pcbchallenge),
-            ::core::mem::transmute(ppbkid),
-            ::core::mem::transmute(pcbkid),
-            ::core::mem::transmute(ppbdeviceid),
-            ::core::mem::transmute(pcbdeviceid),
-            ::core::mem::transmute(ppbsaltvalue),
-            ::core::mem::transmute(pcbsaltvalue),
-            ::core::mem::transmute(ppbkgvvalue),
-            ::core::mem::transmute(pcbkgvvalue),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), packagepath.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcbchallenge), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
     }
     pub unsafe fn GetLicenseChallengeByProductID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense)).ok()
     }
     pub unsafe fn GetLicenseChallengeByProductID2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            productid.into_param().abi(),
-            ::core::mem::transmute(ppbchallenge),
-            ::core::mem::transmute(pcblicense),
-            ::core::mem::transmute(ppbkid),
-            ::core::mem::transmute(pcbkid),
-            ::core::mem::transmute(ppbdeviceid),
-            ::core::mem::transmute(pcbdeviceid),
-            ::core::mem::transmute(ppbsaltvalue),
-            ::core::mem::transmute(pcbsaltvalue),
-            ::core::mem::transmute(ppbkgvvalue),
-            ::core::mem::transmute(pcbkgvvalue),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
     }
     pub unsafe fn RevokeLicense<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
@@ -4552,12 +4280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMEx
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMExtensionInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppextensioninfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMExtensionInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppextensioninfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionProtocolInfo(pub ::windows::core::IUnknown);
@@ -4852,12 +4575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMLi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMLiveTileJobInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pplivetilejobinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMLiveTileJobInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pplivetilejobinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTaskInfo(pub ::windows::core::IUnknown);
@@ -5049,12 +4767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMTa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMTaskInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptaskinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMTaskInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptaskinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTileInfo(pub ::windows::core::IUnknown);
@@ -5265,12 +4978,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMTi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMTileInfoEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptileinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMTileInfoEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptileinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTilePropertyEnumerator(pub ::windows::core::IUnknown);
@@ -5306,12 +5014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPMTi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPMTilePropertyEnumerator_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPMTilePropertyEnumerator_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTilePropertyInfo(pub ::windows::core::IUnknown);
@@ -5384,11 +5087,11 @@ impl IValidate {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisplay(&self, pdisplayfunction: ::core::option::Option<LPDISPLAYVAL>, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdisplayfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStatus(&self, pstatusfunction: ::core::option::Option<LPEVALCOMCALLBACK>, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatusfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -5452,9 +5155,9 @@ pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 pub const LOGWARN: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDISPLAYVAL = unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, uitype: RESULTTYPES, szwval: super::super::Foundation::PWSTR, szwdescription: super::super::Foundation::PWSTR, szwlocation: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+pub type LPDISPLAYVAL = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, uitype: RESULTTYPES, szwval: super::super::Foundation::PWSTR, szwdescription: super::super::Foundation::PWSTR, szwlocation: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPEVALCOMCALLBACK = unsafe extern "system" fn(istatus: STATUSTYPES, szdata: super::super::Foundation::PWSTR, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPEVALCOMCALLBACK = ::core::option::Option<unsafe extern "system" fn(istatus: STATUSTYPES, szdata: super::super::Foundation::PWSTR, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
 pub const MAX_GUID_CHARS: u32 = 38u32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
@@ -6720,16 +6423,7 @@ pub unsafe fn MsiEnumClientsExA<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn MsiEnumClientsExA(szcomponent: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiEnumClientsExA(
-            szcomponent.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwproductindex),
-            ::core::mem::transmute(szproductbuf),
-            ::core::mem::transmute(pdwinstalledcontext),
-            ::core::mem::transmute(szsid),
-            ::core::mem::transmute(pcchsid),
-        ))
+        ::core::mem::transmute(MsiEnumClientsExA(szcomponent.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwproductindex), ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6743,16 +6437,7 @@ pub unsafe fn MsiEnumClientsExW<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn MsiEnumClientsExW(szcomponent: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiEnumClientsExW(
-            szcomponent.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwproductindex),
-            ::core::mem::transmute(szproductbuf),
-            ::core::mem::transmute(pdwinstalledcontext),
-            ::core::mem::transmute(szsid),
-            ::core::mem::transmute(pcchsid),
-        ))
+        ::core::mem::transmute(MsiEnumClientsExW(szcomponent.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwproductindex), ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6934,54 +6619,21 @@ pub unsafe fn MsiEnumPatchesExA<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn MsiEnumPatchesExA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PSTR, sztargetproductcode: super::super::Foundation::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PSTR, pcchtargetusersid: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiEnumPatchesExA(
-            szproductcode.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwfilter),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(szpatchcode),
-            ::core::mem::transmute(sztargetproductcode),
-            ::core::mem::transmute(pdwtargetproductcontext),
-            ::core::mem::transmute(sztargetusersid),
-            ::core::mem::transmute(pcchtargetusersid),
-        ))
+        ::core::mem::transmute(MsiEnumPatchesExA(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwfilter), ::core::mem::transmute(dwindex), ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    szproductcode: Param0,
-    szusersid: Param1,
-    dwcontext: u32,
-    dwfilter: u32,
-    dwindex: u32,
-    szpatchcode: super::super::Foundation::PWSTR,
-    sztargetproductcode: super::super::Foundation::PWSTR,
-    pdwtargetproductcontext: *mut MSIINSTALLCONTEXT,
-    sztargetusersid: super::super::Foundation::PWSTR,
-    pcchtargetusersid: *mut u32,
-) -> u32 {
+pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PWSTR, sztargetproductcode: super::super::Foundation::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PWSTR, pcchtargetusersid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MsiEnumPatchesExW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PWSTR, sztargetproductcode: super::super::Foundation::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PWSTR, pcchtargetusersid: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiEnumPatchesExW(
-            szproductcode.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwfilter),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(szpatchcode),
-            ::core::mem::transmute(sztargetproductcode),
-            ::core::mem::transmute(pdwtargetproductcontext),
-            ::core::mem::transmute(sztargetusersid),
-            ::core::mem::transmute(pcchtargetusersid),
-        ))
+        ::core::mem::transmute(MsiEnumPatchesExW(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwfilter), ::core::mem::transmute(dwindex), ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7023,16 +6675,7 @@ pub unsafe fn MsiEnumProductsExA<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn MsiEnumProductsExA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiEnumProductsExA(
-            szproductcode.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(szinstalledproductcode),
-            ::core::mem::transmute(pdwinstalledcontext),
-            ::core::mem::transmute(szsid),
-            ::core::mem::transmute(pcchsid),
-        ))
+        ::core::mem::transmute(MsiEnumProductsExA(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7046,16 +6689,7 @@ pub unsafe fn MsiEnumProductsExW<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn MsiEnumProductsExW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiEnumProductsExW(
-            szproductcode.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(szinstalledproductcode),
-            ::core::mem::transmute(pdwinstalledcontext),
-            ::core::mem::transmute(szsid),
-            ::core::mem::transmute(pcchsid),
-        ))
+        ::core::mem::transmute(MsiEnumProductsExW(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7604,15 +7238,7 @@ pub unsafe fn MsiGetPatchInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    szpatchcode: Param0,
-    szproductcode: Param1,
-    szusersid: Param2,
-    dwcontext: MSIINSTALLCONTEXT,
-    szproperty: Param4,
-    lpvalue: super::super::Foundation::PSTR,
-    pcchvalue: *mut u32,
-) -> u32 {
+pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchcode: Param0, szproductcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, szproperty: Param4, lpvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7626,15 +7252,7 @@ pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    szpatchcode: Param0,
-    szproductcode: Param1,
-    szusersid: Param2,
-    dwcontext: MSIINSTALLCONTEXT,
-    szproperty: Param4,
-    lpvalue: super::super::Foundation::PWSTR,
-    pcchvalue: *mut u32,
-) -> u32 {
+pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchcode: Param0, szproductcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, szproperty: Param4, lpvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7739,16 +7357,7 @@ pub unsafe fn MsiGetProductInfoFromScriptA<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn MsiGetProductInfoFromScriptA(szscriptfile: super::super::Foundation::PSTR, lpproductbuf39: super::super::Foundation::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PSTR, pcchpackagebuf: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiGetProductInfoFromScriptA(
-            szscriptfile.into_param().abi(),
-            ::core::mem::transmute(lpproductbuf39),
-            ::core::mem::transmute(plgidlanguage),
-            ::core::mem::transmute(pdwversion),
-            ::core::mem::transmute(lpnamebuf),
-            ::core::mem::transmute(pcchnamebuf),
-            ::core::mem::transmute(lppackagebuf),
-            ::core::mem::transmute(pcchpackagebuf),
-        ))
+        ::core::mem::transmute(MsiGetProductInfoFromScriptA(szscriptfile.into_param().abi(), ::core::mem::transmute(lpproductbuf39), ::core::mem::transmute(plgidlanguage), ::core::mem::transmute(pdwversion), ::core::mem::transmute(lpnamebuf), ::core::mem::transmute(pcchnamebuf), ::core::mem::transmute(lppackagebuf), ::core::mem::transmute(pcchpackagebuf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7762,16 +7371,7 @@ pub unsafe fn MsiGetProductInfoFromScriptW<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn MsiGetProductInfoFromScriptW(szscriptfile: super::super::Foundation::PWSTR, lpproductbuf39: super::super::Foundation::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PWSTR, pcchpackagebuf: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiGetProductInfoFromScriptW(
-            szscriptfile.into_param().abi(),
-            ::core::mem::transmute(lpproductbuf39),
-            ::core::mem::transmute(plgidlanguage),
-            ::core::mem::transmute(pdwversion),
-            ::core::mem::transmute(lpnamebuf),
-            ::core::mem::transmute(pcchnamebuf),
-            ::core::mem::transmute(lppackagebuf),
-            ::core::mem::transmute(pcchpackagebuf),
-        ))
+        ::core::mem::transmute(MsiGetProductInfoFromScriptW(szscriptfile.into_param().abi(), ::core::mem::transmute(lpproductbuf39), ::core::mem::transmute(plgidlanguage), ::core::mem::transmute(pdwversion), ::core::mem::transmute(lpnamebuf), ::core::mem::transmute(pcchnamebuf), ::core::mem::transmute(lppackagebuf), ::core::mem::transmute(pcchpackagebuf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8338,13 +7938,7 @@ pub unsafe fn MsiPreviewDialogW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    szscriptfile: Param0,
-    sziconfolder: Param1,
-    hregdata: Param2,
-    fshortcuts: Param3,
-    fremoveitems: Param4,
-) -> u32 {
+pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, sziconfolder: Param1, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8358,13 +7952,7 @@ pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    szscriptfile: Param0,
-    sziconfolder: Param1,
-    hregdata: Param2,
-    fshortcuts: Param3,
-    fremoveitems: Param4,
-) -> u32 {
+pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, sziconfolder: Param1, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8468,16 +8056,7 @@ pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn MsiProvideQualifiedComponentExA(szcategory: super::super::Foundation::PSTR, szqualifier: super::super::Foundation::PSTR, dwinstallmode: INSTALLMODE, szproduct: super::super::Foundation::PSTR, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiProvideQualifiedComponentExA(
-            szcategory.into_param().abi(),
-            szqualifier.into_param().abi(),
-            ::core::mem::transmute(dwinstallmode),
-            szproduct.into_param().abi(),
-            ::core::mem::transmute(dwunused1),
-            ::core::mem::transmute(dwunused2),
-            ::core::mem::transmute(lppathbuf),
-            ::core::mem::transmute(pcchpathbuf),
-        ))
+        ::core::mem::transmute(MsiProvideQualifiedComponentExA(szcategory.into_param().abi(), szqualifier.into_param().abi(), ::core::mem::transmute(dwinstallmode), szproduct.into_param().abi(), ::core::mem::transmute(dwunused1), ::core::mem::transmute(dwunused2), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8491,16 +8070,7 @@ pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn MsiProvideQualifiedComponentExW(szcategory: super::super::Foundation::PWSTR, szqualifier: super::super::Foundation::PWSTR, dwinstallmode: INSTALLMODE, szproduct: super::super::Foundation::PWSTR, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiProvideQualifiedComponentExW(
-            szcategory.into_param().abi(),
-            szqualifier.into_param().abi(),
-            ::core::mem::transmute(dwinstallmode),
-            szproduct.into_param().abi(),
-            ::core::mem::transmute(dwunused1),
-            ::core::mem::transmute(dwunused2),
-            ::core::mem::transmute(lppathbuf),
-            ::core::mem::transmute(pcchpathbuf),
-        ))
+        ::core::mem::transmute(MsiProvideQualifiedComponentExW(szcategory.into_param().abi(), szqualifier.into_param().abi(), ::core::mem::transmute(dwinstallmode), szproduct.into_param().abi(), ::core::mem::transmute(dwunused1), ::core::mem::transmute(dwunused2), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8950,12 +8520,12 @@ pub unsafe fn MsiSetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, M
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiSetExternalUIA(puihandler: ::core::option::Option<INSTALLUI_HANDLERA>, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERA> {
+pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MsiSetExternalUIA(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERA>;
+            fn MsiSetExternalUIA(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERA;
         }
         ::core::mem::transmute(MsiSetExternalUIA(::core::mem::transmute(puihandler), ::core::mem::transmute(dwmessagefilter), ::core::mem::transmute(pvcontext)))
     }
@@ -8963,7 +8533,7 @@ pub unsafe fn MsiSetExternalUIA(puihandler: ::core::option::Option<INSTALLUI_HAN
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn MsiSetExternalUIRecord(puihandler: ::core::option::Option<PINSTALLUI_HANDLER_RECORD>, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void, ppuiprevhandler: ::core::option::Option<PINSTALLUI_HANDLER_RECORD>) -> u32 {
+pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8977,12 +8547,12 @@ pub unsafe fn MsiSetExternalUIRecord(puihandler: ::core::option::Option<PINSTALL
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiSetExternalUIW(puihandler: ::core::option::Option<INSTALLUI_HANDLERW>, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERW> {
+pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERW {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MsiSetExternalUIW(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERW>;
+            fn MsiSetExternalUIW(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERW;
         }
         ::core::mem::transmute(MsiSetExternalUIW(::core::mem::transmute(puihandler), ::core::mem::transmute(dwmessagefilter), ::core::mem::transmute(pvcontext)))
     }
@@ -9158,15 +8728,7 @@ pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    szproductcodeorpatchcode: Param0,
-    szusersid: Param1,
-    dwcontext: MSIINSTALLCONTEXT,
-    dwoptions: u32,
-    dwdiskid: u32,
-    szvolumelabel: Param5,
-    szdiskprompt: Param6,
-) -> u32 {
+pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: Param5, szdiskprompt: Param6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9355,18 +8917,7 @@ pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PSTR, pcchdiskprompt: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiSourceListEnumMediaDisksA(
-            szproductcodeorpatchcode.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(pdwdiskid),
-            ::core::mem::transmute(szvolumelabel),
-            ::core::mem::transmute(pcchvolumelabel),
-            ::core::mem::transmute(szdiskprompt),
-            ::core::mem::transmute(pcchdiskprompt),
-        ))
+        ::core::mem::transmute(MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(pcchvolumelabel), ::core::mem::transmute(szdiskprompt), ::core::mem::transmute(pcchdiskprompt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9380,18 +8931,7 @@ pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PWSTR, pcchdiskprompt: *mut u32) -> u32;
         }
-        ::core::mem::transmute(MsiSourceListEnumMediaDisksW(
-            szproductcodeorpatchcode.into_param().abi(),
-            szusersid.into_param().abi(),
-            ::core::mem::transmute(dwcontext),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(pdwdiskid),
-            ::core::mem::transmute(szvolumelabel),
-            ::core::mem::transmute(pcchvolumelabel),
-            ::core::mem::transmute(szdiskprompt),
-            ::core::mem::transmute(pcchdiskprompt),
-        ))
+        ::core::mem::transmute(MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(pcchvolumelabel), ::core::mem::transmute(szdiskprompt), ::core::mem::transmute(pcchdiskprompt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9816,20 +9356,9 @@ pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_voi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const ::core::mem::ManuallyDrop<PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32;
+            fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32;
         }
-        ::core::mem::transmute(NormalizeFileForPatchSignature(
-            ::core::mem::transmute(filebuffer),
-            ::core::mem::transmute(filesize),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(newfilecoffbase),
-            ::core::mem::transmute(newfilecofftime),
-            ::core::mem::transmute(ignorerangecount),
-            ::core::mem::transmute(ignorerangearray),
-            ::core::mem::transmute(retainrangecount),
-            ::core::mem::transmute(retainrangearray),
-        ))
+        ::core::mem::transmute(NormalizeFileForPatchSignature(::core::mem::transmute(filebuffer), ::core::mem::transmute(filesize), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(newfilecoffbase), ::core::mem::transmute(newfilecofftime), ::core::mem::transmute(ignorerangecount), ::core::mem::transmute(ignorerangearray), ::core::mem::transmute(retainrangecount), ::core::mem::transmute(retainrangearray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10011,14 +9540,7 @@ impl ::core::default::Default for PATCH_OLD_FILE_INFO_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PATCH_OLD_FILE_INFO_A")
-            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
-            .field("OldFileName", &self.OldFileName)
-            .field("IgnoreRangeCount", &self.IgnoreRangeCount)
-            .field("IgnoreRangeArray", &self.IgnoreRangeArray)
-            .field("RetainRangeCount", &self.RetainRangeCount)
-            .field("RetainRangeArray", &self.RetainRangeArray)
-            .finish()
+        fmt.debug_struct("PATCH_OLD_FILE_INFO_A").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileName", &self.OldFileName).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10055,14 +9577,7 @@ impl ::core::default::Default for PATCH_OLD_FILE_INFO_H {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_H {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PATCH_OLD_FILE_INFO_H")
-            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
-            .field("OldFileHandle", &self.OldFileHandle)
-            .field("IgnoreRangeCount", &self.IgnoreRangeCount)
-            .field("IgnoreRangeArray", &self.IgnoreRangeArray)
-            .field("RetainRangeCount", &self.RetainRangeCount)
-            .field("RetainRangeArray", &self.RetainRangeArray)
-            .finish()
+        fmt.debug_struct("PATCH_OLD_FILE_INFO_H").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileHandle", &self.OldFileHandle).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10099,14 +9614,7 @@ impl ::core::default::Default for PATCH_OLD_FILE_INFO_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PATCH_OLD_FILE_INFO_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PATCH_OLD_FILE_INFO_W")
-            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
-            .field("OldFileName", &self.OldFileName)
-            .field("IgnoreRangeCount", &self.IgnoreRangeCount)
-            .field("IgnoreRangeArray", &self.IgnoreRangeArray)
-            .field("RetainRangeCount", &self.RetainRangeCount)
-            .field("RetainRangeArray", &self.RetainRangeArray)
-            .finish()
+        fmt.debug_struct("PATCH_OLD_FILE_INFO_W").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("OldFileName", &self.OldFileName).field("IgnoreRangeCount", &self.IgnoreRangeCount).field("IgnoreRangeArray", &self.IgnoreRangeArray).field("RetainRangeCount", &self.RetainRangeCount).field("RetainRangeArray", &self.RetainRangeArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10121,7 +9629,7 @@ impl ::core::cmp::Eq for PATCH_OLD_FILE_INFO_W {}
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_W {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PATCH_OPTION_DATA {
@@ -10130,7 +9638,7 @@ pub struct PATCH_OPTION_DATA {
     pub NewFileSymbolPath: super::super::Foundation::PSTR,
     pub OldFileSymbolPathArray: *mut super::super::Foundation::PSTR,
     pub ExtendedOptionFlags: u32,
-    pub SymLoadCallback: ::core::option::Option<PPATCH_SYMLOAD_CALLBACK>,
+    pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
     pub SymLoadContext: *mut ::core::ffi::c_void,
     pub InterleaveMapArray: *mut *mut PATCH_INTERLEAVE_MAP,
     pub MaxLzxWindowSize: u32,
@@ -10146,37 +9654,20 @@ impl ::core::default::Default for PATCH_OPTION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PATCH_OPTION_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PATCH_OPTION_DATA")
-            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
-            .field("SymbolOptionFlags", &self.SymbolOptionFlags)
-            .field("NewFileSymbolPath", &self.NewFileSymbolPath)
-            .field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray)
-            .field("ExtendedOptionFlags", &self.ExtendedOptionFlags)
-            .field("SymLoadContext", &self.SymLoadContext)
-            .field("InterleaveMapArray", &self.InterleaveMapArray)
-            .field("MaxLzxWindowSize", &self.MaxLzxWindowSize)
-            .finish()
+        fmt.debug_struct("PATCH_OPTION_DATA").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("SymbolOptionFlags", &self.SymbolOptionFlags).field("NewFileSymbolPath", &self.NewFileSymbolPath).field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray).field("ExtendedOptionFlags", &self.ExtendedOptionFlags).field("SymLoadContext", &self.SymLoadContext).field("InterleaveMapArray", &self.InterleaveMapArray).field("MaxLzxWindowSize", &self.MaxLzxWindowSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PATCH_OPTION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.SizeOfThisStruct == other.SizeOfThisStruct
-            && self.SymbolOptionFlags == other.SymbolOptionFlags
-            && self.NewFileSymbolPath == other.NewFileSymbolPath
-            && self.OldFileSymbolPathArray == other.OldFileSymbolPathArray
-            && self.ExtendedOptionFlags == other.ExtendedOptionFlags
-            && self.SymLoadCallback.map(|f| f as usize) == other.SymLoadCallback.map(|f| f as usize)
-            && self.SymLoadContext == other.SymLoadContext
-            && self.InterleaveMapArray == other.InterleaveMapArray
-            && self.MaxLzxWindowSize == other.MaxLzxWindowSize
+        self.SizeOfThisStruct == other.SizeOfThisStruct && self.SymbolOptionFlags == other.SymbolOptionFlags && self.NewFileSymbolPath == other.NewFileSymbolPath && self.OldFileSymbolPathArray == other.OldFileSymbolPathArray && self.ExtendedOptionFlags == other.ExtendedOptionFlags && self.SymLoadCallback.map(|f| f as usize) == other.SymLoadCallback.map(|f| f as usize) && self.SymLoadContext == other.SymLoadContext && self.InterleaveMapArray == other.InterleaveMapArray && self.MaxLzxWindowSize == other.MaxLzxWindowSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PATCH_OPTION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OPTION_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288u32;
@@ -10248,7 +9739,7 @@ pub const PID_TEMPLATE: u32 = 7u32;
 pub const PID_THUMBNAIL: u32 = 17u32;
 pub const PID_TITLE: u32 = 2u32;
 pub const PID_WORDCOUNT: u32 = 15u32;
-pub type PINSTALLUI_HANDLER_RECORD = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32;
+pub type PINSTALLUI_HANDLER_RECORD = ::core::option::Option<unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PMSIHANDLE {
@@ -10672,17 +10163,7 @@ impl ::core::default::Default for PM_INSTALLINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PM_INSTALLINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PM_INSTALLINFO")
-            .field("ProductID", &self.ProductID)
-            .field("PackagePath", &self.PackagePath)
-            .field("InstanceID", &self.InstanceID)
-            .field("pbLicense", &self.pbLicense)
-            .field("cbLicense", &self.cbLicense)
-            .field("IsUninstallDisabled", &self.IsUninstallDisabled)
-            .field("DeploymentOptions", &self.DeploymentOptions)
-            .field("OfferID", &self.OfferID)
-            .field("MarketplaceAppVersion", &self.MarketplaceAppVersion)
-            .finish()
+        fmt.debug_struct("PM_INSTALLINFO").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("IsUninstallDisabled", &self.IsUninstallDisabled).field("DeploymentOptions", &self.DeploymentOptions).field("OfferID", &self.OfferID).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10787,19 +10268,7 @@ impl ::core::default::Default for PM_STARTAPPBLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PM_STARTAPPBLOB {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PM_STARTAPPBLOB")
-            .field("cbSize", &self.cbSize)
-            .field("ProductID", &self.ProductID)
-            .field("AppTitle", &self.AppTitle)
-            .field("IconPath", &self.IconPath)
-            .field("IsUninstallable", &self.IsUninstallable)
-            .field("AppInstallType", &self.AppInstallType)
-            .field("InstanceID", &self.InstanceID)
-            .field("State", &self.State)
-            .field("IsModern", &self.IsModern)
-            .field("IsModernLightUp", &self.IsModernLightUp)
-            .field("LightUpSupportMask", &self.LightUpSupportMask)
-            .finish()
+        fmt.debug_struct("PM_STARTAPPBLOB").field("cbSize", &self.cbSize).field("ProductID", &self.ProductID).field("AppTitle", &self.AppTitle).field("IconPath", &self.IconPath).field("IsUninstallable", &self.IsUninstallable).field("AppInstallType", &self.AppInstallType).field("InstanceID", &self.InstanceID).field("State", &self.State).field("IsModern", &self.IsModern).field("IsModernLightUp", &self.IsModernLightUp).field("LightUpSupportMask", &self.LightUpSupportMask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10863,19 +10332,7 @@ impl ::core::fmt::Debug for PM_STARTTILEBLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_STARTTILEBLOB {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.ProductID == other.ProductID
-            && self.TileID == other.TileID
-            && self.TemplateType == other.TemplateType
-            && self.HubPosition == other.HubPosition
-            && self.HubVisibilityBitmask == other.HubVisibilityBitmask
-            && self.IsDefault == other.IsDefault
-            && self.TileType == other.TileType
-            && self.pbPropBlob == other.pbPropBlob
-            && self.cbPropBlob == other.cbPropBlob
-            && self.IsRestoring == other.IsRestoring
-            && self.IsModern == other.IsModern
-            && self.InvocationInfo == other.InvocationInfo
+        self.cbSize == other.cbSize && self.ProductID == other.ProductID && self.TileID == other.TileID && self.TemplateType == other.TemplateType && self.HubPosition == other.HubPosition && self.HubVisibilityBitmask == other.HubVisibilityBitmask && self.IsDefault == other.IsDefault && self.TileType == other.TileType && self.pbPropBlob == other.pbPropBlob && self.cbPropBlob == other.cbPropBlob && self.IsRestoring == other.IsRestoring && self.IsModern == other.IsModern && self.InvocationInfo == other.InvocationInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10996,15 +10453,7 @@ impl ::core::default::Default for PM_UPDATEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PM_UPDATEINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PM_UPDATEINFO")
-            .field("ProductID", &self.ProductID)
-            .field("PackagePath", &self.PackagePath)
-            .field("InstanceID", &self.InstanceID)
-            .field("pbLicense", &self.pbLicense)
-            .field("cbLicense", &self.cbLicense)
-            .field("MarketplaceAppVersion", &self.MarketplaceAppVersion)
-            .field("DeploymentOptions", &self.DeploymentOptions)
-            .finish()
+        fmt.debug_struct("PM_UPDATEINFO").field("ProductID", &self.ProductID).field("PackagePath", &self.PackagePath).field("InstanceID", &self.InstanceID).field("pbLicense", &self.pbLicense).field("cbLicense", &self.cbLicense).field("MarketplaceAppVersion", &self.MarketplaceAppVersion).field("DeploymentOptions", &self.DeploymentOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11057,9 +10506,9 @@ unsafe impl ::windows::core::Abi for PM_UPDATEINFO_LEGACY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PPATCH_PROGRESS_CALLBACK = unsafe extern "system" fn(callbackcontext: *mut ::core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL;
+pub type PPATCH_PROGRESS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *mut ::core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PPATCH_SYMLOAD_CALLBACK = unsafe extern "system" fn(whichfile: u32, symbolfilename: super::super::Foundation::PSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type PPATCH_SYMLOAD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: super::super::Foundation::PSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROTECTED_FILE_DATA {

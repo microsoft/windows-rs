@@ -26,12 +26,7 @@ pub const CACO_EXTERNAL_ONLY: CONTACT_AGGREGATION_COLLECTION_OPTIONS = 2i32;
 pub type CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = i32;
 pub const CA_CREATE_LOCAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = 0i32;
 pub const CA_CREATE_EXTERNAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = 1i32;
-pub const Contact: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1639352328,
-    data2: 36590,
-    data3: 20433,
-    data4: [172, 184, 61, 128, 76, 141, 176, 86],
-};
+pub const Contact: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1639352328, data2: 36590, data3: 20433, data4: [172, 184, 61, 128, 76, 141, 176, 86] };
 pub const ContactManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1902495915, data2: 44936, data3: 17085, data4: [134, 253, 83, 16, 180, 40, 90, 2] };
 pub type IContact = *mut ::core::ffi::c_void;
 pub type IContactAggregationAggregate = *mut ::core::ffi::c_void;

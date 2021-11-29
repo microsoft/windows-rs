@@ -2340,19 +2340,7 @@ impl IFEDictionary {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWords<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchfirst: Param0, pwchlast: Param1, pwchdisplay: Param2, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            pwchfirst.into_param().abi(),
-            pwchlast.into_param().abi(),
-            pwchdisplay.into_param().abi(),
-            ::core::mem::transmute(ulpos),
-            ::core::mem::transmute(ulselect),
-            ::core::mem::transmute(ulwordsrc),
-            ::core::mem::transmute(pchbuffer),
-            ::core::mem::transmute(cbbuffer),
-            ::core::mem::transmute(pcwrd),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwchfirst.into_param().abi(), pwchlast.into_param().abi(), pwchdisplay.into_param().abi(), ::core::mem::transmute(ulpos), ::core::mem::transmute(ulselect), ::core::mem::transmute(ulwordsrc), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcwrd)).ok()
     }
     pub unsafe fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcwrd)).ok()
@@ -2382,41 +2370,14 @@ impl IFEDictionary {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(reg), ::core::mem::transmute(pdp)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        pwchkakarireading: Param0,
-        pwchkakaridisplay: Param1,
-        ulkakaripos: u32,
-        pwchukereading: Param3,
-        pwchukedisplay: Param4,
-        ulukepos: u32,
-        jrel: IMEREL,
-        ulwordsrc: u32,
-        pchbuffer: *mut u8,
-        cbbuffer: u32,
-        pcdp: *mut u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pwchkakarireading.into_param().abi(),
-            pwchkakaridisplay.into_param().abi(),
-            ::core::mem::transmute(ulkakaripos),
-            pwchukereading.into_param().abi(),
-            pwchukedisplay.into_param().abi(),
-            ::core::mem::transmute(ulukepos),
-            ::core::mem::transmute(jrel),
-            ::core::mem::transmute(ulwordsrc),
-            ::core::mem::transmute(pchbuffer),
-            ::core::mem::transmute(cbbuffer),
-            ::core::mem::transmute(pcdp),
-        )
-        .ok()
+    pub unsafe fn GetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchkakarireading: Param0, pwchkakaridisplay: Param1, ulkakaripos: u32, pwchukereading: Param3, pwchukedisplay: Param4, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pwchkakarireading.into_param().abi(), pwchkakaridisplay.into_param().abi(), ::core::mem::transmute(ulkakaripos), pwchukereading.into_param().abi(), pwchukedisplay.into_param().abi(), ::core::mem::transmute(ulukepos), ::core::mem::transmute(jrel), ::core::mem::transmute(ulwordsrc), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
     }
     pub unsafe fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcdp)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConvertFromOldMSIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdic: Param0, pfnlog: ::core::option::Option<PFNLOG>, reg: IMEREG) -> ::windows::core::Result<()> {
+    pub unsafe fn ConvertFromOldMSIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, pchdic: Param0, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), pchdic.into_param().abi(), ::core::mem::transmute(pfnlog), ::core::mem::transmute(reg)).ok()
     }
     pub unsafe fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()> {
@@ -2743,14 +2704,9 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IImeS
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImeSpecifyApplets_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT,
-);
+pub struct IImeSpecifyApplets_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
+pub type IMCENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
 pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
@@ -2796,17 +2752,7 @@ impl ::core::default::Default for IMEAPPLETCFG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for IMEAPPLETCFG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMEAPPLETCFG")
-            .field("dwConfig", &self.dwConfig)
-            .field("wchTitle", &self.wchTitle)
-            .field("wchTitleFontFace", &self.wchTitleFontFace)
-            .field("dwCharSet", &self.dwCharSet)
-            .field("iCategory", &self.iCategory)
-            .field("hIcon", &self.hIcon)
-            .field("langID", &self.langID)
-            .field("dummy", &self.dummy)
-            .field("lReserved1", &self.lReserved1)
-            .finish()
+        fmt.debug_struct("IMEAPPLETCFG").field("dwConfig", &self.dwConfig).field("wchTitle", &self.wchTitle).field("wchTitleFontFace", &self.wchTitleFontFace).field("dwCharSet", &self.dwCharSet).field("iCategory", &self.iCategory).field("hIcon", &self.hIcon).field("langID", &self.langID).field("dummy", &self.dummy).field("lReserved1", &self.lReserved1).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2847,18 +2793,7 @@ impl ::core::default::Default for IMEAPPLETUI {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMEAPPLETUI {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMEAPPLETUI")
-            .field("hwnd", &self.hwnd)
-            .field("dwStyle", &self.dwStyle)
-            .field("width", &self.width)
-            .field("height", &self.height)
-            .field("minWidth", &self.minWidth)
-            .field("minHeight", &self.minHeight)
-            .field("maxWidth", &self.maxWidth)
-            .field("maxHeight", &self.maxHeight)
-            .field("lReserved1", &self.lReserved1)
-            .field("lReserved2", &self.lReserved2)
-            .finish()
+        fmt.debug_struct("IMEAPPLETUI").field("hwnd", &self.hwnd).field("dwStyle", &self.dwStyle).field("width", &self.width).field("height", &self.height).field("minWidth", &self.minWidth).field("minHeight", &self.minHeight).field("maxWidth", &self.maxWidth).field("maxHeight", &self.maxHeight).field("lReserved1", &self.lReserved1).field("lReserved2", &self.lReserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3083,15 +3018,7 @@ impl ::core::default::Default for IMEINFO {
 }
 impl ::core::fmt::Debug for IMEINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMEINFO")
-            .field("dwPrivateDataSize", &self.dwPrivateDataSize)
-            .field("fdwProperty", &self.fdwProperty)
-            .field("fdwConversionCaps", &self.fdwConversionCaps)
-            .field("fdwSentenceCaps", &self.fdwSentenceCaps)
-            .field("fdwUICaps", &self.fdwUICaps)
-            .field("fdwSCSCaps", &self.fdwSCSCaps)
-            .field("fdwSelectCaps", &self.fdwSelectCaps)
-            .finish()
+        fmt.debug_struct("IMEINFO").field("dwPrivateDataSize", &self.dwPrivateDataSize).field("fdwProperty", &self.fdwProperty).field("fdwConversionCaps", &self.fdwConversionCaps).field("fdwSentenceCaps", &self.fdwSentenceCaps).field("fdwUICaps", &self.fdwUICaps).field("fdwSCSCaps", &self.fdwSCSCaps).field("fdwSelectCaps", &self.fdwSelectCaps).finish()
     }
 }
 impl ::core::cmp::PartialEq for IMEINFO {
@@ -3427,17 +3354,7 @@ impl ::core::default::Default for IMEMENUITEMINFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for IMEMENUITEMINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMEMENUITEMINFOA")
-            .field("cbSize", &self.cbSize)
-            .field("fType", &self.fType)
-            .field("fState", &self.fState)
-            .field("wID", &self.wID)
-            .field("hbmpChecked", &self.hbmpChecked)
-            .field("hbmpUnchecked", &self.hbmpUnchecked)
-            .field("dwItemData", &self.dwItemData)
-            .field("szString", &self.szString)
-            .field("hbmpItem", &self.hbmpItem)
-            .finish()
+        fmt.debug_struct("IMEMENUITEMINFOA").field("cbSize", &self.cbSize).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("szString", &self.szString).field("hbmpItem", &self.hbmpItem).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3477,17 +3394,7 @@ impl ::core::default::Default for IMEMENUITEMINFOW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for IMEMENUITEMINFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMEMENUITEMINFOW")
-            .field("cbSize", &self.cbSize)
-            .field("fType", &self.fType)
-            .field("fState", &self.fState)
-            .field("wID", &self.wID)
-            .field("hbmpChecked", &self.hbmpChecked)
-            .field("hbmpUnchecked", &self.hbmpUnchecked)
-            .field("dwItemData", &self.dwItemData)
-            .field("szString", &self.szString)
-            .field("hbmpItem", &self.hbmpItem)
-            .finish()
+        fmt.debug_struct("IMEMENUITEMINFOW").field("cbSize", &self.cbSize).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("szString", &self.szString).field("hbmpItem", &self.hbmpItem).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4273,7 +4180,7 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
-pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: ::core::option::Option<IMCENUMPROC>, lparam: Param2) -> super::super::super::Foundation::BOOL {
+pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: IMCENUMPROC, lparam: Param2) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4287,7 +4194,7 @@ pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: ::core::option::Option<REGISTERWORDENUMPROCA>, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCA, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4301,7 +4208,7 @@ pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: ::core::option::Option<REGISTERWORDENUMPROCW>, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCW, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5622,7 +5529,7 @@ impl ::core::ops::Not for NOTIFY_IME_INDEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::core::HRESULT) -> super::super::super::Foundation::BOOL;
+pub type PFNLOG = ::core::option::Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::core::HRESULT) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct POSTBL {
@@ -5665,16 +5572,7 @@ impl ::core::default::Default for RECONVERTSTRING {
 }
 impl ::core::fmt::Debug for RECONVERTSTRING {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RECONVERTSTRING")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwStrLen", &self.dwStrLen)
-            .field("dwStrOffset", &self.dwStrOffset)
-            .field("dwCompStrLen", &self.dwCompStrLen)
-            .field("dwCompStrOffset", &self.dwCompStrOffset)
-            .field("dwTargetStrLen", &self.dwTargetStrLen)
-            .field("dwTargetStrOffset", &self.dwTargetStrOffset)
-            .finish()
+        fmt.debug_struct("RECONVERTSTRING").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwCompStrLen", &self.dwCompStrLen).field("dwCompStrOffset", &self.dwCompStrOffset).field("dwTargetStrLen", &self.dwTargetStrLen).field("dwTargetStrOffset", &self.dwTargetStrOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for RECONVERTSTRING {
@@ -5722,9 +5620,9 @@ unsafe impl ::windows::core::Abi for REGISTERWORDA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32;
+pub type REGISTERWORDENUMPROCA = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32;
+pub type REGISTERWORDENUMPROCW = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -6047,9 +5945,9 @@ impl ::core::cmp::Eq for WDD_1 {}
 unsafe impl ::windows::core::Abi for WDD_1 {
     type Abi = Self;
 }
-pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type fpCreateIFECommonInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type fpCreateIFEDictionaryInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type fpCreateIFELanguageInstanceType = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct tabIMEFAREASTINFO {

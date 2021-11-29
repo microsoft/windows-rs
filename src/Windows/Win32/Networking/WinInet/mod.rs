@@ -226,16 +226,7 @@ pub unsafe fn AppCacheCheckManifest<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn AppCacheCheckManifest(pwszmasterurl: super::super::Foundation::PWSTR, pwszmanifesturl: super::super::Foundation::PWSTR, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pbmanifestresponseheaders: *const u8, dwmanifestresponseheaderssize: u32, pestate: *mut APP_CACHE_STATE, phnewappcache: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(AppCacheCheckManifest(
-            pwszmasterurl.into_param().abi(),
-            pwszmanifesturl.into_param().abi(),
-            ::core::mem::transmute(pbmanifestdata),
-            ::core::mem::transmute(dwmanifestdatasize),
-            ::core::mem::transmute(pbmanifestresponseheaders),
-            ::core::mem::transmute(dwmanifestresponseheaderssize),
-            ::core::mem::transmute(pestate),
-            ::core::mem::transmute(phnewappcache),
-        ))
+        ::core::mem::transmute(AppCacheCheckManifest(pwszmasterurl.into_param().abi(), pwszmanifesturl.into_param().abi(), ::core::mem::transmute(pbmanifestdata), ::core::mem::transmute(dwmanifestdatasize), ::core::mem::transmute(pbmanifestresponseheaders), ::core::mem::transmute(dwmanifestresponseheaderssize), ::core::mem::transmute(pestate), ::core::mem::transmute(phnewappcache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -521,17 +512,7 @@ impl ::core::default::Default for AutoProxyHelperVtbl {
 }
 impl ::core::fmt::Debug for AutoProxyHelperVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AutoProxyHelperVtbl")
-            .field("IsResolvable", &self.IsResolvable)
-            .field("GetIPAddress", &self.GetIPAddress)
-            .field("ResolveHostName", &self.ResolveHostName)
-            .field("IsInNet", &self.IsInNet)
-            .field("IsResolvableEx", &self.IsResolvableEx)
-            .field("GetIPAddressEx", &self.GetIPAddressEx)
-            .field("ResolveHostNameEx", &self.ResolveHostNameEx)
-            .field("IsInNetEx", &self.IsInNetEx)
-            .field("SortIpList", &self.SortIpList)
-            .finish()
+        fmt.debug_struct("AutoProxyHelperVtbl").field("IsResolvable", &self.IsResolvable).field("GetIPAddress", &self.GetIPAddress).field("ResolveHostName", &self.ResolveHostName).field("IsInNet", &self.IsInNet).field("IsResolvableEx", &self.IsResolvableEx).field("GetIPAddressEx", &self.GetIPAddressEx).field("ResolveHostNameEx", &self.ResolveHostNameEx).field("IsInNetEx", &self.IsInNetEx).field("SortIpList", &self.SortIpList).finish()
     }
 }
 impl ::core::cmp::PartialEq for AutoProxyHelperVtbl {
@@ -666,7 +647,7 @@ pub const CACHE_NOTIFY_UPDATE_URL: u32 = 4u32;
 pub const CACHE_NOTIFY_URL_SET_STICKY: u32 = 16u32;
 pub const CACHE_NOTIFY_URL_UNSET_STICKY: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CACHE_OPERATOR = unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type CACHE_OPERATOR = ::core::option::Option<unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub const COOKIE_ACCEPTED_CACHE_ENTRY: u32 = 4096u32;
 pub const COOKIE_ALLOW: u32 = 2u32;
 pub const COOKIE_ALLOW_ALL: u32 = 4u32;
@@ -724,34 +705,14 @@ pub const COOKIE_STATE_LB: u32 = 0u32;
 pub const COOKIE_STATE_UB: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    lpszurlname: Param0,
-    lpszlocalfilename: Param1,
-    expiretime: Param2,
-    lastmodifiedtime: Param3,
-    cacheentrytype: u32,
-    lpheaderinfo: *const u8,
-    cchheaderinfo: u32,
-    lpszfileextension: Param7,
-    lpszoriginalurl: Param8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CommitUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpszlocalfilename: Param1, expiretime: Param2, lastmodifiedtime: Param3, cacheentrytype: u32, lpheaderinfo: *const u8, cchheaderinfo: u32, lpszfileextension: Param7, lpszoriginalurl: Param8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CommitUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR, lpszlocalfilename: super::super::Foundation::PSTR, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpheaderinfo: *const u8, cchheaderinfo: u32, lpszfileextension: super::super::Foundation::PSTR, lpszoriginalurl: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CommitUrlCacheEntryA(
-            lpszurlname.into_param().abi(),
-            lpszlocalfilename.into_param().abi(),
-            expiretime.into_param().abi(),
-            lastmodifiedtime.into_param().abi(),
-            ::core::mem::transmute(cacheentrytype),
-            ::core::mem::transmute(lpheaderinfo),
-            ::core::mem::transmute(cchheaderinfo),
-            lpszfileextension.into_param().abi(),
-            lpszoriginalurl.into_param().abi(),
-        ))
+        ::core::mem::transmute(CommitUrlCacheEntryA(lpszurlname.into_param().abi(), lpszlocalfilename.into_param().abi(), expiretime.into_param().abi(), lastmodifiedtime.into_param().abi(), ::core::mem::transmute(cacheentrytype), ::core::mem::transmute(lpheaderinfo), ::core::mem::transmute(cchheaderinfo), lpszfileextension.into_param().abi(), lpszoriginalurl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -772,16 +733,7 @@ pub unsafe fn CommitUrlCacheEntryBinaryBlob<'a, Param0: ::windows::core::IntoPar
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitUrlCacheEntryW<
-    'a,
-    Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>,
-    Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>,
-    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn CommitUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpszurlname: Param0,
     lpszlocalfilename: Param1,
     expiretime: Param2,
@@ -798,17 +750,7 @@ pub unsafe fn CommitUrlCacheEntryW<
         extern "system" {
             fn CommitUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR, lpszlocalfilename: super::super::Foundation::PWSTR, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpszheaderinfo: super::super::Foundation::PWSTR, cchheaderinfo: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszoriginalurl: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CommitUrlCacheEntryW(
-            lpszurlname.into_param().abi(),
-            lpszlocalfilename.into_param().abi(),
-            expiretime.into_param().abi(),
-            lastmodifiedtime.into_param().abi(),
-            ::core::mem::transmute(cacheentrytype),
-            lpszheaderinfo.into_param().abi(),
-            ::core::mem::transmute(cchheaderinfo),
-            lpszfileextension.into_param().abi(),
-            lpszoriginalurl.into_param().abi(),
-        ))
+        ::core::mem::transmute(CommitUrlCacheEntryW(lpszurlname.into_param().abi(), lpszlocalfilename.into_param().abi(), expiretime.into_param().abi(), lastmodifiedtime.into_param().abi(), ::core::mem::transmute(cacheentrytype), lpszheaderinfo.into_param().abi(), ::core::mem::transmute(cchheaderinfo), lpszfileextension.into_param().abi(), lpszoriginalurl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -904,14 +846,7 @@ pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    lpszurlname: Param0,
-    dwexpectedfilesize: u32,
-    lpszfileextension: Param2,
-    lpszfilename: Param3,
-    dwreserved: u32,
-    fpreserveincomingfilename: Param5,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: Param3, dwreserved: u32, fpreserveincomingfilename: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1391,17 +1326,7 @@ pub unsafe fn FindFirstUrlCacheEntryExA<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern: super::super::Foundation::PSTR, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(FindFirstUrlCacheEntryExA(
-            lpszurlsearchpattern.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dwfilter),
-            ::core::mem::transmute(groupid),
-            ::core::mem::transmute(lpfirstcacheentryinfo),
-            ::core::mem::transmute(lpcbcacheentryinfo),
-            ::core::mem::transmute(lpgroupattributes),
-            ::core::mem::transmute(lpcbgroupattributes),
-            ::core::mem::transmute(lpreserved),
-        ))
+        ::core::mem::transmute(FindFirstUrlCacheEntryExA(lpszurlsearchpattern.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwfilter), ::core::mem::transmute(groupid), ::core::mem::transmute(lpfirstcacheentryinfo), ::core::mem::transmute(lpcbcacheentryinfo), ::core::mem::transmute(lpgroupattributes), ::core::mem::transmute(lpcbgroupattributes), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1415,17 +1340,7 @@ pub unsafe fn FindFirstUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern: super::super::Foundation::PWSTR, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::core::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(FindFirstUrlCacheEntryExW(
-            lpszurlsearchpattern.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dwfilter),
-            ::core::mem::transmute(groupid),
-            ::core::mem::transmute(lpfirstcacheentryinfo),
-            ::core::mem::transmute(lpcbcacheentryinfo),
-            ::core::mem::transmute(lpgroupattributes),
-            ::core::mem::transmute(lpcbgroupattributes),
-            ::core::mem::transmute(lpreserved),
-        ))
+        ::core::mem::transmute(FindFirstUrlCacheEntryExW(lpszurlsearchpattern.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwfilter), ::core::mem::transmute(groupid), ::core::mem::transmute(lpfirstcacheentryinfo), ::core::mem::transmute(lpcbcacheentryinfo), ::core::mem::transmute(lpgroupattributes), ::core::mem::transmute(lpcbgroupattributes), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2026,7 +1941,7 @@ unsafe impl ::windows::core::Abi for GOPHER_ASK_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL;
+pub type GOPHER_ATTRIBUTE_ENUMERATOR = ::core::option::Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL>;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
 pub const GOPHER_ATTRIBUTE_ID_ADMIN: u32 = 2882325514u32;
 pub const GOPHER_ATTRIBUTE_ID_ALL: u32 = 2882325513u32;
@@ -2215,14 +2130,7 @@ impl ::core::default::Default for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 }
 impl ::core::fmt::Debug for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE")
-            .field("DegreesNorth", &self.DegreesNorth)
-            .field("MinutesNorth", &self.MinutesNorth)
-            .field("SecondsNorth", &self.SecondsNorth)
-            .field("DegreesEast", &self.DegreesEast)
-            .field("MinutesEast", &self.MinutesEast)
-            .field("SecondsEast", &self.SecondsEast)
-            .finish()
+        fmt.debug_struct("GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE").field("DegreesNorth", &self.DegreesNorth).field("MinutesNorth", &self.MinutesNorth).field("SecondsNorth", &self.SecondsNorth).field("DegreesEast", &self.DegreesEast).field("MinutesEast", &self.MinutesEast).field("SecondsEast", &self.SecondsEast).finish()
     }
 }
 impl ::core::cmp::PartialEq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
@@ -2853,46 +2761,28 @@ pub unsafe fn GopherFindFirstFileW<'a, Param1: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherGetAttributeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::core::option::Option<GOPHER_ATTRIBUTE_ENUMERATOR>, dwcontext: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherGetAttributeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GopherGetAttributeA(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszattributename: super::super::Foundation::PSTR, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::windows::core::RawPtr, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GopherGetAttributeA(
-            ::core::mem::transmute(hconnect),
-            lpszlocator.into_param().abi(),
-            lpszattributename.into_param().abi(),
-            ::core::mem::transmute(lpbuffer),
-            ::core::mem::transmute(dwbufferlength),
-            ::core::mem::transmute(lpdwcharactersreturned),
-            ::core::mem::transmute(lpfnenumerator),
-            ::core::mem::transmute(dwcontext),
-        ))
+        ::core::mem::transmute(GopherGetAttributeA(::core::mem::transmute(hconnect), lpszlocator.into_param().abi(), lpszattributename.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(lpdwcharactersreturned), ::core::mem::transmute(lpfnenumerator), ::core::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherGetAttributeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::core::option::Option<GOPHER_ATTRIBUTE_ENUMERATOR>, dwcontext: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherGetAttributeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GopherGetAttributeW(hconnect: *const ::core::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszattributename: super::super::Foundation::PWSTR, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::windows::core::RawPtr, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GopherGetAttributeW(
-            ::core::mem::transmute(hconnect),
-            lpszlocator.into_param().abi(),
-            lpszattributename.into_param().abi(),
-            ::core::mem::transmute(lpbuffer),
-            ::core::mem::transmute(dwbufferlength),
-            ::core::mem::transmute(lpdwcharactersreturned),
-            ::core::mem::transmute(lpfnenumerator),
-            ::core::mem::transmute(dwcontext),
-        ))
+        ::core::mem::transmute(GopherGetAttributeW(::core::mem::transmute(hconnect), lpszlocator.into_param().abi(), lpszattributename.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(lpdwcharactersreturned), ::core::mem::transmute(lpfnenumerator), ::core::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3016,8 +2906,8 @@ pub const HTTP_COOKIES_SAME_SITE_LEVEL_SAME_SITE: u32 = 1u32;
 pub const HTTP_COOKIES_SAME_SITE_LEVEL_UNKNOWN: u32 = 0u32;
 pub const HTTP_MAJOR_VERSION: u32 = 1u32;
 pub const HTTP_MINOR_VERSION: u32 = 0u32;
-pub type HTTP_POLICY_EXTENSION_INIT = unsafe extern "system" fn(version: HTTP_POLICY_EXTENSION_VERSION, r#type: HTTP_POLICY_EXTENSION_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
-pub type HTTP_POLICY_EXTENSION_SHUTDOWN = unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32;
+pub type HTTP_POLICY_EXTENSION_INIT = ::core::option::Option<unsafe extern "system" fn(version: HTTP_POLICY_EXTENSION_VERSION, r#type: HTTP_POLICY_EXTENSION_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> u32>;
+pub type HTTP_POLICY_EXTENSION_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
@@ -3515,16 +3405,7 @@ pub unsafe fn HttpOpenDependencyHandle<'a, Param1: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpOpenRequestA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hconnect: *const ::core::ffi::c_void,
-    lpszverb: Param1,
-    lpszobjectname: Param2,
-    lpszversion: Param3,
-    lpszreferrer: Param4,
-    lplpszaccepttypes: *const super::super::Foundation::PSTR,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::core::ffi::c_void {
+pub unsafe fn HttpOpenRequestA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::core::ffi::c_void, lpszverb: Param1, lpszobjectname: Param2, lpszversion: Param3, lpszreferrer: Param4, lplpszaccepttypes: *const super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3538,16 +3419,7 @@ pub unsafe fn HttpOpenRequestA<'a, Param1: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpOpenRequestW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hconnect: *const ::core::ffi::c_void,
-    lpszverb: Param1,
-    lpszobjectname: Param2,
-    lpszversion: Param3,
-    lpszreferrer: Param4,
-    lplpszaccepttypes: *const super::super::Foundation::PWSTR,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::core::ffi::c_void {
+pub unsafe fn HttpOpenRequestW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::core::ffi::c_void, lpszverb: Param1, lpszobjectname: Param2, lpszversion: Param3, lpszreferrer: Param4, lplpszaccepttypes: *const super::super::Foundation::PWSTR, dwflags: u32, dwcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3927,12 +3799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDial
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEventSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT,
-);
+pub struct IDialEventSink_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT);
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 pub const INSTALLED_CACHE_ENTRY: u32 = 268435456u32;
 pub const INTERENT_GOONLINE_MASK: u32 = 3u32;
@@ -4006,12 +3873,12 @@ impl ::core::cmp::Eq for INTERNET_ASYNC_RESULT {}
 unsafe impl ::windows::core::Abi for INTERNET_ASYNC_RESULT {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
-    pub pfnNotify: ::core::option::Option<PFN_AUTH_NOTIFY>,
+    pub pfnNotify: PFN_AUTH_NOTIFY,
     pub dwContext: usize,
 }
 impl INTERNET_AUTH_NOTIFY_DATA {}
@@ -4032,7 +3899,7 @@ impl ::core::cmp::PartialEq for INTERNET_AUTH_NOTIFY_DATA {
 }
 impl ::core::cmp::Eq for INTERNET_AUTH_NOTIFY_DATA {}
 unsafe impl ::windows::core::Abi for INTERNET_AUTH_NOTIFY_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const INTERNET_AUTH_SCHEME_BASIC: u32 = 0u32;
 pub const INTERNET_AUTH_SCHEME_DIGEST: u32 = 1u32;
@@ -4114,18 +3981,7 @@ impl ::core::default::Default for INTERNET_BUFFERSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_BUFFERSA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_BUFFERSA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("Next", &self.Next)
-            .field("lpcszHeader", &self.lpcszHeader)
-            .field("dwHeadersLength", &self.dwHeadersLength)
-            .field("dwHeadersTotal", &self.dwHeadersTotal)
-            .field("lpvBuffer", &self.lpvBuffer)
-            .field("dwBufferLength", &self.dwBufferLength)
-            .field("dwBufferTotal", &self.dwBufferTotal)
-            .field("dwOffsetLow", &self.dwOffsetLow)
-            .field("dwOffsetHigh", &self.dwOffsetHigh)
-            .finish()
+        fmt.debug_struct("INTERNET_BUFFERSA").field("dwStructSize", &self.dwStructSize).field("Next", &self.Next).field("lpcszHeader", &self.lpcszHeader).field("dwHeadersLength", &self.dwHeadersLength).field("dwHeadersTotal", &self.dwHeadersTotal).field("lpvBuffer", &self.lpvBuffer).field("dwBufferLength", &self.dwBufferLength).field("dwBufferTotal", &self.dwBufferTotal).field("dwOffsetLow", &self.dwOffsetLow).field("dwOffsetHigh", &self.dwOffsetHigh).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4166,18 +4022,7 @@ impl ::core::default::Default for INTERNET_BUFFERSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_BUFFERSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_BUFFERSW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("Next", &self.Next)
-            .field("lpcszHeader", &self.lpcszHeader)
-            .field("dwHeadersLength", &self.dwHeadersLength)
-            .field("dwHeadersTotal", &self.dwHeadersTotal)
-            .field("lpvBuffer", &self.lpvBuffer)
-            .field("dwBufferLength", &self.dwBufferLength)
-            .field("dwBufferTotal", &self.dwBufferTotal)
-            .field("dwOffsetLow", &self.dwOffsetLow)
-            .field("dwOffsetHigh", &self.dwOffsetHigh)
-            .finish()
+        fmt.debug_struct("INTERNET_BUFFERSW").field("dwStructSize", &self.dwStructSize).field("Next", &self.Next).field("lpcszHeader", &self.lpcszHeader).field("dwHeadersLength", &self.dwHeadersLength).field("dwHeadersTotal", &self.dwHeadersTotal).field("lpvBuffer", &self.lpvBuffer).field("dwBufferLength", &self.dwBufferLength).field("dwBufferTotal", &self.dwBufferTotal).field("dwOffsetLow", &self.dwOffsetLow).field("dwOffsetHigh", &self.dwOffsetHigh).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4686,15 +4531,7 @@ impl ::core::default::Default for INTERNET_CACHE_GROUP_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_CACHE_GROUP_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_GROUP_INFOA")
-            .field("dwGroupSize", &self.dwGroupSize)
-            .field("dwGroupFlags", &self.dwGroupFlags)
-            .field("dwGroupType", &self.dwGroupType)
-            .field("dwDiskUsage", &self.dwDiskUsage)
-            .field("dwDiskQuota", &self.dwDiskQuota)
-            .field("dwOwnerStorage", &self.dwOwnerStorage)
-            .field("szGroupName", &self.szGroupName)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_GROUP_INFOA").field("dwGroupSize", &self.dwGroupSize).field("dwGroupFlags", &self.dwGroupFlags).field("dwGroupType", &self.dwGroupType).field("dwDiskUsage", &self.dwDiskUsage).field("dwDiskQuota", &self.dwDiskQuota).field("dwOwnerStorage", &self.dwOwnerStorage).field("szGroupName", &self.szGroupName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4728,15 +4565,7 @@ impl ::core::default::Default for INTERNET_CACHE_GROUP_INFOW {
 }
 impl ::core::fmt::Debug for INTERNET_CACHE_GROUP_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_GROUP_INFOW")
-            .field("dwGroupSize", &self.dwGroupSize)
-            .field("dwGroupFlags", &self.dwGroupFlags)
-            .field("dwGroupType", &self.dwGroupType)
-            .field("dwDiskUsage", &self.dwDiskUsage)
-            .field("dwDiskQuota", &self.dwDiskQuota)
-            .field("dwOwnerStorage", &self.dwOwnerStorage)
-            .field("szGroupName", &self.szGroupName)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_GROUP_INFOW").field("dwGroupSize", &self.dwGroupSize).field("dwGroupFlags", &self.dwGroupFlags).field("dwGroupType", &self.dwGroupType).field("dwDiskUsage", &self.dwDiskUsage).field("dwDiskQuota", &self.dwDiskQuota).field("dwOwnerStorage", &self.dwOwnerStorage).field("szGroupName", &self.szGroupName).finish()
     }
 }
 impl ::core::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOW {
@@ -4843,16 +4672,7 @@ impl ::core::default::Default for INTERNET_CERTIFICATE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_CERTIFICATE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_CERTIFICATE_INFO")
-            .field("ftExpiry", &self.ftExpiry)
-            .field("ftStart", &self.ftStart)
-            .field("lpszSubjectInfo", &self.lpszSubjectInfo)
-            .field("lpszIssuerInfo", &self.lpszIssuerInfo)
-            .field("lpszProtocolName", &self.lpszProtocolName)
-            .field("lpszSignatureAlgName", &self.lpszSignatureAlgName)
-            .field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName)
-            .field("dwKeySize", &self.dwKeySize)
-            .finish()
+        fmt.debug_struct("INTERNET_CERTIFICATE_INFO").field("ftExpiry", &self.ftExpiry).field("ftStart", &self.ftStart).field("lpszSubjectInfo", &self.lpszSubjectInfo).field("lpszIssuerInfo", &self.lpszIssuerInfo).field("lpszProtocolName", &self.lpszProtocolName).field("lpszSignatureAlgName", &self.lpszSignatureAlgName).field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName).field("dwKeySize", &self.dwKeySize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4966,17 +4786,7 @@ impl ::core::default::Default for INTERNET_COOKIE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_COOKIE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_COOKIE")
-            .field("cbSize", &self.cbSize)
-            .field("pszName", &self.pszName)
-            .field("pszData", &self.pszData)
-            .field("pszDomain", &self.pszDomain)
-            .field("pszPath", &self.pszPath)
-            .field("pftExpires", &self.pftExpires)
-            .field("dwFlags", &self.dwFlags)
-            .field("pszUrl", &self.pszUrl)
-            .field("pszP3PPolicy", &self.pszP3PPolicy)
-            .finish()
+        fmt.debug_struct("INTERNET_COOKIE").field("cbSize", &self.cbSize).field("pszName", &self.pszName).field("pszData", &self.pszData).field("pszDomain", &self.pszDomain).field("pszPath", &self.pszPath).field("pftExpires", &self.pftExpires).field("dwFlags", &self.dwFlags).field("pszUrl", &self.pszUrl).field("pszP3PPolicy", &self.pszP3PPolicy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5934,15 +5744,7 @@ impl ::core::default::Default for INTERNET_SECURITY_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for INTERNET_SECURITY_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_SECURITY_INFO")
-            .field("dwSize", &self.dwSize)
-            .field("pCertificate", &self.pCertificate)
-            .field("pcCertChain", &self.pcCertChain)
-            .field("connectionInfo", &self.connectionInfo)
-            .field("cipherInfo", &self.cipherInfo)
-            .field("pcUnverifiedCertChain", &self.pcUnverifiedCertChain)
-            .field("channelBindingToken", &self.channelBindingToken)
-            .finish()
+        fmt.debug_struct("INTERNET_SECURITY_INFO").field("dwSize", &self.dwSize).field("pCertificate", &self.pCertificate).field("pcCertChain", &self.pcCertChain).field("connectionInfo", &self.connectionInfo).field("cipherInfo", &self.cipherInfo).field("pcUnverifiedCertChain", &self.pcUnverifiedCertChain).field("channelBindingToken", &self.channelBindingToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -5981,16 +5783,7 @@ impl ::core::default::Default for INTERNET_SERVER_CONNECTION_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_SERVER_CONNECTION_STATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERNET_SERVER_CONNECTION_STATE")
-            .field("lpcwszHostName", &self.lpcwszHostName)
-            .field("fProxy", &self.fProxy)
-            .field("dwCounter", &self.dwCounter)
-            .field("dwConnectionLimit", &self.dwConnectionLimit)
-            .field("dwAvailableCreates", &self.dwAvailableCreates)
-            .field("dwAvailableKeepAlives", &self.dwAvailableKeepAlives)
-            .field("dwActiveConnections", &self.dwActiveConnections)
-            .field("dwWaiters", &self.dwWaiters)
-            .finish()
+        fmt.debug_struct("INTERNET_SERVER_CONNECTION_STATE").field("lpcwszHostName", &self.lpcwszHostName).field("fProxy", &self.fProxy).field("dwCounter", &self.dwCounter).field("dwConnectionLimit", &self.dwConnectionLimit).field("dwAvailableCreates", &self.dwAvailableCreates).field("dwAvailableKeepAlives", &self.dwAvailableKeepAlives).field("dwActiveConnections", &self.dwActiveConnections).field("dwWaiters", &self.dwWaiters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6276,15 +6069,7 @@ impl ::core::default::Default for IncomingCookieState {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IncomingCookieState {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IncomingCookieState")
-            .field("cSession", &self.cSession)
-            .field("cPersistent", &self.cPersistent)
-            .field("cAccepted", &self.cAccepted)
-            .field("cLeashed", &self.cLeashed)
-            .field("cDowngraded", &self.cDowngraded)
-            .field("cBlocked", &self.cBlocked)
-            .field("pszLocation", &self.pszLocation)
-            .finish()
+        fmt.debug_struct("IncomingCookieState").field("cSession", &self.cSession).field("cPersistent", &self.cPersistent).field("cAccepted", &self.cAccepted).field("cLeashed", &self.cLeashed).field("cDowngraded", &self.cDowngraded).field("cBlocked", &self.cBlocked).field("pszLocation", &self.pszLocation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6587,16 +6372,7 @@ pub unsafe fn InternetConvertUrlFromWireToWideChar<'a, Param0: ::windows::core::
         extern "system" {
             fn InternetConvertUrlFromWireToWideChar(pcszurl: super::super::Foundation::PSTR, cchurl: u32, pcwszbaseurl: super::super::Foundation::PWSTR, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: super::super::Foundation::BOOL, dwcodepageextra: u32, ppwszconvertedurl: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(InternetConvertUrlFromWireToWideChar(
-            pcszurl.into_param().abi(),
-            ::core::mem::transmute(cchurl),
-            pcwszbaseurl.into_param().abi(),
-            ::core::mem::transmute(dwcodepagehost),
-            ::core::mem::transmute(dwcodepagepath),
-            fencodepathextra.into_param().abi(),
-            ::core::mem::transmute(dwcodepageextra),
-            ::core::mem::transmute(ppwszconvertedurl),
-        ))
+        ::core::mem::transmute(InternetConvertUrlFromWireToWideChar(pcszurl.into_param().abi(), ::core::mem::transmute(cchurl), pcwszbaseurl.into_param().abi(), ::core::mem::transmute(dwcodepagehost), ::core::mem::transmute(dwcodepagepath), fencodepathextra.into_param().abi(), ::core::mem::transmute(dwcodepageextra), ::core::mem::transmute(ppwszconvertedurl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7577,12 +7353,12 @@ pub unsafe fn InternetSetPerSiteCookieDecisionW<'a, Param0: ::windows::core::Int
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::core::option::Option<LPINTERNET_STATUS_CALLBACK>) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK> {
+pub unsafe fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
+            fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> LPINTERNET_STATUS_CALLBACK;
         }
         ::core::mem::transmute(InternetSetStatusCallback(::core::mem::transmute(hinternet), ::core::mem::transmute(lpfninternetcallback)))
     }
@@ -7590,12 +7366,12 @@ pub unsafe fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, l
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::core::option::Option<LPINTERNET_STATUS_CALLBACK>) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK> {
+pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
+            fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> LPINTERNET_STATUS_CALLBACK;
         }
         ::core::mem::transmute(InternetSetStatusCallbackA(::core::mem::transmute(hinternet), ::core::mem::transmute(lpfninternetcallback)))
     }
@@ -7603,12 +7379,12 @@ pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::core::option::Option<LPINTERNET_STATUS_CALLBACK>) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK> {
+pub unsafe fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
+            fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr) -> LPINTERNET_STATUS_CALLBACK;
         }
         ::core::mem::transmute(InternetSetStatusCallbackW(::core::mem::transmute(hinternet), ::core::mem::transmute(lpfninternetcallback)))
     }
@@ -7881,7 +7657,7 @@ pub unsafe fn IsUrlCacheEntryExpiredW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32);
+pub type LPINTERNET_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUrlCacheContent() -> super::super::Foundation::BOOL {
@@ -7942,9 +7718,9 @@ unsafe impl ::windows::core::Abi for OutgoingCookieState {
     type Abi = Self;
 }
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
-pub type PFN_AUTH_NOTIFY = unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::core::ffi::c_void) -> u32;
+pub type PFN_AUTH_NOTIFY = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DIAL_HANDLER = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> u32;
+pub type PFN_DIAL_HANDLER = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> u32>;
 pub const POST_CHECK_CACHE_ENTRY: u32 = 536870912u32;
 pub const POST_RESPONSE_CACHE_ENTRY: u32 = 67108864u32;
 pub const PRIVACY_IMPACTED_CACHE_ENTRY: u32 = 33554432u32;
@@ -8021,24 +7797,14 @@ pub unsafe fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbce
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerformOperationOverUrlCacheA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: ::core::option::Option<CACHE_OPERATOR>, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn PerformOperationOverUrlCacheA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: CACHE_OPERATOR, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PerformOperationOverUrlCacheA(pszurlsearchpattern: super::super::Foundation::PSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::core::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, poperatordata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PerformOperationOverUrlCacheA(
-            pszurlsearchpattern.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dwfilter),
-            ::core::mem::transmute(groupid),
-            ::core::mem::transmute(preserved1),
-            ::core::mem::transmute(pdwreserved2),
-            ::core::mem::transmute(preserved3),
-            ::core::mem::transmute(op),
-            ::core::mem::transmute(poperatordata),
-        ))
+        ::core::mem::transmute(PerformOperationOverUrlCacheA(pszurlsearchpattern.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwfilter), ::core::mem::transmute(groupid), ::core::mem::transmute(preserved1), ::core::mem::transmute(pdwreserved2), ::core::mem::transmute(preserved3), ::core::mem::transmute(op), ::core::mem::transmute(poperatordata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8524,21 +8290,7 @@ impl ::core::fmt::Debug for URLCACHE_ENTRY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for URLCACHE_ENTRY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszSourceUrlName == other.pwszSourceUrlName
-            && self.pwszLocalFileName == other.pwszLocalFileName
-            && self.dwCacheEntryType == other.dwCacheEntryType
-            && self.dwUseCount == other.dwUseCount
-            && self.dwHitRate == other.dwHitRate
-            && self.dwSizeLow == other.dwSizeLow
-            && self.dwSizeHigh == other.dwSizeHigh
-            && self.ftLastModifiedTime == other.ftLastModifiedTime
-            && self.ftExpireTime == other.ftExpireTime
-            && self.ftLastAccessTime == other.ftLastAccessTime
-            && self.ftLastSyncTime == other.ftLastSyncTime
-            && self.pbHeaderInfo == other.pbHeaderInfo
-            && self.cbHeaderInfoSize == other.cbHeaderInfoSize
-            && self.pbExtraData == other.pbExtraData
-            && self.cbExtraDataSize == other.cbExtraDataSize
+        self.pwszSourceUrlName == other.pwszSourceUrlName && self.pwszLocalFileName == other.pwszLocalFileName && self.dwCacheEntryType == other.dwCacheEntryType && self.dwUseCount == other.dwUseCount && self.dwHitRate == other.dwHitRate && self.dwSizeLow == other.dwSizeLow && self.dwSizeHigh == other.dwSizeHigh && self.ftLastModifiedTime == other.ftLastModifiedTime && self.ftExpireTime == other.ftExpireTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastSyncTime == other.ftLastSyncTime && self.pbHeaderInfo == other.pbHeaderInfo && self.cbHeaderInfoSize == other.cbHeaderInfoSize && self.pbExtraData == other.pbExtraData && self.cbExtraDataSize == other.cbExtraDataSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8617,21 +8369,7 @@ impl ::core::fmt::Debug for URL_COMPONENTSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for URL_COMPONENTSA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.lpszScheme == other.lpszScheme
-            && self.dwSchemeLength == other.dwSchemeLength
-            && self.nScheme == other.nScheme
-            && self.lpszHostName == other.lpszHostName
-            && self.dwHostNameLength == other.dwHostNameLength
-            && self.nPort == other.nPort
-            && self.lpszUserName == other.lpszUserName
-            && self.dwUserNameLength == other.dwUserNameLength
-            && self.lpszPassword == other.lpszPassword
-            && self.dwPasswordLength == other.dwPasswordLength
-            && self.lpszUrlPath == other.lpszUrlPath
-            && self.dwUrlPathLength == other.dwUrlPathLength
-            && self.lpszExtraInfo == other.lpszExtraInfo
-            && self.dwExtraInfoLength == other.dwExtraInfoLength
+        self.dwStructSize == other.dwStructSize && self.lpszScheme == other.lpszScheme && self.dwSchemeLength == other.dwSchemeLength && self.nScheme == other.nScheme && self.lpszHostName == other.lpszHostName && self.dwHostNameLength == other.dwHostNameLength && self.nPort == other.nPort && self.lpszUserName == other.lpszUserName && self.dwUserNameLength == other.dwUserNameLength && self.lpszPassword == other.lpszPassword && self.dwPasswordLength == other.dwPasswordLength && self.lpszUrlPath == other.lpszUrlPath && self.dwUrlPathLength == other.dwUrlPathLength && self.lpszExtraInfo == other.lpszExtraInfo && self.dwExtraInfoLength == other.dwExtraInfoLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8693,21 +8431,7 @@ impl ::core::fmt::Debug for URL_COMPONENTSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for URL_COMPONENTSW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.lpszScheme == other.lpszScheme
-            && self.dwSchemeLength == other.dwSchemeLength
-            && self.nScheme == other.nScheme
-            && self.lpszHostName == other.lpszHostName
-            && self.dwHostNameLength == other.dwHostNameLength
-            && self.nPort == other.nPort
-            && self.lpszUserName == other.lpszUserName
-            && self.dwUserNameLength == other.dwUserNameLength
-            && self.lpszPassword == other.lpszPassword
-            && self.dwPasswordLength == other.dwPasswordLength
-            && self.lpszUrlPath == other.lpszUrlPath
-            && self.dwUrlPathLength == other.dwUrlPathLength
-            && self.lpszExtraInfo == other.lpszExtraInfo
-            && self.dwExtraInfoLength == other.dwExtraInfoLength
+        self.dwStructSize == other.dwStructSize && self.lpszScheme == other.lpszScheme && self.dwSchemeLength == other.dwSchemeLength && self.nScheme == other.nScheme && self.lpszHostName == other.lpszHostName && self.dwHostNameLength == other.dwHostNameLength && self.nPort == other.nPort && self.lpszUserName == other.lpszUserName && self.dwUserNameLength == other.dwUserNameLength && self.lpszPassword == other.lpszPassword && self.dwPasswordLength == other.dwPasswordLength && self.lpszUrlPath == other.lpszUrlPath && self.dwUrlPathLength == other.dwUrlPathLength && self.lpszExtraInfo == other.lpszExtraInfo && self.dwExtraInfoLength == other.dwExtraInfoLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9148,8 +8872,8 @@ unsafe impl ::windows::core::Abi for WPAD_CACHE_DELETE {
 }
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnInternetDeInitializeAutoProxyDll = unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
+pub type pfnInternetDeInitializeAutoProxyDll = ::core::option::Option<unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnInternetGetProxyInfo = unsafe extern "system" fn(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, lpszurlhostname: super::super::Foundation::PSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut super::super::Foundation::PSTR, lpdwproxyhostnamelength: *mut u32) -> super::super::Foundation::BOOL;
+pub type pfnInternetGetProxyInfo = ::core::option::Option<unsafe extern "system" fn(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, lpszurlhostname: super::super::Foundation::PSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut super::super::Foundation::PSTR, lpdwproxyhostnamelength: *mut u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnInternetInitializeAutoProxyDll = unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: super::super::Foundation::PSTR, lpszmime: super::super::Foundation::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> super::super::Foundation::BOOL;
+pub type pfnInternetInitializeAutoProxyDll = ::core::option::Option<unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: super::super::Foundation::PSTR, lpszmime: super::super::Foundation::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> super::super::Foundation::BOOL>;

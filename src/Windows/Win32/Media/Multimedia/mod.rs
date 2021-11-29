@@ -228,19 +228,7 @@ impl ::core::default::Default for AVICOMPRESSOPTIONS {
 }
 impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AVICOMPRESSOPTIONS")
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwKeyFrameEvery", &self.dwKeyFrameEvery)
-            .field("dwQuality", &self.dwQuality)
-            .field("dwBytesPerSecond", &self.dwBytesPerSecond)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpFormat", &self.lpFormat)
-            .field("cbFormat", &self.cbFormat)
-            .field("lpParms", &self.lpParms)
-            .field("cbParms", &self.cbParms)
-            .field("dwInterleaveEvery", &self.dwInterleaveEvery)
-            .finish()
+        fmt.debug_struct("AVICOMPRESSOPTIONS").field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwKeyFrameEvery", &self.dwKeyFrameEvery).field("dwQuality", &self.dwQuality).field("dwBytesPerSecond", &self.dwBytesPerSecond).field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("cbFormat", &self.cbFormat).field("lpParms", &self.lpParms).field("cbParms", &self.cbParms).field("dwInterleaveEvery", &self.dwInterleaveEvery).finish()
     }
 }
 impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
@@ -642,7 +630,7 @@ pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::core::IntoParam<'a, I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type AVISAVECALLBACK = unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL;
+pub type AVISAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -702,24 +690,7 @@ impl ::core::fmt::Debug for AVISTREAMINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.wPriority == other.wPriority
-            && self.wLanguage == other.wLanguage
-            && self.dwScale == other.dwScale
-            && self.dwRate == other.dwRate
-            && self.dwStart == other.dwStart
-            && self.dwLength == other.dwLength
-            && self.dwInitialFrames == other.dwInitialFrames
-            && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize
-            && self.dwQuality == other.dwQuality
-            && self.dwSampleSize == other.dwSampleSize
-            && self.rcFrame == other.rcFrame
-            && self.dwEditCount == other.dwEditCount
-            && self.dwFormatChangeCount == other.dwFormatChangeCount
-            && self.szName == other.szName
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwInitialFrames == other.dwInitialFrames && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame && self.dwEditCount == other.dwEditCount && self.dwFormatChangeCount == other.dwFormatChangeCount && self.szName == other.szName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -787,24 +758,7 @@ impl ::core::fmt::Debug for AVISTREAMINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.wPriority == other.wPriority
-            && self.wLanguage == other.wLanguage
-            && self.dwScale == other.dwScale
-            && self.dwRate == other.dwRate
-            && self.dwStart == other.dwStart
-            && self.dwLength == other.dwLength
-            && self.dwInitialFrames == other.dwInitialFrames
-            && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize
-            && self.dwQuality == other.dwQuality
-            && self.dwSampleSize == other.dwSampleSize
-            && self.rcFrame == other.rcFrame
-            && self.dwEditCount == other.dwEditCount
-            && self.dwFormatChangeCount == other.dwFormatChangeCount
-            && self.szName == other.szName
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwInitialFrames == other.dwInitialFrames && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame && self.dwEditCount == other.dwEditCount && self.dwFormatChangeCount == other.dwFormatChangeCount && self.szName == other.szName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -818,7 +772,7 @@ pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
 pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -859,7 +813,7 @@ pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOM
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -873,7 +827,7 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -887,7 +841,7 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1207,7 +1161,7 @@ pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
 pub const AVSTREAMMASTER_NONE: u32 = 1u32;
 pub const BI_1632: u32 = 842217009u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPCONTROLCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT;
+pub type CAPCONTROLCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1253,17 +1207,7 @@ impl ::core::fmt::Debug for CAPDRIVERCAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.wDeviceIndex == other.wDeviceIndex
-            && self.fHasOverlay == other.fHasOverlay
-            && self.fHasDlgVideoSource == other.fHasDlgVideoSource
-            && self.fHasDlgVideoFormat == other.fHasDlgVideoFormat
-            && self.fHasDlgVideoDisplay == other.fHasDlgVideoDisplay
-            && self.fCaptureInitialized == other.fCaptureInitialized
-            && self.fDriverSuppliesPalettes == other.fDriverSuppliesPalettes
-            && self.hVideoIn == other.hVideoIn
-            && self.hVideoOut == other.hVideoOut
-            && self.hVideoExtIn == other.hVideoExtIn
-            && self.hVideoExtOut == other.hVideoExtOut
+        self.wDeviceIndex == other.wDeviceIndex && self.fHasOverlay == other.fHasOverlay && self.fHasDlgVideoSource == other.fHasDlgVideoSource && self.fHasDlgVideoFormat == other.fHasDlgVideoFormat && self.fHasDlgVideoDisplay == other.fHasDlgVideoDisplay && self.fCaptureInitialized == other.fCaptureInitialized && self.fDriverSuppliesPalettes == other.fDriverSuppliesPalettes && self.hVideoIn == other.hVideoIn && self.hVideoOut == other.hVideoOut && self.hVideoExtIn == other.hVideoExtIn && self.hVideoExtOut == other.hVideoExtOut
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1273,9 +1217,9 @@ unsafe impl ::windows::core::Abi for CAPDRIVERCAPS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
+pub type CAPERRORCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
+pub type CAPERRORCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CAPINFOCHUNK {
@@ -1389,9 +1333,9 @@ unsafe impl ::windows::core::Abi for CAPSTATUS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
+pub type CAPSTATUSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
+pub type CAPSTATUSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1496,11 +1440,11 @@ unsafe impl ::windows::core::Abi for CAPTUREPARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT;
+pub type CAPVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
-pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT;
+pub type CAPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPYIELDCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT;
+pub type CAPYIELDCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CHANNEL_CAPS {
@@ -1522,17 +1466,7 @@ impl ::core::default::Default for CHANNEL_CAPS {
 }
 impl ::core::fmt::Debug for CHANNEL_CAPS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CHANNEL_CAPS")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSrcRectXMod", &self.dwSrcRectXMod)
-            .field("dwSrcRectYMod", &self.dwSrcRectYMod)
-            .field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod)
-            .field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod)
-            .field("dwDstRectXMod", &self.dwDstRectXMod)
-            .field("dwDstRectYMod", &self.dwDstRectYMod)
-            .field("dwDstRectWidthMod", &self.dwDstRectWidthMod)
-            .field("dwDstRectHeightMod", &self.dwDstRectHeightMod)
-            .finish()
+        fmt.debug_struct("CHANNEL_CAPS").field("dwFlags", &self.dwFlags).field("dwSrcRectXMod", &self.dwSrcRectXMod).field("dwSrcRectYMod", &self.dwSrcRectYMod).field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod).field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod).field("dwDstRectXMod", &self.dwDstRectXMod).field("dwDstRectYMod", &self.dwDstRectYMod).field("dwDstRectWidthMod", &self.dwDstRectWidthMod).field("dwDstRectHeightMod", &self.dwDstRectHeightMod).finish()
     }
 }
 impl ::core::cmp::PartialEq for CHANNEL_CAPS {
@@ -1601,22 +1535,7 @@ impl ::core::fmt::Debug for COMPVARS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for COMPVARS {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwFlags == other.dwFlags
-            && self.hic == other.hic
-            && self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.lpbiIn == other.lpbiIn
-            && self.lpbiOut == other.lpbiOut
-            && self.lpBitsOut == other.lpBitsOut
-            && self.lpBitsPrev == other.lpBitsPrev
-            && self.lFrame == other.lFrame
-            && self.lKey == other.lKey
-            && self.lDataRate == other.lDataRate
-            && self.lQ == other.lQ
-            && self.lKeyCount == other.lKeyCount
-            && self.lpState == other.lpState
-            && self.cbState == other.cbState
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hic == other.hic && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.lpbiIn == other.lpbiIn && self.lpbiOut == other.lpbiOut && self.lpBitsOut == other.lpBitsOut && self.lpBitsPrev == other.lpBitsPrev && self.lFrame == other.lFrame && self.lKey == other.lKey && self.lDataRate == other.lDataRate && self.lQ == other.lQ && self.lKeyCount == other.lKeyCount && self.lpState == other.lpState && self.cbState == other.cbState
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2020,15 +1939,7 @@ impl ::core::default::Default for DRAWDIBTIME {
 }
 impl ::core::fmt::Debug for DRAWDIBTIME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRAWDIBTIME")
-            .field("timeCount", &self.timeCount)
-            .field("timeDraw", &self.timeDraw)
-            .field("timeDecompress", &self.timeDecompress)
-            .field("timeDither", &self.timeDither)
-            .field("timeStretch", &self.timeStretch)
-            .field("timeBlt", &self.timeBlt)
-            .field("timeSetDIBits", &self.timeSetDIBits)
-            .finish()
+        fmt.debug_struct("DRAWDIBTIME").field("timeCount", &self.timeCount).field("timeDraw", &self.timeDraw).field("timeDecompress", &self.timeDecompress).field("timeDither", &self.timeDither).field("timeStretch", &self.timeStretch).field("timeBlt", &self.timeBlt).field("timeSetDIBits", &self.timeSetDIBits).finish()
     }
 }
 impl ::core::cmp::PartialEq for DRAWDIBTIME {
@@ -2040,9 +1951,9 @@ impl ::core::cmp::Eq for DRAWDIBTIME {}
 unsafe impl ::windows::core::Abi for DRAWDIBTIME {
     type Abi = Self;
 }
-pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
+pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type DRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -2335,21 +2246,7 @@ pub unsafe fn DrawDibDraw<'a, Param1: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DrawDibDraw(
-            ::core::mem::transmute(hdd),
-            hdc.into_param().abi(),
-            ::core::mem::transmute(xdst),
-            ::core::mem::transmute(ydst),
-            ::core::mem::transmute(dxdst),
-            ::core::mem::transmute(dydst),
-            ::core::mem::transmute(lpbi),
-            ::core::mem::transmute(lpbits),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(dxsrc),
-            ::core::mem::transmute(dysrc),
-            ::core::mem::transmute(wflags),
-        ))
+        ::core::mem::transmute(DrawDibDraw(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(xdst), ::core::mem::transmute(ydst), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2829,7 +2726,7 @@ pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewA(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetOpenFileNamePreviewA(::core::mem::transmute(lpofn)))
     }
@@ -2843,7 +2740,7 @@ pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewW(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetOpenFileNamePreviewW(::core::mem::transmute(lpofn)))
     }
@@ -2857,7 +2754,7 @@ pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewA(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetSaveFileNamePreviewA(::core::mem::transmute(lpofn)))
     }
@@ -2871,7 +2768,7 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewW(lpofn: *mut ::core::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetSaveFileNamePreviewW(::core::mem::transmute(lpofn)))
     }
@@ -3331,20 +3228,7 @@ impl ::core::default::Default for ICCOMPRESS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for ICCOMPRESS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICCOMPRESS")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpbiOutput", &self.lpbiOutput)
-            .field("lpOutput", &self.lpOutput)
-            .field("lpbiInput", &self.lpbiInput)
-            .field("lpInput", &self.lpInput)
-            .field("lpckid", &self.lpckid)
-            .field("lpdwFlags", &self.lpdwFlags)
-            .field("lFrameNum", &self.lFrameNum)
-            .field("dwFrameSize", &self.dwFrameSize)
-            .field("dwQuality", &self.dwQuality)
-            .field("lpbiPrev", &self.lpbiPrev)
-            .field("lpPrev", &self.lpPrev)
-            .finish()
+        fmt.debug_struct("ICCOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpckid", &self.lpckid).field("lpdwFlags", &self.lpdwFlags).field("lFrameNum", &self.lFrameNum).field("dwFrameSize", &self.dwFrameSize).field("dwQuality", &self.dwQuality).field("lpbiPrev", &self.lpbiPrev).field("lpPrev", &self.lpPrev).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3414,22 +3298,7 @@ impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpbiOutput == other.lpbiOutput
-            && self.lOutput == other.lOutput
-            && self.lpbiInput == other.lpbiInput
-            && self.lInput == other.lInput
-            && self.lStartFrame == other.lStartFrame
-            && self.lFrameCount == other.lFrameCount
-            && self.lQuality == other.lQuality
-            && self.lDataRate == other.lDataRate
-            && self.lKeyRate == other.lKeyRate
-            && self.dwRate == other.dwRate
-            && self.dwScale == other.dwScale
-            && self.dwOverheadPerFrame == other.dwOverheadPerFrame
-            && self.dwReserved2 == other.dwReserved2
-            && self.GetData == other.GetData
-            && self.PutData == other.PutData
+        self.dwFlags == other.dwFlags && self.lpbiOutput == other.lpbiOutput && self.lOutput == other.lOutput && self.lpbiInput == other.lpbiInput && self.lInput == other.lInput && self.lStartFrame == other.lStartFrame && self.lFrameCount == other.lFrameCount && self.lQuality == other.lQuality && self.lDataRate == other.lDataRate && self.lKeyRate == other.lKeyRate && self.dwRate == other.dwRate && self.dwScale == other.dwScale && self.dwOverheadPerFrame == other.dwOverheadPerFrame && self.dwReserved2 == other.dwReserved2 && self.GetData == other.GetData && self.PutData == other.PutData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3463,21 +3332,7 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: P
         extern "system" {
             fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(ICCompress(
-            hic.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(lpbioutput),
-            ::core::mem::transmute(lpdata),
-            ::core::mem::transmute(lpbiinput),
-            ::core::mem::transmute(lpbits),
-            ::core::mem::transmute(lpckid),
-            ::core::mem::transmute(lpdwflags),
-            ::core::mem::transmute(lframenum),
-            ::core::mem::transmute(dwframesize),
-            ::core::mem::transmute(dwquality),
-            ::core::mem::transmute(lpbiprev),
-            ::core::mem::transmute(lpprev),
-        ))
+        ::core::mem::transmute(ICCompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbioutput), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbiinput), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpckid), ::core::mem::transmute(lpdwflags), ::core::mem::transmute(lframenum), ::core::mem::transmute(dwframesize), ::core::mem::transmute(dwquality), ::core::mem::transmute(lpbiprev), ::core::mem::transmute(lpprev)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3576,21 +3431,7 @@ impl ::core::default::Default for ICDECOMPRESSEX {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for ICDECOMPRESSEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICDECOMPRESSEX")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpbiSrc", &self.lpbiSrc)
-            .field("lpSrc", &self.lpSrc)
-            .field("lpbiDst", &self.lpbiDst)
-            .field("lpDst", &self.lpDst)
-            .field("xDst", &self.xDst)
-            .field("yDst", &self.yDst)
-            .field("dxDst", &self.dxDst)
-            .field("dyDst", &self.dyDst)
-            .field("xSrc", &self.xSrc)
-            .field("ySrc", &self.ySrc)
-            .field("dxSrc", &self.dxSrc)
-            .field("dySrc", &self.dySrc)
-            .finish()
+        fmt.debug_struct("ICDECOMPRESSEX").field("dwFlags", &self.dwFlags).field("lpbiSrc", &self.lpbiSrc).field("lpSrc", &self.lpSrc).field("lpbiDst", &self.lpbiDst).field("lpDst", &self.lpDst).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3670,23 +3511,7 @@ impl ::core::default::Default for ICDRAWBEGIN {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for ICDRAWBEGIN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICDRAWBEGIN")
-            .field("dwFlags", &self.dwFlags)
-            .field("hpal", &self.hpal)
-            .field("hwnd", &self.hwnd)
-            .field("hdc", &self.hdc)
-            .field("xDst", &self.xDst)
-            .field("yDst", &self.yDst)
-            .field("dxDst", &self.dxDst)
-            .field("dyDst", &self.dyDst)
-            .field("lpbi", &self.lpbi)
-            .field("xSrc", &self.xSrc)
-            .field("ySrc", &self.ySrc)
-            .field("dxSrc", &self.dxSrc)
-            .field("dySrc", &self.dySrc)
-            .field("dwRate", &self.dwRate)
-            .field("dwScale", &self.dwScale)
-            .finish()
+        fmt.debug_struct("ICDRAWBEGIN").field("dwFlags", &self.dwFlags).field("hpal", &self.hpal).field("hwnd", &self.hwnd).field("hdc", &self.hdc).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("lpbi", &self.lpbi).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dwRate", &self.dwRate).field("dwScale", &self.dwScale).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3782,24 +3607,7 @@ pub unsafe fn ICDraw<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICDrawBegin<'a, Param0: ::windows::core::IntoParam<'a, HIC>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
-    hic: Param0,
-    dwflags: u32,
-    hpal: Param2,
-    hwnd: Param3,
-    hdc: Param4,
-    xdst: i32,
-    ydst: i32,
-    dxdst: i32,
-    dydst: i32,
-    lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    xsrc: i32,
-    ysrc: i32,
-    dxsrc: i32,
-    dysrc: i32,
-    dwrate: u32,
-    dwscale: u32,
-) -> u32 {
+pub unsafe fn ICDrawBegin<'a, Param0: ::windows::core::IntoParam<'a, HIC>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hic: Param0, dwflags: u32, hpal: Param2, hwnd: Param3, hdc: Param4, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3896,17 +3704,7 @@ impl ::core::default::Default for ICINFO {
 }
 impl ::core::fmt::Debug for ICINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICINFO")
-            .field("dwSize", &self.dwSize)
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwVersionICM", &self.dwVersionICM)
-            .field("szName", &self.szName)
-            .field("szDescription", &self.szDescription)
-            .field("szDriver", &self.szDriver)
-            .finish()
+        fmt.debug_struct("ICINFO").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwFlags", &self.dwFlags).field("dwVersion", &self.dwVersion).field("dwVersionICM", &self.dwVersionICM).field("szName", &self.szName).field("szDescription", &self.szDescription).field("szDriver", &self.szDriver).finish()
     }
 }
 impl ::core::cmp::PartialEq for ICINFO {
@@ -4092,17 +3890,7 @@ impl ::core::default::Default for ICOPEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ICOPEN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICOPEN")
-            .field("dwSize", &self.dwSize)
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwError", &self.dwError)
-            .field("pV1Reserved", &self.pV1Reserved)
-            .field("pV2Reserved", &self.pV2Reserved)
-            .field("dnDevNode", &self.dnDevNode)
-            .finish()
+        fmt.debug_struct("ICOPEN").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pV1Reserved", &self.pV1Reserved).field("pV2Reserved", &self.pV2Reserved).field("dnDevNode", &self.dnDevNode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4132,7 +3920,7 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::core::option::Option<super::super::Foundation::FARPROC>) -> HIC {
+pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4861,10 +4649,10 @@ pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMMIOPROC = unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-pub type LPTASKCALLBACK = unsafe extern "system" fn(dwinst: usize);
+pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize)>;
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
 pub const MCIERR_AVI_BADPALETTE: u32 = 620u32;
 pub const MCIERR_AVI_CANTPLAYFULLSCREEN: u32 = 615u32;
@@ -8075,18 +7863,13 @@ pub const MMIOERR_PATHNOTFOUND: u32 = 267u32;
 pub const MMIOERR_SHARINGVIOLATION: u32 = 269u32;
 pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MMIOINFO {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
-    pub pIOProc: ::core::option::Option<LPMMIOPROC>,
+    pub pIOProc: LPMMIOPROC,
     pub wErrorRet: u32,
     pub htask: super::HTASK,
     pub cchBuffer: i32,
@@ -8119,7 +7902,7 @@ impl ::core::cmp::PartialEq for MMIOINFO {
 impl ::core::cmp::Eq for MMIOINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MMIOINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const MMIOM_CLOSE: u32 = 4u32;
 pub const MMIOM_OPEN: u32 = 3u32;
@@ -11217,16 +11000,12 @@ pub const TDD_GETDEVCAPS: u32 = 2060u32;
 pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
-impl ::core::clone::Clone for TIMEREVENT {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
-    pub lpFunction: ::core::option::Option<super::LPTIMECALLBACK>,
+    pub lpFunction: super::LPTIMECALLBACK,
     pub dwUser: u32,
     pub wFlags: u16,
     pub wReserved1: u16,
@@ -11244,7 +11023,7 @@ impl ::core::cmp::PartialEq for TIMEREVENT {
 }
 impl ::core::cmp::Eq for TIMEREVENT {}
 unsafe impl ::windows::core::Abi for TIMEREVENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11281,7 +11060,7 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> u32;
+pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 pub const VFW_HIDE_SETTINGS_PAGE: u32 = 1u32;
 pub const VFW_HIDE_VIDEOSRC_PAGE: u32 = 2u32;
@@ -11909,7 +11688,7 @@ impl ::core::cmp::Eq for YAMAHA_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::core::Abi for YAMAHA_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-pub type YIELDPROC = unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32;
+pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capCreateCaptureWindowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
@@ -12237,12 +12016,12 @@ pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC> {
+pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC>;
+            fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
         }
         ::core::mem::transmute(mciGetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(pdwyielddata)))
     }
@@ -12333,7 +12112,7 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::F
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12347,7 +12126,7 @@ pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YI
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: ::core::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32 {
+pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12387,7 +12166,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmTaskCreate(lpfn: ::core::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
+pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12433,7 +12212,7 @@ pub unsafe fn mmioAdvance<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fuadvance: u32) -> u32;
+            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
         }
         ::core::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuadvance)))
     }
@@ -12512,7 +12291,7 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
+            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
         }
         ::core::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
     }
@@ -12521,12 +12300,12 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> ::core::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
         }
         ::core::mem::transmute(mmioInstallIOProcA(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
@@ -12535,12 +12314,12 @@ pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> ::core::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
         }
         ::core::mem::transmute(mmioInstallIOProcW(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
@@ -12554,7 +12333,7 @@ pub unsafe fn mmioOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
+            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
         ::core::mem::transmute(mmioOpenA(pszfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
@@ -12568,7 +12347,7 @@ pub unsafe fn mmioOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut ::core::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
+            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
         ::core::mem::transmute(mmioOpenW(pszfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
@@ -12595,7 +12374,7 @@ pub unsafe fn mmioRenameA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
+            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
         }
         ::core::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
     }
@@ -12609,7 +12388,7 @@ pub unsafe fn mmioRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
+            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
         }
         ::core::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
     }
@@ -12664,7 +12443,7 @@ pub unsafe fn mmioSetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmm
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const ::core::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
+            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
         }
         ::core::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
     }
@@ -12736,15 +12515,7 @@ impl ::core::default::Default for s_RIFFWAVE_inst {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for s_RIFFWAVE_inst {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("s_RIFFWAVE_inst")
-            .field("bUnshiftedNote", &self.bUnshiftedNote)
-            .field("chFineTune", &self.chFineTune)
-            .field("chGain", &self.chGain)
-            .field("bLowNote", &self.bLowNote)
-            .field("bHighNote", &self.bHighNote)
-            .field("bLowVelocity", &self.bLowVelocity)
-            .field("bHighVelocity", &self.bHighVelocity)
-            .finish()
+        fmt.debug_struct("s_RIFFWAVE_inst").field("bUnshiftedNote", &self.bUnshiftedNote).field("chFineTune", &self.chFineTune).field("chGain", &self.chGain).field("bLowNote", &self.bLowNote).field("bHighNote", &self.bHighNote).field("bLowVelocity", &self.bLowVelocity).field("bHighVelocity", &self.bHighVelocity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -1,4 +1,4 @@
-use test_structs::Windows::Win32::System::Diagnostics::Debug::DebugPropertyInfo;
+use windows::Win32::System::Diagnostics::Debug::DebugPropertyInfo;
 
 #[test]
 fn test() {

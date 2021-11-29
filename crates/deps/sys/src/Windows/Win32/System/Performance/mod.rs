@@ -251,12 +251,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdatePerfNameFilesW(sznewctrfilepath: super::super::Foundation::PWSTR, sznewhlpfilepath: super::super::Foundation::PWSTR, szlanguageid: super::super::Foundation::PWSTR, dwflags: usize) -> u32;
 }
-pub const AppearPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3835118057,
-    data2: 37800,
-    data3: 19121,
-    data4: [142, 150, 191, 68, 130, 40, 46, 156],
-};
+pub const AppearPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3835118057, data2: 37800, data3: 19121, data4: [142, 150, 191, 68, 130, 40, 46, 156] };
 pub type AutoPathFormat = i32;
 pub const plaNone: AutoPathFormat = 0i32;
 pub const plaPattern: AutoPathFormat = 1i32;
@@ -283,23 +278,13 @@ pub const plaUpdateRunningInstance: CommitMode = 16i32;
 pub const plaFlushTrace: CommitMode = 32i32;
 pub const plaValidateOnly: CommitMode = 4096i32;
 pub const CounterItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3302152416, data2: 53725, data3: 4558, data4: [148, 15, 0, 128, 41, 0, 67, 72] };
-pub const CounterItem2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1125739618,
-    data2: 49951,
-    data3: 19683,
-    data4: [160, 46, 121, 239, 224, 246, 165, 37],
-};
+pub const CounterItem2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1125739618, data2: 49951, data3: 19683, data4: [160, 46, 121, 239, 224, 246, 165, 37] };
 pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 pub const CounterPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3482617185, data2: 60904, data3: 4558, data4: [148, 30, 0, 128, 41, 0, 67, 71] };
 pub const Counters: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2997905106, data2: 10924, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 pub type DICounterItem = *mut ::core::ffi::c_void;
 pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
-pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2366193660,
-    data2: 63351,
-    data3: 18711,
-    data4: [130, 209, 131, 63, 188, 84, 197, 143],
-};
+pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2366193660, data2: 63351, data3: 18711, data4: [130, 209, 131, 63, 188, 84, 197, 143] };
 pub const DIID_DISystemMonitor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332873089, data2: 49966, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
 pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2224527664, data2: 19123, data3: 4559, data4: [148, 58, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
@@ -384,12 +369,7 @@ pub const LegacyDataCollectorSetCollection: ::windows_sys::core::GUID = ::window
 pub const LegacyTraceSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946856, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const LegacyTraceSessionCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946857, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const LogFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 384588776, data2: 57235, data3: 16951, data4: [148, 228, 158, 233, 24, 17, 29, 113] };
-pub const LogFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 657840637,
-    data2: 63161,
-    data3: 20249,
-    data4: [165, 217, 226, 208, 104, 88, 75, 197],
-};
+pub const LogFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657840637, data2: 63161, data3: 20249, data4: [165, 217, 226, 208, 104, 88, 75, 197] };
 pub const MAX_COUNTER_PATH: u32 = 256u32;
 pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
 pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
@@ -1618,12 +1598,7 @@ pub const sysmonFileGif: SysmonFileType = 7i32;
 pub const SystemDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946886, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const SystemDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946887, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3302152416, data2: 53725, data3: 4558, data4: [148, 15, 0, 128, 41, 0, 67, 71] };
-pub const SystemMonitor2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2133874572,
-    data2: 24376,
-    data3: 17938,
-    data4: [172, 254, 110, 208, 76, 123, 122, 248],
-};
+pub const SystemMonitor2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2133874572, data2: 24376, data3: 17938, data4: [172, 254, 110, 208, 76, 123, 122, 248] };
 pub const TraceDataProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946835, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const TraceDataProviderCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946833, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const TraceSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946844, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };

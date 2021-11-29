@@ -659,18 +659,8 @@ pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
 pub const BORDER_PRINT: u32 = 0u32;
-pub const BidiRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3105237539,
-    data2: 17913,
-    data3: 18380,
-    data4: [128, 245, 254, 15, 233, 185, 225, 162],
-};
-pub const BidiRequestContainer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4233857572,
-    data2: 56069,
-    data3: 18945,
-    data4: [131, 136, 34, 237, 246, 194, 187, 186],
-};
+pub const BidiRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3105237539, data2: 17913, data3: 18380, data4: [128, 245, 254, 15, 233, 185, 225, 162] };
+pub const BidiRequestContainer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4233857572, data2: 56069, data3: 18945, data4: [131, 136, 34, 237, 246, 194, 187, 186] };
 pub const BidiSpl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 711017024, data2: 42181, data3: 19507, data4: [189, 135, 27, 199, 9, 51, 22, 57] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -830,27 +820,12 @@ pub const CHKBOXS_NO_PDATA: u32 = 4u32;
 pub const CHKBOXS_NO_YES: u32 = 1u32;
 pub const CHKBOXS_OFF_ON: u32 = 2u32;
 pub const CHKBOXS_OFF_PDATA: u32 = 5u32;
-pub const CLSID_OEMPTPROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2440181906,
-    data2: 17874,
-    data3: 18658,
-    data4: [158, 201, 86, 35, 121, 218, 249, 146],
-};
+pub const CLSID_OEMPTPROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2440181906, data2: 17874, data3: 18658, data4: [158, 201, 86, 35, 121, 218, 249, 146] };
 pub const CLSID_OEMRENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1835712294, data2: 40760, data3: 4561, data4: [136, 42, 0, 192, 79, 185, 97, 236] };
 pub const CLSID_OEMUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2882437335, data2: 40774, data3: 4561, data4: [136, 42, 0, 192, 79, 185, 97, 236] };
 pub const CLSID_OEMUIMXDC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1309950720, data2: 23363, data3: 17032, data4: [147, 42, 94, 77, 214, 216, 43, 237] };
-pub const CLSID_PTPROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1185682715,
-    data2: 33936,
-    data3: 17713,
-    data4: [150, 204, 85, 191, 43, 241, 158, 17],
-};
-pub const CLSID_XPSRASTERIZER_FACTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1346271679,
-    data2: 7433,
-    data3: 18276,
-    data4: [157, 114, 30, 176, 198, 89, 103, 198],
-};
+pub const CLSID_PTPROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1185682715, data2: 33936, data3: 17713, data4: [150, 204, 85, 191, 43, 241, 158, 17] };
+pub const CLSID_XPSRASTERIZER_FACTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1346271679, data2: 7433, data3: 18276, data4: [157, 114, 30, 176, 198, 89, 103, 198] };
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2176,12 +2151,7 @@ pub const XpsJob_FixedPageAdded: EXpsJobConsumption = 2i32;
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
-pub const FMTID_PrinterPropertyBag: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1979297226,
-    data2: 2429,
-    data3: 17859,
-    data4: [166, 228, 186, 178, 158, 39, 111, 62],
-};
+pub const FMTID_PrinterPropertyBag: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1979297226, data2: 2429, data3: 17859, data4: [166, 228, 186, 178, 158, 39, 111, 62] };
 pub const FNT_INFO_CURRENTFONTID: u32 = 10u32;
 pub const FNT_INFO_FONTBOLD: u32 = 6u32;
 pub const FNT_INFO_FONTHEIGHT: u32 = 4u32;
@@ -2297,12 +2267,7 @@ impl ::core::clone::Clone for GLYPHRUN {
     }
 }
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
-pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4076077953,
-    data2: 62573,
-    data3: 20049,
-    data4: [188, 231, 98, 222, 108, 242, 208, 152],
-};
+pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4076077953, data2: 62573, data3: 20049, data4: [188, 231, 98, 222, 108, 242, 208, 152] };
 pub const GUID_DEVINTERFACE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 685215661, data2: 23058, data3: 4561, data4: [174, 91, 0, 0, 248, 3, 168, 194] };
 pub type IAsyncGetSendNotificationCookie = *mut ::core::ffi::c_void;
 pub type IAsyncGetSrvReferralCookie = *mut ::core::ffi::c_void;
@@ -4958,18 +4923,8 @@ pub const PRINTER_EVENT_DELETE_CONNECTION: u32 = 2u32;
 pub const PRINTER_EVENT_DELETE_CONNECTION_NO_UI: u32 = 10u32;
 pub const PRINTER_EVENT_FLAG_NO_UI: u32 = 1u32;
 pub const PRINTER_EVENT_INITIALIZE: u32 = 3u32;
-pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1566185220,
-    data2: 57297,
-    data3: 16769,
-    data4: [142, 238, 129, 92, 134, 237, 173, 49],
-};
-pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 599462696,
-    data2: 25566,
-    data3: 17043,
-    data4: [145, 91, 166, 162, 61, 146, 154, 203],
-};
+pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1566185220, data2: 57297, data3: 16769, data4: [142, 238, 129, 92, 134, 237, 173, 49] };
+pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 599462696, data2: 25566, data3: 17043, data4: [145, 91, 166, 162, 61, 146, 154, 203] };
 pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3968804383, data2: 9852, data3: 18079, data4: [181, 214, 57, 51, 2, 60, 41, 204] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -5680,12 +5635,7 @@ impl ::core::clone::Clone for PRINTPROVIDOR {
         *self
     }
 }
-pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 716886563,
-    data2: 47508,
-    data3: 19146,
-    data4: [130, 252, 69, 113, 177, 181, 133, 172],
-};
+pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 716886563, data2: 47508, data3: 19146, data4: [130, 252, 69, 113, 177, 181, 133, 172] };
 pub type PRINT_EXECUTION_CONTEXT = i32;
 pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0i32;
 pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
@@ -5717,12 +5667,7 @@ impl ::core::clone::Clone for PRINT_FEATURE_OPTION {
         *self
     }
 }
-pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 635386638,
-    data2: 29865,
-    data3: 18421,
-    data4: [128, 206, 121, 180, 177, 235, 92, 88],
-};
+pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635386638, data2: 29865, data3: 18421, data4: [128, 206, 121, 180, 177, 235, 92, 88] };
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct PROPSHEETUI_GETICON_INFO {
@@ -6051,12 +5996,7 @@ pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2i
 pub type PrintSchemaSelectionType = i32;
 pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0i32;
 pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1i32;
-pub const PrinterExtensionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 857432282,
-    data2: 40592,
-    data3: 19920,
-    data4: [156, 132, 234, 196, 230, 89, 182, 31],
-};
+pub const PrinterExtensionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 857432282, data2: 40592, data3: 19920, data4: [156, 132, 234, 196, 230, 89, 182, 31] };
 pub const PrinterQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3948200496, data2: 31116, data3: 19614, data4: [180, 97, 41, 250, 208, 64, 57, 177] };
 pub const PrinterQueueView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3948200497, data2: 31116, data3: 19614, data4: [180, 97, 41, 250, 208, 64, 57, 177] };
 pub const QCP_DEVICEPROFILE: u32 = 0u32;

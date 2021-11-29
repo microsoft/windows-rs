@@ -1060,12 +1060,7 @@ pub const CX509CertificateRequestPkcs7: ::windows_sys::core::GUID = ::windows_sy
 pub const CX509CertificateRevocationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821472, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CX509CertificateRevocationListEntries: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821471, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CX509CertificateRevocationListEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821470, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateTemplateADWritable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2201412387,
-    data2: 11882,
-    data3: 18948,
-    data4: [147, 124, 84, 143, 104, 24, 57, 179],
-};
+pub const CX509CertificateTemplateADWritable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2201412387, data2: 11882, data3: 18948, data4: [147, 124, 84, 143, 104, 24, 57, 179] };
 pub const CX509EndorsementKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 295852573, data2: 47523, data3: 20189, data4: [175, 131, 59, 89, 173, 190, 211, 97] };
 pub const CX509Enrollment: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821446, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CX509EnrollmentHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821456, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
@@ -1312,22 +1307,7 @@ pub type FNCERTSRVRESTOREREGISTERW = ::core::option::Option<unsafe extern "syste
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<
-    unsafe extern "system" fn(
-        hwndparent: super::super::super::Foundation::HWND,
-        pbpfx: *const u8,
-        cbpfx: u32,
-        importflags: ImportPFXFlags,
-        pwszpassword: super::super::super::Foundation::PWSTR,
-        pwszprovidername: super::super::super::Foundation::PWSTR,
-        pwszreadername: super::super::super::Foundation::PWSTR,
-        pwszcontainernameprefix: super::super::super::Foundation::PWSTR,
-        pwszpin: super::super::super::Foundation::PWSTR,
-        pwszfriendlyname: super::super::super::Foundation::PWSTR,
-        pccertout: *mut u32,
-        prgpcertout: *mut *mut *mut super::CERT_CONTEXT,
-    ) -> ::windows_sys::core::HRESULT,
->;
+pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: super::super::super::Foundation::PWSTR, pwszprovidername: super::super::super::Foundation::PWSTR, pwszreadername: super::super::super::Foundation::PWSTR, pwszcontainernameprefix: super::super::super::Foundation::PWSTR, pwszpin: super::super::super::Foundation::PWSTR, pwszfriendlyname: super::super::super::Foundation::PWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
@@ -1574,18 +1554,8 @@ pub const SKIHashSha256: KeyIdentifierHashAlgorithm = 3i32;
 pub const SKIHashHPKP: KeyIdentifierHashAlgorithm = 5i32;
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
 pub const LDAPF_SSLENABLE: u32 = 1u32;
-pub const OCSPAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3556193553,
-    data2: 37577,
-    data3: 18379,
-    data4: [143, 242, 141, 137, 26, 124, 77, 228],
-};
-pub const OCSPPropertyCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4181042472,
-    data2: 47754,
-    data3: 19929,
-    data4: [186, 121, 242, 131, 39, 92, 178, 222],
-};
+pub const OCSPAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3556193553, data2: 37577, data3: 18379, data4: [143, 242, 141, 137, 26, 124, 77, 228] };
+pub const OCSPPropertyCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4181042472, data2: 47754, data3: 19929, data4: [186, 121, 242, 131, 39, 92, 178, 222] };
 pub type OCSPRequestFlag = i32;
 pub const OCSP_RF_REJECT_SIGNED_REQUESTS: OCSPRequestFlag = 1i32;
 pub type OCSPSigningFlag = i32;

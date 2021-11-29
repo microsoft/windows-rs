@@ -730,14 +730,7 @@ impl ::core::default::Default for RID_DEVICE_INFO_KEYBOARD {
 }
 impl ::core::fmt::Debug for RID_DEVICE_INFO_KEYBOARD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RID_DEVICE_INFO_KEYBOARD")
-            .field("dwType", &self.dwType)
-            .field("dwSubType", &self.dwSubType)
-            .field("dwKeyboardMode", &self.dwKeyboardMode)
-            .field("dwNumberOfFunctionKeys", &self.dwNumberOfFunctionKeys)
-            .field("dwNumberOfIndicators", &self.dwNumberOfIndicators)
-            .field("dwNumberOfKeysTotal", &self.dwNumberOfKeysTotal)
-            .finish()
+        fmt.debug_struct("RID_DEVICE_INFO_KEYBOARD").field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).field("dwKeyboardMode", &self.dwKeyboardMode).field("dwNumberOfFunctionKeys", &self.dwNumberOfFunctionKeys).field("dwNumberOfIndicators", &self.dwNumberOfIndicators).field("dwNumberOfKeysTotal", &self.dwNumberOfKeysTotal).finish()
     }
 }
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_KEYBOARD {

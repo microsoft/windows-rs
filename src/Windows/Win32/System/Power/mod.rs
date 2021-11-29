@@ -22,19 +22,7 @@ impl ::core::default::Default for ACPI_REAL_TIME {
 }
 impl ::core::fmt::Debug for ACPI_REAL_TIME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ACPI_REAL_TIME")
-            .field("Year", &self.Year)
-            .field("Month", &self.Month)
-            .field("Day", &self.Day)
-            .field("Hour", &self.Hour)
-            .field("Minute", &self.Minute)
-            .field("Second", &self.Second)
-            .field("Valid", &self.Valid)
-            .field("Milliseconds", &self.Milliseconds)
-            .field("TimeZone", &self.TimeZone)
-            .field("DayLight", &self.DayLight)
-            .field("Reserved1", &self.Reserved1)
-            .finish()
+        fmt.debug_struct("ACPI_REAL_TIME").field("Year", &self.Year).field("Month", &self.Month).field("Day", &self.Day).field("Hour", &self.Hour).field("Minute", &self.Minute).field("Second", &self.Second).field("Valid", &self.Valid).field("Milliseconds", &self.Milliseconds).field("TimeZone", &self.TimeZone).field("DayLight", &self.DayLight).field("Reserved1", &self.Reserved1).finish()
     }
 }
 impl ::core::cmp::PartialEq for ACPI_REAL_TIME {
@@ -68,14 +56,7 @@ impl ::core::default::Default for ADMINISTRATOR_POWER_POLICY {
 }
 impl ::core::fmt::Debug for ADMINISTRATOR_POWER_POLICY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ADMINISTRATOR_POWER_POLICY")
-            .field("MinSleep", &self.MinSleep)
-            .field("MaxSleep", &self.MaxSleep)
-            .field("MinVideoTimeout", &self.MinVideoTimeout)
-            .field("MaxVideoTimeout", &self.MaxVideoTimeout)
-            .field("MinSpindownTimeout", &self.MinSpindownTimeout)
-            .field("MaxSpindownTimeout", &self.MaxSpindownTimeout)
-            .finish()
+        fmt.debug_struct("ADMINISTRATOR_POWER_POLICY").field("MinSleep", &self.MinSleep).field("MaxSleep", &self.MaxSleep).field("MinVideoTimeout", &self.MinVideoTimeout).field("MaxVideoTimeout", &self.MaxVideoTimeout).field("MinSpindownTimeout", &self.MinSpindownTimeout).field("MaxSpindownTimeout", &self.MaxSpindownTimeout).finish()
     }
 }
 impl ::core::cmp::PartialEq for ADMINISTRATOR_POWER_POLICY {
@@ -218,18 +199,7 @@ impl ::core::default::Default for BATTERY_INFORMATION {
 }
 impl ::core::fmt::Debug for BATTERY_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_INFORMATION")
-            .field("Capabilities", &self.Capabilities)
-            .field("Technology", &self.Technology)
-            .field("Reserved", &self.Reserved)
-            .field("Chemistry", &self.Chemistry)
-            .field("DesignedCapacity", &self.DesignedCapacity)
-            .field("FullChargedCapacity", &self.FullChargedCapacity)
-            .field("DefaultAlert1", &self.DefaultAlert1)
-            .field("DefaultAlert2", &self.DefaultAlert2)
-            .field("CriticalBias", &self.CriticalBias)
-            .field("CycleCount", &self.CycleCount)
-            .finish()
+        fmt.debug_struct("BATTERY_INFORMATION").field("Capabilities", &self.Capabilities).field("Technology", &self.Technology).field("Reserved", &self.Reserved).field("Chemistry", &self.Chemistry).field("DesignedCapacity", &self.DesignedCapacity).field("FullChargedCapacity", &self.FullChargedCapacity).field("DefaultAlert1", &self.DefaultAlert1).field("DefaultAlert2", &self.DefaultAlert2).field("CriticalBias", &self.CriticalBias).field("CycleCount", &self.CycleCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for BATTERY_INFORMATION {
@@ -456,17 +426,7 @@ impl ::core::default::Default for BATTERY_USB_CHARGER_STATUS {
 }
 impl ::core::fmt::Debug for BATTERY_USB_CHARGER_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_USB_CHARGER_STATUS")
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .field("MaxCurrent", &self.MaxCurrent)
-            .field("Voltage", &self.Voltage)
-            .field("PortType", &self.PortType)
-            .field("PortId", &self.PortId)
-            .field("PowerSourceInformation", &self.PowerSourceInformation)
-            .field("OemCharger", &self.OemCharger)
-            .finish()
+        fmt.debug_struct("BATTERY_USB_CHARGER_STATUS").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("MaxCurrent", &self.MaxCurrent).field("Voltage", &self.Voltage).field("PortType", &self.PortType).field("PortId", &self.PortId).field("PowerSourceInformation", &self.PowerSourceInformation).field("OemCharger", &self.OemCharger).finish()
     }
 }
 impl ::core::cmp::PartialEq for BATTERY_USB_CHARGER_STATUS {
@@ -529,16 +489,7 @@ impl ::core::default::Default for CM_POWER_DATA {
 }
 impl ::core::fmt::Debug for CM_POWER_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CM_POWER_DATA")
-            .field("PD_Size", &self.PD_Size)
-            .field("PD_MostRecentPowerState", &self.PD_MostRecentPowerState)
-            .field("PD_Capabilities", &self.PD_Capabilities)
-            .field("PD_D1Latency", &self.PD_D1Latency)
-            .field("PD_D2Latency", &self.PD_D2Latency)
-            .field("PD_D3Latency", &self.PD_D3Latency)
-            .field("PD_PowerStateMapping", &self.PD_PowerStateMapping)
-            .field("PD_DeepestSystemWake", &self.PD_DeepestSystemWake)
-            .finish()
+        fmt.debug_struct("CM_POWER_DATA").field("PD_Size", &self.PD_Size).field("PD_MostRecentPowerState", &self.PD_MostRecentPowerState).field("PD_Capabilities", &self.PD_Capabilities).field("PD_D1Latency", &self.PD_D1Latency).field("PD_D2Latency", &self.PD_D2Latency).field("PD_D3Latency", &self.PD_D3Latency).field("PD_PowerStateMapping", &self.PD_PowerStateMapping).field("PD_DeepestSystemWake", &self.PD_DeepestSystemWake).finish()
     }
 }
 impl ::core::cmp::PartialEq for CM_POWER_DATA {
@@ -586,10 +537,10 @@ pub const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728u32;
 pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    pub Callback: ::core::option::Option<PDEVICE_NOTIFY_CALLBACK_ROUTINE>,
+    pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut ::core::ffi::c_void,
 }
 impl DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
@@ -610,7 +561,7 @@ impl ::core::cmp::PartialEq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
 }
 impl ::core::cmp::Eq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
 unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -717,7 +668,7 @@ impl ::core::convert::From<i32> for EFFECTIVE_POWER_MODE {
 unsafe impl ::windows::core::Abi for EFFECTIVE_POWER_MODE {
     type Abi = Self;
 }
-pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void);
+pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -853,14 +804,7 @@ impl ::core::default::Default for EMI_METADATA_V1 {
 }
 impl ::core::fmt::Debug for EMI_METADATA_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_METADATA_V1")
-            .field("MeasurementUnit", &self.MeasurementUnit)
-            .field("HardwareOEM", &self.HardwareOEM)
-            .field("HardwareModel", &self.HardwareModel)
-            .field("HardwareRevision", &self.HardwareRevision)
-            .field("MeteredHardwareNameSize", &self.MeteredHardwareNameSize)
-            .field("MeteredHardwareName", &self.MeteredHardwareName)
-            .finish()
+        fmt.debug_struct("EMI_METADATA_V1").field("MeasurementUnit", &self.MeasurementUnit).field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("MeteredHardwareNameSize", &self.MeteredHardwareNameSize).field("MeteredHardwareName", &self.MeteredHardwareName).finish()
     }
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_V1 {
@@ -980,7 +924,7 @@ pub const EnableVideoDimDisplay: u32 = 16u32;
 pub const EnableWakeOnRing: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpfn: ::core::option::Option<PWRSCHEMESENUMPROC>, lparam: Param1) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpfn: PWRSCHEMESENUMPROC, lparam: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1078,17 +1022,7 @@ impl ::core::default::Default for GLOBAL_USER_POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GLOBAL_USER_POWER_POLICY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GLOBAL_USER_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("PowerButtonAc", &self.PowerButtonAc)
-            .field("PowerButtonDc", &self.PowerButtonDc)
-            .field("SleepButtonAc", &self.SleepButtonAc)
-            .field("SleepButtonDc", &self.SleepButtonDc)
-            .field("LidCloseAc", &self.LidCloseAc)
-            .field("LidCloseDc", &self.LidCloseDc)
-            .field("DischargePolicy", &self.DischargePolicy)
-            .field("GlobalFlags", &self.GlobalFlags)
-            .finish()
+        fmt.debug_struct("GLOBAL_USER_POWER_POLICY").field("Revision", &self.Revision).field("PowerButtonAc", &self.PowerButtonAc).field("PowerButtonDc", &self.PowerButtonDc).field("SleepButtonAc", &self.SleepButtonAc).field("SleepButtonDc", &self.SleepButtonDc).field("LidCloseAc", &self.LidCloseAc).field("LidCloseDc", &self.LidCloseDc).field("DischargePolicy", &self.DischargePolicy).field("GlobalFlags", &self.GlobalFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1370,20 +1304,7 @@ impl ::core::fmt::Debug for MACHINE_POWER_POLICY {
 }
 impl ::core::cmp::PartialEq for MACHINE_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision
-            && self.MinSleepAc == other.MinSleepAc
-            && self.MinSleepDc == other.MinSleepDc
-            && self.ReducedLatencySleepAc == other.ReducedLatencySleepAc
-            && self.ReducedLatencySleepDc == other.ReducedLatencySleepDc
-            && self.DozeTimeoutAc == other.DozeTimeoutAc
-            && self.DozeTimeoutDc == other.DozeTimeoutDc
-            && self.DozeS4TimeoutAc == other.DozeS4TimeoutAc
-            && self.DozeS4TimeoutDc == other.DozeS4TimeoutDc
-            && self.MinThrottleAc == other.MinThrottleAc
-            && self.MinThrottleDc == other.MinThrottleDc
-            && self.pad1 == other.pad1
-            && self.OverThrottledAc == other.OverThrottledAc
-            && self.OverThrottledDc == other.OverThrottledDc
+        self.Revision == other.Revision && self.MinSleepAc == other.MinSleepAc && self.MinSleepDc == other.MinSleepDc && self.ReducedLatencySleepAc == other.ReducedLatencySleepAc && self.ReducedLatencySleepDc == other.ReducedLatencySleepDc && self.DozeTimeoutAc == other.DozeTimeoutAc && self.DozeTimeoutDc == other.DozeTimeoutDc && self.DozeS4TimeoutAc == other.DozeS4TimeoutAc && self.DozeS4TimeoutDc == other.DozeS4TimeoutDc && self.MinThrottleAc == other.MinThrottleAc && self.MinThrottleDc == other.MinThrottleDc && self.pad1 == other.pad1 && self.OverThrottledAc == other.OverThrottledAc && self.OverThrottledDc == other.OverThrottledDc
     }
 }
 impl ::core::cmp::Eq for MACHINE_POWER_POLICY {}
@@ -1430,7 +1351,7 @@ pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
 pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
-pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32;
+pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct POWERBROADCAST_SETTING {
@@ -1958,15 +1879,7 @@ impl ::core::default::Default for PROCESSOR_POWER_POLICY_INFO {
 }
 impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSOR_POWER_POLICY_INFO")
-            .field("TimeCheck", &self.TimeCheck)
-            .field("DemoteLimit", &self.DemoteLimit)
-            .field("PromoteLimit", &self.PromoteLimit)
-            .field("DemotePercent", &self.DemotePercent)
-            .field("PromotePercent", &self.PromotePercent)
-            .field("Spare", &self.Spare)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("PROCESSOR_POWER_POLICY_INFO").field("TimeCheck", &self.TimeCheck).field("DemoteLimit", &self.DemoteLimit).field("PromoteLimit", &self.PromoteLimit).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
@@ -1979,9 +1892,9 @@ unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PWRSCHEMESENUMPROC = unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+pub type PWRSCHEMESENUMPROC = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWRSCHEMESENUMPROC_V1 = unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+pub type PWRSCHEMESENUMPROC_V1 = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
 #[inline]
 pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
@@ -2427,7 +2340,7 @@ pub unsafe fn PowerReadValueUnitsSpecifier<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: ::core::option::Option<EFFECTIVE_POWER_MODE_CALLBACK>, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3338,14 +3251,7 @@ impl ::core::default::Default for SYSTEM_POWER_STATUS {
 }
 impl ::core::fmt::Debug for SYSTEM_POWER_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYSTEM_POWER_STATUS")
-            .field("ACLineStatus", &self.ACLineStatus)
-            .field("BatteryFlag", &self.BatteryFlag)
-            .field("BatteryLifePercent", &self.BatteryLifePercent)
-            .field("SystemStatusFlag", &self.SystemStatusFlag)
-            .field("BatteryLifeTime", &self.BatteryLifeTime)
-            .field("BatteryFullLifeTime", &self.BatteryFullLifeTime)
-            .finish()
+        fmt.debug_struct("SYSTEM_POWER_STATUS").field("ACLineStatus", &self.ACLineStatus).field("BatteryFlag", &self.BatteryFlag).field("BatteryLifePercent", &self.BatteryLifePercent).field("SystemStatusFlag", &self.SystemStatusFlag).field("BatteryLifeTime", &self.BatteryLifeTime).field("BatteryFullLifeTime", &self.BatteryFullLifeTime).finish()
     }
 }
 impl ::core::cmp::PartialEq for SYSTEM_POWER_STATUS {
@@ -3499,16 +3405,7 @@ impl ::core::fmt::Debug for THERMAL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for THERMAL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.ThermalStamp == other.ThermalStamp
-            && self.ThermalConstant1 == other.ThermalConstant1
-            && self.ThermalConstant2 == other.ThermalConstant2
-            && self.Processors == other.Processors
-            && self.SamplingPeriod == other.SamplingPeriod
-            && self.CurrentTemperature == other.CurrentTemperature
-            && self.PassiveTripPoint == other.PassiveTripPoint
-            && self.CriticalTripPoint == other.CriticalTripPoint
-            && self.ActiveTripPointCount == other.ActiveTripPointCount
-            && self.ActiveTripPoint == other.ActiveTripPoint
+        self.ThermalStamp == other.ThermalStamp && self.ThermalConstant1 == other.ThermalConstant1 && self.ThermalConstant2 == other.ThermalConstant2 && self.Processors == other.Processors && self.SamplingPeriod == other.SamplingPeriod && self.CurrentTemperature == other.CurrentTemperature && self.PassiveTripPoint == other.PassiveTripPoint && self.CriticalTripPoint == other.CriticalTripPoint && self.ActiveTripPointCount == other.ActiveTripPointCount && self.ActiveTripPoint == other.ActiveTripPoint
     }
 }
 impl ::core::cmp::Eq for THERMAL_INFORMATION {}
@@ -3540,17 +3437,7 @@ impl ::core::default::Default for THERMAL_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for THERMAL_POLICY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THERMAL_POLICY")
-            .field("Version", &self.Version)
-            .field("WaitForUpdate", &self.WaitForUpdate)
-            .field("Hibernate", &self.Hibernate)
-            .field("Critical", &self.Critical)
-            .field("ThermalStandby", &self.ThermalStandby)
-            .field("ActivationReasons", &self.ActivationReasons)
-            .field("PassiveLimit", &self.PassiveLimit)
-            .field("ActiveLevel", &self.ActiveLevel)
-            .field("OverThrottled", &self.OverThrottled)
-            .finish()
+        fmt.debug_struct("THERMAL_POLICY").field("Version", &self.Version).field("WaitForUpdate", &self.WaitForUpdate).field("Hibernate", &self.Hibernate).field("Critical", &self.Critical).field("ThermalStandby", &self.ThermalStandby).field("ActivationReasons", &self.ActivationReasons).field("PassiveLimit", &self.PassiveLimit).field("ActiveLevel", &self.ActiveLevel).field("OverThrottled", &self.OverThrottled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

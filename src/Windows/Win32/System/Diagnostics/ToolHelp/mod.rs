@@ -84,17 +84,7 @@ impl ::core::default::Default for HEAPENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HEAPENTRY32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HEAPENTRY32")
-            .field("dwSize", &self.dwSize)
-            .field("hHandle", &self.hHandle)
-            .field("dwAddress", &self.dwAddress)
-            .field("dwBlockSize", &self.dwBlockSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwLockCount", &self.dwLockCount)
-            .field("dwResvd", &self.dwResvd)
-            .field("th32ProcessID", &self.th32ProcessID)
-            .field("th32HeapID", &self.th32HeapID)
-            .finish()
+        fmt.debug_struct("HEAPENTRY32").field("dwSize", &self.dwSize).field("hHandle", &self.hHandle).field("dwAddress", &self.dwAddress).field("dwBlockSize", &self.dwBlockSize).field("dwFlags", &self.dwFlags).field("dwLockCount", &self.dwLockCount).field("dwResvd", &self.dwResvd).field("th32ProcessID", &self.th32ProcessID).field("th32HeapID", &self.th32HeapID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -264,18 +254,7 @@ impl ::core::default::Default for MODULEENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MODULEENTRY32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MODULEENTRY32")
-            .field("dwSize", &self.dwSize)
-            .field("th32ModuleID", &self.th32ModuleID)
-            .field("th32ProcessID", &self.th32ProcessID)
-            .field("GlblcntUsage", &self.GlblcntUsage)
-            .field("ProccntUsage", &self.ProccntUsage)
-            .field("modBaseAddr", &self.modBaseAddr)
-            .field("modBaseSize", &self.modBaseSize)
-            .field("hModule", &self.hModule)
-            .field("szModule", &self.szModule)
-            .field("szExePath", &self.szExePath)
-            .finish()
+        fmt.debug_struct("MODULEENTRY32").field("dwSize", &self.dwSize).field("th32ModuleID", &self.th32ModuleID).field("th32ProcessID", &self.th32ProcessID).field("GlblcntUsage", &self.GlblcntUsage).field("ProccntUsage", &self.ProccntUsage).field("modBaseAddr", &self.modBaseAddr).field("modBaseSize", &self.modBaseSize).field("hModule", &self.hModule).field("szModule", &self.szModule).field("szExePath", &self.szExePath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -316,18 +295,7 @@ impl ::core::default::Default for MODULEENTRY32W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MODULEENTRY32W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MODULEENTRY32W")
-            .field("dwSize", &self.dwSize)
-            .field("th32ModuleID", &self.th32ModuleID)
-            .field("th32ProcessID", &self.th32ProcessID)
-            .field("GlblcntUsage", &self.GlblcntUsage)
-            .field("ProccntUsage", &self.ProccntUsage)
-            .field("modBaseAddr", &self.modBaseAddr)
-            .field("modBaseSize", &self.modBaseSize)
-            .field("hModule", &self.hModule)
-            .field("szModule", &self.szModule)
-            .field("szExePath", &self.szExePath)
-            .finish()
+        fmt.debug_struct("MODULEENTRY32W").field("dwSize", &self.dwSize).field("th32ModuleID", &self.th32ModuleID).field("th32ProcessID", &self.th32ProcessID).field("GlblcntUsage", &self.GlblcntUsage).field("ProccntUsage", &self.ProccntUsage).field("modBaseAddr", &self.modBaseAddr).field("modBaseSize", &self.modBaseSize).field("hModule", &self.hModule).field("szModule", &self.szModule).field("szExePath", &self.szExePath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -424,18 +392,7 @@ impl ::core::default::Default for PROCESSENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROCESSENTRY32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSENTRY32")
-            .field("dwSize", &self.dwSize)
-            .field("cntUsage", &self.cntUsage)
-            .field("th32ProcessID", &self.th32ProcessID)
-            .field("th32DefaultHeapID", &self.th32DefaultHeapID)
-            .field("th32ModuleID", &self.th32ModuleID)
-            .field("cntThreads", &self.cntThreads)
-            .field("th32ParentProcessID", &self.th32ParentProcessID)
-            .field("pcPriClassBase", &self.pcPriClassBase)
-            .field("dwFlags", &self.dwFlags)
-            .field("szExeFile", &self.szExeFile)
-            .finish()
+        fmt.debug_struct("PROCESSENTRY32").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ProcessID", &self.th32ProcessID).field("th32DefaultHeapID", &self.th32DefaultHeapID).field("th32ModuleID", &self.th32ModuleID).field("cntThreads", &self.cntThreads).field("th32ParentProcessID", &self.th32ParentProcessID).field("pcPriClassBase", &self.pcPriClassBase).field("dwFlags", &self.dwFlags).field("szExeFile", &self.szExeFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -472,18 +429,7 @@ impl ::core::default::Default for PROCESSENTRY32W {
 }
 impl ::core::fmt::Debug for PROCESSENTRY32W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSENTRY32W")
-            .field("dwSize", &self.dwSize)
-            .field("cntUsage", &self.cntUsage)
-            .field("th32ProcessID", &self.th32ProcessID)
-            .field("th32DefaultHeapID", &self.th32DefaultHeapID)
-            .field("th32ModuleID", &self.th32ModuleID)
-            .field("cntThreads", &self.cntThreads)
-            .field("th32ParentProcessID", &self.th32ParentProcessID)
-            .field("pcPriClassBase", &self.pcPriClassBase)
-            .field("dwFlags", &self.dwFlags)
-            .field("szExeFile", &self.szExeFile)
-            .finish()
+        fmt.debug_struct("PROCESSENTRY32W").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ProcessID", &self.th32ProcessID).field("th32DefaultHeapID", &self.th32DefaultHeapID).field("th32ModuleID", &self.th32ModuleID).field("cntThreads", &self.cntThreads).field("th32ParentProcessID", &self.th32ParentProcessID).field("pcPriClassBase", &self.pcPriClassBase).field("dwFlags", &self.dwFlags).field("szExeFile", &self.szExeFile).finish()
     }
 }
 impl ::core::cmp::PartialEq for PROCESSENTRY32W {
@@ -570,15 +516,7 @@ impl ::core::default::Default for THREADENTRY32 {
 }
 impl ::core::fmt::Debug for THREADENTRY32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THREADENTRY32")
-            .field("dwSize", &self.dwSize)
-            .field("cntUsage", &self.cntUsage)
-            .field("th32ThreadID", &self.th32ThreadID)
-            .field("th32OwnerProcessID", &self.th32OwnerProcessID)
-            .field("tpBasePri", &self.tpBasePri)
-            .field("tpDeltaPri", &self.tpDeltaPri)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("THREADENTRY32").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ThreadID", &self.th32ThreadID).field("th32OwnerProcessID", &self.th32OwnerProcessID).field("tpBasePri", &self.tpBasePri).field("tpDeltaPri", &self.tpDeltaPri).field("dwFlags", &self.dwFlags).finish()
     }
 }
 impl ::core::cmp::PartialEq for THREADENTRY32 {

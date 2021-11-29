@@ -67,11 +67,7 @@ pub struct ActivatedEventHandler(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ActivatedEventHandler_box::<F> {
-            vtable: &ActivatedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ActivatedEventHandler_box::<F> { vtable: &ActivatedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -92,12 +88,7 @@ unsafe impl ::windows::core::Interface for ActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ActivatedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ActivatedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 struct ActivatedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + 'static> {
@@ -110,13 +101,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: ActivatedEventHandler_abi = ActivatedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -136,11 +123,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&eventargs as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&eventargs as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -316,11 +299,7 @@ pub struct BackgroundActivatedEventHandler(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundActivatedEventHandler_box::<F> {
-            vtable: &BackgroundActivatedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = BackgroundActivatedEventHandler_box::<F> { vtable: &BackgroundActivatedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -341,12 +320,7 @@ unsafe impl ::windows::core::Interface for BackgroundActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct BackgroundActivatedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct BackgroundActivatedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 struct BackgroundActivatedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + 'static> {
@@ -359,13 +333,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: BackgroundActivatedEventHandler_abi = BackgroundActivatedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<BackgroundActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<BackgroundActivatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -385,11 +355,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&eventargs as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&eventargs as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -503,11 +469,7 @@ pub struct EnteredBackgroundEventHandler(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = EnteredBackgroundEventHandler_box::<F> {
-            vtable: &EnteredBackgroundEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = EnteredBackgroundEventHandler_box::<F> { vtable: &EnteredBackgroundEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
@@ -528,12 +490,7 @@ unsafe impl ::windows::core::Interface for EnteredBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct EnteredBackgroundEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct EnteredBackgroundEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 struct EnteredBackgroundEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + 'static> {
@@ -546,13 +503,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: EnteredBackgroundEventHandler_abi = EnteredBackgroundEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<EnteredBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<EnteredBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -572,11 +525,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -1423,11 +1372,7 @@ pub struct LeavingBackgroundEventHandler(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = LeavingBackgroundEventHandler_box::<F> {
-            vtable: &LeavingBackgroundEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = LeavingBackgroundEventHandler_box::<F> { vtable: &LeavingBackgroundEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
@@ -1448,12 +1393,7 @@ unsafe impl ::windows::core::Interface for LeavingBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct LeavingBackgroundEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct LeavingBackgroundEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 struct LeavingBackgroundEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + 'static> {
@@ -1466,13 +1406,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: LeavingBackgroundEventHandler_abi = LeavingBackgroundEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<LeavingBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<LeavingBackgroundEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1492,11 +1428,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -1504,11 +1436,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
 pub struct NavigatedEventHandler(::windows::core::IUnknown);
 impl NavigatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NavigatedEventHandler_box::<F> {
-            vtable: &NavigatedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = NavigatedEventHandler_box::<F> { vtable: &NavigatedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, IWebUINavigatedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -1525,12 +1453,7 @@ unsafe impl ::windows::core::Interface for NavigatedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigatedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct NavigatedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct NavigatedEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const NavigatedEventHandler_abi,
@@ -1541,13 +1464,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: NavigatedEventHandler_abi = NavigatedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1567,11 +1486,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <IWebUINavigatedEventArgs as ::windows::core::Abi>::Abi as *const <IWebUINavigatedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <IWebUINavigatedEventArgs as ::windows::core::Abi>::Abi as *const <IWebUINavigatedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
@@ -1687,11 +1602,7 @@ impl ::windows::core::DefaultType for PrintContent {
 pub struct ResumingEventHandler(::windows::core::IUnknown);
 impl ResumingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ResumingEventHandler_box::<F> {
-            vtable: &ResumingEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ResumingEventHandler_box::<F> { vtable: &ResumingEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, sender: Param0) -> ::windows::core::Result<()> {
@@ -1708,12 +1619,7 @@ unsafe impl ::windows::core::Interface for ResumingEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ResumingEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ResumingEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ResumingEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ResumingEventHandler_abi,
@@ -1724,13 +1630,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windo
     const VTABLE: ResumingEventHandler_abi = ResumingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ResumingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ResumingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -1957,11 +1859,7 @@ pub struct SuspendingEventHandler(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = SuspendingEventHandler_box::<F> {
-            vtable: &SuspendingEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = SuspendingEventHandler_box::<F> { vtable: &SuspendingEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
@@ -1982,12 +1880,7 @@ unsafe impl ::windows::core::Interface for SuspendingEventHandler {
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct SuspendingEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct SuspendingEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
 struct SuspendingEventHandler_box<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + 'static> {
@@ -2000,13 +1893,9 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     const VTABLE: SuspendingEventHandler_abi = SuspendingEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<SuspendingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<SuspendingEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)
@@ -2026,11 +1915,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 #[cfg(feature = "ApplicationModel")]

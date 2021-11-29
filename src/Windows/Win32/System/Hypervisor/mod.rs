@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Abi for DOS_IMAGE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL;
+pub type FOUND_IMAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, fieldname: Param3, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -291,7 +291,7 @@ unsafe impl ::windows::core::Abi for GUEST_OS_VENDOR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
+pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR)>;
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
 #[inline]
 pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::core::Result<()> {
@@ -608,23 +608,23 @@ impl ::core::convert::From<i32> for HDV_PCI_BAR_SELECTOR {
 unsafe impl ::windows::core::Abi for HDV_PCI_BAR_SELECTOR {
     type Abi = Self;
 }
-pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows::core::HRESULT;
-pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-#[derive(:: core :: clone :: Clone)]
+pub type HDV_PCI_DEVICE_GET_DETAILS = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
-    pub Initialize: ::core::option::Option<HDV_PCI_DEVICE_INITIALIZE>,
-    pub Teardown: ::core::option::Option<HDV_PCI_DEVICE_TEARDOWN>,
-    pub SetConfiguration: ::core::option::Option<HDV_PCI_DEVICE_SET_CONFIGURATION>,
-    pub GetDetails: ::core::option::Option<HDV_PCI_DEVICE_GET_DETAILS>,
-    pub Start: ::core::option::Option<HDV_PCI_DEVICE_START>,
-    pub Stop: ::core::option::Option<HDV_PCI_DEVICE_STOP>,
-    pub ReadConfigSpace: ::core::option::Option<HDV_PCI_READ_CONFIG_SPACE>,
-    pub WriteConfigSpace: ::core::option::Option<HDV_PCI_WRITE_CONFIG_SPACE>,
-    pub ReadInterceptedMemory: ::core::option::Option<HDV_PCI_READ_INTERCEPTED_MEMORY>,
-    pub WriteInterceptedMemory: ::core::option::Option<HDV_PCI_WRITE_INTERCEPTED_MEMORY>,
+    pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
+    pub Teardown: HDV_PCI_DEVICE_TEARDOWN,
+    pub SetConfiguration: HDV_PCI_DEVICE_SET_CONFIGURATION,
+    pub GetDetails: HDV_PCI_DEVICE_GET_DETAILS,
+    pub Start: HDV_PCI_DEVICE_START,
+    pub Stop: HDV_PCI_DEVICE_STOP,
+    pub ReadConfigSpace: HDV_PCI_READ_CONFIG_SPACE,
+    pub WriteConfigSpace: HDV_PCI_WRITE_CONFIG_SPACE,
+    pub ReadInterceptedMemory: HDV_PCI_READ_INTERCEPTED_MEMORY,
+    pub WriteInterceptedMemory: HDV_PCI_WRITE_INTERCEPTED_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl HDV_PCI_DEVICE_INTERFACE {}
@@ -660,13 +660,13 @@ impl ::core::cmp::PartialEq for HDV_PCI_DEVICE_INTERFACE {
 impl ::core::cmp::Eq for HDV_PCI_DEVICE_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HDV_PCI_DEVICE_INTERFACE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type HDV_PCI_DEVICE_SET_CONFIGURATION = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
-pub type HDV_PCI_DEVICE_START = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-pub type HDV_PCI_DEVICE_STOP = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
-pub type HDV_PCI_DEVICE_TEARDOWN = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
+pub type HDV_PCI_DEVICE_SET_CONFIGURATION = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_START = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_DEVICE_STOP = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void)>;
+pub type HDV_PCI_DEVICE_TEARDOWN = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
@@ -700,16 +700,7 @@ impl ::core::default::Default for HDV_PCI_PNP_ID {
 }
 impl ::core::fmt::Debug for HDV_PCI_PNP_ID {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HDV_PCI_PNP_ID")
-            .field("VendorID", &self.VendorID)
-            .field("DeviceID", &self.DeviceID)
-            .field("RevisionID", &self.RevisionID)
-            .field("ProgIf", &self.ProgIf)
-            .field("SubClass", &self.SubClass)
-            .field("BaseClass", &self.BaseClass)
-            .field("SubVendorID", &self.SubVendorID)
-            .field("SubSystemID", &self.SubSystemID)
-            .finish()
+        fmt.debug_struct("HDV_PCI_PNP_ID").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
 impl ::core::cmp::PartialEq for HDV_PCI_PNP_ID {
@@ -721,10 +712,10 @@ impl ::core::cmp::Eq for HDV_PCI_PNP_ID {}
 unsafe impl ::windows::core::Abi for HDV_PCI_PNP_ID {
     type Abi = Self;
 }
-pub type HDV_PCI_READ_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows::core::HRESULT;
-pub type HDV_PCI_READ_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows::core::HRESULT;
-pub type HDV_PCI_WRITE_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows::core::HRESULT;
-pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows::core::HRESULT;
+pub type HDV_PCI_READ_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_READ_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows::core::HRESULT>;
+pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows::core::HRESULT>;
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1383,24 +1374,14 @@ unsafe impl ::windows::core::Abi for SOCKADDR_HV {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::core::option::Option<FOUND_IMAGE_CALLBACK>, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
+pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::windows::core::RawPtr, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::HRESULT;
         }
-        ScanMemoryForDosImages(
-            ::core::mem::transmute(vmsavedstatedumphandle),
-            ::core::mem::transmute(vpid),
-            ::core::mem::transmute(startaddress),
-            ::core::mem::transmute(endaddress),
-            ::core::mem::transmute(callbackcontext),
-            ::core::mem::transmute(foundimagecallback),
-            ::core::mem::transmute(standaloneaddress),
-            ::core::mem::transmute(standaloneaddresscount),
-        )
-        .ok()
+        ScanMemoryForDosImages(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(startaddress), ::core::mem::transmute(endaddress), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(foundimagecallback), ::core::mem::transmute(standaloneaddress), ::core::mem::transmute(standaloneaddresscount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1420,7 +1401,7 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: ::core::option::Option<GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK>) -> ::windows::core::Result<()> {
+pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2138,13 +2119,7 @@ impl ::core::default::Default for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
 }
 impl ::core::fmt::Debug for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP")
-            .field("_bitfield", &self._bitfield)
-            .field("HighestFrequencyMhz", &self.HighestFrequencyMhz)
-            .field("NominalFrequencyMhz", &self.NominalFrequencyMhz)
-            .field("LowestFrequencyMhz", &self.LowestFrequencyMhz)
-            .field("FrequencyStepMhz", &self.FrequencyStepMhz)
-            .finish()
+        fmt.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP").field("_bitfield", &self._bitfield).field("HighestFrequencyMhz", &self.HighestFrequencyMhz).field("NominalFrequencyMhz", &self.NominalFrequencyMhz).field("LowestFrequencyMhz", &self.LowestFrequencyMhz).field("FrequencyStepMhz", &self.FrequencyStepMhz).finish()
     }
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
@@ -2254,16 +2229,16 @@ impl ::core::cmp::Eq for WHV_DOORBELL_MATCH_DATA {}
 unsafe impl ::windows::core::Abi for WHV_DOORBELL_MATCH_DATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
-    pub WHvEmulatorIoPortCallback: ::core::option::Option<WHV_EMULATOR_IO_PORT_CALLBACK>,
-    pub WHvEmulatorMemoryCallback: ::core::option::Option<WHV_EMULATOR_MEMORY_CALLBACK>,
-    pub WHvEmulatorGetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorSetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorTranslateGvaPage: ::core::option::Option<WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK>,
+    pub WHvEmulatorIoPortCallback: WHV_EMULATOR_IO_PORT_CALLBACK,
+    pub WHvEmulatorMemoryCallback: WHV_EMULATOR_MEMORY_CALLBACK,
+    pub WHvEmulatorGetVirtualProcessorRegisters: WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorSetVirtualProcessorRegisters: WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorTranslateGvaPage: WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK,
 }
 impl WHV_EMULATOR_CALLBACKS {}
 impl ::core::default::Default for WHV_EMULATOR_CALLBACKS {
@@ -2278,20 +2253,14 @@ impl ::core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Reserved == other.Reserved
-            && self.WHvEmulatorIoPortCallback.map(|f| f as usize) == other.WHvEmulatorIoPortCallback.map(|f| f as usize)
-            && self.WHvEmulatorMemoryCallback.map(|f| f as usize) == other.WHvEmulatorMemoryCallback.map(|f| f as usize)
-            && self.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize)
-            && self.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize)
-            && self.WHvEmulatorTranslateGvaPage.map(|f| f as usize) == other.WHvEmulatorTranslateGvaPage.map(|f| f as usize)
+        self.Size == other.Size && self.Reserved == other.Reserved && self.WHvEmulatorIoPortCallback.map(|f| f as usize) == other.WHvEmulatorIoPortCallback.map(|f| f as usize) && self.WHvEmulatorMemoryCallback.map(|f| f as usize) == other.WHvEmulatorMemoryCallback.map(|f| f as usize) && self.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize) && self.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize) && self.WHvEmulatorTranslateGvaPage.map(|f| f as usize) == other.WHvEmulatorTranslateGvaPage.map(|f| f as usize)
     }
 }
 impl ::core::cmp::Eq for WHV_EMULATOR_CALLBACKS {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
+pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO {
@@ -2320,7 +2289,7 @@ impl ::core::cmp::Eq for WHV_EMULATOR_IO_ACCESS_INFO {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_IO_ACCESS_INFO {
     type Abi = Self;
 }
-pub type WHV_EMULATOR_IO_PORT_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows::core::HRESULT;
+pub type WHV_EMULATOR_IO_PORT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO {
@@ -2349,8 +2318,8 @@ impl ::core::cmp::Eq for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     type Abi = Self;
 }
-pub type WHV_EMULATOR_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows::core::HRESULT;
-pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
+pub type WHV_EMULATOR_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows::core::HRESULT>;
+pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union WHV_EMULATOR_STATUS {
@@ -2397,7 +2366,7 @@ impl ::core::cmp::Eq for WHV_EMULATOR_STATUS_0 {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS_0 {
     type Abi = Self;
 }
-pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows::core::HRESULT;
+pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows::core::HRESULT>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_EXCEPTION_TYPE(pub i32);
@@ -3358,20 +3327,7 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        self.PageInvalidations == other.PageInvalidations
-            && self.ControlRegisterAccesses == other.ControlRegisterAccesses
-            && self.IoInstructions == other.IoInstructions
-            && self.HaltInstructions == other.HaltInstructions
-            && self.CpuidInstructions == other.CpuidInstructions
-            && self.MsrAccesses == other.MsrAccesses
-            && self.OtherIntercepts == other.OtherIntercepts
-            && self.PendingInterrupts == other.PendingInterrupts
-            && self.EmulatedInstructions == other.EmulatedInstructions
-            && self.DebugRegisterAccesses == other.DebugRegisterAccesses
-            && self.PageFaultIntercepts == other.PageFaultIntercepts
-            && self.NestedPageFaultIntercepts == other.NestedPageFaultIntercepts
-            && self.Hypercalls == other.Hypercalls
-            && self.RdpmcInstructions == other.RdpmcInstructions
+        self.PageInvalidations == other.PageInvalidations && self.ControlRegisterAccesses == other.ControlRegisterAccesses && self.IoInstructions == other.IoInstructions && self.HaltInstructions == other.HaltInstructions && self.CpuidInstructions == other.CpuidInstructions && self.MsrAccesses == other.MsrAccesses && self.OtherIntercepts == other.OtherIntercepts && self.PendingInterrupts == other.PendingInterrupts && self.EmulatedInstructions == other.EmulatedInstructions && self.DebugRegisterAccesses == other.DebugRegisterAccesses && self.PageFaultIntercepts == other.PageFaultIntercepts && self.NestedPageFaultIntercepts == other.NestedPageFaultIntercepts && self.Hypercalls == other.Hypercalls && self.RdpmcInstructions == other.RdpmcInstructions
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_INTERCEPT_COUNTERS {}
@@ -4624,16 +4580,7 @@ impl ::core::default::Default for WHV_VPCI_HARDWARE_IDS {
 }
 impl ::core::fmt::Debug for WHV_VPCI_HARDWARE_IDS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WHV_VPCI_HARDWARE_IDS")
-            .field("VendorID", &self.VendorID)
-            .field("DeviceID", &self.DeviceID)
-            .field("RevisionID", &self.RevisionID)
-            .field("ProgIf", &self.ProgIf)
-            .field("SubClass", &self.SubClass)
-            .field("BaseClass", &self.BaseClass)
-            .field("SubVendorID", &self.SubVendorID)
-            .field("SubSystemID", &self.SubSystemID)
-            .finish()
+        fmt.debug_struct("WHV_VPCI_HARDWARE_IDS").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_HARDWARE_IDS {
@@ -5047,16 +4994,7 @@ impl ::core::default::Default for WHV_X64_CPUID_ACCESS_CONTEXT {
 }
 impl ::core::fmt::Debug for WHV_X64_CPUID_ACCESS_CONTEXT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT")
-            .field("Rax", &self.Rax)
-            .field("Rcx", &self.Rcx)
-            .field("Rdx", &self.Rdx)
-            .field("Rbx", &self.Rbx)
-            .field("DefaultResultRax", &self.DefaultResultRax)
-            .field("DefaultResultRcx", &self.DefaultResultRcx)
-            .field("DefaultResultRdx", &self.DefaultResultRdx)
-            .field("DefaultResultRbx", &self.DefaultResultRbx)
-            .finish()
+        fmt.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("DefaultResultRax", &self.DefaultResultRax).field("DefaultResultRcx", &self.DefaultResultRcx).field("DefaultResultRdx", &self.DefaultResultRdx).field("DefaultResultRbx", &self.DefaultResultRbx).finish()
     }
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_ACCESS_CONTEXT {
@@ -6426,7 +6364,7 @@ pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WHvEmulatorCreateEmulator(callbacks: *const ::core::mem::ManuallyDrop<WHV_EMULATOR_CALLBACKS>, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WHvEmulatorCreateEmulator(::core::mem::transmute(callbacks), ::core::mem::transmute(emulator)).ok()
     }

@@ -587,11 +587,6 @@ pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2i32;
 pub const XPS_TILE_MODE_FLIPX: XPS_TILE_MODE = 3i32;
 pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = 4i32;
 pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = 5i32;
-pub const XpsOMObjectFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3916747373,
-    data2: 15771,
-    data3: 19783,
-    data4: [136, 204, 56, 114, 242, 220, 53, 133],
-};
+pub const XpsOMObjectFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3916747373, data2: 15771, data3: 19783, data4: [136, 204, 56, 114, 242, 220, 53, 133] };
 pub const XpsOMThumbnailGenerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2118788066, data2: 47465, data3: 18273, data4: [190, 53, 26, 140, 237, 88, 227, 35] };
 pub const XpsSignatureManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2965648160, data2: 8981, data3: 17570, data4: [183, 10, 9, 67, 161, 64, 168, 238] };

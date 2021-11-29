@@ -372,9 +372,4 @@ pub const PURGE_RXABORT: PURGE_COMM_FLAGS = 2u32;
 pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = 8u32;
 pub const PURGE_TXABORT: PURGE_COMM_FLAGS = 1u32;
 pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = 4u32;
-pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3620769287,
-    data2: 55143,
-    data3: 17528,
-    data4: [177, 74, 238, 204, 135, 234, 18, 247],
-};
+pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3620769287, data2: 55143, data3: 17528, data4: [177, 74, 238, 204, 135, 234, 18, 247] };

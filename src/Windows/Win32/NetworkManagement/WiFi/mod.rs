@@ -14,55 +14,25 @@ unsafe impl ::windows::core::Abi for CH_DESCRIPTION_TYPE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 19u32,
-};
+pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 19u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_ChallengeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 21u32,
-};
+pub const DEVPKEY_InfraCast_ChallengeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 21u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_DevnodeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 23u32,
-};
+pub const DEVPKEY_InfraCast_DevnodeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 23u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 25u32,
-};
+pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 25u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_PinSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 29u32,
-};
+pub const DEVPKEY_InfraCast_PinSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 29u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 30u32,
-};
+pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 30u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_SinkHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 20u32,
-};
+pub const DEVPKEY_InfraCast_SinkHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 20u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 26u32,
-};
+pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 26u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 18u32,
-};
+pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 18u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_InfraCast_Supported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 17u32,
-};
+pub const DEVPKEY_InfraCast_Supported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 17u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -78,22 +48,13 @@ pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::UI::Shell::Prope
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 1u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 13u32,
-};
+pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 13u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 24u32,
-};
+pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 24u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_GroupId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_InformationElements: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 12u32,
-};
+pub const DEVPKEY_WiFiDirect_InformationElements: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 12u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -101,63 +62,33 @@ pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::UI::Shell::PropertiesS
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 22u32,
-};
+pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 22u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 9u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 14u32,
-};
+pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 14u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsVisible: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 28u32,
-};
+pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 28u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 31u32,
-};
+pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 31u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 16u32,
-};
+pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 16u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 32u32,
-};
+pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 32u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 15u32,
-};
+pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 15u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_Services: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 10u32,
-};
+pub const DEVPKEY_WiFiDirect_Services: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 10u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 11u32,
-};
+pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 11u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e),
-    pid: 27u32,
-};
+pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 27u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c), pid: 2u32 };
 pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
@@ -542,19 +473,7 @@ impl ::core::fmt::Debug for DOT11_ASSOCIATION_INFO_EX {
 }
 impl ::core::cmp::PartialEq for DOT11_ASSOCIATION_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddress == other.PeerMacAddress
-            && self.BSSID == other.BSSID
-            && self.usCapabilityInformation == other.usCapabilityInformation
-            && self.usListenInterval == other.usListenInterval
-            && self.ucPeerSupportedRates == other.ucPeerSupportedRates
-            && self.usAssociationID == other.usAssociationID
-            && self.dot11AssociationState == other.dot11AssociationState
-            && self.dot11PowerMode == other.dot11PowerMode
-            && self.liAssociationUpTime == other.liAssociationUpTime
-            && self.ullNumOfTxPacketSuccesses == other.ullNumOfTxPacketSuccesses
-            && self.ullNumOfTxPacketFailures == other.ullNumOfTxPacketFailures
-            && self.ullNumOfRxPacketSuccesses == other.ullNumOfRxPacketSuccesses
-            && self.ullNumOfRxPacketFailures == other.ullNumOfRxPacketFailures
+        self.PeerMacAddress == other.PeerMacAddress && self.BSSID == other.BSSID && self.usCapabilityInformation == other.usCapabilityInformation && self.usListenInterval == other.usListenInterval && self.ucPeerSupportedRates == other.ucPeerSupportedRates && self.usAssociationID == other.usAssociationID && self.dot11AssociationState == other.dot11AssociationState && self.dot11PowerMode == other.dot11PowerMode && self.liAssociationUpTime == other.liAssociationUpTime && self.ullNumOfTxPacketSuccesses == other.ullNumOfTxPacketSuccesses && self.ullNumOfTxPacketFailures == other.ullNumOfTxPacketFailures && self.ullNumOfRxPacketSuccesses == other.ullNumOfRxPacketSuccesses && self.ullNumOfRxPacketFailures == other.ullNumOfRxPacketFailures
     }
 }
 impl ::core::cmp::Eq for DOT11_ASSOCIATION_INFO_EX {}
@@ -981,16 +900,7 @@ impl ::core::default::Default for DOT11_BSS_DESCRIPTION {
 }
 impl ::core::fmt::Debug for DOT11_BSS_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_BSS_DESCRIPTION")
-            .field("uReserved", &self.uReserved)
-            .field("dot11BSSID", &self.dot11BSSID)
-            .field("dot11BSSType", &self.dot11BSSType)
-            .field("usBeaconPeriod", &self.usBeaconPeriod)
-            .field("ullTimestamp", &self.ullTimestamp)
-            .field("usCapabilityInformation", &self.usCapabilityInformation)
-            .field("uBufferLength", &self.uBufferLength)
-            .field("ucBuffer", &self.ucBuffer)
-            .finish()
+        fmt.debug_struct("DOT11_BSS_DESCRIPTION").field("uReserved", &self.uReserved).field("dot11BSSID", &self.dot11BSSID).field("dot11BSSType", &self.dot11BSSType).field("usBeaconPeriod", &self.usBeaconPeriod).field("ullTimestamp", &self.ullTimestamp).field("usCapabilityInformation", &self.usCapabilityInformation).field("uBufferLength", &self.uBufferLength).field("ucBuffer", &self.ucBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_BSS_DESCRIPTION {
@@ -1303,16 +1213,7 @@ impl ::core::default::Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_CIPHER_DEFAULT_KEY_VALUE")
-            .field("Header", &self.Header)
-            .field("uKeyIndex", &self.uKeyIndex)
-            .field("AlgorithmId", &self.AlgorithmId)
-            .field("MacAddr", &self.MacAddr)
-            .field("bDelete", &self.bDelete)
-            .field("bStatic", &self.bStatic)
-            .field("usKeyLength", &self.usKeyLength)
-            .field("ucKey", &self.ucKey)
-            .finish()
+        fmt.debug_struct("DOT11_CIPHER_DEFAULT_KEY_VALUE").field("Header", &self.Header).field("uKeyIndex", &self.uKeyIndex).field("AlgorithmId", &self.AlgorithmId).field("MacAddr", &self.MacAddr).field("bDelete", &self.bDelete).field("bStatic", &self.bStatic).field("usKeyLength", &self.usKeyLength).field("ucKey", &self.ucKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -1351,15 +1252,7 @@ impl ::core::default::Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_CIPHER_KEY_MAPPING_KEY_VALUE")
-            .field("PeerMacAddr", &self.PeerMacAddr)
-            .field("AlgorithmId", &self.AlgorithmId)
-            .field("Direction", &self.Direction)
-            .field("bDelete", &self.bDelete)
-            .field("bStatic", &self.bStatic)
-            .field("usKeyLength", &self.usKeyLength)
-            .field("ucKey", &self.ucKey)
-            .finish()
+        fmt.debug_struct("DOT11_CIPHER_KEY_MAPPING_KEY_VALUE").field("PeerMacAddr", &self.PeerMacAddr).field("AlgorithmId", &self.AlgorithmId).field("Direction", &self.Direction).field("bDelete", &self.bDelete).field("bStatic", &self.bStatic).field("usKeyLength", &self.usKeyLength).field("ucKey", &self.ucKey).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1492,19 +1385,7 @@ impl ::core::fmt::Debug for DOT11_COUNTERS_ENTRY {
 }
 impl ::core::cmp::PartialEq for DOT11_COUNTERS_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.uTransmittedFragmentCount == other.uTransmittedFragmentCount
-            && self.uMulticastTransmittedFrameCount == other.uMulticastTransmittedFrameCount
-            && self.uFailedCount == other.uFailedCount
-            && self.uRetryCount == other.uRetryCount
-            && self.uMultipleRetryCount == other.uMultipleRetryCount
-            && self.uFrameDuplicateCount == other.uFrameDuplicateCount
-            && self.uRTSSuccessCount == other.uRTSSuccessCount
-            && self.uRTSFailureCount == other.uRTSFailureCount
-            && self.uACKFailureCount == other.uACKFailureCount
-            && self.uReceivedFragmentCount == other.uReceivedFragmentCount
-            && self.uMulticastReceivedFrameCount == other.uMulticastReceivedFrameCount
-            && self.uFCSErrorCount == other.uFCSErrorCount
-            && self.uTransmittedFrameCount == other.uTransmittedFrameCount
+        self.uTransmittedFragmentCount == other.uTransmittedFragmentCount && self.uMulticastTransmittedFrameCount == other.uMulticastTransmittedFrameCount && self.uFailedCount == other.uFailedCount && self.uRetryCount == other.uRetryCount && self.uMultipleRetryCount == other.uMultipleRetryCount && self.uFrameDuplicateCount == other.uFrameDuplicateCount && self.uRTSSuccessCount == other.uRTSSuccessCount && self.uRTSFailureCount == other.uRTSFailureCount && self.uACKFailureCount == other.uACKFailureCount && self.uReceivedFragmentCount == other.uReceivedFragmentCount && self.uMulticastReceivedFrameCount == other.uMulticastReceivedFrameCount && self.uFCSErrorCount == other.uFCSErrorCount && self.uTransmittedFrameCount == other.uTransmittedFrameCount
     }
 }
 impl ::core::cmp::Eq for DOT11_COUNTERS_ENTRY {}
@@ -1620,13 +1501,7 @@ impl ::core::default::Default for DOT11_CURRENT_OPTIONAL_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_CURRENT_OPTIONAL_CAPABILITY")
-            .field("uReserved", &self.uReserved)
-            .field("bDot11CFPollable", &self.bDot11CFPollable)
-            .field("bDot11PCF", &self.bDot11PCF)
-            .field("bDot11PCFMPDUTransferToPC", &self.bDot11PCFMPDUTransferToPC)
-            .field("bStrictlyOrderedServiceClass", &self.bStrictlyOrderedServiceClass)
-            .finish()
+        fmt.debug_struct("DOT11_CURRENT_OPTIONAL_CAPABILITY").field("uReserved", &self.uReserved).field("bDot11CFPollable", &self.bDot11CFPollable).field("bDot11PCF", &self.bDot11PCF).field("bDot11PCFMPDUTransferToPC", &self.bDot11PCFMPDUTransferToPC).field("bStrictlyOrderedServiceClass", &self.bStrictlyOrderedServiceClass).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1754,20 +1629,7 @@ impl ::core::fmt::Debug for DOT11_DEFAULT_WEP_OFFLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DOT11_DEFAULT_WEP_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved
-            && self.hOffloadContext == other.hOffloadContext
-            && self.hOffload == other.hOffload
-            && self.dwIndex == other.dwIndex
-            && self.dot11OffloadType == other.dot11OffloadType
-            && self.dwAlgorithm == other.dwAlgorithm
-            && self.uFlags == other.uFlags
-            && self.dot11KeyDirection == other.dot11KeyDirection
-            && self.ucMacAddress == other.ucMacAddress
-            && self.uNumOfRWsOnMe == other.uNumOfRWsOnMe
-            && self.dot11IV48Counters == other.dot11IV48Counters
-            && self.usDot11RWBitMaps == other.usDot11RWBitMaps
-            && self.usKeyLength == other.usKeyLength
-            && self.ucKey == other.ucKey
+        self.uReserved == other.uReserved && self.hOffloadContext == other.hOffloadContext && self.hOffload == other.hOffload && self.dwIndex == other.dwIndex && self.dot11OffloadType == other.dot11OffloadType && self.dwAlgorithm == other.dwAlgorithm && self.uFlags == other.uFlags && self.dot11KeyDirection == other.dot11KeyDirection && self.ucMacAddress == other.ucMacAddress && self.uNumOfRWsOnMe == other.uNumOfRWsOnMe && self.dot11IV48Counters == other.dot11IV48Counters && self.usDot11RWBitMaps == other.usDot11RWBitMaps && self.usKeyLength == other.usKeyLength && self.ucKey == other.ucKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1798,14 +1660,7 @@ impl ::core::default::Default for DOT11_DEFAULT_WEP_UPLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_DEFAULT_WEP_UPLOAD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_DEFAULT_WEP_UPLOAD")
-            .field("uReserved", &self.uReserved)
-            .field("dot11OffloadType", &self.dot11OffloadType)
-            .field("hOffload", &self.hOffload)
-            .field("uNumOfRWsUsed", &self.uNumOfRWsUsed)
-            .field("dot11IV48Counters", &self.dot11IV48Counters)
-            .field("usDot11RWBitMaps", &self.usDot11RWBitMaps)
-            .finish()
+        fmt.debug_struct("DOT11_DEFAULT_WEP_UPLOAD").field("uReserved", &self.uReserved).field("dot11OffloadType", &self.dot11OffloadType).field("hOffload", &self.hOffload).field("uNumOfRWsUsed", &self.uNumOfRWsUsed).field("dot11IV48Counters", &self.dot11IV48Counters).field("usDot11RWBitMaps", &self.usDot11RWBitMaps).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2051,12 +1906,7 @@ impl ::core::default::Default for DOT11_ERP_PHY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_ERP_PHY_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_ERP_PHY_ATTRIBUTES")
-            .field("HRDSSSAttributes", &self.HRDSSSAttributes)
-            .field("bERPPBCCOptionImplemented", &self.bERPPBCCOptionImplemented)
-            .field("bDSSSOFDMOptionImplemented", &self.bDSSSOFDMOptionImplemented)
-            .field("bShortSlotTimeOptionImplemented", &self.bShortSlotTimeOptionImplemented)
-            .finish()
+        fmt.debug_struct("DOT11_ERP_PHY_ATTRIBUTES").field("HRDSSSAttributes", &self.HRDSSSAttributes).field("bERPPBCCOptionImplemented", &self.bERPPBCCOptionImplemented).field("bDSSSOFDMOptionImplemented", &self.bDSSSOFDMOptionImplemented).field("bShortSlotTimeOptionImplemented", &self.bShortSlotTimeOptionImplemented).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2338,17 +2188,7 @@ impl ::core::fmt::Debug for DOT11_EXTSTA_CAPABILITY {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::cmp::PartialEq for DOT11_EXTSTA_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.uScanSSIDListSize == other.uScanSSIDListSize
-            && self.uDesiredBSSIDListSize == other.uDesiredBSSIDListSize
-            && self.uDesiredSSIDListSize == other.uDesiredSSIDListSize
-            && self.uExcludedMacAddressListSize == other.uExcludedMacAddressListSize
-            && self.uPrivacyExemptionListSize == other.uPrivacyExemptionListSize
-            && self.uKeyMappingTableSize == other.uKeyMappingTableSize
-            && self.uDefaultKeyTableSize == other.uDefaultKeyTableSize
-            && self.uWEPKeyValueMaxLength == other.uWEPKeyValueMaxLength
-            && self.uPMKIDCacheSize == other.uPMKIDCacheSize
-            && self.uMaxNumPerSTADefaultKeyTables == other.uMaxNumPerSTADefaultKeyTables
+        self.Header == other.Header && self.uScanSSIDListSize == other.uScanSSIDListSize && self.uDesiredBSSIDListSize == other.uDesiredBSSIDListSize && self.uDesiredSSIDListSize == other.uDesiredSSIDListSize && self.uExcludedMacAddressListSize == other.uExcludedMacAddressListSize && self.uPrivacyExemptionListSize == other.uPrivacyExemptionListSize && self.uKeyMappingTableSize == other.uKeyMappingTableSize && self.uDefaultKeyTableSize == other.uDefaultKeyTableSize && self.uWEPKeyValueMaxLength == other.uWEPKeyValueMaxLength && self.uPMKIDCacheSize == other.uPMKIDCacheSize && self.uMaxNumPerSTADefaultKeyTables == other.uMaxNumPerSTADefaultKeyTables
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2433,14 +2273,7 @@ impl ::core::default::Default for DOT11_EXTSTA_SEND_CONTEXT {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_EXTSTA_SEND_CONTEXT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_EXTSTA_SEND_CONTEXT")
-            .field("Header", &self.Header)
-            .field("usExemptionActionType", &self.usExemptionActionType)
-            .field("uPhyId", &self.uPhyId)
-            .field("uDelayedSleepValue", &self.uDelayedSleepValue)
-            .field("pvMediaSpecificInfo", &self.pvMediaSpecificInfo)
-            .field("uSendFlags", &self.uSendFlags)
-            .finish()
+        fmt.debug_struct("DOT11_EXTSTA_SEND_CONTEXT").field("Header", &self.Header).field("usExemptionActionType", &self.usExemptionActionType).field("uPhyId", &self.uPhyId).field("uDelayedSleepValue", &self.uDelayedSleepValue).field("pvMediaSpecificInfo", &self.pvMediaSpecificInfo).field("uSendFlags", &self.uSendFlags).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2515,14 +2348,7 @@ impl ::core::default::Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLET
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2560,14 +2386,7 @@ impl ::core::default::Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PAR
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2605,14 +2424,7 @@ impl ::core::default::Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PA
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2716,12 +2528,7 @@ impl ::core::default::Default for DOT11_HRDSSS_PHY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_HRDSSS_PHY_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_HRDSSS_PHY_ATTRIBUTES")
-            .field("bShortPreambleOptionImplemented", &self.bShortPreambleOptionImplemented)
-            .field("bPBCCOptionImplemented", &self.bPBCCOptionImplemented)
-            .field("bChannelAgilityPresent", &self.bChannelAgilityPresent)
-            .field("uHRCCAModeSupported", &self.uHRCCAModeSupported)
-            .finish()
+        fmt.debug_struct("DOT11_HRDSSS_PHY_ATTRIBUTES").field("bShortPreambleOptionImplemented", &self.bShortPreambleOptionImplemented).field("bPBCCOptionImplemented", &self.bPBCCOptionImplemented).field("bChannelAgilityPresent", &self.bChannelAgilityPresent).field("uHRCCAModeSupported", &self.uHRCCAModeSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2840,23 +2647,7 @@ impl ::core::fmt::Debug for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::PartialEq for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.PeerMacAddr == other.PeerMacAddr
-            && self.uStatus == other.uStatus
-            && self.ucErrorSource == other.ucErrorSource
-            && self.bReAssocReq == other.bReAssocReq
-            && self.bReAssocResp == other.bReAssocResp
-            && self.uAssocReqOffset == other.uAssocReqOffset
-            && self.uAssocReqSize == other.uAssocReqSize
-            && self.uAssocRespOffset == other.uAssocRespOffset
-            && self.uAssocRespSize == other.uAssocRespSize
-            && self.AuthAlgo == other.AuthAlgo
-            && self.UnicastCipher == other.UnicastCipher
-            && self.MulticastCipher == other.MulticastCipher
-            && self.uActivePhyListOffset == other.uActivePhyListOffset
-            && self.uActivePhyListSize == other.uActivePhyListSize
-            && self.uBeaconOffset == other.uBeaconOffset
-            && self.uBeaconSize == other.uBeaconSize
+        self.Header == other.Header && self.PeerMacAddr == other.PeerMacAddr && self.uStatus == other.uStatus && self.ucErrorSource == other.ucErrorSource && self.bReAssocReq == other.bReAssocReq && self.bReAssocResp == other.bReAssocResp && self.uAssocReqOffset == other.uAssocReqOffset && self.uAssocReqSize == other.uAssocReqSize && self.uAssocRespOffset == other.uAssocRespOffset && self.uAssocRespSize == other.uAssocRespSize && self.AuthAlgo == other.AuthAlgo && self.UnicastCipher == other.UnicastCipher && self.MulticastCipher == other.MulticastCipher && self.uActivePhyListOffset == other.uActivePhyListOffset && self.uActivePhyListSize == other.uActivePhyListSize && self.uBeaconOffset == other.uBeaconOffset && self.uBeaconSize == other.uBeaconSize
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -2888,14 +2679,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_DECISION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for DOT11_INCOMING_ASSOC_DECISION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_INCOMING_ASSOC_DECISION")
-            .field("Header", &self.Header)
-            .field("PeerMacAddr", &self.PeerMacAddr)
-            .field("bAccept", &self.bAccept)
-            .field("usReasonCode", &self.usReasonCode)
-            .field("uAssocResponseIEsOffset", &self.uAssocResponseIEsOffset)
-            .field("uAssocResponseIEsLength", &self.uAssocResponseIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_INCOMING_ASSOC_DECISION").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).field("bAccept", &self.bAccept).field("usReasonCode", &self.usReasonCode).field("uAssocResponseIEsOffset", &self.uAssocResponseIEsOffset).field("uAssocResponseIEsLength", &self.uAssocResponseIEsLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -2935,15 +2719,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for DOT11_INCOMING_ASSOC_DECISION_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_INCOMING_ASSOC_DECISION_V2")
-            .field("Header", &self.Header)
-            .field("PeerMacAddr", &self.PeerMacAddr)
-            .field("bAccept", &self.bAccept)
-            .field("usReasonCode", &self.usReasonCode)
-            .field("uAssocResponseIEsOffset", &self.uAssocResponseIEsOffset)
-            .field("uAssocResponseIEsLength", &self.uAssocResponseIEsLength)
-            .field("WFDStatus", &self.WFDStatus)
-            .finish()
+        fmt.debug_struct("DOT11_INCOMING_ASSOC_DECISION_V2").field("Header", &self.Header).field("PeerMacAddr", &self.PeerMacAddr).field("bAccept", &self.bAccept).field("usReasonCode", &self.usReasonCode).field("uAssocResponseIEsOffset", &self.uAssocResponseIEsOffset).field("uAssocResponseIEsLength", &self.uAssocResponseIEsLength).field("WFDStatus", &self.WFDStatus).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -3053,15 +2829,7 @@ impl ::core::default::Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMET
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("ReceiverAddress", &self.ReceiverAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("ReceiverAddress", &self.ReceiverAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3099,14 +2867,7 @@ impl ::core::default::Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAME
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3751,15 +3512,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS")
-            .field("SelfTestType", &self.SelfTestType)
-            .field("uTestID", &self.uTestID)
-            .field("bResult", &self.bResult)
-            .field("uPinFailedBitMask", &self.uPinFailedBitMask)
-            .field("pvContext", &self.pvContext)
-            .field("uBytesWrittenOut", &self.uBytesWrittenOut)
-            .field("ucBufferOut", &self.ucBufferOut)
-            .finish()
+        fmt.debug_struct("DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS").field("SelfTestType", &self.SelfTestType).field("uTestID", &self.uTestID).field("bResult", &self.bResult).field("uPinFailedBitMask", &self.uPinFailedBitMask).field("pvContext", &self.pvContext).field("uBytesWrittenOut", &self.uBytesWrittenOut).field("ucBufferOut", &self.ucBufferOut).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3792,14 +3545,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
 }
 impl ::core::fmt::Debug for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS")
-            .field("SelfTestType", &self.SelfTestType)
-            .field("uTestID", &self.uTestID)
-            .field("uPinBitMask", &self.uPinBitMask)
-            .field("pvContext", &self.pvContext)
-            .field("uBufferLength", &self.uBufferLength)
-            .field("ucBufferIn", &self.ucBufferIn)
-            .finish()
+        fmt.debug_struct("DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS").field("SelfTestType", &self.SelfTestType).field("uTestID", &self.uTestID).field("uPinBitMask", &self.uPinBitMask).field("pvContext", &self.pvContext).field("uBufferLength", &self.uBufferLength).field("ucBufferIn", &self.ucBufferIn).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
@@ -4044,12 +3790,7 @@ impl ::core::default::Default for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
 }
 impl ::core::fmt::Debug for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY")
-            .field("uMultiDomainCapabilityIndex", &self.uMultiDomainCapabilityIndex)
-            .field("uFirstChannelNumber", &self.uFirstChannelNumber)
-            .field("uNumberOfChannels", &self.uNumberOfChannels)
-            .field("lMaximumTransmitPowerLevel", &self.lMaximumTransmitPowerLevel)
-            .finish()
+        fmt.debug_struct("DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY").field("uMultiDomainCapabilityIndex", &self.uMultiDomainCapabilityIndex).field("uFirstChannelNumber", &self.uFirstChannelNumber).field("uNumberOfChannels", &self.uNumberOfChannels).field("lMaximumTransmitPowerLevel", &self.lMaximumTransmitPowerLevel).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
@@ -4188,15 +3929,7 @@ impl ::core::default::Default for DOT11_OFFLOAD_CAPABILITY {
 }
 impl ::core::fmt::Debug for DOT11_OFFLOAD_CAPABILITY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_OFFLOAD_CAPABILITY")
-            .field("uReserved", &self.uReserved)
-            .field("uFlags", &self.uFlags)
-            .field("uSupportedWEPAlgorithms", &self.uSupportedWEPAlgorithms)
-            .field("uNumOfReplayWindows", &self.uNumOfReplayWindows)
-            .field("uMaxWEPKeyMappingLength", &self.uMaxWEPKeyMappingLength)
-            .field("uSupportedAuthAlgorithms", &self.uSupportedAuthAlgorithms)
-            .field("uMaxAuthKeyMappingLength", &self.uMaxAuthKeyMappingLength)
-            .finish()
+        fmt.debug_struct("DOT11_OFFLOAD_CAPABILITY").field("uReserved", &self.uReserved).field("uFlags", &self.uFlags).field("uSupportedWEPAlgorithms", &self.uSupportedWEPAlgorithms).field("uNumOfReplayWindows", &self.uNumOfReplayWindows).field("uMaxWEPKeyMappingLength", &self.uMaxWEPKeyMappingLength).field("uSupportedAuthAlgorithms", &self.uSupportedAuthAlgorithms).field("uMaxAuthKeyMappingLength", &self.uMaxAuthKeyMappingLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_OFFLOAD_CAPABILITY {
@@ -4259,15 +3992,7 @@ impl ::core::default::Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_OFFLOAD_NETWORK_LIST_INFO")
-            .field("Header", &self.Header)
-            .field("ulFlags", &self.ulFlags)
-            .field("FastScanPeriod", &self.FastScanPeriod)
-            .field("FastScanIterations", &self.FastScanIterations)
-            .field("SlowScanPeriod", &self.SlowScanPeriod)
-            .field("uNumOfEntries", &self.uNumOfEntries)
-            .field("offloadNetworkList", &self.offloadNetworkList)
-            .finish()
+        fmt.debug_struct("DOT11_OFFLOAD_NETWORK_LIST_INFO").field("Header", &self.Header).field("ulFlags", &self.ulFlags).field("FastScanPeriod", &self.FastScanPeriod).field("FastScanIterations", &self.FastScanIterations).field("SlowScanPeriod", &self.SlowScanPeriod).field("uNumOfEntries", &self.uNumOfEntries).field("offloadNetworkList", &self.offloadNetworkList).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4377,14 +4102,7 @@ impl ::core::default::Default for DOT11_OPERATION_MODE_CAPABILITY {
 }
 impl ::core::fmt::Debug for DOT11_OPERATION_MODE_CAPABILITY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_OPERATION_MODE_CAPABILITY")
-            .field("uReserved", &self.uReserved)
-            .field("uMajorVersion", &self.uMajorVersion)
-            .field("uMinorVersion", &self.uMinorVersion)
-            .field("uNumOfTXBuffers", &self.uNumOfTXBuffers)
-            .field("uNumOfRXBuffers", &self.uNumOfRXBuffers)
-            .field("uOpModeCapability", &self.uOpModeCapability)
-            .finish()
+        fmt.debug_struct("DOT11_OPERATION_MODE_CAPABILITY").field("uReserved", &self.uReserved).field("uMajorVersion", &self.uMajorVersion).field("uMinorVersion", &self.uMinorVersion).field("uNumOfTXBuffers", &self.uNumOfTXBuffers).field("uNumOfRXBuffers", &self.uNumOfRXBuffers).field("uOpModeCapability", &self.uOpModeCapability).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_OPERATION_MODE_CAPABILITY {
@@ -4504,19 +4222,7 @@ impl ::core::fmt::Debug for DOT11_PEER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DOT11_PEER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.MacAddress == other.MacAddress
-            && self.usCapabilityInformation == other.usCapabilityInformation
-            && self.AuthAlgo == other.AuthAlgo
-            && self.UnicastCipherAlgo == other.UnicastCipherAlgo
-            && self.MulticastCipherAlgo == other.MulticastCipherAlgo
-            && self.bWpsEnabled == other.bWpsEnabled
-            && self.usListenInterval == other.usListenInterval
-            && self.ucSupportedRates == other.ucSupportedRates
-            && self.usAssociationID == other.usAssociationID
-            && self.AssociationState == other.AssociationState
-            && self.PowerMode == other.PowerMode
-            && self.liAssociationUpTime == other.liAssociationUpTime
-            && self.Statistics == other.Statistics
+        self.MacAddress == other.MacAddress && self.usCapabilityInformation == other.usCapabilityInformation && self.AuthAlgo == other.AuthAlgo && self.UnicastCipherAlgo == other.UnicastCipherAlgo && self.MulticastCipherAlgo == other.MulticastCipherAlgo && self.bWpsEnabled == other.bWpsEnabled && self.usListenInterval == other.usListenInterval && self.ucSupportedRates == other.ucSupportedRates && self.usAssociationID == other.usAssociationID && self.AssociationState == other.AssociationState && self.PowerMode == other.PowerMode && self.liAssociationUpTime == other.liAssociationUpTime && self.Statistics == other.Statistics
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4579,14 +4285,7 @@ impl ::core::default::Default for DOT11_PEER_STATISTICS {
 }
 impl ::core::fmt::Debug for DOT11_PEER_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_PEER_STATISTICS")
-            .field("ullDecryptSuccessCount", &self.ullDecryptSuccessCount)
-            .field("ullDecryptFailureCount", &self.ullDecryptFailureCount)
-            .field("ullTxPacketSuccessCount", &self.ullTxPacketSuccessCount)
-            .field("ullTxPacketFailureCount", &self.ullTxPacketFailureCount)
-            .field("ullRxPacketSuccessCount", &self.ullRxPacketSuccessCount)
-            .field("ullRxPacketFailureCount", &self.ullRxPacketFailureCount)
-            .finish()
+        fmt.debug_struct("DOT11_PEER_STATISTICS").field("ullDecryptSuccessCount", &self.ullDecryptSuccessCount).field("ullDecryptFailureCount", &self.ullDecryptFailureCount).field("ullTxPacketSuccessCount", &self.ullTxPacketSuccessCount).field("ullTxPacketFailureCount", &self.ullTxPacketFailureCount).field("ullRxPacketSuccessCount", &self.ullRxPacketSuccessCount).field("ullRxPacketFailureCount", &self.ullRxPacketFailureCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_PEER_STATISTICS {
@@ -4615,13 +4314,7 @@ impl ::core::default::Default for DOT11_PER_MSDU_COUNTERS {
 }
 impl ::core::fmt::Debug for DOT11_PER_MSDU_COUNTERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_PER_MSDU_COUNTERS")
-            .field("uTransmittedFragmentCount", &self.uTransmittedFragmentCount)
-            .field("uRetryCount", &self.uRetryCount)
-            .field("uRTSSuccessCount", &self.uRTSSuccessCount)
-            .field("uRTSFailureCount", &self.uRTSFailureCount)
-            .field("uACKFailureCount", &self.uACKFailureCount)
-            .finish()
+        fmt.debug_struct("DOT11_PER_MSDU_COUNTERS").field("uTransmittedFragmentCount", &self.uTransmittedFragmentCount).field("uRetryCount", &self.uRetryCount).field("uRTSSuccessCount", &self.uRTSSuccessCount).field("uRTSFailureCount", &self.uRTSFailureCount).field("uACKFailureCount", &self.uACKFailureCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_PER_MSDU_COUNTERS {
@@ -4956,16 +4649,7 @@ impl ::core::default::Default for DOT11_PHY_TYPE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_PHY_TYPE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_PHY_TYPE_INFO")
-            .field("dot11PhyType", &self.dot11PhyType)
-            .field("bUseParameters", &self.bUseParameters)
-            .field("uProbeDelay", &self.uProbeDelay)
-            .field("uMinChannelTime", &self.uMinChannelTime)
-            .field("uMaxChannelTime", &self.uMaxChannelTime)
-            .field("ChDescriptionType", &self.ChDescriptionType)
-            .field("uChannelListSize", &self.uChannelListSize)
-            .field("ucChannelListBuffer", &self.ucChannelListBuffer)
-            .finish()
+        fmt.debug_struct("DOT11_PHY_TYPE_INFO").field("dot11PhyType", &self.dot11PhyType).field("bUseParameters", &self.bUseParameters).field("uProbeDelay", &self.uProbeDelay).field("uMinChannelTime", &self.uMinChannelTime).field("uMaxChannelTime", &self.uMaxChannelTime).field("ChDescriptionType", &self.ChDescriptionType).field("uChannelListSize", &self.uChannelListSize).field("ucChannelListBuffer", &self.ucChannelListBuffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5380,15 +5064,7 @@ impl ::core::default::Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLET
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("ReceiverAddress", &self.ReceiverAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("ReceiverAddress", &self.ReceiverAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5426,14 +5102,7 @@ impl ::core::default::Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("Status", &self.Status)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS").field("Header", &self.Header).field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress).field("DialogToken", &self.DialogToken).field("Status", &self.Status).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5639,14 +5308,7 @@ impl ::core::default::Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("RequestContext", &self.RequestContext)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5684,14 +5346,7 @@ impl ::core::default::Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMET
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("ResponseContext", &self.ResponseContext)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS").field("Header", &self.Header).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("DialogToken", &self.DialogToken).field("ResponseContext", &self.ResponseContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5730,15 +5385,7 @@ impl ::core::default::Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress)
-            .field("BSSID", &self.BSSID)
-            .field("DialogToken", &self.DialogToken)
-            .field("RequestContext", &self.RequestContext)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5776,14 +5423,7 @@ impl ::core::default::Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS 
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress)
-            .field("BSSID", &self.BSSID)
-            .field("DialogToken", &self.DialogToken)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5822,15 +5462,7 @@ impl ::core::default::Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PAR
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress)
-            .field("BSSID", &self.BSSID)
-            .field("DialogToken", &self.DialogToken)
-            .field("RequestContext", &self.RequestContext)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5868,14 +5500,7 @@ impl ::core::default::Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PA
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress)
-            .field("BSSID", &self.BSSID)
-            .field("DialogToken", &self.DialogToken)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS").field("Header", &self.Header).field("TransmitterDeviceAddress", &self.TransmitterDeviceAddress).field("BSSID", &self.BSSID).field("DialogToken", &self.DialogToken).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -6411,19 +6036,7 @@ impl ::core::fmt::Debug for DOT11_SCAN_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DOT11_SCAN_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.dot11BSSType == other.dot11BSSType
-            && self.dot11BSSID == other.dot11BSSID
-            && self.dot11SSID == other.dot11SSID
-            && self.dot11ScanType == other.dot11ScanType
-            && self.bRestrictedScan == other.bRestrictedScan
-            && self.bUseRequestIE == other.bUseRequestIE
-            && self.uRequestIDsOffset == other.uRequestIDsOffset
-            && self.uNumOfRequestIDs == other.uNumOfRequestIDs
-            && self.uPhyTypesOffset == other.uPhyTypesOffset
-            && self.uNumOfPhyTypes == other.uNumOfPhyTypes
-            && self.uIEsOffset == other.uIEsOffset
-            && self.uIEsLength == other.uIEsLength
-            && self.ucBuffer == other.ucBuffer
+        self.dot11BSSType == other.dot11BSSType && self.dot11BSSID == other.dot11BSSID && self.dot11SSID == other.dot11SSID && self.dot11ScanType == other.dot11ScanType && self.bRestrictedScan == other.bRestrictedScan && self.bUseRequestIE == other.bUseRequestIE && self.uRequestIDsOffset == other.uRequestIDsOffset && self.uNumOfRequestIDs == other.uNumOfRequestIDs && self.uPhyTypesOffset == other.uPhyTypesOffset && self.uNumOfPhyTypes == other.uNumOfPhyTypes && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength && self.ucBuffer == other.ucBuffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6483,20 +6096,7 @@ impl ::core::fmt::Debug for DOT11_SCAN_REQUEST_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DOT11_SCAN_REQUEST_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dot11BSSType == other.dot11BSSType
-            && self.dot11BSSID == other.dot11BSSID
-            && self.dot11ScanType == other.dot11ScanType
-            && self.bRestrictedScan == other.bRestrictedScan
-            && self.udot11SSIDsOffset == other.udot11SSIDsOffset
-            && self.uNumOfdot11SSIDs == other.uNumOfdot11SSIDs
-            && self.bUseRequestIE == other.bUseRequestIE
-            && self.uRequestIDsOffset == other.uRequestIDsOffset
-            && self.uNumOfRequestIDs == other.uNumOfRequestIDs
-            && self.uPhyTypeInfosOffset == other.uPhyTypeInfosOffset
-            && self.uNumOfPhyTypeInfos == other.uNumOfPhyTypeInfos
-            && self.uIEsOffset == other.uIEsOffset
-            && self.uIEsLength == other.uIEsLength
-            && self.ucBuffer == other.ucBuffer
+        self.dot11BSSType == other.dot11BSSType && self.dot11BSSID == other.dot11BSSID && self.dot11ScanType == other.dot11ScanType && self.bRestrictedScan == other.bRestrictedScan && self.udot11SSIDsOffset == other.udot11SSIDsOffset && self.uNumOfdot11SSIDs == other.uNumOfdot11SSIDs && self.bUseRequestIE == other.bUseRequestIE && self.uRequestIDsOffset == other.uRequestIDsOffset && self.uNumOfRequestIDs == other.uNumOfRequestIDs && self.uPhyTypeInfosOffset == other.uPhyTypeInfosOffset && self.uNumOfPhyTypeInfos == other.uNumOfPhyTypeInfos && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength && self.ucBuffer == other.ucBuffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6680,20 +6280,7 @@ impl ::core::fmt::Debug for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::PartialEq for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.PeerDeviceAddress == other.PeerDeviceAddress
-            && self.DialogToken == other.DialogToken
-            && self.RequestContext == other.RequestContext
-            && self.uSendTimeout == other.uSendTimeout
-            && self.Status == other.Status
-            && self.GroupOwnerIntent == other.GroupOwnerIntent
-            && self.MinimumConfigTimeout == other.MinimumConfigTimeout
-            && self.IntendedInterfaceAddress == other.IntendedInterfaceAddress
-            && self.GroupCapability == other.GroupCapability
-            && self.GroupID == other.GroupID
-            && self.bUseGroupID == other.bUseGroupID
-            && self.uIEsOffset == other.uIEsOffset
-            && self.uIEsLength == other.uIEsLength
+        self.Header == other.Header && self.PeerDeviceAddress == other.PeerDeviceAddress && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uSendTimeout == other.uSendTimeout && self.Status == other.Status && self.GroupOwnerIntent == other.GroupOwnerIntent && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.IntendedInterfaceAddress == other.IntendedInterfaceAddress && self.GroupCapability == other.GroupCapability && self.GroupID == other.GroupID && self.bUseGroupID == other.bUseGroupID && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -6754,20 +6341,7 @@ impl ::core::fmt::Debug for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::PartialEq for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.DialogToken == other.DialogToken
-            && self.PeerDeviceAddress == other.PeerDeviceAddress
-            && self.uSendTimeout == other.uSendTimeout
-            && self.MinimumConfigTimeout == other.MinimumConfigTimeout
-            && self.InvitationFlags == other.InvitationFlags
-            && self.GroupBSSID == other.GroupBSSID
-            && self.bUseGroupBSSID == other.bUseGroupBSSID
-            && self.OperatingChannel == other.OperatingChannel
-            && self.bUseSpecifiedOperatingChannel == other.bUseSpecifiedOperatingChannel
-            && self.GroupID == other.GroupID
-            && self.bLocalGO == other.bLocalGO
-            && self.uIEsOffset == other.uIEsOffset
-            && self.uIEsLength == other.uIEsLength
+        self.Header == other.Header && self.DialogToken == other.DialogToken && self.PeerDeviceAddress == other.PeerDeviceAddress && self.uSendTimeout == other.uSendTimeout && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.InvitationFlags == other.InvitationFlags && self.GroupBSSID == other.GroupBSSID && self.bUseGroupBSSID == other.bUseGroupBSSID && self.OperatingChannel == other.OperatingChannel && self.bUseSpecifiedOperatingChannel == other.bUseSpecifiedOperatingChannel && self.GroupID == other.GroupID && self.bLocalGO == other.bLocalGO && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -6826,19 +6400,7 @@ impl ::core::fmt::Debug for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::PartialEq for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.ReceiverDeviceAddress == other.ReceiverDeviceAddress
-            && self.DialogToken == other.DialogToken
-            && self.RequestContext == other.RequestContext
-            && self.uSendTimeout == other.uSendTimeout
-            && self.Status == other.Status
-            && self.MinimumConfigTimeout == other.MinimumConfigTimeout
-            && self.GroupBSSID == other.GroupBSSID
-            && self.bUseGroupBSSID == other.bUseGroupBSSID
-            && self.OperatingChannel == other.OperatingChannel
-            && self.bUseSpecifiedOperatingChannel == other.bUseSpecifiedOperatingChannel
-            && self.uIEsOffset == other.uIEsOffset
-            && self.uIEsLength == other.uIEsLength
+        self.Header == other.Header && self.ReceiverDeviceAddress == other.ReceiverDeviceAddress && self.DialogToken == other.DialogToken && self.RequestContext == other.RequestContext && self.uSendTimeout == other.uSendTimeout && self.Status == other.Status && self.MinimumConfigTimeout == other.MinimumConfigTimeout && self.GroupBSSID == other.GroupBSSID && self.bUseGroupBSSID == other.bUseGroupBSSID && self.OperatingChannel == other.OperatingChannel && self.bUseSpecifiedOperatingChannel == other.bUseSpecifiedOperatingChannel && self.uIEsOffset == other.uIEsOffset && self.uIEsLength == other.uIEsLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -6873,17 +6435,7 @@ impl ::core::default::Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMET
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("DialogToken", &self.DialogToken)
-            .field("PeerDeviceAddress", &self.PeerDeviceAddress)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("GroupCapability", &self.GroupCapability)
-            .field("GroupID", &self.GroupID)
-            .field("bUseGroupID", &self.bUseGroupID)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS").field("Header", &self.Header).field("DialogToken", &self.DialogToken).field("PeerDeviceAddress", &self.PeerDeviceAddress).field("uSendTimeout", &self.uSendTimeout).field("GroupCapability", &self.GroupCapability).field("GroupID", &self.GroupID).field("bUseGroupID", &self.bUseGroupID).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -6922,15 +6474,7 @@ impl ::core::default::Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAME
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress)
-            .field("DialogToken", &self.DialogToken)
-            .field("RequestContext", &self.RequestContext)
-            .field("uSendTimeout", &self.uSendTimeout)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS").field("Header", &self.Header).field("ReceiverDeviceAddress", &self.ReceiverDeviceAddress).field("DialogToken", &self.DialogToken).field("RequestContext", &self.RequestContext).field("uSendTimeout", &self.uSendTimeout).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -7062,15 +6606,7 @@ impl ::core::default::Default for DOT11_STATISTICS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_STATISTICS")
-            .field("Header", &self.Header)
-            .field("ullFourWayHandshakeFailures", &self.ullFourWayHandshakeFailures)
-            .field("ullTKIPCounterMeasuresInvoked", &self.ullTKIPCounterMeasuresInvoked)
-            .field("ullReserved", &self.ullReserved)
-            .field("MacUcastCounters", &self.MacUcastCounters)
-            .field("MacMcastCounters", &self.MacMcastCounters)
-            .field("PhyCounters", &self.PhyCounters)
-            .finish()
+        fmt.debug_struct("DOT11_STATISTICS").field("Header", &self.Header).field("ullFourWayHandshakeFailures", &self.ullFourWayHandshakeFailures).field("ullTKIPCounterMeasuresInvoked", &self.ullTKIPCounterMeasuresInvoked).field("ullReserved", &self.ullReserved).field("MacUcastCounters", &self.MacUcastCounters).field("MacMcastCounters", &self.MacMcastCounters).field("PhyCounters", &self.PhyCounters).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -7699,14 +7235,7 @@ impl ::core::default::Default for DOT11_VWIFI_COMBINATION_V3 {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_VWIFI_COMBINATION_V3 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_VWIFI_COMBINATION_V3")
-            .field("Header", &self.Header)
-            .field("uNumInfrastructure", &self.uNumInfrastructure)
-            .field("uNumAdhoc", &self.uNumAdhoc)
-            .field("uNumSoftAP", &self.uNumSoftAP)
-            .field("uNumVirtualStation", &self.uNumVirtualStation)
-            .field("uNumWFDGroup", &self.uNumWFDGroup)
-            .finish()
+        fmt.debug_struct("DOT11_VWIFI_COMBINATION_V3").field("Header", &self.Header).field("uNumInfrastructure", &self.uNumInfrastructure).field("uNumAdhoc", &self.uNumAdhoc).field("uNumSoftAP", &self.uNumSoftAP).field("uNumVirtualStation", &self.uNumVirtualStation).field("uNumWFDGroup", &self.uNumWFDGroup).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -7774,21 +7303,7 @@ impl ::core::fmt::Debug for DOT11_WEP_OFFLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DOT11_WEP_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.uReserved == other.uReserved
-            && self.hOffloadContext == other.hOffloadContext
-            && self.hOffload == other.hOffload
-            && self.dot11OffloadType == other.dot11OffloadType
-            && self.dwAlgorithm == other.dwAlgorithm
-            && self.bRowIsOutbound == other.bRowIsOutbound
-            && self.bUseDefault == other.bUseDefault
-            && self.uFlags == other.uFlags
-            && self.ucMacAddress == other.ucMacAddress
-            && self.uNumOfRWsOnPeer == other.uNumOfRWsOnPeer
-            && self.uNumOfRWsOnMe == other.uNumOfRWsOnMe
-            && self.dot11IV48Counters == other.dot11IV48Counters
-            && self.usDot11RWBitMaps == other.usDot11RWBitMaps
-            && self.usKeyLength == other.usKeyLength
-            && self.ucKey == other.ucKey
+        self.uReserved == other.uReserved && self.hOffloadContext == other.hOffloadContext && self.hOffload == other.hOffload && self.dot11OffloadType == other.dot11OffloadType && self.dwAlgorithm == other.dwAlgorithm && self.bRowIsOutbound == other.bRowIsOutbound && self.bUseDefault == other.bUseDefault && self.uFlags == other.uFlags && self.ucMacAddress == other.ucMacAddress && self.uNumOfRWsOnPeer == other.uNumOfRWsOnPeer && self.uNumOfRWsOnMe == other.uNumOfRWsOnMe && self.dot11IV48Counters == other.dot11IV48Counters && self.usDot11RWBitMaps == other.usDot11RWBitMaps && self.usKeyLength == other.usKeyLength && self.ucKey == other.ucKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7819,14 +7334,7 @@ impl ::core::default::Default for DOT11_WEP_UPLOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11_WEP_UPLOAD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_WEP_UPLOAD")
-            .field("uReserved", &self.uReserved)
-            .field("dot11OffloadType", &self.dot11OffloadType)
-            .field("hOffload", &self.hOffload)
-            .field("uNumOfRWsUsed", &self.uNumOfRWsUsed)
-            .field("dot11IV48Counters", &self.dot11IV48Counters)
-            .field("usDot11RWBitMaps", &self.usDot11RWBitMaps)
-            .finish()
+        fmt.debug_struct("DOT11_WEP_UPLOAD").field("uReserved", &self.uReserved).field("dot11OffloadType", &self.dot11OffloadType).field("hOffload", &self.hOffload).field("uNumOfRWsUsed", &self.uNumOfRWsUsed).field("dot11IV48Counters", &self.dot11IV48Counters).field("usDot11RWBitMaps", &self.usDot11RWBitMaps).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7864,15 +7372,7 @@ impl ::core::default::Default for DOT11_WFD_ADDITIONAL_IE {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_WFD_ADDITIONAL_IE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_WFD_ADDITIONAL_IE")
-            .field("Header", &self.Header)
-            .field("uBeaconIEsOffset", &self.uBeaconIEsOffset)
-            .field("uBeaconIEsLength", &self.uBeaconIEsLength)
-            .field("uProbeResponseIEsOffset", &self.uProbeResponseIEsOffset)
-            .field("uProbeResponseIEsLength", &self.uProbeResponseIEsLength)
-            .field("uDefaultRequestIEsOffset", &self.uDefaultRequestIEsOffset)
-            .field("uDefaultRequestIEsLength", &self.uDefaultRequestIEsLength)
-            .finish()
+        fmt.debug_struct("DOT11_WFD_ADDITIONAL_IE").field("Header", &self.Header).field("uBeaconIEsOffset", &self.uBeaconIEsOffset).field("uBeaconIEsLength", &self.uBeaconIEsLength).field("uProbeResponseIEsOffset", &self.uProbeResponseIEsOffset).field("uProbeResponseIEsLength", &self.uProbeResponseIEsLength).field("uDefaultRequestIEsOffset", &self.uDefaultRequestIEsOffset).field("uDefaultRequestIEsLength", &self.uDefaultRequestIEsLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -8141,14 +7641,7 @@ impl ::core::fmt::Debug for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::PartialEq for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.bServiceDiscoveryEnabled == other.bServiceDiscoveryEnabled
-            && self.bClientDiscoverabilityEnabled == other.bClientDiscoverabilityEnabled
-            && self.bConcurrentOperationSupported == other.bConcurrentOperationSupported
-            && self.bInfrastructureManagementEnabled == other.bInfrastructureManagementEnabled
-            && self.bDeviceLimitReached == other.bDeviceLimitReached
-            && self.bInvitationProcedureEnabled == other.bInvitationProcedureEnabled
-            && self.WPSVersionsEnabled == other.WPSVersionsEnabled
+        self.Header == other.Header && self.bServiceDiscoveryEnabled == other.bServiceDiscoveryEnabled && self.bClientDiscoverabilityEnabled == other.bClientDiscoverabilityEnabled && self.bConcurrentOperationSupported == other.bConcurrentOperationSupported && self.bInfrastructureManagementEnabled == other.bInfrastructureManagementEnabled && self.bDeviceLimitReached == other.bDeviceLimitReached && self.bInvitationProcedureEnabled == other.bInvitationProcedureEnabled && self.WPSVersionsEnabled == other.WPSVersionsEnabled
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -8323,14 +7816,7 @@ impl ::core::default::Default for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::fmt::Debug for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("Status", &self.Status)
-            .field("uNumOfEntries", &self.uNumOfEntries)
-            .field("uTotalNumOfEntries", &self.uTotalNumOfEntries)
-            .field("uListOffset", &self.uListOffset)
-            .field("uListLength", &self.uListLength)
-            .finish()
+        fmt.debug_struct("DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS").field("Header", &self.Header).field("Status", &self.Status).field("uNumOfEntries", &self.uNumOfEntries).field("uTotalNumOfEntries", &self.uTotalNumOfEntries).field("uListOffset", &self.uListOffset).field("uListLength", &self.uListLength).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -8398,17 +7884,7 @@ impl ::core::default::Default for DOT11_WFD_DISCOVER_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for DOT11_WFD_DISCOVER_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_WFD_DISCOVER_REQUEST")
-            .field("Header", &self.Header)
-            .field("DiscoverType", &self.DiscoverType)
-            .field("ScanType", &self.ScanType)
-            .field("uDiscoverTimeout", &self.uDiscoverTimeout)
-            .field("uDeviceFilterListOffset", &self.uDeviceFilterListOffset)
-            .field("uNumDeviceFilters", &self.uNumDeviceFilters)
-            .field("uIEsOffset", &self.uIEsOffset)
-            .field("uIEsLength", &self.uIEsLength)
-            .field("bForceScanLegacyNetworks", &self.bForceScanLegacyNetworks)
-            .finish()
+        fmt.debug_struct("DOT11_WFD_DISCOVER_REQUEST").field("Header", &self.Header).field("DiscoverType", &self.DiscoverType).field("ScanType", &self.ScanType).field("uDiscoverTimeout", &self.uDiscoverTimeout).field("uDeviceFilterListOffset", &self.uDeviceFilterListOffset).field("uNumDeviceFilters", &self.uNumDeviceFilters).field("uIEsOffset", &self.uIEsOffset).field("uIEsLength", &self.uIEsLength).field("bForceScanLegacyNetworks", &self.bForceScanLegacyNetworks).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -8625,14 +8101,7 @@ impl ::core::fmt::Debug for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::cmp::PartialEq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.bPersistentGroupEnabled == other.bPersistentGroupEnabled
-            && self.bIntraBSSDistributionSupported == other.bIntraBSSDistributionSupported
-            && self.bCrossConnectionSupported == other.bCrossConnectionSupported
-            && self.bPersistentReconnectSupported == other.bPersistentReconnectSupported
-            && self.bGroupFormationEnabled == other.bGroupFormationEnabled
-            && self.uMaximumGroupLimit == other.uMaximumGroupLimit
-            && self.bEapolKeyIpAddressAllocationSupported == other.bEapolKeyIpAddressAllocationSupported
+        self.Header == other.Header && self.bPersistentGroupEnabled == other.bPersistentGroupEnabled && self.bIntraBSSDistributionSupported == other.bIntraBSSDistributionSupported && self.bCrossConnectionSupported == other.bCrossConnectionSupported && self.bPersistentReconnectSupported == other.bPersistentReconnectSupported && self.bGroupFormationEnabled == other.bGroupFormationEnabled && self.uMaximumGroupLimit == other.uMaximumGroupLimit && self.bEapolKeyIpAddressAllocationSupported == other.bEapolKeyIpAddressAllocationSupported
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -8897,14 +8366,7 @@ impl ::core::default::Default for DOT11_WME_UPDATE_IE {
 }
 impl ::core::fmt::Debug for DOT11_WME_UPDATE_IE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_WME_UPDATE_IE")
-            .field("uParamElemMinBeaconIntervals", &self.uParamElemMinBeaconIntervals)
-            .field("uWMEInfoElemOffset", &self.uWMEInfoElemOffset)
-            .field("uWMEInfoElemLength", &self.uWMEInfoElemLength)
-            .field("uWMEParamElemOffset", &self.uWMEParamElemOffset)
-            .field("uWMEParamElemLength", &self.uWMEParamElemLength)
-            .field("ucBuffer", &self.ucBuffer)
-            .finish()
+        fmt.debug_struct("DOT11_WME_UPDATE_IE").field("uParamElemMinBeaconIntervals", &self.uParamElemMinBeaconIntervals).field("uWMEInfoElemOffset", &self.uWMEInfoElemOffset).field("uWMEInfoElemLength", &self.uWMEInfoElemLength).field("uWMEParamElemOffset", &self.uWMEParamElemOffset).field("uWMEParamElemLength", &self.uWMEParamElemLength).field("ucBuffer", &self.ucBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOT11_WME_UPDATE_IE {
@@ -9227,26 +8689,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDot1
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocInterfaceNotificationSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
-);
+pub struct IDot11AdHocInterfaceNotificationSink_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDot11AdHocManager(pub ::windows::core::IUnknown);
 impl IDot11AdHocManager {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateNetwork<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IDot11AdHocInterface>, Param4: ::windows::core::IntoParam<'a, IDot11AdHocSecuritySettings>>(
-        &self,
-        name: Param0,
-        password: Param1,
-        geographicalid: i32,
-        pinterface: Param3,
-        psecurity: Param4,
-        pcontextguid: *const ::windows::core::GUID,
-    ) -> ::windows::core::Result<IDot11AdHocNetwork> {
+    pub unsafe fn CreateNetwork<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IDot11AdHocInterface>, Param4: ::windows::core::IntoParam<'a, IDot11AdHocSecuritySettings>>(&self, name: Param0, password: Param1, geographicalid: i32, pinterface: Param3, psecurity: Param4, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork> {
         let mut result__: <IDot11AdHocNetwork as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), name.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(geographicalid), pinterface.into_param().abi(), psecurity.into_param().abi(), ::core::mem::transmute(pcontextguid), &mut result__).from_abi::<IDot11AdHocNetwork>(result__)
     }
@@ -10016,17 +9465,7 @@ impl ::core::default::Default for ONEX_EAP_ERROR {
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl ::core::fmt::Debug for ONEX_EAP_ERROR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ONEX_EAP_ERROR")
-            .field("dwWinError", &self.dwWinError)
-            .field("r#type", &self.r#type)
-            .field("dwReasonCode", &self.dwReasonCode)
-            .field("rootCauseGuid", &self.rootCauseGuid)
-            .field("repairGuid", &self.repairGuid)
-            .field("helpLinkGuid", &self.helpLinkGuid)
-            .field("_bitfield", &self._bitfield)
-            .field("RootCauseString", &self.RootCauseString)
-            .field("RepairString", &self.RepairString)
-            .finish()
+        fmt.debug_struct("ONEX_EAP_ERROR").field("dwWinError", &self.dwWinError).field("r#type", &self.r#type).field("dwReasonCode", &self.dwReasonCode).field("rootCauseGuid", &self.rootCauseGuid).field("repairGuid", &self.repairGuid).field("helpLinkGuid", &self.helpLinkGuid).field("_bitfield", &self._bitfield).field("RootCauseString", &self.RootCauseString).field("RepairString", &self.RepairString).finish()
     }
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
@@ -10331,7 +9770,7 @@ pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WFDStartOpenSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::core::option::Option<WFD_OPEN_SESSION_COMPLETE_CALLBACK>, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WFDStartOpenSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclienthandle: Param0, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10385,7 +9824,7 @@ unsafe impl ::windows::core::Abi for WFD_GROUP_ID {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows::core::GUID, dwerror: u32, dwreasoncode: u32);
+pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows::core::GUID, dwerror: u32, dwreasoncode: u32)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WFD_ROLE_TYPE(pub i32);
@@ -10438,16 +9877,7 @@ impl ::core::default::Default for WLAN_ASSOCIATION_ATTRIBUTES {
 }
 impl ::core::fmt::Debug for WLAN_ASSOCIATION_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_ASSOCIATION_ATTRIBUTES")
-            .field("dot11Ssid", &self.dot11Ssid)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("dot11Bssid", &self.dot11Bssid)
-            .field("dot11PhyType", &self.dot11PhyType)
-            .field("uDot11PhyIndex", &self.uDot11PhyIndex)
-            .field("wlanSignalQuality", &self.wlanSignalQuality)
-            .field("ulRxRate", &self.ulRxRate)
-            .field("ulTxRate", &self.ulTxRate)
-            .finish()
+        fmt.debug_struct("WLAN_ASSOCIATION_ATTRIBUTES").field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).field("dot11Bssid", &self.dot11Bssid).field("dot11PhyType", &self.dot11PhyType).field("uDot11PhyIndex", &self.uDot11PhyIndex).field("wlanSignalQuality", &self.wlanSignalQuality).field("ulRxRate", &self.ulRxRate).field("ulTxRate", &self.ulTxRate).finish()
     }
 }
 impl ::core::cmp::PartialEq for WLAN_ASSOCIATION_ATTRIBUTES {
@@ -10557,21 +9987,7 @@ impl ::core::fmt::Debug for WLAN_AVAILABLE_NETWORK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLAN_AVAILABLE_NETWORK {
     fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName
-            && self.dot11Ssid == other.dot11Ssid
-            && self.dot11BssType == other.dot11BssType
-            && self.uNumberOfBssids == other.uNumberOfBssids
-            && self.bNetworkConnectable == other.bNetworkConnectable
-            && self.wlanNotConnectableReason == other.wlanNotConnectableReason
-            && self.uNumberOfPhyTypes == other.uNumberOfPhyTypes
-            && self.dot11PhyTypes == other.dot11PhyTypes
-            && self.bMorePhyTypes == other.bMorePhyTypes
-            && self.wlanSignalQuality == other.wlanSignalQuality
-            && self.bSecurityEnabled == other.bSecurityEnabled
-            && self.dot11DefaultAuthAlgorithm == other.dot11DefaultAuthAlgorithm
-            && self.dot11DefaultCipherAlgorithm == other.dot11DefaultCipherAlgorithm
-            && self.dwFlags == other.dwFlags
-            && self.dwReserved == other.dwReserved
+        self.strProfileName == other.strProfileName && self.dot11Ssid == other.dot11Ssid && self.dot11BssType == other.dot11BssType && self.uNumberOfBssids == other.uNumberOfBssids && self.bNetworkConnectable == other.bNetworkConnectable && self.wlanNotConnectableReason == other.wlanNotConnectableReason && self.uNumberOfPhyTypes == other.uNumberOfPhyTypes && self.dot11PhyTypes == other.dot11PhyTypes && self.bMorePhyTypes == other.bMorePhyTypes && self.wlanSignalQuality == other.wlanSignalQuality && self.bSecurityEnabled == other.bSecurityEnabled && self.dot11DefaultAuthAlgorithm == other.dot11DefaultAuthAlgorithm && self.dot11DefaultCipherAlgorithm == other.dot11DefaultCipherAlgorithm && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10799,22 +10215,7 @@ impl ::core::fmt::Debug for WLAN_BSS_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLAN_BSS_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.dot11Ssid == other.dot11Ssid
-            && self.uPhyId == other.uPhyId
-            && self.dot11Bssid == other.dot11Bssid
-            && self.dot11BssType == other.dot11BssType
-            && self.dot11BssPhyType == other.dot11BssPhyType
-            && self.lRssi == other.lRssi
-            && self.uLinkQuality == other.uLinkQuality
-            && self.bInRegDomain == other.bInRegDomain
-            && self.usBeaconPeriod == other.usBeaconPeriod
-            && self.ullTimestamp == other.ullTimestamp
-            && self.ullHostTimestamp == other.ullHostTimestamp
-            && self.usCapabilityInformation == other.usCapabilityInformation
-            && self.ulChCenterFrequency == other.ulChCenterFrequency
-            && self.wlanRateSet == other.wlanRateSet
-            && self.ulIeOffset == other.ulIeOffset
-            && self.ulIeSize == other.ulIeSize
+        self.dot11Ssid == other.dot11Ssid && self.uPhyId == other.uPhyId && self.dot11Bssid == other.dot11Bssid && self.dot11BssType == other.dot11BssType && self.dot11BssPhyType == other.dot11BssPhyType && self.lRssi == other.lRssi && self.uLinkQuality == other.uLinkQuality && self.bInRegDomain == other.bInRegDomain && self.usBeaconPeriod == other.usBeaconPeriod && self.ullTimestamp == other.ullTimestamp && self.ullHostTimestamp == other.ullHostTimestamp && self.usCapabilityInformation == other.usCapabilityInformation && self.ulChCenterFrequency == other.ulChCenterFrequency && self.wlanRateSet == other.wlanRateSet && self.ulIeOffset == other.ulIeOffset && self.ulIeSize == other.ulIeSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10879,13 +10280,7 @@ impl ::core::default::Default for WLAN_CONNECTION_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLAN_CONNECTION_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_CONNECTION_ATTRIBUTES")
-            .field("isState", &self.isState)
-            .field("wlanConnectionMode", &self.wlanConnectionMode)
-            .field("strProfileName", &self.strProfileName)
-            .field("wlanAssociationAttributes", &self.wlanAssociationAttributes)
-            .field("wlanSecurityAttributes", &self.wlanSecurityAttributes)
-            .finish()
+        fmt.debug_struct("WLAN_CONNECTION_ATTRIBUTES").field("isState", &self.isState).field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfileName", &self.strProfileName).field("wlanAssociationAttributes", &self.wlanAssociationAttributes).field("wlanSecurityAttributes", &self.wlanSecurityAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10944,16 +10339,7 @@ impl ::core::default::Default for WLAN_CONNECTION_NOTIFICATION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLAN_CONNECTION_NOTIFICATION_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_CONNECTION_NOTIFICATION_DATA")
-            .field("wlanConnectionMode", &self.wlanConnectionMode)
-            .field("strProfileName", &self.strProfileName)
-            .field("dot11Ssid", &self.dot11Ssid)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("bSecurityEnabled", &self.bSecurityEnabled)
-            .field("wlanReasonCode", &self.wlanReasonCode)
-            .field("dwFlags", &self.dwFlags)
-            .field("strProfileXml", &self.strProfileXml)
-            .finish()
+        fmt.debug_struct("WLAN_CONNECTION_NOTIFICATION_DATA").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfileName", &self.strProfileName).field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).field("bSecurityEnabled", &self.bSecurityEnabled).field("wlanReasonCode", &self.wlanReasonCode).field("dwFlags", &self.dwFlags).field("strProfileXml", &self.strProfileXml).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11031,14 +10417,7 @@ impl ::core::default::Default for WLAN_CONNECTION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for WLAN_CONNECTION_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_CONNECTION_PARAMETERS")
-            .field("wlanConnectionMode", &self.wlanConnectionMode)
-            .field("strProfile", &self.strProfile)
-            .field("pDot11Ssid", &self.pDot11Ssid)
-            .field("pDesiredBssidList", &self.pDesiredBssidList)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("WLAN_CONNECTION_PARAMETERS").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfile", &self.strProfile).field("pDot11Ssid", &self.pDot11Ssid).field("pDesiredBssidList", &self.pDesiredBssidList).field("dot11BssType", &self.dot11BssType).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -11077,16 +10456,7 @@ impl ::core::default::Default for WLAN_CONNECTION_PARAMETERS_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::fmt::Debug for WLAN_CONNECTION_PARAMETERS_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_CONNECTION_PARAMETERS_V2")
-            .field("wlanConnectionMode", &self.wlanConnectionMode)
-            .field("strProfile", &self.strProfile)
-            .field("pDot11Ssid", &self.pDot11Ssid)
-            .field("pDot11Hessid", &self.pDot11Hessid)
-            .field("pDesiredBssidList", &self.pDesiredBssidList)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("dwFlags", &self.dwFlags)
-            .field("pDot11AccessNetworkOptions", &self.pDot11AccessNetworkOptions)
-            .finish()
+        fmt.debug_struct("WLAN_CONNECTION_PARAMETERS_V2").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfile", &self.strProfile).field("pDot11Ssid", &self.pDot11Ssid).field("pDot11Hessid", &self.pDot11Hessid).field("pDesiredBssidList", &self.pDesiredBssidList).field("dot11BssType", &self.dot11BssType).field("dwFlags", &self.dwFlags).field("pDot11AccessNetworkOptions", &self.pDot11AccessNetworkOptions).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -11473,15 +10843,7 @@ impl ::core::default::Default for WLAN_HOSTED_NETWORK_STATUS {
 }
 impl ::core::fmt::Debug for WLAN_HOSTED_NETWORK_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_HOSTED_NETWORK_STATUS")
-            .field("HostedNetworkState", &self.HostedNetworkState)
-            .field("IPDeviceID", &self.IPDeviceID)
-            .field("wlanHostedNetworkBSSID", &self.wlanHostedNetworkBSSID)
-            .field("dot11PhyType", &self.dot11PhyType)
-            .field("ulChannelFrequency", &self.ulChannelFrequency)
-            .field("dwNumberOfPeers", &self.dwNumberOfPeers)
-            .field("PeerList", &self.PeerList)
-            .finish()
+        fmt.debug_struct("WLAN_HOSTED_NETWORK_STATUS").field("HostedNetworkState", &self.HostedNetworkState).field("IPDeviceID", &self.IPDeviceID).field("wlanHostedNetworkBSSID", &self.wlanHostedNetworkBSSID).field("dot11PhyType", &self.dot11PhyType).field("ulChannelFrequency", &self.ulChannelFrequency).field("dwNumberOfPeers", &self.dwNumberOfPeers).field("PeerList", &self.PeerList).finish()
     }
 }
 impl ::core::cmp::PartialEq for WLAN_HOSTED_NETWORK_STATUS {
@@ -11528,14 +10890,7 @@ impl ::core::default::Default for WLAN_INTERFACE_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLAN_INTERFACE_CAPABILITY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_INTERFACE_CAPABILITY")
-            .field("interfaceType", &self.interfaceType)
-            .field("bDot11DSupported", &self.bDot11DSupported)
-            .field("dwMaxDesiredSsidListSize", &self.dwMaxDesiredSsidListSize)
-            .field("dwMaxDesiredBssidListSize", &self.dwMaxDesiredBssidListSize)
-            .field("dwNumberOfSupportedPhys", &self.dwNumberOfSupportedPhys)
-            .field("dot11PhyTypes", &self.dot11PhyTypes)
-            .finish()
+        fmt.debug_struct("WLAN_INTERFACE_CAPABILITY").field("interfaceType", &self.interfaceType).field("bDot11DSupported", &self.bDot11DSupported).field("dwMaxDesiredSsidListSize", &self.dwMaxDesiredSsidListSize).field("dwMaxDesiredBssidListSize", &self.dwMaxDesiredBssidListSize).field("dwNumberOfSupportedPhys", &self.dwNumberOfSupportedPhys).field("dot11PhyTypes", &self.dot11PhyTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11718,18 +11073,7 @@ impl ::core::fmt::Debug for WLAN_MAC_FRAME_STATISTICS {
 }
 impl ::core::cmp::PartialEq for WLAN_MAC_FRAME_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.ullTransmittedFrameCount == other.ullTransmittedFrameCount
-            && self.ullReceivedFrameCount == other.ullReceivedFrameCount
-            && self.ullWEPExcludedCount == other.ullWEPExcludedCount
-            && self.ullTKIPLocalMICFailures == other.ullTKIPLocalMICFailures
-            && self.ullTKIPReplays == other.ullTKIPReplays
-            && self.ullTKIPICVErrorCount == other.ullTKIPICVErrorCount
-            && self.ullCCMPReplays == other.ullCCMPReplays
-            && self.ullCCMPDecryptErrors == other.ullCCMPDecryptErrors
-            && self.ullWEPUndecryptableCount == other.ullWEPUndecryptableCount
-            && self.ullWEPICVErrorCount == other.ullWEPICVErrorCount
-            && self.ullDecryptSuccessCount == other.ullDecryptSuccessCount
-            && self.ullDecryptFailureCount == other.ullDecryptFailureCount
+        self.ullTransmittedFrameCount == other.ullTransmittedFrameCount && self.ullReceivedFrameCount == other.ullReceivedFrameCount && self.ullWEPExcludedCount == other.ullWEPExcludedCount && self.ullTKIPLocalMICFailures == other.ullTKIPLocalMICFailures && self.ullTKIPReplays == other.ullTKIPReplays && self.ullTKIPICVErrorCount == other.ullTKIPICVErrorCount && self.ullCCMPReplays == other.ullCCMPReplays && self.ullCCMPDecryptErrors == other.ullCCMPDecryptErrors && self.ullWEPUndecryptableCount == other.ullWEPUndecryptableCount && self.ullWEPICVErrorCount == other.ullWEPICVErrorCount && self.ullDecryptSuccessCount == other.ullDecryptSuccessCount && self.ullDecryptFailureCount == other.ullDecryptFailureCount
     }
 }
 impl ::core::cmp::Eq for WLAN_MAC_FRAME_STATISTICS {}
@@ -11764,17 +11108,7 @@ impl ::core::default::Default for WLAN_MSM_NOTIFICATION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLAN_MSM_NOTIFICATION_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_MSM_NOTIFICATION_DATA")
-            .field("wlanConnectionMode", &self.wlanConnectionMode)
-            .field("strProfileName", &self.strProfileName)
-            .field("dot11Ssid", &self.dot11Ssid)
-            .field("dot11BssType", &self.dot11BssType)
-            .field("dot11MacAddr", &self.dot11MacAddr)
-            .field("bSecurityEnabled", &self.bSecurityEnabled)
-            .field("bFirstPeer", &self.bFirstPeer)
-            .field("bLastPeer", &self.bLastPeer)
-            .field("wlanReasonCode", &self.wlanReasonCode)
-            .finish()
+        fmt.debug_struct("WLAN_MSM_NOTIFICATION_DATA").field("wlanConnectionMode", &self.wlanConnectionMode).field("strProfileName", &self.strProfileName).field("dot11Ssid", &self.dot11Ssid).field("dot11BssType", &self.dot11BssType).field("dot11MacAddr", &self.dot11MacAddr).field("bSecurityEnabled", &self.bSecurityEnabled).field("bFirstPeer", &self.bFirstPeer).field("bLastPeer", &self.bLastPeer).field("wlanReasonCode", &self.wlanReasonCode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11829,7 +11163,7 @@ impl ::core::convert::From<i32> for WLAN_NOTIFICATION_ACM {
 unsafe impl ::windows::core::Abi for WLAN_NOTIFICATION_ACM {
     type Abi = Self;
 }
-pub type WLAN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void);
+pub type WLAN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WLAN_NOTIFICATION_MSM(pub i32);
@@ -12500,15 +11834,7 @@ impl ::core::default::Default for WLAN_STATISTICS {
 }
 impl ::core::fmt::Debug for WLAN_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLAN_STATISTICS")
-            .field("ullFourWayHandshakeFailures", &self.ullFourWayHandshakeFailures)
-            .field("ullTKIPCounterMeasuresInvoked", &self.ullTKIPCounterMeasuresInvoked)
-            .field("ullReserved", &self.ullReserved)
-            .field("MacUcastCounters", &self.MacUcastCounters)
-            .field("MacMcastCounters", &self.MacMcastCounters)
-            .field("dwNumberOfPhys", &self.dwNumberOfPhys)
-            .field("PhyCounters", &self.PhyCounters)
-            .finish()
+        fmt.debug_struct("WLAN_STATISTICS").field("ullFourWayHandshakeFailures", &self.ullFourWayHandshakeFailures).field("ullTKIPCounterMeasuresInvoked", &self.ullTKIPCounterMeasuresInvoked).field("ullReserved", &self.ullReserved).field("MacUcastCounters", &self.MacUcastCounters).field("MacMcastCounters", &self.MacMcastCounters).field("dwNumberOfPhys", &self.dwNumberOfPhys).field("PhyCounters", &self.PhyCounters).finish()
     }
 }
 impl ::core::cmp::PartialEq for WLAN_STATISTICS {
@@ -12614,17 +11940,7 @@ pub unsafe fn WlanDeviceServiceCommand<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn WlanDeviceServiceCommand(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, pdeviceserviceguid: *const ::windows::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
         }
-        ::core::mem::transmute(WlanDeviceServiceCommand(
-            hclienthandle.into_param().abi(),
-            ::core::mem::transmute(pinterfaceguid),
-            ::core::mem::transmute(pdeviceserviceguid),
-            ::core::mem::transmute(dwopcode),
-            ::core::mem::transmute(dwinbuffersize),
-            ::core::mem::transmute(pinbuffer),
-            ::core::mem::transmute(dwoutbuffersize),
-            ::core::mem::transmute(poutbuffer),
-            ::core::mem::transmute(pdwbytesreturned),
-        ))
+        ::core::mem::transmute(WlanDeviceServiceCommand(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(pdeviceserviceguid), ::core::mem::transmute(dwopcode), ::core::mem::transmute(dwinbuffersize), ::core::mem::transmute(pinbuffer), ::core::mem::transmute(dwoutbuffersize), ::core::mem::transmute(poutbuffer), ::core::mem::transmute(pdwbytesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12987,16 +12303,7 @@ pub unsafe fn WlanIhvControl<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn WlanIhvControl(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
         }
-        ::core::mem::transmute(WlanIhvControl(
-            hclienthandle.into_param().abi(),
-            ::core::mem::transmute(pinterfaceguid),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(dwinbuffersize),
-            ::core::mem::transmute(pinbuffer),
-            ::core::mem::transmute(dwoutbuffersize),
-            ::core::mem::transmute(poutbuffer),
-            ::core::mem::transmute(pdwbytesreturned),
-        ))
+        ::core::mem::transmute(WlanIhvControl(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(r#type), ::core::mem::transmute(dwinbuffersize), ::core::mem::transmute(pinbuffer), ::core::mem::transmute(dwoutbuffersize), ::core::mem::transmute(poutbuffer), ::core::mem::transmute(pdwbytesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13073,7 +12380,7 @@ pub unsafe fn WlanRegisterDeviceServiceNotification<'a, Param0: ::windows::core:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwnotifsource: u32, bignoreduplicate: Param2, funccallback: ::core::option::Option<WLAN_NOTIFICATION_CALLBACK>, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32 {
+pub unsafe fn WlanRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, dwnotifsource: u32, bignoreduplicate: Param2, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13115,15 +12422,7 @@ pub unsafe fn WlanRenameProfile<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    hclienthandle: Param0,
-    pinterfaceguid: *const ::windows::core::GUID,
-    strprofilename: Param2,
-    stralluserprofilesecurity: Param3,
-    dwflags: u32,
-    boverwrite: Param5,
-    preserved: *mut ::core::ffi::c_void,
-) -> u32 {
+pub unsafe fn WlanSaveTemporaryProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, stralluserprofilesecurity: Param3, dwflags: u32, boverwrite: Param5, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13193,32 +12492,14 @@ pub unsafe fn WlanSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanSetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    hclienthandle: Param0,
-    pinterfaceguid: *const ::windows::core::GUID,
-    dwflags: u32,
-    strprofilexml: Param3,
-    stralluserprofilesecurity: Param4,
-    boverwrite: Param5,
-    preserved: *mut ::core::ffi::c_void,
-    pdwreasoncode: *mut u32,
-) -> u32 {
+pub unsafe fn WlanSetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, strprofilexml: Param3, stralluserprofilesecurity: Param4, boverwrite: Param5, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwflags: u32, strprofilexml: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32;
         }
-        ::core::mem::transmute(WlanSetProfile(
-            hclienthandle.into_param().abi(),
-            ::core::mem::transmute(pinterfaceguid),
-            ::core::mem::transmute(dwflags),
-            strprofilexml.into_param().abi(),
-            stralluserprofilesecurity.into_param().abi(),
-            boverwrite.into_param().abi(),
-            ::core::mem::transmute(preserved),
-            ::core::mem::transmute(pdwreasoncode),
-        ))
+        ::core::mem::transmute(WlanSetProfile(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), ::core::mem::transmute(dwflags), strprofilexml.into_param().abi(), stralluserprofilesecurity.into_param().abi(), boverwrite.into_param().abi(), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwreasoncode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13239,32 +12520,14 @@ pub unsafe fn WlanSetProfileCustomUserData<'a, Param0: ::windows::core::IntoPara
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 #[inline]
-pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE>>(
-    hclienthandle: Param0,
-    pinterfaceguid: *const ::windows::core::GUID,
-    strprofilename: Param2,
-    eaptype: Param3,
-    dwflags: WLAN_SET_EAPHOST_FLAGS,
-    dweapuserdatasize: u32,
-    pbeapuserdata: *const u8,
-    preserved: *mut ::core::ffi::c_void,
-) -> u32 {
+pub unsafe fn WlanSetProfileEapUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE>>(hclienthandle: Param0, pinterfaceguid: *const ::windows::core::GUID, strprofilename: Param2, eaptype: Param3, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfileEapUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(WlanSetProfileEapUserData(
-            hclienthandle.into_param().abi(),
-            ::core::mem::transmute(pinterfaceguid),
-            strprofilename.into_param().abi(),
-            eaptype.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(dweapuserdatasize),
-            ::core::mem::transmute(pbeapuserdata),
-            ::core::mem::transmute(preserved),
-        ))
+        ::core::mem::transmute(WlanSetProfileEapUserData(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilename.into_param().abi(), eaptype.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dweapuserdatasize), ::core::mem::transmute(pbeapuserdata), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

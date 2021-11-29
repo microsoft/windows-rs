@@ -4,12 +4,12 @@ pub fn gen_ntstatus() -> TokenStream {
     quote! {
         #[repr(transparent)]
         #[derive(::core::default::Default, ::core::clone::Clone, ::core::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
-        pub struct NTSTATUS(pub u32);
+        pub struct NTSTATUS(pub i32);
 
         impl NTSTATUS {
             #[inline]
             pub const fn is_ok(self) -> bool {
-                self.0 & 0x8000_0000 == 0
+                self.0 >= 0
             }
 
             #[inline]

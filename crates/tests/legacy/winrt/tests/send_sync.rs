@@ -93,7 +93,7 @@ fn send_sync_err() {
 
     let wait = thread::spawn(move || {
         assert_eq!(err.message(), "BADURI is not a valid absolute URI.");
-        assert_eq!(code, HRESULT(0x8007_0057));
+        assert_eq!(code, HRESULT(-2147024809));
     });
 
     wait.join().unwrap();

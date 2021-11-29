@@ -634,18 +634,7 @@ impl ::core::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
 }
 impl ::core::cmp::PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputParametersTensor == other.InputParametersTensor
-            && self.InputFirstMomentTensor == other.InputFirstMomentTensor
-            && self.InputSecondMomentTensor == other.InputSecondMomentTensor
-            && self.GradientTensor == other.GradientTensor
-            && self.TrainingStepTensor == other.TrainingStepTensor
-            && self.OutputParametersTensor == other.OutputParametersTensor
-            && self.OutputFirstMomentTensor == other.OutputFirstMomentTensor
-            && self.OutputSecondMomentTensor == other.OutputSecondMomentTensor
-            && self.LearningRate == other.LearningRate
-            && self.Beta1 == other.Beta1
-            && self.Beta2 == other.Beta2
-            && self.Epsilon == other.Epsilon
+        self.InputParametersTensor == other.InputParametersTensor && self.InputFirstMomentTensor == other.InputFirstMomentTensor && self.InputSecondMomentTensor == other.InputSecondMomentTensor && self.GradientTensor == other.GradientTensor && self.TrainingStepTensor == other.TrainingStepTensor && self.OutputParametersTensor == other.OutputParametersTensor && self.OutputFirstMomentTensor == other.OutputFirstMomentTensor && self.OutputSecondMomentTensor == other.OutputSecondMomentTensor && self.LearningRate == other.LearningRate && self.Beta1 == other.Beta1 && self.Beta2 == other.Beta2 && self.Epsilon == other.Epsilon
     }
 }
 impl ::core::cmp::Eq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
@@ -734,16 +723,7 @@ impl ::core::default::Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC")
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("IncludePadding", &self.IncludePadding)
-            .finish()
+        fmt.debug_struct("DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("IncludePadding", &self.IncludePadding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -782,16 +762,7 @@ impl ::core::default::Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_AVERAGE_POOLING_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("IncludePadding", &self.IncludePadding)
-            .finish()
+        fmt.debug_struct("DML_AVERAGE_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("IncludePadding", &self.IncludePadding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -887,17 +858,7 @@ impl ::core::default::Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_BATCH_NORMALIZATION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("MeanTensor", &self.MeanTensor)
-            .field("VarianceTensor", &self.VarianceTensor)
-            .field("ScaleTensor", &self.ScaleTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Spatial", &self.Spatial)
-            .field("Epsilon", &self.Epsilon)
-            .field("FusedActivation", &self.FusedActivation)
-            .finish()
+        fmt.debug_struct("DML_BATCH_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("MeanTensor", &self.MeanTensor).field("VarianceTensor", &self.VarianceTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("Spatial", &self.Spatial).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1100,15 +1061,7 @@ impl ::core::default::Default for DML_BUFFER_TENSOR_DESC {
 }
 impl ::core::fmt::Debug for DML_BUFFER_TENSOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_BUFFER_TENSOR_DESC")
-            .field("DataType", &self.DataType)
-            .field("Flags", &self.Flags)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Sizes", &self.Sizes)
-            .field("Strides", &self.Strides)
-            .field("TotalTensorSizeInBytes", &self.TotalTensorSizeInBytes)
-            .field("GuaranteedBaseOffsetAlignment", &self.GuaranteedBaseOffsetAlignment)
-            .finish()
+        fmt.debug_struct("DML_BUFFER_TENSOR_DESC").field("DataType", &self.DataType).field("Flags", &self.Flags).field("DimensionCount", &self.DimensionCount).field("Sizes", &self.Sizes).field("Strides", &self.Strides).field("TotalTensorSizeInBytes", &self.TotalTensorSizeInBytes).field("GuaranteedBaseOffsetAlignment", &self.GuaranteedBaseOffsetAlignment).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_BUFFER_TENSOR_DESC {
@@ -1265,20 +1218,7 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
 }
 impl ::core::cmp::PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.FilterTensor == other.FilterTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Mode == other.Mode
-            && self.Direction == other.Direction
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.Dilations == other.Dilations
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.OutputPadding == other.OutputPadding
-            && self.GroupCount == other.GroupCount
-            && self.FusedActivation == other.FusedActivation
+        self.InputTensor == other.InputTensor && self.FilterTensor == other.FilterTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.Mode == other.Mode && self.Direction == other.Direction && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.OutputPadding == other.OutputPadding && self.GroupCount == other.GroupCount && self.FusedActivation == other.FusedActivation
     }
 }
 impl ::core::cmp::Eq for DML_CONVOLUTION_OPERATOR_DESC {}
@@ -3489,14 +3429,7 @@ impl ::core::default::Default for DML_GATHER_ND1_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_GATHER_ND1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("InputDimensionCount", &self.InputDimensionCount)
-            .field("IndicesDimensionCount", &self.IndicesDimensionCount)
-            .field("BatchDimensionCount", &self.BatchDimensionCount)
-            .finish()
+        fmt.debug_struct("DML_GATHER_ND1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).field("BatchDimensionCount", &self.BatchDimensionCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
@@ -3587,17 +3520,7 @@ impl ::core::default::Default for DML_GEMM_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_GEMM_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_GEMM_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("CTensor", &self.CTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("TransA", &self.TransA)
-            .field("TransB", &self.TransB)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .field("FusedActivation", &self.FusedActivation)
-            .finish()
+        fmt.debug_struct("DML_GEMM_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("CTensor", &self.CTensor).field("OutputTensor", &self.OutputTensor).field("TransA", &self.TransA).field("TransB", &self.TransB).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_GEMM_OPERATOR_DESC {
@@ -3631,18 +3554,7 @@ impl ::core::default::Default for DML_GRAPH_DESC {
 }
 impl ::core::fmt::Debug for DML_GRAPH_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_GRAPH_DESC")
-            .field("InputCount", &self.InputCount)
-            .field("OutputCount", &self.OutputCount)
-            .field("NodeCount", &self.NodeCount)
-            .field("Nodes", &self.Nodes)
-            .field("InputEdgeCount", &self.InputEdgeCount)
-            .field("InputEdges", &self.InputEdges)
-            .field("OutputEdgeCount", &self.OutputEdgeCount)
-            .field("OutputEdges", &self.OutputEdges)
-            .field("IntermediateEdgeCount", &self.IntermediateEdgeCount)
-            .field("IntermediateEdges", &self.IntermediateEdges)
-            .finish()
+        fmt.debug_struct("DML_GRAPH_DESC").field("InputCount", &self.InputCount).field("OutputCount", &self.OutputCount).field("NodeCount", &self.NodeCount).field("Nodes", &self.Nodes).field("InputEdgeCount", &self.InputEdgeCount).field("InputEdges", &self.InputEdges).field("OutputEdgeCount", &self.OutputEdgeCount).field("OutputEdges", &self.OutputEdges).field("IntermediateEdgeCount", &self.IntermediateEdgeCount).field("IntermediateEdges", &self.IntermediateEdges).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_GRAPH_DESC {
@@ -3781,18 +3693,7 @@ impl ::core::fmt::Debug for DML_GRU_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_GRU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.WeightTensor == other.WeightTensor
-            && self.RecurrenceTensor == other.RecurrenceTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.HiddenInitTensor == other.HiddenInitTensor
-            && self.SequenceLengthsTensor == other.SequenceLengthsTensor
-            && self.OutputSequenceTensor == other.OutputSequenceTensor
-            && self.OutputSingleTensor == other.OutputSingleTensor
-            && self.ActivationDescCount == other.ActivationDescCount
-            && self.ActivationDescs == other.ActivationDescs
-            && self.Direction == other.Direction
-            && self.LinearBeforeReset == other.LinearBeforeReset
+        self.InputTensor == other.InputTensor && self.WeightTensor == other.WeightTensor && self.RecurrenceTensor == other.RecurrenceTensor && self.BiasTensor == other.BiasTensor && self.HiddenInitTensor == other.HiddenInitTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputSequenceTensor == other.OutputSequenceTensor && self.OutputSingleTensor == other.OutputSingleTensor && self.ActivationDescCount == other.ActivationDescCount && self.ActivationDescs == other.ActivationDescs && self.Direction == other.Direction && self.LinearBeforeReset == other.LinearBeforeReset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3951,16 +3852,7 @@ impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("CrossChannel", &self.CrossChannel)
-            .field("LocalSize", &self.LocalSize)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .field("Bias", &self.Bias)
-            .finish()
+        fmt.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("CrossChannel", &self.CrossChannel).field("LocalSize", &self.LocalSize).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("Bias", &self.Bias).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3998,15 +3890,7 @@ impl ::core::default::Default for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("CrossChannel", &self.CrossChannel)
-            .field("LocalSize", &self.LocalSize)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .field("Bias", &self.Bias)
-            .finish()
+        fmt.debug_struct("DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("CrossChannel", &self.CrossChannel).field("LocalSize", &self.LocalSize).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("Bias", &self.Bias).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4070,16 +3954,7 @@ impl ::core::default::Default for DML_LP_POOLING_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_LP_POOLING_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("P", &self.P)
-            .finish()
+        fmt.debug_struct("DML_LP_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("P", &self.P).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_LP_POOLING_OPERATOR_DESC {
@@ -4235,16 +4110,7 @@ impl ::core::default::Default for DML_MAX_POOLING1_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_MAX_POOLING1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("OutputIndicesTensor", &self.OutputIndicesTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .finish()
+        fmt.debug_struct("DML_MAX_POOLING1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
@@ -4277,17 +4143,7 @@ impl ::core::default::Default for DML_MAX_POOLING2_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_MAX_POOLING2_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("OutputIndicesTensor", &self.OutputIndicesTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("Dilations", &self.Dilations)
-            .finish()
+        fmt.debug_struct("DML_MAX_POOLING2_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
@@ -4320,17 +4176,7 @@ impl ::core::default::Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_MAX_POOLING_GRAD_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .field("Dilations", &self.Dilations)
-            .finish()
+        fmt.debug_struct("DML_MAX_POOLING_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
@@ -4361,15 +4207,7 @@ impl ::core::default::Default for DML_MAX_POOLING_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_MAX_POOLING_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Strides", &self.Strides)
-            .field("WindowSize", &self.WindowSize)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .finish()
+        fmt.debug_struct("DML_MAX_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
@@ -4433,17 +4271,7 @@ impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ScaleTensor", &self.ScaleTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("AxisCount", &self.AxisCount)
-            .field("Axes", &self.Axes)
-            .field("NormalizeVariance", &self.NormalizeVariance)
-            .field("Epsilon", &self.Epsilon)
-            .field("FusedActivation", &self.FusedActivation)
-            .finish()
+        fmt.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("NormalizeVariance", &self.NormalizeVariance).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4482,16 +4310,7 @@ impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC 
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ScaleTensor", &self.ScaleTensor)
-            .field("BiasTensor", &self.BiasTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("CrossChannel", &self.CrossChannel)
-            .field("NormalizeVariance", &self.NormalizeVariance)
-            .field("Epsilon", &self.Epsilon)
-            .field("FusedActivation", &self.FusedActivation)
-            .finish()
+        fmt.debug_struct("DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("BiasTensor", &self.BiasTensor).field("OutputTensor", &self.OutputTensor).field("CrossChannel", &self.CrossChannel).field("NormalizeVariance", &self.NormalizeVariance).field("Epsilon", &self.Epsilon).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4852,15 +4671,7 @@ impl ::core::default::Default for DML_PADDING_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_PADDING_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_PADDING_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("PaddingMode", &self.PaddingMode)
-            .field("PaddingValue", &self.PaddingValue)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("StartPadding", &self.StartPadding)
-            .field("EndPadding", &self.EndPadding)
-            .finish()
+        fmt.debug_struct("DML_PADDING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("PaddingMode", &self.PaddingMode).field("PaddingValue", &self.PaddingValue).field("DimensionCount", &self.DimensionCount).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_PADDING_OPERATOR_DESC {
@@ -4923,22 +4734,7 @@ impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
 }
 impl ::core::cmp::PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputScaleTensor == other.InputScaleTensor
-            && self.InputZeroPointTensor == other.InputZeroPointTensor
-            && self.FilterTensor == other.FilterTensor
-            && self.FilterScaleTensor == other.FilterScaleTensor
-            && self.FilterZeroPointTensor == other.FilterZeroPointTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.OutputScaleTensor == other.OutputScaleTensor
-            && self.OutputZeroPointTensor == other.OutputZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.Dilations == other.Dilations
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.GroupCount == other.GroupCount
+        self.InputTensor == other.InputTensor && self.InputScaleTensor == other.InputScaleTensor && self.InputZeroPointTensor == other.InputZeroPointTensor && self.FilterTensor == other.FilterTensor && self.FilterScaleTensor == other.FilterScaleTensor && self.FilterZeroPointTensor == other.FilterZeroPointTensor && self.BiasTensor == other.BiasTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.GroupCount == other.GroupCount
     }
 }
 impl ::core::cmp::Eq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
@@ -5113,15 +4909,7 @@ impl ::core::default::Default for DML_RESAMPLE1_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_RESAMPLE1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Scales", &self.Scales)
-            .field("InputPixelOffsets", &self.InputPixelOffsets)
-            .field("OutputPixelOffsets", &self.OutputPixelOffsets)
-            .finish()
+        fmt.debug_struct("DML_RESAMPLE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
@@ -5152,15 +4940,7 @@ impl ::core::default::Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_RESAMPLE_GRAD_OPERATOR_DESC")
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Scales", &self.Scales)
-            .field("InputPixelOffsets", &self.InputPixelOffsets)
-            .field("OutputPixelOffsets", &self.OutputPixelOffsets)
-            .finish()
+        fmt.debug_struct("DML_RESAMPLE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
@@ -5269,17 +5049,7 @@ impl ::core::fmt::Debug for DML_RNN_OPERATOR_DESC {
 }
 impl ::core::cmp::PartialEq for DML_RNN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.WeightTensor == other.WeightTensor
-            && self.RecurrenceTensor == other.RecurrenceTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.HiddenInitTensor == other.HiddenInitTensor
-            && self.SequenceLengthsTensor == other.SequenceLengthsTensor
-            && self.OutputSequenceTensor == other.OutputSequenceTensor
-            && self.OutputSingleTensor == other.OutputSingleTensor
-            && self.ActivationDescCount == other.ActivationDescCount
-            && self.ActivationDescs == other.ActivationDescs
-            && self.Direction == other.Direction
+        self.InputTensor == other.InputTensor && self.WeightTensor == other.WeightTensor && self.RecurrenceTensor == other.RecurrenceTensor && self.BiasTensor == other.BiasTensor && self.HiddenInitTensor == other.HiddenInitTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputSequenceTensor == other.OutputSequenceTensor && self.OutputSingleTensor == other.OutputSingleTensor && self.ActivationDescCount == other.ActivationDescCount && self.ActivationDescs == other.ActivationDescs && self.Direction == other.Direction
     }
 }
 impl ::core::cmp::Eq for DML_RNN_OPERATOR_DESC {}
@@ -5337,20 +5107,7 @@ impl ::core::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_ROI_ALIGN1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ROITensor == other.ROITensor
-            && self.BatchIndicesTensor == other.BatchIndicesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ReductionFunction == other.ReductionFunction
-            && self.InterpolationMode == other.InterpolationMode
-            && self.SpatialScaleX == other.SpatialScaleX
-            && self.SpatialScaleY == other.SpatialScaleY
-            && self.InputPixelOffset == other.InputPixelOffset
-            && self.OutputPixelOffset == other.OutputPixelOffset
-            && self.OutOfBoundsInputValue == other.OutOfBoundsInputValue
-            && self.MinimumSamplesPerOutput == other.MinimumSamplesPerOutput
-            && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput
-            && self.AlignRegionsToCorners == other.AlignRegionsToCorners
+        self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.BatchIndicesTensor == other.BatchIndicesTensor && self.OutputTensor == other.OutputTensor && self.ReductionFunction == other.ReductionFunction && self.InterpolationMode == other.InterpolationMode && self.SpatialScaleX == other.SpatialScaleX && self.SpatialScaleY == other.SpatialScaleY && self.InputPixelOffset == other.InputPixelOffset && self.OutputPixelOffset == other.OutputPixelOffset && self.OutOfBoundsInputValue == other.OutOfBoundsInputValue && self.MinimumSamplesPerOutput == other.MinimumSamplesPerOutput && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput && self.AlignRegionsToCorners == other.AlignRegionsToCorners
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5399,17 +5156,7 @@ impl ::core::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
 }
 impl ::core::cmp::PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ROITensor == other.ROITensor
-            && self.BatchIndicesTensor == other.BatchIndicesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ReductionFunction == other.ReductionFunction
-            && self.InterpolationMode == other.InterpolationMode
-            && self.SpatialScaleX == other.SpatialScaleX
-            && self.SpatialScaleY == other.SpatialScaleY
-            && self.OutOfBoundsInputValue == other.OutOfBoundsInputValue
-            && self.MinimumSamplesPerOutput == other.MinimumSamplesPerOutput
-            && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput
+        self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.BatchIndicesTensor == other.BatchIndicesTensor && self.OutputTensor == other.OutputTensor && self.ReductionFunction == other.ReductionFunction && self.InterpolationMode == other.InterpolationMode && self.SpatialScaleX == other.SpatialScaleX && self.SpatialScaleY == other.SpatialScaleY && self.OutOfBoundsInputValue == other.OutOfBoundsInputValue && self.MinimumSamplesPerOutput == other.MinimumSamplesPerOutput && self.MaximumSamplesPerOutput == other.MaximumSamplesPerOutput
     }
 }
 impl ::core::cmp::Eq for DML_ROI_ALIGN_OPERATOR_DESC {}
@@ -5533,14 +5280,7 @@ impl ::core::default::Default for DML_SCATTER_ND_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_SCATTER_ND_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("UpdatesTensor", &self.UpdatesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("InputDimensionCount", &self.InputDimensionCount)
-            .field("IndicesDimensionCount", &self.IndicesDimensionCount)
-            .finish()
+        fmt.debug_struct("DML_SCATTER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
@@ -5625,14 +5365,7 @@ impl ::core::default::Default for DML_SLICE1_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_SLICE1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("InputWindowOffsets", &self.InputWindowOffsets)
-            .field("InputWindowSizes", &self.InputWindowSizes)
-            .field("InputWindowStrides", &self.InputWindowStrides)
-            .finish()
+        fmt.debug_struct("DML_SLICE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_SLICE1_OPERATOR_DESC {
@@ -5662,14 +5395,7 @@ impl ::core::default::Default for DML_SLICE_GRAD_OPERATOR_DESC {
 }
 impl ::core::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DML_SLICE_GRAD_OPERATOR_DESC")
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("InputWindowOffsets", &self.InputWindowOffsets)
-            .field("InputWindowSizes", &self.InputWindowSizes)
-            .field("InputWindowStrides", &self.InputWindowStrides)
-            .finish()
+        fmt.debug_struct("DML_SLICE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
     }
 }
 impl ::core::cmp::PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {

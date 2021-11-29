@@ -405,37 +405,7 @@ impl ::core::fmt::Debug for ARM64_NT_CONTEXT_0_0 {
 #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::core::cmp::PartialEq for ARM64_NT_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.X0 == other.X0
-            && self.X1 == other.X1
-            && self.X2 == other.X2
-            && self.X3 == other.X3
-            && self.X4 == other.X4
-            && self.X5 == other.X5
-            && self.X6 == other.X6
-            && self.X7 == other.X7
-            && self.X8 == other.X8
-            && self.X9 == other.X9
-            && self.X10 == other.X10
-            && self.X11 == other.X11
-            && self.X12 == other.X12
-            && self.X13 == other.X13
-            && self.X14 == other.X14
-            && self.X15 == other.X15
-            && self.X16 == other.X16
-            && self.X17 == other.X17
-            && self.X18 == other.X18
-            && self.X19 == other.X19
-            && self.X20 == other.X20
-            && self.X21 == other.X21
-            && self.X22 == other.X22
-            && self.X23 == other.X23
-            && self.X24 == other.X24
-            && self.X25 == other.X25
-            && self.X26 == other.X26
-            && self.X27 == other.X27
-            && self.X28 == other.X28
-            && self.Fp == other.Fp
-            && self.Lr == other.Lr
+        self.X0 == other.X0 && self.X1 == other.X1 && self.X2 == other.X2 && self.X3 == other.X3 && self.X4 == other.X4 && self.X5 == other.X5 && self.X6 == other.X6 && self.X7 == other.X7 && self.X8 == other.X8 && self.X9 == other.X9 && self.X10 == other.X10 && self.X11 == other.X11 && self.X12 == other.X12 && self.X13 == other.X13 && self.X14 == other.X14 && self.X15 == other.X15 && self.X16 == other.X16 && self.X17 == other.X17 && self.X18 == other.X18 && self.X19 == other.X19 && self.X20 == other.X20 && self.X21 == other.X21 && self.X22 == other.X22 && self.X23 == other.X23 && self.X24 == other.X24 && self.X25 == other.X25 && self.X26 == other.X26 && self.X27 == other.X27 && self.X28 == other.X28 && self.Fp == other.Fp && self.Lr == other.Lr
     }
 }
 #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
@@ -496,7 +466,7 @@ unsafe impl ::windows::core::Abi for ARM64_NT_NEON128_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn AddVectoredContinueHandler(first: u32, handler: ::core::option::Option<PVECTORED_EXCEPTION_HANDLER>) -> *mut ::core::ffi::c_void {
+pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -510,7 +480,7 @@ pub unsafe fn AddVectoredContinueHandler(first: u32, handler: ::core::option::Op
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: ::core::option::Option<PVECTORED_EXCEPTION_HANDLER>) -> *mut ::core::ffi::c_void {
+pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1260,7 +1230,7 @@ pub unsafe fn BindImage<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BindImageEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(flags: u32, imagename: Param1, dllpath: Param2, symbolpath: Param3, statusroutine: ::core::option::Option<PIMAGEHLP_STATUS_ROUTINE>) -> super::super::super::Foundation::BOOL {
+pub unsafe fn BindImageEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(flags: u32, imagename: Param1, dllpath: Param2, symbolpath: Param3, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1473,37 +1443,7 @@ impl ::core::fmt::Debug for CONTEXT_0_0 {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.X0 == other.X0
-            && self.X1 == other.X1
-            && self.X2 == other.X2
-            && self.X3 == other.X3
-            && self.X4 == other.X4
-            && self.X5 == other.X5
-            && self.X6 == other.X6
-            && self.X7 == other.X7
-            && self.X8 == other.X8
-            && self.X9 == other.X9
-            && self.X10 == other.X10
-            && self.X11 == other.X11
-            && self.X12 == other.X12
-            && self.X13 == other.X13
-            && self.X14 == other.X14
-            && self.X15 == other.X15
-            && self.X16 == other.X16
-            && self.X17 == other.X17
-            && self.X18 == other.X18
-            && self.X19 == other.X19
-            && self.X20 == other.X20
-            && self.X21 == other.X21
-            && self.X22 == other.X22
-            && self.X23 == other.X23
-            && self.X24 == other.X24
-            && self.X25 == other.X25
-            && self.X26 == other.X26
-            && self.X27 == other.X27
-            && self.X28 == other.X28
-            && self.Fp == other.Fp
-            && self.Lr == other.Lr
+        self.X0 == other.X0 && self.X1 == other.X1 && self.X2 == other.X2 && self.X3 == other.X3 && self.X4 == other.X4 && self.X5 == other.X5 && self.X6 == other.X6 && self.X7 == other.X7 && self.X8 == other.X8 && self.X9 == other.X9 && self.X10 == other.X10 && self.X11 == other.X11 && self.X12 == other.X12 && self.X13 == other.X13 && self.X14 == other.X14 && self.X15 == other.X15 && self.X16 == other.X16 && self.X17 == other.X17 && self.X18 == other.X18 && self.X19 == other.X19 && self.X20 == other.X20 && self.X21 == other.X21 && self.X22 == other.X22 && self.X23 == other.X23 && self.X24 == other.X24 && self.X25 == other.X25 && self.X26 == other.X26 && self.X27 == other.X27 && self.X28 == other.X28 && self.Fp == other.Fp && self.Lr == other.Lr
     }
 }
 #[cfg(any(target_arch = "aarch64",))]
@@ -1688,24 +1628,7 @@ impl ::core::fmt::Debug for CONTEXT_0_0 {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Legacy == other.Legacy
-            && self.Xmm0 == other.Xmm0
-            && self.Xmm1 == other.Xmm1
-            && self.Xmm2 == other.Xmm2
-            && self.Xmm3 == other.Xmm3
-            && self.Xmm4 == other.Xmm4
-            && self.Xmm5 == other.Xmm5
-            && self.Xmm6 == other.Xmm6
-            && self.Xmm7 == other.Xmm7
-            && self.Xmm8 == other.Xmm8
-            && self.Xmm9 == other.Xmm9
-            && self.Xmm10 == other.Xmm10
-            && self.Xmm11 == other.Xmm11
-            && self.Xmm12 == other.Xmm12
-            && self.Xmm13 == other.Xmm13
-            && self.Xmm14 == other.Xmm14
-            && self.Xmm15 == other.Xmm15
+        self.Header == other.Header && self.Legacy == other.Legacy && self.Xmm0 == other.Xmm0 && self.Xmm1 == other.Xmm1 && self.Xmm2 == other.Xmm2 && self.Xmm3 == other.Xmm3 && self.Xmm4 == other.Xmm4 && self.Xmm5 == other.Xmm5 && self.Xmm6 == other.Xmm6 && self.Xmm7 == other.Xmm7 && self.Xmm8 == other.Xmm8 && self.Xmm9 == other.Xmm9 && self.Xmm10 == other.Xmm10 && self.Xmm11 == other.Xmm11 && self.Xmm12 == other.Xmm12 && self.Xmm13 == other.Xmm13 && self.Xmm14 == other.Xmm14 && self.Xmm15 == other.Xmm15
     }
 }
 #[cfg(any(target_arch = "x86_64",))]
@@ -1794,31 +1717,7 @@ impl ::core::fmt::Debug for CONTEXT {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags
-            && self.Dr0 == other.Dr0
-            && self.Dr1 == other.Dr1
-            && self.Dr2 == other.Dr2
-            && self.Dr3 == other.Dr3
-            && self.Dr6 == other.Dr6
-            && self.Dr7 == other.Dr7
-            && self.FloatSave == other.FloatSave
-            && self.SegGs == other.SegGs
-            && self.SegFs == other.SegFs
-            && self.SegEs == other.SegEs
-            && self.SegDs == other.SegDs
-            && self.Edi == other.Edi
-            && self.Esi == other.Esi
-            && self.Ebx == other.Ebx
-            && self.Edx == other.Edx
-            && self.Ecx == other.Ecx
-            && self.Eax == other.Eax
-            && self.Ebp == other.Ebp
-            && self.Eip == other.Eip
-            && self.SegCs == other.SegCs
-            && self.EFlags == other.EFlags
-            && self.Esp == other.Esp
-            && self.SegSs == other.SegSs
-            && self.ExtendedRegisters == other.ExtendedRegisters
+        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1898,7 +1797,7 @@ impl ::core::cmp::Eq for CPU_INFORMATION_1 {}
 unsafe impl ::windows::core::Abi for CPU_INFORMATION_1 {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_PROCESS_DEBUG_INFO {
@@ -1909,7 +1808,7 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub dwDebugInfoFileOffset: u32,
     pub nDebugInfoSize: u32,
     pub lpThreadLocalBase: *mut ::core::ffi::c_void,
-    pub lpStartAddress: ::core::option::Option<super::super::Threading::LPTHREAD_START_ROUTINE>,
+    pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
     pub lpImageName: *mut ::core::ffi::c_void,
     pub fUnicode: u16,
 }
@@ -1924,17 +1823,7 @@ impl ::core::default::Default for CREATE_PROCESS_DEBUG_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 impl ::core::fmt::Debug for CREATE_PROCESS_DEBUG_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATE_PROCESS_DEBUG_INFO")
-            .field("hFile", &self.hFile)
-            .field("hProcess", &self.hProcess)
-            .field("hThread", &self.hThread)
-            .field("lpBaseOfImage", &self.lpBaseOfImage)
-            .field("dwDebugInfoFileOffset", &self.dwDebugInfoFileOffset)
-            .field("nDebugInfoSize", &self.nDebugInfoSize)
-            .field("lpThreadLocalBase", &self.lpThreadLocalBase)
-            .field("lpImageName", &self.lpImageName)
-            .field("fUnicode", &self.fUnicode)
-            .finish()
+        fmt.debug_struct("CREATE_PROCESS_DEBUG_INFO").field("hFile", &self.hFile).field("hProcess", &self.hProcess).field("hThread", &self.hThread).field("lpBaseOfImage", &self.lpBaseOfImage).field("dwDebugInfoFileOffset", &self.dwDebugInfoFileOffset).field("nDebugInfoSize", &self.nDebugInfoSize).field("lpThreadLocalBase", &self.lpThreadLocalBase).field("lpImageName", &self.lpImageName).field("fUnicode", &self.fUnicode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
@@ -1947,15 +1836,15 @@ impl ::core::cmp::PartialEq for CREATE_PROCESS_DEBUG_INFO {
 impl ::core::cmp::Eq for CREATE_PROCESS_DEBUG_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for CREATE_PROCESS_DEBUG_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut ::core::ffi::c_void,
-    pub lpStartAddress: ::core::option::Option<super::super::Threading::LPTHREAD_START_ROUTINE>,
+    pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 impl CREATE_THREAD_DEBUG_INFO {}
@@ -1981,7 +1870,7 @@ impl ::core::cmp::PartialEq for CREATE_THREAD_DEBUG_INFO {
 impl ::core::cmp::Eq for CREATE_THREAD_DEBUG_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for CREATE_THREAD_DEBUG_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
@@ -2246,20 +2135,7 @@ impl ::core::fmt::Debug for DBGKD_GET_VERSION32 {
 }
 impl ::core::cmp::PartialEq for DBGKD_GET_VERSION32 {
     fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.ProtocolVersion == other.ProtocolVersion
-            && self.Flags == other.Flags
-            && self.KernBase == other.KernBase
-            && self.PsLoadedModuleList == other.PsLoadedModuleList
-            && self.MachineType == other.MachineType
-            && self.ThCallbackStack == other.ThCallbackStack
-            && self.NextCallback == other.NextCallback
-            && self.FramePointer == other.FramePointer
-            && self.KiCallUserMode == other.KiCallUserMode
-            && self.KeUserCallbackDispatcher == other.KeUserCallbackDispatcher
-            && self.BreakpointWithStatus == other.BreakpointWithStatus
-            && self.DebuggerDataList == other.DebuggerDataList
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ProtocolVersion == other.ProtocolVersion && self.Flags == other.Flags && self.KernBase == other.KernBase && self.PsLoadedModuleList == other.PsLoadedModuleList && self.MachineType == other.MachineType && self.ThCallbackStack == other.ThCallbackStack && self.NextCallback == other.NextCallback && self.FramePointer == other.FramePointer && self.KiCallUserMode == other.KiCallUserMode && self.KeUserCallbackDispatcher == other.KeUserCallbackDispatcher && self.BreakpointWithStatus == other.BreakpointWithStatus && self.DebuggerDataList == other.DebuggerDataList
     }
 }
 impl ::core::cmp::Eq for DBGKD_GET_VERSION32 {}
@@ -2312,20 +2188,7 @@ impl ::core::fmt::Debug for DBGKD_GET_VERSION64 {
 }
 impl ::core::cmp::PartialEq for DBGKD_GET_VERSION64 {
     fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.ProtocolVersion == other.ProtocolVersion
-            && self.KdSecondaryVersion == other.KdSecondaryVersion
-            && self.Flags == other.Flags
-            && self.MachineType == other.MachineType
-            && self.MaxPacketType == other.MaxPacketType
-            && self.MaxStateChange == other.MaxStateChange
-            && self.MaxManipulate == other.MaxManipulate
-            && self.Simulation == other.Simulation
-            && self.Unused == other.Unused
-            && self.KernBase == other.KernBase
-            && self.PsLoadedModuleList == other.PsLoadedModuleList
-            && self.DebuggerDataList == other.DebuggerDataList
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ProtocolVersion == other.ProtocolVersion && self.KdSecondaryVersion == other.KdSecondaryVersion && self.Flags == other.Flags && self.MachineType == other.MachineType && self.MaxPacketType == other.MaxPacketType && self.MaxStateChange == other.MaxStateChange && self.MaxManipulate == other.MaxManipulate && self.Simulation == other.Simulation && self.Unused == other.Unused && self.KernBase == other.KernBase && self.PsLoadedModuleList == other.PsLoadedModuleList && self.DebuggerDataList == other.DebuggerDataList
     }
 }
 impl ::core::cmp::Eq for DBGKD_GET_VERSION64 {}
@@ -2927,12 +2790,7 @@ pub const DEBUG_ENGOPT_NO_EXECUTE_REPEAT: u32 = 256u32;
 pub const DEBUG_ENGOPT_PREFER_DML: u32 = 262144u32;
 pub const DEBUG_ENGOPT_PREFER_TRACE_FILES: u32 = 8388608u32;
 pub const DEBUG_ENGOPT_SYNCHRONIZE_BREAKPOINTS: u32 = 2048u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-impl ::core::clone::Clone for DEBUG_EVENT {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct DEBUG_EVENT {
@@ -2959,20 +2817,15 @@ impl ::core::cmp::PartialEq for DEBUG_EVENT {
 impl ::core::cmp::Eq for DEBUG_EVENT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for DEBUG_EVENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-impl ::core::clone::Clone for DEBUG_EVENT_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
-    pub CreateThread: ::core::mem::ManuallyDrop<CREATE_THREAD_DEBUG_INFO>,
-    pub CreateProcessInfo: ::core::mem::ManuallyDrop<CREATE_PROCESS_DEBUG_INFO>,
+    pub CreateThread: CREATE_THREAD_DEBUG_INFO,
+    pub CreateProcessInfo: CREATE_PROCESS_DEBUG_INFO,
     pub ExitThread: EXIT_THREAD_DEBUG_INFO,
     pub ExitProcess: EXIT_PROCESS_DEBUG_INFO,
     pub LoadDll: LOAD_DLL_DEBUG_INFO,
@@ -2998,7 +2851,7 @@ impl ::core::cmp::PartialEq for DEBUG_EVENT_0 {
 impl ::core::cmp::Eq for DEBUG_EVENT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for DEBUG_EVENT_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DEBUG_EVENT_BREAKPOINT: u32 = 1u32;
 pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: u32 = 1024u32;
@@ -3123,14 +2976,7 @@ impl ::core::default::Default for DEBUG_EXCEPTION_FILTER_PARAMETERS {
 }
 impl ::core::fmt::Debug for DEBUG_EXCEPTION_FILTER_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_EXCEPTION_FILTER_PARAMETERS")
-            .field("ExecutionOption", &self.ExecutionOption)
-            .field("ContinueOption", &self.ContinueOption)
-            .field("TextSize", &self.TextSize)
-            .field("CommandSize", &self.CommandSize)
-            .field("SecondCommandSize", &self.SecondCommandSize)
-            .field("ExceptionCode", &self.ExceptionCode)
-            .finish()
+        fmt.debug_struct("DEBUG_EXCEPTION_FILTER_PARAMETERS").field("ExecutionOption", &self.ExecutionOption).field("ContinueOption", &self.ContinueOption).field("TextSize", &self.TextSize).field("CommandSize", &self.CommandSize).field("SecondCommandSize", &self.SecondCommandSize).field("ExceptionCode", &self.ExceptionCode).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_EXCEPTION_FILTER_PARAMETERS {
@@ -3311,14 +3157,7 @@ impl ::core::default::Default for DEBUG_HANDLE_DATA_BASIC {
 }
 impl ::core::fmt::Debug for DEBUG_HANDLE_DATA_BASIC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_HANDLE_DATA_BASIC")
-            .field("TypeNameSize", &self.TypeNameSize)
-            .field("ObjectNameSize", &self.ObjectNameSize)
-            .field("Attributes", &self.Attributes)
-            .field("GrantedAccess", &self.GrantedAccess)
-            .field("HandleCount", &self.HandleCount)
-            .field("PointerCount", &self.PointerCount)
-            .finish()
+        fmt.debug_struct("DEBUG_HANDLE_DATA_BASIC").field("TypeNameSize", &self.TypeNameSize).field("ObjectNameSize", &self.ObjectNameSize).field("Attributes", &self.Attributes).field("GrantedAccess", &self.GrantedAccess).field("HandleCount", &self.HandleCount).field("PointerCount", &self.PointerCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_HANDLE_DATA_BASIC {
@@ -3670,18 +3509,7 @@ impl ::core::fmt::Debug for DEBUG_MODULE_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for DEBUG_MODULE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base
-            && self.Size == other.Size
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.Checksum == other.Checksum
-            && self.Flags == other.Flags
-            && self.SymbolType == other.SymbolType
-            && self.ImageNameSize == other.ImageNameSize
-            && self.ModuleNameSize == other.ModuleNameSize
-            && self.LoadedImageNameSize == other.LoadedImageNameSize
-            && self.SymbolFileNameSize == other.SymbolFileNameSize
-            && self.MappedImageNameSize == other.MappedImageNameSize
-            && self.Reserved == other.Reserved
+        self.Base == other.Base && self.Size == other.Size && self.TimeDateStamp == other.TimeDateStamp && self.Checksum == other.Checksum && self.Flags == other.Flags && self.SymbolType == other.SymbolType && self.ImageNameSize == other.ImageNameSize && self.ModuleNameSize == other.ModuleNameSize && self.LoadedImageNameSize == other.LoadedImageNameSize && self.SymbolFileNameSize == other.SymbolFileNameSize && self.MappedImageNameSize == other.MappedImageNameSize && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for DEBUG_MODULE_PARAMETERS {}
@@ -4076,15 +3904,7 @@ impl ::core::default::Default for DEBUG_REGISTER_DESCRIPTION {
 }
 impl ::core::fmt::Debug for DEBUG_REGISTER_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_REGISTER_DESCRIPTION")
-            .field("Type", &self.Type)
-            .field("Flags", &self.Flags)
-            .field("SubregMaster", &self.SubregMaster)
-            .field("SubregLength", &self.SubregLength)
-            .field("SubregMask", &self.SubregMask)
-            .field("SubregShift", &self.SubregShift)
-            .field("Reserved0", &self.Reserved0)
-            .finish()
+        fmt.debug_struct("DEBUG_REGISTER_DESCRIPTION").field("Type", &self.Type).field("Flags", &self.Flags).field("SubregMaster", &self.SubregMaster).field("SubregLength", &self.SubregLength).field("SubregMask", &self.SubregMask).field("SubregShift", &self.SubregShift).field("Reserved0", &self.Reserved0).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_REGISTER_DESCRIPTION {
@@ -4228,17 +4048,7 @@ impl ::core::default::Default for DEBUG_STACK_FRAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEBUG_STACK_FRAME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_STACK_FRAME")
-            .field("InstructionOffset", &self.InstructionOffset)
-            .field("ReturnOffset", &self.ReturnOffset)
-            .field("FrameOffset", &self.FrameOffset)
-            .field("StackOffset", &self.StackOffset)
-            .field("FuncTableEntry", &self.FuncTableEntry)
-            .field("Params", &self.Params)
-            .field("Reserved", &self.Reserved)
-            .field("Virtual", &self.Virtual)
-            .field("FrameNumber", &self.FrameNumber)
-            .finish()
+        fmt.debug_struct("DEBUG_STACK_FRAME").field("InstructionOffset", &self.InstructionOffset).field("ReturnOffset", &self.ReturnOffset).field("FrameOffset", &self.FrameOffset).field("StackOffset", &self.StackOffset).field("FuncTableEntry", &self.FuncTableEntry).field("Params", &self.Params).field("Reserved", &self.Reserved).field("Virtual", &self.Virtual).field("FrameNumber", &self.FrameNumber).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4364,20 +4174,7 @@ impl ::core::default::Default for DEBUG_SYMBOL_ENTRY {
 }
 impl ::core::fmt::Debug for DEBUG_SYMBOL_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_SYMBOL_ENTRY")
-            .field("ModuleBase", &self.ModuleBase)
-            .field("Offset", &self.Offset)
-            .field("Id", &self.Id)
-            .field("Arg64", &self.Arg64)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TypeId", &self.TypeId)
-            .field("NameSize", &self.NameSize)
-            .field("Token", &self.Token)
-            .field("Tag", &self.Tag)
-            .field("Arg32", &self.Arg32)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DEBUG_SYMBOL_ENTRY").field("ModuleBase", &self.ModuleBase).field("Offset", &self.Offset).field("Id", &self.Id).field("Arg64", &self.Arg64).field("Size", &self.Size).field("Flags", &self.Flags).field("TypeId", &self.TypeId).field("NameSize", &self.NameSize).field("Token", &self.Token).field("Tag", &self.Tag).field("Arg32", &self.Arg32).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_SYMBOL_ENTRY {
@@ -4450,20 +4247,7 @@ impl ::core::default::Default for DEBUG_SYMBOL_SOURCE_ENTRY {
 }
 impl ::core::fmt::Debug for DEBUG_SYMBOL_SOURCE_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_SYMBOL_SOURCE_ENTRY")
-            .field("ModuleBase", &self.ModuleBase)
-            .field("Offset", &self.Offset)
-            .field("FileNameId", &self.FileNameId)
-            .field("EngineInternal", &self.EngineInternal)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("FileNameSize", &self.FileNameSize)
-            .field("StartLine", &self.StartLine)
-            .field("EndLine", &self.EndLine)
-            .field("StartColumn", &self.StartColumn)
-            .field("EndColumn", &self.EndColumn)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DEBUG_SYMBOL_SOURCE_ENTRY").field("ModuleBase", &self.ModuleBase).field("Offset", &self.Offset).field("FileNameId", &self.FileNameId).field("EngineInternal", &self.EngineInternal).field("Size", &self.Size).field("Flags", &self.Flags).field("FileNameSize", &self.FileNameSize).field("StartLine", &self.StartLine).field("EndLine", &self.EndLine).field("StartColumn", &self.StartColumn).field("EndColumn", &self.EndColumn).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_SYMBOL_SOURCE_ENTRY {
@@ -4534,18 +4318,7 @@ impl ::core::default::Default for DEBUG_THREAD_BASIC_INFORMATION {
 }
 impl ::core::fmt::Debug for DEBUG_THREAD_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_THREAD_BASIC_INFORMATION")
-            .field("Valid", &self.Valid)
-            .field("ExitStatus", &self.ExitStatus)
-            .field("PriorityClass", &self.PriorityClass)
-            .field("Priority", &self.Priority)
-            .field("CreateTime", &self.CreateTime)
-            .field("ExitTime", &self.ExitTime)
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .field("StartOffset", &self.StartOffset)
-            .field("Affinity", &self.Affinity)
-            .finish()
+        fmt.debug_struct("DEBUG_THREAD_BASIC_INFORMATION").field("Valid", &self.Valid).field("ExitStatus", &self.ExitStatus).field("PriorityClass", &self.PriorityClass).field("Priority", &self.Priority).field("CreateTime", &self.CreateTime).field("ExitTime", &self.ExitTime).field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).field("StartOffset", &self.StartOffset).field("Affinity", &self.Affinity).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_THREAD_BASIC_INFORMATION {
@@ -4580,19 +4353,7 @@ impl ::core::default::Default for DEBUG_TYPED_DATA {
 }
 impl ::core::fmt::Debug for DEBUG_TYPED_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUG_TYPED_DATA")
-            .field("ModBase", &self.ModBase)
-            .field("Offset", &self.Offset)
-            .field("EngineHandle", &self.EngineHandle)
-            .field("Data", &self.Data)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TypeId", &self.TypeId)
-            .field("BaseTypeId", &self.BaseTypeId)
-            .field("Tag", &self.Tag)
-            .field("Register", &self.Register)
-            .field("Internal", &self.Internal)
-            .finish()
+        fmt.debug_struct("DEBUG_TYPED_DATA").field("ModBase", &self.ModBase).field("Offset", &self.Offset).field("EngineHandle", &self.EngineHandle).field("Data", &self.Data).field("Size", &self.Size).field("Flags", &self.Flags).field("TypeId", &self.TypeId).field("BaseTypeId", &self.BaseTypeId).field("Tag", &self.Tag).field("Register", &self.Register).field("Internal", &self.Internal).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEBUG_TYPED_DATA {
@@ -4812,8 +4573,8 @@ pub const DEBUG_VSOURCE_INVALID: u32 = 0u32;
 pub const DEBUG_VSOURCE_MAPPED_IMAGE: u32 = 2u32;
 pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DIGEST_FUNCTION = unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL;
-#[derive(:: core :: clone :: Clone)]
+pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4824,7 +4585,7 @@ pub struct DISPATCHER_CONTEXT {
     pub EstablisherFrame: usize,
     pub TargetPc: usize,
     pub ContextRecord: *mut CONTEXT,
-    pub LanguageHandler: ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>,
+    pub LanguageHandler: super::super::Kernel::EXCEPTION_ROUTINE,
     pub HandlerData: *mut ::core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
@@ -4864,18 +4625,7 @@ impl ::core::fmt::Debug for DISPATCHER_CONTEXT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ControlPc == other.ControlPc
-            && self.ImageBase == other.ImageBase
-            && self.FunctionEntry == other.FunctionEntry
-            && self.EstablisherFrame == other.EstablisherFrame
-            && self.TargetPc == other.TargetPc
-            && self.ContextRecord == other.ContextRecord
-            && self.LanguageHandler.map(|f| f as usize) == other.LanguageHandler.map(|f| f as usize)
-            && self.HandlerData == other.HandlerData
-            && self.HistoryTable == other.HistoryTable
-            && self.ScopeIndex == other.ScopeIndex
-            && self.ControlPcIsUnwound == other.ControlPcIsUnwound
-            && self.NonVolatileRegisters == other.NonVolatileRegisters
+        self.ControlPc == other.ControlPc && self.ImageBase == other.ImageBase && self.FunctionEntry == other.FunctionEntry && self.EstablisherFrame == other.EstablisherFrame && self.TargetPc == other.TargetPc && self.ContextRecord == other.ContextRecord && self.LanguageHandler.map(|f| f as usize) == other.LanguageHandler.map(|f| f as usize) && self.HandlerData == other.HandlerData && self.HistoryTable == other.HistoryTable && self.ScopeIndex == other.ScopeIndex && self.ControlPcIsUnwound == other.ControlPcIsUnwound && self.NonVolatileRegisters == other.NonVolatileRegisters
     }
 }
 #[cfg(any(target_arch = "aarch64",))]
@@ -4884,9 +4634,9 @@ impl ::core::cmp::Eq for DISPATCHER_CONTEXT {}
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4897,7 +4647,7 @@ pub struct DISPATCHER_CONTEXT {
     pub EstablisherFrame: u64,
     pub TargetIp: u64,
     pub ContextRecord: *mut CONTEXT,
-    pub LanguageHandler: ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>,
+    pub LanguageHandler: super::super::Kernel::EXCEPTION_ROUTINE,
     pub HandlerData: *mut ::core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
@@ -4917,18 +4667,7 @@ impl ::core::default::Default for DISPATCHER_CONTEXT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for DISPATCHER_CONTEXT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISPATCHER_CONTEXT")
-            .field("ControlPc", &self.ControlPc)
-            .field("ImageBase", &self.ImageBase)
-            .field("FunctionEntry", &self.FunctionEntry)
-            .field("EstablisherFrame", &self.EstablisherFrame)
-            .field("TargetIp", &self.TargetIp)
-            .field("ContextRecord", &self.ContextRecord)
-            .field("HandlerData", &self.HandlerData)
-            .field("HistoryTable", &self.HistoryTable)
-            .field("ScopeIndex", &self.ScopeIndex)
-            .field("Fill0", &self.Fill0)
-            .finish()
+        fmt.debug_struct("DISPATCHER_CONTEXT").field("ControlPc", &self.ControlPc).field("ImageBase", &self.ImageBase).field("FunctionEntry", &self.FunctionEntry).field("EstablisherFrame", &self.EstablisherFrame).field("TargetIp", &self.TargetIp).field("ContextRecord", &self.ContextRecord).field("HandlerData", &self.HandlerData).field("HistoryTable", &self.HistoryTable).field("ScopeIndex", &self.ScopeIndex).field("Fill0", &self.Fill0).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64",))]
@@ -4944,7 +4683,7 @@ impl ::core::cmp::Eq for DISPATCHER_CONTEXT {}
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DMP_CONTEXT_RECORD_SIZE_32: u32 = 1200u32;
 pub const DMP_CONTEXT_RECORD_SIZE_64: u32 = 3000u32;
@@ -5202,7 +4941,7 @@ pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5216,7 +4955,7 @@ pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DbgHelpCreateUserDumpW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DbgHelpCreateUserDumpW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5279,21 +5018,7 @@ impl DebugBaseEventCallbacks {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessA<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: Param4, imagename: Param5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(imagefilehandle),
-            ::core::mem::transmute(handle),
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(modulesize),
-            modulename.into_param().abi(),
-            imagename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            ::core::mem::transmute(timedatestamp),
-            ::core::mem::transmute(initialthreadhandle),
-            ::core::mem::transmute(threaddataoffset),
-            ::core::mem::transmute(startoffset),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(imagefilehandle), ::core::mem::transmute(handle), ::core::mem::transmute(baseoffset), ::core::mem::transmute(modulesize), modulename.into_param().abi(), imagename.into_param().abi(), ::core::mem::transmute(checksum), ::core::mem::transmute(timedatestamp), ::core::mem::transmute(initialthreadhandle), ::core::mem::transmute(threaddataoffset), ::core::mem::transmute(startoffset)).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(exitcode)).ok()
@@ -5414,21 +5139,7 @@ impl DebugBaseEventCallbacksWide {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessA<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: Param4, imagename: Param5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(imagefilehandle),
-            ::core::mem::transmute(handle),
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(modulesize),
-            modulename.into_param().abi(),
-            imagename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            ::core::mem::transmute(timedatestamp),
-            ::core::mem::transmute(initialthreadhandle),
-            ::core::mem::transmute(threaddataoffset),
-            ::core::mem::transmute(startoffset),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(imagefilehandle), ::core::mem::transmute(handle), ::core::mem::transmute(baseoffset), ::core::mem::transmute(modulesize), modulename.into_param().abi(), imagename.into_param().abi(), ::core::mem::transmute(checksum), ::core::mem::transmute(timedatestamp), ::core::mem::transmute(initialthreadhandle), ::core::mem::transmute(threaddataoffset), ::core::mem::transmute(startoffset)).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(exitcode)).ok()
@@ -5631,15 +5342,7 @@ impl ::core::default::Default for DebugPropertyInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DebugPropertyInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DebugPropertyInfo")
-            .field("m_dwValidFields", &self.m_dwValidFields)
-            .field("m_bstrName", &self.m_bstrName)
-            .field("m_bstrType", &self.m_bstrType)
-            .field("m_bstrValue", &self.m_bstrValue)
-            .field("m_bstrFullName", &self.m_bstrFullName)
-            .field("m_dwAttrib", &self.m_dwAttrib)
-            .field("m_pDebugProp", &self.m_pDebugProp)
-            .finish()
+        fmt.debug_struct("DebugPropertyInfo").field("m_dwValidFields", &self.m_dwValidFields).field("m_bstrName", &self.m_bstrName).field("m_bstrType", &self.m_bstrType).field("m_bstrValue", &self.m_bstrValue).field("m_bstrFullName", &self.m_bstrFullName).field("m_dwAttrib", &self.m_dwAttrib).field("m_pDebugProp", &self.m_pDebugProp).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5896,14 +5599,7 @@ impl ::core::default::Default for EXCEPTION_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EXCEPTION_RECORD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXCEPTION_RECORD")
-            .field("ExceptionCode", &self.ExceptionCode)
-            .field("ExceptionFlags", &self.ExceptionFlags)
-            .field("ExceptionRecord", &self.ExceptionRecord)
-            .field("ExceptionAddress", &self.ExceptionAddress)
-            .field("NumberParameters", &self.NumberParameters)
-            .field("ExceptionInformation", &self.ExceptionInformation)
-            .finish()
+        fmt.debug_struct("EXCEPTION_RECORD").field("ExceptionCode", &self.ExceptionCode).field("ExceptionFlags", &self.ExceptionFlags).field("ExceptionRecord", &self.ExceptionRecord).field("ExceptionAddress", &self.ExceptionAddress).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5940,14 +5636,7 @@ impl ::core::default::Default for EXCEPTION_RECORD32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EXCEPTION_RECORD32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXCEPTION_RECORD32")
-            .field("ExceptionCode", &self.ExceptionCode)
-            .field("ExceptionFlags", &self.ExceptionFlags)
-            .field("ExceptionRecord", &self.ExceptionRecord)
-            .field("ExceptionAddress", &self.ExceptionAddress)
-            .field("NumberParameters", &self.NumberParameters)
-            .field("ExceptionInformation", &self.ExceptionInformation)
-            .finish()
+        fmt.debug_struct("EXCEPTION_RECORD32").field("ExceptionCode", &self.ExceptionCode).field("ExceptionFlags", &self.ExceptionFlags).field("ExceptionRecord", &self.ExceptionRecord).field("ExceptionAddress", &self.ExceptionAddress).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5985,15 +5674,7 @@ impl ::core::default::Default for EXCEPTION_RECORD64 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EXCEPTION_RECORD64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXCEPTION_RECORD64")
-            .field("ExceptionCode", &self.ExceptionCode)
-            .field("ExceptionFlags", &self.ExceptionFlags)
-            .field("ExceptionRecord", &self.ExceptionRecord)
-            .field("ExceptionAddress", &self.ExceptionAddress)
-            .field("NumberParameters", &self.NumberParameters)
-            .field("__unusedAlignment", &self.__unusedAlignment)
-            .field("ExceptionInformation", &self.ExceptionInformation)
-            .finish()
+        fmt.debug_struct("EXCEPTION_RECORD64").field("ExceptionCode", &self.ExceptionCode).field("ExceptionFlags", &self.ExceptionFlags).field("ExceptionRecord", &self.ExceptionRecord).field("ExceptionAddress", &self.ExceptionAddress).field("NumberParameters", &self.NumberParameters).field("__unusedAlignment", &self.__unusedAlignment).field("ExceptionInformation", &self.ExceptionInformation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6221,18 +5902,7 @@ impl ::core::fmt::Debug for EXT_FIND_FILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXT_FIND_FILE {
     fn eq(&self, other: &Self) -> bool {
-        self.FileName == other.FileName
-            && self.IndexedSize == other.IndexedSize
-            && self.ImageTimeDateStamp == other.ImageTimeDateStamp
-            && self.ImageCheckSum == other.ImageCheckSum
-            && self.ExtraInfo == other.ExtraInfo
-            && self.ExtraInfoSize == other.ExtraInfoSize
-            && self.Flags == other.Flags
-            && self.FileMapping == other.FileMapping
-            && self.FileMappingSize == other.FileMappingSize
-            && self.FileHandle == other.FileHandle
-            && self.FoundFileName == other.FoundFileName
-            && self.FoundFileNameChars == other.FoundFileNameChars
+        self.FileName == other.FileName && self.IndexedSize == other.IndexedSize && self.ImageTimeDateStamp == other.ImageTimeDateStamp && self.ImageCheckSum == other.ImageCheckSum && self.ExtraInfo == other.ExtraInfo && self.ExtraInfoSize == other.ExtraInfoSize && self.Flags == other.Flags && self.FileMapping == other.FileMapping && self.FileMappingSize == other.FileMappingSize && self.FileHandle == other.FileHandle && self.FoundFileName == other.FoundFileName && self.FoundFileNameChars == other.FoundFileNameChars
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6365,23 +6035,7 @@ impl ::core::fmt::Debug for EXT_TYPED_DATA {
 }
 impl ::core::cmp::PartialEq for EXT_TYPED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Operation == other.Operation
-            && self.Flags == other.Flags
-            && self.InData == other.InData
-            && self.OutData == other.OutData
-            && self.InStrIndex == other.InStrIndex
-            && self.In32 == other.In32
-            && self.Out32 == other.Out32
-            && self.In64 == other.In64
-            && self.Out64 == other.Out64
-            && self.StrBufferIndex == other.StrBufferIndex
-            && self.StrBufferChars == other.StrBufferChars
-            && self.StrCharsNeeded == other.StrCharsNeeded
-            && self.DataBufferIndex == other.DataBufferIndex
-            && self.DataBufferBytes == other.DataBufferBytes
-            && self.DataBytesNeeded == other.DataBytesNeeded
-            && self.Status == other.Status
-            && self.Reserved == other.Reserved
+        self.Operation == other.Operation && self.Flags == other.Flags && self.InData == other.InData && self.OutData == other.OutData && self.InStrIndex == other.InStrIndex && self.In32 == other.In32 && self.Out32 == other.Out32 && self.In64 == other.In64 && self.Out64 == other.Out64 && self.StrBufferIndex == other.StrBufferIndex && self.StrBufferChars == other.StrBufferChars && self.StrCharsNeeded == other.StrCharsNeeded && self.DataBufferIndex == other.DataBufferIndex && self.DataBufferBytes == other.DataBufferBytes && self.DataBytesNeeded == other.DataBytesNeeded && self.Status == other.Status && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for EXT_TYPED_DATA {}
@@ -6452,14 +6106,7 @@ pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    rootpath: Param1,
-    inputpathname: Param2,
-    outputpathbuffer: super::super::super::Foundation::PSTR,
-    cb: ::core::option::Option<PENUMDIRTREE_CALLBACK>,
-    data: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, rootpath: Param1, inputpathname: Param2, outputpathbuffer: super::super::super::Foundation::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6473,14 +6120,7 @@ pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    rootpath: Param1,
-    inputpathname: Param2,
-    outputpathbuffer: super::super::super::Foundation::PWSTR,
-    cb: ::core::option::Option<PENUMDIRTREE_CALLBACKW>,
-    data: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, rootpath: Param1, inputpathname: Param2, outputpathbuffer: super::super::super::Foundation::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6495,7 +6135,7 @@ pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6509,7 +6149,7 @@ pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6523,7 +6163,7 @@ pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6537,7 +6177,7 @@ pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6551,7 +6191,7 @@ pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7023,7 +6663,7 @@ pub unsafe fn FindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7037,7 +6677,7 @@ pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindDebugInfoFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindDebugInfoFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7065,7 +6705,7 @@ pub unsafe fn FindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7079,7 +6719,7 @@ pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindExecutableImageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindExecutableImageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7677,25 +7317,7 @@ impl IActiveScriptAuthor {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszname.into_param().abi(), ::core::mem::transmute(dwflags), pdisp.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddScriptlet<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszdefaultname: Param0,
-        pszcode: Param1,
-        pszitemname: Param2,
-        pszsubitemname: Param3,
-        pszeventname: Param4,
-        pszdelimiter: Param5,
-        dwcookie: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddScriptlet<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pszdefaultname: Param0, pszcode: Param1, pszitemname: Param2, pszsubitemname: Param3, pszeventname: Param4, pszdelimiter: Param5, dwcookie: u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszdefaultname.into_param().abi(), pszcode.into_param().abi(), pszitemname.into_param().abi(), pszsubitemname.into_param().abi(), pszeventname.into_param().abi(), pszdelimiter.into_param().abi(), ::core::mem::transmute(dwcookie), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -7740,20 +7362,7 @@ impl IActiveScriptAuthor {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInfoFromContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pszcode: Param0, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            pszcode.into_param().abi(),
-            ::core::mem::transmute(cchcode),
-            ::core::mem::transmute(ichcurrentposition),
-            ::core::mem::transmute(dwlisttypesrequested),
-            ::core::mem::transmute(pdwlisttypesprovided),
-            ::core::mem::transmute(pichlistanchorposition),
-            ::core::mem::transmute(pichfuncanchorposition),
-            ::core::mem::transmute(pmemid),
-            ::core::mem::transmute(picurrentparameter),
-            ::core::mem::transmute(ppunk),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pszcode.into_param().abi(), ::core::mem::transmute(cchcode), ::core::mem::transmute(ichcurrentposition), ::core::mem::transmute(dwlisttypesrequested), ::core::mem::transmute(pdwlisttypesprovided), ::core::mem::transmute(pichlistanchorposition), ::core::mem::transmute(pichfuncanchorposition), ::core::mem::transmute(pmemid), ::core::mem::transmute(picurrentparameter), ::core::mem::transmute(ppunk)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCommitChar(&self, ch: u16) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
@@ -7821,25 +7430,7 @@ pub struct IActiveScriptAuthor_abi(
 pub struct IActiveScriptAuthorProcedure(pub ::windows::core::IUnknown);
 impl IActiveScriptAuthorProcedure {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param7: ::windows::core::IntoParam<'a, super::super::Com::IDispatch>,
-    >(
-        &self,
-        pszcode: Param0,
-        pszformalparams: Param1,
-        pszprocedurename: Param2,
-        pszitemname: Param3,
-        pszdelimiter: Param4,
-        dwcookie: u32,
-        dwflags: u32,
-        pdispfor: Param7,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Com::IDispatch>>(&self, pszcode: Param0, pszformalparams: Param1, pszprocedurename: Param2, pszitemname: Param3, pszdelimiter: Param4, dwcookie: u32, dwflags: u32, pdispfor: Param7) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszcode.into_param().abi(), pszformalparams.into_param().abi(), pszprocedurename.into_param().abi(), pszitemname.into_param().abi(), pszdelimiter.into_param().abi(), ::core::mem::transmute(dwcookie), ::core::mem::transmute(dwflags), pdispfor.into_param().abi()).ok()
     }
 }
@@ -8287,12 +7878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveScriptErrorDebug110_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pexceptionkind: *mut SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND) -> ::windows::core::HRESULT,
-);
+pub struct IActiveScriptErrorDebug110_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pexceptionkind: *mut SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IActiveScriptGarbageCollector(pub ::windows::core::IUnknown);
@@ -8327,12 +7913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveScriptGarbageCollector_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, scriptgctype: SCRIPTGCTYPE) -> ::windows::core::HRESULT,
-);
+pub struct IActiveScriptGarbageCollector_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, scriptgctype: SCRIPTGCTYPE) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IActiveScriptHostEncode(pub ::windows::core::IUnknown);
@@ -8383,15 +7964,7 @@ impl IActiveScriptParse32 {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScriptlet<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
+    pub unsafe fn AddScriptlet<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,
         pstrdefaultname: Param0,
         pstrcode: Param1,
@@ -8405,48 +7978,11 @@ impl IActiveScriptParse32 {
         pbstrname: *mut super::super::super::Foundation::BSTR,
         pexcepinfo: *mut super::super::Com::EXCEPINFO,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(
-            ::core::mem::transmute_copy(self),
-            pstrdefaultname.into_param().abi(),
-            pstrcode.into_param().abi(),
-            pstritemname.into_param().abi(),
-            pstrsubitemname.into_param().abi(),
-            pstreventname.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pbstrname),
-            ::core::mem::transmute(pexcepinfo),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pexcepinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ParseScriptText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        pstrcode: Param0,
-        pstritemname: Param1,
-        punkcontext: Param2,
-        pstrdelimiter: Param3,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        pvarresult: *mut super::super::Com::VARIANT,
-        pexcepinfo: *mut super::super::Com::EXCEPINFO,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-        )
-        .ok()
+    pub unsafe fn ParseScriptText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstritemname: Param1, punkcontext: Param2, pstrdelimiter: Param3, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParse32 {
@@ -8480,35 +8016,9 @@ pub struct IActiveScriptParse32_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrdefaultname: super::super::super::Foundation::PWSTR,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        pstrsubitemname: super::super::super::Foundation::PWSTR,
-        pstreventname: super::super::super::Foundation::PWSTR,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
-        pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrdefaultname: super::super::super::Foundation::PWSTR, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, pstrsubitemname: super::super::super::Foundation::PWSTR, pstreventname: super::super::super::Foundation::PWSTR, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        punkcontext: ::windows::core::RawPtr,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>,
-        pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
@@ -8519,15 +8029,7 @@ impl IActiveScriptParse64 {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScriptlet<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
+    pub unsafe fn AddScriptlet<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,
         pstrdefaultname: Param0,
         pstrcode: Param1,
@@ -8541,48 +8043,11 @@ impl IActiveScriptParse64 {
         pbstrname: *mut super::super::super::Foundation::BSTR,
         pexcepinfo: *mut super::super::Com::EXCEPINFO,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(
-            ::core::mem::transmute_copy(self),
-            pstrdefaultname.into_param().abi(),
-            pstrcode.into_param().abi(),
-            pstritemname.into_param().abi(),
-            pstrsubitemname.into_param().abi(),
-            pstreventname.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pbstrname),
-            ::core::mem::transmute(pexcepinfo),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pexcepinfo)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ParseScriptText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        pstrcode: Param0,
-        pstritemname: Param1,
-        punkcontext: Param2,
-        pstrdelimiter: Param3,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        pvarresult: *mut super::super::Com::VARIANT,
-        pexcepinfo: *mut super::super::Com::EXCEPINFO,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-        )
-        .ok()
+    pub unsafe fn ParseScriptText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstritemname: Param1, punkcontext: Param2, pstrdelimiter: Param3, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParse64 {
@@ -8616,35 +8081,9 @@ pub struct IActiveScriptParse64_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrdefaultname: super::super::super::Foundation::PWSTR,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        pstrsubitemname: super::super::super::Foundation::PWSTR,
-        pstreventname: super::super::super::Foundation::PWSTR,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
-        pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrdefaultname: super::super::super::Foundation::PWSTR, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, pstrsubitemname: super::super::super::Foundation::PWSTR, pstreventname: super::super::super::Foundation::PWSTR, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        punkcontext: ::windows::core::RawPtr,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>,
-        pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
@@ -8652,41 +8091,9 @@ pub struct IActiveScriptParse64_abi(
 pub struct IActiveScriptParseProcedure2_32(pub ::windows::core::IUnknown);
 impl IActiveScriptParseProcedure2_32 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pstrcode: Param0,
-        pstrformalparams: Param1,
-        pstrprocedurename: Param2,
-        pstritemname: Param3,
-        punkcontext: Param4,
-        pstrdelimiter: Param5,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<super::super::Com::IDispatch> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstrformalparams: Param1, pstrprocedurename: Param2, pstritemname: Param3, punkcontext: Param4, pstrdelimiter: Param5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows::core::Result<super::super::Com::IDispatch> {
         let mut result__: <super::super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstrformalparams.into_param().abi(),
-            pstrprocedurename.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParseProcedure2_32 {
@@ -8739,20 +8146,7 @@ pub struct IActiveScriptParseProcedure2_32_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstrformalparams: super::super::super::Foundation::PWSTR,
-        pstrprocedurename: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        punkcontext: ::windows::core::RawPtr,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        ppdisp: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -8760,41 +8154,9 @@ pub struct IActiveScriptParseProcedure2_32_abi(
 pub struct IActiveScriptParseProcedure2_64(pub ::windows::core::IUnknown);
 impl IActiveScriptParseProcedure2_64 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pstrcode: Param0,
-        pstrformalparams: Param1,
-        pstrprocedurename: Param2,
-        pstritemname: Param3,
-        punkcontext: Param4,
-        pstrdelimiter: Param5,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<super::super::Com::IDispatch> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstrformalparams: Param1, pstrprocedurename: Param2, pstritemname: Param3, punkcontext: Param4, pstrdelimiter: Param5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows::core::Result<super::super::Com::IDispatch> {
         let mut result__: <super::super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstrformalparams.into_param().abi(),
-            pstrprocedurename.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParseProcedure2_64 {
@@ -8847,20 +8209,7 @@ pub struct IActiveScriptParseProcedure2_64_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstrformalparams: super::super::super::Foundation::PWSTR,
-        pstrprocedurename: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        punkcontext: ::windows::core::RawPtr,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        ppdisp: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -8868,41 +8217,9 @@ pub struct IActiveScriptParseProcedure2_64_abi(
 pub struct IActiveScriptParseProcedure32(pub ::windows::core::IUnknown);
 impl IActiveScriptParseProcedure32 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pstrcode: Param0,
-        pstrformalparams: Param1,
-        pstrprocedurename: Param2,
-        pstritemname: Param3,
-        punkcontext: Param4,
-        pstrdelimiter: Param5,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<super::super::Com::IDispatch> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstrformalparams: Param1, pstrprocedurename: Param2, pstritemname: Param3, punkcontext: Param4, pstrdelimiter: Param5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows::core::Result<super::super::Com::IDispatch> {
         let mut result__: <super::super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstrformalparams.into_param().abi(),
-            pstrprocedurename.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParseProcedure32 {
@@ -8935,20 +8252,7 @@ pub struct IActiveScriptParseProcedure32_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstrformalparams: super::super::super::Foundation::PWSTR,
-        pstrprocedurename: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        punkcontext: ::windows::core::RawPtr,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        ppdisp: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -8956,41 +8260,9 @@ pub struct IActiveScriptParseProcedure32_abi(
 pub struct IActiveScriptParseProcedure64(pub ::windows::core::IUnknown);
 impl IActiveScriptParseProcedure64 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pstrcode: Param0,
-        pstrformalparams: Param1,
-        pstrprocedurename: Param2,
-        pstritemname: Param3,
-        punkcontext: Param4,
-        pstrdelimiter: Param5,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<super::super::Com::IDispatch> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstrformalparams: Param1, pstrprocedurename: Param2, pstritemname: Param3, punkcontext: Param4, pstrdelimiter: Param5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows::core::Result<super::super::Com::IDispatch> {
         let mut result__: <super::super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstrformalparams.into_param().abi(),
-            pstrprocedurename.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParseProcedure64 {
@@ -9023,20 +8295,7 @@ pub struct IActiveScriptParseProcedure64_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        pstrcode: super::super::super::Foundation::PWSTR,
-        pstrformalparams: super::super::super::Foundation::PWSTR,
-        pstrprocedurename: super::super::super::Foundation::PWSTR,
-        pstritemname: super::super::super::Foundation::PWSTR,
-        punkcontext: ::windows::core::RawPtr,
-        pstrdelimiter: super::super::super::Foundation::PWSTR,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-        ppdisp: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -9044,31 +8303,9 @@ pub struct IActiveScriptParseProcedure64_abi(
 pub struct IActiveScriptParseProcedureOld32(pub ::windows::core::IUnknown);
 impl IActiveScriptParseProcedureOld32 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        pstrcode: Param0,
-        pstrformalparams: Param1,
-        pstritemname: Param2,
-        punkcontext: Param3,
-        pstrdelimiter: Param4,
-        dwsourcecontextcookie: u32,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<super::super::Com::IDispatch> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstrformalparams: Param1, pstritemname: Param2, punkcontext: Param3, pstrdelimiter: Param4, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows::core::Result<super::super::Com::IDispatch> {
         let mut result__: <super::super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstrformalparams.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParseProcedureOld32 {
@@ -9101,8 +8338,7 @@ pub struct IActiveScriptParseProcedureOld32_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -9110,31 +8346,9 @@ pub struct IActiveScriptParseProcedureOld32_abi(
 pub struct IActiveScriptParseProcedureOld64(pub ::windows::core::IUnknown);
 impl IActiveScriptParseProcedureOld64 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        pstrcode: Param0,
-        pstrformalparams: Param1,
-        pstritemname: Param2,
-        punkcontext: Param3,
-        pstrdelimiter: Param4,
-        dwsourcecontextcookie: u64,
-        ulstartinglinenumber: u32,
-        dwflags: u32,
-    ) -> ::windows::core::Result<super::super::Com::IDispatch> {
+    pub unsafe fn ParseProcedureText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrcode: Param0, pstrformalparams: Param1, pstritemname: Param2, punkcontext: Param3, pstrdelimiter: Param4, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows::core::Result<super::super::Com::IDispatch> {
         let mut result__: <super::super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pstrcode.into_param().abi(),
-            pstrformalparams.into_param().abi(),
-            pstritemname.into_param().abi(),
-            punkcontext.into_param().abi(),
-            pstrdelimiter.into_param().abi(),
-            ::core::mem::transmute(dwsourcecontextcookie),
-            ::core::mem::transmute(ulstartinglinenumber),
-            ::core::mem::transmute(dwflags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), ::core::mem::transmute(dwsourcecontextcookie), ::core::mem::transmute(ulstartinglinenumber), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::IDispatch>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IActiveScriptParseProcedureOld64 {
@@ -9167,8 +8381,7 @@ pub struct IActiveScriptParseProcedureOld64_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: ::windows::core::RawPtr, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -10085,12 +9298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveScriptSIPInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poid_sip: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IActiveScriptSIPInfo_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poid_sip: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IActiveScriptSite(pub ::windows::core::IUnknown);
@@ -10358,12 +9566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveScriptSiteInterruptPoll_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IActiveScriptSiteInterruptPoll_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IActiveScriptSiteTraceInfo(pub ::windows::core::IUnknown);
@@ -10439,12 +9642,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveScriptSiteUIControl_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uicitem: SCRIPTUICITEM, puichandling: *mut SCRIPTUICHANDLING) -> ::windows::core::HRESULT,
-);
+pub struct IActiveScriptSiteUIControl_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uicitem: SCRIPTUICITEM, puichandling: *mut SCRIPTUICHANDLING) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IActiveScriptSiteWindow(pub ::windows::core::IUnknown);
@@ -10908,12 +10106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICode
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICodeAddressConcept_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontextobject: ::windows::core::RawPtr, ppsymbol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ICodeAddressConcept_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontextobject: ::windows::core::RawPtr, ppsymbol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IComparableConcept(pub ::windows::core::IUnknown);
@@ -12382,36 +11575,11 @@ impl IDebugAdvanced2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindSourceFileAndToken<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, startelement: u32, modaddr: u64, file: Param2, flags: u32, filetoken: *const ::core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, foundsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startelement),
-            ::core::mem::transmute(modaddr),
-            file.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(filetoken),
-            ::core::mem::transmute(filetokensize),
-            ::core::mem::transmute(foundelement),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(foundsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(modaddr), file.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filetoken), ::core::mem::transmute(filetokensize), ::core::mem::transmute(foundelement), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(foundsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(which),
-            ::core::mem::transmute(arg64),
-            ::core::mem::transmute(arg32),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(infosize),
-            ::core::mem::transmute(stringbuffer),
-            ::core::mem::transmute(stringbuffersize),
-            ::core::mem::transmute(stringsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize), ::core::mem::transmute(stringbuffer), ::core::mem::transmute(stringbuffersize), ::core::mem::transmute(stringsize)).ok()
     }
     pub unsafe fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize)).ok()
@@ -12477,36 +11645,11 @@ impl IDebugAdvanced3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindSourceFileAndToken<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, startelement: u32, modaddr: u64, file: Param2, flags: u32, filetoken: *const ::core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, foundsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startelement),
-            ::core::mem::transmute(modaddr),
-            file.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(filetoken),
-            ::core::mem::transmute(filetokensize),
-            ::core::mem::transmute(foundelement),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(foundsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(modaddr), file.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filetoken), ::core::mem::transmute(filetokensize), ::core::mem::transmute(foundelement), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(foundsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(which),
-            ::core::mem::transmute(arg64),
-            ::core::mem::transmute(arg32),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(infosize),
-            ::core::mem::transmute(stringbuffer),
-            ::core::mem::transmute(stringbuffersize),
-            ::core::mem::transmute(stringsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize), ::core::mem::transmute(stringbuffer), ::core::mem::transmute(stringbuffersize), ::core::mem::transmute(stringsize)).ok()
     }
     pub unsafe fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize)).ok()
@@ -12517,36 +11660,11 @@ impl IDebugAdvanced3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindSourceFileAndTokenWide<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, startelement: u32, modaddr: u64, file: Param2, flags: u32, filetoken: *const ::core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, foundsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startelement),
-            ::core::mem::transmute(modaddr),
-            file.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(filetoken),
-            ::core::mem::transmute(filetokensize),
-            ::core::mem::transmute(foundelement),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(foundsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(modaddr), file.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filetoken), ::core::mem::transmute(filetokensize), ::core::mem::transmute(foundelement), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(foundsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(which),
-            ::core::mem::transmute(arg64),
-            ::core::mem::transmute(arg32),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(infosize),
-            ::core::mem::transmute(stringbuffer),
-            ::core::mem::transmute(stringbuffersize),
-            ::core::mem::transmute(stringsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize), ::core::mem::transmute(stringbuffer), ::core::mem::transmute(stringbuffersize), ::core::mem::transmute(stringsize)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDebugAdvanced3 {
@@ -12615,36 +11733,11 @@ impl IDebugAdvanced4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindSourceFileAndToken<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, startelement: u32, modaddr: u64, file: Param2, flags: u32, filetoken: *const ::core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, foundsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startelement),
-            ::core::mem::transmute(modaddr),
-            file.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(filetoken),
-            ::core::mem::transmute(filetokensize),
-            ::core::mem::transmute(foundelement),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(foundsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(modaddr), file.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filetoken), ::core::mem::transmute(filetokensize), ::core::mem::transmute(foundelement), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(foundsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(which),
-            ::core::mem::transmute(arg64),
-            ::core::mem::transmute(arg32),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(infosize),
-            ::core::mem::transmute(stringbuffer),
-            ::core::mem::transmute(stringbuffersize),
-            ::core::mem::transmute(stringsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize), ::core::mem::transmute(stringbuffer), ::core::mem::transmute(stringbuffersize), ::core::mem::transmute(stringsize)).ok()
     }
     pub unsafe fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize)).ok()
@@ -12655,53 +11748,15 @@ impl IDebugAdvanced4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindSourceFileAndTokenWide<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, startelement: u32, modaddr: u64, file: Param2, flags: u32, filetoken: *const ::core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, foundsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startelement),
-            ::core::mem::transmute(modaddr),
-            file.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(filetoken),
-            ::core::mem::transmute(filetokensize),
-            ::core::mem::transmute(foundelement),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(foundsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(startelement), ::core::mem::transmute(modaddr), file.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filetoken), ::core::mem::transmute(filetokensize), ::core::mem::transmute(foundelement), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(foundsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(which),
-            ::core::mem::transmute(arg64),
-            ::core::mem::transmute(arg32),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(infosize),
-            ::core::mem::transmute(stringbuffer),
-            ::core::mem::transmute(stringbuffersize),
-            ::core::mem::transmute(stringsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize), ::core::mem::transmute(stringbuffer), ::core::mem::transmute(stringbuffersize), ::core::mem::transmute(stringsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSymbolInformationWideEx(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PWSTR, stringbuffersize: u32, stringsize: *mut u32, pinfoex: *mut SYMBOL_INFO_EX) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(which),
-            ::core::mem::transmute(arg64),
-            ::core::mem::transmute(arg32),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(infosize),
-            ::core::mem::transmute(stringbuffer),
-            ::core::mem::transmute(stringbuffersize),
-            ::core::mem::transmute(stringsize),
-            ::core::mem::transmute(pinfoex),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(which), ::core::mem::transmute(arg64), ::core::mem::transmute(arg32), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(infosize), ::core::mem::transmute(stringbuffer), ::core::mem::transmute(stringbuffersize), ::core::mem::transmute(stringsize), ::core::mem::transmute(pinfoex)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDebugAdvanced4 {
@@ -14086,12 +13141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugAsyncOperationCallBack_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDebugAsyncOperationCallBack_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugBreakpoint(pub ::windows::core::IUnknown);
@@ -14591,19 +13641,7 @@ impl IDebugClient {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -14864,19 +13902,7 @@ impl IDebugClient2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -15173,19 +14199,7 @@ impl IDebugClient3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -15347,19 +14361,7 @@ impl IDebugClient3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PWSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, createflags: u32) -> ::windows::core::Result<()> {
@@ -15519,19 +14521,7 @@ impl IDebugClient4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -15693,19 +14683,7 @@ impl IDebugClient4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PWSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, createflags: u32) -> ::windows::core::Result<()> {
@@ -15900,19 +14878,7 @@ impl IDebugClient5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -16074,19 +15040,7 @@ impl IDebugClient5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PWSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, createflags: u32) -> ::windows::core::Result<()> {
@@ -16188,54 +15142,12 @@ impl IDebugClient5 {
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).83)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PushOutputLinePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, newprefix: Param0) -> ::windows::core::Result<u64> {
@@ -16489,19 +15401,7 @@ impl IDebugClient6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -16663,19 +15563,7 @@ impl IDebugClient6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PWSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, createflags: u32) -> ::windows::core::Result<()> {
@@ -16777,54 +15665,12 @@ impl IDebugClient6 {
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).83)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PushOutputLinePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, newprefix: Param0) -> ::windows::core::Result<u64> {
@@ -17082,19 +15928,7 @@ impl IDebugClient7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -17256,19 +16090,7 @@ impl IDebugClient7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PWSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, createflags: u32) -> ::windows::core::Result<()> {
@@ -17370,54 +16192,12 @@ impl IDebugClient7 {
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).83)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PushOutputLinePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, newprefix: Param0) -> ::windows::core::Result<u64> {
@@ -17679,19 +16459,7 @@ impl IDebugClient8 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     pub unsafe fn AttachProcess(&self, server: u64, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
@@ -17853,19 +16621,7 @@ impl IDebugClient8 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: super::super::super::Foundation::PWSTR, exenamesize: u32, actualexenamesize: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, actualdescriptionsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).57)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            ::core::mem::transmute(systemid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(exename),
-            ::core::mem::transmute(exenamesize),
-            ::core::mem::transmute(actualexenamesize),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(actualdescriptionsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), ::core::mem::transmute(systemid), ::core::mem::transmute(flags), ::core::mem::transmute(exename), ::core::mem::transmute(exenamesize), ::core::mem::transmute(actualexenamesize), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(actualdescriptionsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, createflags: u32) -> ::windows::core::Result<()> {
@@ -17967,54 +16723,12 @@ impl IDebugClient8 {
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).83)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        server: u64,
-        commandline: Param1,
-        optionsbuffer: *const ::core::ffi::c_void,
-        optionsbuffersize: u32,
-        initialdirectory: Param4,
-        environment: Param5,
-        processid: u32,
-        attachflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(server),
-            commandline.into_param().abi(),
-            ::core::mem::transmute(optionsbuffer),
-            ::core::mem::transmute(optionsbuffersize),
-            initialdirectory.into_param().abi(),
-            environment.into_param().abi(),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(attachflags),
-        )
-        .ok()
+    pub unsafe fn CreateProcessAndAttach2Wide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, server: u64, commandline: Param1, optionsbuffer: *const ::core::ffi::c_void, optionsbuffersize: u32, initialdirectory: Param4, environment: Param5, processid: u32, attachflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), ::core::mem::transmute(server), commandline.into_param().abi(), ::core::mem::transmute(optionsbuffer), ::core::mem::transmute(optionsbuffersize), initialdirectory.into_param().abi(), environment.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(attachflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PushOutputLinePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, newprefix: Param0) -> ::windows::core::Result<u64> {
@@ -18391,19 +17105,7 @@ impl IDebugControl {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -18445,20 +17147,7 @@ impl IDebugControl {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -18479,17 +17168,7 @@ impl IDebugControl {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -18607,7 +17286,7 @@ impl IDebugControl {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -18666,19 +17345,7 @@ impl IDebugControl {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDebugControl {
@@ -18815,9 +17482,9 @@ pub struct IDebugControl_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -18944,19 +17611,7 @@ impl IDebugControl2 {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -18998,20 +17653,7 @@ impl IDebugControl2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19032,17 +17674,7 @@ impl IDebugControl2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19160,7 +17792,7 @@ impl IDebugControl2 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -19219,19 +17851,7 @@ impl IDebugControl2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19251,18 +17871,7 @@ impl IDebugControl2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).99)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -19409,9 +18018,9 @@ pub struct IDebugControl2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -19548,19 +18157,7 @@ impl IDebugControl3 {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19602,20 +18199,7 @@ impl IDebugControl3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19636,17 +18220,7 @@ impl IDebugControl3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19764,7 +18338,7 @@ impl IDebugControl3 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -19823,19 +18397,7 @@ impl IDebugControl3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -19855,18 +18417,7 @@ impl IDebugControl3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).99)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -19908,17 +18459,7 @@ impl IDebugControl3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).111)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).111)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -20072,9 +18613,9 @@ pub struct IDebugControl3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -20227,19 +18768,7 @@ impl IDebugControl4 {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -20281,20 +18810,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -20315,17 +18831,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -20443,7 +18949,7 @@ impl IDebugControl4 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -20502,19 +19008,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -20534,18 +19028,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).99)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -20587,17 +19070,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).111)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).111)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -20671,17 +19144,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).129)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).129)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, macrosize: *mut u32) -> ::windows::core::Result<()> {
@@ -20733,7 +19196,7 @@ impl IDebugControl4 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -20766,34 +19229,11 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).150)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).150)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PWSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PWSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).151)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).151)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -20805,17 +19245,7 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).154)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).154)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventIndexDescriptionWide<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, which: u32, buffer: Param2, buffersize: u32) -> ::windows::core::Result<u32> {
@@ -20851,47 +19281,14 @@ impl IDebugControl4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).163)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).163)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).164)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).164)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut ::core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).165)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(contextsize),
-            ::core::mem::transmute(contextused),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).165)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(context), ::core::mem::transmute(contextsize), ::core::mem::transmute(contextused), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: super::super::super::Foundation::PSTR, stringsize: u32, stringneeded: *mut u32) -> ::windows::core::Result<()> {
@@ -21039,9 +19436,9 @@ pub struct IDebugControl4_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -21293,19 +19690,7 @@ impl IDebugControl5 {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -21347,20 +19732,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -21381,17 +19753,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -21509,7 +19871,7 @@ impl IDebugControl5 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -21568,19 +19930,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -21600,18 +19950,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).99)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -21653,17 +19992,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).111)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).111)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -21737,17 +20066,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).129)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).129)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, macrosize: *mut u32) -> ::windows::core::Result<()> {
@@ -21799,7 +20118,7 @@ impl IDebugControl5 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -21832,34 +20151,11 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).150)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).150)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PWSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PWSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).151)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).151)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -21871,17 +20167,7 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).154)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).154)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventIndexDescriptionWide<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, which: u32, buffer: Param2, buffersize: u32) -> ::windows::core::Result<u32> {
@@ -21917,47 +20203,14 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).163)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).163)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).164)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).164)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut ::core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).165)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(contextsize),
-            ::core::mem::transmute(contextused),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).165)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(context), ::core::mem::transmute(contextsize), ::core::mem::transmute(contextused), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: super::super::super::Foundation::PSTR, stringsize: u32, stringneeded: *mut u32) -> ::windows::core::Result<()> {
@@ -21980,32 +20233,11 @@ impl IDebugControl5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).171)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).171)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).172)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).172)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<IDebugBreakpoint3> {
         let mut result__: <IDebugBreakpoint3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -22146,9 +20378,9 @@ pub struct IDebugControl5_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -22409,19 +20641,7 @@ impl IDebugControl6 {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -22463,20 +20683,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -22497,17 +20704,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -22625,7 +20822,7 @@ impl IDebugControl6 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -22684,19 +20881,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -22716,18 +20901,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).99)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -22769,17 +20943,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).111)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).111)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -22853,17 +21017,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).129)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).129)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, macrosize: *mut u32) -> ::windows::core::Result<()> {
@@ -22915,7 +21069,7 @@ impl IDebugControl6 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -22948,34 +21102,11 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).150)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).150)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PWSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PWSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).151)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).151)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -22987,17 +21118,7 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).154)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).154)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventIndexDescriptionWide<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, which: u32, buffer: Param2, buffersize: u32) -> ::windows::core::Result<u32> {
@@ -23033,47 +21154,14 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).163)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).163)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).164)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).164)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut ::core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).165)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(contextsize),
-            ::core::mem::transmute(contextused),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).165)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(context), ::core::mem::transmute(contextsize), ::core::mem::transmute(contextused), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: super::super::super::Foundation::PSTR, stringsize: u32, stringneeded: *mut u32) -> ::windows::core::Result<()> {
@@ -23096,32 +21184,11 @@ impl IDebugControl6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).171)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).171)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).172)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).172)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<IDebugBreakpoint3> {
         let mut result__: <IDebugBreakpoint3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -23269,9 +21336,9 @@ pub struct IDebugControl6_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -23534,19 +21601,7 @@ impl IDebugControl7 {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(offset), ::core::mem::transmute(flags), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, totallines: u32, offset: u64, flags: u32, offsetline: *mut u32, startoffset: *mut u64, endoffset: *mut u64, lineoffsets: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(previouslines),
-            ::core::mem::transmute(totallines),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(offsetline),
-            ::core::mem::transmute(startoffset),
-            ::core::mem::transmute(endoffset),
-            ::core::mem::transmute(lineoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(previouslines), ::core::mem::transmute(totallines), ::core::mem::transmute(offset), ::core::mem::transmute(flags), ::core::mem::transmute(offsetline), ::core::mem::transmute(startoffset), ::core::mem::transmute(endoffset), ::core::mem::transmute(lineoffsets)).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -23588,20 +21643,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: super::super::super::Foundation::PSTR, servicepackstringsize: u32, servicepackstringused: *mut u32, servicepacknumber: *mut u32, buildstring: super::super::super::Foundation::PSTR, buildstringsize: u32, buildstringused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(platformid),
-            ::core::mem::transmute(major),
-            ::core::mem::transmute(minor),
-            ::core::mem::transmute(servicepackstring),
-            ::core::mem::transmute(servicepackstringsize),
-            ::core::mem::transmute(servicepackstringused),
-            ::core::mem::transmute(servicepacknumber),
-            ::core::mem::transmute(buildstring),
-            ::core::mem::transmute(buildstringsize),
-            ::core::mem::transmute(buildstringused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(platformid), ::core::mem::transmute(major), ::core::mem::transmute(minor), ::core::mem::transmute(servicepackstring), ::core::mem::transmute(servicepackstringsize), ::core::mem::transmute(servicepackstringused), ::core::mem::transmute(servicepacknumber), ::core::mem::transmute(buildstring), ::core::mem::transmute(buildstringsize), ::core::mem::transmute(buildstringused)).ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -23622,17 +21664,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).46)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -23750,7 +21782,7 @@ impl IDebugControl7 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -23809,19 +21841,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).94)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -23841,18 +21861,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).99)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -23894,17 +21903,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).111)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).111)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -23978,17 +21977,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).129)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).129)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, macrosize: *mut u32) -> ::windows::core::Result<()> {
@@ -24040,7 +22029,7 @@ impl IDebugControl7 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -24073,34 +22062,11 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PWSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).150)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-            ::core::mem::transmute(description),
-            ::core::mem::transmute(descriptionsize),
-            ::core::mem::transmute(descriptionused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).150)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused), ::core::mem::transmute(description), ::core::mem::transmute(descriptionsize), ::core::mem::transmute(descriptionused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, index: u32, srcbuffer: super::super::super::Foundation::PWSTR, srcbuffersize: u32, srcsize: *mut u32, dstbuffer: super::super::super::Foundation::PWSTR, dstbuffersize: u32, dstsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).151)(
-            ::core::mem::transmute_copy(self),
-            srctext.into_param().abi(),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(srcbuffer),
-            ::core::mem::transmute(srcbuffersize),
-            ::core::mem::transmute(srcsize),
-            ::core::mem::transmute(dstbuffer),
-            ::core::mem::transmute(dstbuffersize),
-            ::core::mem::transmute(dstsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).151)(::core::mem::transmute_copy(self), srctext.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(srcbuffer), ::core::mem::transmute(srcbuffersize), ::core::mem::transmute(srcsize), ::core::mem::transmute(dstbuffer), ::core::mem::transmute(dstbuffersize), ::core::mem::transmute(dstsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextReplacementWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, srctext: Param0, dsttext: Param1) -> ::windows::core::Result<()> {
@@ -24112,17 +22078,7 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: super::super::super::Foundation::PWSTR, fullnamebuffersize: u32, fullnamesize: *mut u32, abbrevnamebuffer: super::super::super::Foundation::PWSTR, abbrevnamebuffersize: u32, abbrevnamesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).154)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(fullnamebuffer),
-            ::core::mem::transmute(fullnamebuffersize),
-            ::core::mem::transmute(fullnamesize),
-            ::core::mem::transmute(abbrevnamebuffer),
-            ::core::mem::transmute(abbrevnamebuffersize),
-            ::core::mem::transmute(abbrevnamesize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).154)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(fullnamebuffer), ::core::mem::transmute(fullnamebuffersize), ::core::mem::transmute(fullnamesize), ::core::mem::transmute(abbrevnamebuffer), ::core::mem::transmute(abbrevnamebuffersize), ::core::mem::transmute(abbrevnamesize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventIndexDescriptionWide<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, which: u32, buffer: Param2, buffersize: u32) -> ::windows::core::Result<u32> {
@@ -24158,47 +22114,14 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTrace(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).163)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).163)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).164)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).164)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut ::core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).165)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(processid),
-            ::core::mem::transmute(threadid),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(contextsize),
-            ::core::mem::transmute(contextused),
-            ::core::mem::transmute(extrainformation),
-            ::core::mem::transmute(extrainformationsize),
-            ::core::mem::transmute(extrainformationused),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).165)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(processid), ::core::mem::transmute(threadid), ::core::mem::transmute(context), ::core::mem::transmute(contextsize), ::core::mem::transmute(contextused), ::core::mem::transmute(extrainformation), ::core::mem::transmute(extrainformationsize), ::core::mem::transmute(extrainformationused)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: super::super::super::Foundation::PSTR, stringsize: u32, stringneeded: *mut u32) -> ::windows::core::Result<()> {
@@ -24221,32 +22144,11 @@ impl IDebugControl7 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: *const ::core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).171)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startcontext),
-            ::core::mem::transmute(startcontextsize),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(framesfilled),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).171)(::core::mem::transmute_copy(self), ::core::mem::transmute(startcontext), ::core::mem::transmute(startcontextsize), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(framesfilled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).172)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(outputcontrol),
-            ::core::mem::transmute(frames),
-            ::core::mem::transmute(framessize),
-            ::core::mem::transmute(framecontexts),
-            ::core::mem::transmute(framecontextssize),
-            ::core::mem::transmute(framecontextsentrysize),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).172)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputcontrol), ::core::mem::transmute(frames), ::core::mem::transmute(framessize), ::core::mem::transmute(framecontexts), ::core::mem::transmute(framecontextssize), ::core::mem::transmute(framecontextsentrysize), ::core::mem::transmute(flags)).ok()
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<IDebugBreakpoint3> {
         let mut result__: <IDebugBreakpoint3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -24397,9 +22299,9 @@ pub struct IDebugControl7_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -24595,12 +22497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugCookie_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwdebugappcookie: u32) -> ::windows::core::HRESULT,
-);
+pub struct IDebugCookie_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwdebugappcookie: u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugDataSpaces(pub ::windows::core::IUnknown);
@@ -26247,21 +24144,7 @@ impl IDebugEventCallbacks {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessA<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: Param4, imagename: Param5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(imagefilehandle),
-            ::core::mem::transmute(handle),
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(modulesize),
-            modulename.into_param().abi(),
-            imagename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            ::core::mem::transmute(timedatestamp),
-            ::core::mem::transmute(initialthreadhandle),
-            ::core::mem::transmute(threaddataoffset),
-            ::core::mem::transmute(startoffset),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(imagefilehandle), ::core::mem::transmute(handle), ::core::mem::transmute(baseoffset), ::core::mem::transmute(modulesize), modulename.into_param().abi(), imagename.into_param().abi(), ::core::mem::transmute(checksum), ::core::mem::transmute(timedatestamp), ::core::mem::transmute(initialthreadhandle), ::core::mem::transmute(threaddataoffset), ::core::mem::transmute(startoffset)).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(exitcode)).ok()
@@ -26362,21 +24245,7 @@ impl IDebugEventCallbacksWide {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProcessA<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: Param4, imagename: Param5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(imagefilehandle),
-            ::core::mem::transmute(handle),
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(modulesize),
-            modulename.into_param().abi(),
-            imagename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            ::core::mem::transmute(timedatestamp),
-            ::core::mem::transmute(initialthreadhandle),
-            ::core::mem::transmute(threaddataoffset),
-            ::core::mem::transmute(startoffset),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(imagefilehandle), ::core::mem::transmute(handle), ::core::mem::transmute(baseoffset), ::core::mem::transmute(modulesize), modulename.into_param().abi(), imagename.into_param().abi(), ::core::mem::transmute(checksum), ::core::mem::transmute(timedatestamp), ::core::mem::transmute(initialthreadhandle), ::core::mem::transmute(threaddataoffset), ::core::mem::transmute(startoffset)).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(exitcode)).ok()
@@ -26476,22 +24345,7 @@ impl IDebugEventContextCallbacks {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(exitcode), ::core::mem::transmute(context), ::core::mem::transmute(contextsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProcessA<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        imagefilehandle: u64,
-        handle: u64,
-        baseoffset: u64,
-        modulesize: u32,
-        modulename: Param4,
-        imagename: Param5,
-        checksum: u32,
-        timedatestamp: u32,
-        initialthreadhandle: u64,
-        threaddataoffset: u64,
-        startoffset: u64,
-        context: *const ::core::ffi::c_void,
-        contextsize: u32,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateProcessA<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: Param4, imagename: Param5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imagefilehandle),
@@ -26515,19 +24369,7 @@ impl IDebugEventContextCallbacks {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadModule<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: Param3, imagename: Param4, checksum: u32, timedatestamp: u32, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(imagefilehandle),
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(modulesize),
-            modulename.into_param().abi(),
-            imagename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            ::core::mem::transmute(timedatestamp),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(contextsize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(imagefilehandle), ::core::mem::transmute(baseoffset), ::core::mem::transmute(modulesize), modulename.into_param().abi(), imagename.into_param().abi(), ::core::mem::transmute(checksum), ::core::mem::transmute(timedatestamp), ::core::mem::transmute(context), ::core::mem::transmute(contextsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnloadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, imagebasename: Param0, baseoffset: u64, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::Result<()> {
@@ -26690,12 +24532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugExpressionCallBack_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDebugExpressionCallBack_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugExpressionContext(pub ::windows::core::IUnknown);
@@ -27244,12 +25081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugHostContext_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontext: ::windows::core::RawPtr, pisequal: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct IDebugHostContext_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontext: ::windows::core::RawPtr, pisequal: *mut bool) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugHostData(pub ::windows::core::IUnknown);
@@ -28153,12 +25985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugHostModuleSignature_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmodule: ::windows::core::RawPtr, ismatch: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct IDebugHostModuleSignature_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pmodule: ::windows::core::RawPtr, ismatch: *mut bool) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugHostPublic(pub ::windows::core::IUnknown);
@@ -28299,12 +26126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugHostScriptHost_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, script: ::windows::core::RawPtr, scriptcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDebugHostScriptHost_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, script: ::windows::core::RawPtr, scriptcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugHostStatus(pub ::windows::core::IUnknown);
@@ -28340,12 +26162,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugHostStatus_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, interruptrequested: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct IDebugHostStatus_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, interruptrequested: *mut bool) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugHostSymbol(pub ::windows::core::IUnknown);
@@ -28581,13 +26398,7 @@ impl IDebugHostSymbols {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), signaturespecification.into_param().abi(), module.into_param().abi(), &mut result__).from_abi::<IDebugHostTypeSignature>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTypeSignatureForModuleRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-        &self,
-        signaturespecification: Param0,
-        modulename: Param1,
-        minversion: Param2,
-        maxversion: Param3,
-    ) -> ::windows::core::Result<IDebugHostTypeSignature> {
+    pub unsafe fn CreateTypeSignatureForModuleRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, signaturespecification: Param0, modulename: Param1, minversion: Param2, maxversion: Param3) -> ::windows::core::Result<IDebugHostTypeSignature> {
         let mut result__: <IDebugHostTypeSignature as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), signaturespecification.into_param().abi(), modulename.into_param().abi(), minversion.into_param().abi(), maxversion.into_param().abi(), &mut result__).from_abi::<IDebugHostTypeSignature>(result__)
     }
@@ -30209,12 +28020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugSessionProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pda: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDebugSessionProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pda: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugStackFrame(pub ::windows::core::IUnknown);
@@ -30410,12 +28216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugStackFrameSniffer_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDebugStackFrameSniffer_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugStackFrameSnifferEx32(pub ::windows::core::IUnknown);
@@ -34710,12 +32511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugThreadCall32_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows::core::HRESULT,
-);
+pub struct IDebugThreadCall32_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDebugThreadCall64(pub ::windows::core::IUnknown);
@@ -34750,12 +32546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDebu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDebugThreadCall64_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::HRESULT,
-);
+pub struct IDebugThreadCall64_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDynamicConceptProviderConcept(pub ::windows::core::IUnknown);
@@ -35555,12 +33346,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHost
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHostDataModelAccess_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manager: *mut ::windows::core::RawPtr, host: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IHostDataModelAccess_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, manager: *mut ::windows::core::RawPtr, host: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IIndexableConcept(pub ::windows::core::IUnknown);
@@ -36050,12 +33836,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IJsDe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsDebugStackWalker_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IJsDebugStackWalker_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IJsEnumDebugProperty(pub ::windows::core::IUnknown);
@@ -36379,15 +34160,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGEHLP_DEFERRED_SYMBOL_LOAD")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("BaseOfImage", &self.BaseOfImage)
-            .field("CheckSum", &self.CheckSum)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("FileName", &self.FileName)
-            .field("Reparse", &self.Reparse)
-            .field("hFile", &self.hFile)
-            .finish()
+        fmt.debug_struct("IMAGEHLP_DEFERRED_SYMBOL_LOAD").field("SizeOfStruct", &self.SizeOfStruct).field("BaseOfImage", &self.BaseOfImage).field("CheckSum", &self.CheckSum).field("TimeDateStamp", &self.TimeDateStamp).field("FileName", &self.FileName).field("Reparse", &self.Reparse).field("hFile", &self.hFile).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -36429,16 +34202,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGEHLP_DEFERRED_SYMBOL_LOAD64")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("BaseOfImage", &self.BaseOfImage)
-            .field("CheckSum", &self.CheckSum)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("FileName", &self.FileName)
-            .field("Reparse", &self.Reparse)
-            .field("hFile", &self.hFile)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("IMAGEHLP_DEFERRED_SYMBOL_LOAD64").field("SizeOfStruct", &self.SizeOfStruct).field("BaseOfImage", &self.BaseOfImage).field("CheckSum", &self.CheckSum).field("TimeDateStamp", &self.TimeDateStamp).field("FileName", &self.FileName).field("Reparse", &self.Reparse).field("hFile", &self.hFile).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -36477,16 +34241,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGEHLP_DEFERRED_SYMBOL_LOADW64")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("BaseOfImage", &self.BaseOfImage)
-            .field("CheckSum", &self.CheckSum)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("FileName", &self.FileName)
-            .field("Reparse", &self.Reparse)
-            .field("hFile", &self.hFile)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("IMAGEHLP_DEFERRED_SYMBOL_LOADW64").field("SizeOfStruct", &self.SizeOfStruct).field("BaseOfImage", &self.BaseOfImage).field("CheckSum", &self.CheckSum).field("TimeDateStamp", &self.TimeDateStamp).field("FileName", &self.FileName).field("Reparse", &self.Reparse).field("hFile", &self.hFile).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -36689,24 +34444,7 @@ impl ::core::fmt::Debug for IMAGEHLP_GET_TYPE_INFO_PARAMS {
 }
 impl ::core::cmp::PartialEq for IMAGEHLP_GET_TYPE_INFO_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct
-            && self.Flags == other.Flags
-            && self.NumIds == other.NumIds
-            && self.TypeIds == other.TypeIds
-            && self.TagFilter == other.TagFilter
-            && self.NumReqs == other.NumReqs
-            && self.ReqKinds == other.ReqKinds
-            && self.ReqOffsets == other.ReqOffsets
-            && self.ReqSizes == other.ReqSizes
-            && self.ReqStride == other.ReqStride
-            && self.BufferSize == other.BufferSize
-            && self.Buffer == other.Buffer
-            && self.EntriesMatched == other.EntriesMatched
-            && self.EntriesFilled == other.EntriesFilled
-            && self.TagsFound == other.TagsFound
-            && self.AllReqsValid == other.AllReqsValid
-            && self.NumReqsValid == other.NumReqsValid
-            && self.ReqsValid == other.ReqsValid
+        self.SizeOfStruct == other.SizeOfStruct && self.Flags == other.Flags && self.NumIds == other.NumIds && self.TypeIds == other.TypeIds && self.TagFilter == other.TagFilter && self.NumReqs == other.NumReqs && self.ReqKinds == other.ReqKinds && self.ReqOffsets == other.ReqOffsets && self.ReqSizes == other.ReqSizes && self.ReqStride == other.ReqStride && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer && self.EntriesMatched == other.EntriesMatched && self.EntriesFilled == other.EntriesFilled && self.TagsFound == other.TagsFound && self.AllReqsValid == other.AllReqsValid && self.NumReqsValid == other.NumReqsValid && self.ReqsValid == other.ReqsValid
     }
 }
 impl ::core::cmp::Eq for IMAGEHLP_GET_TYPE_INFO_PARAMS {}
@@ -36916,18 +34654,7 @@ impl ::core::default::Default for IMAGEHLP_MODULE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_MODULE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGEHLP_MODULE")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("BaseOfImage", &self.BaseOfImage)
-            .field("ImageSize", &self.ImageSize)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("CheckSum", &self.CheckSum)
-            .field("NumSyms", &self.NumSyms)
-            .field("SymType", &self.SymType)
-            .field("ModuleName", &self.ModuleName)
-            .field("ImageName", &self.ImageName)
-            .field("LoadedImageName", &self.LoadedImageName)
-            .finish()
+        fmt.debug_struct("IMAGEHLP_MODULE").field("SizeOfStruct", &self.SizeOfStruct).field("BaseOfImage", &self.BaseOfImage).field("ImageSize", &self.ImageSize).field("TimeDateStamp", &self.TimeDateStamp).field("CheckSum", &self.CheckSum).field("NumSyms", &self.NumSyms).field("SymType", &self.SymType).field("ModuleName", &self.ModuleName).field("ImageName", &self.ImageName).field("LoadedImageName", &self.LoadedImageName).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -37110,18 +34837,7 @@ impl ::core::default::Default for IMAGEHLP_MODULEW {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::fmt::Debug for IMAGEHLP_MODULEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGEHLP_MODULEW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("BaseOfImage", &self.BaseOfImage)
-            .field("ImageSize", &self.ImageSize)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("CheckSum", &self.CheckSum)
-            .field("NumSyms", &self.NumSyms)
-            .field("SymType", &self.SymType)
-            .field("ModuleName", &self.ModuleName)
-            .field("ImageName", &self.ImageName)
-            .field("LoadedImageName", &self.LoadedImageName)
-            .finish()
+        fmt.debug_struct("IMAGEHLP_MODULEW").field("SizeOfStruct", &self.SizeOfStruct).field("BaseOfImage", &self.BaseOfImage).field("ImageSize", &self.ImageSize).field("TimeDateStamp", &self.TimeDateStamp).field("CheckSum", &self.CheckSum).field("NumSyms", &self.NumSyms).field("SymType", &self.SymType).field("ModuleName", &self.ModuleName).field("ImageName", &self.ImageName).field("LoadedImageName", &self.LoadedImageName).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -37329,18 +35045,7 @@ impl ::core::default::Default for IMAGEHLP_STACK_FRAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_STACK_FRAME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGEHLP_STACK_FRAME")
-            .field("InstructionOffset", &self.InstructionOffset)
-            .field("ReturnOffset", &self.ReturnOffset)
-            .field("FrameOffset", &self.FrameOffset)
-            .field("StackOffset", &self.StackOffset)
-            .field("BackingStoreOffset", &self.BackingStoreOffset)
-            .field("FuncTableEntry", &self.FuncTableEntry)
-            .field("Params", &self.Params)
-            .field("Reserved", &self.Reserved)
-            .field("Virtual", &self.Virtual)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("IMAGEHLP_STACK_FRAME").field("InstructionOffset", &self.InstructionOffset).field("ReturnOffset", &self.ReturnOffset).field("FrameOffset", &self.FrameOffset).field("StackOffset", &self.StackOffset).field("BackingStoreOffset", &self.BackingStoreOffset).field("FuncTableEntry", &self.FuncTableEntry).field("Params", &self.Params).field("Reserved", &self.Reserved).field("Virtual", &self.Virtual).field("Reserved2", &self.Reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -37964,16 +35669,7 @@ impl ::core::default::Default for IMAGE_DEBUG_DIRECTORY {
 }
 impl ::core::fmt::Debug for IMAGE_DEBUG_DIRECTORY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGE_DEBUG_DIRECTORY")
-            .field("Characteristics", &self.Characteristics)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("Type", &self.Type)
-            .field("SizeOfData", &self.SizeOfData)
-            .field("AddressOfRawData", &self.AddressOfRawData)
-            .field("PointerToRawData", &self.PointerToRawData)
-            .finish()
+        fmt.debug_struct("IMAGE_DEBUG_DIRECTORY").field("Characteristics", &self.Characteristics).field("TimeDateStamp", &self.TimeDateStamp).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("Type", &self.Type).field("SizeOfData", &self.SizeOfData).field("AddressOfRawData", &self.AddressOfRawData).field("PointerToRawData", &self.PointerToRawData).finish()
     }
 }
 impl ::core::cmp::PartialEq for IMAGE_DEBUG_DIRECTORY {
@@ -38400,15 +36096,7 @@ impl ::core::default::Default for IMAGE_FILE_HEADER {
 }
 impl ::core::fmt::Debug for IMAGE_FILE_HEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGE_FILE_HEADER")
-            .field("Machine", &self.Machine)
-            .field("NumberOfSections", &self.NumberOfSections)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("PointerToSymbolTable", &self.PointerToSymbolTable)
-            .field("NumberOfSymbols", &self.NumberOfSymbols)
-            .field("SizeOfOptionalHeader", &self.SizeOfOptionalHeader)
-            .field("Characteristics", &self.Characteristics)
-            .finish()
+        fmt.debug_struct("IMAGE_FILE_HEADER").field("Machine", &self.Machine).field("NumberOfSections", &self.NumberOfSections).field("TimeDateStamp", &self.TimeDateStamp).field("PointerToSymbolTable", &self.PointerToSymbolTable).field("NumberOfSymbols", &self.NumberOfSymbols).field("SizeOfOptionalHeader", &self.SizeOfOptionalHeader).field("Characteristics", &self.Characteristics).finish()
     }
 }
 impl ::core::cmp::PartialEq for IMAGE_FILE_HEADER {
@@ -39096,19 +36784,7 @@ impl ::core::fmt::Debug for IMAGE_ROM_OPTIONAL_HEADER {
 }
 impl ::core::cmp::PartialEq for IMAGE_ROM_OPTIONAL_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Magic == other.Magic
-            && self.MajorLinkerVersion == other.MajorLinkerVersion
-            && self.MinorLinkerVersion == other.MinorLinkerVersion
-            && self.SizeOfCode == other.SizeOfCode
-            && self.SizeOfInitializedData == other.SizeOfInitializedData
-            && self.SizeOfUninitializedData == other.SizeOfUninitializedData
-            && self.AddressOfEntryPoint == other.AddressOfEntryPoint
-            && self.BaseOfCode == other.BaseOfCode
-            && self.BaseOfData == other.BaseOfData
-            && self.BaseOfBss == other.BaseOfBss
-            && self.GprMask == other.GprMask
-            && self.CprMask == other.CprMask
-            && self.GpValue == other.GpValue
+        self.Magic == other.Magic && self.MajorLinkerVersion == other.MajorLinkerVersion && self.MinorLinkerVersion == other.MinorLinkerVersion && self.SizeOfCode == other.SizeOfCode && self.SizeOfInitializedData == other.SizeOfInitializedData && self.SizeOfUninitializedData == other.SizeOfUninitializedData && self.AddressOfEntryPoint == other.AddressOfEntryPoint && self.BaseOfCode == other.BaseOfCode && self.BaseOfData == other.BaseOfData && self.BaseOfBss == other.BaseOfBss && self.GprMask == other.GprMask && self.CprMask == other.CprMask && self.GpValue == other.GpValue
     }
 }
 impl ::core::cmp::Eq for IMAGE_ROM_OPTIONAL_HEADER {}
@@ -40372,12 +38048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPref
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPreferredRuntimeTypeConcept_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, contextobject: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPreferredRuntimeTypeConcept_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, contextobject: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProcessDebugManager32(pub ::windows::core::IUnknown);
@@ -40533,12 +38204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProv
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideExpressionContexts_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppedec: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IProvideExpressionContexts_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppedec: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IRawEnumerator(pub ::windows::core::IUnknown);
@@ -41009,33 +38675,9 @@ impl IScriptEntry {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(isn), ::core::mem::transmute(dwcookie), pszdelimiter.into_param().abi(), &mut result__).from_abi::<IScriptEntry>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateChildHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Com::ITypeInfo>>(
-        &self,
-        pszdefaultname: Param0,
-        prgpsznames: *const super::super::super::Foundation::PWSTR,
-        cpsznames: u32,
-        pszevent: Param3,
-        pszdelimiter: Param4,
-        ptisignature: Param5,
-        imethodsignature: u32,
-        isn: u32,
-        dwcookie: u32,
-    ) -> ::windows::core::Result<IScriptEntry> {
+    pub unsafe fn CreateChildHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Com::ITypeInfo>>(&self, pszdefaultname: Param0, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: Param3, pszdelimiter: Param4, ptisignature: Param5, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows::core::Result<IScriptEntry> {
         let mut result__: <IScriptEntry as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            pszdefaultname.into_param().abi(),
-            ::core::mem::transmute(prgpsznames),
-            ::core::mem::transmute(cpsznames),
-            pszevent.into_param().abi(),
-            pszdelimiter.into_param().abi(),
-            ptisignature.into_param().abi(),
-            ::core::mem::transmute(imethodsignature),
-            ::core::mem::transmute(isn),
-            ::core::mem::transmute(dwcookie),
-            &mut result__,
-        )
-        .from_abi::<IScriptEntry>(result__)
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames), ::core::mem::transmute(cpsznames), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), ::core::mem::transmute(imethodsignature), ::core::mem::transmute(isn), ::core::mem::transmute(dwcookie), &mut result__).from_abi::<IScriptEntry>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -41146,8 +38788,7 @@ pub struct IScriptEntry_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isn: u32, dwcookie: u32, pszdelimiter: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstr: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -41265,33 +38906,9 @@ impl IScriptNode {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(isn), ::core::mem::transmute(dwcookie), pszdelimiter.into_param().abi(), &mut result__).from_abi::<IScriptEntry>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateChildHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Com::ITypeInfo>>(
-        &self,
-        pszdefaultname: Param0,
-        prgpsznames: *const super::super::super::Foundation::PWSTR,
-        cpsznames: u32,
-        pszevent: Param3,
-        pszdelimiter: Param4,
-        ptisignature: Param5,
-        imethodsignature: u32,
-        isn: u32,
-        dwcookie: u32,
-    ) -> ::windows::core::Result<IScriptEntry> {
+    pub unsafe fn CreateChildHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Com::ITypeInfo>>(&self, pszdefaultname: Param0, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: Param3, pszdelimiter: Param4, ptisignature: Param5, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows::core::Result<IScriptEntry> {
         let mut result__: <IScriptEntry as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            pszdefaultname.into_param().abi(),
-            ::core::mem::transmute(prgpsznames),
-            ::core::mem::transmute(cpsznames),
-            pszevent.into_param().abi(),
-            pszdelimiter.into_param().abi(),
-            ptisignature.into_param().abi(),
-            ::core::mem::transmute(imethodsignature),
-            ::core::mem::transmute(isn),
-            ::core::mem::transmute(dwcookie),
-            &mut result__,
-        )
-        .from_abi::<IScriptEntry>(result__)
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames), ::core::mem::transmute(cpsznames), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), ::core::mem::transmute(imethodsignature), ::core::mem::transmute(isn), ::core::mem::transmute(dwcookie), &mut result__).from_abi::<IScriptEntry>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IScriptNode {
@@ -41335,8 +38952,7 @@ pub struct IScriptNode_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isn: u32, dwcookie: u32, pszdelimiter: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
@@ -41380,33 +38996,9 @@ impl IScriptScriptlet {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(isn), ::core::mem::transmute(dwcookie), pszdelimiter.into_param().abi(), &mut result__).from_abi::<IScriptEntry>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateChildHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Com::ITypeInfo>>(
-        &self,
-        pszdefaultname: Param0,
-        prgpsznames: *const super::super::super::Foundation::PWSTR,
-        cpsznames: u32,
-        pszevent: Param3,
-        pszdelimiter: Param4,
-        ptisignature: Param5,
-        imethodsignature: u32,
-        isn: u32,
-        dwcookie: u32,
-    ) -> ::windows::core::Result<IScriptEntry> {
+    pub unsafe fn CreateChildHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Com::ITypeInfo>>(&self, pszdefaultname: Param0, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: Param3, pszdelimiter: Param4, ptisignature: Param5, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows::core::Result<IScriptEntry> {
         let mut result__: <IScriptEntry as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            pszdefaultname.into_param().abi(),
-            ::core::mem::transmute(prgpsznames),
-            ::core::mem::transmute(cpsznames),
-            pszevent.into_param().abi(),
-            pszdelimiter.into_param().abi(),
-            ptisignature.into_param().abi(),
-            ::core::mem::transmute(imethodsignature),
-            ::core::mem::transmute(isn),
-            ::core::mem::transmute(dwcookie),
-            &mut result__,
-        )
-        .from_abi::<IScriptEntry>(result__)
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pszdefaultname.into_param().abi(), ::core::mem::transmute(prgpsznames), ::core::mem::transmute(cpsznames), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), ::core::mem::transmute(imethodsignature), ::core::mem::transmute(isn), ::core::mem::transmute(dwcookie), &mut result__).from_abi::<IScriptEntry>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -41564,8 +39156,7 @@ pub struct IScriptScriptlet_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isn: u32, dwcookie: u32, pszdelimiter: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstr: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -41917,7 +39508,7 @@ pub unsafe fn ImageGetCertificateHeader<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImageGetDigestStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, digestlevel: u32, digestfunction: ::core::option::Option<DIGEST_FUNCTION>, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn ImageGetDigestStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -43009,18 +40600,7 @@ impl ::core::fmt::Debug for KDHELP {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::PartialEq for KDHELP {
     fn eq(&self, other: &Self) -> bool {
-        self.Thread == other.Thread
-            && self.ThCallbackStack == other.ThCallbackStack
-            && self.NextCallback == other.NextCallback
-            && self.FramePointer == other.FramePointer
-            && self.KiCallUserMode == other.KiCallUserMode
-            && self.KeUserCallbackDispatcher == other.KeUserCallbackDispatcher
-            && self.SystemRangeStart == other.SystemRangeStart
-            && self.ThCallbackBStore == other.ThCallbackBStore
-            && self.KiUserExceptionDispatcher == other.KiUserExceptionDispatcher
-            && self.StackBase == other.StackBase
-            && self.StackLimit == other.StackLimit
-            && self.Reserved == other.Reserved
+        self.Thread == other.Thread && self.ThCallbackStack == other.ThCallbackStack && self.NextCallback == other.NextCallback && self.FramePointer == other.FramePointer && self.KiCallUserMode == other.KiCallUserMode && self.KeUserCallbackDispatcher == other.KeUserCallbackDispatcher && self.SystemRangeStart == other.SystemRangeStart && self.ThCallbackBStore == other.ThCallbackBStore && self.KiUserExceptionDispatcher == other.KiUserExceptionDispatcher && self.StackBase == other.StackBase && self.StackLimit == other.StackLimit && self.Reserved == other.Reserved
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -43194,24 +40774,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Xmm0", &self.Xmm0)
-            .field("Xmm1", &self.Xmm1)
-            .field("Xmm2", &self.Xmm2)
-            .field("Xmm3", &self.Xmm3)
-            .field("Xmm4", &self.Xmm4)
-            .field("Xmm5", &self.Xmm5)
-            .field("Xmm6", &self.Xmm6)
-            .field("Xmm7", &self.Xmm7)
-            .field("Xmm8", &self.Xmm8)
-            .field("Xmm9", &self.Xmm9)
-            .field("Xmm10", &self.Xmm10)
-            .field("Xmm11", &self.Xmm11)
-            .field("Xmm12", &self.Xmm12)
-            .field("Xmm13", &self.Xmm13)
-            .field("Xmm14", &self.Xmm14)
-            .field("Xmm15", &self.Xmm15)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Xmm0", &self.Xmm0).field("Xmm1", &self.Xmm1).field("Xmm2", &self.Xmm2).field("Xmm3", &self.Xmm3).field("Xmm4", &self.Xmm4).field("Xmm5", &self.Xmm5).field("Xmm6", &self.Xmm6).field("Xmm7", &self.Xmm7).field("Xmm8", &self.Xmm8).field("Xmm9", &self.Xmm9).field("Xmm10", &self.Xmm10).field("Xmm11", &self.Xmm11).field("Xmm12", &self.Xmm12).field("Xmm13", &self.Xmm13).field("Xmm14", &self.Xmm14).field("Xmm15", &self.Xmm15).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64",))]
@@ -43285,24 +40848,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 #[cfg(any(target_arch = "x86_64",))]
 impl ::core::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Rax", &self.Rax)
-            .field("Rcx", &self.Rcx)
-            .field("Rdx", &self.Rdx)
-            .field("Rbx", &self.Rbx)
-            .field("Rsp", &self.Rsp)
-            .field("Rbp", &self.Rbp)
-            .field("Rsi", &self.Rsi)
-            .field("Rdi", &self.Rdi)
-            .field("R8", &self.R8)
-            .field("R9", &self.R9)
-            .field("R10", &self.R10)
-            .field("R11", &self.R11)
-            .field("R12", &self.R12)
-            .field("R13", &self.R13)
-            .field("R14", &self.R14)
-            .field("R15", &self.R15)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("Rsp", &self.Rsp).field("Rbp", &self.Rbp).field("Rsi", &self.Rsi).field("Rdi", &self.Rdi).field("R8", &self.R8).field("R9", &self.R9).field("R10", &self.R10).field("R11", &self.R11).field("R12", &self.R12).field("R13", &self.R13).field("R14", &self.R14).field("R15", &self.R15).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64",))]
@@ -43573,20 +41119,7 @@ impl ::core::fmt::Debug for LOADED_IMAGE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for LOADED_IMAGE {
     fn eq(&self, other: &Self) -> bool {
-        self.ModuleName == other.ModuleName
-            && self.hFile == other.hFile
-            && self.MappedAddress == other.MappedAddress
-            && self.FileHeader == other.FileHeader
-            && self.LastRvaSection == other.LastRvaSection
-            && self.NumberOfSections == other.NumberOfSections
-            && self.Sections == other.Sections
-            && self.Characteristics == other.Characteristics
-            && self.fSystemImage == other.fSystemImage
-            && self.fDOSImage == other.fDOSImage
-            && self.fReadOnly == other.fReadOnly
-            && self.Version == other.Version
-            && self.Links == other.Links
-            && self.SizeOfImage == other.SizeOfImage
+        self.ModuleName == other.ModuleName && self.hFile == other.hFile && self.MappedAddress == other.MappedAddress && self.FileHeader == other.FileHeader && self.LastRvaSection == other.LastRvaSection && self.NumberOfSections == other.NumberOfSections && self.Sections == other.Sections && self.Characteristics == other.Characteristics && self.fSystemImage == other.fSystemImage && self.fDOSImage == other.fDOSImage && self.fReadOnly == other.fReadOnly && self.Version == other.Version && self.Links == other.Links && self.SizeOfImage == other.SizeOfImage
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -43653,20 +41186,7 @@ impl ::core::fmt::Debug for LOADED_IMAGE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for LOADED_IMAGE {
     fn eq(&self, other: &Self) -> bool {
-        self.ModuleName == other.ModuleName
-            && self.hFile == other.hFile
-            && self.MappedAddress == other.MappedAddress
-            && self.FileHeader == other.FileHeader
-            && self.LastRvaSection == other.LastRvaSection
-            && self.NumberOfSections == other.NumberOfSections
-            && self.Sections == other.Sections
-            && self.Characteristics == other.Characteristics
-            && self.fSystemImage == other.fSystemImage
-            && self.fDOSImage == other.fDOSImage
-            && self.fReadOnly == other.fReadOnly
-            && self.Version == other.Version
-            && self.Links == other.Links
-            && self.SizeOfImage == other.SizeOfImage
+        self.ModuleName == other.ModuleName && self.hFile == other.hFile && self.MappedAddress == other.MappedAddress && self.FileHeader == other.FileHeader && self.LastRvaSection == other.LastRvaSection && self.NumberOfSections == other.NumberOfSections && self.Sections == other.Sections && self.Characteristics == other.Characteristics && self.fSystemImage == other.fSystemImage && self.fDOSImage == other.fDOSImage && self.fReadOnly == other.fReadOnly && self.Version == other.Version && self.Links == other.Links && self.SizeOfImage == other.SizeOfImage
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -43714,9 +41234,9 @@ impl ::core::cmp::Eq for LOAD_DLL_DEBUG_INFO {}
 unsafe impl ::windows::core::Abi for LOAD_DLL_DEBUG_INFO {
     type Abi = Self;
 }
-pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = unsafe extern "system" fn() -> u32;
+pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type LPTOP_LEVEL_EXCEPTION_FILTER = unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32;
+pub type LPTOP_LEVEL_EXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LanguageKind(pub i32);
@@ -43816,16 +41336,11 @@ unsafe impl ::windows::core::Abi for M128A {
 }
 pub const MAX_SYM_NAME: u32 = 2000u32;
 pub const MEMORY_READ_ERROR: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-impl ::core::clone::Clone for MINIDUMP_CALLBACK_INFORMATION {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
-    pub CallbackRoutine: ::core::option::Option<MINIDUMP_CALLBACK_ROUTINE>,
+    pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -43846,7 +41361,7 @@ impl ::core::cmp::PartialEq for MINIDUMP_CALLBACK_INFORMATION {
 impl ::core::cmp::Eq for MINIDUMP_CALLBACK_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_INFORMATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -44123,7 +41638,7 @@ unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-pub type MINIDUMP_CALLBACK_ROUTINE = unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL;
+pub type MINIDUMP_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MINIDUMP_CALLBACK_TYPE(pub i32);
@@ -44330,14 +41845,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_STREAM {
 }
 impl ::core::fmt::Debug for MINIDUMP_FUNCTION_TABLE_STREAM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MINIDUMP_FUNCTION_TABLE_STREAM")
-            .field("SizeOfHeader", &self.SizeOfHeader)
-            .field("SizeOfDescriptor", &self.SizeOfDescriptor)
-            .field("SizeOfNativeDescriptor", &self.SizeOfNativeDescriptor)
-            .field("SizeOfFunctionEntry", &self.SizeOfFunctionEntry)
-            .field("NumberOfDescriptors", &self.NumberOfDescriptors)
-            .field("SizeOfAlignPad", &self.SizeOfAlignPad)
-            .finish()
+        fmt.debug_struct("MINIDUMP_FUNCTION_TABLE_STREAM").field("SizeOfHeader", &self.SizeOfHeader).field("SizeOfDescriptor", &self.SizeOfDescriptor).field("SizeOfNativeDescriptor", &self.SizeOfNativeDescriptor).field("SizeOfFunctionEntry", &self.SizeOfFunctionEntry).field("NumberOfDescriptors", &self.NumberOfDescriptors).field("SizeOfAlignPad", &self.SizeOfAlignPad).finish()
     }
 }
 impl ::core::cmp::PartialEq for MINIDUMP_FUNCTION_TABLE_STREAM {
@@ -44841,14 +42349,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO {
 }
 impl ::core::fmt::Debug for MINIDUMP_MISC_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MINIDUMP_MISC_INFO")
-            .field("SizeOfInfo", &self.SizeOfInfo)
-            .field("Flags1", &self.Flags1)
-            .field("ProcessId", &self.ProcessId)
-            .field("ProcessCreateTime", &self.ProcessCreateTime)
-            .field("ProcessUserTime", &self.ProcessUserTime)
-            .field("ProcessKernelTime", &self.ProcessKernelTime)
-            .finish()
+        fmt.debug_struct("MINIDUMP_MISC_INFO").field("SizeOfInfo", &self.SizeOfInfo).field("Flags1", &self.Flags1).field("ProcessId", &self.ProcessId).field("ProcessCreateTime", &self.ProcessCreateTime).field("ProcessUserTime", &self.ProcessUserTime).field("ProcessKernelTime", &self.ProcessKernelTime).finish()
     }
 }
 impl ::core::cmp::PartialEq for MINIDUMP_MISC_INFO {
@@ -44900,17 +42401,7 @@ impl ::core::fmt::Debug for MINIDUMP_MISC_INFO_2 {
 }
 impl ::core::cmp::PartialEq for MINIDUMP_MISC_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.SizeOfInfo == other.SizeOfInfo
-            && self.Flags1 == other.Flags1
-            && self.ProcessId == other.ProcessId
-            && self.ProcessCreateTime == other.ProcessCreateTime
-            && self.ProcessUserTime == other.ProcessUserTime
-            && self.ProcessKernelTime == other.ProcessKernelTime
-            && self.ProcessorMaxMhz == other.ProcessorMaxMhz
-            && self.ProcessorCurrentMhz == other.ProcessorCurrentMhz
-            && self.ProcessorMhzLimit == other.ProcessorMhzLimit
-            && self.ProcessorMaxIdleState == other.ProcessorMaxIdleState
-            && self.ProcessorCurrentIdleState == other.ProcessorCurrentIdleState
+        self.SizeOfInfo == other.SizeOfInfo && self.Flags1 == other.Flags1 && self.ProcessId == other.ProcessId && self.ProcessCreateTime == other.ProcessCreateTime && self.ProcessUserTime == other.ProcessUserTime && self.ProcessKernelTime == other.ProcessKernelTime && self.ProcessorMaxMhz == other.ProcessorMaxMhz && self.ProcessorCurrentMhz == other.ProcessorCurrentMhz && self.ProcessorMhzLimit == other.ProcessorMhzLimit && self.ProcessorMaxIdleState == other.ProcessorMaxIdleState && self.ProcessorCurrentIdleState == other.ProcessorCurrentIdleState
     }
 }
 impl ::core::cmp::Eq for MINIDUMP_MISC_INFO_2 {}
@@ -44972,22 +42463,7 @@ impl ::core::fmt::Debug for MINIDUMP_MISC_INFO_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for MINIDUMP_MISC_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.SizeOfInfo == other.SizeOfInfo
-            && self.Flags1 == other.Flags1
-            && self.ProcessId == other.ProcessId
-            && self.ProcessCreateTime == other.ProcessCreateTime
-            && self.ProcessUserTime == other.ProcessUserTime
-            && self.ProcessKernelTime == other.ProcessKernelTime
-            && self.ProcessorMaxMhz == other.ProcessorMaxMhz
-            && self.ProcessorCurrentMhz == other.ProcessorCurrentMhz
-            && self.ProcessorMhzLimit == other.ProcessorMhzLimit
-            && self.ProcessorMaxIdleState == other.ProcessorMaxIdleState
-            && self.ProcessorCurrentIdleState == other.ProcessorCurrentIdleState
-            && self.ProcessIntegrityLevel == other.ProcessIntegrityLevel
-            && self.ProcessExecuteFlags == other.ProcessExecuteFlags
-            && self.ProtectedProcess == other.ProtectedProcess
-            && self.TimeZoneId == other.TimeZoneId
-            && self.TimeZone == other.TimeZone
+        self.SizeOfInfo == other.SizeOfInfo && self.Flags1 == other.Flags1 && self.ProcessId == other.ProcessId && self.ProcessCreateTime == other.ProcessCreateTime && self.ProcessUserTime == other.ProcessUserTime && self.ProcessKernelTime == other.ProcessKernelTime && self.ProcessorMaxMhz == other.ProcessorMaxMhz && self.ProcessorCurrentMhz == other.ProcessorCurrentMhz && self.ProcessorMhzLimit == other.ProcessorMhzLimit && self.ProcessorMaxIdleState == other.ProcessorMaxIdleState && self.ProcessorCurrentIdleState == other.ProcessorCurrentIdleState && self.ProcessIntegrityLevel == other.ProcessIntegrityLevel && self.ProcessExecuteFlags == other.ProcessExecuteFlags && self.ProtectedProcess == other.ProtectedProcess && self.TimeZoneId == other.TimeZoneId && self.TimeZone == other.TimeZone
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -46818,7 +44294,7 @@ pub unsafe fn MiniDumpWriteDump<'a, Param0: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const ::core::mem::ManuallyDrop<MINIDUMP_CALLBACK_INFORMATION>) -> super::super::super::Foundation::BOOL;
+            fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MiniDumpWriteDump(hprocess.into_param().abi(), ::core::mem::transmute(processid), hfile.into_param().abi(), ::core::mem::transmute(dumptype), ::core::mem::transmute(exceptionparam), ::core::mem::transmute(userstreamparam), ::core::mem::transmute(callbackparam)))
     }
@@ -47028,7 +44504,7 @@ unsafe impl ::windows::core::Abi for OUTPUT_DEBUG_STRING_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: ::core::option::Option<PWAITCHAINCALLBACK>) -> *mut ::core::ffi::c_void {
+pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -47068,70 +44544,70 @@ pub unsafe fn OutputDebugStringW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PCOGETACTIVATIONSTATE = unsafe extern "system" fn(param0: ::windows::core::GUID, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT;
-pub type PCOGETCALLSTATE = unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows::core::HRESULT;
+pub type PCOGETACTIVATIONSTATE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::GUID, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT>;
+pub type PCOGETCALLSTATE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_CALL = unsafe extern "system" fn(client: ::windows::core::RawPtr, args: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_CANUNLOAD = unsafe extern "system" fn() -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_INITIALIZE = unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, args: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_CANUNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = ::core::option::Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_NOTIFY = unsafe extern "system" fn(notify: u32, argument: u64);
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_NOTIFY = ::core::option::Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_UNINITIALIZE = unsafe extern "system" fn();
-pub type PDEBUG_EXTENSION_UNLOAD = unsafe extern "system" fn();
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT;
-pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn() -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows::core::HRESULT;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMDIRTREE_CALLBACK = unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMDIRTREE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMDIRTREE_CALLBACKW = unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMDIRTREE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACK = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACK64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACKW64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMSOURCEFILETOKENSCALLBACK = unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL;
+pub type PENUMSOURCEFILETOKENSCALLBACK = ::core::option::Option<unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFINDFILEINPATHCALLBACK = unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFINDFILEINPATHCALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFINDFILEINPATHCALLBACKW = unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFINDFILEINPATHCALLBACKW = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_DEBUG_FILE_CALLBACK = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_DEBUG_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_DEBUG_FILE_CALLBACKW = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_DEBUG_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_EXE_FILE_CALLBACK = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_EXE_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_EXE_FILE_CALLBACKW = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_EXE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void;
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void;
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_MODULE_BASE_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32;
+pub type PGET_MODULE_BASE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_MODULE_BASE_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64;
+pub type PGET_MODULE_BASE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
 #[cfg(any(target_arch = "aarch64",))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
 #[cfg(any(target_arch = "x86_64",))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PHYSICAL {
@@ -47325,11 +44801,11 @@ pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE32 = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE64 = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct POINTER_SEARCH_PHYSICAL {
@@ -47350,16 +44826,7 @@ impl ::core::default::Default for POINTER_SEARCH_PHYSICAL {
 }
 impl ::core::fmt::Debug for POINTER_SEARCH_PHYSICAL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POINTER_SEARCH_PHYSICAL")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .field("PointerMin", &self.PointerMin)
-            .field("PointerMax", &self.PointerMax)
-            .field("Flags", &self.Flags)
-            .field("MatchOffsets", &self.MatchOffsets)
-            .field("MatchOffsetsSize", &self.MatchOffsetsSize)
-            .field("MatchOffsetsCount", &self.MatchOffsetsCount)
-            .finish()
+        fmt.debug_struct("POINTER_SEARCH_PHYSICAL").field("Offset", &self.Offset).field("Length", &self.Length).field("PointerMin", &self.PointerMin).field("PointerMax", &self.PointerMax).field("Flags", &self.Flags).field("MatchOffsets", &self.MatchOffsets).field("MatchOffsetsSize", &self.MatchOffsetsSize).field("MatchOffsetsCount", &self.MatchOffsetsCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for POINTER_SEARCH_PHYSICAL {
@@ -47373,9 +44840,9 @@ unsafe impl ::windows::core::Abi for POINTER_SEARCH_PHYSICAL {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PREAD_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL;
+pub type PREAD_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PREAD_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL;
+pub type PREAD_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESSORINFO {
@@ -48015,181 +45482,181 @@ unsafe impl ::windows::core::Abi for PROP_INFO_FLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERCALLBACKPROC = unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERCLOSEPROC = unsafe extern "system" fn() -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERCLOSEPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERDELTANAME = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERDELTANAME = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERDELTANAMEW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERDELTANAMEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETINDEXSTRING = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETINDEXSTRING = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETINDEXSTRINGW = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETINDEXSTRINGW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETOPTIONDATAPROC = unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL;
-pub type PSYMBOLSERVERGETOPTIONSPROC = unsafe extern "system" fn() -> usize;
+pub type PSYMBOLSERVERGETOPTIONDATAPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL>;
+pub type PSYMBOLSERVERGETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn() -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETSUPPLEMENT = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETSUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETSUPPLEMENTW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETSUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETVERSION = unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETVERSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERISSTORE = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERISSTORE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERISSTOREW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERISSTOREW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERMESSAGEPROC = unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERMESSAGEPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVEROPENPROC = unsafe extern "system" fn() -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVEROPENPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCWEX = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCWEX = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETHTTPAUTHHEADER = unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETHTTPAUTHHEADER = ::core::option::Option<unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETOPTIONSPROC = unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETOPTIONSWPROC = unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETOPTIONSWPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTOREFILE = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTOREFILE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTOREFILEW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTOREFILEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTORESUPPLEMENT = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTORESUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTORESUPPLEMENTW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
-pub type PSYMBOLSERVERVERSION = unsafe extern "system" fn() -> u32;
+pub type PSYMBOLSERVERSTORESUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
+pub type PSYMBOLSERVERVERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERWEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+pub type PSYMBOL_FUNCENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void;
+pub type PSYMBOL_FUNCENTRY_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_REGISTERED_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOL_REGISTERED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_REGISTERED_CALLBACK64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL;
-pub type PSYM_DUMP_FIELD_CALLBACK = unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32;
+pub type PSYMBOL_REGISTERED_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL>;
+pub type PSYM_DUMP_FIELD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMERATESYMBOLS_CALLBACK = unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMERATESYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMLINES_CALLBACK = unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMLINES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMLINES_CALLBACKW = unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMLINES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACK = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACK64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACKW64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMPROCESSES_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMPROCESSES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACK = unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSOURCEFILES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACKW = unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSOURCEFILES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK64 = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK64W = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK64W = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACKW = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PTRANSLATE_ADDRESS_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32;
+pub type PTRANSLATE_ADDRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PTRANSLATE_ADDRESS_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64;
+pub type PTRANSLATE_ADDRESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
 pub const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1u32;
 pub const PTR_SEARCH_PHYS_PTE: u32 = 2u32;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4u32;
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PVECTORED_EXCEPTION_HANDLER = unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32;
+pub type PVECTORED_EXCEPTION_HANDLER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWAITCHAINCALLBACK = unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32);
-pub type PWINDBG_CHECK_CONTROL_C = unsafe extern "system" fn() -> u32;
-pub type PWINDBG_CHECK_VERSION = unsafe extern "system" fn() -> u32;
+pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32)>;
+pub type PWINDBG_CHECK_CONTROL_C = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_CHECK_VERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM = unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
+pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM32 = unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
+pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM64 = unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
-pub type PWINDBG_EXTENSION_API_VERSION = unsafe extern "system" fn() -> *mut EXT_API_VERSION;
+pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT = unsafe extern "system" fn(lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS>, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT32 = unsafe extern "system" fn(lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT64 = unsafe extern "system" fn(lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE32 = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE64 = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize;
+pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION32 = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32;
+pub type PWINDBG_GET_EXPRESSION32 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION64 = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64;
+pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL = unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize);
+pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL32 = unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32);
+pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL64 = unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64);
+pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32;
-pub type PWINDBG_IOCTL_ROUTINE = unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32;
+pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_OLDKD_EXTENSION_APIS>, lpargumentstring: super::super::super::Foundation::PSTR);
-pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32;
-pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32;
+pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
+pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
+pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_OLD_EXTENSION_ROUTINE = unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS>, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_OUTPUT_ROUTINE = unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR);
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
+pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR)>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE = unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE32 = unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE64 = unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
+pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PointerKind(pub i32);
@@ -48579,76 +46046,28 @@ unsafe impl ::windows::core::Abi for RawSearchFlags {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReBaseImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(
-    currentimagename: Param0,
-    symbolpath: Param1,
-    frebase: Param2,
-    frebasesysfileok: Param3,
-    fgoingdown: Param4,
-    checkimagesize: u32,
-    oldimagesize: *mut u32,
-    oldimagebase: *mut usize,
-    newimagesize: *mut u32,
-    newimagebase: *mut usize,
-    timestamp: u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn ReBaseImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(currentimagename: Param0, symbolpath: Param1, frebase: Param2, frebasesysfileok: Param3, fgoingdown: Param4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ReBaseImage(currentimagename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, frebase: super::super::super::Foundation::BOOL, frebasesysfileok: super::super::super::Foundation::BOOL, fgoingdown: super::super::super::Foundation::BOOL, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReBaseImage(
-            currentimagename.into_param().abi(),
-            symbolpath.into_param().abi(),
-            frebase.into_param().abi(),
-            frebasesysfileok.into_param().abi(),
-            fgoingdown.into_param().abi(),
-            ::core::mem::transmute(checkimagesize),
-            ::core::mem::transmute(oldimagesize),
-            ::core::mem::transmute(oldimagebase),
-            ::core::mem::transmute(newimagesize),
-            ::core::mem::transmute(newimagebase),
-            ::core::mem::transmute(timestamp),
-        ))
+        ::core::mem::transmute(ReBaseImage(currentimagename.into_param().abi(), symbolpath.into_param().abi(), frebase.into_param().abi(), frebasesysfileok.into_param().abi(), fgoingdown.into_param().abi(), ::core::mem::transmute(checkimagesize), ::core::mem::transmute(oldimagesize), ::core::mem::transmute(oldimagebase), ::core::mem::transmute(newimagesize), ::core::mem::transmute(newimagebase), ::core::mem::transmute(timestamp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReBaseImage64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(
-    currentimagename: Param0,
-    symbolpath: Param1,
-    frebase: Param2,
-    frebasesysfileok: Param3,
-    fgoingdown: Param4,
-    checkimagesize: u32,
-    oldimagesize: *mut u32,
-    oldimagebase: *mut u64,
-    newimagesize: *mut u32,
-    newimagebase: *mut u64,
-    timestamp: u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn ReBaseImage64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(currentimagename: Param0, symbolpath: Param1, frebase: Param2, frebasesysfileok: Param3, fgoingdown: Param4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ReBaseImage64(currentimagename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, frebase: super::super::super::Foundation::BOOL, frebasesysfileok: super::super::super::Foundation::BOOL, fgoingdown: super::super::super::Foundation::BOOL, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReBaseImage64(
-            currentimagename.into_param().abi(),
-            symbolpath.into_param().abi(),
-            frebase.into_param().abi(),
-            frebasesysfileok.into_param().abi(),
-            fgoingdown.into_param().abi(),
-            ::core::mem::transmute(checkimagesize),
-            ::core::mem::transmute(oldimagesize),
-            ::core::mem::transmute(oldimagebase),
-            ::core::mem::transmute(newimagesize),
-            ::core::mem::transmute(newimagebase),
-            ::core::mem::transmute(timestamp),
-        ))
+        ::core::mem::transmute(ReBaseImage64(currentimagename.into_param().abi(), symbolpath.into_param().abi(), frebase.into_param().abi(), frebasesysfileok.into_param().abi(), fgoingdown.into_param().abi(), ::core::mem::transmute(checkimagesize), ::core::mem::transmute(oldimagesize), ::core::mem::transmute(oldimagebase), ::core::mem::transmute(newimagesize), ::core::mem::transmute(newimagebase), ::core::mem::transmute(timestamp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -48668,7 +46087,7 @@ pub unsafe fn ReadProcessMemory<'a, Param0: ::windows::core::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: ::core::option::Option<PCOGETCALLSTATE>, activationstatecallback: ::core::option::Option<PCOGETACTIVATIONSTATE>) {
+pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -48895,7 +46314,7 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tableidentifier: u64, baseaddress: u64, length: u32, callback: ::core::option::Option<PGET_RUNTIME_FUNCTION_CALLBACK>, context: *const ::core::ffi::c_void, outofprocesscallbackdll: Param5) -> super::super::super::Foundation::BOOLEAN {
+pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: Param5) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -49008,23 +46427,14 @@ pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *co
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE> {
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>;
+            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE;
         }
-        ::core::mem::transmute(RtlVirtualUnwind(
-            ::core::mem::transmute(handlertype),
-            ::core::mem::transmute(imagebase),
-            ::core::mem::transmute(controlpc),
-            ::core::mem::transmute(functionentry),
-            ::core::mem::transmute(contextrecord),
-            ::core::mem::transmute(handlerdata),
-            ::core::mem::transmute(establisherframe),
-            ::core::mem::transmute(contextpointers),
-        ))
+        ::core::mem::transmute(RtlVirtualUnwind(::core::mem::transmute(handlertype), ::core::mem::transmute(imagebase), ::core::mem::transmute(controlpc), ::core::mem::transmute(functionentry), ::core::mem::transmute(contextrecord), ::core::mem::transmute(handlerdata), ::core::mem::transmute(establisherframe), ::core::mem::transmute(contextpointers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -49032,23 +46442,14 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE> {
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>;
+            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE;
         }
-        ::core::mem::transmute(RtlVirtualUnwind(
-            ::core::mem::transmute(handlertype),
-            ::core::mem::transmute(imagebase),
-            ::core::mem::transmute(controlpc),
-            ::core::mem::transmute(functionentry),
-            ::core::mem::transmute(contextrecord),
-            ::core::mem::transmute(handlerdata),
-            ::core::mem::transmute(establisherframe),
-            ::core::mem::transmute(contextpointers),
-        ))
+        ::core::mem::transmute(RtlVirtualUnwind(::core::mem::transmute(handlertype), ::core::mem::transmute(imagebase), ::core::mem::transmute(controlpc), ::core::mem::transmute(functionentry), ::core::mem::transmute(contextrecord), ::core::mem::transmute(handlerdata), ::core::mem::transmute(establisherframe), ::core::mem::transmute(contextpointers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -49529,19 +46930,7 @@ impl ::core::default::Default for STACKFRAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STACKFRAME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STACKFRAME")
-            .field("AddrPC", &self.AddrPC)
-            .field("AddrReturn", &self.AddrReturn)
-            .field("AddrFrame", &self.AddrFrame)
-            .field("AddrStack", &self.AddrStack)
-            .field("FuncTableEntry", &self.FuncTableEntry)
-            .field("Params", &self.Params)
-            .field("Far", &self.Far)
-            .field("Virtual", &self.Virtual)
-            .field("Reserved", &self.Reserved)
-            .field("KdHelp", &self.KdHelp)
-            .field("AddrBStore", &self.AddrBStore)
-            .finish()
+        fmt.debug_struct("STACKFRAME").field("AddrPC", &self.AddrPC).field("AddrReturn", &self.AddrReturn).field("AddrFrame", &self.AddrFrame).field("AddrStack", &self.AddrStack).field("FuncTableEntry", &self.FuncTableEntry).field("Params", &self.Params).field("Far", &self.Far).field("Virtual", &self.Virtual).field("Reserved", &self.Reserved).field("KdHelp", &self.KdHelp).field("AddrBStore", &self.AddrBStore).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -49586,19 +46975,7 @@ impl ::core::default::Default for STACKFRAME64 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STACKFRAME64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STACKFRAME64")
-            .field("AddrPC", &self.AddrPC)
-            .field("AddrReturn", &self.AddrReturn)
-            .field("AddrFrame", &self.AddrFrame)
-            .field("AddrStack", &self.AddrStack)
-            .field("AddrBStore", &self.AddrBStore)
-            .field("FuncTableEntry", &self.FuncTableEntry)
-            .field("Params", &self.Params)
-            .field("Far", &self.Far)
-            .field("Virtual", &self.Virtual)
-            .field("Reserved", &self.Reserved)
-            .field("KdHelp", &self.KdHelp)
-            .finish()
+        fmt.debug_struct("STACKFRAME64").field("AddrPC", &self.AddrPC).field("AddrReturn", &self.AddrReturn).field("AddrFrame", &self.AddrFrame).field("AddrStack", &self.AddrStack).field("AddrBStore", &self.AddrBStore).field("FuncTableEntry", &self.FuncTableEntry).field("Params", &self.Params).field("Far", &self.Far).field("Virtual", &self.Virtual).field("Reserved", &self.Reserved).field("KdHelp", &self.KdHelp).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -49747,9 +47124,9 @@ unsafe impl ::windows::core::Abi for STACK_SYM_FRAME_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SYMADDSOURCESTREAM = unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type SYMADDSOURCESTREAM = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SYMADDSOURCESTREAMA = unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type SYMADDSOURCESTREAMA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -50127,18 +47504,7 @@ impl ::core::default::Default for SYMSRV_INDEX_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SYMSRV_INDEX_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYMSRV_INDEX_INFO")
-            .field("sizeofstruct", &self.sizeofstruct)
-            .field("file", &self.file)
-            .field("stripped", &self.stripped)
-            .field("timestamp", &self.timestamp)
-            .field("size", &self.size)
-            .field("dbgfile", &self.dbgfile)
-            .field("pdbfile", &self.pdbfile)
-            .field("guid", &self.guid)
-            .field("sig", &self.sig)
-            .field("age", &self.age)
-            .finish()
+        fmt.debug_struct("SYMSRV_INDEX_INFO").field("sizeofstruct", &self.sizeofstruct).field("file", &self.file).field("stripped", &self.stripped).field("timestamp", &self.timestamp).field("size", &self.size).field("dbgfile", &self.dbgfile).field("pdbfile", &self.pdbfile).field("guid", &self.guid).field("sig", &self.sig).field("age", &self.age).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50179,18 +47545,7 @@ impl ::core::default::Default for SYMSRV_INDEX_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SYMSRV_INDEX_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYMSRV_INDEX_INFOW")
-            .field("sizeofstruct", &self.sizeofstruct)
-            .field("file", &self.file)
-            .field("stripped", &self.stripped)
-            .field("timestamp", &self.timestamp)
-            .field("size", &self.size)
-            .field("dbgfile", &self.dbgfile)
-            .field("pdbfile", &self.pdbfile)
-            .field("guid", &self.guid)
-            .field("sig", &self.sig)
-            .field("age", &self.age)
-            .finish()
+        fmt.debug_struct("SYMSRV_INDEX_INFOW").field("sizeofstruct", &self.sizeofstruct).field("file", &self.file).field("stripped", &self.stripped).field("timestamp", &self.timestamp).field("size", &self.size).field("dbgfile", &self.dbgfile).field("pdbfile", &self.pdbfile).field("guid", &self.guid).field("sig", &self.sig).field("age", &self.age).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50208,11 +47563,7 @@ unsafe impl ::windows::core::Abi for SYMSRV_INDEX_INFOW {
 pub const SYMSRV_VERSION: u32 = 2u32;
 pub const SYMSTOREOPT_ALT_INDEX: u32 = 16u32;
 pub const SYMSTOREOPT_UNICODE: u32 = 32u32;
-impl ::core::clone::Clone for SYM_DUMP_PARAM {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SYM_DUMP_PARAM {
     pub size: u32,
@@ -50221,7 +47572,7 @@ pub struct SYM_DUMP_PARAM {
     pub addr: u64,
     pub listLink: *mut FIELD_INFO,
     pub Anonymous: SYM_DUMP_PARAM_0,
-    pub CallbackRoutine: ::core::option::Option<PSYM_DUMP_FIELD_CALLBACK>,
+    pub CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
     pub nFields: u32,
     pub Fields: *mut FIELD_INFO,
     pub ModBase: u64,
@@ -50243,7 +47594,7 @@ impl ::core::cmp::PartialEq for SYM_DUMP_PARAM {
 }
 impl ::core::cmp::Eq for SYM_DUMP_PARAM {}
 unsafe impl ::windows::core::Abi for SYM_DUMP_PARAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -50646,7 +47997,7 @@ pub unsafe fn SearchTreeForFileW<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: ::core::option::Option<LPCALL_BACK_USER_INTERRUPT_ROUTINE>) {
+pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -50744,12 +48095,12 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER>) -> ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER> {
+pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::windows::core::RawPtr) -> ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER>;
+            fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::windows::core::RawPtr) -> LPTOP_LEVEL_EXCEPTION_FILTER;
         }
         ::core::mem::transmute(SetUnhandledExceptionFilter(::core::mem::transmute(lptoplevelexceptionfilter)))
     }
@@ -50790,104 +48141,42 @@ unsafe impl ::windows::core::Abi for SignatureComparison {
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StackWalk<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
-    machinetype: u32,
-    hprocess: Param1,
-    hthread: Param2,
-    stackframe: *mut STACKFRAME,
-    contextrecord: *mut ::core::ffi::c_void,
-    readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE>,
-    functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE>,
-    getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE>,
-    translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE>,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn StackWalk<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(machinetype: u32, hprocess: Param1, hthread: Param2, stackframe: *mut STACKFRAME, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn StackWalk(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: ::windows::core::RawPtr, functiontableaccessroutine: ::windows::core::RawPtr, getmodulebaseroutine: ::windows::core::RawPtr, translateaddress: ::windows::core::RawPtr) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(StackWalk(
-            ::core::mem::transmute(machinetype),
-            hprocess.into_param().abi(),
-            hthread.into_param().abi(),
-            ::core::mem::transmute(stackframe),
-            ::core::mem::transmute(contextrecord),
-            ::core::mem::transmute(readmemoryroutine),
-            ::core::mem::transmute(functiontableaccessroutine),
-            ::core::mem::transmute(getmodulebaseroutine),
-            ::core::mem::transmute(translateaddress),
-        ))
+        ::core::mem::transmute(StackWalk(::core::mem::transmute(machinetype), hprocess.into_param().abi(), hthread.into_param().abi(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StackWalk64<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
-    machinetype: u32,
-    hprocess: Param1,
-    hthread: Param2,
-    stackframe: *mut STACKFRAME64,
-    contextrecord: *mut ::core::ffi::c_void,
-    readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>,
-    functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>,
-    getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>,
-    translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE64>,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn StackWalk64<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(machinetype: u32, hprocess: Param1, hthread: Param2, stackframe: *mut STACKFRAME64, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn StackWalk64(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME64, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: ::windows::core::RawPtr, functiontableaccessroutine: ::windows::core::RawPtr, getmodulebaseroutine: ::windows::core::RawPtr, translateaddress: ::windows::core::RawPtr) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(StackWalk64(
-            ::core::mem::transmute(machinetype),
-            hprocess.into_param().abi(),
-            hthread.into_param().abi(),
-            ::core::mem::transmute(stackframe),
-            ::core::mem::transmute(contextrecord),
-            ::core::mem::transmute(readmemoryroutine),
-            ::core::mem::transmute(functiontableaccessroutine),
-            ::core::mem::transmute(getmodulebaseroutine),
-            ::core::mem::transmute(translateaddress),
-        ))
+        ::core::mem::transmute(StackWalk64(::core::mem::transmute(machinetype), hprocess.into_param().abi(), hthread.into_param().abi(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StackWalkEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
-    machinetype: u32,
-    hprocess: Param1,
-    hthread: Param2,
-    stackframe: *mut STACKFRAME_EX,
-    contextrecord: *mut ::core::ffi::c_void,
-    readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>,
-    functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>,
-    getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>,
-    translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE64>,
-    flags: u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn StackWalkEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(machinetype: u32, hprocess: Param1, hthread: Param2, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn StackWalkEx(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: ::windows::core::RawPtr, functiontableaccessroutine: ::windows::core::RawPtr, getmodulebaseroutine: ::windows::core::RawPtr, translateaddress: ::windows::core::RawPtr, flags: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(StackWalkEx(
-            ::core::mem::transmute(machinetype),
-            hprocess.into_param().abi(),
-            hthread.into_param().abi(),
-            ::core::mem::transmute(stackframe),
-            ::core::mem::transmute(contextrecord),
-            ::core::mem::transmute(readmemoryroutine),
-            ::core::mem::transmute(functiontableaccessroutine),
-            ::core::mem::transmute(getmodulebaseroutine),
-            ::core::mem::transmute(translateaddress),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(StackWalkEx(::core::mem::transmute(machinetype), hprocess.into_param().abi(), hthread.into_param().abi(), ::core::mem::transmute(stackframe), ::core::mem::transmute(contextrecord), ::core::mem::transmute(readmemoryroutine), ::core::mem::transmute(functiontableaccessroutine), ::core::mem::transmute(getmodulebaseroutine), ::core::mem::transmute(translateaddress), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -51034,7 +48323,7 @@ pub unsafe fn SymDeleteSymbolW<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51048,7 +48337,7 @@ pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51062,7 +48351,7 @@ pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumProcesses(enumprocessescallback: ::core::option::Option<PSYM_ENUMPROCESSES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51076,7 +48365,7 @@ pub unsafe fn SymEnumProcesses(enumprocessescallback: ::core::option::Option<PSY
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, callback: ::core::option::Option<PENUMSOURCEFILETOKENSCALLBACK>) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51090,7 +48379,7 @@ pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: ::core::option::Option<PSYM_ENUMSOURCEFILES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51104,7 +48393,7 @@ pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: ::core::option::Option<PSYM_ENUMSOURCEFILES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51118,16 +48407,7 @@ pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    base: u64,
-    obj: Param2,
-    file: Param3,
-    line: u32,
-    flags: u32,
-    enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACK>,
-    usercontext: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51141,16 +48421,7 @@ pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    base: u64,
-    obj: Param2,
-    file: Param3,
-    line: u32,
-    flags: u32,
-    enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACKW>,
-    usercontext: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51164,7 +48435,7 @@ pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51178,7 +48449,7 @@ pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51192,7 +48463,7 @@ pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51206,7 +48477,7 @@ pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51220,7 +48491,7 @@ pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51234,7 +48505,7 @@ pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51248,7 +48519,7 @@ pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51262,7 +48533,7 @@ pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51276,7 +48547,7 @@ pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51290,7 +48561,7 @@ pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51304,7 +48575,7 @@ pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51319,7 +48590,7 @@ pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51333,7 +48604,7 @@ pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51347,7 +48618,7 @@ pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51362,7 +48633,7 @@ pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, 
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51376,7 +48647,7 @@ pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51391,7 +48662,7 @@ pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, s
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51405,7 +48676,7 @@ pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK64W>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51419,7 +48690,7 @@ pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51433,7 +48704,7 @@ pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51447,7 +48718,7 @@ pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51461,7 +48732,7 @@ pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51475,72 +48746,28 @@ pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    searchpatha: Param1,
-    filename: Param2,
-    id: *const ::core::ffi::c_void,
-    two: u32,
-    three: u32,
-    flags: SYM_FIND_ID_OPTION,
-    foundfile: super::super::super::Foundation::PSTR,
-    callback: ::core::option::Option<PFINDFILEINPATHCALLBACK>,
-    context: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymFindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, searchpatha: Param1, filename: Param2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PSTR, callback: PFINDFILEINPATHCALLBACK, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SymFindFileInPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PSTR, filename: super::super::super::Foundation::PSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PSTR, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SymFindFileInPath(
-            hprocess.into_param().abi(),
-            searchpatha.into_param().abi(),
-            filename.into_param().abi(),
-            ::core::mem::transmute(id),
-            ::core::mem::transmute(two),
-            ::core::mem::transmute(three),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(foundfile),
-            ::core::mem::transmute(callback),
-            ::core::mem::transmute(context),
-        ))
+        ::core::mem::transmute(SymFindFileInPath(hprocess.into_param().abi(), searchpatha.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(two), ::core::mem::transmute(three), ::core::mem::transmute(flags), ::core::mem::transmute(foundfile), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindFileInPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    searchpatha: Param1,
-    filename: Param2,
-    id: *const ::core::ffi::c_void,
-    two: u32,
-    three: u32,
-    flags: SYM_FIND_ID_OPTION,
-    foundfile: super::super::super::Foundation::PWSTR,
-    callback: ::core::option::Option<PFINDFILEINPATHCALLBACKW>,
-    context: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymFindFileInPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, searchpatha: Param1, filename: Param2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SymFindFileInPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PWSTR, filename: super::super::super::Foundation::PWSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PWSTR, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SymFindFileInPathW(
-            hprocess.into_param().abi(),
-            searchpatha.into_param().abi(),
-            filename.into_param().abi(),
-            ::core::mem::transmute(id),
-            ::core::mem::transmute(two),
-            ::core::mem::transmute(three),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(foundfile),
-            ::core::mem::transmute(callback),
-            ::core::mem::transmute(context),
-        ))
+        ::core::mem::transmute(SymFindFileInPathW(hprocess.into_param().abi(), searchpatha.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(two), ::core::mem::transmute(three), ::core::mem::transmute(flags), ::core::mem::transmute(foundfile), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -51716,7 +48943,7 @@ pub unsafe fn SymFunctionTableAccess64<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u64, readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>, getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>) -> *mut ::core::ffi::c_void {
+pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52268,15 +49495,7 @@ pub unsafe fn SymGetSourceFileToken<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymGetSourceFileTokenByTokenName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    base: u64,
-    filespec: Param2,
-    tokenname: Param3,
-    tokenparameters: Param4,
-    token: *mut *mut ::core::ffi::c_void,
-    size: *mut u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymGetSourceFileTokenByTokenName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, filespec: Param2, tokenname: Param3, tokenparameters: Param4, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52290,15 +49509,7 @@ pub unsafe fn SymGetSourceFileTokenByTokenName<'a, Param0: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymGetSourceFileTokenByTokenNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    base: u64,
-    filespec: Param2,
-    tokenname: Param3,
-    tokenparameters: Param4,
-    token: *mut *mut ::core::ffi::c_void,
-    size: *mut u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymGetSourceFileTokenByTokenNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, filespec: Param2, tokenname: Param3, tokenparameters: Param4, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52484,16 +49695,7 @@ pub unsafe fn SymGetSymPrev64<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymGetSymbolFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    sympath: Param1,
-    imagefile: Param2,
-    r#type: IMAGEHLP_SF_TYPE,
-    symbolfile: super::super::super::Foundation::PSTR,
-    csymbolfile: usize,
-    dbgfile: super::super::super::Foundation::PSTR,
-    cdbgfile: usize,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymGetSymbolFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, sympath: Param1, imagefile: Param2, r#type: IMAGEHLP_SF_TYPE, symbolfile: super::super::super::Foundation::PSTR, csymbolfile: usize, dbgfile: super::super::super::Foundation::PSTR, cdbgfile: usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52507,16 +49709,7 @@ pub unsafe fn SymGetSymbolFile<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymGetSymbolFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    sympath: Param1,
-    imagefile: Param2,
-    r#type: IMAGEHLP_SF_TYPE,
-    symbolfile: super::super::super::Foundation::PWSTR,
-    csymbolfile: usize,
-    dbgfile: super::super::super::Foundation::PWSTR,
-    cdbgfile: usize,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymGetSymbolFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, sympath: Param1, imagefile: Param2, r#type: IMAGEHLP_SF_TYPE, symbolfile: super::super::super::Foundation::PWSTR, csymbolfile: usize, dbgfile: super::super::super::Foundation::PWSTR, cdbgfile: usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52657,16 +49850,7 @@ pub unsafe fn SymLoadModule64<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymLoadModuleEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    hfile: Param1,
-    imagename: Param2,
-    modulename: Param3,
-    baseofdll: u64,
-    dllsize: u32,
-    data: *const MODLOAD_DATA,
-    flags: SYM_LOAD_FLAGS,
-) -> u64 {
+pub unsafe fn SymLoadModuleEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, hfile: Param1, imagename: Param2, modulename: Param3, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52680,16 +49864,7 @@ pub unsafe fn SymLoadModuleEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymLoadModuleExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    hfile: Param1,
-    imagename: Param2,
-    modulename: Param3,
-    baseofdll: u64,
-    dllsize: u32,
-    data: *const MODLOAD_DATA,
-    flags: SYM_LOAD_FLAGS,
-) -> u64 {
+pub unsafe fn SymLoadModuleExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, hfile: Param1, imagename: Param2, modulename: Param3, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52858,7 +50033,7 @@ pub unsafe fn SymRefreshModuleList<'a, Param0: ::windows::core::IntoParam<'a, su
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52872,7 +50047,7 @@ pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52886,7 +50061,7 @@ pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52901,7 +50076,7 @@ pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, 
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_FUNCENTRY_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52915,7 +50090,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_FUNCENTRY_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52929,48 +50104,28 @@ pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::In
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SymSearch(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: super::super::super::Foundation::PSTR, address: u64, enumsymbolscallback: ::windows::core::RawPtr, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SymSearch(
-            hprocess.into_param().abi(),
-            ::core::mem::transmute(baseofdll),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(symtag),
-            mask.into_param().abi(),
-            ::core::mem::transmute(address),
-            ::core::mem::transmute(enumsymbolscallback),
-            ::core::mem::transmute(usercontext),
-            ::core::mem::transmute(options),
-        ))
+        ::core::mem::transmute(SymSearch(hprocess.into_param().abi(), ::core::mem::transmute(baseofdll), ::core::mem::transmute(index), ::core::mem::transmute(symtag), mask.into_param().abi(), ::core::mem::transmute(address), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), ::core::mem::transmute(options)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymSearchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymSearchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SymSearchW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: super::super::super::Foundation::PWSTR, address: u64, enumsymbolscallback: ::windows::core::RawPtr, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SymSearchW(
-            hprocess.into_param().abi(),
-            ::core::mem::transmute(baseofdll),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(symtag),
-            mask.into_param().abi(),
-            ::core::mem::transmute(address),
-            ::core::mem::transmute(enumsymbolscallback),
-            ::core::mem::transmute(usercontext),
-            ::core::mem::transmute(options),
-        ))
+        ::core::mem::transmute(SymSearchW(hprocess.into_param().abi(), ::core::mem::transmute(baseofdll), ::core::mem::transmute(index), ::core::mem::transmute(symtag), mask.into_param().abi(), ::core::mem::transmute(address), ::core::mem::transmute(enumsymbolscallback), ::core::mem::transmute(usercontext), ::core::mem::transmute(options)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -53130,13 +50285,7 @@ pub unsafe fn SymSetSearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymSrvDeltaName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    sympath: Param1,
-    r#type: Param2,
-    file1: Param3,
-    file2: Param4,
-) -> super::super::super::Foundation::PSTR {
+pub unsafe fn SymSrvDeltaName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, sympath: Param1, r#type: Param2, file1: Param3, file2: Param4) -> super::super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -53150,13 +50299,7 @@ pub unsafe fn SymSrvDeltaName<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymSrvDeltaNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    sympath: Param1,
-    r#type: Param2,
-    file1: Param3,
-    file2: Param4,
-) -> super::super::super::Foundation::PWSTR {
+pub unsafe fn SymSrvDeltaNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, sympath: Param1, r#type: Param2, file1: Param3, file2: Param4) -> super::super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -53719,16 +50862,7 @@ impl ::core::default::Default for UNWIND_HISTORY_TABLE {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for UNWIND_HISTORY_TABLE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UNWIND_HISTORY_TABLE")
-            .field("Count", &self.Count)
-            .field("LocalHint", &self.LocalHint)
-            .field("GlobalHint", &self.GlobalHint)
-            .field("Search", &self.Search)
-            .field("Once", &self.Once)
-            .field("LowAddress", &self.LowAddress)
-            .field("HighAddress", &self.HighAddress)
-            .field("Entry", &self.Entry)
-            .finish()
+        fmt.debug_struct("UNWIND_HISTORY_TABLE").field("Count", &self.Count).field("LocalHint", &self.LocalHint).field("GlobalHint", &self.GlobalHint).field("Search", &self.Search).field("Once", &self.Once).field("LowAddress", &self.LowAddress).field("HighAddress", &self.HighAddress).field("Entry", &self.Entry).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -54247,17 +51381,7 @@ impl ::core::default::Default for WDBGEXTS_DISASSEMBLE_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WDBGEXTS_DISASSEMBLE_BUFFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WDBGEXTS_DISASSEMBLE_BUFFER")
-            .field("InOffset", &self.InOffset)
-            .field("OutOffset", &self.OutOffset)
-            .field("AddrFlags", &self.AddrFlags)
-            .field("FormatFlags", &self.FormatFlags)
-            .field("DataBufferBytes", &self.DataBufferBytes)
-            .field("DisasmBufferChars", &self.DisasmBufferChars)
-            .field("DataBuffer", &self.DataBuffer)
-            .field("DisasmBuffer", &self.DisasmBuffer)
-            .field("Reserved0", &self.Reserved0)
-            .finish()
+        fmt.debug_struct("WDBGEXTS_DISASSEMBLE_BUFFER").field("InOffset", &self.InOffset).field("OutOffset", &self.OutOffset).field("AddrFlags", &self.AddrFlags).field("FormatFlags", &self.FormatFlags).field("DataBufferBytes", &self.DataBufferBytes).field("DisasmBufferChars", &self.DisasmBufferChars).field("DataBuffer", &self.DataBuffer).field("DisasmBuffer", &self.DisasmBuffer).field("Reserved0", &self.Reserved0).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54348,18 +51472,7 @@ impl ::core::default::Default for WDBGEXTS_THREAD_OS_INFO {
 }
 impl ::core::fmt::Debug for WDBGEXTS_THREAD_OS_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WDBGEXTS_THREAD_OS_INFO")
-            .field("ThreadId", &self.ThreadId)
-            .field("ExitStatus", &self.ExitStatus)
-            .field("PriorityClass", &self.PriorityClass)
-            .field("Priority", &self.Priority)
-            .field("CreateTime", &self.CreateTime)
-            .field("ExitTime", &self.ExitTime)
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .field("StartOffset", &self.StartOffset)
-            .field("Affinity", &self.Affinity)
-            .finish()
+        fmt.debug_struct("WDBGEXTS_THREAD_OS_INFO").field("ThreadId", &self.ThreadId).field("ExitStatus", &self.ExitStatus).field("PriorityClass", &self.PriorityClass).field("Priority", &self.Priority).field("CreateTime", &self.CreateTime).field("ExitTime", &self.ExitTime).field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).field("StartOffset", &self.StartOffset).field("Affinity", &self.Affinity).finish()
     }
 }
 impl ::core::cmp::PartialEq for WDBGEXTS_THREAD_OS_INFO {
@@ -54495,12 +51608,7 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_MAX: u32 = 2u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_MIN: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V1: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
@@ -54539,7 +51647,7 @@ impl ::core::cmp::PartialEq for WHEA_DEVICE_DRIVER_DESCRIPTOR {
 impl ::core::cmp::Eq for WHEA_DEVICE_DRIVER_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
@@ -54568,18 +51676,13 @@ impl ::core::cmp::Eq for WHEA_DRIVER_BUFFER_SET {}
 unsafe impl ::windows::core::Abi for WHEA_DRIVER_BUFFER_SET {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
-    pub Correct: ::core::option::Option<WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
+    pub Correct: WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WHEA_ERROR_SOURCE_CONFIGURATION_DD {}
@@ -54599,14 +51702,9 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_CONFIGURATION_DD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
@@ -54614,8 +51712,8 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub SourceGuid: ::windows::core::GUID,
     pub LogTag: u16,
     pub Reserved: [u8; 6],
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
     pub MaxSectionDataLength: u32,
     pub MaxSectionsPerReport: u32,
     pub CreatorId: ::windows::core::GUID,
@@ -54639,14 +51737,9 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
@@ -54654,8 +51747,8 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub SourceGuid: ::windows::core::GUID,
     pub LogTag: u16,
     pub Reserved: [u8; 6],
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {}
@@ -54675,16 +51768,11 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
@@ -54718,14 +51806,9 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_DESCRIPTOR {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
@@ -54740,7 +51823,7 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub AerBridgeDescriptor: WHEA_AER_BRIDGE_DESCRIPTOR,
     pub GenErrDescriptor: WHEA_GENERIC_ERROR_DESCRIPTOR,
     pub GenErrDescriptorV2: WHEA_GENERIC_ERROR_DESCRIPTOR_V2,
-    pub DeviceDriverDescriptor: ::core::mem::ManuallyDrop<WHEA_DEVICE_DRIVER_DESCRIPTOR>,
+    pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WHEA_ERROR_SOURCE_DESCRIPTOR_0 {}
@@ -54760,7 +51843,7 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: u32 = 8u32;
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT: u32 = 7u32;
@@ -54780,7 +51863,7 @@ pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54826,7 +51909,7 @@ impl ::core::convert::From<i32> for WHEA_ERROR_SOURCE_TYPE {
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_TYPE {
     type Abi = Self;
 }
-pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
+pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
@@ -55457,22 +52540,22 @@ impl ::core::cmp::Eq for WHEA_XPF_NMI_DESCRIPTOR {}
 unsafe impl ::windows::core::Abi for WHEA_XPF_NMI_DESCRIPTOR {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl WINDBG_EXTENSION_APIS {}
@@ -55509,24 +52592,24 @@ impl ::core::cmp::PartialEq for WINDBG_EXTENSION_APIS {
 impl ::core::cmp::Eq for WINDBG_EXTENSION_APIS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WINDBG_EXTENSION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION32>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL32>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM32>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE32>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE32>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl WINDBG_EXTENSION_APIS32 {}
@@ -55563,24 +52646,24 @@ impl ::core::cmp::PartialEq for WINDBG_EXTENSION_APIS32 {
 impl ::core::cmp::Eq for WINDBG_EXTENSION_APIS32 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WINDBG_EXTENSION_APIS32 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION64>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL64>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM64>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE64>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE64>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION64,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL64,
+    pub lpDisasmRoutine: PWINDBG_DISASM64,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE64,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl WINDBG_EXTENSION_APIS64 {}
@@ -55617,22 +52700,22 @@ impl ::core::cmp::PartialEq for WINDBG_EXTENSION_APIS64 {
 impl ::core::cmp::Eq for WINDBG_EXTENSION_APIS64 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WINDBG_EXTENSION_APIS64 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION32>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL32>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM32>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadVirtualMemRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE32>,
-    pub lpWriteVirtualMemRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32>,
-    pub lpReadPhysicalMemRoutine: ::core::option::Option<PWINDBG_OLDKD_READ_PHYSICAL_MEMORY>,
-    pub lpWritePhysicalMemRoutine: ::core::option::Option<PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadVirtualMemRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteVirtualMemRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
+    pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINDBG_OLDKD_EXTENSION_APIS {}
@@ -55667,18 +52750,18 @@ impl ::core::cmp::PartialEq for WINDBG_OLDKD_EXTENSION_APIS {
 impl ::core::cmp::Eq for WINDBG_OLDKD_EXTENSION_APIS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDBG_OLDKD_EXTENSION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINDBG_OLD_EXTENSION_APIS {}
@@ -55697,19 +52780,14 @@ impl ::core::fmt::Debug for WINDBG_OLD_EXTENSION_APIS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINDBG_OLD_EXTENSION_APIS {
     fn eq(&self, other: &Self) -> bool {
-        self.nSize == other.nSize
-            && self.lpOutputRoutine.map(|f| f as usize) == other.lpOutputRoutine.map(|f| f as usize)
-            && self.lpGetExpressionRoutine.map(|f| f as usize) == other.lpGetExpressionRoutine.map(|f| f as usize)
-            && self.lpGetSymbolRoutine.map(|f| f as usize) == other.lpGetSymbolRoutine.map(|f| f as usize)
-            && self.lpDisasmRoutine.map(|f| f as usize) == other.lpDisasmRoutine.map(|f| f as usize)
-            && self.lpCheckControlCRoutine.map(|f| f as usize) == other.lpCheckControlCRoutine.map(|f| f as usize)
+        self.nSize == other.nSize && self.lpOutputRoutine.map(|f| f as usize) == other.lpOutputRoutine.map(|f| f as usize) && self.lpGetExpressionRoutine.map(|f| f as usize) == other.lpGetExpressionRoutine.map(|f| f as usize) && self.lpGetSymbolRoutine.map(|f| f as usize) == other.lpGetSymbolRoutine.map(|f| f as usize) && self.lpDisasmRoutine.map(|f| f as usize) == other.lpDisasmRoutine.map(|f| f as usize) && self.lpCheckControlCRoutine.map(|f| f as usize) == other.lpCheckControlCRoutine.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINDBG_OLD_EXTENSION_APIS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDBG_OLD_EXTENSION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -55779,31 +52857,7 @@ impl ::core::fmt::Debug for WOW64_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WOW64_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags
-            && self.Dr0 == other.Dr0
-            && self.Dr1 == other.Dr1
-            && self.Dr2 == other.Dr2
-            && self.Dr3 == other.Dr3
-            && self.Dr6 == other.Dr6
-            && self.Dr7 == other.Dr7
-            && self.FloatSave == other.FloatSave
-            && self.SegGs == other.SegGs
-            && self.SegFs == other.SegFs
-            && self.SegEs == other.SegEs
-            && self.SegDs == other.SegDs
-            && self.Edi == other.Edi
-            && self.Esi == other.Esi
-            && self.Ebx == other.Ebx
-            && self.Edx == other.Edx
-            && self.Ecx == other.Ecx
-            && self.Eax == other.Eax
-            && self.Ebp == other.Ebp
-            && self.Eip == other.Eip
-            && self.SegCs == other.SegCs
-            && self.EFlags == other.EFlags
-            && self.Esp == other.Esp
-            && self.SegSs == other.SegSs
-            && self.ExtendedRegisters == other.ExtendedRegisters
+        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
     }
 }
 impl ::core::cmp::Eq for WOW64_CONTEXT {}
@@ -55858,17 +52912,7 @@ impl ::core::default::Default for WOW64_FLOATING_SAVE_AREA {
 }
 impl ::core::fmt::Debug for WOW64_FLOATING_SAVE_AREA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WOW64_FLOATING_SAVE_AREA")
-            .field("ControlWord", &self.ControlWord)
-            .field("StatusWord", &self.StatusWord)
-            .field("TagWord", &self.TagWord)
-            .field("ErrorOffset", &self.ErrorOffset)
-            .field("ErrorSelector", &self.ErrorSelector)
-            .field("DataOffset", &self.DataOffset)
-            .field("DataSelector", &self.DataSelector)
-            .field("RegisterArea", &self.RegisterArea)
-            .field("Cr0NpxState", &self.Cr0NpxState)
-            .finish()
+        fmt.debug_struct("WOW64_FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Cr0NpxState", &self.Cr0NpxState).finish()
     }
 }
 impl ::core::cmp::PartialEq for WOW64_FLOATING_SAVE_AREA {
@@ -55985,7 +53029,7 @@ pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WaitForDebugEvent(lpdebugevent: *mut ::core::mem::ManuallyDrop<DEBUG_EVENT>, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
+            fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WaitForDebugEvent(::core::mem::transmute(lpdebugevent), ::core::mem::transmute(dwmilliseconds)))
     }
@@ -55999,7 +53043,7 @@ pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WaitForDebugEventEx(lpdebugevent: *mut ::core::mem::ManuallyDrop<DEBUG_EVENT>, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
+            fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WaitForDebugEventEx(::core::mem::transmute(lpdebugevent), ::core::mem::transmute(dwmilliseconds)))
     }
@@ -56257,22 +53301,7 @@ impl ::core::fmt::Debug for XSAVE_FORMAT {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::PartialEq for XSAVE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.ControlWord == other.ControlWord
-            && self.StatusWord == other.StatusWord
-            && self.TagWord == other.TagWord
-            && self.Reserved1 == other.Reserved1
-            && self.ErrorOpcode == other.ErrorOpcode
-            && self.ErrorOffset == other.ErrorOffset
-            && self.ErrorSelector == other.ErrorSelector
-            && self.Reserved2 == other.Reserved2
-            && self.DataOffset == other.DataOffset
-            && self.DataSelector == other.DataSelector
-            && self.Reserved3 == other.Reserved3
-            && self.MxCsr == other.MxCsr
-            && self.MxCsr_Mask == other.MxCsr_Mask
-            && self.FloatRegisters == other.FloatRegisters
-            && self.XmmRegisters == other.XmmRegisters
-            && self.Reserved4 == other.Reserved4
+        self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.Reserved1 == other.Reserved1 && self.ErrorOpcode == other.ErrorOpcode && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.Reserved2 == other.Reserved2 && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.Reserved3 == other.Reserved3 && self.MxCsr == other.MxCsr && self.MxCsr_Mask == other.MxCsr_Mask && self.FloatRegisters == other.FloatRegisters && self.XmmRegisters == other.XmmRegisters && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -56336,22 +53365,7 @@ impl ::core::fmt::Debug for XSAVE_FORMAT {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::PartialEq for XSAVE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.ControlWord == other.ControlWord
-            && self.StatusWord == other.StatusWord
-            && self.TagWord == other.TagWord
-            && self.Reserved1 == other.Reserved1
-            && self.ErrorOpcode == other.ErrorOpcode
-            && self.ErrorOffset == other.ErrorOffset
-            && self.ErrorSelector == other.ErrorSelector
-            && self.Reserved2 == other.Reserved2
-            && self.DataOffset == other.DataOffset
-            && self.DataSelector == other.DataSelector
-            && self.Reserved3 == other.Reserved3
-            && self.MxCsr == other.MxCsr
-            && self.MxCsr_Mask == other.MxCsr_Mask
-            && self.FloatRegisters == other.FloatRegisters
-            && self.XmmRegisters == other.XmmRegisters
-            && self.Reserved4 == other.Reserved4
+        self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.Reserved1 == other.Reserved1 && self.ErrorOpcode == other.ErrorOpcode && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.Reserved2 == other.Reserved2 && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.Reserved3 == other.Reserved3 && self.MxCsr == other.MxCsr && self.MxCsr_Mask == other.MxCsr_Mask && self.FloatRegisters == other.FloatRegisters && self.XmmRegisters == other.XmmRegisters && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(any(target_arch = "x86",))]

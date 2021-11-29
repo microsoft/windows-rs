@@ -259,15 +259,7 @@ impl IVssComponent {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(inewtarget), &mut result__).from_abi::<IVssWMFiledesc>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDirectedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszsourcepath: Param0,
-        wszsourcefilename: Param1,
-        wszsourcerangelist: Param2,
-        wszdestinationpath: Param3,
-        wszdestinationfilename: Param4,
-        wszdestinationrangelist: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddDirectedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszsourcepath: Param0, wszsourcefilename: Param1, wszsourcerangelist: Param2, wszdestinationpath: Param3, wszdestinationfilename: Param4, wszdestinationrangelist: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), wszsourcepath.into_param().abi(), wszsourcefilename.into_param().abi(), wszsourcerangelist.into_param().abi(), wszdestinationpath.into_param().abi(), wszdestinationfilename.into_param().abi(), wszdestinationrangelist.into_param().abi()).ok()
     }
     pub unsafe fn GetDirectedTargetCount(&self, pcdirectedtarget: *mut u32) -> ::windows::core::Result<()> {
@@ -275,17 +267,7 @@ impl IVssComponent {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut super::super::Foundation::BSTR, pbstrsourcefilename: *mut super::super::Foundation::BSTR, pbstrsourcerangelist: *mut super::super::Foundation::BSTR, pbstrdestinationpath: *mut super::super::Foundation::BSTR, pbstrdestinationfilename: *mut super::super::Foundation::BSTR, pbstrdestinationrangelist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(idirectedtarget),
-            ::core::mem::transmute(pbstrsourcepath),
-            ::core::mem::transmute(pbstrsourcefilename),
-            ::core::mem::transmute(pbstrsourcerangelist),
-            ::core::mem::transmute(pbstrdestinationpath),
-            ::core::mem::transmute(pbstrdestinationfilename),
-            ::core::mem::transmute(pbstrdestinationrangelist),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(idirectedtarget), ::core::mem::transmute(pbstrsourcepath), ::core::mem::transmute(pbstrsourcefilename), ::core::mem::transmute(pbstrsourcerangelist), ::core::mem::transmute(pbstrdestinationpath), ::core::mem::transmute(pbstrdestinationfilename), ::core::mem::transmute(pbstrdestinationrangelist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRestoreMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszrestoremetadata: Param0) -> ::windows::core::Result<()> {
@@ -417,17 +399,7 @@ pub struct IVssComponent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcdirectedtarget: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        idirectedtarget: u32,
-        pbstrsourcepath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, idirectedtarget: u32, pbstrsourcepath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -523,15 +495,7 @@ impl IVssComponentEx {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(inewtarget), &mut result__).from_abi::<IVssWMFiledesc>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDirectedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszsourcepath: Param0,
-        wszsourcefilename: Param1,
-        wszsourcerangelist: Param2,
-        wszdestinationpath: Param3,
-        wszdestinationfilename: Param4,
-        wszdestinationrangelist: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddDirectedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszsourcepath: Param0, wszsourcefilename: Param1, wszsourcerangelist: Param2, wszdestinationpath: Param3, wszdestinationfilename: Param4, wszdestinationrangelist: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), wszsourcepath.into_param().abi(), wszsourcefilename.into_param().abi(), wszsourcerangelist.into_param().abi(), wszdestinationpath.into_param().abi(), wszdestinationfilename.into_param().abi(), wszdestinationrangelist.into_param().abi()).ok()
     }
     pub unsafe fn GetDirectedTargetCount(&self, pcdirectedtarget: *mut u32) -> ::windows::core::Result<()> {
@@ -539,17 +503,7 @@ impl IVssComponentEx {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut super::super::Foundation::BSTR, pbstrsourcefilename: *mut super::super::Foundation::BSTR, pbstrsourcerangelist: *mut super::super::Foundation::BSTR, pbstrdestinationpath: *mut super::super::Foundation::BSTR, pbstrdestinationfilename: *mut super::super::Foundation::BSTR, pbstrdestinationrangelist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(idirectedtarget),
-            ::core::mem::transmute(pbstrsourcepath),
-            ::core::mem::transmute(pbstrsourcefilename),
-            ::core::mem::transmute(pbstrsourcerangelist),
-            ::core::mem::transmute(pbstrdestinationpath),
-            ::core::mem::transmute(pbstrdestinationfilename),
-            ::core::mem::transmute(pbstrdestinationrangelist),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(idirectedtarget), ::core::mem::transmute(pbstrsourcepath), ::core::mem::transmute(pbstrsourcefilename), ::core::mem::transmute(pbstrsourcerangelist), ::core::mem::transmute(pbstrdestinationpath), ::core::mem::transmute(pbstrdestinationfilename), ::core::mem::transmute(pbstrdestinationrangelist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRestoreMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszrestoremetadata: Param0) -> ::windows::core::Result<()> {
@@ -732,17 +686,7 @@ pub struct IVssComponentEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcdirectedtarget: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        idirectedtarget: u32,
-        pbstrsourcepath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, idirectedtarget: u32, pbstrsourcepath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -851,15 +795,7 @@ impl IVssComponentEx2 {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(inewtarget), &mut result__).from_abi::<IVssWMFiledesc>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDirectedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszsourcepath: Param0,
-        wszsourcefilename: Param1,
-        wszsourcerangelist: Param2,
-        wszdestinationpath: Param3,
-        wszdestinationfilename: Param4,
-        wszdestinationrangelist: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddDirectedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszsourcepath: Param0, wszsourcefilename: Param1, wszsourcerangelist: Param2, wszdestinationpath: Param3, wszdestinationfilename: Param4, wszdestinationrangelist: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), wszsourcepath.into_param().abi(), wszsourcefilename.into_param().abi(), wszsourcerangelist.into_param().abi(), wszdestinationpath.into_param().abi(), wszdestinationfilename.into_param().abi(), wszdestinationrangelist.into_param().abi()).ok()
     }
     pub unsafe fn GetDirectedTargetCount(&self, pcdirectedtarget: *mut u32) -> ::windows::core::Result<()> {
@@ -867,17 +803,7 @@ impl IVssComponentEx2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut super::super::Foundation::BSTR, pbstrsourcefilename: *mut super::super::Foundation::BSTR, pbstrsourcerangelist: *mut super::super::Foundation::BSTR, pbstrdestinationpath: *mut super::super::Foundation::BSTR, pbstrdestinationfilename: *mut super::super::Foundation::BSTR, pbstrdestinationrangelist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(idirectedtarget),
-            ::core::mem::transmute(pbstrsourcepath),
-            ::core::mem::transmute(pbstrsourcefilename),
-            ::core::mem::transmute(pbstrsourcerangelist),
-            ::core::mem::transmute(pbstrdestinationpath),
-            ::core::mem::transmute(pbstrdestinationfilename),
-            ::core::mem::transmute(pbstrdestinationrangelist),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(idirectedtarget), ::core::mem::transmute(pbstrsourcepath), ::core::mem::transmute(pbstrsourcefilename), ::core::mem::transmute(pbstrsourcerangelist), ::core::mem::transmute(pbstrdestinationpath), ::core::mem::transmute(pbstrdestinationfilename), ::core::mem::transmute(pbstrdestinationrangelist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRestoreMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszrestoremetadata: Param0) -> ::windows::core::Result<()> {
@@ -1088,17 +1014,7 @@ pub struct IVssComponentEx2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcdirectedtarget: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        idirectedtarget: u32,
-        pbstrsourcepath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, idirectedtarget: u32, pbstrsourcepath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -1162,47 +1078,11 @@ impl IVssCreateExpressWriterMetadata {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), ::core::mem::transmute(brecursive)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddComponent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        ct: VSS_COMPONENT_TYPE,
-        wszlogicalpath: Param1,
-        wszcomponentname: Param2,
-        wszcaption: Param3,
-        pbicon: *const u8,
-        cbicon: u32,
-        brestoremetadata: u8,
-        bnotifyonbackupcomplete: u8,
-        bselectable: u8,
-        bselectableforrestore: u8,
-        dwcomponentflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(ct),
-            wszlogicalpath.into_param().abi(),
-            wszcomponentname.into_param().abi(),
-            wszcaption.into_param().abi(),
-            ::core::mem::transmute(pbicon),
-            ::core::mem::transmute(cbicon),
-            ::core::mem::transmute(brestoremetadata),
-            ::core::mem::transmute(bnotifyonbackupcomplete),
-            ::core::mem::transmute(bselectable),
-            ::core::mem::transmute(bselectableforrestore),
-            ::core::mem::transmute(dwcomponentflags),
-        )
-        .ok()
+    pub unsafe fn AddComponent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: Param1, wszcomponentname: Param2, wszcaption: Param3, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ct), wszlogicalpath.into_param().abi(), wszcomponentname.into_param().abi(), wszcaption.into_param().abi(), ::core::mem::transmute(pbicon), ::core::mem::transmute(cbicon), ::core::mem::transmute(brestoremetadata), ::core::mem::transmute(bnotifyonbackupcomplete), ::core::mem::transmute(bselectable), ::core::mem::transmute(bselectableforrestore), ::core::mem::transmute(dwcomponentflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddFilesToFileGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszlogicalpath: Param0,
-        wszgroupname: Param1,
-        wszpath: Param2,
-        wszfilespec: Param3,
-        brecursive: u8,
-        wszalternatelocation: Param5,
-        dwbackuptypemask: u32,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddFilesToFileGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszlogicalpath: Param0, wszgroupname: Param1, wszpath: Param2, wszfilespec: Param3, brecursive: u8, wszalternatelocation: Param5, dwbackuptypemask: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), wszlogicalpath.into_param().abi(), wszgroupname.into_param().abi(), wszpath.into_param().abi(), wszfilespec.into_param().abi(), ::core::mem::transmute(brecursive), wszalternatelocation.into_param().abi(), ::core::mem::transmute(dwbackuptypemask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -1210,14 +1090,7 @@ impl IVssCreateExpressWriterMetadata {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(method), wszservice.into_param().abi(), wszuserprocedure.into_param().abi(), ::core::mem::transmute(writerrestore), ::core::mem::transmute(brebootrequired)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddComponentDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszforlogicalpath: Param0,
-        wszforcomponentname: Param1,
-        onwriterid: Param2,
-        wszonlogicalpath: Param3,
-        wszoncomponentname: Param4,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddComponentDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszforlogicalpath: Param0, wszforcomponentname: Param1, onwriterid: Param2, wszonlogicalpath: Param3, wszoncomponentname: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), wszforlogicalpath.into_param().abi(), wszforcomponentname.into_param().abi(), onwriterid.into_param().abi(), wszonlogicalpath.into_param().abi(), wszoncomponentname.into_param().abi()).ok()
     }
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()> {
@@ -1286,35 +1159,8 @@ impl IVssCreateWriterMetadata {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), ::core::mem::transmute(brecursive)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddComponent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        ct: VSS_COMPONENT_TYPE,
-        wszlogicalpath: Param1,
-        wszcomponentname: Param2,
-        wszcaption: Param3,
-        pbicon: *const u8,
-        cbicon: u32,
-        brestoremetadata: u8,
-        bnotifyonbackupcomplete: u8,
-        bselectable: u8,
-        bselectableforrestore: u8,
-        dwcomponentflags: u32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(ct),
-            wszlogicalpath.into_param().abi(),
-            wszcomponentname.into_param().abi(),
-            wszcaption.into_param().abi(),
-            ::core::mem::transmute(pbicon),
-            ::core::mem::transmute(cbicon),
-            ::core::mem::transmute(brestoremetadata),
-            ::core::mem::transmute(bnotifyonbackupcomplete),
-            ::core::mem::transmute(bselectable),
-            ::core::mem::transmute(bselectableforrestore),
-            ::core::mem::transmute(dwcomponentflags),
-        )
-        .ok()
+    pub unsafe fn AddComponent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: Param1, wszcomponentname: Param2, wszcaption: Param3, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ct), wszlogicalpath.into_param().abi(), wszcomponentname.into_param().abi(), wszcaption.into_param().abi(), ::core::mem::transmute(pbicon), ::core::mem::transmute(cbicon), ::core::mem::transmute(brestoremetadata), ::core::mem::transmute(bnotifyonbackupcomplete), ::core::mem::transmute(bselectable), ::core::mem::transmute(bselectableforrestore), ::core::mem::transmute(dwcomponentflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDatabaseFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszlogicalpath: Param0, wszdatabasename: Param1, wszpath: Param2, wszfilespec: Param3, dwbackuptypemask: u32) -> ::windows::core::Result<()> {
@@ -1325,16 +1171,7 @@ impl IVssCreateWriterMetadata {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), wszlogicalpath.into_param().abi(), wszdatabasename.into_param().abi(), wszpath.into_param().abi(), wszfilespec.into_param().abi(), ::core::mem::transmute(dwbackuptypemask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddFilesToFileGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszlogicalpath: Param0,
-        wszgroupname: Param1,
-        wszpath: Param2,
-        wszfilespec: Param3,
-        brecursive: u8,
-        wszalternatelocation: Param5,
-        dwbackuptypemask: u32,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddFilesToFileGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszlogicalpath: Param0, wszgroupname: Param1, wszpath: Param2, wszfilespec: Param3, brecursive: u8, wszalternatelocation: Param5, dwbackuptypemask: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), wszlogicalpath.into_param().abi(), wszgroupname.into_param().abi(), wszpath.into_param().abi(), wszfilespec.into_param().abi(), ::core::mem::transmute(brecursive), wszalternatelocation.into_param().abi(), ::core::mem::transmute(dwbackuptypemask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -1346,14 +1183,7 @@ impl IVssCreateWriterMetadata {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), wszsourcepath.into_param().abi(), wszsourcefilespec.into_param().abi(), ::core::mem::transmute(brecursive), wszdestination.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddComponentDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszforlogicalpath: Param0,
-        wszforcomponentname: Param1,
-        onwriterid: Param2,
-        wszonlogicalpath: Param3,
-        wszoncomponentname: Param4,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddComponentDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszforlogicalpath: Param0, wszforcomponentname: Param1, onwriterid: Param2, wszonlogicalpath: Param3, wszoncomponentname: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), wszforlogicalpath.into_param().abi(), wszforcomponentname.into_param().abi(), onwriterid.into_param().abi(), wszonlogicalpath.into_param().abi(), wszoncomponentname.into_param().abi()).ok()
     }
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()> {
@@ -2363,12 +2193,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVssS
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVssSnapshotMgmt2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllmindiffareasize: *mut i64) -> ::windows::core::HRESULT,
-);
+pub struct IVssSnapshotMgmt2_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllmindiffareasize: *mut i64) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVssSoftwareSnapshotProvider(pub ::windows::core::IUnknown);
@@ -2630,35 +2455,8 @@ pub struct IVssWriterComponents_abi(
 pub struct IVssWriterImpl(pub ::windows::core::IUnknown);
 impl IVssWriterImpl {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        writerid: Param0,
-        wszwritername: Param1,
-        wszwriterinstancename: Param2,
-        dwmajorversion: u32,
-        dwminorversion: u32,
-        ut: VSS_USAGE_TYPE,
-        st: VSS_SOURCE_TYPE,
-        nlevel: VSS_APPLICATION_LEVEL,
-        dwtimeout: u32,
-        aws: VSS_ALTERNATE_WRITER_STATE,
-        biothrottlingonly: u8,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            writerid.into_param().abi(),
-            wszwritername.into_param().abi(),
-            wszwriterinstancename.into_param().abi(),
-            ::core::mem::transmute(dwmajorversion),
-            ::core::mem::transmute(dwminorversion),
-            ::core::mem::transmute(ut),
-            ::core::mem::transmute(st),
-            ::core::mem::transmute(nlevel),
-            ::core::mem::transmute(dwtimeout),
-            ::core::mem::transmute(aws),
-            ::core::mem::transmute(biothrottlingonly),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, writerid: Param0, wszwritername: Param1, wszwriterinstancename: Param2, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), writerid.into_param().abi(), wszwritername.into_param().abi(), wszwriterinstancename.into_param().abi(), ::core::mem::transmute(dwmajorversion), ::core::mem::transmute(dwminorversion), ::core::mem::transmute(ut), ::core::mem::transmute(st), ::core::mem::transmute(nlevel), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(aws), ::core::mem::transmute(biothrottlingonly)).ok()
     }
     pub unsafe fn Subscribe(&self, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsubscribetimeout), ::core::mem::transmute(dweventflags)).ok()
@@ -2915,13 +2713,7 @@ impl ::core::default::Default for VSS_DIFF_AREA_PROP {
 }
 impl ::core::fmt::Debug for VSS_DIFF_AREA_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VSS_DIFF_AREA_PROP")
-            .field("m_pwszVolumeName", &self.m_pwszVolumeName)
-            .field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName)
-            .field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace)
-            .field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace)
-            .field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace)
-            .finish()
+        fmt.debug_struct("VSS_DIFF_AREA_PROP").field("m_pwszVolumeName", &self.m_pwszVolumeName).field("m_pwszDiffAreaVolumeName", &self.m_pwszDiffAreaVolumeName).field("m_llMaximumDiffSpace", &self.m_llMaximumDiffSpace).field("m_llAllocatedDiffSpace", &self.m_llAllocatedDiffSpace).field("m_llUsedDiffSpace", &self.m_llUsedDiffSpace).finish()
     }
 }
 impl ::core::cmp::PartialEq for VSS_DIFF_AREA_PROP {
@@ -3291,14 +3083,7 @@ impl ::core::default::Default for VSS_PROVIDER_PROP {
 }
 impl ::core::fmt::Debug for VSS_PROVIDER_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VSS_PROVIDER_PROP")
-            .field("m_ProviderId", &self.m_ProviderId)
-            .field("m_pwszProviderName", &self.m_pwszProviderName)
-            .field("m_eProviderType", &self.m_eProviderType)
-            .field("m_pwszProviderVersion", &self.m_pwszProviderVersion)
-            .field("m_ProviderVersionId", &self.m_ProviderVersionId)
-            .field("m_ClassId", &self.m_ClassId)
-            .finish()
+        fmt.debug_struct("VSS_PROVIDER_PROP").field("m_ProviderId", &self.m_ProviderId).field("m_pwszProviderName", &self.m_pwszProviderName).field("m_eProviderType", &self.m_eProviderType).field("m_pwszProviderVersion", &self.m_pwszProviderVersion).field("m_ProviderVersionId", &self.m_ProviderVersionId).field("m_ClassId", &self.m_ClassId).finish()
     }
 }
 impl ::core::cmp::PartialEq for VSS_PROVIDER_PROP {
@@ -3480,19 +3265,7 @@ impl ::core::fmt::Debug for VSS_SNAPSHOT_PROP {
 }
 impl ::core::cmp::PartialEq for VSS_SNAPSHOT_PROP {
     fn eq(&self, other: &Self) -> bool {
-        self.m_SnapshotId == other.m_SnapshotId
-            && self.m_SnapshotSetId == other.m_SnapshotSetId
-            && self.m_lSnapshotsCount == other.m_lSnapshotsCount
-            && self.m_pwszSnapshotDeviceObject == other.m_pwszSnapshotDeviceObject
-            && self.m_pwszOriginalVolumeName == other.m_pwszOriginalVolumeName
-            && self.m_pwszOriginatingMachine == other.m_pwszOriginatingMachine
-            && self.m_pwszServiceMachine == other.m_pwszServiceMachine
-            && self.m_pwszExposedName == other.m_pwszExposedName
-            && self.m_pwszExposedPath == other.m_pwszExposedPath
-            && self.m_ProviderId == other.m_ProviderId
-            && self.m_lSnapshotAttributes == other.m_lSnapshotAttributes
-            && self.m_tsCreationTimestamp == other.m_tsCreationTimestamp
-            && self.m_eStatus == other.m_eStatus
+        self.m_SnapshotId == other.m_SnapshotId && self.m_SnapshotSetId == other.m_SnapshotSetId && self.m_lSnapshotsCount == other.m_lSnapshotsCount && self.m_pwszSnapshotDeviceObject == other.m_pwszSnapshotDeviceObject && self.m_pwszOriginalVolumeName == other.m_pwszOriginalVolumeName && self.m_pwszOriginatingMachine == other.m_pwszOriginatingMachine && self.m_pwszServiceMachine == other.m_pwszServiceMachine && self.m_pwszExposedName == other.m_pwszExposedName && self.m_pwszExposedPath == other.m_pwszExposedPath && self.m_ProviderId == other.m_ProviderId && self.m_lSnapshotAttributes == other.m_lSnapshotAttributes && self.m_tsCreationTimestamp == other.m_tsCreationTimestamp && self.m_eStatus == other.m_eStatus
     }
 }
 impl ::core::cmp::Eq for VSS_SNAPSHOT_PROP {}
@@ -3651,14 +3424,7 @@ impl ::core::default::Default for VSS_VOLUME_PROTECTION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VSS_VOLUME_PROTECTION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VSS_VOLUME_PROTECTION_INFO")
-            .field("m_protectionLevel", &self.m_protectionLevel)
-            .field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection)
-            .field("m_protectionFault", &self.m_protectionFault)
-            .field("m_failureStatus", &self.m_failureStatus)
-            .field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea)
-            .field("m_reserved", &self.m_reserved)
-            .finish()
+        fmt.debug_struct("VSS_VOLUME_PROTECTION_INFO").field("m_protectionLevel", &self.m_protectionLevel).field("m_volumeIsOfflineForProtection", &self.m_volumeIsOfflineForProtection).field("m_protectionFault", &self.m_protectionFault).field("m_failureStatus", &self.m_failureStatus).field("m_volumeHasUnusedDiffArea", &self.m_volumeHasUnusedDiffArea).field("m_reserved", &self.m_reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

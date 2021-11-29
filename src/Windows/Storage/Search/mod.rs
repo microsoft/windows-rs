@@ -116,13 +116,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQueryWithSortOrderAndLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-        &self,
-        searchfilter: Param0,
-        propertiestoretrieve: Param1,
-        sortorder: Param2,
-        searchfilterlanguage: Param3,
-    ) -> ::windows::core::Result<ContentIndexerQuery> {
+    pub fn CreateQueryWithSortOrderAndLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, searchfilter: Param0, propertiestoretrieve: Param1, sortorder: Param2, searchfilterlanguage: Param3) -> ::windows::core::Result<ContentIndexerQuery> {
         let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

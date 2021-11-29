@@ -11,8 +11,8 @@ fn test() {
         64
     }
 
-    let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = callback;
-    assert_eq!(64, unsafe { callback(core::ptr::null()) });
+    let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Some(callback);
+    assert_eq!(64, unsafe { callback.unwrap()(core::ptr::null()) });
 }
 
 #[test]
@@ -26,6 +26,6 @@ fn test() {
         32
     }
 
-    let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = callback;
-    assert_eq!(32, unsafe { callback(core::ptr::null()) });
+    let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Some(callback);
+    assert_eq!(32, unsafe { callback.unwrap()(core::ptr::null()) });
 }

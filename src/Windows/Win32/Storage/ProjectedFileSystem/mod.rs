@@ -1,16 +1,16 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_CALLBACKS {
-    pub StartDirectoryEnumerationCallback: ::core::option::Option<PRJ_START_DIRECTORY_ENUMERATION_CB>,
-    pub EndDirectoryEnumerationCallback: ::core::option::Option<PRJ_END_DIRECTORY_ENUMERATION_CB>,
-    pub GetDirectoryEnumerationCallback: ::core::option::Option<PRJ_GET_DIRECTORY_ENUMERATION_CB>,
-    pub GetPlaceholderInfoCallback: ::core::option::Option<PRJ_GET_PLACEHOLDER_INFO_CB>,
-    pub GetFileDataCallback: ::core::option::Option<PRJ_GET_FILE_DATA_CB>,
-    pub QueryFileNameCallback: ::core::option::Option<PRJ_QUERY_FILE_NAME_CB>,
-    pub NotificationCallback: ::core::option::Option<PRJ_NOTIFICATION_CB>,
-    pub CancelCommandCallback: ::core::option::Option<PRJ_CANCEL_COMMAND_CB>,
+    pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
+    pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
+    pub GetDirectoryEnumerationCallback: PRJ_GET_DIRECTORY_ENUMERATION_CB,
+    pub GetPlaceholderInfoCallback: PRJ_GET_PLACEHOLDER_INFO_CB,
+    pub GetFileDataCallback: PRJ_GET_FILE_DATA_CB,
+    pub QueryFileNameCallback: PRJ_QUERY_FILE_NAME_CB,
+    pub NotificationCallback: PRJ_NOTIFICATION_CB,
+    pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl PRJ_CALLBACKS {}
@@ -43,7 +43,7 @@ impl ::core::cmp::PartialEq for PRJ_CALLBACKS {
 impl ::core::cmp::Eq for PRJ_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_CALLBACKS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -90,17 +90,7 @@ impl ::core::fmt::Debug for PRJ_CALLBACK_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_CALLBACK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext
-            && self.CommandId == other.CommandId
-            && self.FileId == other.FileId
-            && self.DataStreamId == other.DataStreamId
-            && self.FilePathName == other.FilePathName
-            && self.VersionInfo == other.VersionInfo
-            && self.TriggeringProcessId == other.TriggeringProcessId
-            && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName
-            && self.InstanceContext == other.InstanceContext
+        self.Size == other.Size && self.Flags == other.Flags && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext && self.CommandId == other.CommandId && self.FileId == other.FileId && self.DataStreamId == other.DataStreamId && self.FilePathName == other.FilePathName && self.VersionInfo == other.VersionInfo && self.TriggeringProcessId == other.TriggeringProcessId && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName && self.InstanceContext == other.InstanceContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -123,7 +113,7 @@ unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA_FLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_CANCEL_COMMAND_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA);
+pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
@@ -242,7 +232,7 @@ unsafe impl ::windows::core::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -364,15 +354,7 @@ impl ::core::default::Default for PRJ_FILE_BASIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_FILE_BASIC_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRJ_FILE_BASIC_INFO")
-            .field("IsDirectory", &self.IsDirectory)
-            .field("FileSize", &self.FileSize)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ChangeTime", &self.ChangeTime)
-            .field("FileAttributes", &self.FileAttributes)
-            .finish()
+        fmt.debug_struct("PRJ_FILE_BASIC_INFO").field("IsDirectory", &self.IsDirectory).field("FileSize", &self.FileSize).field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -432,11 +414,11 @@ impl ::core::ops::Not for PRJ_FILE_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::core::HRESULT;
+pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows::core::HRESULT;
+pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT;
+pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
@@ -473,7 +455,7 @@ unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::core::HRESULT;
+pub type PRJ_NOTIFICATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -719,14 +701,7 @@ impl ::core::default::Default for PRJ_PLACEHOLDER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRJ_PLACEHOLDER_INFO")
-            .field("FileBasicInfo", &self.FileBasicInfo)
-            .field("EaInformation", &self.EaInformation)
-            .field("SecurityInformation", &self.SecurityInformation)
-            .field("StreamsInformation", &self.StreamsInformation)
-            .field("VersionInfo", &self.VersionInfo)
-            .field("VariableData", &self.VariableData)
-            .finish()
+        fmt.debug_struct("PRJ_PLACEHOLDER_INFO").field("FileBasicInfo", &self.FileBasicInfo).field("EaInformation", &self.EaInformation).field("SecurityInformation", &self.SecurityInformation).field("StreamsInformation", &self.StreamsInformation).field("VersionInfo", &self.VersionInfo).field("VariableData", &self.VariableData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -867,7 +842,7 @@ unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT;
+pub type PRJ_QUERY_FILE_NAME_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub u32);
@@ -930,13 +905,7 @@ impl ::core::default::Default for PRJ_STARTVIRTUALIZING_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS")
-            .field("Flags", &self.Flags)
-            .field("PoolThreadCount", &self.PoolThreadCount)
-            .field("ConcurrentThreadCount", &self.ConcurrentThreadCount)
-            .field("NotificationMappings", &self.NotificationMappings)
-            .field("NotificationMappingsCount", &self.NotificationMappingsCount)
-            .finish()
+        fmt.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS").field("Flags", &self.Flags).field("PoolThreadCount", &self.PoolThreadCount).field("ConcurrentThreadCount", &self.ConcurrentThreadCount).field("NotificationMappings", &self.NotificationMappings).field("NotificationMappingsCount", &self.NotificationMappingsCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -952,7 +921,7 @@ unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+pub type PRJ_START_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub u32);
@@ -1258,7 +1227,7 @@ pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const ::core::mem::ManuallyDrop<PRJ_CALLBACKS>, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
+            fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
         }
         let mut result__: <PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), ::core::mem::transmute(callbacks), ::core::mem::transmute(instancecontext), ::core::mem::transmute(options), &mut result__).from_abi::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>(result__)

@@ -159,39 +159,14 @@ pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows_sys::core::GUID = ::windows
 pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2782707472, data2: 25904, data3: 4562, data4: [144, 31, 0, 192, 79, 185, 81, 237] };
 pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 985624365, data2: 29124, data3: 17962, data4: [138, 146, 30, 104, 97, 230, 175, 39] };
 pub const GUID_DEVINTERFACE_USB_HUB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4052356744, data2: 49932, data3: 4560, data4: [136, 21, 0, 160, 201, 6, 190, 216] };
-pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3638386911,
-    data2: 17801,
-    data3: 19655,
-    data4: [156, 210, 101, 157, 158, 100, 138, 159],
-};
-pub const GUID_USB_PERFORMANCE_TRACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3588126630,
-    data2: 27369,
-    data3: 16988,
-    data4: [177, 226, 245, 97, 95, 211, 72, 169],
-};
-pub const GUID_USB_TRANSFER_TRACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1746843818,
-    data2: 16445,
-    data3: 17708,
-    data4: [159, 138, 240, 97, 111, 172, 149, 64],
-};
+pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3638386911, data2: 17801, data3: 19655, data4: [156, 210, 101, 157, 158, 100, 138, 159] };
+pub const GUID_USB_PERFORMANCE_TRACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3588126630, data2: 27369, data3: 16988, data4: [177, 226, 245, 97, 95, 211, 72, 169] };
+pub const GUID_USB_TRANSFER_TRACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1746843818, data2: 16445, data3: 17708, data4: [159, 138, 240, 97, 111, 172, 149, 64] };
 pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1723968060, data2: 18847, data3: 18848, data4: [169, 165, 97, 226, 53, 159, 100, 7] };
-pub const GUID_USB_WMI_NODE_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2618790743,
-    data2: 56442,
-    data3: 20289,
-    data4: [182, 107, 50, 59, 157, 220, 181, 177],
-};
+pub const GUID_USB_WMI_NODE_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2618790743, data2: 56442, data3: 20289, data4: [182, 107, 50, 59, 157, 220, 181, 177] };
 pub const GUID_USB_WMI_STD_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1315060512, data2: 51988, data3: 4561, data4: [179, 49, 0, 160, 201, 89, 187, 210] };
 pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1315060512, data2: 51988, data3: 4561, data4: [179, 49, 0, 160, 201, 89, 187, 210] };
-pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2612787249,
-    data2: 41714,
-    data3: 17332,
-    data4: [150, 209, 134, 148, 75, 89, 20, 179],
-};
+pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2612787249, data2: 41714, data3: 17332, data4: [150, 209, 134, 148, 75, 89, 20, 179] };
 pub const GUID_USB_WMI_TRACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 979470363, data2: 46310, data3: 19449, data4: [174, 15, 60, 216, 243, 148, 229, 47] };
 pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
 pub const HCD_DIAGNOSTIC_MODE_ON: u32 = 256u32;

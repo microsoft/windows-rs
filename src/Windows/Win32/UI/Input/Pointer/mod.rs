@@ -417,24 +417,7 @@ impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
 }
 impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_11", &self._11)
-            .field("_12", &self._12)
-            .field("_13", &self._13)
-            .field("_14", &self._14)
-            .field("_21", &self._21)
-            .field("_22", &self._22)
-            .field("_23", &self._23)
-            .field("_24", &self._24)
-            .field("_31", &self._31)
-            .field("_32", &self._32)
-            .field("_33", &self._33)
-            .field("_34", &self._34)
-            .field("_41", &self._41)
-            .field("_42", &self._42)
-            .field("_43", &self._43)
-            .field("_44", &self._44)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
 impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
@@ -637,22 +620,7 @@ impl ::core::fmt::Debug for POINTER_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pointerType == other.pointerType
-            && self.pointerId == other.pointerId
-            && self.frameId == other.frameId
-            && self.pointerFlags == other.pointerFlags
-            && self.sourceDevice == other.sourceDevice
-            && self.hwndTarget == other.hwndTarget
-            && self.ptPixelLocation == other.ptPixelLocation
-            && self.ptHimetricLocation == other.ptHimetricLocation
-            && self.ptPixelLocationRaw == other.ptPixelLocationRaw
-            && self.ptHimetricLocationRaw == other.ptHimetricLocationRaw
-            && self.dwTime == other.dwTime
-            && self.historyCount == other.historyCount
-            && self.InputData == other.InputData
-            && self.dwKeyStates == other.dwKeyStates
-            && self.PerformanceCount == other.PerformanceCount
-            && self.ButtonChangeType == other.ButtonChangeType
+        self.pointerType == other.pointerType && self.pointerId == other.pointerId && self.frameId == other.frameId && self.pointerFlags == other.pointerFlags && self.sourceDevice == other.sourceDevice && self.hwndTarget == other.hwndTarget && self.ptPixelLocation == other.ptPixelLocation && self.ptHimetricLocation == other.ptHimetricLocation && self.ptPixelLocationRaw == other.ptPixelLocationRaw && self.ptHimetricLocationRaw == other.ptHimetricLocationRaw && self.dwTime == other.dwTime && self.historyCount == other.historyCount && self.InputData == other.InputData && self.dwKeyStates == other.dwKeyStates && self.PerformanceCount == other.PerformanceCount && self.ButtonChangeType == other.ButtonChangeType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -722,15 +690,7 @@ impl ::core::default::Default for POINTER_TOUCH_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for POINTER_TOUCH_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POINTER_TOUCH_INFO")
-            .field("pointerInfo", &self.pointerInfo)
-            .field("touchFlags", &self.touchFlags)
-            .field("touchMask", &self.touchMask)
-            .field("rcContact", &self.rcContact)
-            .field("rcContactRaw", &self.rcContactRaw)
-            .field("orientation", &self.orientation)
-            .field("pressure", &self.pressure)
-            .finish()
+        fmt.debug_struct("POINTER_TOUCH_INFO").field("pointerInfo", &self.pointerInfo).field("touchFlags", &self.touchFlags).field("touchMask", &self.touchMask).field("rcContact", &self.rcContact).field("rcContactRaw", &self.rcContactRaw).field("orientation", &self.orientation).field("pressure", &self.pressure).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

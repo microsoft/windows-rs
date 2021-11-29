@@ -4,12 +4,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
 }
-pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 315876210,
-    data2: 34635,
-    data3: 17789,
-    data4: [159, 223, 115, 151, 119, 120, 104, 108],
-};
+pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 315876210, data2: 34635, data3: 17789, data4: [159, 223, 115, 151, 119, 120, 104, 108] };
 pub const DEV_PORT_1394: u32 = 8u32;
 pub const DEV_PORT_ARTI: u32 = 7u32;
 pub const DEV_PORT_COM1: u32 = 2u32;

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-pub type CF_CALLBACK = unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS);
+pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_CANCEL_FLAGS(pub u32);
@@ -812,15 +812,7 @@ impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_FetchData_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("RequiredFileOffset", &self.RequiredFileOffset)
-            .field("RequiredLength", &self.RequiredLength)
-            .field("OptionalFileOffset", &self.OptionalFileOffset)
-            .field("OptionalLength", &self.OptionalLength)
-            .field("LastDehydrationTime", &self.LastDehydrationTime)
-            .field("LastDehydrationReason", &self.LastDehydrationReason)
-            .finish()
+        fmt.debug_struct("_FetchData_e__Struct").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).field("OptionalFileOffset", &self.OptionalFileOffset).field("OptionalLength", &self.OptionalLength).field("LastDehydrationTime", &self.LastDehydrationTime).field("LastDehydrationReason", &self.LastDehydrationReason).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1000,12 +992,12 @@ impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
-    pub Callback: ::core::option::Option<CF_CALLBACK>,
+    pub Callback: CF_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl CF_CALLBACK_REGISTRATION {}
@@ -1031,7 +1023,7 @@ impl ::core::cmp::PartialEq for CF_CALLBACK_REGISTRATION {
 impl ::core::cmp::Eq for CF_CALLBACK_REGISTRATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_REGISTRATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1936,15 +1928,7 @@ impl ::core::default::Default for CF_OPERATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::fmt::Debug for CF_OPERATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CF_OPERATION_INFO")
-            .field("StructSize", &self.StructSize)
-            .field("Type", &self.Type)
-            .field("ConnectionKey", &self.ConnectionKey)
-            .field("TransferKey", &self.TransferKey)
-            .field("CorrelationVector", &self.CorrelationVector)
-            .field("SyncStatus", &self.SyncStatus)
-            .field("RequestKey", &self.RequestKey)
-            .finish()
+        fmt.debug_struct("CF_OPERATION_INFO").field("StructSize", &self.StructSize).field("Type", &self.Type).field("ConnectionKey", &self.ConnectionKey).field("TransferKey", &self.TransferKey).field("CorrelationVector", &self.CorrelationVector).field("SyncStatus", &self.SyncStatus).field("RequestKey", &self.RequestKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -2284,14 +2268,7 @@ impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_7 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_7 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_TransferPlaceholders_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("CompletionStatus", &self.CompletionStatus)
-            .field("PlaceholderTotalCount", &self.PlaceholderTotalCount)
-            .field("PlaceholderArray", &self.PlaceholderArray)
-            .field("PlaceholderCount", &self.PlaceholderCount)
-            .field("EntriesProcessed", &self.EntriesProcessed)
-            .finish()
+        fmt.debug_struct("_TransferPlaceholders_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("PlaceholderTotalCount", &self.PlaceholderTotalCount).field("PlaceholderArray", &self.PlaceholderArray).field("PlaceholderCount", &self.PlaceholderCount).field("EntriesProcessed", &self.EntriesProcessed).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -2601,15 +2578,7 @@ impl ::core::default::Default for CF_PLACEHOLDER_CREATE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CF_PLACEHOLDER_CREATE_INFO")
-            .field("RelativeFileName", &self.RelativeFileName)
-            .field("FsMetadata", &self.FsMetadata)
-            .field("FileIdentity", &self.FileIdentity)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("Flags", &self.Flags)
-            .field("Result", &self.Result)
-            .field("CreateUsn", &self.CreateUsn)
-            .finish()
+        fmt.debug_struct("CF_PLACEHOLDER_CREATE_INFO").field("RelativeFileName", &self.RelativeFileName).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("Flags", &self.Flags).field("Result", &self.Result).field("CreateUsn", &self.CreateUsn).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -2939,15 +2908,7 @@ impl ::core::default::Default for CF_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CF_PROCESS_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CF_PROCESS_INFO")
-            .field("StructSize", &self.StructSize)
-            .field("ProcessId", &self.ProcessId)
-            .field("ImagePath", &self.ImagePath)
-            .field("PackageName", &self.PackageName)
-            .field("ApplicationId", &self.ApplicationId)
-            .field("CommandLine", &self.CommandLine)
-            .field("SessionId", &self.SessionId)
-            .finish()
+        fmt.debug_struct("CF_PROCESS_INFO").field("StructSize", &self.StructSize).field("ProcessId", &self.ProcessId).field("ImagePath", &self.ImagePath).field("PackageName", &self.PackageName).field("ApplicationId", &self.ApplicationId).field("CommandLine", &self.CommandLine).field("SessionId", &self.SessionId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3233,16 +3194,7 @@ impl ::core::default::Default for CF_SYNC_REGISTRATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CF_SYNC_REGISTRATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CF_SYNC_REGISTRATION")
-            .field("StructSize", &self.StructSize)
-            .field("ProviderName", &self.ProviderName)
-            .field("ProviderVersion", &self.ProviderVersion)
-            .field("SyncRootIdentity", &self.SyncRootIdentity)
-            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
-            .field("FileIdentity", &self.FileIdentity)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("ProviderId", &self.ProviderId)
-            .finish()
+        fmt.debug_struct("CF_SYNC_REGISTRATION").field("StructSize", &self.StructSize).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).field("SyncRootIdentity", &self.SyncRootIdentity).field("SyncRootIdentityLength", &self.SyncRootIdentityLength).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("ProviderId", &self.ProviderId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3386,14 +3338,7 @@ impl ::core::default::Default for CF_SYNC_STATUS {
 }
 impl ::core::fmt::Debug for CF_SYNC_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CF_SYNC_STATUS")
-            .field("StructSize", &self.StructSize)
-            .field("Code", &self.Code)
-            .field("DescriptionOffset", &self.DescriptionOffset)
-            .field("DescriptionLength", &self.DescriptionLength)
-            .field("DeviceIdOffset", &self.DeviceIdOffset)
-            .field("DeviceIdLength", &self.DeviceIdLength)
-            .finish()
+        fmt.debug_struct("CF_SYNC_STATUS").field("StructSize", &self.StructSize).field("Code", &self.Code).field("DescriptionOffset", &self.DescriptionOffset).field("DescriptionLength", &self.DescriptionLength).field("DeviceIdOffset", &self.DeviceIdOffset).field("DeviceIdLength", &self.DeviceIdLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for CF_SYNC_STATUS {
@@ -3477,7 +3422,7 @@ pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const ::core::mem::ManuallyDrop<CF_CALLBACK_REGISTRATION>, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
+            fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
         }
         let mut result__: <CF_CONNECTION_KEY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         CfConnectSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), &mut result__).from_abi::<CF_CONNECTION_KEY>(result__)
@@ -3927,18 +3872,7 @@ pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
-        CfUpdatePlaceholder(
-            filehandle.into_param().abi(),
-            ::core::mem::transmute(fsmetadata),
-            ::core::mem::transmute(fileidentity),
-            ::core::mem::transmute(fileidentitylength),
-            ::core::mem::transmute(dehydraterangearray),
-            ::core::mem::transmute(dehydraterangecount),
-            ::core::mem::transmute(updateflags),
-            ::core::mem::transmute(updateusn),
-            ::core::mem::transmute(overlapped),
-        )
-        .ok()
+        CfUpdatePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(dehydraterangearray), ::core::mem::transmute(dehydraterangecount), ::core::mem::transmute(updateflags), ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

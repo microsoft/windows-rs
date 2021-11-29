@@ -50,10 +50,10 @@ jobs:
           rust: nightly
           other: x86_64-pc-windows-gnu
           platform: x64
-        # - os: windows-latest
-        #   rust: stable
-        #   other: i686-pc-windows-gnu
-        #   platform: x86
+        - os: windows-latest
+          rust: stable
+          other: i686-pc-windows-gnu
+          platform: x86
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -88,13 +88,13 @@ jobs:
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       if: contains(matrix.other, 'windows-gnu')
 
-    - name: Build (${{ matrix.os }})
-      run: cargo build
-      if: matrix.os == 'ubuntu-latest'
+    - name: Check (${{ matrix.os }})
+      run: cargo check
+      if: contains(matrix.other, 'windows-gnu')
 
-    - name: Build (${{ matrix.os }})
+    - name: Test (${{ matrix.os }})
       run: cargo test --all --target ${{ matrix.other }}
-      if: matrix.os == 'windows-latest'
+      if: contains(matrix.other, 'windows-msvc')
 
   cargo_fmt:
     name: Check cargo formatting

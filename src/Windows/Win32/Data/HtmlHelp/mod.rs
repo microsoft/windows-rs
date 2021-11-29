@@ -349,16 +349,7 @@ impl ::core::default::Default for HH_AKLINK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HH_AKLINK {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HH_AKLINK")
-            .field("cbStruct", &self.cbStruct)
-            .field("fReserved", &self.fReserved)
-            .field("pszKeywords", &self.pszKeywords)
-            .field("pszUrl", &self.pszUrl)
-            .field("pszMsgText", &self.pszMsgText)
-            .field("pszMsgTitle", &self.pszMsgTitle)
-            .field("pszWindow", &self.pszWindow)
-            .field("fIndexOnFail", &self.fIndexOnFail)
-            .finish()
+        fmt.debug_struct("HH_AKLINK").field("cbStruct", &self.cbStruct).field("fReserved", &self.fReserved).field("pszKeywords", &self.pszKeywords).field("pszUrl", &self.pszUrl).field("pszMsgText", &self.pszMsgText).field("pszMsgTitle", &self.pszMsgTitle).field("pszWindow", &self.pszWindow).field("fIndexOnFail", &self.fIndexOnFail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -478,16 +469,7 @@ impl ::core::default::Default for HH_FTS_QUERY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HH_FTS_QUERY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HH_FTS_QUERY")
-            .field("cbStruct", &self.cbStruct)
-            .field("fUniCodeStrings", &self.fUniCodeStrings)
-            .field("pszSearchQuery", &self.pszSearchQuery)
-            .field("iProximity", &self.iProximity)
-            .field("fStemmedSearch", &self.fStemmedSearch)
-            .field("fTitleOnly", &self.fTitleOnly)
-            .field("fExecute", &self.fExecute)
-            .field("pszWindow", &self.pszWindow)
-            .finish()
+        fmt.debug_struct("HH_FTS_QUERY").field("cbStruct", &self.cbStruct).field("fUniCodeStrings", &self.fUniCodeStrings).field("pszSearchQuery", &self.pszSearchQuery).field("iProximity", &self.iProximity).field("fStemmedSearch", &self.fStemmedSearch).field("fTitleOnly", &self.fTitleOnly).field("fExecute", &self.fExecute).field("pszWindow", &self.pszWindow).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -583,17 +565,7 @@ impl ::core::default::Default for HH_POPUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HH_POPUP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HH_POPUP")
-            .field("cbStruct", &self.cbStruct)
-            .field("hinst", &self.hinst)
-            .field("idString", &self.idString)
-            .field("pszText", &self.pszText)
-            .field("pt", &self.pt)
-            .field("clrForeground", &self.clrForeground)
-            .field("clrBackground", &self.clrBackground)
-            .field("rcMargins", &self.rcMargins)
-            .field("pszFont", &self.pszFont)
-            .finish()
+        fmt.debug_struct("HH_POPUP").field("cbStruct", &self.cbStruct).field("hinst", &self.hinst).field("idString", &self.idString).field("pszText", &self.pszText).field("pt", &self.pt).field("clrForeground", &self.clrForeground).field("clrBackground", &self.clrBackground).field("rcMargins", &self.rcMargins).field("pszFont", &self.pszFont).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1104,7 +1076,7 @@ impl IITResultSet {
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(columnpriority)).ok()
     }
-    pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: ::core::option::Option<PFNCOLHEAPFREE>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvheap), ::core::mem::transmute(pfncolheapfree)).ok()
     }
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()> {
@@ -1549,7 +1521,7 @@ pub struct IWordBreakerConfig_abi(
     #[cfg(not(feature = "Win32_System_Search"))] usize,
 );
 pub const MAX_COLUMNS: u32 = 256u32;
-pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
+pub type PFNCOLHEAPFREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRIORITY(pub i32);

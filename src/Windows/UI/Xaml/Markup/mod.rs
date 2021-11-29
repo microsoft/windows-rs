@@ -1191,11 +1191,7 @@ unsafe impl ::core::marker::Sync for MarkupExtension {}
 pub struct XamlBinaryWriter(pub ::windows::core::IInspectable);
 impl XamlBinaryWriter {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>>, Param2: ::windows::core::IntoParam<'a, IXamlMetadataProvider>>(
-        inputstreams: Param0,
-        outputstreams: Param1,
-        xamlmetadataprovider: Param2,
-    ) -> ::windows::core::Result<XamlBinaryWriterErrorInformation> {
+    pub fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>>, Param2: ::windows::core::IntoParam<'a, IXamlMetadataProvider>>(inputstreams: Param0, outputstreams: Param1, xamlmetadataprovider: Param2) -> ::windows::core::Result<XamlBinaryWriterErrorInformation> {
         Self::IXamlBinaryWriterStatics(|this| unsafe {
             let mut result__: XamlBinaryWriterErrorInformation = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputstreams.into_param().abi(), outputstreams.into_param().abi(), xamlmetadataprovider.into_param().abi(), &mut result__).from_abi::<XamlBinaryWriterErrorInformation>(result__)

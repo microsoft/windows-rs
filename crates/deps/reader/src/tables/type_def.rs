@@ -426,6 +426,7 @@ impl TypeDef {
                 }
             }
             TypeKind::Enum => true,
+            TypeKind::Delegate => !self.is_winrt(),
             _ => false,
         }
     }
@@ -465,7 +466,11 @@ impl TypeDef {
     }
 
     pub fn is_nullable(&self) -> bool {
-        matches!(self.kind(), TypeKind::Interface | TypeKind::Class | TypeKind::Delegate)
+        match self.kind() {
+            TypeKind::Interface | TypeKind::Class => true,
+            TypeKind::Delegate => self.is_winrt(),
+            _ => false,
+        }
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {

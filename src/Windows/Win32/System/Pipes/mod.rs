@@ -50,16 +50,7 @@ pub unsafe fn CreateNamedPipeA<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn CreateNamedPipeA(lpname: super::super::Foundation::PSTR, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateNamedPipeA(
-            lpname.into_param().abi(),
-            ::core::mem::transmute(dwopenmode),
-            ::core::mem::transmute(dwpipemode),
-            ::core::mem::transmute(nmaxinstances),
-            ::core::mem::transmute(noutbuffersize),
-            ::core::mem::transmute(ninbuffersize),
-            ::core::mem::transmute(ndefaulttimeout),
-            ::core::mem::transmute(lpsecurityattributes),
-        ))
+        ::core::mem::transmute(CreateNamedPipeA(lpname.into_param().abi(), ::core::mem::transmute(dwopenmode), ::core::mem::transmute(dwpipemode), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -73,16 +64,7 @@ pub unsafe fn CreateNamedPipeW<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn CreateNamedPipeW(lpname: super::super::Foundation::PWSTR, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateNamedPipeW(
-            lpname.into_param().abi(),
-            ::core::mem::transmute(dwopenmode),
-            ::core::mem::transmute(dwpipemode),
-            ::core::mem::transmute(nmaxinstances),
-            ::core::mem::transmute(noutbuffersize),
-            ::core::mem::transmute(ninbuffersize),
-            ::core::mem::transmute(ndefaulttimeout),
-            ::core::mem::transmute(lpsecurityattributes),
-        ))
+        ::core::mem::transmute(CreateNamedPipeW(lpname.into_param().abi(), ::core::mem::transmute(dwopenmode), ::core::mem::transmute(dwpipemode), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

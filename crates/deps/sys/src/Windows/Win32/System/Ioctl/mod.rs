@@ -1573,45 +1573,21 @@ impl ::core::clone::Clone for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 5u32,
-};
+pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Gpt_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 9u32,
-};
+pub const DEVPKEY_Storage_Gpt_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 9u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Gpt_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 8u32,
-};
+pub const DEVPKEY_Storage_Gpt_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Mbr_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 7u32,
-};
+pub const DEVPKEY_Storage_Mbr_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Partition_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 6u32,
-};
+pub const DEVPKEY_Storage_Partition_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 2u32,
-};
+pub const DEVPKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_Removable_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 3u32,
-};
+pub const DEVPKEY_Storage_Removable_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Storage_System_Critical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
-    pid: 4u32,
-};
+pub const DEVPKEY_Storage_System_Critical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] }, pid: 4u32 };
 pub const DISABLE_SMART: u32 = 217u32;
 pub const DISK_ATTRIBUTE_OFFLINE: u64 = 1u64;
 pub const DISK_ATTRIBUTE_READ_ONLY: u64 = 2u64;
@@ -2817,18 +2793,8 @@ impl ::core::clone::Clone for FILE_SYSTEM_RECOGNITION_INFORMATION {
 }
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2638560951,
-    data2: 53926,
-    data3: 19901,
-    data4: [162, 227, 251, 208, 237, 145, 9, 169],
-};
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3076672868,
-    data2: 47523,
-    data3: 19704,
-    data4: [128, 17, 91, 134, 201, 64, 231, 183],
-};
+pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2638560951, data2: 53926, data3: 19901, data4: [162, 227, 251, 208, 237, 145, 9, 169] };
+pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3076672868, data2: 47523, data3: 19704, data4: [128, 17, 91, 134, 201, 64, 231, 183] };
 pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 218784929, data2: 14588, data3: 19896, data4: [159, 231, 63, 67, 82, 205, 124, 92] };
 #[repr(C)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
@@ -3540,22 +3506,12 @@ pub const GUID_DEVINTERFACE_CDROM: ::windows_sys::core::GUID = ::windows_sys::co
 pub const GUID_DEVINTERFACE_COMPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2262880736, data2: 32905, data3: 4560, data4: [156, 228, 8, 0, 62, 48, 31, 115] };
 pub const GUID_DEVINTERFACE_DISK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590599, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 pub const GUID_DEVINTERFACE_FLOPPY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590609, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
-pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2131790376,
-    data2: 38963,
-    data3: 19259,
-    data4: [183, 128, 44, 107, 95, 165, 192, 98],
-};
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2131790376, data2: 38963, data3: 19259, data4: [183, 128, 44, 107, 95, 165, 192, 98] };
 pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590608, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 pub const GUID_DEVINTERFACE_PARTITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590602, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1115906205, data2: 19906, data3: 17342, data4: [187, 180, 79, 21, 223, 206, 44, 97] };
 pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444344, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1856847234,
-    data2: 9708,
-    data3: 18108,
-    data4: [183, 253, 193, 240, 223, 143, 80, 55],
-};
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1856847234, data2: 9708, data3: 18108, data4: [183, 253, 193, 240, 223, 143, 80, 55] };
 pub const GUID_DEVINTERFACE_SES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395364844, data2: 18389, data3: 19955, data4: [181, 175, 154, 223, 60, 242, 62, 72] };
 pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 718077536, data2: 49456, data3: 4562, data4: [176, 130, 0, 160, 201, 30, 251, 139] };
 pub const GUID_DEVINTERFACE_TAPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590603, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };

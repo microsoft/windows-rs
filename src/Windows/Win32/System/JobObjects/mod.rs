@@ -459,14 +459,7 @@ impl ::core::default::Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
 #[cfg(feature = "Win32_System_Threading")]
 impl ::core::fmt::Debug for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_EXTENDED_LIMIT_INFORMATION")
-            .field("BasicLimitInformation", &self.BasicLimitInformation)
-            .field("IoInfo", &self.IoInfo)
-            .field("ProcessMemoryLimit", &self.ProcessMemoryLimit)
-            .field("JobMemoryLimit", &self.JobMemoryLimit)
-            .field("PeakProcessMemoryUsed", &self.PeakProcessMemoryUsed)
-            .field("PeakJobMemoryUsed", &self.PeakJobMemoryUsed)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_EXTENDED_LIMIT_INFORMATION").field("BasicLimitInformation", &self.BasicLimitInformation).field("IoInfo", &self.IoInfo).field("ProcessMemoryLimit", &self.ProcessMemoryLimit).field("JobMemoryLimit", &self.JobMemoryLimit).field("PeakProcessMemoryUsed", &self.PeakProcessMemoryUsed).field("PeakJobMemoryUsed", &self.PeakJobMemoryUsed).finish()
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
@@ -572,14 +565,7 @@ impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION")
-            .field("MaxIops", &self.MaxIops)
-            .field("MaxBandwidth", &self.MaxBandwidth)
-            .field("ReservationIops", &self.ReservationIops)
-            .field("VolumeName", &self.VolumeName)
-            .field("BaseIoSize", &self.BaseIoSize)
-            .field("ControlFlags", &self.ControlFlags)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -617,15 +603,7 @@ impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE")
-            .field("MaxIops", &self.MaxIops)
-            .field("MaxBandwidth", &self.MaxBandwidth)
-            .field("ReservationIops", &self.ReservationIops)
-            .field("VolumeName", &self.VolumeName)
-            .field("BaseIoSize", &self.BaseIoSize)
-            .field("ControlFlags", &self.ControlFlags)
-            .field("VolumeNameLength", &self.VolumeNameLength)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).field("VolumeNameLength", &self.VolumeNameLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -689,19 +667,7 @@ impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.MaxIops == other.MaxIops
-            && self.MaxBandwidth == other.MaxBandwidth
-            && self.ReservationIops == other.ReservationIops
-            && self.VolumeName == other.VolumeName
-            && self.BaseIoSize == other.BaseIoSize
-            && self.ControlFlags == other.ControlFlags
-            && self.VolumeNameLength == other.VolumeNameLength
-            && self.CriticalReservationIops == other.CriticalReservationIops
-            && self.ReservationBandwidth == other.ReservationBandwidth
-            && self.CriticalReservationBandwidth == other.CriticalReservationBandwidth
-            && self.MaxTimePercent == other.MaxTimePercent
-            && self.ReservationTimePercent == other.ReservationTimePercent
-            && self.CriticalReservationTimePercent == other.CriticalReservationTimePercent
+        self.MaxIops == other.MaxIops && self.MaxBandwidth == other.MaxBandwidth && self.ReservationIops == other.ReservationIops && self.VolumeName == other.VolumeName && self.BaseIoSize == other.BaseIoSize && self.ControlFlags == other.ControlFlags && self.VolumeNameLength == other.VolumeNameLength && self.CriticalReservationIops == other.CriticalReservationIops && self.ReservationBandwidth == other.ReservationBandwidth && self.CriticalReservationBandwidth == other.CriticalReservationBandwidth && self.MaxTimePercent == other.MaxTimePercent && self.ReservationTimePercent == other.ReservationTimePercent && self.CriticalReservationTimePercent == other.CriticalReservationTimePercent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -865,18 +831,7 @@ impl ::core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
 }
 impl ::core::cmp::PartialEq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.LimitFlags == other.LimitFlags
-            && self.ViolationLimitFlags == other.ViolationLimitFlags
-            && self.IoReadBytes == other.IoReadBytes
-            && self.IoReadBytesLimit == other.IoReadBytesLimit
-            && self.IoWriteBytes == other.IoWriteBytes
-            && self.IoWriteBytesLimit == other.IoWriteBytesLimit
-            && self.PerJobUserTime == other.PerJobUserTime
-            && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit
-            && self.JobMemory == other.JobMemory
-            && self.JobMemoryLimit == other.JobMemoryLimit
-            && self.RateControlTolerance == other.RateControlTolerance
-            && self.RateControlToleranceLimit == other.RateControlToleranceLimit
+        self.LimitFlags == other.LimitFlags && self.ViolationLimitFlags == other.ViolationLimitFlags && self.IoReadBytes == other.IoReadBytes && self.IoReadBytesLimit == other.IoReadBytesLimit && self.IoWriteBytes == other.IoWriteBytes && self.IoWriteBytesLimit == other.IoWriteBytesLimit && self.PerJobUserTime == other.PerJobUserTime && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit && self.JobMemory == other.JobMemory && self.JobMemoryLimit == other.JobMemoryLimit && self.RateControlTolerance == other.RateControlTolerance && self.RateControlToleranceLimit == other.RateControlToleranceLimit
     }
 }
 impl ::core::cmp::Eq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
@@ -1028,15 +983,7 @@ impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
 }
 impl ::core::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION")
-            .field("IoReadBytesLimit", &self.IoReadBytesLimit)
-            .field("IoWriteBytesLimit", &self.IoWriteBytesLimit)
-            .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
-            .field("JobMemoryLimit", &self.JobMemoryLimit)
-            .field("RateControlTolerance", &self.RateControlTolerance)
-            .field("RateControlToleranceInterval", &self.RateControlToleranceInterval)
-            .field("LimitFlags", &self.LimitFlags)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION").field("IoReadBytesLimit", &self.IoReadBytesLimit).field("IoWriteBytesLimit", &self.IoWriteBytesLimit).field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit).field("JobMemoryLimit", &self.JobMemoryLimit).field("RateControlTolerance", &self.RateControlTolerance).field("RateControlToleranceInterval", &self.RateControlToleranceInterval).field("LimitFlags", &self.LimitFlags).finish()
     }
 }
 impl ::core::cmp::PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {

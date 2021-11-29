@@ -426,12 +426,7 @@ pub struct IWebAuthenticationCoreManagerHelper_abi(
 pub struct StoreConfiguration {}
 impl StoreConfiguration {
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-        cataloghardwaremanufacturerid: Param0,
-        catalogstorecontentmodifierid: Param1,
-        systemconfigurationexpiration: Param2,
-        cataloghardwaredescriptor: Param3,
-    ) -> ::windows::core::Result<()> {
+    pub fn SetSystemConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(cataloghardwaremanufacturerid: Param0, catalogstorecontentmodifierid: Param1, systemconfigurationexpiration: Param2, cataloghardwaredescriptor: Param3) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), cataloghardwaremanufacturerid.into_param().abi(), catalogstorecontentmodifierid.into_param().abi(), systemconfigurationexpiration.into_param().abi(), cataloghardwaredescriptor.into_param().abi()).ok() })
     }
     pub fn SetMobileOperatorConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(mobileoperatorid: Param0, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()> {
@@ -1129,11 +1124,7 @@ impl WebAuthenticationCoreManagerHelper {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, Param1: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::WebAccount>, Param2: ::windows::core::IntoParam<'a, super::super::super::UI::Xaml::UIElement>>(
-        request: Param0,
-        webaccount: Param1,
-        uielement: Param2,
-    ) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>> {
+    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, Param1: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::WebAccount>, Param2: ::windows::core::IntoParam<'a, super::super::super::UI::Xaml::UIElement>>(request: Param0, webaccount: Param1, uielement: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>> {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), request.into_param().abi(), webaccount.into_param().abi(), uielement.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)

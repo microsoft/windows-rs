@@ -8295,12 +8295,7 @@ pub const ModuleWriteCvRecord: MODULE_WRITE_FLAGS = 8i32;
 pub const ModuleReferencedByMemory: MODULE_WRITE_FLAGS = 16i32;
 pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = 32i32;
 pub const ModuleWriteCodeSegs: MODULE_WRITE_FLAGS = 64i32;
-pub const MachineDebugManager_DEBUG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1232510188,
-    data2: 14933,
-    data3: 19376,
-    data4: [182, 151, 136, 254, 222, 119, 232, 234],
-};
+pub const MachineDebugManager_DEBUG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1232510188, data2: 14933, data3: 19376, data4: [182, 151, 136, 254, 222, 119, 232, 234] };
 pub const MachineDebugManager_RETAIL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 201995878, data2: 12489, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 pub type ModelObjectKind = i32;
 pub const ObjectPropertyAccessor: ModelObjectKind = 0i32;
@@ -8353,12 +8348,7 @@ pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAG = 536870912u32;
 pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAG = 1073741824u32;
 pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAG = 2147483648u32;
 pub const OID_JSSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 113893392, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
-pub const OID_VBSSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 371847246,
-    data2: 10137,
-    data3: 19893,
-    data4: [143, 229, 172, 225, 15, 23, 235, 171],
-};
+pub const OID_VBSSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 371847246, data2: 10137, data3: 19893, data4: [143, 229, 172, 225, 15, 23, 235, 171] };
 pub const OID_WSFSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 442566000, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
 #[repr(C)]
 pub struct OMAP {

@@ -247,20 +247,10 @@ impl ::core::clone::Clone for WMDRM_IMPORT_INIT_STRUCT {
 }
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272803, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
-pub const WMFORMAT_Script: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1552224498,
-    data2: 57022,
-    data3: 19623,
-    data4: [187, 165, 240, 122, 16, 79, 141, 255],
-};
+pub const WMFORMAT_Script: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1552224498, data2: 57022, data3: 19623, data4: [187, 165, 240, 122, 16, 79, 141, 255] };
 pub const WMFORMAT_VideoInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 89694080, data2: 50006, data3: 4558, data4: [191, 1, 0, 170, 0, 85, 89, 90] };
 pub const WMFORMAT_WaveFormatEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 89694081, data2: 50006, data3: 4558, data4: [191, 1, 0, 170, 0, 85, 89, 90] };
-pub const WMFORMAT_WebStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3659426579,
-    data2: 33625,
-    data3: 16464,
-    data4: [179, 152, 56, 142, 150, 91, 240, 12],
-};
+pub const WMFORMAT_WebStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3659426579, data2: 33625, data3: 16464, data4: [179, 152, 56, 142, 150, 91, 240, 12] };
 pub const WMMEDIASUBTYPE_ACELPnet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 304, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_Base: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 9, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
@@ -298,29 +288,14 @@ pub const WMMEDIASUBTYPE_WMVA: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const WMMEDIASUBTYPE_WMVP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1347833175, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_WVC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 826496599, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_WVP2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844125783, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const WMMEDIASUBTYPE_WebStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2002933716,
-    data2: 50727,
-    data3: 16843,
-    data4: [143, 129, 122, 199, 255, 28, 64, 204],
-};
+pub const WMMEDIASUBTYPE_WebStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2002933716, data2: 50727, data3: 16843, data4: [143, 129, 122, 199, 255, 28, 64, 204] };
 pub const WMMEDIASUBTYPE_YUY2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844715353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_YV12: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 842094169, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_YVU9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 961893977, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIASUBTYPE_YVYU: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1431918169, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIATYPE_Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935963489, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const WMMEDIATYPE_FileTransfer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3655628153,
-    data2: 37646,
-    data3: 17447,
-    data4: [173, 252, 173, 128, 242, 144, 228, 112],
-};
-pub const WMMEDIATYPE_Image: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 883232728,
-    data2: 35493,
-    data3: 17286,
-    data4: [129, 254, 160, 239, 224, 72, 142, 49],
-};
+pub const WMMEDIATYPE_FileTransfer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3655628153, data2: 37646, data3: 17447, data4: [173, 252, 173, 128, 242, 144, 228, 112] };
+pub const WMMEDIATYPE_Image: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 883232728, data2: 35493, data3: 17286, data4: [129, 254, 160, 239, 224, 72, 142, 49] };
 pub const WMMEDIATYPE_Script: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935895908, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIATYPE_Text: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2612666023, data2: 23218, data3: 18473, data4: [186, 87, 9, 64, 32, 155, 207, 62] };
 pub const WMMEDIATYPE_Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935960438, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
@@ -401,12 +376,7 @@ pub const WMT_CREDENTIAL_CLEAR_TEXT: WMT_CREDENTIAL_FLAGS = 4i32;
 pub const WMT_CREDENTIAL_PROXY: WMT_CREDENTIAL_FLAGS = 8i32;
 pub const WMT_CREDENTIAL_ENCRYPT: WMT_CREDENTIAL_FLAGS = 16i32;
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1696734298, data2: 64117, data3: 19257, data4: [181, 12, 6, 195, 54, 182, 163, 239] };
-pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 410831138,
-    data2: 36604,
-    data3: 17412,
-    data4: [157, 175, 99, 244, 131, 13, 241, 188],
-};
+pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 410831138, data2: 36604, data3: 17412, data4: [157, 175, 99, 244, 131, 13, 241, 188] };
 pub type WMT_DRMLA_TRUST = i32;
 pub const WMT_DRMLA_UNTRUSTED: WMT_DRMLA_TRUST = 0i32;
 pub const WMT_DRMLA_TRUSTED: WMT_DRMLA_TRUST = 1i32;
@@ -976,45 +946,15 @@ impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
         *self
     }
 }
-pub const WM_SampleExtensionGUID_ChromaLocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1281019040,
-    data2: 37494,
-    data3: 19244,
-    data4: [158, 76, 160, 237, 239, 221, 33, 126],
-};
+pub const WM_SampleExtensionGUID_ChromaLocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1281019040, data2: 37494, data3: 19244, data4: [158, 76, 160, 237, 239, 221, 33, 126] };
 pub const WM_SampleExtensionGUID_ColorSpaceInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4154120790, data2: 12523, data3: 20267, data4: [159, 122, 242, 75, 19, 154, 17, 87] };
-pub const WM_SampleExtensionGUID_ContentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3583040544,
-    data2: 1980,
-    data3: 17260,
-    data4: [156, 247, 243, 187, 251, 241, 164, 220],
-};
-pub const WM_SampleExtensionGUID_FileName: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3781553166,
-    data2: 6637,
-    data3: 17879,
-    data4: [180, 167, 37, 203, 209, 226, 142, 155],
-};
+pub const WM_SampleExtensionGUID_ContentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3583040544, data2: 1980, data3: 17260, data4: [156, 247, 243, 187, 251, 241, 164, 220] };
+pub const WM_SampleExtensionGUID_FileName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3781553166, data2: 6637, data3: 17879, data4: [180, 167, 37, 203, 209, 226, 142, 155] };
 pub const WM_SampleExtensionGUID_OutputCleanPoint: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4146740335, data2: 28340, data3: 20156, data4: [177, 146, 9, 173, 151, 89, 232, 40] };
-pub const WM_SampleExtensionGUID_PixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 455009620,
-    data2: 63978,
-    data3: 19400,
-    data4: [130, 26, 55, 107, 116, 228, 196, 184],
-};
-pub const WM_SampleExtensionGUID_SampleDuration: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3334313040,
-    data2: 34431,
-    data3: 18695,
-    data4: [131, 163, 199, 121, 33, 183, 51, 173],
-};
+pub const WM_SampleExtensionGUID_PixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 455009620, data2: 63978, data3: 19400, data4: [130, 26, 55, 107, 116, 228, 196, 184] };
+pub const WM_SampleExtensionGUID_SampleDuration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3334313040, data2: 34431, data3: 18695, data4: [131, 163, 199, 121, 33, 183, 51, 173] };
 pub const WM_SampleExtensionGUID_SampleProtectionSalt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1409539822, data2: 47598, data3: 17295, data4: [170, 131, 56, 4, 153, 126, 86, 157] };
-pub const WM_SampleExtensionGUID_Timecode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 966104556,
-    data2: 34407,
-    data3: 20013,
-    data4: [143, 219, 152, 129, 76, 231, 108, 30],
-};
+pub const WM_SampleExtensionGUID_Timecode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 966104556, data2: 34407, data3: 20013, data4: [143, 219, 152, 129, 76, 231, 108, 30] };
 pub const WM_SampleExtensionGUID_UserDataInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1932244218, data2: 30910, data3: 17737, data4: [153, 189, 2, 219, 26, 85, 183, 168] };
 pub const WM_SampleExtension_ChromaLocation_Size: u32 = 1u32;
 pub const WM_SampleExtension_ColorSpaceInfo_Size: u32 = 3u32;

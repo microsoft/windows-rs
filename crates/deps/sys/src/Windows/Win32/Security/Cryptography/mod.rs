@@ -538,19 +538,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptProtectMemory(pdatain: *mut ::core::ffi::c_void, cbdatain: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptQueryObject(
-        dwobjecttype: CERT_QUERY_OBJECT_TYPE,
-        pvobject: *const ::core::ffi::c_void,
-        dwexpectedcontenttypeflags: CERT_QUERY_CONTENT_TYPE_FLAGS,
-        dwexpectedformattypeflags: CERT_QUERY_FORMAT_TYPE_FLAGS,
-        dwflags: u32,
-        pdwmsgandcertencodingtype: *mut CERT_QUERY_ENCODING_TYPE,
-        pdwcontenttype: *mut CERT_QUERY_CONTENT_TYPE,
-        pdwformattype: *mut CERT_QUERY_FORMAT_TYPE,
-        phcertstore: *mut *mut ::core::ffi::c_void,
-        phmsg: *mut *mut ::core::ffi::c_void,
-        ppvcontext: *mut *mut ::core::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CryptQueryObject(dwobjecttype: CERT_QUERY_OBJECT_TYPE, pvobject: *const ::core::ffi::c_void, dwexpectedcontenttypeflags: CERT_QUERY_CONTENT_TYPE_FLAGS, dwexpectedformattypeflags: CERT_QUERY_FORMAT_TYPE_FLAGS, dwflags: u32, pdwmsgandcertencodingtype: *mut CERT_QUERY_ENCODING_TYPE, pdwcontenttype: *mut CERT_QUERY_CONTENT_TYPE, pdwformattype: *mut CERT_QUERY_FORMAT_TYPE, phcertstore: *mut *mut ::core::ffi::c_void, phmsg: *mut *mut ::core::ffi::c_void, ppvcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptRegisterDefaultOIDFunction(dwencodingtype: u32, pszfuncname: super::super::Foundation::PSTR, dwindex: u32, pwszdll: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -1432,24 +1420,9 @@ pub const ENUM_SETUPPROP_PARENTCANAME: CASetupProperty = 13i32;
 pub const ENUM_SETUPPROP_REQUESTFILE: CASetupProperty = 14i32;
 pub const ENUM_SETUPPROP_WEBCAMACHINE: CASetupProperty = 15i32;
 pub const ENUM_SETUPPROP_WEBCANAME: CASetupProperty = 16i32;
-pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2518620175,
-    data2: 62812,
-    data3: 16701,
-    data4: [169, 179, 125, 42, 244, 216, 228, 47],
-};
-pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 943143174,
-    data2: 21555,
-    data3: 17971,
-    data4: [176, 251, 41, 183, 231, 130, 98, 225],
-};
-pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2950887986,
-    data2: 16817,
-    data3: 17821,
-    data4: [165, 222, 73, 173, 216, 167, 33, 130],
-};
+pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518620175, data2: 62812, data3: 16701, data4: [169, 179, 125, 42, 244, 216, 228, 47] };
+pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 943143174, data2: 21555, data3: 17971, data4: [176, 251, 41, 183, 231, 130, 98, 225] };
+pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2950887986, data2: 16817, data3: 17821, data4: [165, 222, 73, 173, 216, 167, 33, 130] };
 pub const CCertificateEnrollmentServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2567107516, data2: 34991, data3: 19704, data4: [174, 98, 113, 64, 83, 21, 82, 182] };
 pub type CEPSetupProperty = i32;
 pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = 0i32;
@@ -4028,12 +4001,7 @@ impl ::core::clone::Clone for CMC_TAGGED_REQUEST_0 {
         *self
     }
 }
-pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2857327618,
-    data2: 36476,
-    data3: 18884,
-    data4: [148, 250, 103, 165, 204, 94, 173, 180],
-};
+pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2857327618, data2: 36476, data3: 18884, data4: [148, 250, 103, 165, 204, 94, 173, 180] };
 pub const CMSG_ATTR_CERT_COUNT_PARAM: u32 = 31u32;
 pub const CMSG_ATTR_CERT_PARAM: u32 = 32u32;
 pub const CMSG_AUTHENTICATED_ATTRIBUTES_FLAG: u32 = 8u32;

@@ -723,12 +723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILB
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMILBitmapEffectInteriorInputConnector_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMILBitmapEffectInteriorInputConnector_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMILBitmapEffectInteriorOutputConnector(pub ::windows::core::IUnknown);
@@ -764,12 +759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILB
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMILBitmapEffectInteriorOutputConnector_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMILBitmapEffectInteriorOutputConnector_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMILBitmapEffectOutputConnector(pub ::windows::core::IUnknown);
@@ -1254,24 +1244,7 @@ impl ::core::default::Default for MILMatrixF {
 }
 impl ::core::fmt::Debug for MILMatrixF {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MILMatrixF")
-            .field("_11", &self._11)
-            .field("_12", &self._12)
-            .field("_13", &self._13)
-            .field("_14", &self._14)
-            .field("_21", &self._21)
-            .field("_22", &self._22)
-            .field("_23", &self._23)
-            .field("_24", &self._24)
-            .field("_31", &self._31)
-            .field("_32", &self._32)
-            .field("_33", &self._33)
-            .field("_34", &self._34)
-            .field("_41", &self._41)
-            .field("_42", &self._42)
-            .field("_43", &self._43)
-            .field("_44", &self._44)
-            .finish()
+        fmt.debug_struct("MILMatrixF").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
 impl ::core::cmp::PartialEq for MILMatrixF {

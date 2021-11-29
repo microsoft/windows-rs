@@ -4,12 +4,7 @@ extern "system" {}
 pub const AUTO_WIDTH: i32 = -1i32;
 pub type AppEvents = *mut ::core::ffi::c_void;
 pub const AppEventsDHTMLConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2917549131, data2: 51487, data3: 20023, data4: [146, 164, 91, 180, 48, 163, 51, 64] };
-pub const Application: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1236433178,
-    data2: 45486,
-    data3: 19600,
-    data4: [155, 142, 232, 96, 186, 7, 248, 137],
-};
+pub const Application: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1236433178, data2: 45486, data3: 19600, data4: [155, 142, 232, 96, 186, 7, 248, 137] };
 pub type CCM_COMMANDID_MASK_CONSTANTS = u32;
 pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = 4294901760u32;
 pub type CCM_INSERTIONALLOWED = i32;
@@ -190,12 +185,7 @@ pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
 pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
-pub const MMCVersionInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3607026461,
-    data2: 53025,
-    data3: 19417,
-    data4: [175, 59, 197, 70, 142, 156, 102, 132],
-};
+pub const MMCVersionInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3607026461, data2: 53025, data3: 19417, data4: [175, 59, 197, 70, 142, 156, 102, 132] };
 pub type MMC_ACTION_TYPE = i32;
 pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = -1i32;
 pub const MMC_ACTION_ID: MMC_ACTION_TYPE = 0i32;

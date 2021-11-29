@@ -73,17 +73,7 @@ impl ::core::default::Default for DSKTLSYSTEMTIME {
 }
 impl ::core::fmt::Debug for DSKTLSYSTEMTIME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSKTLSYSTEMTIME")
-            .field("wYear", &self.wYear)
-            .field("wMonth", &self.wMonth)
-            .field("wDayOfWeek", &self.wDayOfWeek)
-            .field("wDay", &self.wDay)
-            .field("wHour", &self.wHour)
-            .field("wMinute", &self.wMinute)
-            .field("wSecond", &self.wSecond)
-            .field("wMilliseconds", &self.wMilliseconds)
-            .field("wResult", &self.wResult)
-            .finish()
+        fmt.debug_struct("DSKTLSYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).field("wResult", &self.wResult).finish()
     }
 }
 impl ::core::cmp::PartialEq for DSKTLSYSTEMTIME {
@@ -104,36 +94,14 @@ pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hkeyprimary: Param0,
-    pwszprimarysubkey: Param1,
-    hkeyfallback: Param2,
-    pwszfallbacksubkey: Param3,
-    pwszvalue: Param4,
-    dwflags: u32,
-    pdwtype: *mut u32,
-    pvdata: *mut ::core::ffi::c_void,
-    cbdatain: u32,
-    pcbdataout: *mut u32,
-) -> super::super::Foundation::LSTATUS {
+pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyprimary: Param0, pwszprimarysubkey: Param1, hkeyfallback: Param2, pwszfallbacksubkey: Param3, pwszvalue: Param4, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetRegistryValueWithFallbackW(hkeyprimary: HKEY, pwszprimarysubkey: super::super::Foundation::PWSTR, hkeyfallback: HKEY, pwszfallbacksubkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(GetRegistryValueWithFallbackW(
-            hkeyprimary.into_param().abi(),
-            pwszprimarysubkey.into_param().abi(),
-            hkeyfallback.into_param().abi(),
-            pwszfallbacksubkey.into_param().abi(),
-            pwszvalue.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pdwtype),
-            ::core::mem::transmute(pvdata),
-            ::core::mem::transmute(cbdatain),
-            ::core::mem::transmute(pcbdataout),
-        ))
+        ::core::mem::transmute(GetRegistryValueWithFallbackW(hkeyprimary.into_param().abi(), pwszprimarysubkey.into_param().abi(), hkeyfallback.into_param().abi(), pwszfallbacksubkey.into_param().abi(), pwszvalue.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdatain), ::core::mem::transmute(pcbdataout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -212,7 +180,7 @@ pub const PIR_STATUS_TABLE_NONE: u32 = 3u32;
 pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
-pub type PQUERYHANDLER = unsafe extern "system" fn(keycontext: *mut ::core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32;
+pub type PQUERYHANDLER = ::core::option::Option<unsafe extern "system" fn(keycontext: *mut ::core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
 pub const REGDF_CONFLICTDMA: u32 = 524288u32;
 pub const REGDF_CONFLICTIO: u32 = 65536u32;
@@ -692,144 +660,56 @@ pub unsafe fn RegCreateKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hkey: Param0,
-    lpsubkey: Param1,
-    reserved: u32,
-    lpclass: Param3,
-    dwoptions: REG_OPEN_CREATE_OPTIONS,
-    samdesired: REG_SAM_FLAGS,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    phkresult: *mut HKEY,
-    lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION,
-) -> super::super::Foundation::LSTATUS {
+pub unsafe fn RegCreateKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyExA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, reserved: u32, lpclass: super::super::Foundation::PSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(RegCreateKeyExA(
-            hkey.into_param().abi(),
-            lpsubkey.into_param().abi(),
-            ::core::mem::transmute(reserved),
-            lpclass.into_param().abi(),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(samdesired),
-            ::core::mem::transmute(lpsecurityattributes),
-            ::core::mem::transmute(phkresult),
-            ::core::mem::transmute(lpdwdisposition),
-        ))
+        ::core::mem::transmute(RegCreateKeyExA(hkey.into_param().abi(), lpsubkey.into_param().abi(), ::core::mem::transmute(reserved), lpclass.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hkey: Param0,
-    lpsubkey: Param1,
-    reserved: u32,
-    lpclass: Param3,
-    dwoptions: REG_OPEN_CREATE_OPTIONS,
-    samdesired: REG_SAM_FLAGS,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    phkresult: *mut HKEY,
-    lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION,
-) -> super::super::Foundation::LSTATUS {
+pub unsafe fn RegCreateKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyExW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, reserved: u32, lpclass: super::super::Foundation::PWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(RegCreateKeyExW(
-            hkey.into_param().abi(),
-            lpsubkey.into_param().abi(),
-            ::core::mem::transmute(reserved),
-            lpclass.into_param().abi(),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(samdesired),
-            ::core::mem::transmute(lpsecurityattributes),
-            ::core::mem::transmute(phkresult),
-            ::core::mem::transmute(lpdwdisposition),
-        ))
+        ::core::mem::transmute(RegCreateKeyExW(hkey.into_param().abi(), lpsubkey.into_param().abi(), ::core::mem::transmute(reserved), lpclass.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    hkey: Param0,
-    lpsubkey: Param1,
-    reserved: u32,
-    lpclass: Param3,
-    dwoptions: REG_OPEN_CREATE_OPTIONS,
-    samdesired: REG_SAM_FLAGS,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    phkresult: *mut HKEY,
-    lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION,
-    htransaction: Param9,
-    pextendedparemeter: *mut ::core::ffi::c_void,
-) -> super::super::Foundation::LSTATUS {
+pub unsafe fn RegCreateKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: Param9, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyTransactedA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, reserved: u32, lpclass: super::super::Foundation::PSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(RegCreateKeyTransactedA(
-            hkey.into_param().abi(),
-            lpsubkey.into_param().abi(),
-            ::core::mem::transmute(reserved),
-            lpclass.into_param().abi(),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(samdesired),
-            ::core::mem::transmute(lpsecurityattributes),
-            ::core::mem::transmute(phkresult),
-            ::core::mem::transmute(lpdwdisposition),
-            htransaction.into_param().abi(),
-            ::core::mem::transmute(pextendedparemeter),
-        ))
+        ::core::mem::transmute(RegCreateKeyTransactedA(hkey.into_param().abi(), lpsubkey.into_param().abi(), ::core::mem::transmute(reserved), lpclass.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition), htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    hkey: Param0,
-    lpsubkey: Param1,
-    reserved: u32,
-    lpclass: Param3,
-    dwoptions: REG_OPEN_CREATE_OPTIONS,
-    samdesired: REG_SAM_FLAGS,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    phkresult: *mut HKEY,
-    lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION,
-    htransaction: Param9,
-    pextendedparemeter: *mut ::core::ffi::c_void,
-) -> super::super::Foundation::LSTATUS {
+pub unsafe fn RegCreateKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: Param9, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyTransactedW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, reserved: u32, lpclass: super::super::Foundation::PWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(RegCreateKeyTransactedW(
-            hkey.into_param().abi(),
-            lpsubkey.into_param().abi(),
-            ::core::mem::transmute(reserved),
-            lpclass.into_param().abi(),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(samdesired),
-            ::core::mem::transmute(lpsecurityattributes),
-            ::core::mem::transmute(phkresult),
-            ::core::mem::transmute(lpdwdisposition),
-            htransaction.into_param().abi(),
-            ::core::mem::transmute(pextendedparemeter),
-        ))
+        ::core::mem::transmute(RegCreateKeyTransactedW(hkey.into_param().abi(), lpsubkey.into_param().abi(), ::core::mem::transmute(reserved), lpclass.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition), htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1443,20 +1323,7 @@ pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>
         extern "system" {
             fn RegQueryInfoKeyA(hkey: HKEY, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(RegQueryInfoKeyA(
-            hkey.into_param().abi(),
-            ::core::mem::transmute(lpclass),
-            ::core::mem::transmute(lpcchclass),
-            ::core::mem::transmute(lpreserved),
-            ::core::mem::transmute(lpcsubkeys),
-            ::core::mem::transmute(lpcbmaxsubkeylen),
-            ::core::mem::transmute(lpcbmaxclasslen),
-            ::core::mem::transmute(lpcvalues),
-            ::core::mem::transmute(lpcbmaxvaluenamelen),
-            ::core::mem::transmute(lpcbmaxvaluelen),
-            ::core::mem::transmute(lpcbsecuritydescriptor),
-            ::core::mem::transmute(lpftlastwritetime),
-        ))
+        ::core::mem::transmute(RegQueryInfoKeyA(hkey.into_param().abi(), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpcsubkeys), ::core::mem::transmute(lpcbmaxsubkeylen), ::core::mem::transmute(lpcbmaxclasslen), ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lpcbmaxvaluenamelen), ::core::mem::transmute(lpcbmaxvaluelen), ::core::mem::transmute(lpcbsecuritydescriptor), ::core::mem::transmute(lpftlastwritetime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1470,20 +1337,7 @@ pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>
         extern "system" {
             fn RegQueryInfoKeyW(hkey: HKEY, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::LSTATUS;
         }
-        ::core::mem::transmute(RegQueryInfoKeyW(
-            hkey.into_param().abi(),
-            ::core::mem::transmute(lpclass),
-            ::core::mem::transmute(lpcchclass),
-            ::core::mem::transmute(lpreserved),
-            ::core::mem::transmute(lpcsubkeys),
-            ::core::mem::transmute(lpcbmaxsubkeylen),
-            ::core::mem::transmute(lpcbmaxclasslen),
-            ::core::mem::transmute(lpcvalues),
-            ::core::mem::transmute(lpcbmaxvaluenamelen),
-            ::core::mem::transmute(lpcbmaxvaluelen),
-            ::core::mem::transmute(lpcbsecuritydescriptor),
-            ::core::mem::transmute(lpftlastwritetime),
-        ))
+        ::core::mem::transmute(RegQueryInfoKeyW(hkey.into_param().abi(), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpcsubkeys), ::core::mem::transmute(lpcbmaxsubkeylen), ::core::mem::transmute(lpcbmaxclasslen), ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lpcbmaxvaluenamelen), ::core::mem::transmute(lpcbmaxvaluelen), ::core::mem::transmute(lpcbsecuritydescriptor), ::core::mem::transmute(lpftlastwritetime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1923,13 +1777,13 @@ pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
 pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct provider_info {
-    pub pi_R0_1val: ::core::option::Option<PQUERYHANDLER>,
-    pub pi_R0_allvals: ::core::option::Option<PQUERYHANDLER>,
-    pub pi_R3_1val: ::core::option::Option<PQUERYHANDLER>,
-    pub pi_R3_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R0_1val: PQUERYHANDLER,
+    pub pi_R0_allvals: PQUERYHANDLER,
+    pub pi_R3_1val: PQUERYHANDLER,
+    pub pi_R3_allvals: PQUERYHANDLER,
     pub pi_flags: u32,
     pub pi_key_context: *mut ::core::ffi::c_void,
 }
@@ -1951,7 +1805,7 @@ impl ::core::cmp::PartialEq for provider_info {
 }
 impl ::core::cmp::Eq for provider_info {}
 unsafe impl ::windows::core::Abi for provider_info {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

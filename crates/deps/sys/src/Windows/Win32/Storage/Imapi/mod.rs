@@ -6,19 +6,7 @@ extern "system" {
     pub fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows_sys::core::HRESULT;
     pub fn MapStorageSCode(stgscode: i32) -> i32;
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn OpenIMsgOnIStg(
-        lpmsgsess: *mut _MSGSESS,
-        lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
-        lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
-        lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
-        lpmalloc: super::super::System::Com::IMalloc,
-        lpmapisup: *mut ::core::ffi::c_void,
-        lpstg: super::super::System::Com::StructuredStorage::IStorage,
-        lpfmsgcallrelease: *mut MSGCALLRELEASE,
-        ulcallerdata: u32,
-        ulflags: u32,
-        lppmsg: *mut super::super::System::AddressBook::IMessage,
-    ) -> i32;
+    pub fn OpenIMsgOnIStg(lpmsgsess: *mut _MSGSESS, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: super::super::System::Com::IMalloc, lpmapisup: *mut ::core::ffi::c_void, lpstg: super::super::System::Com::StructuredStorage::IStorage, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut super::super::System::AddressBook::IMessage) -> i32;
     #[cfg(feature = "Win32_System_Com")]
     pub fn OpenIMsgSession(lpmalloc: super::super::System::Com::IMalloc, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32;
     #[cfg(feature = "Win32_System_AddressBook")]
@@ -28,24 +16,9 @@ pub const BlockRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { da
 pub const BlockRangeList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3037186600, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
 pub const BootOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 747904974, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3171631974, data2: 36355, data3: 4562, data4: [148, 246, 0, 192, 79, 121, 241, 214] };
-pub const CATID_SMTP_DSN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 582309681,
-    data2: 62968,
-    data3: 19747,
-    data4: [189, 143, 135, 181, 35, 113, 167, 58],
-};
-pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2231318154,
-    data2: 64179,
-    data3: 17367,
-    data4: [188, 223, 105, 44, 91, 70, 230, 177],
-};
-pub const CATID_SMTP_LOG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2479924536,
-    data2: 11294,
-    data3: 19304,
-    data4: [167, 201, 215, 58, 138, 166, 238, 151],
-};
+pub const CATID_SMTP_DSN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 582309681, data2: 62968, data3: 19747, data4: [189, 143, 135, 181, 35, 113, 167, 58] };
+pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2231318154, data2: 64179, data3: 17367, data4: [188, 223, 105, 44, 91, 70, 230, 177] };
+pub const CATID_SMTP_LOG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2479924536, data2: 11294, data3: 19304, data4: [167, 201, 215, 58, 138, 166, 238, 151] };
 pub const CATID_SMTP_MAXMSGSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3958462942, data2: 42622, data3: 4562, data4: [148, 247, 0, 192, 79, 121, 241, 214] };
 pub const CATID_SMTP_MSGTRACKLOG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3336524458, data2: 32176, data3: 4562, data4: [148, 244, 0, 192, 79, 121, 241, 214] };
 pub const CATID_SMTP_ON_BEFORE_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4133653650, data2: 3422, data3: 4562, data4: [170, 104, 0, 192, 79, 163, 91, 130] };
@@ -267,12 +240,7 @@ pub type FsiItemType = i32;
 pub const FsiItemNotFound: FsiItemType = 0i32;
 pub const FsiItemDirectory: FsiItemType = 1i32;
 pub const FsiItemFile: FsiItemType = 2i32;
-pub const FsiNamedStreams: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3333880045,
-    data2: 27929,
-    data3: 17588,
-    data4: [181, 57, 177, 89, 183, 147, 163, 45],
-};
+pub const FsiNamedStreams: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3333880045, data2: 27929, data3: 17588, data4: [181, 57, 177, 89, 183, 147, 163, 45] };
 pub const FsiStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 747904973, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 456918630, data2: 58480, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4217750748, data2: 58472, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
@@ -715,12 +683,7 @@ pub const MP_STATUS_SUBMITTED: u32 = 4u32;
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
 pub const MSDiscMasterObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1376569955, data2: 20901, data3: 4563, data4: [145, 68, 0, 16, 75, 161, 28, 94] };
 pub const MSDiscRecorderObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1376569953, data2: 20901, data3: 4563, data4: [145, 68, 0, 16, 75, 161, 28, 94] };
-pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2315474554,
-    data2: 25547,
-    data3: 19368,
-    data4: [186, 246, 82, 17, 152, 22, 209, 239],
-};
+pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2315474554, data2: 25547, data3: 19368, data4: [186, 246, 82, 17, 152, 22, 209, 239] };
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage)>;
 pub const MsftDiscFormat2Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801514, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
@@ -730,12 +693,7 @@ pub const MsftDiscFormat2TrackAtOnce: ::windows_sys::core::GUID = ::windows_sys:
 pub const MsftDiscMaster2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801518, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const MsftDiscRecorder2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801517, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const MsftFileSystemImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 747904965, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
-pub const MsftIsoImageManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3471719266,
-    data2: 36694,
-    data3: 16470,
-    data4: [134, 155, 239, 22, 145, 126, 62, 252],
-};
+pub const MsftIsoImageManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3471719266, data2: 36694, data3: 16470, data4: [134, 155, 239, 22, 145, 126, 62, 252] };
 pub const MsftMultisessionRandomWrite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3037186596, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
 pub const MsftMultisessionSequential: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801506, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const MsftRawCDImageCreator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 630732129, data2: 40293, data3: 18894, data4: [179, 53, 64, 99, 13, 144, 18, 39] };

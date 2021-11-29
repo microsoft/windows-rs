@@ -24,17 +24,7 @@ impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION")
-            .field("Bias", &self.Bias)
-            .field("StandardName", &self.StandardName)
-            .field("StandardDate", &self.StandardDate)
-            .field("StandardBias", &self.StandardBias)
-            .field("DaylightName", &self.DaylightName)
-            .field("DaylightDate", &self.DaylightDate)
-            .field("DaylightBias", &self.DaylightBias)
-            .field("TimeZoneKeyName", &self.TimeZoneKeyName)
-            .field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled)
-            .finish()
+        fmt.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -254,15 +244,7 @@ impl ::core::default::Default for TIME_ZONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TIME_ZONE_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TIME_ZONE_INFORMATION")
-            .field("Bias", &self.Bias)
-            .field("StandardName", &self.StandardName)
-            .field("StandardDate", &self.StandardDate)
-            .field("StandardBias", &self.StandardBias)
-            .field("DaylightName", &self.DaylightName)
-            .field("DaylightDate", &self.DaylightDate)
-            .field("DaylightBias", &self.DaylightBias)
-            .finish()
+        fmt.debug_struct("TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

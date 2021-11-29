@@ -85,15 +85,7 @@ impl ::core::default::Default for CRYPTCATCDF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTCATCDF {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATCDF")
-            .field("cbStruct", &self.cbStruct)
-            .field("hFile", &self.hFile)
-            .field("dwCurFilePos", &self.dwCurFilePos)
-            .field("dwLastMemberOffset", &self.dwLastMemberOffset)
-            .field("fEOF", &self.fEOF)
-            .field("pwszResultDir", &self.pwszResultDir)
-            .field("hCATStore", &self.hCATStore)
-            .finish()
+        fmt.debug_struct("CRYPTCATCDF").field("cbStruct", &self.cbStruct).field("hFile", &self.hFile).field("dwCurFilePos", &self.dwCurFilePos).field("dwLastMemberOffset", &self.dwLastMemberOffset).field("fEOF", &self.fEOF).field("pwszResultDir", &self.pwszResultDir).field("hCATStore", &self.hCATStore).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -153,17 +145,7 @@ impl ::core::fmt::Debug for CRYPTCATMEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::cmp::PartialEq for CRYPTCATMEMBER {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pwszReferenceTag == other.pwszReferenceTag
-            && self.pwszFileName == other.pwszFileName
-            && self.gSubjectType == other.gSubjectType
-            && self.fdwMemberFlags == other.fdwMemberFlags
-            && self.pIndirectData == other.pIndirectData
-            && self.dwCertVersion == other.dwCertVersion
-            && self.dwReserved == other.dwReserved
-            && self.hReserved == other.hReserved
-            && self.sEncodedIndirectData == other.sEncodedIndirectData
-            && self.sEncodedMemberInfo == other.sEncodedMemberInfo
+        self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.pwszFileName == other.pwszFileName && self.gSubjectType == other.gSubjectType && self.fdwMemberFlags == other.fdwMemberFlags && self.pIndirectData == other.pIndirectData && self.dwCertVersion == other.dwCertVersion && self.dwReserved == other.dwReserved && self.hReserved == other.hReserved && self.sEncodedIndirectData == other.sEncodedIndirectData && self.sEncodedMemberInfo == other.sEncodedMemberInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
@@ -198,18 +180,7 @@ impl ::core::default::Default for CRYPTCATSTORE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTCATSTORE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATSTORE")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwPublicVersion", &self.dwPublicVersion)
-            .field("pwszP7File", &self.pwszP7File)
-            .field("hProv", &self.hProv)
-            .field("dwEncodingType", &self.dwEncodingType)
-            .field("fdwStoreFlags", &self.fdwStoreFlags)
-            .field("hReserved", &self.hReserved)
-            .field("hAttrs", &self.hAttrs)
-            .field("hCryptMsg", &self.hCryptMsg)
-            .field("hSorted", &self.hSorted)
-            .finish()
+        fmt.debug_struct("CRYPTCATSTORE").field("cbStruct", &self.cbStruct).field("dwPublicVersion", &self.dwPublicVersion).field("pwszP7File", &self.pwszP7File).field("hProv", &self.hProv).field("dwEncodingType", &self.dwEncodingType).field("fdwStoreFlags", &self.fdwStoreFlags).field("hReserved", &self.hReserved).field("hAttrs", &self.hAttrs).field("hCryptMsg", &self.hCryptMsg).field("hSorted", &self.hSorted).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -520,7 +491,7 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
+pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -534,7 +505,7 @@ pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CR
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
+pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -548,7 +519,7 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *m
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATMEMBER {
+pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -562,7 +533,7 @@ pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut C
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilepath: Param0, pfnparseerror: ::core::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATCDF {
+pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilepath: Param0, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -813,4 +784,4 @@ pub unsafe fn IsCatalogFile<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_CDF_PARSE_ERROR_CALLBACK = unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: super::super::super::Foundation::PWSTR);
+pub type PFN_CDF_PARSE_ERROR_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: super::super::super::Foundation::PWSTR)>;

@@ -36,19 +36,9 @@ pub const UIAnimationManager: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const UIAnimationManager2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3529345090, data2: 34948, data3: 19018, data4: [179, 33, 9, 19, 20, 55, 155, 221] };
 pub const UIAnimationTimer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3217902092, data2: 1718, data3: 17284, data4: [183, 104, 13, 170, 121, 44, 56, 14] };
 pub const UIAnimationTransitionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2325421277, data2: 64727, data3: 16796, data4: [139, 68, 66, 253, 23, 219, 24, 135] };
-pub const UIAnimationTransitionFactory2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2217750423,
-    data2: 32635,
-    data3: 16448,
-    data4: [177, 144, 114, 172, 157, 24, 228, 32],
-};
+pub const UIAnimationTransitionFactory2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2217750423, data2: 32635, data3: 16448, data4: [177, 144, 114, 172, 157, 24, 228, 32] };
 pub const UIAnimationTransitionLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 493036205, data2: 43653, data3: 20213, data4: [168, 40, 134, 215, 16, 103, 209, 69] };
-pub const UIAnimationTransitionLibrary2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2167379018,
-    data2: 50632,
-    data3: 19673,
-    data4: [176, 166, 179, 218, 128, 47, 34, 141],
-};
+pub const UIAnimationTransitionLibrary2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2167379018, data2: 50632, data3: 19673, data4: [176, 166, 179, 218, 128, 47, 34, 141] };
 pub type UI_ANIMATION_DEPENDENCIES = u32;
 pub const UI_ANIMATION_DEPENDENCY_NONE: UI_ANIMATION_DEPENDENCIES = 0u32;
 pub const UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES: UI_ANIMATION_DEPENDENCIES = 1u32;

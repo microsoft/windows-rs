@@ -36,18 +36,7 @@ impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3DADAPTER_IDENTIFIER9 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3DADAPTER_IDENTIFIER9")
-            .field("Driver", &self.Driver)
-            .field("Description", &self.Description)
-            .field("DeviceName", &self.DeviceName)
-            .field("DriverVersion", &self.DriverVersion)
-            .field("VendorId", &self.VendorId)
-            .field("DeviceId", &self.DeviceId)
-            .field("SubSysId", &self.SubSysId)
-            .field("Revision", &self.Revision)
-            .field("DeviceIdentifier", &self.DeviceIdentifier)
-            .field("WHQLLevel", &self.WHQLLevel)
-            .finish()
+        fmt.debug_struct("D3DADAPTER_IDENTIFIER9").field("Driver", &self.Driver).field("Description", &self.Description).field("DeviceName", &self.DeviceName).field("DriverVersion", &self.DriverVersion).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DeviceIdentifier", &self.DeviceIdentifier).field("WHQLLevel", &self.WHQLLevel).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2105,13 +2094,7 @@ impl ::core::default::Default for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
 }
 impl ::core::fmt::Debug for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3DDEVINFO_D3D9BANDWIDTHTIMINGS")
-            .field("MaxBandwidthUtilized", &self.MaxBandwidthUtilized)
-            .field("FrontEndUploadMemoryUtilizedPercent", &self.FrontEndUploadMemoryUtilizedPercent)
-            .field("VertexRateUtilizedPercent", &self.VertexRateUtilizedPercent)
-            .field("TriangleSetupRateUtilizedPercent", &self.TriangleSetupRateUtilizedPercent)
-            .field("FillRateUtilizedPercent", &self.FillRateUtilizedPercent)
-            .finish()
+        fmt.debug_struct("D3DDEVINFO_D3D9BANDWIDTHTIMINGS").field("MaxBandwidthUtilized", &self.MaxBandwidthUtilized).field("FrontEndUploadMemoryUtilizedPercent", &self.FrontEndUploadMemoryUtilizedPercent).field("VertexRateUtilizedPercent", &self.VertexRateUtilizedPercent).field("TriangleSetupRateUtilizedPercent", &self.TriangleSetupRateUtilizedPercent).field("FillRateUtilizedPercent", &self.FillRateUtilizedPercent).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
@@ -2177,11 +2160,7 @@ impl ::core::fmt::Debug for D3DDEVINFO_D3D9INTERFACETIMINGS {
 }
 impl ::core::cmp::PartialEq for D3DDEVINFO_D3D9INTERFACETIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.WaitingForGPUToUseApplicationResourceTimePercent == other.WaitingForGPUToUseApplicationResourceTimePercent
-            && self.WaitingForGPUToAcceptMoreCommandsTimePercent == other.WaitingForGPUToAcceptMoreCommandsTimePercent
-            && self.WaitingForGPUToStayWithinLatencyTimePercent == other.WaitingForGPUToStayWithinLatencyTimePercent
-            && self.WaitingForGPUExclusiveResourceTimePercent == other.WaitingForGPUExclusiveResourceTimePercent
-            && self.WaitingForGPUOtherTimePercent == other.WaitingForGPUOtherTimePercent
+        self.WaitingForGPUToUseApplicationResourceTimePercent == other.WaitingForGPUToUseApplicationResourceTimePercent && self.WaitingForGPUToAcceptMoreCommandsTimePercent == other.WaitingForGPUToAcceptMoreCommandsTimePercent && self.WaitingForGPUToStayWithinLatencyTimePercent == other.WaitingForGPUToStayWithinLatencyTimePercent && self.WaitingForGPUExclusiveResourceTimePercent == other.WaitingForGPUExclusiveResourceTimePercent && self.WaitingForGPUOtherTimePercent == other.WaitingForGPUOtherTimePercent
     }
 }
 impl ::core::cmp::Eq for D3DDEVINFO_D3D9INTERFACETIMINGS {}
@@ -2204,12 +2183,7 @@ impl ::core::default::Default for D3DDEVINFO_D3D9PIPELINETIMINGS {
 }
 impl ::core::fmt::Debug for D3DDEVINFO_D3D9PIPELINETIMINGS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3DDEVINFO_D3D9PIPELINETIMINGS")
-            .field("VertexProcessingTimePercent", &self.VertexProcessingTimePercent)
-            .field("PixelProcessingTimePercent", &self.PixelProcessingTimePercent)
-            .field("OtherGPUProcessingTimePercent", &self.OtherGPUProcessingTimePercent)
-            .field("GPUIdleTimePercent", &self.GPUIdleTimePercent)
-            .finish()
+        fmt.debug_struct("D3DDEVINFO_D3D9PIPELINETIMINGS").field("VertexProcessingTimePercent", &self.VertexProcessingTimePercent).field("PixelProcessingTimePercent", &self.PixelProcessingTimePercent).field("OtherGPUProcessingTimePercent", &self.OtherGPUProcessingTimePercent).field("GPUIdleTimePercent", &self.GPUIdleTimePercent).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3DDEVINFO_D3D9PIPELINETIMINGS {
@@ -2750,21 +2724,7 @@ impl ::core::default::Default for D3DLIGHT9 {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::fmt::Debug for D3DLIGHT9 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3DLIGHT9")
-            .field("Type", &self.Type)
-            .field("Diffuse", &self.Diffuse)
-            .field("Specular", &self.Specular)
-            .field("Ambient", &self.Ambient)
-            .field("Position", &self.Position)
-            .field("Direction", &self.Direction)
-            .field("Range", &self.Range)
-            .field("Falloff", &self.Falloff)
-            .field("Attenuation0", &self.Attenuation0)
-            .field("Attenuation1", &self.Attenuation1)
-            .field("Attenuation2", &self.Attenuation2)
-            .field("Theta", &self.Theta)
-            .field("Phi", &self.Phi)
-            .finish()
+        fmt.debug_struct("D3DLIGHT9").field("Type", &self.Type).field("Diffuse", &self.Diffuse).field("Specular", &self.Specular).field("Ambient", &self.Ambient).field("Position", &self.Position).field("Direction", &self.Direction).field("Range", &self.Range).field("Falloff", &self.Falloff).field("Attenuation0", &self.Attenuation0).field("Attenuation1", &self.Attenuation1).field("Attenuation2", &self.Attenuation2).field("Theta", &self.Theta).field("Phi", &self.Phi).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3321,20 +3281,7 @@ impl ::core::fmt::Debug for D3DPRESENT_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3DPRESENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.BackBufferWidth == other.BackBufferWidth
-            && self.BackBufferHeight == other.BackBufferHeight
-            && self.BackBufferFormat == other.BackBufferFormat
-            && self.BackBufferCount == other.BackBufferCount
-            && self.MultiSampleType == other.MultiSampleType
-            && self.MultiSampleQuality == other.MultiSampleQuality
-            && self.SwapEffect == other.SwapEffect
-            && self.hDeviceWindow == other.hDeviceWindow
-            && self.Windowed == other.Windowed
-            && self.EnableAutoDepthStencil == other.EnableAutoDepthStencil
-            && self.AutoDepthStencilFormat == other.AutoDepthStencilFormat
-            && self.Flags == other.Flags
-            && self.FullScreen_RefreshRateInHz == other.FullScreen_RefreshRateInHz
-            && self.PresentationInterval == other.PresentationInterval
+        self.BackBufferWidth == other.BackBufferWidth && self.BackBufferHeight == other.BackBufferHeight && self.BackBufferFormat == other.BackBufferFormat && self.BackBufferCount == other.BackBufferCount && self.MultiSampleType == other.MultiSampleType && self.MultiSampleQuality == other.MultiSampleQuality && self.SwapEffect == other.SwapEffect && self.hDeviceWindow == other.hDeviceWindow && self.Windowed == other.Windowed && self.EnableAutoDepthStencil == other.EnableAutoDepthStencil && self.AutoDepthStencilFormat == other.AutoDepthStencilFormat && self.Flags == other.Flags && self.FullScreen_RefreshRateInHz == other.FullScreen_RefreshRateInHz && self.PresentationInterval == other.PresentationInterval
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3552,15 +3499,7 @@ impl ::core::default::Default for D3DRECTPATCH_INFO {
 }
 impl ::core::fmt::Debug for D3DRECTPATCH_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3DRECTPATCH_INFO")
-            .field("StartVertexOffsetWidth", &self.StartVertexOffsetWidth)
-            .field("StartVertexOffsetHeight", &self.StartVertexOffsetHeight)
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("Stride", &self.Stride)
-            .field("Basis", &self.Basis)
-            .field("Degree", &self.Degree)
-            .finish()
+        fmt.debug_struct("D3DRECTPATCH_INFO").field("StartVertexOffsetWidth", &self.StartVertexOffsetWidth).field("StartVertexOffsetHeight", &self.StartVertexOffsetHeight).field("Width", &self.Width).field("Height", &self.Height).field("Stride", &self.Stride).field("Basis", &self.Basis).field("Degree", &self.Degree).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3DRECTPATCH_INFO {
@@ -4173,16 +4112,7 @@ impl ::core::default::Default for D3DSURFACE_DESC {
 }
 impl ::core::fmt::Debug for D3DSURFACE_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3DSURFACE_DESC")
-            .field("Format", &self.Format)
-            .field("Type", &self.Type)
-            .field("Usage", &self.Usage)
-            .field("Pool", &self.Pool)
-            .field("MultiSampleType", &self.MultiSampleType)
-            .field("MultiSampleQuality", &self.MultiSampleQuality)
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .finish()
+        fmt.debug_struct("D3DSURFACE_DESC").field("Format", &self.Format).field("Type", &self.Type).field("Usage", &self.Usage).field("Pool", &self.Pool).field("MultiSampleType", &self.MultiSampleType).field("MultiSampleQuality", &self.MultiSampleQuality).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3DSURFACE_DESC {
@@ -4887,17 +4817,7 @@ impl IDirect3D9Ex {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDeviceEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(adapter),
-            ::core::mem::transmute(devicetype),
-            hfocuswindow.into_param().abi(),
-            ::core::mem::transmute(behaviorflags),
-            ::core::mem::transmute(ppresentationparameters),
-            ::core::mem::transmute(pfullscreendisplaymode),
-            ::core::mem::transmute(ppreturneddeviceinterface),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(devicetype), hfocuswindow.into_param().abi(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(pfullscreendisplaymode), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows::core::Result<()> {
@@ -5332,19 +5252,7 @@ impl IDirect3DDevice9 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(depth),
-            ::core::mem::transmute(levels),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(pool),
-            ::core::mem::transmute(ppvolumetexture),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(depth), ::core::mem::transmute(levels), ::core::mem::transmute(usage), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(ppvolumetexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
@@ -5360,33 +5268,11 @@ impl IDirect3DDevice9 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTarget<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(multisample),
-            ::core::mem::transmute(multisamplequality),
-            lockable.into_param().abi(),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), lockable.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurface<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(multisample),
-            ::core::mem::transmute(multisamplequality),
-            discard.into_param().abi(),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), discard.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateSurface<'a, Param0: ::windows::core::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::core::IntoParam<'a, IDirect3DSurface9>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Param2, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
@@ -5573,18 +5459,7 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetype), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(primitivetype),
-            ::core::mem::transmute(minvertexindex),
-            ::core::mem::transmute(numvertices),
-            ::core::mem::transmute(primitivecount),
-            ::core::mem::transmute(pindexdata),
-            ::core::mem::transmute(indexdataformat),
-            ::core::mem::transmute(pvertexstreamzerodata),
-            ::core::mem::transmute(vertexstreamzerostride),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetype), ::core::mem::transmute(minvertexindex), ::core::mem::transmute(numvertices), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pindexdata), ::core::mem::transmute(indexdataformat), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     pub unsafe fn ProcessVertices<'a, Param3: ::windows::core::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::core::IntoParam<'a, IDirect3DVertexDeclaration9>>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Param3, pvertexdecl: Param4, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), ::core::mem::transmute(srcstartindex), ::core::mem::transmute(destindex), ::core::mem::transmute(vertexcount), pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), ::core::mem::transmute(flags)).ok()
@@ -5963,19 +5838,7 @@ impl IDirect3DDevice9Ex {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(depth),
-            ::core::mem::transmute(levels),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(pool),
-            ::core::mem::transmute(ppvolumetexture),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(depth), ::core::mem::transmute(levels), ::core::mem::transmute(usage), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(ppvolumetexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
@@ -5991,33 +5854,11 @@ impl IDirect3DDevice9Ex {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTarget<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(multisample),
-            ::core::mem::transmute(multisamplequality),
-            lockable.into_param().abi(),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), lockable.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurface<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(multisample),
-            ::core::mem::transmute(multisamplequality),
-            discard.into_param().abi(),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), discard.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateSurface<'a, Param0: ::windows::core::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::core::IntoParam<'a, IDirect3DSurface9>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Param2, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
@@ -6204,18 +6045,7 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetype), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).84)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(primitivetype),
-            ::core::mem::transmute(minvertexindex),
-            ::core::mem::transmute(numvertices),
-            ::core::mem::transmute(primitivecount),
-            ::core::mem::transmute(pindexdata),
-            ::core::mem::transmute(indexdataformat),
-            ::core::mem::transmute(pvertexstreamzerodata),
-            ::core::mem::transmute(vertexstreamzerostride),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetype), ::core::mem::transmute(minvertexindex), ::core::mem::transmute(numvertices), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pindexdata), ::core::mem::transmute(indexdataformat), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     pub unsafe fn ProcessVertices<'a, Param3: ::windows::core::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::core::IntoParam<'a, IDirect3DVertexDeclaration9>>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Param3, pvertexdecl: Param4, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), ::core::mem::transmute(srcstartindex), ::core::mem::transmute(destindex), ::core::mem::transmute(vertexcount), pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), ::core::mem::transmute(flags)).ok()
@@ -6365,19 +6195,7 @@ impl IDirect3DDevice9Ex {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTargetEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).129)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(multisample),
-            ::core::mem::transmute(multisamplequality),
-            lockable.into_param().abi(),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-            ::core::mem::transmute(usage),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).129)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), lockable.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
@@ -6385,19 +6203,7 @@ impl IDirect3DDevice9Ex {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurfaceEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).131)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(multisample),
-            ::core::mem::transmute(multisamplequality),
-            discard.into_param().abi(),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-            ::core::mem::transmute(usage),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).131)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), discard.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows::core::Result<()> {

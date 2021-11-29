@@ -8,12 +8,7 @@ extern "system" {
     pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
 }
 pub const AudioReverb: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3261283094, data2: 18203, data3: 17560, data4: [184, 197, 79, 9, 89, 226, 236, 9] };
-pub const AudioVolumeMeter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1338224998,
-    data2: 38698,
-    data3: 16591,
-    data4: [188, 55, 125, 176, 61, 178, 251, 163],
-};
+pub const AudioVolumeMeter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1338224998, data2: 38698, data3: 16591, data4: [188, 55, 125, 176, 61, 178, 251, 163] };
 pub const FACILITY_XAPO: u32 = 2199u32;
 pub const FACILITY_XAUDIO2: u32 = 2198u32;
 pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
@@ -47,12 +42,7 @@ impl ::core::clone::Clone for FXECHO_PARAMETERS {
         *self
     }
 }
-pub const FXEQ: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4125102359,
-    data2: 54980,
-    data3: 18522,
-    data4: [163, 245, 105, 81, 150, 243, 219, 250],
-};
+pub const FXEQ: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4125102359, data2: 54980, data3: 18522, data4: [163, 245, 105, 81, 150, 243, 219, 250] };
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800f32;

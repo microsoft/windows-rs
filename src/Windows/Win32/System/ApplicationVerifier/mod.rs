@@ -26,7 +26,7 @@ impl ::core::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
 unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
     type Abi = Self;
 }
-pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32;
+pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct AVRF_HANDLE_OPERATION {
@@ -57,7 +57,7 @@ impl ::core::cmp::Eq for AVRF_HANDLE_OPERATION {}
 unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
     type Abi = Self;
 }
-pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32;
+pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct AVRF_HEAP_ALLOCATION {
@@ -79,17 +79,7 @@ impl ::core::default::Default for AVRF_HEAP_ALLOCATION {
 }
 impl ::core::fmt::Debug for AVRF_HEAP_ALLOCATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AVRF_HEAP_ALLOCATION")
-            .field("HeapHandle", &self.HeapHandle)
-            .field("UserAllocation", &self.UserAllocation)
-            .field("UserAllocationSize", &self.UserAllocationSize)
-            .field("Allocation", &self.Allocation)
-            .field("AllocationSize", &self.AllocationSize)
-            .field("UserAllocationState", &self.UserAllocationState)
-            .field("HeapState", &self.HeapState)
-            .field("HeapContext", &self.HeapContext)
-            .field("BackTraceInformation", &self.BackTraceInformation)
-            .finish()
+        fmt.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
 impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
@@ -102,7 +92,7 @@ unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {
     type Abi = Self;
 }
 pub const AVRF_MAX_TRACES: u32 = 32u32;
-pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32;
+pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
@@ -146,7 +136,7 @@ impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::core::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>, enumerationcontext: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -111,6 +111,6 @@ pub struct IDirect3DDevice9On12_abi(
 );
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PFN_Direct3DCreate9On12 = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
+pub type PFN_Direct3DCreate9On12 = ::core::option::Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PFN_Direct3DCreate9On12Ex = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type PFN_Direct3DCreate9On12Ex = ::core::option::Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;

@@ -773,19 +773,7 @@ impl ::core::default::Default for DMUS_PORTCAPS {
 }
 impl ::core::fmt::Debug for DMUS_PORTCAPS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DMUS_PORTCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("guidPort", &self.guidPort)
-            .field("dwClass", &self.dwClass)
-            .field("dwType", &self.dwType)
-            .field("dwMemorySize", &self.dwMemorySize)
-            .field("dwMaxChannelGroups", &self.dwMaxChannelGroups)
-            .field("dwMaxVoices", &self.dwMaxVoices)
-            .field("dwMaxAudioChannels", &self.dwMaxAudioChannels)
-            .field("dwEffectFlags", &self.dwEffectFlags)
-            .field("wszDescription", &self.wszDescription)
-            .finish()
+        fmt.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
     }
 }
 impl ::core::cmp::PartialEq for DMUS_PORTCAPS {
@@ -822,17 +810,7 @@ impl ::core::default::Default for DMUS_PORTPARAMS8 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DMUS_PORTPARAMS8 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DMUS_PORTPARAMS8")
-            .field("dwSize", &self.dwSize)
-            .field("dwValidParams", &self.dwValidParams)
-            .field("dwVoices", &self.dwVoices)
-            .field("dwChannelGroups", &self.dwChannelGroups)
-            .field("dwAudioChannels", &self.dwAudioChannels)
-            .field("dwSampleRate", &self.dwSampleRate)
-            .field("dwEffectFlags", &self.dwEffectFlags)
-            .field("fShare", &self.fShare)
-            .field("dwFeatures", &self.dwFeatures)
-            .finish()
+        fmt.debug_struct("DMUS_PORTPARAMS8").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).field("dwFeatures", &self.dwFeatures).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -881,18 +859,7 @@ impl ::core::default::Default for DMUS_REGION {
 }
 impl ::core::fmt::Debug for DMUS_REGION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DMUS_REGION")
-            .field("RangeKey", &self.RangeKey)
-            .field("RangeVelocity", &self.RangeVelocity)
-            .field("fusOptions", &self.fusOptions)
-            .field("usKeyGroup", &self.usKeyGroup)
-            .field("ulRegionArtIdx", &self.ulRegionArtIdx)
-            .field("ulNextRegionIdx", &self.ulNextRegionIdx)
-            .field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx)
-            .field("WaveLink", &self.WaveLink)
-            .field("WSMP", &self.WSMP)
-            .field("WLOOP", &self.WLOOP)
-            .finish()
+        fmt.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
     }
 }
 impl ::core::cmp::PartialEq for DMUS_REGION {
@@ -924,16 +891,7 @@ impl ::core::default::Default for DMUS_SYNTHSTATS {
 }
 impl ::core::fmt::Debug for DMUS_SYNTHSTATS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DMUS_SYNTHSTATS")
-            .field("dwSize", &self.dwSize)
-            .field("dwValidStats", &self.dwValidStats)
-            .field("dwVoices", &self.dwVoices)
-            .field("dwTotalCPU", &self.dwTotalCPU)
-            .field("dwCPUPerVoice", &self.dwCPUPerVoice)
-            .field("dwLostNotes", &self.dwLostNotes)
-            .field("dwFreeMemory", &self.dwFreeMemory)
-            .field("lPeakVolume", &self.lPeakVolume)
-            .finish()
+        fmt.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
     }
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS {
@@ -966,17 +924,7 @@ impl ::core::default::Default for DMUS_SYNTHSTATS8 {
 }
 impl ::core::fmt::Debug for DMUS_SYNTHSTATS8 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DMUS_SYNTHSTATS8")
-            .field("dwSize", &self.dwSize)
-            .field("dwValidStats", &self.dwValidStats)
-            .field("dwVoices", &self.dwVoices)
-            .field("dwTotalCPU", &self.dwTotalCPU)
-            .field("dwCPUPerVoice", &self.dwCPUPerVoice)
-            .field("dwLostNotes", &self.dwLostNotes)
-            .field("dwFreeMemory", &self.dwFreeMemory)
-            .field("lPeakVolume", &self.lPeakVolume)
-            .field("dwSynthMemUse", &self.dwSynthMemUse)
-            .finish()
+        fmt.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
     }
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS8 {
@@ -1261,17 +1209,7 @@ impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DAT
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA")
-            .field("DeviceId", &self.DeviceId)
-            .field("DescriptionA", &self.DescriptionA)
-            .field("DescriptionW", &self.DescriptionW)
-            .field("ModuleA", &self.ModuleA)
-            .field("ModuleW", &self.ModuleW)
-            .field("Type", &self.Type)
-            .field("DataFlow", &self.DataFlow)
-            .field("WaveDeviceId", &self.WaveDeviceId)
-            .field("Devnode", &self.Devnode)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA").field("DeviceId", &self.DeviceId).field("DescriptionA", &self.DescriptionA).field("DescriptionW", &self.DescriptionW).field("ModuleA", &self.ModuleA).field("ModuleW", &self.ModuleW).field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("WaveDeviceId", &self.WaveDeviceId).field("Devnode", &self.Devnode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1309,15 +1247,7 @@ impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DAT
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA")
-            .field("Type", &self.Type)
-            .field("DataFlow", &self.DataFlow)
-            .field("DeviceId", &self.DeviceId)
-            .field("Description", &self.Description)
-            .field("Module", &self.Module)
-            .field("Interface", &self.Interface)
-            .field("WaveDeviceId", &self.WaveDeviceId)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1355,15 +1285,7 @@ impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DAT
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA")
-            .field("Type", &self.Type)
-            .field("DataFlow", &self.DataFlow)
-            .field("DeviceId", &self.DeviceId)
-            .field("Description", &self.Description)
-            .field("Module", &self.Module)
-            .field("Interface", &self.Interface)
-            .field("WaveDeviceId", &self.WaveDeviceId)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1378,11 +1300,11 @@ impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    pub Callback: ::core::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1>,
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
     pub Context: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1409,13 +1331,13 @@ impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    pub Callback: ::core::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA>,
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
     pub Context: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1442,13 +1364,13 @@ impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    pub Callback: ::core::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW>,
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
     pub Context: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1475,7 +1397,7 @@ impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1937,12 +1859,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDire
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectMusicDownload_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IDirectMusicDownload_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDirectMusicDownloadedInstrument(pub ::windows::core::IUnknown);
@@ -2053,17 +1970,7 @@ impl IDirectMusicPort {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dwiocontrolcode),
-            ::core::mem::transmute(lpinbuffer),
-            ::core::mem::transmute(ninbuffersize),
-            ::core::mem::transmute(lpoutbuffer),
-            ::core::mem::transmute(noutbuffersize),
-            ::core::mem::transmute(lpbytesreturned),
-            ::core::mem::transmute(lpoverlapped),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwchannelgroups: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchannelgroups)).ok()
@@ -2377,20 +2284,7 @@ impl IDirectMusicSynth8 {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwappend)).ok()
     }
     pub unsafe fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).20)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(rt),
-            ::core::mem::transmute(dwvoiceid),
-            ::core::mem::transmute(dwchannelgroup),
-            ::core::mem::transmute(dwchannel),
-            ::core::mem::transmute(dwdlid),
-            ::core::mem::transmute(prpitch),
-            ::core::mem::transmute(vrvolume),
-            ::core::mem::transmute(stvoicestart),
-            ::core::mem::transmute(stloopstart),
-            ::core::mem::transmute(stloopend),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(rt), ::core::mem::transmute(dwvoiceid), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(dwdlid), ::core::mem::transmute(prpitch), ::core::mem::transmute(vrvolume), ::core::mem::transmute(stvoicestart), ::core::mem::transmute(stloopstart), ::core::mem::transmute(stloopend)).ok()
     }
     pub unsafe fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(rt), ::core::mem::transmute(dwvoiceid)).ok()
@@ -2624,11 +2518,11 @@ unsafe impl ::windows::core::Abi for INSTHEADER {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct MDEVICECAPSEX {
@@ -2834,15 +2728,7 @@ impl ::core::default::Default for Tag_DVAudInfo {
 }
 impl ::core::fmt::Debug for Tag_DVAudInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("Tag_DVAudInfo")
-            .field("bAudStyle", &self.bAudStyle)
-            .field("bAudQu", &self.bAudQu)
-            .field("bNumAudPin", &self.bNumAudPin)
-            .field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm)
-            .field("wBlkMode", &self.wBlkMode)
-            .field("wDIFMode", &self.wDIFMode)
-            .field("wBlkDiv", &self.wBlkDiv)
-            .finish()
+        fmt.debug_struct("Tag_DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
     }
 }
 impl ::core::cmp::PartialEq for Tag_DVAudInfo {
@@ -2910,16 +2796,7 @@ impl ::core::default::Default for _DMUS_PORTPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for _DMUS_PORTPARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DMUS_PORTPARAMS")
-            .field("dwSize", &self.dwSize)
-            .field("dwValidParams", &self.dwValidParams)
-            .field("dwVoices", &self.dwVoices)
-            .field("dwChannelGroups", &self.dwChannelGroups)
-            .field("dwAudioChannels", &self.dwAudioChannels)
-            .field("dwSampleRate", &self.dwSampleRate)
-            .field("dwEffectFlags", &self.dwEffectFlags)
-            .field("fShare", &self.fShare)
-            .finish()
+        fmt.debug_struct("_DMUS_PORTPARAMS").field("dwSize", &self.dwSize).field("dwValidParams", &self.dwValidParams).field("dwVoices", &self.dwVoices).field("dwChannelGroups", &self.dwChannelGroups).field("dwAudioChannels", &self.dwAudioChannels).field("dwSampleRate", &self.dwSampleRate).field("dwEffectFlags", &self.dwEffectFlags).field("fShare", &self.fShare).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

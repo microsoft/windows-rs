@@ -110,29 +110,8 @@ pub struct IEnumOfflineFilesSettings_abi(
 pub struct IOfflineFilesCache(pub ::windows::core::IUnknown);
 impl IOfflineFilesCache {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Synchronize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSyncConflictHandler>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(
-        &self,
-        hwndparent: Param0,
-        rgpszpaths: *const super::super::Foundation::PWSTR,
-        cpaths: u32,
-        basync: Param3,
-        dwsynccontrol: u32,
-        pisyncconflicthandler: Param5,
-        piprogress: Param6,
-        psyncid: *const ::windows::core::GUID,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            hwndparent.into_param().abi(),
-            ::core::mem::transmute(rgpszpaths),
-            ::core::mem::transmute(cpaths),
-            basync.into_param().abi(),
-            ::core::mem::transmute(dwsynccontrol),
-            pisyncconflicthandler.into_param().abi(),
-            piprogress.into_param().abi(),
-            ::core::mem::transmute(psyncid),
-        )
-        .ok()
+    pub unsafe fn Synchronize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSyncConflictHandler>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, basync: Param3, dwsynccontrol: u32, pisyncconflicthandler: Param5, piprogress: Param6, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), basync.into_param().abi(), ::core::mem::transmute(dwsynccontrol), pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteItems<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesSimpleProgress>>(&self, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, dwflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
@@ -143,29 +122,11 @@ impl IOfflineFilesCache {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszuser.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), ::core::mem::transmute(dwflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Pin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(
-        &self,
-        hwndparent: Param0,
-        rgpszpaths: *const super::super::Foundation::PWSTR,
-        cpaths: u32,
-        bdeep: Param3,
-        basync: Param4,
-        dwpincontrolflags: u32,
-        piprogress: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Pin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unpin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(
-        &self,
-        hwndparent: Param0,
-        rgpszpaths: *const super::super::Foundation::PWSTR,
-        cpaths: u32,
-        bdeep: Param3,
-        basync: Param4,
-        dwpincontrolflags: u32,
-        piprogress: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Unpin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -182,15 +143,7 @@ impl IOfflineFilesCache {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(dwqueryflags), &mut result__).from_abi::<IOfflineFilesItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindItemEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(
-        &self,
-        pszpath: Param0,
-        pincludefilefilter: Param1,
-        pincludedirfilter: Param2,
-        pexcludefilefilter: Param3,
-        pexcludedirfilter: Param4,
-        dwqueryflags: u32,
-    ) -> ::windows::core::Result<IOfflineFilesItem> {
+    pub unsafe fn FindItemEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(&self, pszpath: Param0, pincludefilefilter: Param1, pincludedirfilter: Param2, pexcludefilefilter: Param3, pexcludedirfilter: Param4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
         let mut result__: <IOfflineFilesItem as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), ::core::mem::transmute(dwqueryflags), &mut result__).from_abi::<IOfflineFilesItem>(result__)
     }
@@ -292,29 +245,8 @@ pub struct IOfflineFilesCache_abi(
 pub struct IOfflineFilesCache2(pub ::windows::core::IUnknown);
 impl IOfflineFilesCache2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Synchronize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSyncConflictHandler>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(
-        &self,
-        hwndparent: Param0,
-        rgpszpaths: *const super::super::Foundation::PWSTR,
-        cpaths: u32,
-        basync: Param3,
-        dwsynccontrol: u32,
-        pisyncconflicthandler: Param5,
-        piprogress: Param6,
-        psyncid: *const ::windows::core::GUID,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            hwndparent.into_param().abi(),
-            ::core::mem::transmute(rgpszpaths),
-            ::core::mem::transmute(cpaths),
-            basync.into_param().abi(),
-            ::core::mem::transmute(dwsynccontrol),
-            pisyncconflicthandler.into_param().abi(),
-            piprogress.into_param().abi(),
-            ::core::mem::transmute(psyncid),
-        )
-        .ok()
+    pub unsafe fn Synchronize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSyncConflictHandler>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, basync: Param3, dwsynccontrol: u32, pisyncconflicthandler: Param5, piprogress: Param6, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), basync.into_param().abi(), ::core::mem::transmute(dwsynccontrol), pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteItems<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesSimpleProgress>>(&self, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, dwflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
@@ -325,29 +257,11 @@ impl IOfflineFilesCache2 {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszuser.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), ::core::mem::transmute(dwflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Pin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(
-        &self,
-        hwndparent: Param0,
-        rgpszpaths: *const super::super::Foundation::PWSTR,
-        cpaths: u32,
-        bdeep: Param3,
-        basync: Param4,
-        dwpincontrolflags: u32,
-        piprogress: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Pin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unpin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(
-        &self,
-        hwndparent: Param0,
-        rgpszpaths: *const super::super::Foundation::PWSTR,
-        cpaths: u32,
-        bdeep: Param3,
-        basync: Param4,
-        dwpincontrolflags: u32,
-        piprogress: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Unpin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(rgpszpaths), ::core::mem::transmute(cpaths), bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -364,15 +278,7 @@ impl IOfflineFilesCache2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(dwqueryflags), &mut result__).from_abi::<IOfflineFilesItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindItemEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(
-        &self,
-        pszpath: Param0,
-        pincludefilefilter: Param1,
-        pincludedirfilter: Param2,
-        pexcludefilefilter: Param3,
-        pexcludedirfilter: Param4,
-        dwqueryflags: u32,
-    ) -> ::windows::core::Result<IOfflineFilesItem> {
+    pub unsafe fn FindItemEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(&self, pszpath: Param0, pincludefilefilter: Param1, pincludedirfilter: Param2, pexcludefilefilter: Param3, pexcludedirfilter: Param4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
         let mut result__: <IOfflineFilesItem as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), ::core::mem::transmute(dwqueryflags), &mut result__).from_abi::<IOfflineFilesItem>(result__)
     }
@@ -1332,15 +1238,7 @@ impl IOfflineFilesEvents3 {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransparentCacheItemNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        pszpath: Param0,
-        eventtype: OFFLINEFILES_EVENTS,
-        itemtype: OFFLINEFILES_ITEM_TYPE,
-        bmodifieddata: Param3,
-        bmodifiedattributes: Param4,
-        pzsoldpath: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn TransparentCacheItemNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpath: Param0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param3, bmodifiedattributes: Param4, pzsoldpath: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(eventtype), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi(), pzsoldpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -1604,15 +1502,7 @@ impl IOfflineFilesEvents4 {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransparentCacheItemNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        pszpath: Param0,
-        eventtype: OFFLINEFILES_EVENTS,
-        itemtype: OFFLINEFILES_ITEM_TYPE,
-        bmodifieddata: Param3,
-        bmodifiedattributes: Param4,
-        pzsoldpath: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn TransparentCacheItemNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpath: Param0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param3, bmodifiedattributes: Param4, pzsoldpath: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(eventtype), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi(), pzsoldpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]

@@ -1,4 +1,4 @@
-use test_structs::Windows::Win32::{Foundation::HWND, UI::WindowsAndMessaging::CWPSTRUCT};
+use windows::Win32::{Foundation::HWND, UI::WindowsAndMessaging::CWPSTRUCT};
 
 #[test]
 fn test_struct_formatting_parameters_debug_trait() {

@@ -74,12 +74,12 @@ impl ::core::convert::From<i32> for EXCEPTION_DISPOSITION {
 unsafe impl ::windows::core::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
-    pub Handler: ::core::option::Option<EXCEPTION_ROUTINE>,
+    pub Handler: EXCEPTION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl EXCEPTION_REGISTRATION_RECORD {}
@@ -105,10 +105,10 @@ impl ::core::cmp::PartialEq for EXCEPTION_REGISTRATION_RECORD {
 impl ::core::cmp::Eq for EXCEPTION_REGISTRATION_RECORD {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 unsafe impl ::windows::core::Abi for EXCEPTION_REGISTRATION_RECORD {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION;
+pub type EXCEPTION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -134,17 +134,7 @@ impl ::core::default::Default for FLOATING_SAVE_AREA {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLOATING_SAVE_AREA")
-            .field("ControlWord", &self.ControlWord)
-            .field("StatusWord", &self.StatusWord)
-            .field("TagWord", &self.TagWord)
-            .field("ErrorOffset", &self.ErrorOffset)
-            .field("ErrorSelector", &self.ErrorSelector)
-            .field("DataOffset", &self.DataOffset)
-            .field("DataSelector", &self.DataSelector)
-            .field("RegisterArea", &self.RegisterArea)
-            .field("Cr0NpxState", &self.Cr0NpxState)
-            .finish()
+        fmt.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Cr0NpxState", &self.Cr0NpxState).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -184,17 +174,7 @@ impl ::core::default::Default for FLOATING_SAVE_AREA {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLOATING_SAVE_AREA")
-            .field("ControlWord", &self.ControlWord)
-            .field("StatusWord", &self.StatusWord)
-            .field("TagWord", &self.TagWord)
-            .field("ErrorOffset", &self.ErrorOffset)
-            .field("ErrorSelector", &self.ErrorSelector)
-            .field("DataOffset", &self.DataOffset)
-            .field("DataSelector", &self.DataSelector)
-            .field("RegisterArea", &self.RegisterArea)
-            .field("Spare0", &self.Spare0)
-            .finish()
+        fmt.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Spare0", &self.Spare0).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -408,14 +388,7 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES32 {
 }
 impl ::core::fmt::Debug for OBJECT_ATTRIBUTES32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OBJECT_ATTRIBUTES32")
-            .field("Length", &self.Length)
-            .field("RootDirectory", &self.RootDirectory)
-            .field("ObjectName", &self.ObjectName)
-            .field("Attributes", &self.Attributes)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("SecurityQualityOfService", &self.SecurityQualityOfService)
-            .finish()
+        fmt.debug_struct("OBJECT_ATTRIBUTES32").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES32 {
@@ -445,14 +418,7 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES64 {
 }
 impl ::core::fmt::Debug for OBJECT_ATTRIBUTES64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OBJECT_ATTRIBUTES64")
-            .field("Length", &self.Length)
-            .field("RootDirectory", &self.RootDirectory)
-            .field("ObjectName", &self.ObjectName)
-            .field("Attributes", &self.Attributes)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("SecurityQualityOfService", &self.SecurityQualityOfService)
-            .finish()
+        fmt.debug_struct("OBJECT_ATTRIBUTES64").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES64 {

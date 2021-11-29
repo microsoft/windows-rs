@@ -177,7 +177,7 @@ impl ::core::ops::Not for INTERNET_PORT {
         Self(self.0.not())
     }
 }
-pub type LPWINHTTP_STATUS_CALLBACK = unsafe extern "system" fn();
+pub type LPWINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
 pub const SECURITY_FLAG_IGNORE_CERT_DATE_INVALID: u32 = 8192u32;
@@ -240,21 +240,7 @@ impl ::core::fmt::Debug for URL_COMPONENTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for URL_COMPONENTS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.lpszScheme == other.lpszScheme
-            && self.dwSchemeLength == other.dwSchemeLength
-            && self.nScheme == other.nScheme
-            && self.lpszHostName == other.lpszHostName
-            && self.dwHostNameLength == other.dwHostNameLength
-            && self.nPort == other.nPort
-            && self.lpszUserName == other.lpszUserName
-            && self.dwUserNameLength == other.dwUserNameLength
-            && self.lpszPassword == other.lpszPassword
-            && self.dwPasswordLength == other.dwPasswordLength
-            && self.lpszUrlPath == other.lpszUrlPath
-            && self.dwUrlPathLength == other.dwUrlPathLength
-            && self.lpszExtraInfo == other.lpszExtraInfo
-            && self.dwExtraInfoLength == other.dwExtraInfoLength
+        self.dwStructSize == other.dwStructSize && self.lpszScheme == other.lpszScheme && self.dwSchemeLength == other.dwSchemeLength && self.nScheme == other.nScheme && self.lpszHostName == other.lpszHostName && self.dwHostNameLength == other.dwHostNameLength && self.nPort == other.nPort && self.lpszUserName == other.lpszUserName && self.dwUserNameLength == other.dwUserNameLength && self.lpszPassword == other.lpszPassword && self.dwPasswordLength == other.dwPasswordLength && self.lpszUrlPath == other.lpszUrlPath && self.dwUrlPathLength == other.dwUrlPathLength && self.lpszExtraInfo == other.lpszExtraInfo && self.dwExtraInfoLength == other.dwExtraInfoLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -380,14 +366,7 @@ impl ::core::default::Default for WINHTTP_AUTOPROXY_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINHTTP_AUTOPROXY_OPTIONS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_AUTOPROXY_OPTIONS")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwAutoDetectFlags", &self.dwAutoDetectFlags)
-            .field("lpszAutoConfigUrl", &self.lpszAutoConfigUrl)
-            .field("lpvReserved", &self.lpvReserved)
-            .field("dwReserved", &self.dwReserved)
-            .field("fAutoLogonIfChallenged", &self.fAutoLogonIfChallenged)
-            .finish()
+        fmt.debug_struct("WINHTTP_AUTOPROXY_OPTIONS").field("dwFlags", &self.dwFlags).field("dwAutoDetectFlags", &self.dwAutoDetectFlags).field("lpszAutoConfigUrl", &self.lpszAutoConfigUrl).field("lpvReserved", &self.lpvReserved).field("dwReserved", &self.dwReserved).field("fAutoLogonIfChallenged", &self.fAutoLogonIfChallenged).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -478,16 +457,7 @@ impl ::core::default::Default for WINHTTP_CERTIFICATE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINHTTP_CERTIFICATE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CERTIFICATE_INFO")
-            .field("ftExpiry", &self.ftExpiry)
-            .field("ftStart", &self.ftStart)
-            .field("lpszSubjectInfo", &self.lpszSubjectInfo)
-            .field("lpszIssuerInfo", &self.lpszIssuerInfo)
-            .field("lpszProtocolName", &self.lpszProtocolName)
-            .field("lpszSignatureAlgName", &self.lpszSignatureAlgName)
-            .field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName)
-            .field("dwKeySize", &self.dwKeySize)
-            .finish()
+        fmt.debug_struct("WINHTTP_CERTIFICATE_INFO").field("ftExpiry", &self.ftExpiry).field("ftStart", &self.ftStart).field("lpszSubjectInfo", &self.lpszSubjectInfo).field("lpszIssuerInfo", &self.lpszIssuerInfo).field("lpszProtocolName", &self.lpszProtocolName).field("lpszSignatureAlgName", &self.lpszSignatureAlgName).field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName).field("dwKeySize", &self.dwKeySize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -709,15 +679,7 @@ impl ::core::default::Default for WINHTTP_CREDS_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINHTTP_CREDS_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CREDS_EX")
-            .field("lpszUserName", &self.lpszUserName)
-            .field("lpszPassword", &self.lpszPassword)
-            .field("lpszRealm", &self.lpszRealm)
-            .field("dwAuthScheme", &self.dwAuthScheme)
-            .field("lpszHostName", &self.lpszHostName)
-            .field("dwPort", &self.dwPort)
-            .field("lpszUrl", &self.lpszUrl)
-            .finish()
+        fmt.debug_struct("WINHTTP_CREDS_EX").field("lpszUserName", &self.lpszUserName).field("lpszPassword", &self.lpszPassword).field("lpszRealm", &self.lpszRealm).field("dwAuthScheme", &self.dwAuthScheme).field("lpszHostName", &self.lpszHostName).field("dwPort", &self.dwPort).field("lpszUrl", &self.lpszUrl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1844,14 +1806,7 @@ impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_RESOLVER_CACHE_CONFIG")
-            .field("ulMaxResolverCacheEntries", &self.ulMaxResolverCacheEntries)
-            .field("ulMaxCacheEntryAge", &self.ulMaxCacheEntryAge)
-            .field("ulMinCacheEntryTtl", &self.ulMinCacheEntryTtl)
-            .field("SecureDnsSetting", &self.SecureDnsSetting)
-            .field("ullConnResolutionWaitTime", &self.ullConnResolutionWaitTime)
-            .field("ullFlags", &self.ullFlags)
-            .finish()
+        fmt.debug_struct("WINHTTP_RESOLVER_CACHE_CONFIG").field("ulMaxResolverCacheEntries", &self.ulMaxResolverCacheEntries).field("ulMaxCacheEntryAge", &self.ulMaxCacheEntryAge).field("ulMinCacheEntryTtl", &self.ulMinCacheEntryTtl).field("SecureDnsSetting", &self.SecureDnsSetting).field("ullConnResolutionWaitTime", &self.ullConnResolutionWaitTime).field("ullFlags", &self.ullFlags).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1917,7 +1872,7 @@ impl ::core::convert::From<i32> for WINHTTP_SECURE_DNS_SETTING {
 unsafe impl ::windows::core::Abi for WINHTTP_SECURE_DNS_SETTING {
     type Abi = Self;
 }
-pub type WINHTTP_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32);
+pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2377,15 +2332,7 @@ pub unsafe fn WinHttpOpen<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinHttpOpenRequest<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hconnect: *mut ::core::ffi::c_void,
-    pwszverb: Param1,
-    pwszobjectname: Param2,
-    pwszversion: Param3,
-    pwszreferrer: Param4,
-    ppwszaccepttypes: *mut super::super::Foundation::PWSTR,
-    dwflags: WINHTTP_OPEN_REQUEST_FLAGS,
-) -> *mut ::core::ffi::c_void {
+pub unsafe fn WinHttpOpenRequest<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *mut ::core::ffi::c_void, pwszverb: Param1, pwszobjectname: Param2, pwszversion: Param3, pwszreferrer: Param4, ppwszaccepttypes: *mut super::super::Foundation::PWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2462,18 +2409,7 @@ pub unsafe fn WinHttpQueryHeadersEx(hrequest: *const ::core::ffi::c_void, dwinfo
         extern "system" {
             fn WinHttpQueryHeadersEx(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, ullflags: u64, uicodepage: u32, pdwindex: *mut u32, pheadername: *const WINHTTP_HEADER_NAME, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, ppheaders: *mut *mut WINHTTP_EXTENDED_HEADER, pdwheaderscount: *mut u32) -> u32;
         }
-        ::core::mem::transmute(WinHttpQueryHeadersEx(
-            ::core::mem::transmute(hrequest),
-            ::core::mem::transmute(dwinfolevel),
-            ::core::mem::transmute(ullflags),
-            ::core::mem::transmute(uicodepage),
-            ::core::mem::transmute(pdwindex),
-            ::core::mem::transmute(pheadername),
-            ::core::mem::transmute(pbuffer),
-            ::core::mem::transmute(pdwbufferlength),
-            ::core::mem::transmute(ppheaders),
-            ::core::mem::transmute(pdwheaderscount),
-        ))
+        ::core::mem::transmute(WinHttpQueryHeadersEx(::core::mem::transmute(hrequest), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(ullflags), ::core::mem::transmute(uicodepage), ::core::mem::transmute(pdwindex), ::core::mem::transmute(pheadername), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwbufferlength), ::core::mem::transmute(ppheaders), ::core::mem::transmute(pdwheaderscount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2521,30 +2457,14 @@ pub unsafe fn WinHttpReadDataEx(hrequest: *mut ::core::ffi::c_void, lpbuffer: *m
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinHttpReadProxySettings<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    hsession: *const ::core::ffi::c_void,
-    pcwszconnectionname: Param1,
-    ffallbacktodefaultsettings: Param2,
-    fsetautodiscoverfordefaultsettings: Param3,
-    pdwsettingsversion: *mut u32,
-    pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL,
-    pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS,
-) -> u32 {
+pub unsafe fn WinHttpReadProxySettings<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hsession: *const ::core::ffi::c_void, pcwszconnectionname: Param1, ffallbacktodefaultsettings: Param2, fsetautodiscoverfordefaultsettings: Param3, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WinHttpReadProxySettings(hsession: *const ::core::ffi::c_void, pcwszconnectionname: super::super::Foundation::PWSTR, ffallbacktodefaultsettings: super::super::Foundation::BOOL, fsetautodiscoverfordefaultsettings: super::super::Foundation::BOOL, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32;
         }
-        ::core::mem::transmute(WinHttpReadProxySettings(
-            ::core::mem::transmute(hsession),
-            pcwszconnectionname.into_param().abi(),
-            ffallbacktodefaultsettings.into_param().abi(),
-            fsetautodiscoverfordefaultsettings.into_param().abi(),
-            ::core::mem::transmute(pdwsettingsversion),
-            ::core::mem::transmute(pfdefaultsettingsarereturned),
-            ::core::mem::transmute(pwinhttpproxysettings),
-        ))
+        ::core::mem::transmute(WinHttpReadProxySettings(::core::mem::transmute(hsession), pcwszconnectionname.into_param().abi(), ffallbacktodefaultsettings.into_param().abi(), fsetautodiscoverfordefaultsettings.into_param().abi(), ::core::mem::transmute(pdwsettingsversion), ::core::mem::transmute(pfdefaultsettingsarereturned), ::core::mem::transmute(pwinhttpproxysettings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2647,12 +2567,12 @@ pub unsafe fn WinHttpSetProxySettingsPerUser<'a, Param0: ::windows::core::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::core::option::Option<WINHTTP_STATUS_CALLBACK>, dwnotificationflags: u32, dwreserved: usize) -> ::core::option::Option<WINHTTP_STATUS_CALLBACK> {
+pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr, dwnotificationflags: u32, dwreserved: usize) -> ::core::option::Option<WINHTTP_STATUS_CALLBACK>;
+            fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK;
         }
         ::core::mem::transmute(WinHttpSetStatusCallback(::core::mem::transmute(hinternet), ::core::mem::transmute(lpfninternetcallback), ::core::mem::transmute(dwnotificationflags), ::core::mem::transmute(dwreserved)))
     }

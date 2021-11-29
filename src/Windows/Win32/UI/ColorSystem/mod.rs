@@ -146,24 +146,14 @@ pub unsafe fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CMCheckRGBs<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param8) -> super::super::Foundation::BOOL {
+pub unsafe fn CMCheckRGBs<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Param8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CMCheckRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: ::windows::core::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMCheckRGBs(
-            ::core::mem::transmute(hcmtransform),
-            ::core::mem::transmute(lpsrcbits),
-            ::core::mem::transmute(bminput),
-            ::core::mem::transmute(dwwidth),
-            ::core::mem::transmute(dwheight),
-            ::core::mem::transmute(dwstride),
-            ::core::mem::transmute(lparesult),
-            ::core::mem::transmute(pfncallback),
-            ulcallbackdata.into_param().abi(),
-        ))
+        ::core::mem::transmute(CMCheckRGBs(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(lparesult), ::core::mem::transmute(pfncallback), ulcallbackdata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -424,43 +414,21 @@ pub unsafe fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi
         extern "system" {
             fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMTranslateRGBs(
-            ::core::mem::transmute(hcmtransform),
-            ::core::mem::transmute(lpsrcbits),
-            ::core::mem::transmute(bminput),
-            ::core::mem::transmute(dwwidth),
-            ::core::mem::transmute(dwheight),
-            ::core::mem::transmute(dwstride),
-            ::core::mem::transmute(lpdestbits),
-            ::core::mem::transmute(bmoutput),
-            ::core::mem::transmute(dwtranslatedirection),
-        ))
+        ::core::mem::transmute(CMTranslateRGBs(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(lpdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwtranslatedirection)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CMTranslateRGBsExt<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
+pub unsafe fn CMTranslateRGBsExt<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: ::windows::core::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMTranslateRGBsExt(
-            ::core::mem::transmute(hcmtransform),
-            ::core::mem::transmute(lpsrcbits),
-            ::core::mem::transmute(bminput),
-            ::core::mem::transmute(dwwidth),
-            ::core::mem::transmute(dwheight),
-            ::core::mem::transmute(dwinputstride),
-            ::core::mem::transmute(lpdestbits),
-            ::core::mem::transmute(bmoutput),
-            ::core::mem::transmute(dwoutputstride),
-            ::core::mem::transmute(lpfncallback),
-            ulcallbackdata.into_param().abi(),
-        ))
+        ::core::mem::transmute(CMTranslateRGBsExt(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwinputstride), ::core::mem::transmute(lpdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwoutputstride), ::core::mem::transmute(lpfncallback), ulcallbackdata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -566,7 +534,7 @@ impl ::core::convert::From<i32> for COLORDATATYPE {
 unsafe impl ::windows::core::Abi for COLORDATATYPE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct COLORMATCHSETUPA {
@@ -585,9 +553,9 @@ pub struct COLORMATCHSETUPA {
     pub ccPrinterProfile: u32,
     pub pTargetProfile: super::super::Foundation::PSTR,
     pub ccTargetProfile: u32,
-    pub lpfnHook: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpfnApplyCallback: ::core::option::Option<PCMSCALLBACKA>,
+    pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -650,9 +618,9 @@ impl ::core::cmp::PartialEq for COLORMATCHSETUPA {
 impl ::core::cmp::Eq for COLORMATCHSETUPA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct COLORMATCHSETUPW {
@@ -671,9 +639,9 @@ pub struct COLORMATCHSETUPW {
     pub ccPrinterProfile: u32,
     pub pTargetProfile: super::super::Foundation::PWSTR,
     pub ccTargetProfile: u32,
-    pub lpfnHook: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpfnApplyCallback: ::core::option::Option<PCMSCALLBACKW>,
+    pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -736,7 +704,7 @@ impl ::core::cmp::PartialEq for COLORMATCHSETUPW {
 impl ::core::cmp::Eq for COLORMATCHSETUPW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for COLORMATCHSETUPW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -821,24 +789,14 @@ pub const CSA_Lab: u32 = 8u32;
 pub const CSA_RGB: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckBitmapBits<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, lpcallbackdata: Param8) -> super::super::Foundation::BOOL {
+pub unsafe fn CheckBitmapBits<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: LPBMCALLBACKFN, lpcallbackdata: Param8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: ::windows::core::RawPtr, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CheckBitmapBits(
-            ::core::mem::transmute(hcolortransform),
-            ::core::mem::transmute(psrcbits),
-            ::core::mem::transmute(bminput),
-            ::core::mem::transmute(dwwidth),
-            ::core::mem::transmute(dwheight),
-            ::core::mem::transmute(dwstride),
-            ::core::mem::transmute(paresult),
-            ::core::mem::transmute(pfncallback),
-            lpcallbackdata.into_param().abi(),
-        ))
+        ::core::mem::transmute(CheckBitmapBits(::core::mem::transmute(hcolortransform), ::core::mem::transmute(psrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(paresult), ::core::mem::transmute(pfncallback), lpcallbackdata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -915,14 +873,7 @@ pub unsafe fn ColorMatchToTarget<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorProfileAddDisplayAssociation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    scope: WCS_PROFILE_MANAGEMENT_SCOPE,
-    profilename: Param1,
-    targetadapterid: Param2,
-    sourceid: u32,
-    setasdefault: Param4,
-    associateasadvancedcolor: Param5,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ColorProfileAddDisplayAssociation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, targetadapterid: Param2, sourceid: u32, setasdefault: Param4, associateasadvancedcolor: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1506,7 +1457,7 @@ pub unsafe fn EnumColorProfilesW<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ::core::option::Option<ICMENUMPROCA>, param2: Param2) -> i32 {
+pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ICMENUMPROCA, param2: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1520,7 +1471,7 @@ pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EnumICMProfilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ::core::option::Option<ICMENUMPROCW>, param2: Param2) -> i32 {
+pub unsafe fn EnumICMProfilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ICMENUMPROCW, param2: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1606,14 +1557,7 @@ impl ::core::default::Default for GamutBoundaryDescription {
 }
 impl ::core::fmt::Debug for GamutBoundaryDescription {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GamutBoundaryDescription")
-            .field("pPrimaries", &self.pPrimaries)
-            .field("cNeutralSamples", &self.cNeutralSamples)
-            .field("pNeutralSamples", &self.pNeutralSamples)
-            .field("pReferenceShell", &self.pReferenceShell)
-            .field("pPlausibleShell", &self.pPlausibleShell)
-            .field("pPossibleShell", &self.pPossibleShell)
-            .finish()
+        fmt.debug_struct("GamutBoundaryDescription").field("pPrimaries", &self.pPrimaries).field("cNeutralSamples", &self.cNeutralSamples).field("pNeutralSamples", &self.pNeutralSamples).field("pReferenceShell", &self.pReferenceShell).field("pPlausibleShell", &self.pPlausibleShell).field("pPossibleShell", &self.pPossibleShell).finish()
     }
 }
 impl ::core::cmp::PartialEq for GamutBoundaryDescription {
@@ -1997,9 +1941,9 @@ unsafe impl ::windows::core::Abi for HiFiCOLOR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ICMENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32;
+pub type ICMENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ICMENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32;
+pub type ICMENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICM_COMMAND(pub u32);
@@ -2322,18 +2266,7 @@ impl ::core::default::Default for LOGCOLORSPACEA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for LOGCOLORSPACEA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LOGCOLORSPACEA")
-            .field("lcsSignature", &self.lcsSignature)
-            .field("lcsVersion", &self.lcsVersion)
-            .field("lcsSize", &self.lcsSize)
-            .field("lcsCSType", &self.lcsCSType)
-            .field("lcsIntent", &self.lcsIntent)
-            .field("lcsEndpoints", &self.lcsEndpoints)
-            .field("lcsGammaRed", &self.lcsGammaRed)
-            .field("lcsGammaGreen", &self.lcsGammaGreen)
-            .field("lcsGammaBlue", &self.lcsGammaBlue)
-            .field("lcsFilename", &self.lcsFilename)
-            .finish()
+        fmt.debug_struct("LOGCOLORSPACEA").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2374,18 +2307,7 @@ impl ::core::default::Default for LOGCOLORSPACEW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for LOGCOLORSPACEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LOGCOLORSPACEW")
-            .field("lcsSignature", &self.lcsSignature)
-            .field("lcsVersion", &self.lcsVersion)
-            .field("lcsSize", &self.lcsSize)
-            .field("lcsCSType", &self.lcsCSType)
-            .field("lcsIntent", &self.lcsIntent)
-            .field("lcsEndpoints", &self.lcsEndpoints)
-            .field("lcsGammaRed", &self.lcsGammaRed)
-            .field("lcsGammaGreen", &self.lcsGammaGreen)
-            .field("lcsGammaBlue", &self.lcsGammaBlue)
-            .field("lcsFilename", &self.lcsFilename)
-            .finish()
+        fmt.debug_struct("LOGCOLORSPACEW").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2401,7 +2323,7 @@ unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPBMCALLBACKFN = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type LPBMCALLBACKFN = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct LabCOLOR {
@@ -2512,9 +2434,9 @@ pub unsafe fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PCMSCALLBACKA = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<COLORMATCHSETUPA>, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type PCMSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PCMSCALLBACKW = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<COLORMATCHSETUPW>, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type PCMSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub const PRESERVEBLACK: u32 = 1048576u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2600,23 +2522,7 @@ impl ::core::fmt::Debug for PROFILEHEADER {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for PROFILEHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.phSize == other.phSize
-            && self.phCMMType == other.phCMMType
-            && self.phVersion == other.phVersion
-            && self.phClass == other.phClass
-            && self.phDataColorSpace == other.phDataColorSpace
-            && self.phConnectionSpace == other.phConnectionSpace
-            && self.phDateTime == other.phDateTime
-            && self.phSignature == other.phSignature
-            && self.phPlatform == other.phPlatform
-            && self.phProfileFlags == other.phProfileFlags
-            && self.phManufacturer == other.phManufacturer
-            && self.phModel == other.phModel
-            && self.phAttributes == other.phAttributes
-            && self.phRenderingIntent == other.phRenderingIntent
-            && self.phIlluminant == other.phIlluminant
-            && self.phCreator == other.phCreator
-            && self.phReserved == other.phReserved
+        self.phSize == other.phSize && self.phCMMType == other.phCMMType && self.phVersion == other.phVersion && self.phClass == other.phClass && self.phDataColorSpace == other.phDataColorSpace && self.phConnectionSpace == other.phConnectionSpace && self.phDateTime == other.phDateTime && self.phSignature == other.phSignature && self.phPlatform == other.phPlatform && self.phProfileFlags == other.phProfileFlags && self.phManufacturer == other.phManufacturer && self.phModel == other.phModel && self.phAttributes == other.phAttributes && self.phRenderingIntent == other.phRenderingIntent && self.phIlluminant == other.phIlluminant && self.phCreator == other.phCreator && self.phReserved == other.phReserved
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2926,7 +2832,7 @@ pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupColorMatchingA(pcms: *mut ::core::mem::ManuallyDrop<COLORMATCHSETUPA>) -> super::super::Foundation::BOOL;
+            fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupColorMatchingA(::core::mem::transmute(pcms)))
     }
@@ -2940,7 +2846,7 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupColorMatchingW(pcms: *mut ::core::mem::ManuallyDrop<COLORMATCHSETUPW>) -> super::super::Foundation::BOOL;
+            fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupColorMatchingW(::core::mem::transmute(pcms)))
     }
@@ -2949,26 +2855,14 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TranslateBitmapBits<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: ::core::option::Option<LPBMCALLBACKFN>, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
+pub unsafe fn TranslateBitmapBits<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: ::windows::core::RawPtr, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(TranslateBitmapBits(
-            ::core::mem::transmute(hcolortransform),
-            ::core::mem::transmute(psrcbits),
-            ::core::mem::transmute(bminput),
-            ::core::mem::transmute(dwwidth),
-            ::core::mem::transmute(dwheight),
-            ::core::mem::transmute(dwinputstride),
-            ::core::mem::transmute(pdestbits),
-            ::core::mem::transmute(bmoutput),
-            ::core::mem::transmute(dwoutputstride),
-            ::core::mem::transmute(pfncallback),
-            ulcallbackdata.into_param().abi(),
-        ))
+        ::core::mem::transmute(TranslateBitmapBits(::core::mem::transmute(hcolortransform), ::core::mem::transmute(psrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwinputstride), ::core::mem::transmute(pdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwoutputstride), ::core::mem::transmute(pfncallback), ulcallbackdata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3414,18 +3308,7 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
         extern "system" {
             fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WcsTranslateColors(
-            ::core::mem::transmute(hcolortransform),
-            ::core::mem::transmute(ncolors),
-            ::core::mem::transmute(ninputchannels),
-            ::core::mem::transmute(cdtinput),
-            ::core::mem::transmute(cbinput),
-            ::core::mem::transmute(pinputdata),
-            ::core::mem::transmute(noutputchannels),
-            ::core::mem::transmute(cdtoutput),
-            ::core::mem::transmute(cboutput),
-            ::core::mem::transmute(poutputdata),
-        ))
+        ::core::mem::transmute(WcsTranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(ncolors), ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(noutputchannels), ::core::mem::transmute(cdtoutput), ::core::mem::transmute(cboutput), ::core::mem::transmute(poutputdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

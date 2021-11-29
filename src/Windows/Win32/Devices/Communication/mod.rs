@@ -123,16 +123,7 @@ impl ::core::default::Default for COMMCONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMMCONFIG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMMCONFIG")
-            .field("dwSize", &self.dwSize)
-            .field("wVersion", &self.wVersion)
-            .field("wReserved", &self.wReserved)
-            .field("dcb", &self.dcb)
-            .field("dwProviderSubType", &self.dwProviderSubType)
-            .field("dwProviderOffset", &self.dwProviderOffset)
-            .field("dwProviderSize", &self.dwProviderSize)
-            .field("wcProviderData", &self.wcProviderData)
-            .finish()
+        fmt.debug_struct("COMMCONFIG").field("dwSize", &self.dwSize).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).field("dcb", &self.dcb).field("dwProviderSubType", &self.dwProviderSubType).field("dwProviderOffset", &self.dwProviderOffset).field("dwProviderSize", &self.dwProviderSize).field("wcProviderData", &self.wcProviderData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -289,13 +280,7 @@ impl ::core::default::Default for COMMTIMEOUTS {
 }
 impl ::core::fmt::Debug for COMMTIMEOUTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMMTIMEOUTS")
-            .field("ReadIntervalTimeout", &self.ReadIntervalTimeout)
-            .field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier)
-            .field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant)
-            .field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier)
-            .field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant)
-            .finish()
+        fmt.debug_struct("COMMTIMEOUTS").field("ReadIntervalTimeout", &self.ReadIntervalTimeout).field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier).field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant).field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier).field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant).finish()
     }
 }
 impl ::core::cmp::PartialEq for COMMTIMEOUTS {
@@ -495,21 +480,7 @@ impl ::core::fmt::Debug for DCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DCB {
     fn eq(&self, other: &Self) -> bool {
-        self.DCBlength == other.DCBlength
-            && self.BaudRate == other.BaudRate
-            && self._bitfield == other._bitfield
-            && self.wReserved == other.wReserved
-            && self.XonLim == other.XonLim
-            && self.XoffLim == other.XoffLim
-            && self.ByteSize == other.ByteSize
-            && self.Parity == other.Parity
-            && self.StopBits == other.StopBits
-            && self.XonChar == other.XonChar
-            && self.XoffChar == other.XoffChar
-            && self.ErrorChar == other.ErrorChar
-            && self.EofChar == other.EofChar
-            && self.EvtChar == other.EvtChar
-            && self.wReserved1 == other.wReserved1
+        self.DCBlength == other.DCBlength && self.BaudRate == other.BaudRate && self._bitfield == other._bitfield && self.wReserved == other.wReserved && self.XonLim == other.XonLim && self.XoffLim == other.XoffLim && self.ByteSize == other.ByteSize && self.Parity == other.Parity && self.StopBits == other.StopBits && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ErrorChar == other.ErrorChar && self.EofChar == other.EofChar && self.EvtChar == other.EvtChar && self.wReserved1 == other.wReserved1
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1048,18 +1019,7 @@ impl ::core::fmt::Debug for MODEMSETTINGS {
 }
 impl ::core::cmp::PartialEq for MODEMSETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwActualSize == other.dwActualSize
-            && self.dwRequiredSize == other.dwRequiredSize
-            && self.dwDevSpecificOffset == other.dwDevSpecificOffset
-            && self.dwDevSpecificSize == other.dwDevSpecificSize
-            && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer
-            && self.dwInactivityTimeout == other.dwInactivityTimeout
-            && self.dwSpeakerVolume == other.dwSpeakerVolume
-            && self.dwSpeakerMode == other.dwSpeakerMode
-            && self.dwPreferredModemOptions == other.dwPreferredModemOptions
-            && self.dwNegotiatedModemOptions == other.dwNegotiatedModemOptions
-            && self.dwNegotiatedDCERate == other.dwNegotiatedDCERate
-            && self.abVariablePortion == other.abVariablePortion
+        self.dwActualSize == other.dwActualSize && self.dwRequiredSize == other.dwRequiredSize && self.dwDevSpecificOffset == other.dwDevSpecificOffset && self.dwDevSpecificSize == other.dwDevSpecificSize && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer && self.dwInactivityTimeout == other.dwInactivityTimeout && self.dwSpeakerVolume == other.dwSpeakerVolume && self.dwSpeakerMode == other.dwSpeakerMode && self.dwPreferredModemOptions == other.dwPreferredModemOptions && self.dwNegotiatedModemOptions == other.dwNegotiatedModemOptions && self.dwNegotiatedDCERate == other.dwNegotiatedDCERate && self.abVariablePortion == other.abVariablePortion
     }
 }
 impl ::core::cmp::Eq for MODEMSETTINGS {}

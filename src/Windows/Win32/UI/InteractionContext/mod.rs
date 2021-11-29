@@ -604,9 +604,9 @@ unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT);
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2);
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
@@ -833,7 +833,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::core
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: ::core::option::Option<INTERACTION_CONTEXT_OUTPUT_CALLBACK>, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -847,7 +847,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::co
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: ::core::option::Option<INTERACTION_CONTEXT_OUTPUT_CALLBACK2>, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

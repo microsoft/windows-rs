@@ -47,12 +47,7 @@ pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 2i32;
 pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 3i32;
 pub const DEDUP_PT_InvariantChunking: DEDUP_SET_PARAM_TYPE = 4i32;
 pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = 5i32;
-pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1943450285,
-    data2: 10628,
-    data3: 18197,
-    data4: [178, 227, 146, 76, 20, 151, 68, 221],
-};
+pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1943450285, data2: 10628, data3: 18197, data4: [178, 227, 146, 76, 20, 151, 68, 221] };
 #[repr(C)]
 pub struct DedupChunk {
     pub Hash: DedupHash,

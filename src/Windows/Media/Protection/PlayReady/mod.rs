@@ -756,18 +756,7 @@ impl INDMessenger {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(
-                ::core::mem::transmute_copy(this),
-                pdtype,
-                transmitterchannelbytes.len() as u32,
-                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
-                sessionidbytes.len() as u32,
-                ::core::mem::transmute(sessionidbytes.as_ptr()),
-                challengedatabytes.len() as u32,
-                ::core::mem::transmute(challengedatabytes.as_ptr()),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -776,18 +765,7 @@ impl INDMessenger {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(
-                ::core::mem::transmute_copy(this),
-                pdtype,
-                transmitterchannelbytes.len() as u32,
-                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
-                sessionidbytes.len() as u32,
-                ::core::mem::transmute(sessionidbytes.as_ptr()),
-                responsedatabytes.len() as u32,
-                ::core::mem::transmute(responsedatabytes.as_ptr()),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), responsedatabytes.len() as u32, ::core::mem::transmute(responsedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1683,18 +1661,7 @@ pub struct IPlayReadyContentHeaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, headerBytes_array_size: u32, headerbytes: *const u8, licenseacquisitionurl: ::windows::core::RawPtr, licenseacquisitionuserinterfaceurl: ::windows::core::RawPtr, customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domainserviceid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        contentkeyid: ::windows::core::GUID,
-        contentkeyidstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contentencryptionalgorithm: PlayReadyEncryptionAlgorithm,
-        licenseacquisitionurl: ::windows::core::RawPtr,
-        licenseacquisitionuserinterfaceurl: ::windows::core::RawPtr,
-        customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        domainserviceid: ::windows::core::GUID,
-        result__: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, contentkeyid: ::windows::core::GUID, contentkeyidstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: ::windows::core::RawPtr, licenseacquisitionuserinterfaceurl: ::windows::core::RawPtr, customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domainserviceid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, headerBytes_array_size: u32, headerbytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
@@ -1714,21 +1681,7 @@ pub struct IPlayReadyContentHeaderFactory2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        dwflags: u32,
-        contentKeyIds_array_size: u32,
-        contentkeyids: *const ::windows::core::GUID,
-        contentKeyIdStrings_array_size: u32,
-        contentkeyidstrings: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contentencryptionalgorithm: PlayReadyEncryptionAlgorithm,
-        licenseacquisitionurl: ::windows::core::RawPtr,
-        licenseacquisitionuserinterfaceurl: ::windows::core::RawPtr,
-        customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        domainserviceid: ::windows::core::GUID,
-        result__: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, contentKeyIds_array_size: u32, contentkeyids: *const ::windows::core::GUID, contentKeyIdStrings_array_size: u32, contentkeyidstrings: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: ::windows::core::RawPtr, licenseacquisitionuserinterfaceurl: ::windows::core::RawPtr, customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domainserviceid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -4080,18 +4033,7 @@ impl NDTCPMessenger {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(
-                ::core::mem::transmute_copy(this),
-                pdtype,
-                transmitterchannelbytes.len() as u32,
-                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
-                sessionidbytes.len() as u32,
-                ::core::mem::transmute(sessionidbytes.as_ptr()),
-                challengedatabytes.len() as u32,
-                ::core::mem::transmute(challengedatabytes.as_ptr()),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -4100,18 +4042,7 @@ impl NDTCPMessenger {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(
-                ::core::mem::transmute_copy(this),
-                pdtype,
-                transmitterchannelbytes.len() as u32,
-                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
-                sessionidbytes.len() as u32,
-                ::core::mem::transmute(sessionidbytes.as_ptr()),
-                responsedatabytes.len() as u32,
-                ::core::mem::transmute(responsedatabytes.as_ptr()),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), responsedatabytes.len() as u32, ::core::mem::transmute(responsedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -4296,42 +4227,17 @@ impl PlayReadyContentHeader {
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(
-        headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType],
-        licenseacquisitionurl: Param1,
-        licenseacquisitionuserinterfaceurl: Param2,
-        customattributes: Param3,
-        domainserviceid: Param4,
-    ) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType], licenseacquisitionurl: Param1, licenseacquisitionuserinterfaceurl: Param2, customattributes: Param3, domainserviceid: Param4) -> ::windows::core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param6: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(
-        contentkeyid: Param0,
-        contentkeyidstring: Param1,
-        contentencryptionalgorithm: PlayReadyEncryptionAlgorithm,
-        licenseacquisitionurl: Param3,
-        licenseacquisitionuserinterfaceurl: Param4,
-        customattributes: Param5,
-        domainserviceid: Param6,
-    ) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromComponents<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param6: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(contentkeyid: Param0, contentkeyidstring: Param1, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: Param3, licenseacquisitionuserinterfaceurl: Param4, customattributes: Param5, domainserviceid: Param6) -> ::windows::core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(
-                ::core::mem::transmute_copy(this),
-                contentkeyid.into_param().abi(),
-                contentkeyidstring.into_param().abi(),
-                contentencryptionalgorithm,
-                licenseacquisitionurl.into_param().abi(),
-                licenseacquisitionuserinterfaceurl.into_param().abi(),
-                customattributes.into_param().abi(),
-                domainserviceid.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), contentkeyid.into_param().abi(), contentkeyidstring.into_param().abi(), contentencryptionalgorithm, licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<PlayReadyContentHeader> {
@@ -4341,33 +4247,10 @@ impl PlayReadyContentHeader {
         })
     }
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents2<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(
-        dwflags: u32,
-        contentkeyids: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType],
-        contentkeyidstrings: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType],
-        contentencryptionalgorithm: PlayReadyEncryptionAlgorithm,
-        licenseacquisitionurl: Param4,
-        licenseacquisitionuserinterfaceurl: Param5,
-        customattributes: Param6,
-        domainserviceid: Param7,
-    ) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromComponents2<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(dwflags: u32, contentkeyids: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType], contentkeyidstrings: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: Param4, licenseacquisitionuserinterfaceurl: Param5, customattributes: Param6, domainserviceid: Param7) -> ::windows::core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(
-                ::core::mem::transmute_copy(this),
-                dwflags,
-                contentkeyids.len() as u32,
-                ::core::mem::transmute(contentkeyids.as_ptr()),
-                contentkeyidstrings.len() as u32,
-                ::core::mem::transmute(contentkeyidstrings.as_ptr()),
-                contentencryptionalgorithm,
-                licenseacquisitionurl.into_param().abi(),
-                licenseacquisitionuserinterfaceurl.into_param().abi(),
-                customattributes.into_param().abi(),
-                domainserviceid.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dwflags, contentkeyids.len() as u32, ::core::mem::transmute(contentkeyids.as_ptr()), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     pub fn IPlayReadyContentHeaderFactory<R, F: FnOnce(&IPlayReadyContentHeaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

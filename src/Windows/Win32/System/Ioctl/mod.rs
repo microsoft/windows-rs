@@ -19,14 +19,7 @@ impl ::core::default::Default for ASYNC_DUPLICATE_EXTENTS_STATUS {
 }
 impl ::core::fmt::Debug for ASYNC_DUPLICATE_EXTENTS_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ASYNC_DUPLICATE_EXTENTS_STATUS")
-            .field("Version", &self.Version)
-            .field("State", &self.State)
-            .field("SourceFileOffset", &self.SourceFileOffset)
-            .field("TargetFileOffset", &self.TargetFileOffset)
-            .field("ByteCount", &self.ByteCount)
-            .field("BytesDuplicated", &self.BytesDuplicated)
-            .finish()
+        fmt.debug_struct("ASYNC_DUPLICATE_EXTENTS_STATUS").field("Version", &self.Version).field("State", &self.State).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("BytesDuplicated", &self.BytesDuplicated).finish()
     }
 }
 impl ::core::cmp::PartialEq for ASYNC_DUPLICATE_EXTENTS_STATUS {
@@ -309,17 +302,7 @@ impl ::core::default::Default for CHANGER_ELEMENT_STATUS {
 }
 impl ::core::fmt::Debug for CHANGER_ELEMENT_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CHANGER_ELEMENT_STATUS")
-            .field("Element", &self.Element)
-            .field("SrcElementAddress", &self.SrcElementAddress)
-            .field("Flags", &self.Flags)
-            .field("ExceptionCode", &self.ExceptionCode)
-            .field("TargetId", &self.TargetId)
-            .field("Lun", &self.Lun)
-            .field("Reserved", &self.Reserved)
-            .field("PrimaryVolumeID", &self.PrimaryVolumeID)
-            .field("AlternateVolumeID", &self.AlternateVolumeID)
-            .finish()
+        fmt.debug_struct("CHANGER_ELEMENT_STATUS").field("Element", &self.Element).field("SrcElementAddress", &self.SrcElementAddress).field("Flags", &self.Flags).field("ExceptionCode", &self.ExceptionCode).field("TargetId", &self.TargetId).field("Lun", &self.Lun).field("Reserved", &self.Reserved).field("PrimaryVolumeID", &self.PrimaryVolumeID).field("AlternateVolumeID", &self.AlternateVolumeID).finish()
     }
 }
 impl ::core::cmp::PartialEq for CHANGER_ELEMENT_STATUS {
@@ -373,18 +356,7 @@ impl ::core::fmt::Debug for CHANGER_ELEMENT_STATUS_EX {
 }
 impl ::core::cmp::PartialEq for CHANGER_ELEMENT_STATUS_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Element == other.Element
-            && self.SrcElementAddress == other.SrcElementAddress
-            && self.Flags == other.Flags
-            && self.ExceptionCode == other.ExceptionCode
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.Reserved == other.Reserved
-            && self.PrimaryVolumeID == other.PrimaryVolumeID
-            && self.AlternateVolumeID == other.AlternateVolumeID
-            && self.VendorIdentification == other.VendorIdentification
-            && self.ProductIdentification == other.ProductIdentification
-            && self.SerialNumber == other.SerialNumber
+        self.Element == other.Element && self.SrcElementAddress == other.SrcElementAddress && self.Flags == other.Flags && self.ExceptionCode == other.ExceptionCode && self.TargetId == other.TargetId && self.Lun == other.Lun && self.Reserved == other.Reserved && self.PrimaryVolumeID == other.PrimaryVolumeID && self.AlternateVolumeID == other.AlternateVolumeID && self.VendorIdentification == other.VendorIdentification && self.ProductIdentification == other.ProductIdentification && self.SerialNumber == other.SerialNumber
     }
 }
 impl ::core::cmp::Eq for CHANGER_ELEMENT_STATUS_EX {}
@@ -1309,19 +1281,7 @@ impl ::core::default::Default for CSV_QUERY_MDS_PATH_V2 {
 }
 impl ::core::fmt::Debug for CSV_QUERY_MDS_PATH_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_MDS_PATH_V2")
-            .field("Version", &self.Version)
-            .field("RequiredSize", &self.RequiredSize)
-            .field("MdsNodeId", &self.MdsNodeId)
-            .field("DsNodeId", &self.DsNodeId)
-            .field("Flags", &self.Flags)
-            .field("DiskConnectivity", &self.DiskConnectivity)
-            .field("VolumeId", &self.VolumeId)
-            .field("IpAddressOffset", &self.IpAddressOffset)
-            .field("IpAddressLength", &self.IpAddressLength)
-            .field("PathOffset", &self.PathOffset)
-            .field("PathLength", &self.PathLength)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_MDS_PATH_V2").field("Version", &self.Version).field("RequiredSize", &self.RequiredSize).field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("Flags", &self.Flags).field("DiskConnectivity", &self.DiskConnectivity).field("VolumeId", &self.VolumeId).field("IpAddressOffset", &self.IpAddressOffset).field("IpAddressLength", &self.IpAddressLength).field("PathOffset", &self.PathOffset).field("PathLength", &self.PathLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for CSV_QUERY_MDS_PATH_V2 {
@@ -1906,17 +1866,7 @@ impl ::core::fmt::Debug for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.MaximumTokenLifetime == other.MaximumTokenLifetime
-            && self.DefaultTokenLifetime == other.DefaultTokenLifetime
-            && self.MaximumTransferSize == other.MaximumTransferSize
-            && self.OptimalTransferCount == other.OptimalTransferCount
-            && self.MaximumDataDescriptors == other.MaximumDataDescriptors
-            && self.MaximumTransferLengthPerDescriptor == other.MaximumTransferLengthPerDescriptor
-            && self.OptimalTransferLengthPerDescriptor == other.OptimalTransferLengthPerDescriptor
-            && self.OptimalTransferLengthGranularity == other.OptimalTransferLengthGranularity
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Size == other.Size && self.MaximumTokenLifetime == other.MaximumTokenLifetime && self.DefaultTokenLifetime == other.DefaultTokenLifetime && self.MaximumTransferSize == other.MaximumTransferSize && self.OptimalTransferCount == other.OptimalTransferCount && self.MaximumDataDescriptors == other.MaximumDataDescriptors && self.MaximumTransferLengthPerDescriptor == other.MaximumTransferLengthPerDescriptor && self.OptimalTransferLengthPerDescriptor == other.OptimalTransferLengthPerDescriptor && self.OptimalTransferLengthGranularity == other.OptimalTransferLengthGranularity && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for DEVICE_COPY_OFFLOAD_DESCRIPTOR {}
@@ -1971,15 +1921,7 @@ impl ::core::default::Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
 }
 impl ::core::fmt::Debug for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_LB_PROVISIONING_STATE")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("SlabSizeInBytes", &self.SlabSizeInBytes)
-            .field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes)
-            .field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount)
-            .field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength)
-            .field("SlabAllocationBitMap", &self.SlabAllocationBitMap)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_LB_PROVISIONING_STATE").field("Size", &self.Size).field("Version", &self.Version).field("SlabSizeInBytes", &self.SlabSizeInBytes).field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes).field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount).field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength).field("SlabAllocationBitMap", &self.SlabAllocationBitMap).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
@@ -2010,15 +1952,7 @@ impl ::core::default::Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
 }
 impl ::core::fmt::Debug for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("SlabSizeInBytes", &self.SlabSizeInBytes)
-            .field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes)
-            .field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount)
-            .field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength)
-            .field("SlabAllocationBitMap", &self.SlabAllocationBitMap)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2").field("Size", &self.Size).field("Version", &self.Version).field("SlabSizeInBytes", &self.SlabSizeInBytes).field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes).field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount).field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength).field("SlabAllocationBitMap", &self.SlabAllocationBitMap).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
@@ -2239,15 +2173,7 @@ impl ::core::default::Default for DEVICE_DSM_DEFINITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVICE_DSM_DEFINITION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_DEFINITION")
-            .field("Action", &self.Action)
-            .field("SingleRange", &self.SingleRange)
-            .field("ParameterBlockAlignment", &self.ParameterBlockAlignment)
-            .field("ParameterBlockLength", &self.ParameterBlockLength)
-            .field("HasOutput", &self.HasOutput)
-            .field("OutputBlockAlignment", &self.OutputBlockAlignment)
-            .field("OutputBlockLength", &self.OutputBlockLength)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_DEFINITION").field("Action", &self.Action).field("SingleRange", &self.SingleRange).field("ParameterBlockAlignment", &self.ParameterBlockAlignment).field("ParameterBlockLength", &self.ParameterBlockLength).field("HasOutput", &self.HasOutput).field("OutputBlockAlignment", &self.OutputBlockAlignment).field("OutputBlockLength", &self.OutputBlockLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2630,16 +2556,7 @@ impl ::core::default::Default for DEVICE_DSM_TIERING_QUERY_OUTPUT {
 }
 impl ::core::fmt::Debug for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_TIERING_QUERY_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Alignment", &self.Alignment)
-            .field("TotalNumberOfRegions", &self.TotalNumberOfRegions)
-            .field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned)
-            .field("Regions", &self.Regions)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_TIERING_QUERY_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Alignment", &self.Alignment).field("TotalNumberOfRegions", &self.TotalNumberOfRegions).field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned).field("Regions", &self.Regions).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEVICE_DSM_TIERING_QUERY_OUTPUT {
@@ -2693,18 +2610,7 @@ impl ::core::fmt::Debug for DEVICE_INTERNAL_STATUS_DATA {
 }
 impl ::core::cmp::PartialEq for DEVICE_INTERNAL_STATUS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.T10VendorId == other.T10VendorId
-            && self.DataSet1Length == other.DataSet1Length
-            && self.DataSet2Length == other.DataSet2Length
-            && self.DataSet3Length == other.DataSet3Length
-            && self.DataSet4Length == other.DataSet4Length
-            && self.StatusDataVersion == other.StatusDataVersion
-            && self.Reserved == other.Reserved
-            && self.ReasonIdentifier == other.ReasonIdentifier
-            && self.StatusDataLength == other.StatusDataLength
-            && self.StatusData == other.StatusData
+        self.Version == other.Version && self.Size == other.Size && self.T10VendorId == other.T10VendorId && self.DataSet1Length == other.DataSet1Length && self.DataSet2Length == other.DataSet2Length && self.DataSet3Length == other.DataSet3Length && self.DataSet4Length == other.DataSet4Length && self.StatusDataVersion == other.StatusDataVersion && self.Reserved == other.Reserved && self.ReasonIdentifier == other.ReasonIdentifier && self.StatusDataLength == other.StatusDataLength && self.StatusData == other.StatusData
     }
 }
 impl ::core::cmp::Eq for DEVICE_INTERNAL_STATUS_DATA {}
@@ -2764,16 +2670,7 @@ impl ::core::default::Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_LB_PROVISIONING_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("_bitfield", &self._bitfield)
-            .field("Reserved1", &self.Reserved1)
-            .field("OptimalUnmapGranularity", &self.OptimalUnmapGranularity)
-            .field("UnmapGranularityAlignment", &self.UnmapGranularityAlignment)
-            .field("MaxUnmapLbaCount", &self.MaxUnmapLbaCount)
-            .field("MaxUnmapBlockDescriptorCount", &self.MaxUnmapBlockDescriptorCount)
-            .finish()
+        fmt.debug_struct("DEVICE_LB_PROVISIONING_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("_bitfield", &self._bitfield).field("Reserved1", &self.Reserved1).field("OptimalUnmapGranularity", &self.OptimalUnmapGranularity).field("UnmapGranularityAlignment", &self.UnmapGranularityAlignment).field("MaxUnmapLbaCount", &self.MaxUnmapLbaCount).field("MaxUnmapBlockDescriptorCount", &self.MaxUnmapBlockDescriptorCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEVICE_LB_PROVISIONING_DESCRIPTOR {
@@ -2901,15 +2798,7 @@ impl ::core::default::Default for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
 }
 impl ::core::fmt::Debug for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_MANAGE_DATA_SET_ATTRIBUTES")
-            .field("Size", &self.Size)
-            .field("Action", &self.Action)
-            .field("Flags", &self.Flags)
-            .field("ParameterBlockOffset", &self.ParameterBlockOffset)
-            .field("ParameterBlockLength", &self.ParameterBlockLength)
-            .field("DataSetRangesOffset", &self.DataSetRangesOffset)
-            .field("DataSetRangesLength", &self.DataSetRangesLength)
-            .finish()
+        fmt.debug_struct("DEVICE_MANAGE_DATA_SET_ATTRIBUTES").field("Size", &self.Size).field("Action", &self.Action).field("Flags", &self.Flags).field("ParameterBlockOffset", &self.ParameterBlockOffset).field("ParameterBlockLength", &self.ParameterBlockLength).field("DataSetRangesOffset", &self.DataSetRangesOffset).field("DataSetRangesLength", &self.DataSetRangesLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
@@ -2942,17 +2831,7 @@ impl ::core::default::Default for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
 }
 impl ::core::fmt::Debug for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT")
-            .field("Size", &self.Size)
-            .field("Action", &self.Action)
-            .field("Flags", &self.Flags)
-            .field("OperationStatus", &self.OperationStatus)
-            .field("ExtendedError", &self.ExtendedError)
-            .field("TargetDetailedError", &self.TargetDetailedError)
-            .field("ReservedStatus", &self.ReservedStatus)
-            .field("OutputBlockOffset", &self.OutputBlockOffset)
-            .field("OutputBlockLength", &self.OutputBlockLength)
-            .finish()
+        fmt.debug_struct("DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT").field("Size", &self.Size).field("Action", &self.Action).field("Flags", &self.Flags).field("OperationStatus", &self.OperationStatus).field("ExtendedError", &self.ExtendedError).field("TargetDetailedError", &self.TargetDetailedError).field("ReservedStatus", &self.ReservedStatus).field("OutputBlockOffset", &self.OutputBlockOffset).field("OutputBlockLength", &self.OutputBlockLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
@@ -3041,15 +2920,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_0 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::fmt::Debug for DEVICE_MEDIA_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DiskInfo_e__Struct")
-            .field("Cylinders", &self.Cylinders)
-            .field("MediaType", &self.MediaType)
-            .field("TracksPerCylinder", &self.TracksPerCylinder)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("BytesPerSector", &self.BytesPerSector)
-            .field("NumberMediaSides", &self.NumberMediaSides)
-            .field("MediaCharacteristics", &self.MediaCharacteristics)
-            .finish()
+        fmt.debug_struct("_DiskInfo_e__Struct").field("Cylinders", &self.Cylinders).field("MediaType", &self.MediaType).field("TracksPerCylinder", &self.TracksPerCylinder).field("SectorsPerTrack", &self.SectorsPerTrack).field("BytesPerSector", &self.BytesPerSector).field("NumberMediaSides", &self.NumberMediaSides).field("MediaCharacteristics", &self.MediaCharacteristics).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -3087,15 +2958,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_1 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::fmt::Debug for DEVICE_MEDIA_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_RemovableDiskInfo_e__Struct")
-            .field("Cylinders", &self.Cylinders)
-            .field("MediaType", &self.MediaType)
-            .field("TracksPerCylinder", &self.TracksPerCylinder)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("BytesPerSector", &self.BytesPerSector)
-            .field("NumberMediaSides", &self.NumberMediaSides)
-            .field("MediaCharacteristics", &self.MediaCharacteristics)
-            .finish()
+        fmt.debug_struct("_RemovableDiskInfo_e__Struct").field("Cylinders", &self.Cylinders).field("MediaType", &self.MediaType).field("TracksPerCylinder", &self.TracksPerCylinder).field("SectorsPerTrack", &self.SectorsPerTrack).field("BytesPerSector", &self.BytesPerSector).field("NumberMediaSides", &self.NumberMediaSides).field("MediaCharacteristics", &self.MediaCharacteristics).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -3242,16 +3105,7 @@ impl ::core::fmt::Debug for DEVICE_POWER_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICE_POWER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceAttentionSupported == other.DeviceAttentionSupported
-            && self.AsynchronousNotificationSupported == other.AsynchronousNotificationSupported
-            && self.IdlePowerManagementEnabled == other.IdlePowerManagementEnabled
-            && self.D3ColdEnabled == other.D3ColdEnabled
-            && self.D3ColdSupported == other.D3ColdSupported
-            && self.NoVerifyDuringIdlePower == other.NoVerifyDuringIdlePower
-            && self.Reserved == other.Reserved
-            && self.IdleTimeoutInMS == other.IdleTimeoutInMS
+        self.Version == other.Version && self.Size == other.Size && self.DeviceAttentionSupported == other.DeviceAttentionSupported && self.AsynchronousNotificationSupported == other.AsynchronousNotificationSupported && self.IdlePowerManagementEnabled == other.IdlePowerManagementEnabled && self.D3ColdEnabled == other.D3ColdEnabled && self.D3ColdSupported == other.D3ColdSupported && self.NoVerifyDuringIdlePower == other.NoVerifyDuringIdlePower && self.Reserved == other.Reserved && self.IdleTimeoutInMS == other.IdleTimeoutInMS
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3759,16 +3613,7 @@ impl ::core::default::Default for DISK_EX_INT13_INFO {
 }
 impl ::core::fmt::Debug for DISK_EX_INT13_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISK_EX_INT13_INFO")
-            .field("ExBufferSize", &self.ExBufferSize)
-            .field("ExFlags", &self.ExFlags)
-            .field("ExCylinders", &self.ExCylinders)
-            .field("ExHeads", &self.ExHeads)
-            .field("ExSectorsPerTrack", &self.ExSectorsPerTrack)
-            .field("ExSectorsPerDrive", &self.ExSectorsPerDrive)
-            .field("ExSectorSize", &self.ExSectorSize)
-            .field("ExReserved", &self.ExReserved)
-            .finish()
+        fmt.debug_struct("DISK_EX_INT13_INFO").field("ExBufferSize", &self.ExBufferSize).field("ExFlags", &self.ExFlags).field("ExCylinders", &self.ExCylinders).field("ExHeads", &self.ExHeads).field("ExSectorsPerTrack", &self.ExSectorsPerTrack).field("ExSectorsPerDrive", &self.ExSectorsPerDrive).field("ExSectorSize", &self.ExSectorSize).field("ExReserved", &self.ExReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for DISK_EX_INT13_INFO {
@@ -3885,19 +3730,7 @@ impl ::core::default::Default for DISK_HISTOGRAM {
 }
 impl ::core::fmt::Debug for DISK_HISTOGRAM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISK_HISTOGRAM")
-            .field("DiskSize", &self.DiskSize)
-            .field("Start", &self.Start)
-            .field("End", &self.End)
-            .field("Average", &self.Average)
-            .field("AverageRead", &self.AverageRead)
-            .field("AverageWrite", &self.AverageWrite)
-            .field("Granularity", &self.Granularity)
-            .field("Size", &self.Size)
-            .field("ReadCount", &self.ReadCount)
-            .field("WriteCount", &self.WriteCount)
-            .field("Histogram", &self.Histogram)
-            .finish()
+        fmt.debug_struct("DISK_HISTOGRAM").field("DiskSize", &self.DiskSize).field("Start", &self.Start).field("End", &self.End).field("Average", &self.Average).field("AverageRead", &self.AverageRead).field("AverageWrite", &self.AverageWrite).field("Granularity", &self.Granularity).field("Size", &self.Size).field("ReadCount", &self.ReadCount).field("WriteCount", &self.WriteCount).field("Histogram", &self.Histogram).finish()
     }
 }
 impl ::core::cmp::PartialEq for DISK_HISTOGRAM {
@@ -4134,15 +3967,7 @@ impl ::core::default::Default for DISK_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DISK_RECORD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISK_RECORD")
-            .field("ByteOffset", &self.ByteOffset)
-            .field("StartTime", &self.StartTime)
-            .field("EndTime", &self.EndTime)
-            .field("VirtualAddress", &self.VirtualAddress)
-            .field("NumberOfBytes", &self.NumberOfBytes)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("ReadRequest", &self.ReadRequest)
-            .finish()
+        fmt.debug_struct("DISK_RECORD").field("ByteOffset", &self.ByteOffset).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).field("DeviceNumber", &self.DeviceNumber).field("ReadRequest", &self.ReadRequest).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4548,17 +4373,7 @@ impl ::core::fmt::Debug for ENCRYPTED_DATA_INFO {
 }
 impl ::core::cmp::PartialEq for ENCRYPTED_DATA_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingFileOffset == other.StartingFileOffset
-            && self.OutputBufferOffset == other.OutputBufferOffset
-            && self.BytesWithinFileSize == other.BytesWithinFileSize
-            && self.BytesWithinValidDataLength == other.BytesWithinValidDataLength
-            && self.CompressionFormat == other.CompressionFormat
-            && self.DataUnitShift == other.DataUnitShift
-            && self.ChunkShift == other.ChunkShift
-            && self.ClusterShift == other.ClusterShift
-            && self.EncryptionFormat == other.EncryptionFormat
-            && self.NumberOfDataBlocks == other.NumberOfDataBlocks
-            && self.DataBlockSize == other.DataBlockSize
+        self.StartingFileOffset == other.StartingFileOffset && self.OutputBufferOffset == other.OutputBufferOffset && self.BytesWithinFileSize == other.BytesWithinFileSize && self.BytesWithinValidDataLength == other.BytesWithinValidDataLength && self.CompressionFormat == other.CompressionFormat && self.DataUnitShift == other.DataUnitShift && self.ChunkShift == other.ChunkShift && self.ClusterShift == other.ClusterShift && self.EncryptionFormat == other.EncryptionFormat && self.NumberOfDataBlocks == other.NumberOfDataBlocks && self.DataBlockSize == other.DataBlockSize
     }
 }
 impl ::core::cmp::Eq for ENCRYPTED_DATA_INFO {}
@@ -4612,15 +4427,7 @@ impl ::core::default::Default for ENCRYPTION_KEY_CTRL_INPUT {
 }
 impl ::core::fmt::Debug for ENCRYPTION_KEY_CTRL_INPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_KEY_CTRL_INPUT")
-            .field("HeaderSize", &self.HeaderSize)
-            .field("StructureSize", &self.StructureSize)
-            .field("KeyOffset", &self.KeyOffset)
-            .field("KeySize", &self.KeySize)
-            .field("DplLock", &self.DplLock)
-            .field("DplUserId", &self.DplUserId)
-            .field("DplCredentialId", &self.DplCredentialId)
-            .finish()
+        fmt.debug_struct("ENCRYPTION_KEY_CTRL_INPUT").field("HeaderSize", &self.HeaderSize).field("StructureSize", &self.StructureSize).field("KeyOffset", &self.KeyOffset).field("KeySize", &self.KeySize).field("DplLock", &self.DplLock).field("DplUserId", &self.DplUserId).field("DplCredentialId", &self.DplCredentialId).finish()
     }
 }
 impl ::core::cmp::PartialEq for ENCRYPTION_KEY_CTRL_INPUT {
@@ -4804,21 +4611,7 @@ impl ::core::fmt::Debug for FILESYSTEM_STATISTICS {
 }
 impl ::core::cmp::PartialEq for FILESYSTEM_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.FileSystemType == other.FileSystemType
-            && self.Version == other.Version
-            && self.SizeOfCompleteStructure == other.SizeOfCompleteStructure
-            && self.UserFileReads == other.UserFileReads
-            && self.UserFileReadBytes == other.UserFileReadBytes
-            && self.UserDiskReads == other.UserDiskReads
-            && self.UserFileWrites == other.UserFileWrites
-            && self.UserFileWriteBytes == other.UserFileWriteBytes
-            && self.UserDiskWrites == other.UserDiskWrites
-            && self.MetaDataReads == other.MetaDataReads
-            && self.MetaDataReadBytes == other.MetaDataReadBytes
-            && self.MetaDataDiskReads == other.MetaDataDiskReads
-            && self.MetaDataWrites == other.MetaDataWrites
-            && self.MetaDataWriteBytes == other.MetaDataWriteBytes
-            && self.MetaDataDiskWrites == other.MetaDataDiskWrites
+        self.FileSystemType == other.FileSystemType && self.Version == other.Version && self.SizeOfCompleteStructure == other.SizeOfCompleteStructure && self.UserFileReads == other.UserFileReads && self.UserFileReadBytes == other.UserFileReadBytes && self.UserDiskReads == other.UserDiskReads && self.UserFileWrites == other.UserFileWrites && self.UserFileWriteBytes == other.UserFileWriteBytes && self.UserDiskWrites == other.UserDiskWrites && self.MetaDataReads == other.MetaDataReads && self.MetaDataReadBytes == other.MetaDataReadBytes && self.MetaDataDiskReads == other.MetaDataDiskReads && self.MetaDataWrites == other.MetaDataWrites && self.MetaDataWriteBytes == other.MetaDataWriteBytes && self.MetaDataDiskWrites == other.MetaDataDiskWrites
     }
 }
 impl ::core::cmp::Eq for FILESYSTEM_STATISTICS {}
@@ -4873,21 +4666,7 @@ impl ::core::fmt::Debug for FILESYSTEM_STATISTICS_EX {
 }
 impl ::core::cmp::PartialEq for FILESYSTEM_STATISTICS_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.FileSystemType == other.FileSystemType
-            && self.Version == other.Version
-            && self.SizeOfCompleteStructure == other.SizeOfCompleteStructure
-            && self.UserFileReads == other.UserFileReads
-            && self.UserFileReadBytes == other.UserFileReadBytes
-            && self.UserDiskReads == other.UserDiskReads
-            && self.UserFileWrites == other.UserFileWrites
-            && self.UserFileWriteBytes == other.UserFileWriteBytes
-            && self.UserDiskWrites == other.UserDiskWrites
-            && self.MetaDataReads == other.MetaDataReads
-            && self.MetaDataReadBytes == other.MetaDataReadBytes
-            && self.MetaDataDiskReads == other.MetaDataDiskReads
-            && self.MetaDataWrites == other.MetaDataWrites
-            && self.MetaDataWriteBytes == other.MetaDataWriteBytes
-            && self.MetaDataDiskWrites == other.MetaDataDiskWrites
+        self.FileSystemType == other.FileSystemType && self.Version == other.Version && self.SizeOfCompleteStructure == other.SizeOfCompleteStructure && self.UserFileReads == other.UserFileReads && self.UserFileReadBytes == other.UserFileReadBytes && self.UserDiskReads == other.UserDiskReads && self.UserFileWrites == other.UserFileWrites && self.UserFileWriteBytes == other.UserFileWriteBytes && self.UserDiskWrites == other.UserDiskWrites && self.MetaDataReads == other.MetaDataReads && self.MetaDataReadBytes == other.MetaDataReadBytes && self.MetaDataDiskReads == other.MetaDataDiskReads && self.MetaDataWrites == other.MetaDataWrites && self.MetaDataWriteBytes == other.MetaDataWriteBytes && self.MetaDataDiskWrites == other.MetaDataDiskWrites
     }
 }
 impl ::core::cmp::Eq for FILESYSTEM_STATISTICS_EX {}
@@ -5167,17 +4946,7 @@ impl ::core::default::Default for FILE_LAYOUT_ENTRY {
 }
 impl ::core::fmt::Debug for FILE_LAYOUT_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_LAYOUT_ENTRY")
-            .field("Version", &self.Version)
-            .field("NextFileOffset", &self.NextFileOffset)
-            .field("Flags", &self.Flags)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("FirstNameOffset", &self.FirstNameOffset)
-            .field("FirstStreamOffset", &self.FirstStreamOffset)
-            .field("ExtraInfoOffset", &self.ExtraInfoOffset)
-            .field("ExtraInfoLength", &self.ExtraInfoLength)
-            .finish()
+        fmt.debug_struct("FILE_LAYOUT_ENTRY").field("Version", &self.Version).field("NextFileOffset", &self.NextFileOffset).field("Flags", &self.Flags).field("FileAttributes", &self.FileAttributes).field("FileReferenceNumber", &self.FileReferenceNumber).field("FirstNameOffset", &self.FirstNameOffset).field("FirstStreamOffset", &self.FirstStreamOffset).field("ExtraInfoOffset", &self.ExtraInfoOffset).field("ExtraInfoLength", &self.ExtraInfoLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILE_LAYOUT_ENTRY {
@@ -5265,14 +5034,7 @@ impl ::core::default::Default for FILE_LAYOUT_NAME_ENTRY {
 }
 impl ::core::fmt::Debug for FILE_LAYOUT_NAME_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_LAYOUT_NAME_ENTRY")
-            .field("NextNameOffset", &self.NextNameOffset)
-            .field("Flags", &self.Flags)
-            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("Reserved", &self.Reserved)
-            .field("FileName", &self.FileName)
-            .finish()
+        fmt.debug_struct("FILE_LAYOUT_NAME_ENTRY").field("NextNameOffset", &self.NextNameOffset).field("Flags", &self.Flags).field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber).field("FileNameLength", &self.FileNameLength).field("Reserved", &self.Reserved).field("FileName", &self.FileName).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILE_LAYOUT_NAME_ENTRY {
@@ -5622,17 +5384,7 @@ impl ::core::fmt::Debug for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
 }
 impl ::core::cmp::PartialEq for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.DirectoryCount == other.DirectoryCount
-            && self.FileCount == other.FileCount
-            && self.FsFormatMajVersion == other.FsFormatMajVersion
-            && self.FsFormatMinVersion == other.FsFormatMinVersion
-            && self.FsFormatName == other.FsFormatName
-            && self.FormatTime == other.FormatTime
-            && self.LastUpdateTime == other.LastUpdateTime
-            && self.CopyrightInfo == other.CopyrightInfo
-            && self.AbstractInfo == other.AbstractInfo
-            && self.FormattingImplementationInfo == other.FormattingImplementationInfo
-            && self.LastModifyingImplementationInfo == other.LastModifyingImplementationInfo
+        self.DirectoryCount == other.DirectoryCount && self.FileCount == other.FileCount && self.FsFormatMajVersion == other.FsFormatMajVersion && self.FsFormatMinVersion == other.FsFormatMinVersion && self.FsFormatName == other.FsFormatName && self.FormatTime == other.FormatTime && self.LastUpdateTime == other.LastUpdateTime && self.CopyrightInfo == other.CopyrightInfo && self.AbstractInfo == other.AbstractInfo && self.FormattingImplementationInfo == other.FormattingImplementationInfo && self.LastModifyingImplementationInfo == other.LastModifyingImplementationInfo
     }
 }
 impl ::core::cmp::Eq for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {}
@@ -6193,16 +5945,7 @@ impl ::core::default::Default for FORMAT_EX_PARAMETERS {
 }
 impl ::core::fmt::Debug for FORMAT_EX_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FORMAT_EX_PARAMETERS")
-            .field("MediaType", &self.MediaType)
-            .field("StartCylinderNumber", &self.StartCylinderNumber)
-            .field("EndCylinderNumber", &self.EndCylinderNumber)
-            .field("StartHeadNumber", &self.StartHeadNumber)
-            .field("EndHeadNumber", &self.EndHeadNumber)
-            .field("FormatGapLength", &self.FormatGapLength)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("SectorNumber", &self.SectorNumber)
-            .finish()
+        fmt.debug_struct("FORMAT_EX_PARAMETERS").field("MediaType", &self.MediaType).field("StartCylinderNumber", &self.StartCylinderNumber).field("EndCylinderNumber", &self.EndCylinderNumber).field("StartHeadNumber", &self.StartHeadNumber).field("EndHeadNumber", &self.EndHeadNumber).field("FormatGapLength", &self.FormatGapLength).field("SectorsPerTrack", &self.SectorsPerTrack).field("SectorNumber", &self.SectorNumber).finish()
     }
 }
 impl ::core::cmp::PartialEq for FORMAT_EX_PARAMETERS {
@@ -6308,13 +6051,7 @@ impl ::core::default::Default for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
 }
 impl ::core::fmt::Debug for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FSCTL_GET_INTEGRITY_INFORMATION_BUFFER")
-            .field("ChecksumAlgorithm", &self.ChecksumAlgorithm)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .field("ChecksumChunkSizeInBytes", &self.ChecksumChunkSizeInBytes)
-            .field("ClusterSizeInBytes", &self.ClusterSizeInBytes)
-            .finish()
+        fmt.debug_struct("FSCTL_GET_INTEGRITY_INFORMATION_BUFFER").field("ChecksumAlgorithm", &self.ChecksumAlgorithm).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("ChecksumChunkSizeInBytes", &self.ChecksumChunkSizeInBytes).field("ClusterSizeInBytes", &self.ClusterSizeInBytes).finish()
     }
 }
 impl ::core::cmp::PartialEq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
@@ -6576,16 +6313,7 @@ impl ::core::default::Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
 }
 impl ::core::fmt::Debug for FSCTL_QUERY_REGION_INFO_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_REGION_INFO_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Alignment", &self.Alignment)
-            .field("TotalNumberOfRegions", &self.TotalNumberOfRegions)
-            .field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned)
-            .field("Regions", &self.Regions)
-            .finish()
+        fmt.debug_struct("FSCTL_QUERY_REGION_INFO_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Alignment", &self.Alignment).field("TotalNumberOfRegions", &self.TotalNumberOfRegions).field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned).field("Regions", &self.Regions).finish()
     }
 }
 impl ::core::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_OUTPUT {
@@ -6708,14 +6436,7 @@ impl ::core::default::Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
 }
 impl ::core::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX")
-            .field("EnableIntegrity", &self.EnableIntegrity)
-            .field("KeepIntegrityStateUnchanged", &self.KeepIntegrityStateUnchanged)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .field("Version", &self.Version)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX").field("EnableIntegrity", &self.EnableIntegrity).field("KeepIntegrityStateUnchanged", &self.KeepIntegrityStateUnchanged).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("Version", &self.Version).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
@@ -7458,16 +7179,7 @@ impl ::core::default::Default for IDEREGS {
 }
 impl ::core::fmt::Debug for IDEREGS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IDEREGS")
-            .field("bFeaturesReg", &self.bFeaturesReg)
-            .field("bSectorCountReg", &self.bSectorCountReg)
-            .field("bSectorNumberReg", &self.bSectorNumberReg)
-            .field("bCylLowReg", &self.bCylLowReg)
-            .field("bCylHighReg", &self.bCylHighReg)
-            .field("bDriveHeadReg", &self.bDriveHeadReg)
-            .field("bCommandReg", &self.bCommandReg)
-            .field("bReserved", &self.bReserved)
-            .finish()
+        fmt.debug_struct("IDEREGS").field("bFeaturesReg", &self.bFeaturesReg).field("bSectorCountReg", &self.bSectorCountReg).field("bSectorNumberReg", &self.bSectorNumberReg).field("bCylLowReg", &self.bCylLowReg).field("bCylHighReg", &self.bCylHighReg).field("bDriveHeadReg", &self.bDriveHeadReg).field("bCommandReg", &self.bCommandReg).field("bReserved", &self.bReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for IDEREGS {
@@ -7625,12 +7337,12 @@ pub const IOCTL_STORAGE_SET_PROPERTY: u32 = 2987004u32;
 pub const IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD: u32 = 3002880u32;
 pub const IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: u32 = 3004548u32;
 pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
     pub Validation: u16,
     pub Flags: u16,
-    pub TrackedOffsetCallback: ::core::option::Option<PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK>,
+    pub TrackedOffsetCallback: PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK,
 }
 impl IO_IRP_EXT_TRACK_OFFSET_HEADER {}
 impl ::core::default::Default for IO_IRP_EXT_TRACK_OFFSET_HEADER {
@@ -7650,7 +7362,7 @@ impl ::core::cmp::PartialEq for IO_IRP_EXT_TRACK_OFFSET_HEADER {
 }
 impl ::core::cmp::Eq for IO_IRP_EXT_TRACK_OFFSET_HEADER {}
 unsafe impl ::windows::core::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const LOCK_ELEMENT: u32 = 0u32;
 pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
@@ -8124,16 +7836,7 @@ impl ::core::fmt::Debug for NTFS_EXTENDED_VOLUME_DATA {
 }
 impl ::core::cmp::PartialEq for NTFS_EXTENDED_VOLUME_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.ByteCount == other.ByteCount
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.BytesPerPhysicalSector == other.BytesPerPhysicalSector
-            && self.LfsMajorVersion == other.LfsMajorVersion
-            && self.LfsMinorVersion == other.LfsMinorVersion
-            && self.MaxDeviceTrimExtentCount == other.MaxDeviceTrimExtentCount
-            && self.MaxDeviceTrimByteCount == other.MaxDeviceTrimByteCount
-            && self.MaxVolumeTrimExtentCount == other.MaxVolumeTrimExtentCount
-            && self.MaxVolumeTrimByteCount == other.MaxVolumeTrimByteCount
+        self.ByteCount == other.ByteCount && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.BytesPerPhysicalSector == other.BytesPerPhysicalSector && self.LfsMajorVersion == other.LfsMajorVersion && self.LfsMinorVersion == other.LfsMinorVersion && self.MaxDeviceTrimExtentCount == other.MaxDeviceTrimExtentCount && self.MaxDeviceTrimByteCount == other.MaxDeviceTrimByteCount && self.MaxVolumeTrimExtentCount == other.MaxVolumeTrimExtentCount && self.MaxVolumeTrimByteCount == other.MaxVolumeTrimByteCount
     }
 }
 impl ::core::cmp::Eq for NTFS_EXTENDED_VOLUME_DATA {}
@@ -8376,18 +8079,7 @@ impl ::core::default::Default for NTFS_STATISTICS_0 {
 }
 impl ::core::fmt::Debug for NTFS_STATISTICS_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Allocate_e__Struct")
-            .field("Calls", &self.Calls)
-            .field("Clusters", &self.Clusters)
-            .field("Hints", &self.Hints)
-            .field("RunsReturned", &self.RunsReturned)
-            .field("HintsHonored", &self.HintsHonored)
-            .field("HintsClusters", &self.HintsClusters)
-            .field("Cache", &self.Cache)
-            .field("CacheClusters", &self.CacheClusters)
-            .field("CacheMiss", &self.CacheMiss)
-            .field("CacheMissClusters", &self.CacheMissClusters)
-            .finish()
+        fmt.debug_struct("_Allocate_e__Struct").field("Calls", &self.Calls).field("Clusters", &self.Clusters).field("Hints", &self.Hints).field("RunsReturned", &self.RunsReturned).field("HintsHonored", &self.HintsHonored).field("HintsClusters", &self.HintsClusters).field("Cache", &self.Cache).field("CacheClusters", &self.CacheClusters).field("CacheMiss", &self.CacheMiss).field("CacheMissClusters", &self.CacheMissClusters).finish()
     }
 }
 impl ::core::cmp::PartialEq for NTFS_STATISTICS_0 {
@@ -8727,18 +8419,7 @@ impl ::core::default::Default for NTFS_STATISTICS_EX_0 {
 }
 impl ::core::fmt::Debug for NTFS_STATISTICS_EX_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Allocate_e__Struct")
-            .field("Calls", &self.Calls)
-            .field("RunsReturned", &self.RunsReturned)
-            .field("Hints", &self.Hints)
-            .field("HintsHonored", &self.HintsHonored)
-            .field("Cache", &self.Cache)
-            .field("CacheMiss", &self.CacheMiss)
-            .field("Clusters", &self.Clusters)
-            .field("HintsClusters", &self.HintsClusters)
-            .field("CacheClusters", &self.CacheClusters)
-            .field("CacheMissClusters", &self.CacheMissClusters)
-            .finish()
+        fmt.debug_struct("_Allocate_e__Struct").field("Calls", &self.Calls).field("RunsReturned", &self.RunsReturned).field("Hints", &self.Hints).field("HintsHonored", &self.HintsHonored).field("Cache", &self.Cache).field("CacheMiss", &self.CacheMiss).field("Clusters", &self.Clusters).field("HintsClusters", &self.HintsClusters).field("CacheClusters", &self.CacheClusters).field("CacheMissClusters", &self.CacheMissClusters).finish()
     }
 }
 impl ::core::cmp::PartialEq for NTFS_STATISTICS_EX_0 {
@@ -8908,20 +8589,7 @@ impl ::core::fmt::Debug for NTFS_VOLUME_DATA_BUFFER {
 }
 impl ::core::cmp::PartialEq for NTFS_VOLUME_DATA_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.VolumeSerialNumber == other.VolumeSerialNumber
-            && self.NumberSectors == other.NumberSectors
-            && self.TotalClusters == other.TotalClusters
-            && self.FreeClusters == other.FreeClusters
-            && self.TotalReserved == other.TotalReserved
-            && self.BytesPerSector == other.BytesPerSector
-            && self.BytesPerCluster == other.BytesPerCluster
-            && self.BytesPerFileRecordSegment == other.BytesPerFileRecordSegment
-            && self.ClustersPerFileRecordSegment == other.ClustersPerFileRecordSegment
-            && self.MftValidDataLength == other.MftValidDataLength
-            && self.MftStartLcn == other.MftStartLcn
-            && self.Mft2StartLcn == other.Mft2StartLcn
-            && self.MftZoneStart == other.MftZoneStart
-            && self.MftZoneEnd == other.MftZoneEnd
+        self.VolumeSerialNumber == other.VolumeSerialNumber && self.NumberSectors == other.NumberSectors && self.TotalClusters == other.TotalClusters && self.FreeClusters == other.FreeClusters && self.TotalReserved == other.TotalReserved && self.BytesPerSector == other.BytesPerSector && self.BytesPerCluster == other.BytesPerCluster && self.BytesPerFileRecordSegment == other.BytesPerFileRecordSegment && self.ClustersPerFileRecordSegment == other.ClustersPerFileRecordSegment && self.MftValidDataLength == other.MftValidDataLength && self.MftStartLcn == other.MftStartLcn && self.Mft2StartLcn == other.Mft2StartLcn && self.MftZoneStart == other.MftZoneStart && self.MftZoneEnd == other.MftZoneEnd
     }
 }
 impl ::core::cmp::Eq for NTFS_VOLUME_DATA_BUFFER {}
@@ -8973,16 +8641,7 @@ impl ::core::default::Default for PARTITION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PARTITION_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PARTITION_INFORMATION")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("PartitionLength", &self.PartitionLength)
-            .field("HiddenSectors", &self.HiddenSectors)
-            .field("PartitionNumber", &self.PartitionNumber)
-            .field("PartitionType", &self.PartitionType)
-            .field("BootIndicator", &self.BootIndicator)
-            .field("RecognizedPartition", &self.RecognizedPartition)
-            .field("RewritePartition", &self.RewritePartition)
-            .finish()
+        fmt.debug_struct("PARTITION_INFORMATION").field("StartingOffset", &self.StartingOffset).field("PartitionLength", &self.PartitionLength).field("HiddenSectors", &self.HiddenSectors).field("PartitionNumber", &self.PartitionNumber).field("PartitionType", &self.PartitionType).field("BootIndicator", &self.BootIndicator).field("RecognizedPartition", &self.RecognizedPartition).field("RewritePartition", &self.RewritePartition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9331,15 +8990,7 @@ impl ::core::default::Default for PHYSICAL_ELEMENT_STATUS {
 }
 impl ::core::fmt::Debug for PHYSICAL_ELEMENT_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PHYSICAL_ELEMENT_STATUS")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DescriptorCount", &self.DescriptorCount)
-            .field("ReturnedDescriptorCount", &self.ReturnedDescriptorCount)
-            .field("ElementIdentifierBeingDepoped", &self.ElementIdentifierBeingDepoped)
-            .field("Reserved", &self.Reserved)
-            .field("Descriptors", &self.Descriptors)
-            .finish()
+        fmt.debug_struct("PHYSICAL_ELEMENT_STATUS").field("Version", &self.Version).field("Size", &self.Size).field("DescriptorCount", &self.DescriptorCount).field("ReturnedDescriptorCount", &self.ReturnedDescriptorCount).field("ElementIdentifierBeingDepoped", &self.ElementIdentifierBeingDepoped).field("Reserved", &self.Reserved).field("Descriptors", &self.Descriptors).finish()
     }
 }
 impl ::core::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS {
@@ -9371,16 +9022,7 @@ impl ::core::default::Default for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PHYSICAL_ELEMENT_STATUS_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ElementIdentifier", &self.ElementIdentifier)
-            .field("PhysicalElementType", &self.PhysicalElementType)
-            .field("PhysicalElementHealth", &self.PhysicalElementHealth)
-            .field("Reserved1", &self.Reserved1)
-            .field("AssociatedCapacity", &self.AssociatedCapacity)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("PHYSICAL_ELEMENT_STATUS_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("ElementIdentifier", &self.ElementIdentifier).field("PhysicalElementType", &self.PhysicalElementType).field("PhysicalElementHealth", &self.PhysicalElementHealth).field("Reserved1", &self.Reserved1).field("AssociatedCapacity", &self.AssociatedCapacity).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
@@ -9422,7 +9064,7 @@ impl ::core::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
 unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
 }
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const ::core::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, targetcontext: *mut ::core::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, relativeoffset: i64);
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = ::core::option::Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PLEX_READ_DATA_REQUEST {
@@ -9837,16 +9479,7 @@ impl ::core::default::Default for READ_USN_JOURNAL_DATA_V1 {
 }
 impl ::core::fmt::Debug for READ_USN_JOURNAL_DATA_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("READ_USN_JOURNAL_DATA_V1")
-            .field("StartUsn", &self.StartUsn)
-            .field("ReasonMask", &self.ReasonMask)
-            .field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose)
-            .field("Timeout", &self.Timeout)
-            .field("BytesToWaitFor", &self.BytesToWaitFor)
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("MinMajorVersion", &self.MinMajorVersion)
-            .field("MaxMajorVersion", &self.MaxMajorVersion)
-            .finish()
+        fmt.debug_struct("READ_USN_JOURNAL_DATA_V1").field("StartUsn", &self.StartUsn).field("ReasonMask", &self.ReasonMask).field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose).field("Timeout", &self.Timeout).field("BytesToWaitFor", &self.BytesToWaitFor).field("UsnJournalID", &self.UsnJournalID).field("MinMajorVersion", &self.MinMajorVersion).field("MaxMajorVersion", &self.MaxMajorVersion).finish()
     }
 }
 impl ::core::cmp::PartialEq for READ_USN_JOURNAL_DATA_V1 {
@@ -9957,15 +9590,7 @@ impl ::core::default::Default for REFS_SMR_VOLUME_GC_PARAMETERS {
 }
 impl ::core::fmt::Debug for REFS_SMR_VOLUME_GC_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REFS_SMR_VOLUME_GC_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Action", &self.Action)
-            .field("Method", &self.Method)
-            .field("IoGranularity", &self.IoGranularity)
-            .field("CompressionFormat", &self.CompressionFormat)
-            .field("Unused", &self.Unused)
-            .finish()
+        fmt.debug_struct("REFS_SMR_VOLUME_GC_PARAMETERS").field("Version", &self.Version).field("Flags", &self.Flags).field("Action", &self.Action).field("Method", &self.Method).field("IoGranularity", &self.IoGranularity).field("CompressionFormat", &self.CompressionFormat).field("Unused", &self.Unused).finish()
     }
 }
 impl ::core::cmp::PartialEq for REFS_SMR_VOLUME_GC_PARAMETERS {
@@ -10033,17 +9658,7 @@ impl ::core::fmt::Debug for REFS_SMR_VOLUME_INFO_OUTPUT {
 }
 impl ::core::cmp::PartialEq for REFS_SMR_VOLUME_INFO_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.SizeOfRandomlyWritableTier == other.SizeOfRandomlyWritableTier
-            && self.FreeSpaceInRandomlyWritableTier == other.FreeSpaceInRandomlyWritableTier
-            && self.SizeofSMRTier == other.SizeofSMRTier
-            && self.FreeSpaceInSMRTier == other.FreeSpaceInSMRTier
-            && self.UsableFreeSpaceInSMRTier == other.UsableFreeSpaceInSMRTier
-            && self.VolumeGcState == other.VolumeGcState
-            && self.VolumeGcLastStatus == other.VolumeGcLastStatus
-            && self.CurrentGcBandFillPercentage == other.CurrentGcBandFillPercentage
-            && self.Unused == other.Unused
+        self.Version == other.Version && self.Flags == other.Flags && self.SizeOfRandomlyWritableTier == other.SizeOfRandomlyWritableTier && self.FreeSpaceInRandomlyWritableTier == other.FreeSpaceInRandomlyWritableTier && self.SizeofSMRTier == other.SizeofSMRTier && self.FreeSpaceInSMRTier == other.FreeSpaceInSMRTier && self.UsableFreeSpaceInSMRTier == other.UsableFreeSpaceInSMRTier && self.VolumeGcState == other.VolumeGcState && self.VolumeGcLastStatus == other.VolumeGcLastStatus && self.CurrentGcBandFillPercentage == other.CurrentGcBandFillPercentage && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for REFS_SMR_VOLUME_INFO_OUTPUT {}
@@ -10172,15 +9787,7 @@ impl ::core::default::Default for REPAIR_COPIES_INPUT {
 }
 impl ::core::fmt::Debug for REPAIR_COPIES_INPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REPAIR_COPIES_INPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .field("SourceCopy", &self.SourceCopy)
-            .field("NumberOfRepairCopies", &self.NumberOfRepairCopies)
-            .field("RepairCopies", &self.RepairCopies)
-            .finish()
+        fmt.debug_struct("REPAIR_COPIES_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("FileOffset", &self.FileOffset).field("Length", &self.Length).field("SourceCopy", &self.SourceCopy).field("NumberOfRepairCopies", &self.NumberOfRepairCopies).field("RepairCopies", &self.RepairCopies).finish()
     }
 }
 impl ::core::cmp::PartialEq for REPAIR_COPIES_INPUT {
@@ -10272,15 +9879,7 @@ impl ::core::default::Default for REQUEST_OPLOCK_OUTPUT_BUFFER {
 }
 impl ::core::fmt::Debug for REQUEST_OPLOCK_OUTPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REQUEST_OPLOCK_OUTPUT_BUFFER")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureLength", &self.StructureLength)
-            .field("OriginalOplockLevel", &self.OriginalOplockLevel)
-            .field("NewOplockLevel", &self.NewOplockLevel)
-            .field("Flags", &self.Flags)
-            .field("AccessMode", &self.AccessMode)
-            .field("ShareMode", &self.ShareMode)
-            .finish()
+        fmt.debug_struct("REQUEST_OPLOCK_OUTPUT_BUFFER").field("StructureVersion", &self.StructureVersion).field("StructureLength", &self.StructureLength).field("OriginalOplockLevel", &self.OriginalOplockLevel).field("NewOplockLevel", &self.NewOplockLevel).field("Flags", &self.Flags).field("AccessMode", &self.AccessMode).field("ShareMode", &self.ShareMode).finish()
     }
 }
 impl ::core::cmp::PartialEq for REQUEST_OPLOCK_OUTPUT_BUFFER {
@@ -10736,15 +10335,7 @@ impl ::core::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.RuntimeFwActivationSupported == other.RuntimeFwActivationSupported
-            && self.FirmwareActivationState == other.FirmwareActivationState
-            && self.FirmwareActivationCapability == other.FirmwareActivationCapability
-            && self.EstimatedFirmwareActivationTimeInUSecs == other.EstimatedFirmwareActivationTimeInUSecs
-            && self.EstimatedProcessorAccessQuiesceTimeInUSecs == other.EstimatedProcessorAccessQuiesceTimeInUSecs
-            && self.EstimatedIOAccessQuiesceTimeInUSecs == other.EstimatedIOAccessQuiesceTimeInUSecs
-            && self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs == other.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs
+        self.Version == other.Version && self.Size == other.Size && self.RuntimeFwActivationSupported == other.RuntimeFwActivationSupported && self.FirmwareActivationState == other.FirmwareActivationState && self.FirmwareActivationCapability == other.FirmwareActivationCapability && self.EstimatedFirmwareActivationTimeInUSecs == other.EstimatedFirmwareActivationTimeInUSecs && self.EstimatedProcessorAccessQuiesceTimeInUSecs == other.EstimatedProcessorAccessQuiesceTimeInUSecs && self.EstimatedIOAccessQuiesceTimeInUSecs == other.EstimatedIOAccessQuiesceTimeInUSecs && self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs == other.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11177,16 +10768,7 @@ impl ::core::default::Default for SCM_PD_FIRMWARE_DOWNLOAD {
 }
 impl ::core::fmt::Debug for SCM_PD_FIRMWARE_DOWNLOAD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCM_PD_FIRMWARE_DOWNLOAD")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .field("Reserved", &self.Reserved)
-            .field("Offset", &self.Offset)
-            .field("FirmwareImageSizeInBytes", &self.FirmwareImageSizeInBytes)
-            .field("FirmwareImage", &self.FirmwareImage)
-            .finish()
+        fmt.debug_struct("SCM_PD_FIRMWARE_DOWNLOAD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("Offset", &self.Offset).field("FirmwareImageSizeInBytes", &self.FirmwareImageSizeInBytes).field("FirmwareImage", &self.FirmwareImage).finish()
     }
 }
 impl ::core::cmp::PartialEq for SCM_PD_FIRMWARE_DOWNLOAD {
@@ -11394,15 +10976,7 @@ impl ::core::default::Default for SCM_PD_MANAGEMENT_STATUS {
 }
 impl ::core::fmt::Debug for SCM_PD_MANAGEMENT_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCM_PD_MANAGEMENT_STATUS")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Health", &self.Health)
-            .field("NumberOfOperationalStatus", &self.NumberOfOperationalStatus)
-            .field("NumberOfAdditionalReasons", &self.NumberOfAdditionalReasons)
-            .field("OperationalStatus", &self.OperationalStatus)
-            .field("AdditionalReasons", &self.AdditionalReasons)
-            .finish()
+        fmt.debug_struct("SCM_PD_MANAGEMENT_STATUS").field("Version", &self.Version).field("Size", &self.Size).field("Health", &self.Health).field("NumberOfOperationalStatus", &self.NumberOfOperationalStatus).field("NumberOfAdditionalReasons", &self.NumberOfAdditionalReasons).field("OperationalStatus", &self.OperationalStatus).field("AdditionalReasons", &self.AdditionalReasons).finish()
     }
 }
 impl ::core::cmp::PartialEq for SCM_PD_MANAGEMENT_STATUS {
@@ -12038,15 +11612,7 @@ impl ::core::default::Default for SD_CHANGE_MACHINE_SID_OUTPUT {
 }
 impl ::core::fmt::Debug for SD_CHANGE_MACHINE_SID_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SD_CHANGE_MACHINE_SID_OUTPUT")
-            .field("NumSDChangedSuccess", &self.NumSDChangedSuccess)
-            .field("NumSDChangedFail", &self.NumSDChangedFail)
-            .field("NumSDUnused", &self.NumSDUnused)
-            .field("NumSDTotal", &self.NumSDTotal)
-            .field("NumMftSDChangedSuccess", &self.NumMftSDChangedSuccess)
-            .field("NumMftSDChangedFail", &self.NumMftSDChangedFail)
-            .field("NumMftSDTotal", &self.NumMftSDTotal)
-            .finish()
+        fmt.debug_struct("SD_CHANGE_MACHINE_SID_OUTPUT").field("NumSDChangedSuccess", &self.NumSDChangedSuccess).field("NumSDChangedFail", &self.NumSDChangedFail).field("NumSDUnused", &self.NumSDUnused).field("NumSDTotal", &self.NumSDTotal).field("NumMftSDChangedSuccess", &self.NumMftSDChangedSuccess).field("NumMftSDChangedFail", &self.NumMftSDChangedFail).field("NumMftSDTotal", &self.NumMftSDTotal).finish()
     }
 }
 impl ::core::cmp::PartialEq for SD_CHANGE_MACHINE_SID_OUTPUT {
@@ -12277,16 +11843,7 @@ impl ::core::default::Default for SD_QUERY_STATS_OUTPUT {
 }
 impl ::core::fmt::Debug for SD_QUERY_STATS_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SD_QUERY_STATS_OUTPUT")
-            .field("SdsStreamSize", &self.SdsStreamSize)
-            .field("SdsAllocationSize", &self.SdsAllocationSize)
-            .field("SiiStreamSize", &self.SiiStreamSize)
-            .field("SiiAllocationSize", &self.SiiAllocationSize)
-            .field("SdhStreamSize", &self.SdhStreamSize)
-            .field("SdhAllocationSize", &self.SdhAllocationSize)
-            .field("NumSDTotal", &self.NumSDTotal)
-            .field("NumSDUnused", &self.NumSDUnused)
-            .finish()
+        fmt.debug_struct("SD_QUERY_STATS_OUTPUT").field("SdsStreamSize", &self.SdsStreamSize).field("SdsAllocationSize", &self.SdsAllocationSize).field("SiiStreamSize", &self.SiiStreamSize).field("SiiAllocationSize", &self.SiiAllocationSize).field("SdhStreamSize", &self.SdhStreamSize).field("SdhAllocationSize", &self.SdhAllocationSize).field("NumSDTotal", &self.NumSDTotal).field("NumSDUnused", &self.NumSDUnused).finish()
     }
 }
 impl ::core::cmp::PartialEq for SD_QUERY_STATS_OUTPUT {
@@ -12759,15 +12316,7 @@ impl ::core::default::Default for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("BytesPerCacheLine", &self.BytesPerCacheLine)
-            .field("BytesOffsetForCacheAlignment", &self.BytesOffsetForCacheAlignment)
-            .field("BytesPerLogicalSector", &self.BytesPerLogicalSector)
-            .field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector)
-            .field("BytesOffsetForSectorAlignment", &self.BytesOffsetForSectorAlignment)
-            .finish()
+        fmt.debug_struct("STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("BytesPerCacheLine", &self.BytesPerCacheLine).field("BytesOffsetForCacheAlignment", &self.BytesOffsetForCacheAlignment).field("BytesPerLogicalSector", &self.BytesPerLogicalSector).field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector).field("BytesOffsetForSectorAlignment", &self.BytesOffsetForSectorAlignment).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
@@ -12830,20 +12379,7 @@ impl ::core::fmt::Debug for STORAGE_ADAPTER_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ADAPTER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.MaximumTransferLength == other.MaximumTransferLength
-            && self.MaximumPhysicalPages == other.MaximumPhysicalPages
-            && self.AlignmentMask == other.AlignmentMask
-            && self.AdapterUsesPio == other.AdapterUsesPio
-            && self.AdapterScansDown == other.AdapterScansDown
-            && self.CommandQueueing == other.CommandQueueing
-            && self.AcceleratedTransfer == other.AcceleratedTransfer
-            && self.BusType == other.BusType
-            && self.BusMajorVersion == other.BusMajorVersion
-            && self.BusMinorVersion == other.BusMinorVersion
-            && self.SrbType == other.SrbType
-            && self.AddressType == other.AddressType
+        self.Version == other.Version && self.Size == other.Size && self.MaximumTransferLength == other.MaximumTransferLength && self.MaximumPhysicalPages == other.MaximumPhysicalPages && self.AlignmentMask == other.AlignmentMask && self.AdapterUsesPio == other.AdapterUsesPio && self.AdapterScansDown == other.AdapterScansDown && self.CommandQueueing == other.CommandQueueing && self.AcceleratedTransfer == other.AcceleratedTransfer && self.BusType == other.BusType && self.BusMajorVersion == other.BusMajorVersion && self.BusMinorVersion == other.BusMinorVersion && self.SrbType == other.SrbType && self.AddressType == other.AddressType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12905,16 +12441,7 @@ impl ::core::default::Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_ALLOCATE_BC_STREAM_INPUT")
-            .field("Version", &self.Version)
-            .field("RequestsPerPeriod", &self.RequestsPerPeriod)
-            .field("Period", &self.Period)
-            .field("RetryFailures", &self.RetryFailures)
-            .field("Discardable", &self.Discardable)
-            .field("Reserved1", &self.Reserved1)
-            .field("AccessType", &self.AccessType)
-            .field("AccessMode", &self.AccessMode)
-            .finish()
+        fmt.debug_struct("STORAGE_ALLOCATE_BC_STREAM_INPUT").field("Version", &self.Version).field("RequestsPerPeriod", &self.RequestsPerPeriod).field("Period", &self.Period).field("RetryFailures", &self.RetryFailures).field("Discardable", &self.Discardable).field("Reserved1", &self.Reserved1).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13411,19 +12938,7 @@ impl ::core::fmt::Debug for STORAGE_DEVICE_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for STORAGE_DEVICE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceType == other.DeviceType
-            && self.DeviceTypeModifier == other.DeviceTypeModifier
-            && self.RemovableMedia == other.RemovableMedia
-            && self.CommandQueueing == other.CommandQueueing
-            && self.VendorIdOffset == other.VendorIdOffset
-            && self.ProductIdOffset == other.ProductIdOffset
-            && self.ProductRevisionOffset == other.ProductRevisionOffset
-            && self.SerialNumberOffset == other.SerialNumberOffset
-            && self.BusType == other.BusType
-            && self.RawPropertiesLength == other.RawPropertiesLength
-            && self.RawDeviceProperties == other.RawDeviceProperties
+        self.Version == other.Version && self.Size == other.Size && self.DeviceType == other.DeviceType && self.DeviceTypeModifier == other.DeviceTypeModifier && self.RemovableMedia == other.RemovableMedia && self.CommandQueueing == other.CommandQueueing && self.VendorIdOffset == other.VendorIdOffset && self.ProductIdOffset == other.ProductIdOffset && self.ProductRevisionOffset == other.ProductRevisionOffset && self.SerialNumberOffset == other.SerialNumberOffset && self.BusType == other.BusType && self.RawPropertiesLength == other.RawPropertiesLength && self.RawDeviceProperties == other.RawDeviceProperties
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -13720,15 +13235,7 @@ impl ::core::default::Default for STORAGE_DEVICE_NUMBER_EX {
 }
 impl ::core::fmt::Debug for STORAGE_DEVICE_NUMBER_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_NUMBER_EX")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("DeviceType", &self.DeviceType)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("DeviceGuid", &self.DeviceGuid)
-            .field("PartitionNumber", &self.PartitionNumber)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_NUMBER_EX").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("DeviceType", &self.DeviceType).field("DeviceNumber", &self.DeviceNumber).field("DeviceGuid", &self.DeviceGuid).field("PartitionNumber", &self.PartitionNumber).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_DEVICE_NUMBER_EX {
@@ -13802,16 +13309,7 @@ impl ::core::default::Default for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_RESILIENCY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NameOffset", &self.NameOffset)
-            .field("NumberOfLogicalCopies", &self.NumberOfLogicalCopies)
-            .field("NumberOfPhysicalCopies", &self.NumberOfPhysicalCopies)
-            .field("PhysicalDiskRedundancy", &self.PhysicalDiskRedundancy)
-            .field("NumberOfColumns", &self.NumberOfColumns)
-            .field("Interleave", &self.Interleave)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_RESILIENCY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NameOffset", &self.NameOffset).field("NumberOfLogicalCopies", &self.NumberOfLogicalCopies).field("NumberOfPhysicalCopies", &self.NumberOfPhysicalCopies).field("PhysicalDiskRedundancy", &self.PhysicalDiskRedundancy).field("NumberOfColumns", &self.NumberOfColumns).field("Interleave", &self.Interleave).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
@@ -14153,14 +13651,7 @@ impl ::core::default::Default for STORAGE_GET_BC_PROPERTIES_OUTPUT {
 }
 impl ::core::fmt::Debug for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_GET_BC_PROPERTIES_OUTPUT")
-            .field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod)
-            .field("MinimumPeriod", &self.MinimumPeriod)
-            .field("MaximumRequestSize", &self.MaximumRequestSize)
-            .field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest)
-            .field("NumOutStandingRequests", &self.NumOutStandingRequests)
-            .field("RequestSize", &self.RequestSize)
-            .finish()
+        fmt.debug_struct("STORAGE_GET_BC_PROPERTIES_OUTPUT").field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumRequestSize", &self.MaximumRequestSize).field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest).field("NumOutStandingRequests", &self.NumOutStandingRequests).field("RequestSize", &self.RequestSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_GET_BC_PROPERTIES_OUTPUT {
@@ -14339,16 +13830,7 @@ impl ::core::default::Default for STORAGE_HW_FIRMWARE_DOWNLOAD {
 }
 impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .field("Reserved", &self.Reserved)
-            .field("Offset", &self.Offset)
-            .field("BufferSize", &self.BufferSize)
-            .field("ImageBuffer", &self.ImageBuffer)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("ImageBuffer", &self.ImageBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD {
@@ -14382,18 +13864,7 @@ impl ::core::default::Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
 }
 impl ::core::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD_V2")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .field("Reserved", &self.Reserved)
-            .field("Offset", &self.Offset)
-            .field("BufferSize", &self.BufferSize)
-            .field("ImageSize", &self.ImageSize)
-            .field("Reserved2", &self.Reserved2)
-            .field("ImageBuffer", &self.ImageBuffer)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD_V2").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("ImageSize", &self.ImageSize).field("Reserved2", &self.Reserved2).field("ImageBuffer", &self.ImageBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
@@ -14678,16 +14149,7 @@ impl ::core::default::Default for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
 }
 impl ::core::fmt::Debug for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_LB_PROVISIONING_MAP_RESOURCES")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("_bitfield1", &self._bitfield1)
-            .field("Reserved1", &self.Reserved1)
-            .field("_bitfield2", &self._bitfield2)
-            .field("Reserved3", &self.Reserved3)
-            .field("AvailableMappingResources", &self.AvailableMappingResources)
-            .field("UsedMappingResources", &self.UsedMappingResources)
-            .finish()
+        fmt.debug_struct("STORAGE_LB_PROVISIONING_MAP_RESOURCES").field("Size", &self.Size).field("Version", &self.Version).field("_bitfield1", &self._bitfield1).field("Reserved1", &self.Reserved1).field("_bitfield2", &self._bitfield2).field("Reserved3", &self.Reserved3).field("AvailableMappingResources", &self.AvailableMappingResources).field("UsedMappingResources", &self.UsedMappingResources).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
@@ -15266,16 +14728,7 @@ impl ::core::default::Default for STORAGE_PHYSICAL_NODE_DATA {
 }
 impl ::core::fmt::Debug for STORAGE_PHYSICAL_NODE_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_PHYSICAL_NODE_DATA")
-            .field("NodeId", &self.NodeId)
-            .field("AdapterCount", &self.AdapterCount)
-            .field("AdapterDataLength", &self.AdapterDataLength)
-            .field("AdapterDataOffset", &self.AdapterDataOffset)
-            .field("DeviceCount", &self.DeviceCount)
-            .field("DeviceDataLength", &self.DeviceDataLength)
-            .field("DeviceDataOffset", &self.DeviceDataOffset)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("STORAGE_PHYSICAL_NODE_DATA").field("NodeId", &self.NodeId).field("AdapterCount", &self.AdapterCount).field("AdapterDataLength", &self.AdapterDataLength).field("AdapterDataOffset", &self.AdapterDataOffset).field("DeviceCount", &self.DeviceCount).field("DeviceDataLength", &self.DeviceDataLength).field("DeviceDataOffset", &self.DeviceDataOffset).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_PHYSICAL_NODE_DATA {
@@ -15752,16 +15205,7 @@ impl ::core::fmt::Debug for STORAGE_PROTOCOL_SPECIFIC_DATA {
 }
 impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_SPECIFIC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.ProtocolType == other.ProtocolType
-            && self.DataType == other.DataType
-            && self.ProtocolDataRequestValue == other.ProtocolDataRequestValue
-            && self.ProtocolDataRequestSubValue == other.ProtocolDataRequestSubValue
-            && self.ProtocolDataOffset == other.ProtocolDataOffset
-            && self.ProtocolDataLength == other.ProtocolDataLength
-            && self.FixedProtocolReturnData == other.FixedProtocolReturnData
-            && self.ProtocolDataRequestSubValue2 == other.ProtocolDataRequestSubValue2
-            && self.ProtocolDataRequestSubValue3 == other.ProtocolDataRequestSubValue3
-            && self.ProtocolDataRequestSubValue4 == other.ProtocolDataRequestSubValue4
+        self.ProtocolType == other.ProtocolType && self.DataType == other.DataType && self.ProtocolDataRequestValue == other.ProtocolDataRequestValue && self.ProtocolDataRequestSubValue == other.ProtocolDataRequestSubValue && self.ProtocolDataOffset == other.ProtocolDataOffset && self.ProtocolDataLength == other.ProtocolDataLength && self.FixedProtocolReturnData == other.FixedProtocolReturnData && self.ProtocolDataRequestSubValue2 == other.ProtocolDataRequestSubValue2 && self.ProtocolDataRequestSubValue3 == other.ProtocolDataRequestSubValue3 && self.ProtocolDataRequestSubValue4 == other.ProtocolDataRequestSubValue4
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_SPECIFIC_DATA {}
@@ -15810,18 +15254,7 @@ impl ::core::fmt::Debug for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
 }
 impl ::core::cmp::PartialEq for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ProtocolType == other.ProtocolType
-            && self.DataType == other.DataType
-            && self.ProtocolDataValue == other.ProtocolDataValue
-            && self.ProtocolDataSubValue == other.ProtocolDataSubValue
-            && self.ProtocolDataOffset == other.ProtocolDataOffset
-            && self.ProtocolDataLength == other.ProtocolDataLength
-            && self.FixedProtocolReturnData == other.FixedProtocolReturnData
-            && self.ProtocolDataSubValue2 == other.ProtocolDataSubValue2
-            && self.ProtocolDataSubValue3 == other.ProtocolDataSubValue3
-            && self.ProtocolDataSubValue4 == other.ProtocolDataSubValue4
-            && self.ProtocolDataSubValue5 == other.ProtocolDataSubValue5
-            && self.Reserved == other.Reserved
+        self.ProtocolType == other.ProtocolType && self.DataType == other.DataType && self.ProtocolDataValue == other.ProtocolDataValue && self.ProtocolDataSubValue == other.ProtocolDataSubValue && self.ProtocolDataOffset == other.ProtocolDataOffset && self.ProtocolDataLength == other.ProtocolDataLength && self.FixedProtocolReturnData == other.FixedProtocolReturnData && self.ProtocolDataSubValue2 == other.ProtocolDataSubValue2 && self.ProtocolDataSubValue3 == other.ProtocolDataSubValue3 && self.ProtocolDataSubValue4 == other.ProtocolDataSubValue4 && self.ProtocolDataSubValue5 == other.ProtocolDataSubValue5 && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {}
@@ -15962,19 +15395,7 @@ impl ::core::fmt::Debug for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::core::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryLength == other.EntryLength
-            && self.DependencyTypeFlags == other.DependencyTypeFlags
-            && self.ProviderSpecificFlags == other.ProviderSpecificFlags
-            && self.VirtualStorageType == other.VirtualStorageType
-            && self.AncestorLevel == other.AncestorLevel
-            && self.HostVolumeNameOffset == other.HostVolumeNameOffset
-            && self.HostVolumeNameSize == other.HostVolumeNameSize
-            && self.DependentVolumeNameOffset == other.DependentVolumeNameOffset
-            && self.DependentVolumeNameSize == other.DependentVolumeNameSize
-            && self.RelativePathOffset == other.RelativePathOffset
-            && self.RelativePathSize == other.RelativePathSize
-            && self.DependentDeviceNameOffset == other.DependentDeviceNameOffset
-            && self.DependentDeviceNameSize == other.DependentDeviceNameSize
+        self.EntryLength == other.EntryLength && self.DependencyTypeFlags == other.DependencyTypeFlags && self.ProviderSpecificFlags == other.ProviderSpecificFlags && self.VirtualStorageType == other.VirtualStorageType && self.AncestorLevel == other.AncestorLevel && self.HostVolumeNameOffset == other.HostVolumeNameOffset && self.HostVolumeNameSize == other.HostVolumeNameSize && self.DependentVolumeNameOffset == other.DependentVolumeNameOffset && self.DependentVolumeNameSize == other.DependentVolumeNameSize && self.RelativePathOffset == other.RelativePathOffset && self.RelativePathSize == other.RelativePathSize && self.DependentDeviceNameOffset == other.DependentDeviceNameOffset && self.DependentDeviceNameSize == other.DependentDeviceNameSize
     }
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
@@ -16216,17 +15637,7 @@ impl ::core::default::Default for STORAGE_RPMB_DATA_FRAME {
 }
 impl ::core::fmt::Debug for STORAGE_RPMB_DATA_FRAME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_RPMB_DATA_FRAME")
-            .field("Stuff", &self.Stuff)
-            .field("KeyOrMAC", &self.KeyOrMAC)
-            .field("Data", &self.Data)
-            .field("Nonce", &self.Nonce)
-            .field("WriteCounter", &self.WriteCounter)
-            .field("Address", &self.Address)
-            .field("BlockCount", &self.BlockCount)
-            .field("OperationResult", &self.OperationResult)
-            .field("RequestOrResponseType", &self.RequestOrResponseType)
-            .finish()
+        fmt.debug_struct("STORAGE_RPMB_DATA_FRAME").field("Stuff", &self.Stuff).field("KeyOrMAC", &self.KeyOrMAC).field("Data", &self.Data).field("Nonce", &self.Nonce).field("WriteCounter", &self.WriteCounter).field("Address", &self.Address).field("BlockCount", &self.BlockCount).field("OperationResult", &self.OperationResult).field("RequestOrResponseType", &self.RequestOrResponseType).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_RPMB_DATA_FRAME {
@@ -16426,16 +15837,7 @@ impl ::core::default::Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_TEMPERATURE_DATA_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("CriticalTemperature", &self.CriticalTemperature)
-            .field("WarningTemperature", &self.WarningTemperature)
-            .field("InfoCount", &self.InfoCount)
-            .field("Reserved0", &self.Reserved0)
-            .field("Reserved1", &self.Reserved1)
-            .field("TemperatureInfo", &self.TemperatureInfo)
-            .finish()
+        fmt.debug_struct("STORAGE_TEMPERATURE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("CriticalTemperature", &self.CriticalTemperature).field("WarningTemperature", &self.WarningTemperature).field("InfoCount", &self.InfoCount).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("TemperatureInfo", &self.TemperatureInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16475,17 +15877,7 @@ impl ::core::default::Default for STORAGE_TEMPERATURE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_TEMPERATURE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_TEMPERATURE_INFO")
-            .field("Index", &self.Index)
-            .field("Temperature", &self.Temperature)
-            .field("OverThreshold", &self.OverThreshold)
-            .field("UnderThreshold", &self.UnderThreshold)
-            .field("OverThresholdChangable", &self.OverThresholdChangable)
-            .field("UnderThresholdChangable", &self.UnderThresholdChangable)
-            .field("EventGenerated", &self.EventGenerated)
-            .field("Reserved0", &self.Reserved0)
-            .field("Reserved1", &self.Reserved1)
-            .finish()
+        fmt.debug_struct("STORAGE_TEMPERATURE_INFO").field("Index", &self.Index).field("Temperature", &self.Temperature).field("OverThreshold", &self.OverThreshold).field("UnderThreshold", &self.UnderThreshold).field("OverThresholdChangable", &self.OverThresholdChangable).field("UnderThresholdChangable", &self.UnderThresholdChangable).field("EventGenerated", &self.EventGenerated).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16884,15 +16276,7 @@ impl ::core::default::Default for STORAGE_ZONE_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STORAGE_ZONE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_ZONE_DESCRIPTOR")
-            .field("Size", &self.Size)
-            .field("ZoneType", &self.ZoneType)
-            .field("ZoneCondition", &self.ZoneCondition)
-            .field("ResetWritePointerRecommend", &self.ResetWritePointerRecommend)
-            .field("Reserved0", &self.Reserved0)
-            .field("ZoneSize", &self.ZoneSize)
-            .field("WritePointerOffset", &self.WritePointerOffset)
-            .finish()
+        fmt.debug_struct("STORAGE_ZONE_DESCRIPTOR").field("Size", &self.Size).field("ZoneType", &self.ZoneType).field("ZoneCondition", &self.ZoneCondition).field("ResetWritePointerRecommend", &self.ResetWritePointerRecommend).field("Reserved0", &self.Reserved0).field("ZoneSize", &self.ZoneSize).field("WritePointerOffset", &self.WritePointerOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17274,17 +16658,7 @@ impl ::core::fmt::Debug for STREAM_LAYOUT_ENTRY {
 }
 impl ::core::cmp::PartialEq for STREAM_LAYOUT_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.NextStreamOffset == other.NextStreamOffset
-            && self.Flags == other.Flags
-            && self.ExtentInformationOffset == other.ExtentInformationOffset
-            && self.AllocationSize == other.AllocationSize
-            && self.EndOfFile == other.EndOfFile
-            && self.StreamInformationOffset == other.StreamInformationOffset
-            && self.AttributeTypeCode == other.AttributeTypeCode
-            && self.AttributeFlags == other.AttributeFlags
-            && self.StreamIdentifierLength == other.StreamIdentifierLength
-            && self.StreamIdentifier == other.StreamIdentifier
+        self.Version == other.Version && self.NextStreamOffset == other.NextStreamOffset && self.Flags == other.Flags && self.ExtentInformationOffset == other.ExtentInformationOffset && self.AllocationSize == other.AllocationSize && self.EndOfFile == other.EndOfFile && self.StreamInformationOffset == other.StreamInformationOffset && self.AttributeTypeCode == other.AttributeTypeCode && self.AttributeFlags == other.AttributeFlags && self.StreamIdentifierLength == other.StreamIdentifierLength && self.StreamIdentifier == other.StreamIdentifier
     }
 }
 impl ::core::cmp::Eq for STREAM_LAYOUT_ENTRY {}
@@ -17345,16 +16719,7 @@ impl ::core::default::Default for TAPE_STATISTICS {
 }
 impl ::core::fmt::Debug for TAPE_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAPE_STATISTICS")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("RecoveredWrites", &self.RecoveredWrites)
-            .field("UnrecoveredWrites", &self.UnrecoveredWrites)
-            .field("RecoveredReads", &self.RecoveredReads)
-            .field("UnrecoveredReads", &self.UnrecoveredReads)
-            .field("CompressionRatioReads", &self.CompressionRatioReads)
-            .field("CompressionRatioWrites", &self.CompressionRatioWrites)
-            .finish()
+        fmt.debug_struct("TAPE_STATISTICS").field("Version", &self.Version).field("Flags", &self.Flags).field("RecoveredWrites", &self.RecoveredWrites).field("UnrecoveredWrites", &self.UnrecoveredWrites).field("RecoveredReads", &self.RecoveredReads).field("UnrecoveredReads", &self.UnrecoveredReads).field("CompressionRatioReads", &self.CompressionRatioReads).field("CompressionRatioWrites", &self.CompressionRatioWrites).finish()
     }
 }
 impl ::core::cmp::PartialEq for TAPE_STATISTICS {
@@ -17584,15 +16949,7 @@ impl ::core::default::Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
 }
 impl ::core::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY")
-            .field("Offset", &self.Offset)
-            .field("NameFlags", &self.NameFlags)
-            .field("FileId", &self.FileId)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("FileName", &self.FileName)
-            .finish()
+        fmt.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY").field("Offset", &self.Offset).field("NameFlags", &self.NameFlags).field("FileId", &self.FileId).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("FileName", &self.FileName).finish()
     }
 }
 impl ::core::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
@@ -17628,16 +16985,7 @@ impl ::core::default::Default for TXFS_MODIFY_RM {
 }
 impl ::core::fmt::Debug for TXFS_MODIFY_RM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TXFS_MODIFY_RM")
-            .field("Flags", &self.Flags)
-            .field("LogContainerCountMax", &self.LogContainerCountMax)
-            .field("LogContainerCountMin", &self.LogContainerCountMin)
-            .field("LogContainerCount", &self.LogContainerCount)
-            .field("LogGrowthIncrement", &self.LogGrowthIncrement)
-            .field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage)
-            .field("Reserved", &self.Reserved)
-            .field("LoggingMode", &self.LoggingMode)
-            .finish()
+        fmt.debug_struct("TXFS_MODIFY_RM").field("Flags", &self.Flags).field("LogContainerCountMax", &self.LogContainerCountMax).field("LogContainerCountMin", &self.LogContainerCountMin).field("LogContainerCount", &self.LogContainerCount).field("LogGrowthIncrement", &self.LogGrowthIncrement).field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage).field("Reserved", &self.Reserved).field("LoggingMode", &self.LoggingMode).finish()
     }
 }
 impl ::core::cmp::PartialEq for TXFS_MODIFY_RM {
@@ -17975,18 +17323,7 @@ impl ::core::fmt::Debug for TXFS_START_RM_INFORMATION {
 }
 impl ::core::cmp::PartialEq for TXFS_START_RM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.LogContainerSize == other.LogContainerSize
-            && self.LogContainerCountMin == other.LogContainerCountMin
-            && self.LogContainerCountMax == other.LogContainerCountMax
-            && self.LogGrowthIncrement == other.LogGrowthIncrement
-            && self.LogAutoShrinkPercentage == other.LogAutoShrinkPercentage
-            && self.TmLogPathOffset == other.TmLogPathOffset
-            && self.TmLogPathLength == other.TmLogPathLength
-            && self.LoggingMode == other.LoggingMode
-            && self.LogPathLength == other.LogPathLength
-            && self.Reserved == other.Reserved
-            && self.LogPath == other.LogPath
+        self.Flags == other.Flags && self.LogContainerSize == other.LogContainerSize && self.LogContainerCountMin == other.LogContainerCountMin && self.LogContainerCountMax == other.LogContainerCountMax && self.LogGrowthIncrement == other.LogGrowthIncrement && self.LogAutoShrinkPercentage == other.LogAutoShrinkPercentage && self.TmLogPathOffset == other.TmLogPathOffset && self.TmLogPathLength == other.TmLogPathLength && self.LoggingMode == other.LoggingMode && self.LogPathLength == other.LogPathLength && self.Reserved == other.Reserved && self.LogPath == other.LogPath
     }
 }
 impl ::core::cmp::Eq for TXFS_START_RM_INFORMATION {}
@@ -18122,15 +17459,7 @@ impl ::core::default::Default for USN_JOURNAL_DATA_V0 {
 }
 impl ::core::fmt::Debug for USN_JOURNAL_DATA_V0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USN_JOURNAL_DATA_V0")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("FirstUsn", &self.FirstUsn)
-            .field("NextUsn", &self.NextUsn)
-            .field("LowestValidUsn", &self.LowestValidUsn)
-            .field("MaxUsn", &self.MaxUsn)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .finish()
+        fmt.debug_struct("USN_JOURNAL_DATA_V0").field("UsnJournalID", &self.UsnJournalID).field("FirstUsn", &self.FirstUsn).field("NextUsn", &self.NextUsn).field("LowestValidUsn", &self.LowestValidUsn).field("MaxUsn", &self.MaxUsn).field("MaximumSize", &self.MaximumSize).field("AllocationDelta", &self.AllocationDelta).finish()
     }
 }
 impl ::core::cmp::PartialEq for USN_JOURNAL_DATA_V0 {
@@ -18163,17 +17492,7 @@ impl ::core::default::Default for USN_JOURNAL_DATA_V1 {
 }
 impl ::core::fmt::Debug for USN_JOURNAL_DATA_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USN_JOURNAL_DATA_V1")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("FirstUsn", &self.FirstUsn)
-            .field("NextUsn", &self.NextUsn)
-            .field("LowestValidUsn", &self.LowestValidUsn)
-            .field("MaxUsn", &self.MaxUsn)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .field("MinSupportedMajorVersion", &self.MinSupportedMajorVersion)
-            .field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion)
-            .finish()
+        fmt.debug_struct("USN_JOURNAL_DATA_V1").field("UsnJournalID", &self.UsnJournalID).field("FirstUsn", &self.FirstUsn).field("NextUsn", &self.NextUsn).field("LowestValidUsn", &self.LowestValidUsn).field("MaxUsn", &self.MaxUsn).field("MaximumSize", &self.MaximumSize).field("AllocationDelta", &self.AllocationDelta).field("MinSupportedMajorVersion", &self.MinSupportedMajorVersion).field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion).finish()
     }
 }
 impl ::core::cmp::PartialEq for USN_JOURNAL_DATA_V1 {
@@ -18227,18 +17546,7 @@ impl ::core::fmt::Debug for USN_JOURNAL_DATA_V2 {
 }
 impl ::core::cmp::PartialEq for USN_JOURNAL_DATA_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID
-            && self.FirstUsn == other.FirstUsn
-            && self.NextUsn == other.NextUsn
-            && self.LowestValidUsn == other.LowestValidUsn
-            && self.MaxUsn == other.MaxUsn
-            && self.MaximumSize == other.MaximumSize
-            && self.AllocationDelta == other.AllocationDelta
-            && self.MinSupportedMajorVersion == other.MinSupportedMajorVersion
-            && self.MaxSupportedMajorVersion == other.MaxSupportedMajorVersion
-            && self.Flags == other.Flags
-            && self.RangeTrackChunkSize == other.RangeTrackChunkSize
-            && self.RangeTrackFileSizeThreshold == other.RangeTrackFileSizeThreshold
+        self.UsnJournalID == other.UsnJournalID && self.FirstUsn == other.FirstUsn && self.NextUsn == other.NextUsn && self.LowestValidUsn == other.LowestValidUsn && self.MaxUsn == other.MaxUsn && self.MaximumSize == other.MaximumSize && self.AllocationDelta == other.AllocationDelta && self.MinSupportedMajorVersion == other.MinSupportedMajorVersion && self.MaxSupportedMajorVersion == other.MaxSupportedMajorVersion && self.Flags == other.Flags && self.RangeTrackChunkSize == other.RangeTrackChunkSize && self.RangeTrackFileSizeThreshold == other.RangeTrackFileSizeThreshold
     }
 }
 impl ::core::cmp::Eq for USN_JOURNAL_DATA_V2 {}
@@ -18423,20 +17731,7 @@ impl ::core::fmt::Debug for USN_RECORD_V2 {
 }
 impl ::core::cmp::PartialEq for USN_RECORD_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.Usn == other.Usn
-            && self.TimeStamp == other.TimeStamp
-            && self.Reason == other.Reason
-            && self.SourceInfo == other.SourceInfo
-            && self.SecurityId == other.SecurityId
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.FileNameOffset == other.FileNameOffset
-            && self.FileName == other.FileName
+        self.RecordLength == other.RecordLength && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.FileReferenceNumber == other.FileReferenceNumber && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber && self.Usn == other.Usn && self.TimeStamp == other.TimeStamp && self.Reason == other.Reason && self.SourceInfo == other.SourceInfo && self.SecurityId == other.SecurityId && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.FileNameOffset == other.FileNameOffset && self.FileName == other.FileName
     }
 }
 impl ::core::cmp::Eq for USN_RECORD_V2 {}
@@ -18494,20 +17789,7 @@ impl ::core::fmt::Debug for USN_RECORD_V3 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for USN_RECORD_V3 {
     fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.Usn == other.Usn
-            && self.TimeStamp == other.TimeStamp
-            && self.Reason == other.Reason
-            && self.SourceInfo == other.SourceInfo
-            && self.SecurityId == other.SecurityId
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.FileNameOffset == other.FileNameOffset
-            && self.FileName == other.FileName
+        self.RecordLength == other.RecordLength && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.FileReferenceNumber == other.FileReferenceNumber && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber && self.Usn == other.Usn && self.TimeStamp == other.TimeStamp && self.Reason == other.Reason && self.SourceInfo == other.SourceInfo && self.SecurityId == other.SecurityId && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.FileNameOffset == other.FileNameOffset && self.FileName == other.FileName
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -18542,18 +17824,7 @@ impl ::core::default::Default for USN_RECORD_V4 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::fmt::Debug for USN_RECORD_V4 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USN_RECORD_V4")
-            .field("Header", &self.Header)
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
-            .field("Usn", &self.Usn)
-            .field("Reason", &self.Reason)
-            .field("SourceInfo", &self.SourceInfo)
-            .field("RemainingExtents", &self.RemainingExtents)
-            .field("NumberOfExtents", &self.NumberOfExtents)
-            .field("ExtentSize", &self.ExtentSize)
-            .field("Extents", &self.Extents)
-            .finish()
+        fmt.debug_struct("USN_RECORD_V4").field("Header", &self.Header).field("FileReferenceNumber", &self.FileReferenceNumber).field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber).field("Usn", &self.Usn).field("Reason", &self.Reason).field("SourceInfo", &self.SourceInfo).field("RemainingExtents", &self.RemainingExtents).field("NumberOfExtents", &self.NumberOfExtents).field("ExtentSize", &self.ExtentSize).field("Extents", &self.Extents).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -18710,13 +17981,7 @@ impl ::core::default::Default for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
 }
 impl ::core::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VIRTUALIZATION_INSTANCE_INFO_INPUT_EX")
-            .field("HeaderSize", &self.HeaderSize)
-            .field("Flags", &self.Flags)
-            .field("NotificationInfoSize", &self.NotificationInfoSize)
-            .field("NotificationInfoOffset", &self.NotificationInfoOffset)
-            .field("ProviderMajorVersion", &self.ProviderMajorVersion)
-            .finish()
+        fmt.debug_struct("VIRTUALIZATION_INSTANCE_INFO_INPUT_EX").field("HeaderSize", &self.HeaderSize).field("Flags", &self.Flags).field("NotificationInfoSize", &self.NotificationInfoSize).field("NotificationInfoOffset", &self.NotificationInfoOffset).field("ProviderMajorVersion", &self.ProviderMajorVersion).finish()
     }
 }
 impl ::core::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
@@ -18954,15 +18219,7 @@ impl ::core::default::Default for WIM_PROVIDER_OVERLAY_ENTRY {
 }
 impl ::core::fmt::Debug for WIM_PROVIDER_OVERLAY_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIM_PROVIDER_OVERLAY_ENTRY")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("DataSourceId", &self.DataSourceId)
-            .field("WimGuid", &self.WimGuid)
-            .field("WimFileNameOffset", &self.WimFileNameOffset)
-            .field("WimType", &self.WimType)
-            .field("WimIndex", &self.WimIndex)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("WIM_PROVIDER_OVERLAY_ENTRY").field("NextEntryOffset", &self.NextEntryOffset).field("DataSourceId", &self.DataSourceId).field("WimGuid", &self.WimGuid).field("WimFileNameOffset", &self.WimFileNameOffset).field("WimType", &self.WimType).field("WimIndex", &self.WimIndex).field("Flags", &self.Flags).finish()
     }
 }
 impl ::core::cmp::PartialEq for WIM_PROVIDER_OVERLAY_ENTRY {

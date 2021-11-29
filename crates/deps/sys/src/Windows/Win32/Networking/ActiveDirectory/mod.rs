@@ -1030,12 +1030,7 @@ impl ::core::clone::Clone for ADS_VLV {
     }
 }
 pub const ADSystemInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1354117759, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
-pub const ADsSecurityUtility: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4067477066,
-    data2: 65464,
-    data3: 19172,
-    data4: [133, 254, 58, 117, 229, 52, 121, 102],
-};
+pub const ADsSecurityUtility: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4067477066, data2: 65464, data3: 19172, data4: [133, 254, 58, 117, 229, 52, 121, 102] };
 pub const AccessControlEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3076177920, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
 pub const AccessControlList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3093209170, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
 pub const BackLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4240412783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
@@ -1052,12 +1047,7 @@ pub const CLSID_DsFindObjects: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const CLSID_DsFindPeople: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2213429218, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
 pub const CLSID_DsFindPrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3044536432, data2: 32482, data3: 4560, data4: [145, 63, 0, 170, 0, 193, 110, 101] };
 pub const CLSID_DsFindVolume: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3249785841, data2: 34922, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsFindWriteableDomainController: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2092888185,
-    data2: 43652,
-    data3: 17483,
-    data4: [188, 112, 104, 228, 18, 131, 234, 188],
-};
+pub const CLSID_DsFindWriteableDomainController: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2092888185, data2: 43652, data3: 17483, data4: [188, 112, 104, 228, 18, 131, 234, 188] };
 pub const CLSID_DsFolderProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2656166096, data2: 28175, data3: 4562, data4: [150, 1, 0, 192, 79, 163, 26, 134] };
 pub const CLSID_DsObjectPicker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 399953112, data2: 15227, data3: 4562, data4: [185, 224, 0, 192, 79, 216, 219, 247] };
 pub const CLSID_DsPropertyPages: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 222680368, data2: 30283, data3: 4560, data4: [161, 202, 0, 170, 0, 193, 110, 101] };

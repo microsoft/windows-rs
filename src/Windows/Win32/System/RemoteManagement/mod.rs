@@ -710,18 +710,7 @@ impl IWSManConnectionOptionsEx {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -857,18 +846,7 @@ impl IWSManConnectionOptionsEx2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
@@ -1151,18 +1129,7 @@ impl IWSManEx {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::core::Result<super::Com::IDispatch> {
@@ -1398,18 +1365,7 @@ impl IWSManEx2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::core::Result<super::Com::IDispatch> {
@@ -1670,18 +1626,7 @@ impl IWSManEx3 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, connection: Param0, flags: i32, connectionoptions: Param2) -> ::windows::core::Result<super::Com::IDispatch> {
@@ -2442,12 +2387,7 @@ impl ::core::default::Default for WSMAN_AUTHZ_QUOTA {
 }
 impl ::core::fmt::Debug for WSMAN_AUTHZ_QUOTA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSMAN_AUTHZ_QUOTA")
-            .field("maxAllowedConcurrentShells", &self.maxAllowedConcurrentShells)
-            .field("maxAllowedConcurrentOperations", &self.maxAllowedConcurrentOperations)
-            .field("timeslotSize", &self.timeslotSize)
-            .field("maxAllowedOperationsPerTimeslot", &self.maxAllowedOperationsPerTimeslot)
-            .finish()
+        fmt.debug_struct("WSMAN_AUTHZ_QUOTA").field("maxAllowedConcurrentShells", &self.maxAllowedConcurrentShells).field("maxAllowedConcurrentOperations", &self.maxAllowedConcurrentOperations).field("timeslotSize", &self.timeslotSize).field("maxAllowedOperationsPerTimeslot", &self.maxAllowedOperationsPerTimeslot).finish()
     }
 }
 impl ::core::cmp::PartialEq for WSMAN_AUTHZ_QUOTA {
@@ -3088,16 +3028,16 @@ unsafe impl ::windows::core::Abi for WSMAN_OPTION_SETEX {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
+pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
-pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void);
+pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
+pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = ::core::option::Option<unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_AUTHORIZE_USER = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
+pub type WSMAN_PLUGIN_AUTHORIZE_USER = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_COMMAND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET);
+pub type WSMAN_PLUGIN_COMMAND = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_CONNECT = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA);
+pub type WSMAN_PLUGIN_CONNECT = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA)>;
 pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
 pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_DATA_LOCALE: u32 = 6u32;
 pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_LOCALE: u32 = 5u32;
@@ -3110,9 +3050,9 @@ pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
 pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
 pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_RECEIVE = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET);
-pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void);
-pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void);
+pub type WSMAN_PLUGIN_RECEIVE = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET)>;
+pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = ::core::option::Option<unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void)>;
+pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = ::core::option::Option<unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3136,15 +3076,7 @@ impl ::core::default::Default for WSMAN_PLUGIN_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSMAN_PLUGIN_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSMAN_PLUGIN_REQUEST")
-            .field("senderDetails", &self.senderDetails)
-            .field("locale", &self.locale)
-            .field("resourceUri", &self.resourceUri)
-            .field("operationInfo", &self.operationInfo)
-            .field("shutdownNotification", &self.shutdownNotification)
-            .field("shutdownNotificationHandle", &self.shutdownNotificationHandle)
-            .field("dataLocale", &self.dataLocale)
-            .finish()
+        fmt.debug_struct("WSMAN_PLUGIN_REQUEST").field("senderDetails", &self.senderDetails).field("locale", &self.locale).field("resourceUri", &self.resourceUri).field("operationInfo", &self.operationInfo).field("shutdownNotification", &self.shutdownNotification).field("shutdownNotificationHandle", &self.shutdownNotificationHandle).field("dataLocale", &self.dataLocale).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3160,18 +3092,18 @@ unsafe impl ::windows::core::Abi for WSMAN_PLUGIN_REQUEST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
+pub type WSMAN_PLUGIN_SEND = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SHELL = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA);
-pub type WSMAN_PLUGIN_SHUTDOWN = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, flags: u32, reason: u32) -> u32;
+pub type WSMAN_PLUGIN_SHELL = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA)>;
+pub type WSMAN_PLUGIN_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, flags: u32, reason: u32) -> u32>;
 pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_SIGNAL = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, code: super::super::Foundation::PWSTR);
+pub type WSMAN_PLUGIN_SIGNAL = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, code: super::super::Foundation::PWSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_PLUGIN_STARTUP = unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32;
+pub type WSMAN_PLUGIN_STARTUP = ::core::option::Option<unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32>;
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
 pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
@@ -3334,12 +3266,12 @@ pub struct WSMAN_SESSION(pub u8);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct WSMAN_SHELL(pub u8);
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut ::core::ffi::c_void,
-    pub completionFunction: ::core::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
+    pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WSMAN_SHELL_ASYNC {}
@@ -3365,10 +3297,10 @@ impl ::core::cmp::PartialEq for WSMAN_SHELL_ASYNC {
 impl ::core::cmp::Eq for WSMAN_SHELL_ASYNC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_ASYNC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
+pub type WSMAN_SHELL_COMPLETION_FUNCTION = ::core::option::Option<unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {
@@ -3577,7 +3509,7 @@ pub unsafe fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
         ::core::mem::transmute(WSManCloseCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
@@ -3617,7 +3549,7 @@ pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
         ::core::mem::transmute(WSManCloseShell(::core::mem::transmute(shellhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
@@ -3631,7 +3563,7 @@ pub unsafe fn WSManConnectShell<'a, Param2: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
+            fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
         ::core::mem::transmute(WSManConnectShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
     }
@@ -3645,7 +3577,7 @@ pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
+            fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
         ::core::mem::transmute(WSManConnectShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
     }
@@ -3673,7 +3605,7 @@ pub unsafe fn WSManCreateShell<'a, Param2: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
+            fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
         ::core::mem::transmute(WSManCreateShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
     }
@@ -3687,19 +3619,9 @@ pub unsafe fn WSManCreateShellEx<'a, Param2: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, shell: *mut *mut WSMAN_SHELL);
+            fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
-        ::core::mem::transmute(WSManCreateShellEx(
-            ::core::mem::transmute(session),
-            ::core::mem::transmute(flags),
-            resourceuri.into_param().abi(),
-            shellid.into_param().abi(),
-            ::core::mem::transmute(startupinfo),
-            ::core::mem::transmute(options),
-            ::core::mem::transmute(createxml),
-            ::core::mem::transmute(r#async),
-            ::core::mem::transmute(shell),
-        ))
+        ::core::mem::transmute(WSManCreateShellEx(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3739,7 +3661,7 @@ pub unsafe fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconne
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC);
         }
         ::core::mem::transmute(WSManDisconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(disconnectinfo), ::core::mem::transmute(r#async)))
     }
@@ -3858,15 +3780,7 @@ pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::core::IntoPara
         extern "system" {
             fn WSManPluginAuthzUserComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: super::super::Foundation::HANDLE, userisadministrator: super::super::Foundation::BOOL, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(WSManPluginAuthzUserComplete(
-            ::core::mem::transmute(senderdetails),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(userauthorizationcontext),
-            impersonationtoken.into_param().abi(),
-            userisadministrator.into_param().abi(),
-            ::core::mem::transmute(errorcode),
-            extendederrorinformation.into_param().abi(),
-        ))
+        ::core::mem::transmute(WSManPluginAuthzUserComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(userauthorizationcontext), impersonationtoken.into_param().abi(), userisadministrator.into_param().abi(), ::core::mem::transmute(errorcode), extendederrorinformation.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4019,7 +3933,7 @@ pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const W
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, receiveoperation: *mut *mut WSMAN_OPERATION);
+            fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const WSMAN_SHELL_ASYNC, receiveoperation: *mut *mut WSMAN_OPERATION);
         }
         ::core::mem::transmute(WSManReceiveShellOutput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), ::core::mem::transmute(desiredstreamset), ::core::mem::transmute(r#async), ::core::mem::transmute(receiveoperation)))
     }
@@ -4033,7 +3947,7 @@ pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
         ::core::mem::transmute(WSManReconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
@@ -4047,7 +3961,7 @@ pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flag
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>);
+            fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
         ::core::mem::transmute(WSManReconnectShellCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
     }
@@ -4061,7 +3975,7 @@ pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
+            fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
         ::core::mem::transmute(WSManRunShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
     }
@@ -4075,7 +3989,7 @@ pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, command: *mut *mut WSMAN_COMMAND);
+            fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
         ::core::mem::transmute(WSManRunShellCommandEx(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
     }
@@ -4089,7 +4003,7 @@ pub unsafe fn WSManSendShellInput<'a, Param3: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: super::super::Foundation::PWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, sendoperation: *mut *mut WSMAN_OPERATION);
+            fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: super::super::Foundation::PWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION);
         }
         ::core::mem::transmute(WSManSendShellInput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), streamid.into_param().abi(), ::core::mem::transmute(streamdata), endofstream.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(sendoperation)))
     }
@@ -4195,7 +4109,7 @@ pub unsafe fn WSManSignalShell<'a, Param3: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: super::super::Foundation::PWSTR, r#async: *const ::core::mem::ManuallyDrop<WSMAN_SHELL_ASYNC>, signaloperation: *mut *mut WSMAN_OPERATION);
+            fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: super::super::Foundation::PWSTR, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION);
         }
         ::core::mem::transmute(WSManSignalShell(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), code.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(signaloperation)))
     }

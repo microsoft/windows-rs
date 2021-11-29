@@ -131,20 +131,10 @@ pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0i32;
 pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1i32;
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
-pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1891485287,
-    data2: 13234,
-    data3: 17904,
-    data4: [172, 82, 195, 202, 70, 247, 166, 86],
-};
+pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1891485287, data2: 13234, data3: 17904, data4: [172, 82, 195, 202, 70, 247, 166, 86] };
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2951774718, data2: 583, data3: 17013, data4: [156, 78, 2, 31, 61, 193, 218, 53] };
-pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 112807322,
-    data2: 45406,
-    data3: 17774,
-    data4: [164, 239, 55, 201, 132, 162, 203, 75],
-};
+pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 112807322, data2: 45406, data3: 17774, data4: [164, 239, 55, 201, 132, 162, 203, 75] };
 pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2713846798, data2: 34880, data3: 19505, data4: [186, 17, 152, 113, 3, 26, 25, 234] };
 pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3579657161, data2: 52137, data3: 17631, data4: [130, 126, 19, 45, 58, 69, 150, 194] };
 pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 975851140, data2: 19489, data3: 18817, data4: [174, 16, 63, 218, 13, 155, 15, 131] };

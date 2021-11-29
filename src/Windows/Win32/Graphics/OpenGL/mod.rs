@@ -178,23 +178,23 @@ pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GLUnurbs(pub u8);
-pub type GLUnurbsErrorProc = unsafe extern "system" fn(param0: u32);
+pub type GLUnurbsErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GLUquadric(pub u8);
-pub type GLUquadricErrorProc = unsafe extern "system" fn(param0: u32);
-pub type GLUtessBeginDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void);
-pub type GLUtessBeginProc = unsafe extern "system" fn(param0: u32);
-pub type GLUtessCombineDataProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void);
-pub type GLUtessCombineProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void);
-pub type GLUtessEdgeFlagDataProc = unsafe extern "system" fn(param0: u8, param1: *mut ::core::ffi::c_void);
-pub type GLUtessEdgeFlagProc = unsafe extern "system" fn(param0: u8);
-pub type GLUtessEndDataProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
-pub type GLUtessEndProc = unsafe extern "system" fn();
-pub type GLUtessErrorDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void);
-pub type GLUtessErrorProc = unsafe extern "system" fn(param0: u32);
-pub type GLUtessVertexDataProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void);
-pub type GLUtessVertexProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type GLUquadricErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessBeginDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
+pub type GLUtessBeginProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessCombineDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void)>;
+pub type GLUtessCombineProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void)>;
+pub type GLUtessEdgeFlagDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u8, param1: *mut ::core::ffi::c_void)>;
+pub type GLUtessEdgeFlagProc = ::core::option::Option<unsafe extern "system" fn(param0: u8)>;
+pub type GLUtessEndDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
+pub type GLUtessEndProc = ::core::option::Option<unsafe extern "system" fn()>;
+pub type GLUtessErrorDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
+pub type GLUtessErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
+pub type GLUtessVertexDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void)>;
+pub type GLUtessVertexProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GLUtesselator(pub u8);
@@ -951,23 +951,23 @@ impl ::core::cmp::Eq for LAYERPLANEDESCRIPTOR {}
 unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
     type Abi = Self;
 }
-pub type PFNGLADDSWAPHINTRECTWINPROC = unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
-pub type PFNGLARRAYELEMENTARRAYEXTPROC = unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void);
-pub type PFNGLARRAYELEMENTEXTPROC = unsafe extern "system" fn(i: i32);
-pub type PFNGLCOLORPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
-pub type PFNGLCOLORSUBTABLEEXTPROC = unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void);
-pub type PFNGLCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void);
-pub type PFNGLDRAWARRAYSEXTPROC = unsafe extern "system" fn(mode: u32, first: i32, count: i32);
-pub type PFNGLDRAWRANGEELEMENTSWINPROC = unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void);
-pub type PFNGLEDGEFLAGPOINTEREXTPROC = unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8);
-pub type PFNGLGETCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::core::ffi::c_void);
-pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32);
-pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32);
-pub type PFNGLGETPOINTERVEXTPROC = unsafe extern "system" fn(pname: u32, params: *mut *mut ::core::ffi::c_void);
-pub type PFNGLINDEXPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
-pub type PFNGLNORMALPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
-pub type PFNGLTEXCOORDPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
-pub type PFNGLVERTEXPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
+pub type PFNGLADDSWAPHINTRECTWINPROC = ::core::option::Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void)>;
+pub type PFNGLARRAYELEMENTEXTPROC = ::core::option::Option<unsafe extern "system" fn(i: i32)>;
+pub type PFNGLCOLORPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
+pub type PFNGLCOLORSUBTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void)>;
+pub type PFNGLCOLORTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void)>;
+pub type PFNGLDRAWARRAYSEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, first: i32, count: i32)>;
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void)>;
+pub type PFNGLEDGEFLAGPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8)>;
+pub type PFNGLGETCOLORTABLEEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::core::ffi::c_void)>;
+pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32)>;
+pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = ::core::option::Option<unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32)>;
+pub type PFNGLGETPOINTERVEXTPROC = ::core::option::Option<unsafe extern "system" fn(pname: u32, params: *mut *mut ::core::ffi::c_void)>;
+pub type PFNGLINDEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
+pub type PFNGLNORMALPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
+pub type PFNGLTEXCOORDPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
+pub type PFNGLVERTEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PIXELFORMATDESCRIPTOR {
@@ -3264,18 +3264,7 @@ pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, 
         extern "system" {
             fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64);
         }
-        ::core::mem::transmute(glMap2d(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(u1),
-            ::core::mem::transmute(u2),
-            ::core::mem::transmute(ustride),
-            ::core::mem::transmute(uorder),
-            ::core::mem::transmute(v1),
-            ::core::mem::transmute(v2),
-            ::core::mem::transmute(vstride),
-            ::core::mem::transmute(vorder),
-            ::core::mem::transmute(points),
-        ))
+        ::core::mem::transmute(glMap2d(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3288,18 +3277,7 @@ pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, 
         extern "system" {
             fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32);
         }
-        ::core::mem::transmute(glMap2f(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(u1),
-            ::core::mem::transmute(u2),
-            ::core::mem::transmute(ustride),
-            ::core::mem::transmute(uorder),
-            ::core::mem::transmute(v1),
-            ::core::mem::transmute(v2),
-            ::core::mem::transmute(vstride),
-            ::core::mem::transmute(vorder),
-            ::core::mem::transmute(points),
-        ))
+        ::core::mem::transmute(glMap2f(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5067,17 +5045,7 @@ pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: 
         extern "system" {
             fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(glTexImage2D(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(internalformat),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(border),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(pixels),
-        ))
+        ::core::mem::transmute(glTexImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(border), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5155,17 +5123,7 @@ pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i3
         extern "system" {
             fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(glTexSubImage2D(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(xoffset),
-            ::core::mem::transmute(yoffset),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(pixels),
-        ))
+        ::core::mem::transmute(glTexSubImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5920,19 +5878,7 @@ pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut
         extern "system" {
             fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
         }
-        ::core::mem::transmute(gluNurbsSurface(
-            ::core::mem::transmute(nobj),
-            ::core::mem::transmute(sknot_count),
-            ::core::mem::transmute(sknot),
-            ::core::mem::transmute(tknot_count),
-            ::core::mem::transmute(tknot),
-            ::core::mem::transmute(s_stride),
-            ::core::mem::transmute(t_stride),
-            ::core::mem::transmute(ctlarray),
-            ::core::mem::transmute(sorder),
-            ::core::mem::transmute(torder),
-            ::core::mem::transmute(r#type),
-        ))
+        ::core::mem::transmute(gluNurbsSurface(::core::mem::transmute(nobj), ::core::mem::transmute(sknot_count), ::core::mem::transmute(sknot), ::core::mem::transmute(tknot_count), ::core::mem::transmute(tknot), ::core::mem::transmute(s_stride), ::core::mem::transmute(t_stride), ::core::mem::transmute(ctlarray), ::core::mem::transmute(sorder), ::core::mem::transmute(torder), ::core::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6088,17 +6034,7 @@ pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u3
         extern "system" {
             fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
         }
-        ::core::mem::transmute(gluScaleImage(
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(widthin),
-            ::core::mem::transmute(heightin),
-            ::core::mem::transmute(typein),
-            ::core::mem::transmute(datain),
-            ::core::mem::transmute(widthout),
-            ::core::mem::transmute(heightout),
-            ::core::mem::transmute(typeout),
-            ::core::mem::transmute(dataout),
-        ))
+        ::core::mem::transmute(gluScaleImage(::core::mem::transmute(format), ::core::mem::transmute(widthin), ::core::mem::transmute(heightin), ::core::mem::transmute(typein), ::core::mem::transmute(datain), ::core::mem::transmute(widthout), ::core::mem::transmute(heightout), ::core::mem::transmute(typeout), ::core::mem::transmute(dataout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6346,12 +6282,12 @@ pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> ::core::option::Option<super::super::Foundation::PROC> {
+pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> ::core::option::Option<super::super::Foundation::PROC>;
+            fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PROC;
         }
         ::core::mem::transmute(wglGetProcAddress(param0.into_param().abi()))
     }

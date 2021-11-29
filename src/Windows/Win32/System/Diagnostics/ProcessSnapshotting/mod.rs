@@ -376,15 +376,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Process_e__Struct")
-            .field("ExitStatus", &self.ExitStatus)
-            .field("PebBaseAddress", &self.PebBaseAddress)
-            .field("AffinityMask", &self.AffinityMask)
-            .field("BasePriority", &self.BasePriority)
-            .field("ProcessId", &self.ProcessId)
-            .field("ParentProcessId", &self.ParentProcessId)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Process_e__Struct").field("ExitStatus", &self.ExitStatus).field("PebBaseAddress", &self.PebBaseAddress).field("AffinityMask", &self.AffinityMask).field("BasePriority", &self.BasePriority).field("ProcessId", &self.ProcessId).field("ParentProcessId", &self.ParentProcessId).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -490,16 +482,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Thread_e__Struct")
-            .field("ExitStatus", &self.ExitStatus)
-            .field("TebBaseAddress", &self.TebBaseAddress)
-            .field("ProcessId", &self.ProcessId)
-            .field("ThreadId", &self.ThreadId)
-            .field("AffinityMask", &self.AffinityMask)
-            .field("Priority", &self.Priority)
-            .field("BasePriority", &self.BasePriority)
-            .field("Win32StartAddress", &self.Win32StartAddress)
-            .finish()
+        fmt.debug_struct("_Thread_e__Struct").field("ExitStatus", &self.ExitStatus).field("TebBaseAddress", &self.TebBaseAddress).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("AffinityMask", &self.AffinityMask).field("Priority", &self.Priority).field("BasePriority", &self.BasePriority).field("Win32StartAddress", &self.Win32StartAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -676,18 +659,7 @@ impl ::core::fmt::Debug for PSS_PERFORMANCE_COUNTERS {
 }
 impl ::core::cmp::PartialEq for PSS_PERFORMANCE_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalCycleCount == other.TotalCycleCount
-            && self.TotalWallClockPeriod == other.TotalWallClockPeriod
-            && self.VaCloneCycleCount == other.VaCloneCycleCount
-            && self.VaCloneWallClockPeriod == other.VaCloneWallClockPeriod
-            && self.VaSpaceCycleCount == other.VaSpaceCycleCount
-            && self.VaSpaceWallClockPeriod == other.VaSpaceWallClockPeriod
-            && self.AuxPagesCycleCount == other.AuxPagesCycleCount
-            && self.AuxPagesWallClockPeriod == other.AuxPagesWallClockPeriod
-            && self.HandlesCycleCount == other.HandlesCycleCount
-            && self.HandlesWallClockPeriod == other.HandlesWallClockPeriod
-            && self.ThreadsCycleCount == other.ThreadsCycleCount
-            && self.ThreadsWallClockPeriod == other.ThreadsWallClockPeriod
+        self.TotalCycleCount == other.TotalCycleCount && self.TotalWallClockPeriod == other.TotalWallClockPeriod && self.VaCloneCycleCount == other.VaCloneCycleCount && self.VaCloneWallClockPeriod == other.VaCloneWallClockPeriod && self.VaSpaceCycleCount == other.VaSpaceCycleCount && self.VaSpaceWallClockPeriod == other.VaSpaceWallClockPeriod && self.AuxPagesCycleCount == other.AuxPagesCycleCount && self.AuxPagesWallClockPeriod == other.AuxPagesWallClockPeriod && self.HandlesCycleCount == other.HandlesCycleCount && self.HandlesWallClockPeriod == other.HandlesWallClockPeriod && self.ThreadsCycleCount == other.ThreadsCycleCount && self.ThreadsWallClockPeriod == other.ThreadsWallClockPeriod
     }
 }
 impl ::core::cmp::Eq for PSS_PERFORMANCE_COUNTERS {}
@@ -1104,19 +1076,7 @@ impl ::core::fmt::Debug for PSS_VA_SPACE_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress
-            && self.AllocationBase == other.AllocationBase
-            && self.AllocationProtect == other.AllocationProtect
-            && self.RegionSize == other.RegionSize
-            && self.State == other.State
-            && self.Protect == other.Protect
-            && self.Type == other.Type
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.SizeOfImage == other.SizeOfImage
-            && self.ImageBase == other.ImageBase
-            && self.CheckSum == other.CheckSum
-            && self.MappedFileNameLength == other.MappedFileNameLength
-            && self.MappedFileName == other.MappedFileName
+        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type && self.TimeDateStamp == other.TimeDateStamp && self.SizeOfImage == other.SizeOfImage && self.ImageBase == other.ImageBase && self.CheckSum == other.CheckSum && self.MappedFileNameLength == other.MappedFileNameLength && self.MappedFileName == other.MappedFileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]

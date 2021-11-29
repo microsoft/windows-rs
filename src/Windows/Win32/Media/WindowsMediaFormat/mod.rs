@@ -76,13 +76,7 @@ impl ::core::default::Default for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
 }
 impl ::core::fmt::Debug for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS")
-            .field("wCompressedDigitalVideo", &self.wCompressedDigitalVideo)
-            .field("wUncompressedDigitalVideo", &self.wUncompressedDigitalVideo)
-            .field("wAnalogVideo", &self.wAnalogVideo)
-            .field("wCompressedDigitalAudio", &self.wCompressedDigitalAudio)
-            .field("wUncompressedDigitalAudio", &self.wUncompressedDigitalAudio)
-            .finish()
+        fmt.debug_struct("DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS").field("wCompressedDigitalVideo", &self.wCompressedDigitalVideo).field("wUncompressedDigitalVideo", &self.wUncompressedDigitalVideo).field("wAnalogVideo", &self.wAnalogVideo).field("wCompressedDigitalAudio", &self.wCompressedDigitalAudio).field("wUncompressedDigitalAudio", &self.wUncompressedDigitalAudio).finish()
     }
 }
 impl ::core::cmp::PartialEq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
@@ -259,12 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAMWM
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAMWMBufferPass_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAMWMBufferPass_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAMWMBufferPassCallback(pub ::windows::core::IUnknown);
@@ -1623,18 +1612,7 @@ pub struct IWMCredentialCallback(pub ::windows::core::IUnknown);
 impl IWMCredentialCallback {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcquireCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszrealm: Param0, pwszsite: Param1, pwszuser: super::super::Foundation::PWSTR, cchuser: u32, pwszpassword: super::super::Foundation::PWSTR, cchpassword: u32, hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            pwszrealm.into_param().abi(),
-            pwszsite.into_param().abi(),
-            ::core::mem::transmute(pwszuser),
-            ::core::mem::transmute(cchuser),
-            ::core::mem::transmute(pwszpassword),
-            ::core::mem::transmute(cchpassword),
-            ::core::mem::transmute(hrstatus),
-            ::core::mem::transmute(pdwflags),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwszrealm.into_param().abi(), pwszsite.into_param().abi(), ::core::mem::transmute(pwszuser), ::core::mem::transmute(cchuser), ::core::mem::transmute(pwszpassword), ::core::mem::transmute(cchpassword), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pdwflags)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMCredentialCallback {
@@ -2109,12 +2087,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDR
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDRMTranscryptionManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptranscryptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWMDRMTranscryptionManager_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptranscryptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMDRMTranscryptor(pub ::windows::core::IUnknown);
@@ -2621,12 +2594,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMGe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMGetSecureChannel_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppeer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWMGetSecureChannel_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppeer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMHeaderInfo(pub ::windows::core::IUnknown);
@@ -2784,18 +2752,7 @@ impl IWMHeaderInfo2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(windex),
-            ::core::mem::transmute(pcchname),
-            ::core::mem::transmute(pwszname),
-            ::core::mem::transmute(pcchdescription),
-            ::core::mem::transmute(pwszdescription),
-            ::core::mem::transmute(pcodectype),
-            ::core::mem::transmute(pcbcodecinfo),
-            ::core::mem::transmute(pbcodecinfo),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(windex), ::core::mem::transmute(pcchname), ::core::mem::transmute(pwszname), ::core::mem::transmute(pcchdescription), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pcodectype), ::core::mem::transmute(pcbcodecinfo), ::core::mem::transmute(pbcodecinfo)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMHeaderInfo2 {
@@ -2927,18 +2884,7 @@ impl IWMHeaderInfo3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(windex),
-            ::core::mem::transmute(pcchname),
-            ::core::mem::transmute(pwszname),
-            ::core::mem::transmute(pcchdescription),
-            ::core::mem::transmute(pwszdescription),
-            ::core::mem::transmute(pcodectype),
-            ::core::mem::transmute(pcbcodecinfo),
-            ::core::mem::transmute(pbcodecinfo),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(windex), ::core::mem::transmute(pcchname), ::core::mem::transmute(pwszname), ::core::mem::transmute(pcchdescription), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pcodectype), ::core::mem::transmute(pcbcodecinfo), ::core::mem::transmute(pbcodecinfo)).ok()
     }
     pub unsafe fn GetAttributeCountEx(&self, wstreamnum: u16) -> ::windows::core::Result<u16> {
         let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -2950,18 +2896,7 @@ impl IWMHeaderInfo3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: super::super::Foundation::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(wstreamnum),
-            ::core::mem::transmute(windex),
-            ::core::mem::transmute(pwszname),
-            ::core::mem::transmute(pwnamelen),
-            ::core::mem::transmute(ptype),
-            ::core::mem::transmute(pwlangindex),
-            ::core::mem::transmute(pvalue),
-            ::core::mem::transmute(pdwdatalength),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(wstreamnum), ::core::mem::transmute(windex), ::core::mem::transmute(pwszname), ::core::mem::transmute(pwnamelen), ::core::mem::transmute(ptype), ::core::mem::transmute(pwlangindex), ::core::mem::transmute(pvalue), ::core::mem::transmute(pdwdatalength)).ok()
     }
     pub unsafe fn ModifyAttribute(&self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(wstreamnum), ::core::mem::transmute(windex), ::core::mem::transmute(r#type), ::core::mem::transmute(wlangindex), ::core::mem::transmute(pvalue), ::core::mem::transmute(dwlength)).ok()
@@ -3134,18 +3069,7 @@ impl IWMImageInfo {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImage(&self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(windex),
-            ::core::mem::transmute(pcchmimetype),
-            ::core::mem::transmute(pwszmimetype),
-            ::core::mem::transmute(pcchdescription),
-            ::core::mem::transmute(pwszdescription),
-            ::core::mem::transmute(pimagetype),
-            ::core::mem::transmute(pcbimagedata),
-            ::core::mem::transmute(pbimagedata),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(windex), ::core::mem::transmute(pcchmimetype), ::core::mem::transmute(pwszmimetype), ::core::mem::transmute(pcchdescription), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pimagetype), ::core::mem::transmute(pcbimagedata), ::core::mem::transmute(pbimagedata)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMImageInfo {
@@ -4209,12 +4133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPl
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMPlayerHook_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWMPlayerHook_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMPlayerTimestampHook(pub ::windows::core::IUnknown);
@@ -4250,12 +4169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPl
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMPlayerTimestampHook_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rtin: i64, prtout: *mut i64) -> ::windows::core::HRESULT,
-);
+pub struct IWMPlayerTimestampHook_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rtin: i64, prtout: *mut i64) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMProfile(pub ::windows::core::IUnknown);
@@ -5034,18 +4948,7 @@ pub struct IWMPropertyVault_abi(
 pub struct IWMProximityDetection(pub ::windows::core::IUnknown);
 impl IWMProximityDetection {
     pub unsafe fn StartDetection<'a, Param6: ::windows::core::IntoParam<'a, IWMStatusCallback>>(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: Param6, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pbregistrationmsg),
-            ::core::mem::transmute(cbregistrationmsg),
-            ::core::mem::transmute(pblocaladdress),
-            ::core::mem::transmute(cblocaladdress),
-            ::core::mem::transmute(dwextraportsallowed),
-            ::core::mem::transmute(ppregistrationresponsemsg),
-            pcallback.into_param().abi(),
-            ::core::mem::transmute(pvcontext),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbregistrationmsg), ::core::mem::transmute(cbregistrationmsg), ::core::mem::transmute(pblocaladdress), ::core::mem::transmute(cblocaladdress), ::core::mem::transmute(dwextraportsallowed), ::core::mem::transmute(ppregistrationresponsemsg), pcallback.into_param().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMProximityDetection {
@@ -7897,12 +7800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMRe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMReaderTypeNegotiation_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoutputnum: u32, poutput: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWMReaderTypeNegotiation_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwoutputnum: u32, poutput: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMRegisterCallback(pub ::windows::core::IUnknown);
@@ -8123,14 +8021,7 @@ impl IWMSInternalAdminNetSource {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INSNetSourceCreator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-        &self,
-        bstrrealm: Param0,
-        bstrname: Param1,
-        bstrpassword: Param2,
-        fpersist: Param3,
-        fconfirmedgood: Param4,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrname: Param1, bstrpassword: Param2, fpersist: Param3, fconfirmedgood: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -8217,38 +8108,11 @@ pub struct IWMSInternalAdminNetSource_abi(
 pub struct IWMSInternalAdminNetSource2(pub ::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentialsEx<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        bstrrealm: Param0,
-        bstrurl: Param1,
-        fproxy: Param2,
-        bstrname: Param3,
-        bstrpassword: Param4,
-        fpersist: Param5,
-        fconfirmedgood: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCredentialsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2, bstrname: Param3, bstrpassword: Param4, fpersist: Param5, fconfirmedgood: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentialsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-        &self,
-        bstrrealm: Param0,
-        bstrurl: Param1,
-        fproxy: Param2,
-        pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS,
-        pbstrname: *mut super::super::Foundation::BSTR,
-        pbstrpassword: *mut super::super::Foundation::BSTR,
-        pfconfirmedgood: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCredentialsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), ::core::mem::transmute(pdwurlpolicy), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -8256,16 +8120,7 @@ impl IWMSInternalAdminNetSource2 {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURLEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(
-        &self,
-        bstrprotocol: Param0,
-        bstrhost: Param1,
-        bstrurl: Param2,
-        pfproxyenabled: *mut super::super::Foundation::BOOL,
-        pbstrproxyserver: *mut super::super::Foundation::BSTR,
-        pdwproxyport: *mut u32,
-        pdwproxycontext: *mut u32,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn FindProxyForURLEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, bstrhost: Param1, bstrurl: Param2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(pfproxyenabled), ::core::mem::transmute(pbstrproxyserver), ::core::mem::transmute(pdwproxyport), ::core::mem::transmute(pdwproxycontext)).ok()
     }
 }
@@ -8299,34 +8154,13 @@ pub struct IWMSInternalAdminNetSource2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fproxy: super::super::Foundation::BOOL,
-        bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fpersist: super::super::Foundation::BOOL,
-        fconfirmedgood: super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fproxy: super::super::Foundation::BOOL,
-        pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS,
-        pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrpassword: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pfconfirmedgood: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrpassword: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -8334,38 +8168,11 @@ pub struct IWMSInternalAdminNetSource2_abi(
 pub struct IWMSInternalAdminNetSource3(pub ::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource3 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentialsEx<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        bstrrealm: Param0,
-        bstrurl: Param1,
-        fproxy: Param2,
-        bstrname: Param3,
-        bstrpassword: Param4,
-        fpersist: Param5,
-        fconfirmedgood: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCredentialsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2, bstrname: Param3, bstrpassword: Param4, fpersist: Param5, fconfirmedgood: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentialsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-        &self,
-        bstrrealm: Param0,
-        bstrurl: Param1,
-        fproxy: Param2,
-        pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS,
-        pbstrname: *mut super::super::Foundation::BSTR,
-        pbstrpassword: *mut super::super::Foundation::BSTR,
-        pfconfirmedgood: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCredentialsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), ::core::mem::transmute(pdwurlpolicy), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -8373,16 +8180,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURLEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(
-        &self,
-        bstrprotocol: Param0,
-        bstrhost: Param1,
-        bstrurl: Param2,
-        pfproxyenabled: *mut super::super::Foundation::BOOL,
-        pbstrproxyserver: *mut super::super::Foundation::BSTR,
-        pdwproxyport: *mut u32,
-        pdwproxycontext: *mut u32,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn FindProxyForURLEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, bstrhost: Param1, bstrurl: Param2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(pfproxyenabled), ::core::mem::transmute(pbstrproxyserver), ::core::mem::transmute(pdwproxyport), ::core::mem::transmute(pdwproxycontext)).ok()
     }
     pub unsafe fn GetNetSourceCreator2(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -8390,16 +8188,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURLEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(
-        &self,
-        bstrprotocol: Param0,
-        bstrhost: Param1,
-        bstrurl: Param2,
-        pfproxyenabled: *mut super::super::Foundation::BOOL,
-        pbstrproxyserver: *mut super::super::Foundation::BSTR,
-        pdwproxyport: *mut u32,
-        pqwproxycontext: *mut u64,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn FindProxyForURLEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, bstrhost: Param1, bstrurl: Param2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(pfproxyenabled), ::core::mem::transmute(pbstrproxyserver), ::core::mem::transmute(pdwproxyport), ::core::mem::transmute(pqwproxycontext)).ok()
     }
     pub unsafe fn RegisterProxyFailure2(&self, hrparam: ::windows::core::HRESULT, qwproxycontext: u64) -> ::windows::core::Result<()> {
@@ -8414,17 +8203,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(qwproxycontext), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentialsEx2<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
+    pub unsafe fn SetCredentialsEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         bstrrealm: Param0,
         bstrurl: Param1,
@@ -8438,29 +8217,8 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi(), fcleartextauthentication.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentialsEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-        &self,
-        bstrrealm: Param0,
-        bstrurl: Param1,
-        fproxy: Param2,
-        fcleartextauthentication: Param3,
-        pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS,
-        pbstrname: *mut super::super::Foundation::BSTR,
-        pbstrpassword: *mut super::super::Foundation::BSTR,
-        pfconfirmedgood: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(
-            ::core::mem::transmute_copy(self),
-            bstrrealm.into_param().abi(),
-            bstrurl.into_param().abi(),
-            fproxy.into_param().abi(),
-            fcleartextauthentication.into_param().abi(),
-            ::core::mem::transmute(pdwurlpolicy),
-            ::core::mem::transmute(pbstrname),
-            ::core::mem::transmute(pbstrpassword),
-            ::core::mem::transmute(pfconfirmedgood),
-        )
-        .ok()
+    pub unsafe fn GetCredentialsEx2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2, fcleartextauthentication: Param3, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), fcleartextauthentication.into_param().abi(), ::core::mem::transmute(pdwurlpolicy), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMSInternalAdminNetSource3 {
@@ -8513,68 +8271,24 @@ pub struct IWMSInternalAdminNetSource3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fproxy: super::super::Foundation::BOOL,
-        bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fpersist: super::super::Foundation::BOOL,
-        fconfirmedgood: super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fproxy: super::super::Foundation::BOOL,
-        pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS,
-        pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrpassword: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pfconfirmedgood: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrpassword: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppnetsourcecreator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrparam: ::windows::core::HRESULT, qwproxycontext: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, qwproxycontext: u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, qwproxycontext: u64, pfisusingie: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fproxy: super::super::Foundation::BOOL,
-        bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fpersist: super::super::Foundation::BOOL,
-        fconfirmedgood: super::super::Foundation::BOOL,
-        fcleartextauthentication: super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        fproxy: super::super::Foundation::BOOL,
-        fcleartextauthentication: super::super::Foundation::BOOL,
-        pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS,
-        pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrpassword: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pfconfirmedgood: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrpassword: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -11258,13 +10972,7 @@ impl ::core::default::Default for WMDRM_IMPORT_INIT_STRUCT {
 }
 impl ::core::fmt::Debug for WMDRM_IMPORT_INIT_STRUCT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WMDRM_IMPORT_INIT_STRUCT")
-            .field("dwVersion", &self.dwVersion)
-            .field("cbEncryptedSessionKeyMessage", &self.cbEncryptedSessionKeyMessage)
-            .field("pbEncryptedSessionKeyMessage", &self.pbEncryptedSessionKeyMessage)
-            .field("cbEncryptedKeyMessage", &self.cbEncryptedKeyMessage)
-            .field("pbEncryptedKeyMessage", &self.pbEncryptedKeyMessage)
-            .finish()
+        fmt.debug_struct("WMDRM_IMPORT_INIT_STRUCT").field("dwVersion", &self.dwVersion).field("cbEncryptedSessionKeyMessage", &self.cbEncryptedSessionKeyMessage).field("pbEncryptedSessionKeyMessage", &self.pbEncryptedSessionKeyMessage).field("cbEncryptedKeyMessage", &self.cbEncryptedKeyMessage).field("pbEncryptedKeyMessage", &self.pbEncryptedKeyMessage).finish()
     }
 }
 impl ::core::cmp::PartialEq for WMDRM_IMPORT_INIT_STRUCT {
@@ -11367,15 +11075,7 @@ impl ::core::default::Default for WMMPEG2VIDEOINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WMMPEG2VIDEOINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WMMPEG2VIDEOINFO")
-            .field("hdr", &self.hdr)
-            .field("dwStartTimeCode", &self.dwStartTimeCode)
-            .field("cbSequenceHeader", &self.cbSequenceHeader)
-            .field("dwProfile", &self.dwProfile)
-            .field("dwLevel", &self.dwLevel)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSequenceHeader", &self.dwSequenceHeader)
-            .finish()
+        fmt.debug_struct("WMMPEG2VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("dwProfile", &self.dwProfile).field("dwLevel", &self.dwLevel).field("dwFlags", &self.dwFlags).field("dwSequenceHeader", &self.dwSequenceHeader).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11565,13 +11265,7 @@ impl ::core::default::Default for WMT_FILESINK_DATA_UNIT {
 }
 impl ::core::fmt::Debug for WMT_FILESINK_DATA_UNIT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WMT_FILESINK_DATA_UNIT")
-            .field("packetHeaderBuffer", &self.packetHeaderBuffer)
-            .field("cPayloads", &self.cPayloads)
-            .field("pPayloadHeaderBuffers", &self.pPayloadHeaderBuffers)
-            .field("cPayloadDataFragments", &self.cPayloadDataFragments)
-            .field("pPayloadDataFragments", &self.pPayloadDataFragments)
-            .finish()
+        fmt.debug_struct("WMT_FILESINK_DATA_UNIT").field("packetHeaderBuffer", &self.packetHeaderBuffer).field("cPayloads", &self.cPayloads).field("pPayloadHeaderBuffers", &self.pPayloadHeaderBuffers).field("cPayloadDataFragments", &self.cPayloadDataFragments).field("pPayloadDataFragments", &self.pPayloadDataFragments).finish()
     }
 }
 impl ::core::cmp::PartialEq for WMT_FILESINK_DATA_UNIT {
@@ -12333,18 +12027,7 @@ impl ::core::fmt::Debug for WMVIDEOINFOHEADER2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER2 {
     fn eq(&self, other: &Self) -> bool {
-        self.rcSource == other.rcSource
-            && self.rcTarget == other.rcTarget
-            && self.dwBitRate == other.dwBitRate
-            && self.dwBitErrorRate == other.dwBitErrorRate
-            && self.AvgTimePerFrame == other.AvgTimePerFrame
-            && self.dwInterlaceFlags == other.dwInterlaceFlags
-            && self.dwCopyProtectFlags == other.dwCopyProtectFlags
-            && self.dwPictAspectRatioX == other.dwPictAspectRatioX
-            && self.dwPictAspectRatioY == other.dwPictAspectRatioY
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.bmiHeader == other.bmiHeader
+        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.dwInterlaceFlags == other.dwInterlaceFlags && self.dwCopyProtectFlags == other.dwCopyProtectFlags && self.dwPictAspectRatioX == other.dwPictAspectRatioX && self.dwPictAspectRatioY == other.dwPictAspectRatioY && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.bmiHeader == other.bmiHeader
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12546,17 +12229,7 @@ impl ::core::default::Default for WM_MEDIA_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WM_MEDIA_TYPE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WM_MEDIA_TYPE")
-            .field("majortype", &self.majortype)
-            .field("subtype", &self.subtype)
-            .field("bFixedSizeSamples", &self.bFixedSizeSamples)
-            .field("bTemporalCompression", &self.bTemporalCompression)
-            .field("lSampleSize", &self.lSampleSize)
-            .field("formattype", &self.formattype)
-            .field("pUnk", &self.pUnk)
-            .field("cbFormat", &self.cbFormat)
-            .field("pbFormat", &self.pbFormat)
-            .finish()
+        fmt.debug_struct("WM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12666,17 +12339,7 @@ impl ::core::default::Default for WM_READER_CLIENTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WM_READER_CLIENTINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WM_READER_CLIENTINFO")
-            .field("cbSize", &self.cbSize)
-            .field("wszLang", &self.wszLang)
-            .field("wszBrowserUserAgent", &self.wszBrowserUserAgent)
-            .field("wszBrowserWebPage", &self.wszBrowserWebPage)
-            .field("qwReserved", &self.qwReserved)
-            .field("pReserved", &self.pReserved)
-            .field("wszHostExe", &self.wszHostExe)
-            .field("qwHostVersion", &self.qwHostVersion)
-            .field("wszPlayerUserAgent", &self.wszPlayerUserAgent)
-            .finish()
+        fmt.debug_struct("WM_READER_CLIENTINFO").field("cbSize", &self.cbSize).field("wszLang", &self.wszLang).field("wszBrowserUserAgent", &self.wszBrowserUserAgent).field("wszBrowserWebPage", &self.wszBrowserWebPage).field("qwReserved", &self.qwReserved).field("pReserved", &self.pReserved).field("wszHostExe", &self.wszHostExe).field("qwHostVersion", &self.qwHostVersion).field("wszPlayerUserAgent", &self.wszPlayerUserAgent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12934,16 +12597,7 @@ impl ::core::fmt::Debug for WM_WRITER_STATISTICS {
 }
 impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.qwSampleCount == other.qwSampleCount
-            && self.qwByteCount == other.qwByteCount
-            && self.qwDroppedSampleCount == other.qwDroppedSampleCount
-            && self.qwDroppedByteCount == other.qwDroppedByteCount
-            && self.dwCurrentBitrate == other.dwCurrentBitrate
-            && self.dwAverageBitrate == other.dwAverageBitrate
-            && self.dwExpectedBitrate == other.dwExpectedBitrate
-            && self.dwCurrentSampleRate == other.dwCurrentSampleRate
-            && self.dwAverageSampleRate == other.dwAverageSampleRate
-            && self.dwExpectedSampleRate == other.dwExpectedSampleRate
+        self.qwSampleCount == other.qwSampleCount && self.qwByteCount == other.qwByteCount && self.qwDroppedSampleCount == other.qwDroppedSampleCount && self.qwDroppedByteCount == other.qwDroppedByteCount && self.dwCurrentBitrate == other.dwCurrentBitrate && self.dwAverageBitrate == other.dwAverageBitrate && self.dwExpectedBitrate == other.dwExpectedBitrate && self.dwCurrentSampleRate == other.dwCurrentSampleRate && self.dwAverageSampleRate == other.dwAverageSampleRate && self.dwExpectedSampleRate == other.dwExpectedSampleRate
     }
 }
 impl ::core::cmp::Eq for WM_WRITER_STATISTICS {}
@@ -12982,13 +12636,7 @@ impl ::core::fmt::Debug for WM_WRITER_STATISTICS_EX {
 }
 impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.dwBitratePlusOverhead == other.dwBitratePlusOverhead
-            && self.dwCurrentSampleDropRateInQueue == other.dwCurrentSampleDropRateInQueue
-            && self.dwCurrentSampleDropRateInCodec == other.dwCurrentSampleDropRateInCodec
-            && self.dwCurrentSampleDropRateInMultiplexer == other.dwCurrentSampleDropRateInMultiplexer
-            && self.dwTotalSampleDropsInQueue == other.dwTotalSampleDropsInQueue
-            && self.dwTotalSampleDropsInCodec == other.dwTotalSampleDropsInCodec
-            && self.dwTotalSampleDropsInMultiplexer == other.dwTotalSampleDropsInMultiplexer
+        self.dwBitratePlusOverhead == other.dwBitratePlusOverhead && self.dwCurrentSampleDropRateInQueue == other.dwCurrentSampleDropRateInQueue && self.dwCurrentSampleDropRateInCodec == other.dwCurrentSampleDropRateInCodec && self.dwCurrentSampleDropRateInMultiplexer == other.dwCurrentSampleDropRateInMultiplexer && self.dwTotalSampleDropsInQueue == other.dwTotalSampleDropsInQueue && self.dwTotalSampleDropsInCodec == other.dwTotalSampleDropsInCodec && self.dwTotalSampleDropsInMultiplexer == other.dwTotalSampleDropsInMultiplexer
     }
 }
 impl ::core::cmp::Eq for WM_WRITER_STATISTICS_EX {}

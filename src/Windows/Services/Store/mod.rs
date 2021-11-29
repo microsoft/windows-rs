@@ -1816,12 +1816,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    pub fn GetStoreProductsWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, StoreProductOptions>>(
-        &self,
-        productkinds: Param0,
-        storeids: Param1,
-        storeproductoptions: Param2,
-    ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
+    pub fn GetStoreProductsWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, StoreProductOptions>>(&self, productkinds: Param0, storeids: Param1, storeproductoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2569,14 +2564,7 @@ impl ::core::default::Default for StorePackageUpdateStatus {
 }
 impl ::core::fmt::Debug for StorePackageUpdateStatus {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("StorePackageUpdateStatus")
-            .field("PackageFamilyName", &self.PackageFamilyName)
-            .field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes)
-            .field("PackageBytesDownloaded", &self.PackageBytesDownloaded)
-            .field("PackageDownloadProgress", &self.PackageDownloadProgress)
-            .field("TotalDownloadProgress", &self.TotalDownloadProgress)
-            .field("PackageUpdateState", &self.PackageUpdateState)
-            .finish()
+        fmt.debug_struct("StorePackageUpdateStatus").field("PackageFamilyName", &self.PackageFamilyName).field("PackageDownloadSizeInBytes", &self.PackageDownloadSizeInBytes).field("PackageBytesDownloaded", &self.PackageBytesDownloaded).field("PackageDownloadProgress", &self.PackageDownloadProgress).field("TotalDownloadProgress", &self.TotalDownloadProgress).field("PackageUpdateState", &self.PackageUpdateState).finish()
     }
 }
 impl ::core::cmp::PartialEq for StorePackageUpdateStatus {

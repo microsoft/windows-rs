@@ -152,18 +152,7 @@ impl ::core::fmt::Debug for ATA_PASS_THROUGH_EX {
 }
 impl ::core::cmp::PartialEq for ATA_PASS_THROUGH_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.AtaFlags == other.AtaFlags
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.ReservedAsUchar == other.ReservedAsUchar
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.ReservedAsUlong == other.ReservedAsUlong
-            && self.DataBufferOffset == other.DataBufferOffset
-            && self.PreviousTaskFile == other.PreviousTaskFile
-            && self.CurrentTaskFile == other.CurrentTaskFile
+        self.Length == other.Length && self.AtaFlags == other.AtaFlags && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.ReservedAsUchar == other.ReservedAsUchar && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.ReservedAsUlong == other.ReservedAsUlong && self.DataBufferOffset == other.DataBufferOffset && self.PreviousTaskFile == other.PreviousTaskFile && self.CurrentTaskFile == other.CurrentTaskFile
     }
 }
 impl ::core::cmp::Eq for ATA_PASS_THROUGH_EX {}
@@ -217,18 +206,7 @@ impl ::core::fmt::Debug for ATA_PASS_THROUGH_EX32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::PartialEq for ATA_PASS_THROUGH_EX32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.AtaFlags == other.AtaFlags
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.ReservedAsUchar == other.ReservedAsUchar
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.ReservedAsUlong == other.ReservedAsUlong
-            && self.DataBufferOffset == other.DataBufferOffset
-            && self.PreviousTaskFile == other.PreviousTaskFile
-            && self.CurrentTaskFile == other.CurrentTaskFile
+        self.Length == other.Length && self.AtaFlags == other.AtaFlags && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.ReservedAsUchar == other.ReservedAsUchar && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.ReservedAsUlong == other.ReservedAsUlong && self.DataBufferOffset == other.DataBufferOffset && self.PreviousTaskFile == other.PreviousTaskFile && self.CurrentTaskFile == other.CurrentTaskFile
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -274,17 +252,7 @@ pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
-        ::core::mem::transmute(AddIScsiConnectionA(
-            ::core::mem::transmute(uniquesessionid),
-            ::core::mem::transmute(reserved),
-            ::core::mem::transmute(initiatorportnumber),
-            ::core::mem::transmute(targetportal),
-            ::core::mem::transmute(securityflags),
-            ::core::mem::transmute(loginoptions),
-            ::core::mem::transmute(keysize),
-            key.into_param().abi(),
-            ::core::mem::transmute(connectionid),
-        ))
+        ::core::mem::transmute(AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), ::core::mem::transmute(keysize), key.into_param().abi(), ::core::mem::transmute(connectionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -298,17 +266,7 @@ pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
-        ::core::mem::transmute(AddIScsiConnectionW(
-            ::core::mem::transmute(uniquesessionid),
-            ::core::mem::transmute(reserved),
-            ::core::mem::transmute(initiatorportnumber),
-            ::core::mem::transmute(targetportal),
-            ::core::mem::transmute(securityflags),
-            ::core::mem::transmute(loginoptions),
-            ::core::mem::transmute(keysize),
-            key.into_param().abi(),
-            ::core::mem::transmute(connectionid),
-        ))
+        ::core::mem::transmute(AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), ::core::mem::transmute(keysize), key.into_param().abi(), ::core::mem::transmute(connectionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -457,15 +415,7 @@ impl ::core::default::Default for DSM_NOTIFICATION_REQUEST_BLOCK {
 }
 impl ::core::fmt::Debug for DSM_NOTIFICATION_REQUEST_BLOCK {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSM_NOTIFICATION_REQUEST_BLOCK")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("NotifyFlags", &self.NotifyFlags)
-            .field("DataSetProfile", &self.DataSetProfile)
-            .field("Reserved", &self.Reserved)
-            .field("DataSetRangesCount", &self.DataSetRangesCount)
-            .field("DataSetRanges", &self.DataSetRanges)
-            .finish()
+        fmt.debug_struct("DSM_NOTIFICATION_REQUEST_BLOCK").field("Size", &self.Size).field("Version", &self.Version).field("NotifyFlags", &self.NotifyFlags).field("DataSetProfile", &self.DataSetProfile).field("Reserved", &self.Reserved).field("DataSetRangesCount", &self.DataSetRangesCount).field("DataSetRanges", &self.DataSetRanges).finish()
     }
 }
 impl ::core::cmp::PartialEq for DSM_NOTIFICATION_REQUEST_BLOCK {
@@ -477,7 +427,7 @@ impl ::core::cmp::Eq for DSM_NOTIFICATION_REQUEST_BLOCK {}
 unsafe impl ::windows::core::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
 }
-pub type DUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32;
+pub type DUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DUMP_DRIVER {
@@ -597,7 +547,7 @@ impl ::core::cmp::Eq for DUMP_POINTERS {}
 unsafe impl ::windows::core::Abi for DUMP_POINTERS {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_POINTERS_EX {
@@ -615,7 +565,7 @@ pub struct DUMP_POINTERS_EX {
     pub AdapterObject: *mut ::core::ffi::c_void,
     pub MappedRegisterBase: *mut ::core::ffi::c_void,
     pub DeviceReady: *mut super::super::Foundation::BOOLEAN,
-    pub DumpDevicePowerOn: ::core::option::Option<PDUMP_DEVICE_POWERON_ROUTINE>,
+    pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -673,7 +623,7 @@ impl ::core::cmp::PartialEq for DUMP_POINTERS_EX {
 impl ::core::cmp::Eq for DUMP_POINTERS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUMP_POINTERS_EX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -949,15 +899,7 @@ impl ::core::default::Default for HYBRID_DEMOTE_BY_SIZE {
 }
 impl ::core::fmt::Debug for HYBRID_DEMOTE_BY_SIZE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HYBRID_DEMOTE_BY_SIZE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SourcePriority", &self.SourcePriority)
-            .field("TargetPriority", &self.TargetPriority)
-            .field("Reserved0", &self.Reserved0)
-            .field("Reserved1", &self.Reserved1)
-            .field("LbaCount", &self.LbaCount)
-            .finish()
+        fmt.debug_struct("HYBRID_DEMOTE_BY_SIZE").field("Version", &self.Version).field("Size", &self.Size).field("SourcePriority", &self.SourcePriority).field("TargetPriority", &self.TargetPriority).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("LbaCount", &self.LbaCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for HYBRID_DEMOTE_BY_SIZE {
@@ -1028,18 +970,7 @@ impl ::core::default::Default for HYBRID_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HYBRID_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HYBRID_INFORMATION")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("HybridSupported", &self.HybridSupported)
-            .field("Status", &self.Status)
-            .field("CacheTypeEffective", &self.CacheTypeEffective)
-            .field("CacheTypeDefault", &self.CacheTypeDefault)
-            .field("FractionBase", &self.FractionBase)
-            .field("CacheSize", &self.CacheSize)
-            .field("Attributes", &self.Attributes)
-            .field("Priorities", &self.Priorities)
-            .finish()
+        fmt.debug_struct("HYBRID_INFORMATION").field("Version", &self.Version).field("Size", &self.Size).field("HybridSupported", &self.HybridSupported).field("Status", &self.Status).field("CacheTypeEffective", &self.CacheTypeEffective).field("CacheTypeDefault", &self.CacheTypeDefault).field("FractionBase", &self.FractionBase).field("CacheSize", &self.CacheSize).field("Attributes", &self.Attributes).field("Priorities", &self.Priorities).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1110,16 +1041,7 @@ impl ::core::default::Default for HYBRID_INFORMATION_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HYBRID_INFORMATION_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Priorities_e__Struct")
-            .field("PriorityLevelCount", &self.PriorityLevelCount)
-            .field("MaxPriorityBehavior", &self.MaxPriorityBehavior)
-            .field("OptimalWriteGranularity", &self.OptimalWriteGranularity)
-            .field("Reserved", &self.Reserved)
-            .field("DirtyThresholdLow", &self.DirtyThresholdLow)
-            .field("DirtyThresholdHigh", &self.DirtyThresholdHigh)
-            .field("SupportedCommands", &self.SupportedCommands)
-            .field("Priority", &self.Priority)
-            .finish()
+        fmt.debug_struct("_Priorities_e__Struct").field("PriorityLevelCount", &self.PriorityLevelCount).field("MaxPriorityBehavior", &self.MaxPriorityBehavior).field("OptimalWriteGranularity", &self.OptimalWriteGranularity).field("Reserved", &self.Reserved).field("DirtyThresholdLow", &self.DirtyThresholdLow).field("DirtyThresholdHigh", &self.DirtyThresholdHigh).field("SupportedCommands", &self.SupportedCommands).field("Priority", &self.Priority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1368,16 +1290,7 @@ impl ::core::default::Default for IO_SCSI_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IO_SCSI_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IO_SCSI_CAPABILITIES")
-            .field("Length", &self.Length)
-            .field("MaximumTransferLength", &self.MaximumTransferLength)
-            .field("MaximumPhysicalPages", &self.MaximumPhysicalPages)
-            .field("SupportedAsynchronousEvents", &self.SupportedAsynchronousEvents)
-            .field("AlignmentMask", &self.AlignmentMask)
-            .field("TaggedQueuing", &self.TaggedQueuing)
-            .field("AdapterScansDown", &self.AdapterScansDown)
-            .field("AdapterUsesPio", &self.AdapterUsesPio)
-            .finish()
+        fmt.debug_struct("IO_SCSI_CAPABILITIES").field("Length", &self.Length).field("MaximumTransferLength", &self.MaximumTransferLength).field("MaximumPhysicalPages", &self.MaximumPhysicalPages).field("SupportedAsynchronousEvents", &self.SupportedAsynchronousEvents).field("AlignmentMask", &self.AlignmentMask).field("TaggedQueuing", &self.TaggedQueuing).field("AdapterScansDown", &self.AdapterScansDown).field("AdapterUsesPio", &self.AdapterUsesPio).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1428,14 +1341,7 @@ impl ::core::default::Default for ISCSI_CONNECTION_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_CONNECTION_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_CONNECTION_INFOA")
-            .field("ConnectionId", &self.ConnectionId)
-            .field("InitiatorAddress", &self.InitiatorAddress)
-            .field("TargetAddress", &self.TargetAddress)
-            .field("InitiatorSocket", &self.InitiatorSocket)
-            .field("TargetSocket", &self.TargetSocket)
-            .field("CID", &self.CID)
-            .finish()
+        fmt.debug_struct("ISCSI_CONNECTION_INFOA").field("ConnectionId", &self.ConnectionId).field("InitiatorAddress", &self.InitiatorAddress).field("TargetAddress", &self.TargetAddress).field("InitiatorSocket", &self.InitiatorSocket).field("TargetSocket", &self.TargetSocket).field("CID", &self.CID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1472,14 +1378,7 @@ impl ::core::default::Default for ISCSI_CONNECTION_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_CONNECTION_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_CONNECTION_INFOW")
-            .field("ConnectionId", &self.ConnectionId)
-            .field("InitiatorAddress", &self.InitiatorAddress)
-            .field("TargetAddress", &self.TargetAddress)
-            .field("InitiatorSocket", &self.InitiatorSocket)
-            .field("TargetSocket", &self.TargetSocket)
-            .field("CID", &self.CID)
-            .finish()
+        fmt.debug_struct("ISCSI_CONNECTION_INFOW").field("ConnectionId", &self.ConnectionId).field("InitiatorAddress", &self.InitiatorAddress).field("TargetAddress", &self.TargetAddress).field("InitiatorSocket", &self.InitiatorSocket).field("TargetSocket", &self.TargetSocket).field("CID", &self.CID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1515,17 +1414,7 @@ impl ::core::default::Default for ISCSI_CONNECTION_INFO_EX {
 }
 impl ::core::fmt::Debug for ISCSI_CONNECTION_INFO_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_CONNECTION_INFO_EX")
-            .field("ConnectionId", &self.ConnectionId)
-            .field("State", &self.State)
-            .field("Protocol", &self.Protocol)
-            .field("HeaderDigest", &self.HeaderDigest)
-            .field("DataDigest", &self.DataDigest)
-            .field("MaxRecvDataSegmentLength", &self.MaxRecvDataSegmentLength)
-            .field("AuthType", &self.AuthType)
-            .field("EstimatedThroughput", &self.EstimatedThroughput)
-            .field("MaxDatagramSize", &self.MaxDatagramSize)
-            .finish()
+        fmt.debug_struct("ISCSI_CONNECTION_INFO_EX").field("ConnectionId", &self.ConnectionId).field("State", &self.State).field("Protocol", &self.Protocol).field("HeaderDigest", &self.HeaderDigest).field("DataDigest", &self.DataDigest).field("MaxRecvDataSegmentLength", &self.MaxRecvDataSegmentLength).field("AuthType", &self.AuthType).field("EstimatedThroughput", &self.EstimatedThroughput).field("MaxDatagramSize", &self.MaxDatagramSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for ISCSI_CONNECTION_INFO_EX {
@@ -1561,16 +1450,7 @@ impl ::core::default::Default for ISCSI_DEVICE_ON_SESSIONA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::core::fmt::Debug for ISCSI_DEVICE_ON_SESSIONA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_DEVICE_ON_SESSIONA")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("TargetName", &self.TargetName)
-            .field("ScsiAddress", &self.ScsiAddress)
-            .field("DeviceInterfaceType", &self.DeviceInterfaceType)
-            .field("DeviceInterfaceName", &self.DeviceInterfaceName)
-            .field("LegacyName", &self.LegacyName)
-            .field("StorageDeviceNumber", &self.StorageDeviceNumber)
-            .field("DeviceInstance", &self.DeviceInstance)
-            .finish()
+        fmt.debug_struct("ISCSI_DEVICE_ON_SESSIONA").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("ScsiAddress", &self.ScsiAddress).field("DeviceInterfaceType", &self.DeviceInterfaceType).field("DeviceInterfaceName", &self.DeviceInterfaceName).field("LegacyName", &self.LegacyName).field("StorageDeviceNumber", &self.StorageDeviceNumber).field("DeviceInstance", &self.DeviceInstance).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
@@ -1609,16 +1489,7 @@ impl ::core::default::Default for ISCSI_DEVICE_ON_SESSIONW {
 #[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::fmt::Debug for ISCSI_DEVICE_ON_SESSIONW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_DEVICE_ON_SESSIONW")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("TargetName", &self.TargetName)
-            .field("ScsiAddress", &self.ScsiAddress)
-            .field("DeviceInterfaceType", &self.DeviceInterfaceType)
-            .field("DeviceInterfaceName", &self.DeviceInterfaceName)
-            .field("LegacyName", &self.LegacyName)
-            .field("StorageDeviceNumber", &self.StorageDeviceNumber)
-            .field("DeviceInstance", &self.DeviceInstance)
-            .finish()
+        fmt.debug_struct("ISCSI_DEVICE_ON_SESSIONW").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("ScsiAddress", &self.ScsiAddress).field("DeviceInterfaceType", &self.DeviceInterfaceType).field("DeviceInterfaceName", &self.DeviceInterfaceName).field("LegacyName", &self.LegacyName).field("StorageDeviceNumber", &self.StorageDeviceNumber).field("DeviceInstance", &self.DeviceInstance).finish()
     }
 }
 #[cfg(feature = "Win32_System_Ioctl")]
@@ -1696,19 +1567,7 @@ impl ::core::fmt::Debug for ISCSI_LOGIN_OPTIONS {
 }
 impl ::core::cmp::PartialEq for ISCSI_LOGIN_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.InformationSpecified == other.InformationSpecified
-            && self.LoginFlags == other.LoginFlags
-            && self.AuthType == other.AuthType
-            && self.HeaderDigest == other.HeaderDigest
-            && self.DataDigest == other.DataDigest
-            && self.MaximumConnections == other.MaximumConnections
-            && self.DefaultTime2Wait == other.DefaultTime2Wait
-            && self.DefaultTime2Retain == other.DefaultTime2Retain
-            && self.UsernameLength == other.UsernameLength
-            && self.PasswordLength == other.PasswordLength
-            && self.Username == other.Username
-            && self.Password == other.Password
+        self.Version == other.Version && self.InformationSpecified == other.InformationSpecified && self.LoginFlags == other.LoginFlags && self.AuthType == other.AuthType && self.HeaderDigest == other.HeaderDigest && self.DataDigest == other.DataDigest && self.MaximumConnections == other.MaximumConnections && self.DefaultTime2Wait == other.DefaultTime2Wait && self.DefaultTime2Retain == other.DefaultTime2Retain && self.UsernameLength == other.UsernameLength && self.PasswordLength == other.PasswordLength && self.Username == other.Username && self.Password == other.Password
     }
 }
 impl ::core::cmp::Eq for ISCSI_LOGIN_OPTIONS {}
@@ -1755,16 +1614,7 @@ impl ::core::default::Default for ISCSI_SESSION_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_SESSION_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_SESSION_INFOA")
-            .field("SessionId", &self.SessionId)
-            .field("InitiatorName", &self.InitiatorName)
-            .field("TargetNodeName", &self.TargetNodeName)
-            .field("TargetName", &self.TargetName)
-            .field("ISID", &self.ISID)
-            .field("TSID", &self.TSID)
-            .field("ConnectionCount", &self.ConnectionCount)
-            .field("Connections", &self.Connections)
-            .finish()
+        fmt.debug_struct("ISCSI_SESSION_INFOA").field("SessionId", &self.SessionId).field("InitiatorName", &self.InitiatorName).field("TargetNodeName", &self.TargetNodeName).field("TargetName", &self.TargetName).field("ISID", &self.ISID).field("TSID", &self.TSID).field("ConnectionCount", &self.ConnectionCount).field("Connections", &self.Connections).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1803,16 +1653,7 @@ impl ::core::default::Default for ISCSI_SESSION_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_SESSION_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_SESSION_INFOW")
-            .field("SessionId", &self.SessionId)
-            .field("InitiatorName", &self.InitiatorName)
-            .field("TargetNodeName", &self.TargetNodeName)
-            .field("TargetName", &self.TargetName)
-            .field("ISID", &self.ISID)
-            .field("TSID", &self.TSID)
-            .field("ConnectionCount", &self.ConnectionCount)
-            .field("Connections", &self.Connections)
-            .finish()
+        fmt.debug_struct("ISCSI_SESSION_INFOW").field("SessionId", &self.SessionId).field("InitiatorName", &self.InitiatorName).field("TargetNodeName", &self.TargetNodeName).field("TargetName", &self.TargetName).field("ISID", &self.ISID).field("TSID", &self.TSID).field("ConnectionCount", &self.ConnectionCount).field("Connections", &self.Connections).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1876,19 +1717,7 @@ impl ::core::fmt::Debug for ISCSI_SESSION_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ISCSI_SESSION_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId
-            && self.InitialR2t == other.InitialR2t
-            && self.ImmediateData == other.ImmediateData
-            && self.Type == other.Type
-            && self.DataSequenceInOrder == other.DataSequenceInOrder
-            && self.DataPduInOrder == other.DataPduInOrder
-            && self.ErrorRecoveryLevel == other.ErrorRecoveryLevel
-            && self.MaxOutstandingR2t == other.MaxOutstandingR2t
-            && self.FirstBurstLength == other.FirstBurstLength
-            && self.MaxBurstLength == other.MaxBurstLength
-            && self.MaximumConnections == other.MaximumConnections
-            && self.ConnectionCount == other.ConnectionCount
-            && self.Connections == other.Connections
+        self.SessionId == other.SessionId && self.InitialR2t == other.InitialR2t && self.ImmediateData == other.ImmediateData && self.Type == other.Type && self.DataSequenceInOrder == other.DataSequenceInOrder && self.DataPduInOrder == other.DataPduInOrder && self.ErrorRecoveryLevel == other.ErrorRecoveryLevel && self.MaxOutstandingR2t == other.MaxOutstandingR2t && self.FirstBurstLength == other.FirstBurstLength && self.MaxBurstLength == other.MaxBurstLength && self.MaximumConnections == other.MaximumConnections && self.ConnectionCount == other.ConnectionCount && self.Connections == other.Connections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1923,16 +1752,7 @@ impl ::core::default::Default for ISCSI_TARGET_MAPPINGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_MAPPINGA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_MAPPINGA")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("TargetName", &self.TargetName)
-            .field("OSDeviceName", &self.OSDeviceName)
-            .field("SessionId", &self.SessionId)
-            .field("OSBusNumber", &self.OSBusNumber)
-            .field("OSTargetNumber", &self.OSTargetNumber)
-            .field("LUNCount", &self.LUNCount)
-            .field("LUNList", &self.LUNList)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_MAPPINGA").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("OSDeviceName", &self.OSDeviceName).field("SessionId", &self.SessionId).field("OSBusNumber", &self.OSBusNumber).field("OSTargetNumber", &self.OSTargetNumber).field("LUNCount", &self.LUNCount).field("LUNList", &self.LUNList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1967,16 +1787,7 @@ impl ::core::default::Default for ISCSI_TARGET_MAPPINGW {
 }
 impl ::core::fmt::Debug for ISCSI_TARGET_MAPPINGW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_MAPPINGW")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("TargetName", &self.TargetName)
-            .field("OSDeviceName", &self.OSDeviceName)
-            .field("SessionId", &self.SessionId)
-            .field("OSBusNumber", &self.OSBusNumber)
-            .field("OSTargetNumber", &self.OSTargetNumber)
-            .field("LUNCount", &self.LUNCount)
-            .field("LUNList", &self.LUNList)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_MAPPINGW").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("OSDeviceName", &self.OSDeviceName).field("SessionId", &self.SessionId).field("OSBusNumber", &self.OSBusNumber).field("OSTargetNumber", &self.OSTargetNumber).field("LUNCount", &self.LUNCount).field("LUNList", &self.LUNList).finish()
     }
 }
 impl ::core::cmp::PartialEq for ISCSI_TARGET_MAPPINGW {
@@ -2196,15 +2007,7 @@ impl ::core::default::Default for ISCSI_TARGET_PORTAL_INFO_EXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXA")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("InitiatorPortNumber", &self.InitiatorPortNumber)
-            .field("SymbolicName", &self.SymbolicName)
-            .field("Address", &self.Address)
-            .field("Socket", &self.Socket)
-            .field("SecurityFlags", &self.SecurityFlags)
-            .field("LoginOptions", &self.LoginOptions)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXA").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).field("SecurityFlags", &self.SecurityFlags).field("LoginOptions", &self.LoginOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2238,15 +2041,7 @@ impl ::core::default::Default for ISCSI_TARGET_PORTAL_INFO_EXW {
 }
 impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXW")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("InitiatorPortNumber", &self.InitiatorPortNumber)
-            .field("SymbolicName", &self.SymbolicName)
-            .field("Address", &self.Address)
-            .field("Socket", &self.Socket)
-            .field("SecurityFlags", &self.SecurityFlags)
-            .field("LoginOptions", &self.LoginOptions)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXW").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).field("SecurityFlags", &self.SecurityFlags).field("LoginOptions", &self.LoginOptions).finish()
     }
 }
 impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXW {
@@ -2332,21 +2127,7 @@ pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoginIScsiTargetA(
-                targetname: super::super::Foundation::PSTR,
-                isinformationalsession: super::super::Foundation::BOOLEAN,
-                initiatorinstance: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                targetportal: *mut ISCSI_TARGET_PORTALA,
-                securityflags: u64,
-                mappings: *mut ISCSI_TARGET_MAPPINGA,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                keysize: u32,
-                key: super::super::Foundation::PSTR,
-                ispersistent: super::super::Foundation::BOOLEAN,
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-            ) -> u32;
+            fn LoginIScsiTargetA(targetname: super::super::Foundation::PSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
         ::core::mem::transmute(LoginIScsiTargetA(
             targetname.into_param().abi(),
@@ -2388,21 +2169,7 @@ pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoginIScsiTargetW(
-                targetname: super::super::Foundation::PWSTR,
-                isinformationalsession: super::super::Foundation::BOOLEAN,
-                initiatorinstance: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                targetportal: *mut ISCSI_TARGET_PORTALW,
-                securityflags: u64,
-                mappings: *mut ISCSI_TARGET_MAPPINGW,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                keysize: u32,
-                key: super::super::Foundation::PSTR,
-                ispersistent: super::super::Foundation::BOOLEAN,
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-            ) -> u32;
+            fn LoginIScsiTargetW(targetname: super::super::Foundation::PWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
         ::core::mem::transmute(LoginIScsiTargetW(
             targetname.into_param().abi(),
@@ -2946,17 +2713,7 @@ impl ::core::default::Default for NVCACHE_REQUEST_BLOCK {
 }
 impl ::core::fmt::Debug for NVCACHE_REQUEST_BLOCK {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NVCACHE_REQUEST_BLOCK")
-            .field("NRBSize", &self.NRBSize)
-            .field("Function", &self.Function)
-            .field("NRBFlags", &self.NRBFlags)
-            .field("NRBStatus", &self.NRBStatus)
-            .field("Count", &self.Count)
-            .field("LBA", &self.LBA)
-            .field("DataBufSize", &self.DataBufSize)
-            .field("NVCacheStatus", &self.NVCacheStatus)
-            .field("NVCacheSubStatus", &self.NVCacheSubStatus)
-            .finish()
+        fmt.debug_struct("NVCACHE_REQUEST_BLOCK").field("NRBSize", &self.NRBSize).field("Function", &self.Function).field("NRBFlags", &self.NRBFlags).field("NRBStatus", &self.NRBStatus).field("Count", &self.Count).field("LBA", &self.LBA).field("DataBufSize", &self.DataBufSize).field("NVCacheStatus", &self.NVCacheStatus).field("NVCacheSubStatus", &self.NVCacheSubStatus).finish()
     }
 }
 impl ::core::cmp::PartialEq for NVCACHE_REQUEST_BLOCK {
@@ -3131,7 +2888,7 @@ impl ::core::convert::From<i32> for NV_SEP_WRITE_CACHE_TYPE {
 unsafe impl ::windows::core::Abi for NV_SEP_WRITE_CACHE_TYPE {
     type Abi = Self;
 }
-pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3156,16 +2913,7 @@ impl ::core::default::Default for PERSISTENT_ISCSI_LOGIN_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOA")
-            .field("TargetName", &self.TargetName)
-            .field("IsInformationalSession", &self.IsInformationalSession)
-            .field("InitiatorInstance", &self.InitiatorInstance)
-            .field("InitiatorPortNumber", &self.InitiatorPortNumber)
-            .field("TargetPortal", &self.TargetPortal)
-            .field("SecurityFlags", &self.SecurityFlags)
-            .field("Mappings", &self.Mappings)
-            .field("LoginOptions", &self.LoginOptions)
-            .finish()
+        fmt.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOA").field("TargetName", &self.TargetName).field("IsInformationalSession", &self.IsInformationalSession).field("InitiatorInstance", &self.InitiatorInstance).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("TargetPortal", &self.TargetPortal).field("SecurityFlags", &self.SecurityFlags).field("Mappings", &self.Mappings).field("LoginOptions", &self.LoginOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3204,16 +2952,7 @@ impl ::core::default::Default for PERSISTENT_ISCSI_LOGIN_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOW")
-            .field("TargetName", &self.TargetName)
-            .field("IsInformationalSession", &self.IsInformationalSession)
-            .field("InitiatorInstance", &self.InitiatorInstance)
-            .field("InitiatorPortNumber", &self.InitiatorPortNumber)
-            .field("TargetPortal", &self.TargetPortal)
-            .field("SecurityFlags", &self.SecurityFlags)
-            .field("Mappings", &self.Mappings)
-            .field("LoginOptions", &self.LoginOptions)
-            .finish()
+        fmt.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOW").field("TargetName", &self.TargetName).field("IsInformationalSession", &self.IsInformationalSession).field("InitiatorInstance", &self.InitiatorInstance).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("TargetPortal", &self.TargetPortal).field("SecurityFlags", &self.SecurityFlags).field("Mappings", &self.Mappings).field("LoginOptions", &self.LoginOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3847,15 +3586,7 @@ impl ::core::default::Default for SCSI_INQUIRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCSI_INQUIRY_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCSI_INQUIRY_DATA")
-            .field("PathId", &self.PathId)
-            .field("TargetId", &self.TargetId)
-            .field("Lun", &self.Lun)
-            .field("DeviceClaimed", &self.DeviceClaimed)
-            .field("InquiryDataLength", &self.InquiryDataLength)
-            .field("NextInquiryDataOffset", &self.NextInquiryDataOffset)
-            .field("InquiryData", &self.InquiryData)
-            .finish()
+        fmt.debug_struct("SCSI_INQUIRY_DATA").field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).field("DeviceClaimed", &self.DeviceClaimed).field("InquiryDataLength", &self.InquiryDataLength).field("NextInquiryDataOffset", &self.NextInquiryDataOffset).field("InquiryData", &self.InquiryData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3944,19 +3675,7 @@ impl ::core::fmt::Debug for SCSI_PASS_THROUGH {
 }
 impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.ScsiStatus == other.ScsiStatus
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.CdbLength == other.CdbLength
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataIn == other.DataIn
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.DataBufferOffset == other.DataBufferOffset
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.Cdb == other.Cdb
+        self.Length == other.Length && self.ScsiStatus == other.ScsiStatus && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.DataIn == other.DataIn && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.DataBufferOffset == other.DataBufferOffset && self.SenseInfoOffset == other.SenseInfoOffset && self.Cdb == other.Cdb
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH {}
@@ -4012,19 +3731,7 @@ impl ::core::fmt::Debug for SCSI_PASS_THROUGH32 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.ScsiStatus == other.ScsiStatus
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.CdbLength == other.CdbLength
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataIn == other.DataIn
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.DataBufferOffset == other.DataBufferOffset
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.Cdb == other.Cdb
+        self.Length == other.Length && self.ScsiStatus == other.ScsiStatus && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.DataIn == other.DataIn && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.DataBufferOffset == other.DataBufferOffset && self.SenseInfoOffset == other.SenseInfoOffset && self.Cdb == other.Cdb
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4088,22 +3795,7 @@ impl ::core::fmt::Debug for SCSI_PASS_THROUGH32_EX {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH32_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Length == other.Length
-            && self.CdbLength == other.CdbLength
-            && self.StorAddressLength == other.StorAddressLength
-            && self.ScsiStatus == other.ScsiStatus
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataDirection == other.DataDirection
-            && self.Reserved == other.Reserved
-            && self.TimeOutValue == other.TimeOutValue
-            && self.StorAddressOffset == other.StorAddressOffset
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.DataOutTransferLength == other.DataOutTransferLength
-            && self.DataInTransferLength == other.DataInTransferLength
-            && self.DataOutBufferOffset == other.DataOutBufferOffset
-            && self.DataInBufferOffset == other.DataInBufferOffset
-            && self.Cdb == other.Cdb
+        self.Version == other.Version && self.Length == other.Length && self.CdbLength == other.CdbLength && self.StorAddressLength == other.StorAddressLength && self.ScsiStatus == other.ScsiStatus && self.SenseInfoLength == other.SenseInfoLength && self.DataDirection == other.DataDirection && self.Reserved == other.Reserved && self.TimeOutValue == other.TimeOutValue && self.StorAddressOffset == other.StorAddressOffset && self.SenseInfoOffset == other.SenseInfoOffset && self.DataOutTransferLength == other.DataOutTransferLength && self.DataInTransferLength == other.DataInTransferLength && self.DataOutBufferOffset == other.DataOutBufferOffset && self.DataInBufferOffset == other.DataInBufferOffset && self.Cdb == other.Cdb
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4276,22 +3968,7 @@ impl ::core::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32_EX {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Length == other.Length
-            && self.CdbLength == other.CdbLength
-            && self.StorAddressLength == other.StorAddressLength
-            && self.ScsiStatus == other.ScsiStatus
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataDirection == other.DataDirection
-            && self.Reserved == other.Reserved
-            && self.TimeOutValue == other.TimeOutValue
-            && self.StorAddressOffset == other.StorAddressOffset
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.DataOutTransferLength == other.DataOutTransferLength
-            && self.DataInTransferLength == other.DataInTransferLength
-            && self.DataOutBuffer == other.DataOutBuffer
-            && self.DataInBuffer == other.DataInBuffer
-            && self.Cdb == other.Cdb
+        self.Version == other.Version && self.Length == other.Length && self.CdbLength == other.CdbLength && self.StorAddressLength == other.StorAddressLength && self.ScsiStatus == other.ScsiStatus && self.SenseInfoLength == other.SenseInfoLength && self.DataDirection == other.DataDirection && self.Reserved == other.Reserved && self.TimeOutValue == other.TimeOutValue && self.StorAddressOffset == other.StorAddressOffset && self.SenseInfoOffset == other.SenseInfoOffset && self.DataOutTransferLength == other.DataOutTransferLength && self.DataInTransferLength == other.DataInTransferLength && self.DataOutBuffer == other.DataOutBuffer && self.DataInBuffer == other.DataInBuffer && self.Cdb == other.Cdb
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4350,22 +4027,7 @@ impl ::core::fmt::Debug for SCSI_PASS_THROUGH_DIRECT_EX {
 }
 impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Length == other.Length
-            && self.CdbLength == other.CdbLength
-            && self.StorAddressLength == other.StorAddressLength
-            && self.ScsiStatus == other.ScsiStatus
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataDirection == other.DataDirection
-            && self.Reserved == other.Reserved
-            && self.TimeOutValue == other.TimeOutValue
-            && self.StorAddressOffset == other.StorAddressOffset
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.DataOutTransferLength == other.DataOutTransferLength
-            && self.DataInTransferLength == other.DataInTransferLength
-            && self.DataOutBuffer == other.DataOutBuffer
-            && self.DataInBuffer == other.DataInBuffer
-            && self.Cdb == other.Cdb
+        self.Version == other.Version && self.Length == other.Length && self.CdbLength == other.CdbLength && self.StorAddressLength == other.StorAddressLength && self.ScsiStatus == other.ScsiStatus && self.SenseInfoLength == other.SenseInfoLength && self.DataDirection == other.DataDirection && self.Reserved == other.Reserved && self.TimeOutValue == other.TimeOutValue && self.StorAddressOffset == other.StorAddressOffset && self.SenseInfoOffset == other.SenseInfoOffset && self.DataOutTransferLength == other.DataOutTransferLength && self.DataInTransferLength == other.DataInTransferLength && self.DataOutBuffer == other.DataOutBuffer && self.DataInBuffer == other.DataInBuffer && self.Cdb == other.Cdb
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_DIRECT_EX {}
@@ -4422,22 +4084,7 @@ impl ::core::fmt::Debug for SCSI_PASS_THROUGH_EX {
 }
 impl ::core::cmp::PartialEq for SCSI_PASS_THROUGH_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Length == other.Length
-            && self.CdbLength == other.CdbLength
-            && self.StorAddressLength == other.StorAddressLength
-            && self.ScsiStatus == other.ScsiStatus
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataDirection == other.DataDirection
-            && self.Reserved == other.Reserved
-            && self.TimeOutValue == other.TimeOutValue
-            && self.StorAddressOffset == other.StorAddressOffset
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.DataOutTransferLength == other.DataOutTransferLength
-            && self.DataInTransferLength == other.DataInTransferLength
-            && self.DataOutBufferOffset == other.DataOutBufferOffset
-            && self.DataInBufferOffset == other.DataInBufferOffset
-            && self.Cdb == other.Cdb
+        self.Version == other.Version && self.Length == other.Length && self.CdbLength == other.CdbLength && self.StorAddressLength == other.StorAddressLength && self.ScsiStatus == other.ScsiStatus && self.SenseInfoLength == other.SenseInfoLength && self.DataDirection == other.DataDirection && self.Reserved == other.Reserved && self.TimeOutValue == other.TimeOutValue && self.StorAddressOffset == other.StorAddressOffset && self.SenseInfoOffset == other.SenseInfoOffset && self.DataOutTransferLength == other.DataOutTransferLength && self.DataInTransferLength == other.DataInTransferLength && self.DataOutBufferOffset == other.DataOutBufferOffset && self.DataInBufferOffset == other.DataInBufferOffset && self.Cdb == other.Cdb
     }
 }
 impl ::core::cmp::Eq for SCSI_PASS_THROUGH_EX {}
@@ -4494,16 +4141,7 @@ impl ::core::default::Default for STORAGE_DIAGNOSTIC_MP_REQUEST {
 }
 impl ::core::fmt::Debug for STORAGE_DIAGNOSTIC_MP_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_DIAGNOSTIC_MP_REQUEST")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("TargetType", &self.TargetType)
-            .field("Level", &self.Level)
-            .field("ProviderId", &self.ProviderId)
-            .field("BufferSize", &self.BufferSize)
-            .field("Reserved", &self.Reserved)
-            .field("DataBuffer", &self.DataBuffer)
-            .finish()
+        fmt.debug_struct("STORAGE_DIAGNOSTIC_MP_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("TargetType", &self.TargetType).field("Level", &self.Level).field("ProviderId", &self.ProviderId).field("BufferSize", &self.BufferSize).field("Reserved", &self.Reserved).field("DataBuffer", &self.DataBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_DIAGNOSTIC_MP_REQUEST {
@@ -4684,16 +4322,7 @@ impl ::core::default::Default for STORAGE_FIRMWARE_DOWNLOAD_V2 {
 }
 impl ::core::fmt::Debug for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STORAGE_FIRMWARE_DOWNLOAD_V2")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Offset", &self.Offset)
-            .field("BufferSize", &self.BufferSize)
-            .field("Slot", &self.Slot)
-            .field("Reserved", &self.Reserved)
-            .field("ImageSize", &self.ImageSize)
-            .field("ImageBuffer", &self.ImageBuffer)
-            .finish()
+        fmt.debug_struct("STORAGE_FIRMWARE_DOWNLOAD_V2").field("Version", &self.Version).field("Size", &self.Size).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("Slot", &self.Slot).field("Reserved", &self.Reserved).field("ImageSize", &self.ImageSize).field("ImageBuffer", &self.ImageBuffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD_V2 {
@@ -4896,17 +4525,7 @@ pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun
         extern "system" {
             fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
-        ::core::mem::transmute(SendScsiInquiry(
-            ::core::mem::transmute(uniquesessionid),
-            ::core::mem::transmute(lun),
-            ::core::mem::transmute(evpdcmddt),
-            ::core::mem::transmute(pagecode),
-            ::core::mem::transmute(scsistatus),
-            ::core::mem::transmute(responsesize),
-            ::core::mem::transmute(responsebuffer),
-            ::core::mem::transmute(sensesize),
-            ::core::mem::transmute(sensebuffer),
-        ))
+        ::core::mem::transmute(SendScsiInquiry(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(lun), ::core::mem::transmute(evpdcmddt), ::core::mem::transmute(pagecode), ::core::mem::transmute(scsistatus), ::core::mem::transmute(responsesize), ::core::mem::transmute(responsebuffer), ::core::mem::transmute(sensesize), ::core::mem::transmute(sensebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

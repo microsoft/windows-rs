@@ -260,18 +260,7 @@ impl ::core::default::Default for CREDENTIAL_TARGET_INFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREDENTIAL_TARGET_INFORMATIONA")
-            .field("TargetName", &self.TargetName)
-            .field("NetbiosServerName", &self.NetbiosServerName)
-            .field("DnsServerName", &self.DnsServerName)
-            .field("NetbiosDomainName", &self.NetbiosDomainName)
-            .field("DnsDomainName", &self.DnsDomainName)
-            .field("DnsTreeName", &self.DnsTreeName)
-            .field("PackageName", &self.PackageName)
-            .field("Flags", &self.Flags)
-            .field("CredTypeCount", &self.CredTypeCount)
-            .field("CredTypes", &self.CredTypes)
-            .finish()
+        fmt.debug_struct("CREDENTIAL_TARGET_INFORMATIONA").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -312,18 +301,7 @@ impl ::core::default::Default for CREDENTIAL_TARGET_INFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREDENTIAL_TARGET_INFORMATIONW")
-            .field("TargetName", &self.TargetName)
-            .field("NetbiosServerName", &self.NetbiosServerName)
-            .field("DnsServerName", &self.DnsServerName)
-            .field("NetbiosDomainName", &self.NetbiosDomainName)
-            .field("DnsDomainName", &self.DnsDomainName)
-            .field("DnsTreeName", &self.DnsTreeName)
-            .field("PackageName", &self.PackageName)
-            .field("Flags", &self.Flags)
-            .field("CredTypeCount", &self.CredTypeCount)
-            .field("CredTypes", &self.CredTypes)
-            .finish()
+        fmt.debug_struct("CREDENTIAL_TARGET_INFORMATIONW").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1237,68 +1215,28 @@ pub unsafe fn CredRenameW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    psztargetname: Param0,
-    pcontext: *mut SecHandle,
-    dwautherror: u32,
-    username: Param3,
-    uluserbuffersize: u32,
-    pszpassword: Param5,
-    ulpasswordbuffersize: u32,
-    pfsave: *mut super::super::Foundation::BOOL,
-    dwflags: CREDUI_FLAGS,
-) -> u32 {
+pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(psztargetname: Param0, pcontext: *mut SecHandle, dwautherror: u32, username: Param3, uluserbuffersize: u32, pszpassword: Param5, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CredUICmdLinePromptForCredentialsA(psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUICmdLinePromptForCredentialsA(
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(pcontext),
-            ::core::mem::transmute(dwautherror),
-            username.into_param().abi(),
-            ::core::mem::transmute(uluserbuffersize),
-            pszpassword.into_param().abi(),
-            ::core::mem::transmute(ulpasswordbuffersize),
-            ::core::mem::transmute(pfsave),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(CredUICmdLinePromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), username.into_param().abi(), ::core::mem::transmute(uluserbuffersize), pszpassword.into_param().abi(), ::core::mem::transmute(ulpasswordbuffersize), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    psztargetname: Param0,
-    pcontext: *mut SecHandle,
-    dwautherror: u32,
-    username: Param3,
-    uluserbuffersize: u32,
-    pszpassword: Param5,
-    ulpasswordbuffersize: u32,
-    pfsave: *mut super::super::Foundation::BOOL,
-    dwflags: CREDUI_FLAGS,
-) -> u32 {
+pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psztargetname: Param0, pcontext: *mut SecHandle, dwautherror: u32, username: Param3, uluserbuffersize: u32, pszpassword: Param5, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CredUICmdLinePromptForCredentialsW(psztargetname: super::super::Foundation::PWSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PWSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PWSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUICmdLinePromptForCredentialsW(
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(pcontext),
-            ::core::mem::transmute(dwautherror),
-            username.into_param().abi(),
-            ::core::mem::transmute(uluserbuffersize),
-            pszpassword.into_param().abi(),
-            ::core::mem::transmute(ulpasswordbuffersize),
-            ::core::mem::transmute(pfsave),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(CredUICmdLinePromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), username.into_param().abi(), ::core::mem::transmute(uluserbuffersize), pszpassword.into_param().abi(), ::core::mem::transmute(ulpasswordbuffersize), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1361,72 +1299,28 @@ pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    puiinfo: *const CREDUI_INFOA,
-    psztargetname: Param1,
-    pcontext: *mut SecHandle,
-    dwautherror: u32,
-    pszusername: Param4,
-    ulusernamebuffersize: u32,
-    pszpassword: Param6,
-    ulpasswordbuffersize: u32,
-    save: *mut super::super::Foundation::BOOL,
-    dwflags: CREDUI_FLAGS,
-) -> u32 {
+pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(puiinfo: *const CREDUI_INFOA, psztargetname: Param1, pcontext: *mut SecHandle, dwautherror: u32, pszusername: Param4, ulusernamebuffersize: u32, pszpassword: Param6, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CredUIPromptForCredentialsA(puiinfo: *const CREDUI_INFOA, psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: super::super::Foundation::PSTR, ulusernamebuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUIPromptForCredentialsA(
-            ::core::mem::transmute(puiinfo),
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(pcontext),
-            ::core::mem::transmute(dwautherror),
-            pszusername.into_param().abi(),
-            ::core::mem::transmute(ulusernamebuffersize),
-            pszpassword.into_param().abi(),
-            ::core::mem::transmute(ulpasswordbuffersize),
-            ::core::mem::transmute(save),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(CredUIPromptForCredentialsA(::core::mem::transmute(puiinfo), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), pszusername.into_param().abi(), ::core::mem::transmute(ulusernamebuffersize), pszpassword.into_param().abi(), ::core::mem::transmute(ulpasswordbuffersize), ::core::mem::transmute(save), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    puiinfo: *const CREDUI_INFOW,
-    psztargetname: Param1,
-    pcontext: *mut SecHandle,
-    dwautherror: u32,
-    pszusername: Param4,
-    ulusernamebuffersize: u32,
-    pszpassword: Param6,
-    ulpasswordbuffersize: u32,
-    save: *mut super::super::Foundation::BOOL,
-    dwflags: CREDUI_FLAGS,
-) -> u32 {
+pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(puiinfo: *const CREDUI_INFOW, psztargetname: Param1, pcontext: *mut SecHandle, dwautherror: u32, pszusername: Param4, ulusernamebuffersize: u32, pszpassword: Param6, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CredUIPromptForCredentialsW(puiinfo: *const CREDUI_INFOW, psztargetname: super::super::Foundation::PWSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: super::super::Foundation::PWSTR, ulusernamebuffersize: u32, pszpassword: super::super::Foundation::PWSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUIPromptForCredentialsW(
-            ::core::mem::transmute(puiinfo),
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(pcontext),
-            ::core::mem::transmute(dwautherror),
-            pszusername.into_param().abi(),
-            ::core::mem::transmute(ulusernamebuffersize),
-            pszpassword.into_param().abi(),
-            ::core::mem::transmute(ulpasswordbuffersize),
-            ::core::mem::transmute(save),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(CredUIPromptForCredentialsW(::core::mem::transmute(puiinfo), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), pszusername.into_param().abi(), ::core::mem::transmute(ulusernamebuffersize), pszpassword.into_param().abi(), ::core::mem::transmute(ulpasswordbuffersize), ::core::mem::transmute(save), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1440,17 +1334,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, d
         extern "system" {
             fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUIPromptForWindowsCredentialsA(
-            ::core::mem::transmute(puiinfo),
-            ::core::mem::transmute(dwautherror),
-            ::core::mem::transmute(pulauthpackage),
-            ::core::mem::transmute(pvinauthbuffer),
-            ::core::mem::transmute(ulinauthbuffersize),
-            ::core::mem::transmute(ppvoutauthbuffer),
-            ::core::mem::transmute(puloutauthbuffersize),
-            ::core::mem::transmute(pfsave),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(CredUIPromptForWindowsCredentialsA(::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), ::core::mem::transmute(pulauthpackage), ::core::mem::transmute(pvinauthbuffer), ::core::mem::transmute(ulinauthbuffersize), ::core::mem::transmute(ppvoutauthbuffer), ::core::mem::transmute(puloutauthbuffersize), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1464,17 +1348,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, d
         extern "system" {
             fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUIPromptForWindowsCredentialsW(
-            ::core::mem::transmute(puiinfo),
-            ::core::mem::transmute(dwautherror),
-            ::core::mem::transmute(pulauthpackage),
-            ::core::mem::transmute(pvinauthbuffer),
-            ::core::mem::transmute(ulinauthbuffersize),
-            ::core::mem::transmute(ppvoutauthbuffer),
-            ::core::mem::transmute(puloutauthbuffersize),
-            ::core::mem::transmute(pfsave),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(CredUIPromptForWindowsCredentialsW(::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), ::core::mem::transmute(pulauthpackage), ::core::mem::transmute(pvinauthbuffer), ::core::mem::transmute(ulinauthbuffersize), ::core::mem::transmute(ppvoutauthbuffer), ::core::mem::transmute(puloutauthbuffersize), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1516,17 +1390,7 @@ pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuf
         extern "system" {
             fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PSTR, pcchlmaxusername: *mut u32, pszdomainname: super::super::Foundation::PSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredUnPackAuthenticationBufferA(
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pauthbuffer),
-            ::core::mem::transmute(cbauthbuffer),
-            ::core::mem::transmute(pszusername),
-            ::core::mem::transmute(pcchlmaxusername),
-            ::core::mem::transmute(pszdomainname),
-            ::core::mem::transmute(pcchmaxdomainname),
-            ::core::mem::transmute(pszpassword),
-            ::core::mem::transmute(pcchmaxpassword),
-        ))
+        ::core::mem::transmute(CredUnPackAuthenticationBufferA(::core::mem::transmute(dwflags), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(pszusername), ::core::mem::transmute(pcchlmaxusername), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pcchmaxdomainname), ::core::mem::transmute(pszpassword), ::core::mem::transmute(pcchmaxpassword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1540,17 +1404,7 @@ pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuf
         extern "system" {
             fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredUnPackAuthenticationBufferW(
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(pauthbuffer),
-            ::core::mem::transmute(cbauthbuffer),
-            ::core::mem::transmute(pszusername),
-            ::core::mem::transmute(pcchmaxusername),
-            ::core::mem::transmute(pszdomainname),
-            ::core::mem::transmute(pcchmaxdomainname),
-            ::core::mem::transmute(pszpassword),
-            ::core::mem::transmute(pcchmaxpassword),
-        ))
+        ::core::mem::transmute(CredUnPackAuthenticationBufferW(::core::mem::transmute(dwflags), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(pszusername), ::core::mem::transmute(pcchmaxusername), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pcchmaxdomainname), ::core::mem::transmute(pszpassword), ::core::mem::transmute(pcchmaxpassword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1676,7 +1530,7 @@ pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenCardNameA(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAMEA>) -> i32;
+            fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32;
         }
         ::core::mem::transmute(GetOpenCardNameA(::core::mem::transmute(param0)))
     }
@@ -1690,7 +1544,7 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenCardNameW(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAMEW>) -> i32;
+            fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
         }
         ::core::mem::transmute(GetOpenCardNameW(::core::mem::transmute(param0)))
     }
@@ -1839,15 +1693,15 @@ pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize;
+pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize;
-pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void);
+pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize>;
+pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEA {
@@ -1870,9 +1724,9 @@ pub struct OPENCARDNAMEA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1942,9 +1796,9 @@ impl ::core::cmp::PartialEq for OPENCARDNAMEA {
 impl ::core::cmp::Eq for OPENCARDNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEW {
@@ -1967,9 +1821,9 @@ pub struct OPENCARDNAMEW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2039,9 +1893,9 @@ impl ::core::cmp::PartialEq for OPENCARDNAMEW {
 impl ::core::cmp::Eq for OPENCARDNAMEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXA {
@@ -2053,7 +1907,7 @@ pub struct OPENCARDNAME_EXA {
     pub lpstrSearchDesc: super::super::Foundation::PSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAA,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnConnect: LPOCNCONNPROCA,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2099,33 +1953,16 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for OPENCARDNAME_EXA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.hSCardContext == other.hSCardContext
-            && self.hwndOwner == other.hwndOwner
-            && self.dwFlags == other.dwFlags
-            && self.lpstrTitle == other.lpstrTitle
-            && self.lpstrSearchDesc == other.lpstrSearchDesc
-            && self.hIcon == other.hIcon
-            && self.pOpenCardSearchCriteria == other.pOpenCardSearchCriteria
-            && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize)
-            && self.pvUserData == other.pvUserData
-            && self.dwShareMode == other.dwShareMode
-            && self.dwPreferredProtocols == other.dwPreferredProtocols
-            && self.lpstrRdr == other.lpstrRdr
-            && self.nMaxRdr == other.nMaxRdr
-            && self.lpstrCard == other.lpstrCard
-            && self.nMaxCard == other.nMaxCard
-            && self.dwActiveProtocol == other.dwActiveProtocol
-            && self.hCardHandle == other.hCardHandle
+        self.dwStructSize == other.dwStructSize && self.hSCardContext == other.hSCardContext && self.hwndOwner == other.hwndOwner && self.dwFlags == other.dwFlags && self.lpstrTitle == other.lpstrTitle && self.lpstrSearchDesc == other.lpstrSearchDesc && self.hIcon == other.hIcon && self.pOpenCardSearchCriteria == other.pOpenCardSearchCriteria && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize) && self.pvUserData == other.pvUserData && self.dwShareMode == other.dwShareMode && self.dwPreferredProtocols == other.dwPreferredProtocols && self.lpstrRdr == other.lpstrRdr && self.nMaxRdr == other.nMaxRdr && self.lpstrCard == other.lpstrCard && self.nMaxCard == other.nMaxCard && self.dwActiveProtocol == other.dwActiveProtocol && self.hCardHandle == other.hCardHandle
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for OPENCARDNAME_EXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXW {
@@ -2137,7 +1974,7 @@ pub struct OPENCARDNAME_EXW {
     pub lpstrSearchDesc: super::super::Foundation::PWSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAW,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnConnect: LPOCNCONNPROCW,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2183,33 +2020,16 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for OPENCARDNAME_EXW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.hSCardContext == other.hSCardContext
-            && self.hwndOwner == other.hwndOwner
-            && self.dwFlags == other.dwFlags
-            && self.lpstrTitle == other.lpstrTitle
-            && self.lpstrSearchDesc == other.lpstrSearchDesc
-            && self.hIcon == other.hIcon
-            && self.pOpenCardSearchCriteria == other.pOpenCardSearchCriteria
-            && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize)
-            && self.pvUserData == other.pvUserData
-            && self.dwShareMode == other.dwShareMode
-            && self.dwPreferredProtocols == other.dwPreferredProtocols
-            && self.lpstrRdr == other.lpstrRdr
-            && self.nMaxRdr == other.nMaxRdr
-            && self.lpstrCard == other.lpstrCard
-            && self.nMaxCard == other.nMaxCard
-            && self.dwActiveProtocol == other.dwActiveProtocol
-            && self.hCardHandle == other.hCardHandle
+        self.dwStructSize == other.dwStructSize && self.hSCardContext == other.hSCardContext && self.hwndOwner == other.hwndOwner && self.dwFlags == other.dwFlags && self.lpstrTitle == other.lpstrTitle && self.lpstrSearchDesc == other.lpstrSearchDesc && self.hIcon == other.hIcon && self.pOpenCardSearchCriteria == other.pOpenCardSearchCriteria && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize) && self.pvUserData == other.pvUserData && self.dwShareMode == other.dwShareMode && self.dwPreferredProtocols == other.dwPreferredProtocols && self.lpstrRdr == other.lpstrRdr && self.nMaxRdr == other.nMaxRdr && self.lpstrCard == other.lpstrCard && self.nMaxCard == other.nMaxCard && self.dwActiveProtocol == other.dwActiveProtocol && self.hCardHandle == other.hCardHandle
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::Eq for OPENCARDNAME_EXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAA {
@@ -2220,9 +2040,9 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2255,28 +2075,16 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.lpstrGroupNames == other.lpstrGroupNames
-            && self.nMaxGroupNames == other.nMaxGroupNames
-            && self.rgguidInterfaces == other.rgguidInterfaces
-            && self.cguidInterfaces == other.cguidInterfaces
-            && self.lpstrCardNames == other.lpstrCardNames
-            && self.nMaxCardNames == other.nMaxCardNames
-            && self.lpfnCheck.map(|f| f as usize) == other.lpfnCheck.map(|f| f as usize)
-            && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize)
-            && self.lpfnDisconnect.map(|f| f as usize) == other.lpfnDisconnect.map(|f| f as usize)
-            && self.pvUserData == other.pvUserData
-            && self.dwShareMode == other.dwShareMode
-            && self.dwPreferredProtocols == other.dwPreferredProtocols
+        self.dwStructSize == other.dwStructSize && self.lpstrGroupNames == other.lpstrGroupNames && self.nMaxGroupNames == other.nMaxGroupNames && self.rgguidInterfaces == other.rgguidInterfaces && self.cguidInterfaces == other.cguidInterfaces && self.lpstrCardNames == other.lpstrCardNames && self.nMaxCardNames == other.nMaxCardNames && self.lpfnCheck.map(|f| f as usize) == other.lpfnCheck.map(|f| f as usize) && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize) && self.lpfnDisconnect.map(|f| f as usize) == other.lpfnDisconnect.map(|f| f as usize) && self.pvUserData == other.pvUserData && self.dwShareMode == other.dwShareMode && self.dwPreferredProtocols == other.dwPreferredProtocols
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAW {
@@ -2287,9 +2095,9 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PWSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2322,26 +2130,14 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.lpstrGroupNames == other.lpstrGroupNames
-            && self.nMaxGroupNames == other.nMaxGroupNames
-            && self.rgguidInterfaces == other.rgguidInterfaces
-            && self.cguidInterfaces == other.cguidInterfaces
-            && self.lpstrCardNames == other.lpstrCardNames
-            && self.nMaxCardNames == other.nMaxCardNames
-            && self.lpfnCheck.map(|f| f as usize) == other.lpfnCheck.map(|f| f as usize)
-            && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize)
-            && self.lpfnDisconnect.map(|f| f as usize) == other.lpfnDisconnect.map(|f| f as usize)
-            && self.pvUserData == other.pvUserData
-            && self.dwShareMode == other.dwShareMode
-            && self.dwPreferredProtocols == other.dwPreferredProtocols
+        self.dwStructSize == other.dwStructSize && self.lpstrGroupNames == other.lpstrGroupNames && self.nMaxGroupNames == other.nMaxGroupNames && self.rgguidInterfaces == other.rgguidInterfaces && self.cguidInterfaces == other.cguidInterfaces && self.lpstrCardNames == other.lpstrCardNames && self.nMaxCardNames == other.nMaxCardNames && self.lpfnCheck.map(|f| f as usize) == other.lpfnCheck.map(|f| f as usize) && self.lpfnConnect.map(|f| f as usize) == other.lpfnConnect.map(|f| f as usize) && self.lpfnDisconnect.map(|f| f as usize) == other.lpfnDisconnect.map(|f| f as usize) && self.pvUserData == other.pvUserData && self.dwShareMode == other.dwShareMode && self.dwPreferredProtocols == other.dwPreferredProtocols
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2405,14 +2201,7 @@ impl ::core::default::Default for READER_SEL_REQUEST_0_0 {
 }
 impl ::core::fmt::Debug for READER_SEL_REQUEST_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ReaderAndContainerParameter_e__Struct")
-            .field("cbReaderNameOffset", &self.cbReaderNameOffset)
-            .field("cchReaderNameLength", &self.cchReaderNameLength)
-            .field("cbContainerNameOffset", &self.cbContainerNameOffset)
-            .field("cchContainerNameLength", &self.cchContainerNameLength)
-            .field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion)
-            .field("dwCspFlags", &self.dwCspFlags)
-            .finish()
+        fmt.debug_struct("_ReaderAndContainerParameter_e__Struct").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbContainerNameOffset", &self.cbContainerNameOffset).field("cchContainerNameLength", &self.cchContainerNameLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).field("dwCspFlags", &self.dwCspFlags).finish()
     }
 }
 impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
@@ -3353,16 +3142,7 @@ pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::core::IntoParam<'a,
         extern "system" {
             fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
-        ::core::mem::transmute(SCardIntroduceCardTypeA(
-            ::core::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-            ::core::mem::transmute(pguidprimaryprovider),
-            ::core::mem::transmute(rgguidinterfaces),
-            ::core::mem::transmute(dwinterfacecount),
-            ::core::mem::transmute(pbatr),
-            ::core::mem::transmute(pbatrmask),
-            ::core::mem::transmute(cbatrlen),
-        ))
+        ::core::mem::transmute(SCardIntroduceCardTypeA(::core::mem::transmute(hcontext), szcardname.into_param().abi(), ::core::mem::transmute(pguidprimaryprovider), ::core::mem::transmute(rgguidinterfaces), ::core::mem::transmute(dwinterfacecount), ::core::mem::transmute(pbatr), ::core::mem::transmute(pbatrmask), ::core::mem::transmute(cbatrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3376,16 +3156,7 @@ pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::core::IntoParam<'a,
         extern "system" {
             fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: *const ::windows::core::GUID, rgguidinterfaces: *const ::windows::core::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
-        ::core::mem::transmute(SCardIntroduceCardTypeW(
-            ::core::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-            ::core::mem::transmute(pguidprimaryprovider),
-            ::core::mem::transmute(rgguidinterfaces),
-            ::core::mem::transmute(dwinterfacecount),
-            ::core::mem::transmute(pbatr),
-            ::core::mem::transmute(pbatrmask),
-            ::core::mem::transmute(cbatrlen),
-        ))
+        ::core::mem::transmute(SCardIntroduceCardTypeW(::core::mem::transmute(hcontext), szcardname.into_param().abi(), ::core::mem::transmute(pguidprimaryprovider), ::core::mem::transmute(rgguidinterfaces), ::core::mem::transmute(dwinterfacecount), ::core::mem::transmute(pbatr), ::core::mem::transmute(pbatrmask), ::core::mem::transmute(cbatrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3852,7 +3623,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardUIDlgSelectCardA(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAME_EXA>) -> i32;
+            fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32;
         }
         ::core::mem::transmute(SCardUIDlgSelectCardA(::core::mem::transmute(param0)))
     }
@@ -3866,7 +3637,7 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardUIDlgSelectCardW(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAME_EXW>) -> i32;
+            fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
         }
         ::core::mem::transmute(SCardUIDlgSelectCardW(::core::mem::transmute(param0)))
     }

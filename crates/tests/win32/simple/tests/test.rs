@@ -27,8 +27,8 @@ fn test() -> Result<()> {
 
         let _struct = SimpleStruct { First: 1, Second: 2 };
 
-        let callback: SimpleCallback = callback;
-        callback();
+        let callback: SimpleCallback = Some(callback);
+        callback.unwrap()();
 
         let _enum: SimpleEnum = First;
 

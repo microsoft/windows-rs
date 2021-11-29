@@ -196,20 +196,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn NtDeviceIoControlFile(filehandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NtNotifyChangeMultipleKeys(
-        masterkeyhandle: super::super::Foundation::HANDLE,
-        count: u32,
-        subordinateobjects: *const OBJECT_ATTRIBUTES,
-        event: super::super::Foundation::HANDLE,
-        apcroutine: PIO_APC_ROUTINE,
-        apccontext: *const ::core::ffi::c_void,
-        iostatusblock: *mut IO_STATUS_BLOCK,
-        completionfilter: u32,
-        watchtree: super::super::Foundation::BOOLEAN,
-        buffer: *mut ::core::ffi::c_void,
-        buffersize: u32,
-        asynchronous: super::super::Foundation::BOOLEAN,
-    ) -> super::super::Foundation::NTSTATUS;
+    pub fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::super::Foundation::HANDLE, count: u32, subordinateobjects: *const OBJECT_ATTRIBUTES, event: super::super::Foundation::HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: super::super::Foundation::BOOLEAN, buffer: *mut ::core::ffi::c_void, buffersize: u32, asynchronous: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
     #[cfg(feature = "Win32_Foundation")]
     pub fn NtOpenFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> super::super::Foundation::NTSTATUS;
     #[cfg(feature = "Win32_Foundation")]
@@ -588,12 +575,7 @@ impl ::core::clone::Clone for CABINFOW {
         *self
     }
 }
-pub const CATID_DeleteBrowsingHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 835385060,
-    data2: 54954,
-    data3: 16528,
-    data4: [160, 80, 165, 172, 137, 114, 233, 239],
-};
+pub const CATID_DeleteBrowsingHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 835385060, data2: 54954, data3: 16528, data4: [160, 80, 165, 172, 137, 114, 233, 239] };
 pub const CBR_110: u32 = 110u32;
 pub const CBR_115200: u32 = 115200u32;
 pub const CBR_1200: u32 = 1200u32;
@@ -695,12 +677,7 @@ impl ::core::clone::Clone for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
         *self
     }
 }
-pub const CameraUIControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 383099582,
-    data2: 45509,
-    data3: 18355,
-    data4: [142, 174, 204, 188, 244, 82, 199, 232],
-};
+pub const CameraUIControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 383099582, data2: 45509, data3: 18355, data4: [142, 174, 204, 188, 244, 82, 199, 232] };
 #[repr(transparent)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
@@ -1056,12 +1033,7 @@ pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurf
 pub const ER_ICMP: u32 = 896u32;
 pub const EVENPARITY: u32 = 2u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
-pub const EditionUpgradeBroker: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3290892327,
-    data2: 20281,
-    data3: 17887,
-    data4: [146, 136, 18, 255, 107, 133, 169, 33],
-};
+pub const EditionUpgradeBroker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3290892327, data2: 20281, data3: 17887, data4: [146, 136, 18, 255, 107, 133, 169, 33] };
 pub const EditionUpgradeHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 24604147, data2: 47535, data3: 20048, data4: [155, 28, 86, 233, 49, 22, 215, 4] };
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;

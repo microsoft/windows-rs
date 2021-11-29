@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: ::core::option::Option<LPOVERLAPPED_COMPLETION_ROUTINE>, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: LPOVERLAPPED_COMPLETION_ROUTINE, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -78,16 +78,7 @@ pub unsafe fn DeviceIoControl<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DeviceIoControl(hdevice: super::super::Foundation::HANDLE, dwiocontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DeviceIoControl(
-            hdevice.into_param().abi(),
-            ::core::mem::transmute(dwiocontrolcode),
-            ::core::mem::transmute(lpinbuffer),
-            ::core::mem::transmute(ninbuffersize),
-            ::core::mem::transmute(lpoutbuffer),
-            ::core::mem::transmute(noutbuffersize),
-            ::core::mem::transmute(lpbytesreturned),
-            ::core::mem::transmute(lpoverlapped),
-        ))
+        ::core::mem::transmute(DeviceIoControl(hdevice.into_param().abi(), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -149,7 +140,7 @@ pub unsafe fn GetQueuedCompletionStatusEx<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOVERLAPPED_COMPLETION_ROUTINE = unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED);
+pub type LPOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

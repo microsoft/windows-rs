@@ -380,7 +380,7 @@ unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-pub type JET_CALLBACK = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::core::ffi::c_void, pvarg2: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32;
+pub type JET_CALLBACK = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::core::ffi::c_void, pvarg2: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -408,19 +408,7 @@ impl ::core::default::Default for JET_COLUMNBASE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for JET_COLUMNBASE_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_COLUMNBASE_A")
-            .field("cbStruct", &self.cbStruct)
-            .field("columnid", &self.columnid)
-            .field("coltyp", &self.coltyp)
-            .field("wCountry", &self.wCountry)
-            .field("langid", &self.langid)
-            .field("cp", &self.cp)
-            .field("wFiller", &self.wFiller)
-            .field("cbMax", &self.cbMax)
-            .field("grbit", &self.grbit)
-            .field("szBaseTableName", &self.szBaseTableName)
-            .field("szBaseColumnName", &self.szBaseColumnName)
-            .finish()
+        fmt.debug_struct("JET_COLUMNBASE_A").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wFiller", &self.wFiller).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("szBaseTableName", &self.szBaseTableName).field("szBaseColumnName", &self.szBaseColumnName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -458,19 +446,7 @@ impl ::core::default::Default for JET_COLUMNBASE_W {
 }
 impl ::core::fmt::Debug for JET_COLUMNBASE_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_COLUMNBASE_W")
-            .field("cbStruct", &self.cbStruct)
-            .field("columnid", &self.columnid)
-            .field("coltyp", &self.coltyp)
-            .field("wCountry", &self.wCountry)
-            .field("langid", &self.langid)
-            .field("cp", &self.cp)
-            .field("wFiller", &self.wFiller)
-            .field("cbMax", &self.cbMax)
-            .field("grbit", &self.grbit)
-            .field("szBaseTableName", &self.szBaseTableName)
-            .field("szBaseColumnName", &self.szBaseColumnName)
-            .finish()
+        fmt.debug_struct("JET_COLUMNBASE_W").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wFiller", &self.wFiller).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("szBaseTableName", &self.szBaseTableName).field("szBaseColumnName", &self.szBaseColumnName).finish()
     }
 }
 impl ::core::cmp::PartialEq for JET_COLUMNBASE_W {
@@ -508,18 +484,7 @@ impl ::core::default::Default for JET_COLUMNCREATE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for JET_COLUMNCREATE_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_COLUMNCREATE_A")
-            .field("cbStruct", &self.cbStruct)
-            .field("szColumnName", &self.szColumnName)
-            .field("coltyp", &self.coltyp)
-            .field("cbMax", &self.cbMax)
-            .field("grbit", &self.grbit)
-            .field("pvDefault", &self.pvDefault)
-            .field("cbDefault", &self.cbDefault)
-            .field("cp", &self.cp)
-            .field("columnid", &self.columnid)
-            .field("err", &self.err)
-            .finish()
+        fmt.debug_struct("JET_COLUMNCREATE_A").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("coltyp", &self.coltyp).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("pvDefault", &self.pvDefault).field("cbDefault", &self.cbDefault).field("cp", &self.cp).field("columnid", &self.columnid).field("err", &self.err).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -560,18 +525,7 @@ impl ::core::default::Default for JET_COLUMNCREATE_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for JET_COLUMNCREATE_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_COLUMNCREATE_W")
-            .field("cbStruct", &self.cbStruct)
-            .field("szColumnName", &self.szColumnName)
-            .field("coltyp", &self.coltyp)
-            .field("cbMax", &self.cbMax)
-            .field("grbit", &self.grbit)
-            .field("pvDefault", &self.pvDefault)
-            .field("cbDefault", &self.cbDefault)
-            .field("cp", &self.cp)
-            .field("columnid", &self.columnid)
-            .field("err", &self.err)
-            .finish()
+        fmt.debug_struct("JET_COLUMNCREATE_W").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("coltyp", &self.coltyp).field("cbMax", &self.cbMax).field("grbit", &self.grbit).field("pvDefault", &self.pvDefault).field("cbDefault", &self.cbDefault).field("cp", &self.cp).field("columnid", &self.columnid).field("err", &self.err).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -607,17 +561,7 @@ impl ::core::default::Default for JET_COLUMNDEF {
 }
 impl ::core::fmt::Debug for JET_COLUMNDEF {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_COLUMNDEF")
-            .field("cbStruct", &self.cbStruct)
-            .field("columnid", &self.columnid)
-            .field("coltyp", &self.coltyp)
-            .field("wCountry", &self.wCountry)
-            .field("langid", &self.langid)
-            .field("cp", &self.cp)
-            .field("wCollate", &self.wCollate)
-            .field("cbMax", &self.cbMax)
-            .field("grbit", &self.grbit)
-            .finish()
+        fmt.debug_struct("JET_COLUMNDEF").field("cbStruct", &self.cbStruct).field("columnid", &self.columnid).field("coltyp", &self.coltyp).field("wCountry", &self.wCountry).field("langid", &self.langid).field("cp", &self.cp).field("wCollate", &self.wCollate).field("cbMax", &self.cbMax).field("grbit", &self.grbit).finish()
     }
 }
 impl ::core::cmp::PartialEq for JET_COLUMNDEF {
@@ -1372,14 +1316,7 @@ impl ::core::default::Default for JET_ERRINFOBASIC_W {
 }
 impl ::core::fmt::Debug for JET_ERRINFOBASIC_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_ERRINFOBASIC_W")
-            .field("cbStruct", &self.cbStruct)
-            .field("errValue", &self.errValue)
-            .field("errcatMostSpecific", &self.errcatMostSpecific)
-            .field("rgCategoricalHierarchy", &self.rgCategoricalHierarchy)
-            .field("lSourceLine", &self.lSourceLine)
-            .field("rgszSourceFile", &self.rgszSourceFile)
-            .finish()
+        fmt.debug_struct("JET_ERRINFOBASIC_W").field("cbStruct", &self.cbStruct).field("errValue", &self.errValue).field("errcatMostSpecific", &self.errcatMostSpecific).field("rgCategoricalHierarchy", &self.rgCategoricalHierarchy).field("lSourceLine", &self.lSourceLine).field("rgszSourceFile", &self.rgszSourceFile).finish()
     }
 }
 impl ::core::cmp::PartialEq for JET_ERRINFOBASIC_W {
@@ -2178,14 +2115,7 @@ impl ::core::default::Default for JET_INSTANCE_INFO_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::fmt::Debug for JET_INSTANCE_INFO_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_INSTANCE_INFO_A")
-            .field("hInstanceId", &self.hInstanceId)
-            .field("szInstanceName", &self.szInstanceName)
-            .field("cDatabases", &self.cDatabases)
-            .field("szDatabaseFileName", &self.szDatabaseFileName)
-            .field("szDatabaseDisplayName", &self.szDatabaseDisplayName)
-            .field("szDatabaseSLVFileName_Obsolete", &self.szDatabaseSLVFileName_Obsolete)
-            .finish()
+        fmt.debug_struct("JET_INSTANCE_INFO_A").field("hInstanceId", &self.hInstanceId).field("szInstanceName", &self.szInstanceName).field("cDatabases", &self.cDatabases).field("szDatabaseFileName", &self.szDatabaseFileName).field("szDatabaseDisplayName", &self.szDatabaseDisplayName).field("szDatabaseSLVFileName_Obsolete", &self.szDatabaseSLVFileName_Obsolete).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -2222,14 +2152,7 @@ impl ::core::default::Default for JET_INSTANCE_INFO_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::fmt::Debug for JET_INSTANCE_INFO_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_INSTANCE_INFO_W")
-            .field("hInstanceId", &self.hInstanceId)
-            .field("szInstanceName", &self.szInstanceName)
-            .field("cDatabases", &self.cDatabases)
-            .field("szDatabaseFileName", &self.szDatabaseFileName)
-            .field("szDatabaseDisplayName", &self.szDatabaseDisplayName)
-            .field("szDatabaseSLVFileName_Obsolete", &self.szDatabaseSLVFileName_Obsolete)
-            .finish()
+        fmt.debug_struct("JET_INSTANCE_INFO_W").field("hInstanceId", &self.hInstanceId).field("szInstanceName", &self.szInstanceName).field("cDatabases", &self.cDatabases).field("szDatabaseFileName", &self.szDatabaseFileName).field("szDatabaseDisplayName", &self.szDatabaseDisplayName).field("szDatabaseSLVFileName_Obsolete", &self.szDatabaseSLVFileName_Obsolete).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -2617,18 +2540,7 @@ impl ::core::fmt::Debug for JET_OBJECTLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OBJECTLIST {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.tableid == other.tableid
-            && self.cRecord == other.cRecord
-            && self.columnidcontainername == other.columnidcontainername
-            && self.columnidobjectname == other.columnidobjectname
-            && self.columnidobjtyp == other.columnidobjtyp
-            && self.columniddtCreate == other.columniddtCreate
-            && self.columniddtUpdate == other.columniddtUpdate
-            && self.columnidgrbit == other.columnidgrbit
-            && self.columnidflags == other.columnidflags
-            && self.columnidcRecord == other.columnidcRecord
-            && self.columnidcPage == other.columnidcPage
+        self.cbStruct == other.cbStruct && self.tableid == other.tableid && self.cRecord == other.cRecord && self.columnidcontainername == other.columnidcontainername && self.columnidobjectname == other.columnidobjectname && self.columnidobjtyp == other.columnidobjtyp && self.columniddtCreate == other.columniddtCreate && self.columniddtUpdate == other.columniddtUpdate && self.columnidgrbit == other.columnidgrbit && self.columnidflags == other.columnidflags && self.columnidcRecord == other.columnidcRecord && self.columnidcPage == other.columnidcPage
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -2662,17 +2574,7 @@ impl ::core::default::Default for JET_OPENTEMPORARYTABLE {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_OPENTEMPORARYTABLE")
-            .field("cbStruct", &self.cbStruct)
-            .field("prgcolumndef", &self.prgcolumndef)
-            .field("ccolumn", &self.ccolumn)
-            .field("pidxunicode", &self.pidxunicode)
-            .field("grbit", &self.grbit)
-            .field("prgcolumnid", &self.prgcolumnid)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .field("cbVarSegMac", &self.cbVarSegMac)
-            .field("tableid", &self.tableid)
-            .finish()
+        fmt.debug_struct("JET_OPENTEMPORARYTABLE").field("cbStruct", &self.cbStruct).field("prgcolumndef", &self.prgcolumndef).field("ccolumn", &self.ccolumn).field("pidxunicode", &self.pidxunicode).field("grbit", &self.grbit).field("prgcolumnid", &self.prgcolumnid).field("cbKeyMost", &self.cbKeyMost).field("cbVarSegMac", &self.cbVarSegMac).field("tableid", &self.tableid).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -2712,17 +2614,7 @@ impl ::core::default::Default for JET_OPENTEMPORARYTABLE2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_OPENTEMPORARYTABLE2")
-            .field("cbStruct", &self.cbStruct)
-            .field("prgcolumndef", &self.prgcolumndef)
-            .field("ccolumn", &self.ccolumn)
-            .field("pidxunicode", &self.pidxunicode)
-            .field("grbit", &self.grbit)
-            .field("prgcolumnid", &self.prgcolumnid)
-            .field("cbKeyMost", &self.cbKeyMost)
-            .field("cbVarSegMac", &self.cbVarSegMac)
-            .field("tableid", &self.tableid)
-            .finish()
+        fmt.debug_struct("JET_OPENTEMPORARYTABLE2").field("cbStruct", &self.cbStruct).field("prgcolumndef", &self.prgcolumndef).field("ccolumn", &self.ccolumn).field("pidxunicode", &self.pidxunicode).field("grbit", &self.grbit).field("prgcolumnid", &self.prgcolumnid).field("cbKeyMost", &self.cbKeyMost).field("cbVarSegMac", &self.cbVarSegMac).field("tableid", &self.tableid).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -2784,10 +2676,10 @@ pub const JET_OnlineDefragDatabases: u32 = 2u32;
 pub const JET_OnlineDefragDisable: u32 = 0u32;
 pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-pub type JET_PFNDURABLECOMMITCALLBACK = unsafe extern "system" fn(instance: super::StructuredStorage::JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32;
-pub type JET_PFNREALLOC = unsafe extern "system" fn(pvcontext: *const ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void;
+pub type JET_PFNDURABLECOMMITCALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: super::StructuredStorage::JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32>;
+pub type JET_PFNREALLOC = ::core::option::Option<unsafe extern "system" fn(pvcontext: *const ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-pub type JET_PFNSTATUS = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32;
+pub type JET_PFNSTATUS = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -3025,16 +2917,7 @@ impl ::core::default::Default for JET_RECSIZE {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for JET_RECSIZE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_RECSIZE")
-            .field("cbData", &self.cbData)
-            .field("cbLongValueData", &self.cbLongValueData)
-            .field("cbOverhead", &self.cbOverhead)
-            .field("cbLongValueOverhead", &self.cbLongValueOverhead)
-            .field("cNonTaggedColumns", &self.cNonTaggedColumns)
-            .field("cTaggedColumns", &self.cTaggedColumns)
-            .field("cLongValues", &self.cLongValues)
-            .field("cMultiValues", &self.cMultiValues)
-            .finish()
+        fmt.debug_struct("JET_RECSIZE").field("cbData", &self.cbData).field("cbLongValueData", &self.cbLongValueData).field("cbOverhead", &self.cbOverhead).field("cbLongValueOverhead", &self.cbLongValueOverhead).field("cNonTaggedColumns", &self.cNonTaggedColumns).field("cTaggedColumns", &self.cTaggedColumns).field("cLongValues", &self.cLongValues).field("cMultiValues", &self.cMultiValues).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -3127,17 +3010,7 @@ impl ::core::fmt::Debug for JET_RECSIZE2 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::cmp::PartialEq for JET_RECSIZE2 {
     fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData
-            && self.cbLongValueData == other.cbLongValueData
-            && self.cbOverhead == other.cbOverhead
-            && self.cbLongValueOverhead == other.cbLongValueOverhead
-            && self.cNonTaggedColumns == other.cNonTaggedColumns
-            && self.cTaggedColumns == other.cTaggedColumns
-            && self.cLongValues == other.cLongValues
-            && self.cMultiValues == other.cMultiValues
-            && self.cCompressedColumns == other.cCompressedColumns
-            && self.cbDataCompressed == other.cbDataCompressed
-            && self.cbLongValueDataCompressed == other.cbLongValueDataCompressed
+        self.cbData == other.cbData && self.cbLongValueData == other.cbLongValueData && self.cbOverhead == other.cbOverhead && self.cbLongValueOverhead == other.cbLongValueOverhead && self.cNonTaggedColumns == other.cNonTaggedColumns && self.cTaggedColumns == other.cTaggedColumns && self.cLongValues == other.cLongValues && self.cMultiValues == other.cMultiValues && self.cCompressedColumns == other.cCompressedColumns && self.cbDataCompressed == other.cbDataCompressed && self.cbLongValueDataCompressed == other.cbLongValueDataCompressed
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -3251,17 +3124,7 @@ impl ::core::default::Default for JET_RETRIEVECOLUMN {
 }
 impl ::core::fmt::Debug for JET_RETRIEVECOLUMN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_RETRIEVECOLUMN")
-            .field("columnid", &self.columnid)
-            .field("pvData", &self.pvData)
-            .field("cbData", &self.cbData)
-            .field("cbActual", &self.cbActual)
-            .field("grbit", &self.grbit)
-            .field("ibLongValue", &self.ibLongValue)
-            .field("itagSequence", &self.itagSequence)
-            .field("columnidNextTagged", &self.columnidNextTagged)
-            .field("err", &self.err)
-            .finish()
+        fmt.debug_struct("JET_RETRIEVECOLUMN").field("columnid", &self.columnid).field("pvData", &self.pvData).field("cbData", &self.cbData).field("cbActual", &self.cbActual).field("grbit", &self.grbit).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("columnidNextTagged", &self.columnidNextTagged).field("err", &self.err).finish()
     }
 }
 impl ::core::cmp::PartialEq for JET_RETRIEVECOLUMN {
@@ -3273,12 +3136,7 @@ impl ::core::cmp::Eq for JET_RETRIEVECOLUMN {}
 unsafe impl ::windows::core::Abi for JET_RETRIEVECOLUMN {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::clone::Clone for JET_RSTINFO_A {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_RSTINFO_A {
@@ -3287,7 +3145,7 @@ pub struct JET_RSTINFO_A {
     pub crstmap: i32,
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
-    pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
+    pub pfnStatus: JET_PFNSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_RSTINFO_A {}
@@ -3307,14 +3165,9 @@ impl ::core::cmp::PartialEq for JET_RSTINFO_A {
 impl ::core::cmp::Eq for JET_RSTINFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_RSTINFO_A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::clone::Clone for JET_RSTINFO_W {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_RSTINFO_W {
@@ -3323,7 +3176,7 @@ pub struct JET_RSTINFO_W {
     pub crstmap: i32,
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
-    pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
+    pub pfnStatus: JET_PFNSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_RSTINFO_W {}
@@ -3343,7 +3196,7 @@ impl ::core::cmp::PartialEq for JET_RSTINFO_W {
 impl ::core::cmp::Eq for JET_RSTINFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for JET_RSTINFO_W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -3614,16 +3467,7 @@ impl ::core::default::Default for JET_SPACEHINTS {
 }
 impl ::core::fmt::Debug for JET_SPACEHINTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_SPACEHINTS")
-            .field("cbStruct", &self.cbStruct)
-            .field("ulInitialDensity", &self.ulInitialDensity)
-            .field("cbInitial", &self.cbInitial)
-            .field("grbit", &self.grbit)
-            .field("ulMaintDensity", &self.ulMaintDensity)
-            .field("ulGrowth", &self.ulGrowth)
-            .field("cbMinExtent", &self.cbMinExtent)
-            .field("cbMaxExtent", &self.cbMaxExtent)
-            .finish()
+        fmt.debug_struct("JET_SPACEHINTS").field("cbStruct", &self.cbStruct).field("ulInitialDensity", &self.ulInitialDensity).field("cbInitial", &self.cbInitial).field("grbit", &self.grbit).field("ulMaintDensity", &self.ulMaintDensity).field("ulGrowth", &self.ulGrowth).field("cbMinExtent", &self.cbMinExtent).field("cbMaxExtent", &self.cbMaxExtent).finish()
     }
 }
 impl ::core::cmp::PartialEq for JET_SPACEHINTS {
@@ -3686,20 +3530,7 @@ impl ::core::fmt::Debug for JET_TABLECREATE2_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::cmp::PartialEq for JET_TABLECREATE2_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.szTableName == other.szTableName
-            && self.szTemplateTableName == other.szTemplateTableName
-            && self.ulPages == other.ulPages
-            && self.ulDensity == other.ulDensity
-            && self.rgcolumncreate == other.rgcolumncreate
-            && self.cColumns == other.cColumns
-            && self.rgindexcreate == other.rgindexcreate
-            && self.cIndexes == other.cIndexes
-            && self.szCallback == other.szCallback
-            && self.cbtyp == other.cbtyp
-            && self.grbit == other.grbit
-            && self.tableid == other.tableid
-            && self.cCreated == other.cCreated
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3759,20 +3590,7 @@ impl ::core::fmt::Debug for JET_TABLECREATE2_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::cmp::PartialEq for JET_TABLECREATE2_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.szTableName == other.szTableName
-            && self.szTemplateTableName == other.szTemplateTableName
-            && self.ulPages == other.ulPages
-            && self.ulDensity == other.ulDensity
-            && self.rgcolumncreate == other.rgcolumncreate
-            && self.cColumns == other.cColumns
-            && self.rgindexcreate == other.rgindexcreate
-            && self.cIndexes == other.cIndexes
-            && self.szCallback == other.szCallback
-            && self.cbtyp == other.cbtyp
-            && self.grbit == other.grbit
-            && self.tableid == other.tableid
-            && self.cCreated == other.cCreated
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3838,23 +3656,7 @@ impl ::core::fmt::Debug for JET_TABLECREATE3_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::cmp::PartialEq for JET_TABLECREATE3_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.szTableName == other.szTableName
-            && self.szTemplateTableName == other.szTemplateTableName
-            && self.ulPages == other.ulPages
-            && self.ulDensity == other.ulDensity
-            && self.rgcolumncreate == other.rgcolumncreate
-            && self.cColumns == other.cColumns
-            && self.rgindexcreate == other.rgindexcreate
-            && self.cIndexes == other.cIndexes
-            && self.szCallback == other.szCallback
-            && self.cbtyp == other.cbtyp
-            && self.grbit == other.grbit
-            && self.pSeqSpacehints == other.pSeqSpacehints
-            && self.pLVSpacehints == other.pLVSpacehints
-            && self.cbSeparateLV == other.cbSeparateLV
-            && self.tableid == other.tableid
-            && self.cCreated == other.cCreated
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -3920,23 +3722,7 @@ impl ::core::fmt::Debug for JET_TABLECREATE3_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::cmp::PartialEq for JET_TABLECREATE3_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.szTableName == other.szTableName
-            && self.szTemplateTableName == other.szTemplateTableName
-            && self.ulPages == other.ulPages
-            && self.ulDensity == other.ulDensity
-            && self.rgcolumncreate == other.rgcolumncreate
-            && self.cColumns == other.cColumns
-            && self.rgindexcreate == other.rgindexcreate
-            && self.cIndexes == other.cIndexes
-            && self.szCallback == other.szCallback
-            && self.cbtyp == other.cbtyp
-            && self.grbit == other.grbit
-            && self.pSeqSpacehints == other.pSeqSpacehints
-            && self.pLVSpacehints == other.pLVSpacehints
-            && self.cbSeparateLV == other.cbSeparateLV
-            && self.tableid == other.tableid
-            && self.cCreated == other.cCreated
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -4002,23 +3788,7 @@ impl ::core::fmt::Debug for JET_TABLECREATE4_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::cmp::PartialEq for JET_TABLECREATE4_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.szTableName == other.szTableName
-            && self.szTemplateTableName == other.szTemplateTableName
-            && self.ulPages == other.ulPages
-            && self.ulDensity == other.ulDensity
-            && self.rgcolumncreate == other.rgcolumncreate
-            && self.cColumns == other.cColumns
-            && self.rgindexcreate == other.rgindexcreate
-            && self.cIndexes == other.cIndexes
-            && self.szCallback == other.szCallback
-            && self.cbtyp == other.cbtyp
-            && self.grbit == other.grbit
-            && self.pSeqSpacehints == other.pSeqSpacehints
-            && self.pLVSpacehints == other.pLVSpacehints
-            && self.cbSeparateLV == other.cbSeparateLV
-            && self.tableid == other.tableid
-            && self.cCreated == other.cCreated
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -4084,23 +3854,7 @@ impl ::core::fmt::Debug for JET_TABLECREATE4_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::cmp::PartialEq for JET_TABLECREATE4_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.szTableName == other.szTableName
-            && self.szTemplateTableName == other.szTemplateTableName
-            && self.ulPages == other.ulPages
-            && self.ulDensity == other.ulDensity
-            && self.rgcolumncreate == other.rgcolumncreate
-            && self.cColumns == other.cColumns
-            && self.rgindexcreate == other.rgindexcreate
-            && self.cIndexes == other.cIndexes
-            && self.szCallback == other.szCallback
-            && self.cbtyp == other.cbtyp
-            && self.grbit == other.grbit
-            && self.pSeqSpacehints == other.pSeqSpacehints
-            && self.pLVSpacehints == other.pLVSpacehints
-            && self.cbSeparateLV == other.cbSeparateLV
-            && self.tableid == other.tableid
-            && self.cCreated == other.cCreated
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -4241,16 +3995,7 @@ impl ::core::default::Default for JET_THREADSTATS {
 }
 impl ::core::fmt::Debug for JET_THREADSTATS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_THREADSTATS")
-            .field("cbStruct", &self.cbStruct)
-            .field("cPageReferenced", &self.cPageReferenced)
-            .field("cPageRead", &self.cPageRead)
-            .field("cPagePreread", &self.cPagePreread)
-            .field("cPageDirtied", &self.cPageDirtied)
-            .field("cPageRedirtied", &self.cPageRedirtied)
-            .field("cLogRecord", &self.cLogRecord)
-            .field("cbLogRecord", &self.cbLogRecord)
-            .finish()
+        fmt.debug_struct("JET_THREADSTATS").field("cbStruct", &self.cbStruct).field("cPageReferenced", &self.cPageReferenced).field("cPageRead", &self.cPageRead).field("cPagePreread", &self.cPagePreread).field("cPageDirtied", &self.cPageDirtied).field("cPageRedirtied", &self.cPageRedirtied).field("cLogRecord", &self.cLogRecord).field("cbLogRecord", &self.cbLogRecord).finish()
     }
 }
 impl ::core::cmp::PartialEq for JET_THREADSTATS {
@@ -4288,18 +4033,7 @@ impl ::core::default::Default for JET_THREADSTATS2 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for JET_THREADSTATS2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JET_THREADSTATS2")
-            .field("cbStruct", &self.cbStruct)
-            .field("cPageReferenced", &self.cPageReferenced)
-            .field("cPageRead", &self.cPageRead)
-            .field("cPagePreread", &self.cPagePreread)
-            .field("cPageDirtied", &self.cPageDirtied)
-            .field("cPageRedirtied", &self.cPageRedirtied)
-            .field("cLogRecord", &self.cLogRecord)
-            .field("cbLogRecord", &self.cbLogRecord)
-            .field("cusecPageCacheMiss", &self.cusecPageCacheMiss)
-            .field("cPageCacheMiss", &self.cPageCacheMiss)
-            .finish()
+        fmt.debug_struct("JET_THREADSTATS2").field("cbStruct", &self.cbStruct).field("cPageReferenced", &self.cPageReferenced).field("cPageRead", &self.cPageRead).field("cPagePreread", &self.cPagePreread).field("cPageDirtied", &self.cPageDirtied).field("cPageRedirtied", &self.cPageRedirtied).field("cLogRecord", &self.cLogRecord).field("cbLogRecord", &self.cbLogRecord).field("cusecPageCacheMiss", &self.cusecPageCacheMiss).field("cPageCacheMiss", &self.cPageCacheMiss).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -5489,7 +5223,7 @@ pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5503,7 +5237,7 @@ pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::core:
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const i8, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5517,7 +5251,7 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const u16, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5531,7 +5265,7 @@ pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5726,7 +5460,7 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetCompactA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: ::core::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_A, grbit: u32) -> i32 {
+pub unsafe fn JetCompactA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5740,7 +5474,7 @@ pub unsafe fn JetCompactA<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetCompactW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: ::core::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_W, grbit: u32) -> i32 {
+pub unsafe fn JetCompactW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6145,7 +5879,7 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6159,7 +5893,7 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6173,7 +5907,7 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment3A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6187,7 +5921,7 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment3W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6522,25 +6256,14 @@ pub unsafe fn JetEndSession<'a, Param0: ::windows::core::IntoParam<'a, super::St
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::core::option::Option<JET_PFNREALLOC>, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
+pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::windows::core::RawPtr, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
         }
-        ::core::mem::transmute(JetEnumerateColumns(
-            sesid.into_param().abi(),
-            tableid.into_param().abi(),
-            ::core::mem::transmute(cenumcolumnid),
-            ::core::mem::transmute(rgenumcolumnid),
-            ::core::mem::transmute(pcenumcolumn),
-            ::core::mem::transmute(prgenumcolumn),
-            ::core::mem::transmute(pfnrealloc),
-            ::core::mem::transmute(pvrealloccontext),
-            ::core::mem::transmute(cbdatamost),
-            ::core::mem::transmute(grbit),
-        ))
+        ::core::mem::transmute(JetEnumerateColumns(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(cenumcolumnid), ::core::mem::transmute(rgenumcolumnid), ::core::mem::transmute(pcenumcolumn), ::core::mem::transmute(prgenumcolumn), ::core::mem::transmute(pfnrealloc), ::core::mem::transmute(pvrealloccontext), ::core::mem::transmute(cbdatamost), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6561,96 +6284,56 @@ pub unsafe fn JetEscrowUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(JetExternalRestore2A(
-            ::core::mem::transmute(szcheckpointfilepath),
-            ::core::mem::transmute(szlogpath),
-            ::core::mem::transmute(rgrstmap),
-            ::core::mem::transmute(crstfilemap),
-            ::core::mem::transmute(szbackuplogpath),
-            ::core::mem::transmute(ploginfo),
-            ::core::mem::transmute(sztargetinstancename),
-            ::core::mem::transmute(sztargetinstancelogpath),
-            ::core::mem::transmute(sztargetinstancecheckpointpath),
-            ::core::mem::transmute(pfn),
-        ))
+        ::core::mem::transmute(JetExternalRestore2A(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstfilemap), ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(ploginfo), ::core::mem::transmute(sztargetinstancename), ::core::mem::transmute(sztargetinstancelogpath), ::core::mem::transmute(sztargetinstancecheckpointpath), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(JetExternalRestore2W(
-            ::core::mem::transmute(szcheckpointfilepath),
-            ::core::mem::transmute(szlogpath),
-            ::core::mem::transmute(rgrstmap),
-            ::core::mem::transmute(crstfilemap),
-            ::core::mem::transmute(szbackuplogpath),
-            ::core::mem::transmute(ploginfo),
-            ::core::mem::transmute(sztargetinstancename),
-            ::core::mem::transmute(sztargetinstancelogpath),
-            ::core::mem::transmute(sztargetinstancecheckpointpath),
-            ::core::mem::transmute(pfn),
-        ))
+        ::core::mem::transmute(JetExternalRestore2W(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstfilemap), ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(ploginfo), ::core::mem::transmute(sztargetinstancename), ::core::mem::transmute(sztargetinstancelogpath), ::core::mem::transmute(sztargetinstancecheckpointpath), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(JetExternalRestoreA(
-            ::core::mem::transmute(szcheckpointfilepath),
-            ::core::mem::transmute(szlogpath),
-            ::core::mem::transmute(rgrstmap),
-            ::core::mem::transmute(crstfilemap),
-            ::core::mem::transmute(szbackuplogpath),
-            ::core::mem::transmute(genlow),
-            ::core::mem::transmute(genhigh),
-            ::core::mem::transmute(pfn),
-        ))
+        ::core::mem::transmute(JetExternalRestoreA(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstfilemap), ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(JetExternalRestoreW(
-            ::core::mem::transmute(szcheckpointfilepath),
-            ::core::mem::transmute(szlogpath),
-            ::core::mem::transmute(rgrstmap),
-            ::core::mem::transmute(crstfilemap),
-            ::core::mem::transmute(szbackuplogpath),
-            ::core::mem::transmute(genlow),
-            ::core::mem::transmute(genhigh),
-            ::core::mem::transmute(pfn),
-        ))
+        ::core::mem::transmute(JetExternalRestoreW(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstfilemap), ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7133,17 +6816,7 @@ pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn JetGetSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32;
         }
-        ::core::mem::transmute(JetGetSecondaryIndexBookmark(
-            sesid.into_param().abi(),
-            tableid.into_param().abi(),
-            ::core::mem::transmute(pvsecondarykey),
-            ::core::mem::transmute(cbsecondarykeymax),
-            ::core::mem::transmute(pcbsecondarykeyactual),
-            ::core::mem::transmute(pvprimarybookmark),
-            ::core::mem::transmute(cbprimarybookmarkmax),
-            ::core::mem::transmute(pcbprimarybookmarkactual),
-            ::core::mem::transmute(grbit),
-        ))
+        ::core::mem::transmute(JetGetSecondaryIndexBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvsecondarykey), ::core::mem::transmute(cbsecondarykeymax), ::core::mem::transmute(pcbsecondarykeyactual), ::core::mem::transmute(pvprimarybookmark), ::core::mem::transmute(cbprimarybookmarkmax), ::core::mem::transmute(pcbprimarybookmarkactual), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7448,7 +7121,7 @@ pub unsafe fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const ::core::mem::ManuallyDrop<JET_RSTINFO_A>, grbit: u32) -> i32;
+            fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const JET_RSTINFO_A, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetInit3A(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), ::core::mem::transmute(grbit)))
     }
@@ -7462,7 +7135,7 @@ pub unsafe fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const ::core::mem::ManuallyDrop<JET_RSTINFO_W>, grbit: u32) -> i32;
+            fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const JET_RSTINFO_W, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetInit3W(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), ::core::mem::transmute(grbit)))
     }
@@ -7865,16 +7538,7 @@ pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn JetPrereadIndexRanges(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgindexranges: *const JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *const u32, ccolumnidpreread: u32, grbit: u32) -> i32;
         }
-        ::core::mem::transmute(JetPrereadIndexRanges(
-            sesid.into_param().abi(),
-            tableid.into_param().abi(),
-            ::core::mem::transmute(rgindexranges),
-            ::core::mem::transmute(cindexranges),
-            ::core::mem::transmute(pcrangespreread),
-            ::core::mem::transmute(rgcolumnidpreread),
-            ::core::mem::transmute(ccolumnidpreread),
-            ::core::mem::transmute(grbit),
-        ))
+        ::core::mem::transmute(JetPrereadIndexRanges(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(rgindexranges), ::core::mem::transmute(cindexranges), ::core::mem::transmute(pcrangespreread), ::core::mem::transmute(rgcolumnidpreread), ::core::mem::transmute(ccolumnidpreread), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7923,7 +7587,7 @@ pub unsafe fn JetReadFileInstance<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cbtyp: u32, pcallback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32 {
+pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cbtyp: u32, pcallback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8035,7 +7699,7 @@ pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8049,7 +7713,7 @@ pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::core::option
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8063,7 +7727,7 @@ pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::core::opti
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8077,7 +7741,7 @@ pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::core::option::Option<JET_P
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const i8, szdest: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8091,7 +7755,7 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const u16, szdest: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8105,7 +7769,7 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

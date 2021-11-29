@@ -133,22 +133,7 @@ impl ::core::fmt::Debug for EVENTLOGRECORD {
 }
 impl ::core::cmp::PartialEq for EVENTLOGRECORD {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Reserved == other.Reserved
-            && self.RecordNumber == other.RecordNumber
-            && self.TimeGenerated == other.TimeGenerated
-            && self.TimeWritten == other.TimeWritten
-            && self.EventID == other.EventID
-            && self.EventType == other.EventType
-            && self.NumStrings == other.NumStrings
-            && self.EventCategory == other.EventCategory
-            && self.ReservedFlags == other.ReservedFlags
-            && self.ClosingRecordNumber == other.ClosingRecordNumber
-            && self.StringOffset == other.StringOffset
-            && self.UserSidLength == other.UserSidLength
-            && self.UserSidOffset == other.UserSidOffset
-            && self.DataLength == other.DataLength
-            && self.DataOffset == other.DataOffset
+        self.Length == other.Length && self.Reserved == other.Reserved && self.RecordNumber == other.RecordNumber && self.TimeGenerated == other.TimeGenerated && self.TimeWritten == other.TimeWritten && self.EventID == other.EventID && self.EventType == other.EventType && self.NumStrings == other.NumStrings && self.EventCategory == other.EventCategory && self.ReservedFlags == other.ReservedFlags && self.ClosingRecordNumber == other.ClosingRecordNumber && self.StringOffset == other.StringOffset && self.UserSidLength == other.UserSidLength && self.UserSidOffset == other.UserSidOffset && self.DataLength == other.DataLength && self.DataOffset == other.DataOffset
     }
 }
 impl ::core::cmp::Eq for EVENTLOGRECORD {}
@@ -592,7 +577,7 @@ impl ::core::convert::From<i32> for EVT_SEEK_FLAGS {
 unsafe impl ::windows::core::Abi for EVT_SEEK_FLAGS {
     type Abi = Self;
 }
-pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: isize) -> u32;
+pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: isize) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub i32);
@@ -915,17 +900,7 @@ pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid
         extern "system" {
             fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtFormatMessage(
-            ::core::mem::transmute(publishermetadata),
-            ::core::mem::transmute(event),
-            ::core::mem::transmute(messageid),
-            ::core::mem::transmute(valuecount),
-            ::core::mem::transmute(values),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(bufferused),
-        ))
+        ::core::mem::transmute(EvtFormatMessage(::core::mem::transmute(publishermetadata), ::core::mem::transmute(event), ::core::mem::transmute(messageid), ::core::mem::transmute(valuecount), ::core::mem::transmute(values), ::core::mem::transmute(flags), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1009,15 +984,7 @@ pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arr
         extern "system" {
             fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtGetObjectArrayProperty(
-            ::core::mem::transmute(objectarray),
-            ::core::mem::transmute(propertyid),
-            ::core::mem::transmute(arrayindex),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(propertyvaluebuffersize),
-            ::core::mem::transmute(propertyvaluebuffer),
-            ::core::mem::transmute(propertyvaluebufferused),
-        ))
+        ::core::mem::transmute(EvtGetObjectArrayProperty(::core::mem::transmute(objectarray), ::core::mem::transmute(propertyid), ::core::mem::transmute(arrayindex), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1045,14 +1012,7 @@ pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, property
         extern "system" {
             fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtGetPublisherMetadataProperty(
-            ::core::mem::transmute(publishermetadata),
-            ::core::mem::transmute(propertyid),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(publishermetadatapropertybuffersize),
-            ::core::mem::transmute(publishermetadatapropertybuffer),
-            ::core::mem::transmute(publishermetadatapropertybufferused),
-        ))
+        ::core::mem::transmute(EvtGetPublisherMetadataProperty(::core::mem::transmute(publishermetadata), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(publishermetadatapropertybuffersize), ::core::mem::transmute(publishermetadatapropertybuffer), ::core::mem::transmute(publishermetadatapropertybufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1292,7 +1252,7 @@ pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtSubscribe<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, signalevent: Param1, channelpath: Param2, query: Param3, bookmark: isize, context: *const ::core::ffi::c_void, callback: ::core::option::Option<EVT_SUBSCRIBE_CALLBACK>, flags: u32) -> isize {
+pub unsafe fn EvtSubscribe<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, signalevent: Param1, channelpath: Param2, query: Param3, bookmark: isize, context: *const ::core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1553,17 +1513,7 @@ pub unsafe fn ReportEventA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn ReportEventA(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReportEventA(
-            heventlog.into_param().abi(),
-            ::core::mem::transmute(wtype),
-            ::core::mem::transmute(wcategory),
-            ::core::mem::transmute(dweventid),
-            lpusersid.into_param().abi(),
-            ::core::mem::transmute(wnumstrings),
-            ::core::mem::transmute(dwdatasize),
-            ::core::mem::transmute(lpstrings),
-            ::core::mem::transmute(lprawdata),
-        ))
+        ::core::mem::transmute(ReportEventA(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), ::core::mem::transmute(wnumstrings), ::core::mem::transmute(dwdatasize), ::core::mem::transmute(lpstrings), ::core::mem::transmute(lprawdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1577,17 +1527,7 @@ pub unsafe fn ReportEventW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReportEventW(
-            heventlog.into_param().abi(),
-            ::core::mem::transmute(wtype),
-            ::core::mem::transmute(wcategory),
-            ::core::mem::transmute(dweventid),
-            lpusersid.into_param().abi(),
-            ::core::mem::transmute(wnumstrings),
-            ::core::mem::transmute(dwdatasize),
-            ::core::mem::transmute(lpstrings),
-            ::core::mem::transmute(lprawdata),
-        ))
+        ::core::mem::transmute(ReportEventW(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), ::core::mem::transmute(wnumstrings), ::core::mem::transmute(dwdatasize), ::core::mem::transmute(lpstrings), ::core::mem::transmute(lprawdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

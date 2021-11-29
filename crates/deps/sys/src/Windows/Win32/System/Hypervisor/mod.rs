@@ -338,30 +338,10 @@ pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
 pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
-pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4294967295,
-    data2: 65535,
-    data3: 65535,
-    data4: [255, 255, 255, 255, 255, 255, 255, 255],
-};
-pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2430307209,
-    data2: 3381,
-    data3: 20345,
-    data4: [140, 233, 73, 234, 10, 200, 183, 205],
-};
-pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3772866967,
-    data2: 56662,
-    data3: 18960,
-    data4: [145, 149, 94, 231, 161, 85, 168, 56],
-};
-pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2754510042,
-    data2: 53311,
-    data3: 18444,
-    data4: [156, 194, 164, 222, 32, 171, 184, 120],
-};
+pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4294967295, data2: 65535, data3: 65535, data4: [255, 255, 255, 255, 255, 255, 255, 255] };
+pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2430307209, data2: 3381, data3: 20345, data4: [140, 233, 73, 234, 10, 200, 183, 205] };
+pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3772866967, data2: 56662, data3: 18960, data4: [145, 149, 94, 231, 161, 85, 168, 56] };
+pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2754510042, data2: 53311, data3: 18444, data4: [156, 194, 164, 222, 32, 171, 184, 120] };
 pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
 pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
 pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };

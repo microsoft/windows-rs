@@ -1103,16 +1103,7 @@ impl ::core::default::Default for GamepadReading {
 }
 impl ::core::fmt::Debug for GamepadReading {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GamepadReading")
-            .field("Timestamp", &self.Timestamp)
-            .field("Buttons", &self.Buttons)
-            .field("LeftTrigger", &self.LeftTrigger)
-            .field("RightTrigger", &self.RightTrigger)
-            .field("LeftThumbstickX", &self.LeftThumbstickX)
-            .field("LeftThumbstickY", &self.LeftThumbstickY)
-            .field("RightThumbstickX", &self.RightThumbstickX)
-            .field("RightThumbstickY", &self.RightThumbstickY)
-            .finish()
+        fmt.debug_struct("GamepadReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("LeftTrigger", &self.LeftTrigger).field("RightTrigger", &self.RightTrigger).field("LeftThumbstickX", &self.LeftThumbstickX).field("LeftThumbstickY", &self.LeftThumbstickY).field("RightThumbstickX", &self.RightThumbstickX).field("RightThumbstickY", &self.RightThumbstickY).finish()
     }
 }
 impl ::core::cmp::PartialEq for GamepadReading {
@@ -2322,16 +2313,7 @@ impl ::core::default::Default for RacingWheelReading {
 }
 impl ::core::fmt::Debug for RacingWheelReading {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RacingWheelReading")
-            .field("Timestamp", &self.Timestamp)
-            .field("Buttons", &self.Buttons)
-            .field("PatternShifterGear", &self.PatternShifterGear)
-            .field("Wheel", &self.Wheel)
-            .field("Throttle", &self.Throttle)
-            .field("Brake", &self.Brake)
-            .field("Clutch", &self.Clutch)
-            .field("Handbrake", &self.Handbrake)
-            .finish()
+        fmt.debug_struct("RacingWheelReading").field("Timestamp", &self.Timestamp).field("Buttons", &self.Buttons).field("PatternShifterGear", &self.PatternShifterGear).field("Wheel", &self.Wheel).field("Throttle", &self.Throttle).field("Brake", &self.Brake).field("Clutch", &self.Clutch).field("Handbrake", &self.Handbrake).finish()
     }
 }
 impl ::core::cmp::PartialEq for RacingWheelReading {

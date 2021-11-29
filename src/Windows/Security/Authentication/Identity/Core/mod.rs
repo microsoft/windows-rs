@@ -206,13 +206,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn ApproveSessionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-        &self,
-        sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus,
-        useraccountid: Param1,
-        sessionid: Param2,
-        sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType,
-    ) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn ApproveSessionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: Param1, sessionid: Param2, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -1166,24 +1166,9 @@ impl ::core::clone::Clone for FUSION_INSTALL_REFERENCE {
         *self
     }
 }
-pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2955910501,
-    data2: 64375,
-    data3: 20346,
-    data4: [175, 165, 179, 145, 48, 159, 17, 201],
-};
-pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 784938083,
-    data2: 45251,
-    data3: 17889,
-    data4: [131, 100, 50, 126, 150, 174, 168, 86],
-};
-pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2364391957,
-    data2: 44107,
-    data3: 18571,
-    data4: [147, 192, 165, 10, 73, 203, 47, 184],
-};
+pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2955910501, data2: 64375, data3: 20346, data4: [175, 165, 179, 145, 48, 159, 17, 201] };
+pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 784938083, data2: 45251, data3: 17889, data4: [131, 100, 50, 126, 150, 174, 168, 86] };
+pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2364391957, data2: 44107, data3: 18571, data4: [147, 192, 165, 10, 73, 203, 47, 184] };
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: u32 = 3u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: u32 = 1u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
@@ -1783,12 +1768,7 @@ impl ::core::clone::Clone for PMSIHANDLE {
         *self
     }
 }
-pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3118797308,
-    data2: 58212,
-    data3: 18810,
-    data4: [161, 33, 183, 179, 97, 44, 237, 206],
-};
+pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3118797308, data2: 58212, data3: 18810, data4: [161, 33, 183, 179, 97, 44, 237, 206] };
 pub type PM_ACTIVATION_POLICY = i32;
 pub const PM_ACTIVATION_POLICY_RESUME: PM_ACTIVATION_POLICY = 0i32;
 pub const PM_ACTIVATION_POLICY_RESUMESAMEPARAMS: PM_ACTIVATION_POLICY = 1i32;

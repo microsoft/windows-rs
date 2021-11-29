@@ -97,7 +97,7 @@ unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT_TABLE {
 }
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
-pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::core::ffi::c_void);
+pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::core::Result<u32> {
@@ -115,7 +115,7 @@ pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -261,15 +261,7 @@ impl ::core::default::Default for WCM_DATAPLAN_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WCM_DATAPLAN_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WCM_DATAPLAN_STATUS")
-            .field("UsageData", &self.UsageData)
-            .field("DataLimitInMegabytes", &self.DataLimitInMegabytes)
-            .field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps)
-            .field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps)
-            .field("BillingCycle", &self.BillingCycle)
-            .field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("WCM_DATAPLAN_STATUS").field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("BillingCycle", &self.BillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

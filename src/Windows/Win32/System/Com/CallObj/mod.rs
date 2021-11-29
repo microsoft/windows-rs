@@ -46,18 +46,7 @@ impl ::core::fmt::Debug for CALLFRAMEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CALLFRAMEINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.iMethod == other.iMethod
-            && self.fHasInValues == other.fHasInValues
-            && self.fHasInOutValues == other.fHasInOutValues
-            && self.fHasOutValues == other.fHasOutValues
-            && self.fDerivesFromIDispatch == other.fDerivesFromIDispatch
-            && self.cInInterfacesMax == other.cInInterfacesMax
-            && self.cInOutInterfacesMax == other.cInOutInterfacesMax
-            && self.cOutInterfacesMax == other.cOutInterfacesMax
-            && self.cTopLevelInInterfaces == other.cTopLevelInInterfaces
-            && self.iid == other.iid
-            && self.cMethod == other.cMethod
-            && self.cParams == other.cParams
+        self.iMethod == other.iMethod && self.fHasInValues == other.fHasInValues && self.fHasInOutValues == other.fHasInOutValues && self.fHasOutValues == other.fHasOutValues && self.fDerivesFromIDispatch == other.fDerivesFromIDispatch && self.cInInterfacesMax == other.cInInterfacesMax && self.cInOutInterfacesMax == other.cInOutInterfacesMax && self.cOutInterfacesMax == other.cOutInterfacesMax && self.cTopLevelInInterfaces == other.cTopLevelInInterfaces && self.iid == other.iid && self.cMethod == other.cMethod && self.cParams == other.cParams
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -393,12 +382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICall
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallFrameEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ICallFrameEvents_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICallFrameWalker(pub ::windows::core::IUnknown);
@@ -590,18 +574,7 @@ pub struct ICallUnmarshal(pub ::windows::core::IUnknown);
 impl ICallUnmarshal {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unmarshal<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: Param3, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::core::option::Option<ICallFrame>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(imethod),
-            ::core::mem::transmute(pbuffer),
-            ::core::mem::transmute(cbbuffer),
-            fforcebuffercopy.into_param().abi(),
-            ::core::mem::transmute(datarep),
-            ::core::mem::transmute(pcontext),
-            ::core::mem::transmute(pcbunmarshalled),
-            ::core::mem::transmute(ppframe),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(imethod), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer), fforcebuffercopy.into_param().abi(), ::core::mem::transmute(datarep), ::core::mem::transmute(pcontext), ::core::mem::transmute(pcbunmarshalled), ::core::mem::transmute(ppframe)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseMarshalData(&self, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()> {
