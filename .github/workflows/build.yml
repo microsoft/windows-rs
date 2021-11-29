@@ -42,18 +42,22 @@ jobs:
           rust: stable
           other: x86_64-pc-windows-msvc
           platform: x64
+          toolchain: msvc
         - os: windows-latest
           rust: nightly
           other: i686-pc-windows-msvc
           platform: x86
+          toolchain: msvc
         - os: windows-latest
           rust: nightly
           other: x86_64-pc-windows-gnu
           platform: x64
+          toolchain: gnu
         - os: windows-latest
           rust: stable
           other: i686-pc-windows-gnu
           platform: x86
+          toolchain: gnu
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -89,12 +93,12 @@ jobs:
       if: contains(matrix.other, 'windows-gnu')
 
     - name: Build (${{ matrix.os }})
-      run: cargo build
-      if: matrix.other == 'x86_64-pc-windows-gnu' || matrix.other == 'i686-pc-windows-gnu'
+      run: cargo check
+      if: matrix.toolchain == 'gnu'
 
     - name: Build (${{ matrix.os }})
       run: cargo test --all --target ${{ matrix.other }}
-      if: matrix.os == 'windows-latest'
+      if: matrix.toolchain == 'msvc'
 
   cargo_fmt:
     name: Check cargo formatting
