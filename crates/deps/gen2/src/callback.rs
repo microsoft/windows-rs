@@ -1,6 +1,10 @@
 use super::*;
 
 pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if !gen.sys {
+        return quote!{};
+    }
+    
     let name = gen_type_name(def, gen);
     let method = def.invoke_method();
     let signature = method.signature(&[]);

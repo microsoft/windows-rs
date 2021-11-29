@@ -3,6 +3,10 @@
 use super::*;
 
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
+    if !gen.sys {
+        return quote!{};
+    }
+
     let name = def.name();
     let name = gen_ident(name);
     let signature = def.signature(None);

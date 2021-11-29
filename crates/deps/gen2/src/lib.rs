@@ -53,8 +53,8 @@ pub fn gen_namespace(gen: &Gen) -> String {
         }
     });
 
-    let functions = gen_functions(tree, gen);
-    let types = gen_non_function_types(tree, gen);
+    let functions = gen_sys_functions(tree, gen);
+    let types = gen_non_sys_function_types(tree, gen);
 
     let tokens = quote! {
         #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
@@ -66,16 +66,12 @@ pub fn gen_namespace(gen: &Gen) -> String {
     tokens.into_string()
 }
 
-fn gen_non_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
+fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for entry in tree.types.values() {
         for def in &entry.def {
-            match def {
-                ElementType::MethodDef(_) => {}
-                ElementType::Field(_) | ElementType::TypeDef(_) => tokens.combine(&gen_element_type(def, gen)),
-                _ => {}
-            }
+            tokens.combine(&gen_element_type(def, gen));
         }
     }
 
@@ -104,7 +100,13 @@ fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
                 }
             }
         },
-        ElementType::MethodDef(def) => gen_function(def, gen),
+        ElementType::MethodDef(def) => {
+            if !gen.sys {
+                gen_function(def, gen)
+            } else {
+                quote! {}
+            }
+        }
         _ => quote! {},
     }
 }
