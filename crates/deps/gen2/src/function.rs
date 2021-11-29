@@ -5,16 +5,18 @@ pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
         let mut functions = tree.types.values().map(|entry| gen_function_if(entry, gen)).peekable();
 
         if functions.peek().is_some() {
-            return quote! {
+            quote! {
                 #[link(name = "windows")]
                 extern "system" {
                     #(#functions)*
                 }
-            };
-        }
+            } 
+        } else {
+                quote! {}
+            }
+    } else {
+        quote! {}
     }
-
-    quote! {}
 }
 
 pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
@@ -28,7 +30,11 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        quote! {}
+        let name: TokenStream = def.name().into();
+        
+        quote! {
+            pub type #name = u32;
+        }
     }
 }
 
@@ -45,7 +51,7 @@ fn gen_function_if(entry: &TypeEntry, gen: &Gen) -> TokenStream {
 }
 
 fn gen_function_decl(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name = gen_ident(def.name());
+    let name: TokenStream = def.name().into();
     let signature = def.signature(&[]);
     let return_type = gen_return_sig(&signature, gen);
     let arch_cfg = gen.arch_cfg(def.attributes());

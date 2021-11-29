@@ -3,60 +3,62 @@
 use super::*;
 
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
-    if !gen.sys {
-        return quote!{};
-    }
+    let name: TokenStream = def.name().into();
 
-    let name = def.name();
-    let name = gen_ident(name);
-    let signature = def.signature(None);
+    if gen.sys {
+        let signature = def.signature(None);
 
-    let cfg = gen.field_cfg(def);
+        let cfg = gen.field_cfg(def);
 
-    if let Some(constant) = def.constant() {
-        if signature.kind == constant.value_type() {
-            let value = gen_constant_type_value(&constant.value());
+        if let Some(constant) = def.constant() {
+            if signature.kind == constant.value_type() {
+                let value = gen_constant_type_value(&constant.value());
+                quote! {
+                    pub const #name: #value;
+                }
+            } else {
+                let kind = gen_sig(&signature, gen);
+                let value = gen_constant_value(&constant.value());
+
+                let value = if signature.kind.underlying_type() == constant.value_type() {
+                    value
+                } else {
+                    quote! { #value as _ }
+                };
+
+                if gen.sys && (signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT) {
+                    quote! {
+                        #cfg
+                        pub const #name: #kind = #value;
+                    }
+                } else {
+                    quote! {
+                        #cfg
+                        pub const #name: #kind = #kind(#value);
+                    }
+                }
+            }
+        } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
+            let value = gen_guid(&guid, gen);
+            let guid = gen_element_name(&ElementType::GUID, gen);
+            quote! { pub const #name: #guid = #value; }
+        } else if let Some((guid, id)) = get_property_key(def.attributes()) {
+            let kind = gen_sig(&signature, gen);
+            let guid = gen_guid(&guid, gen);
             quote! {
-                pub const #name: #value;
+                #cfg
+                pub const #name: #kind = #kind {
+                    fmtid: #guid,
+                    pid: #id,
+                };
             }
         } else {
-            let kind = gen_sig(&signature, gen);
-            let value = gen_constant_value(&constant.value());
-
-            let value = if signature.kind.underlying_type() == constant.value_type() {
-                value
-            } else {
-                quote! { #value as _ }
-            };
-
-            if gen.sys && (signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT) {
-                quote! {
-                    #cfg
-                    pub const #name: #kind = #value;
-                }
-            } else {
-                quote! {
-                    #cfg
-                    pub const #name: #kind = #kind(#value);
-                }
-            }
-        }
-    } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
-        let value = gen_guid(&guid, gen);
-        let guid = gen_element_name(&ElementType::GUID, gen);
-        quote! { pub const #name: #guid = #value; }
-    } else if let Some((guid, id)) = get_property_key(def.attributes()) {
-        let kind = gen_sig(&signature, gen);
-        let guid = gen_guid(&guid, gen);
-        quote! {
-            #cfg
-            pub const #name: #kind = #kind {
-                fmtid: #guid,
-                pid: #id,
-            };
+            quote! {}
         }
     } else {
-        quote! {}
+        quote! {
+            pub type #name = u32;
+        }
     }
 }
 

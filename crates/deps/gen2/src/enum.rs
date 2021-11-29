@@ -2,10 +2,14 @@ use super::*;
 
 pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: use same representation for unscoped enums
+    let name: TokenStream = def.name().into();
+    
     if gen.sys {
         gen_sys_enum(def, gen)
     } else {
-        quote! {}
+        quote! {
+            pub type #name = u32;
+        }
     }
 }
 
