@@ -4,6 +4,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);
+    let is_scoped = def.is_scoped();
 
     let fields = def.fields().filter_map(|field| {
         if field.is_literal() {
@@ -17,7 +18,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     });
 
-    let mut tokens = if def.is_scoped() {
+    let mut tokens = if is_scoped {
         let fields = fields.map(|(field_name, value)| {
             quote! {
                 pub const #field_name: Self = Self(#value);
@@ -51,14 +52,11 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     };
 
     if !gen.sys {
-        tokens.combine(&quote! {
-            unsafe impl ::windows::core::Abi for #name {
-                type Abi = Self;
-            }
-        });
-
-        if def.is_scoped() {
+        if is_scoped {
             tokens.combine(&quote! {
+                unsafe impl ::windows::core::Abi for #name {
+                    type Abi = Self;
+                }
                 impl ::core::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         self.0 == other.0

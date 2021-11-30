@@ -5,15 +5,7 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    if gen.sys {
-        gen_sys_struct_with_name(def, def.name(), gen, &quote! {}, &quote! {})
-    } else {
-        let name = gen_ident(def.name());
-
-        quote! {
-            pub type #name = u32;
-        }
-    }
+    gen_sys_struct_with_name(def, def.name(), gen, &quote! {}, &quote! {})
 }
 
 fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
@@ -86,26 +78,55 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
         quote! { struct }
     };
 
-    let nested_structs = gen_nested_sys_structs(struct_name, def, gen, &arch_cfg, &feature_cfg);
-    let constants = gen_struct_constants(def, &name, &arch_cfg, &feature_cfg);
 
-    quote! {
+    let mut tokens = quote! {
         #repr
         #arch_cfg
         #feature_cfg
         pub #struct_or_union #name {#(#fields),*}
-        #constants
-        #arch_cfg
-        #feature_cfg
-        impl ::core::marker::Copy for #name {}
-        #arch_cfg
-        #feature_cfg
-        impl ::core::clone::Clone for #name {
-            fn clone(&self) -> Self {
-                *self
+    };
+
+    tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_nested_sys_structs(struct_name, def, gen, &arch_cfg, &feature_cfg));
+    tokens
+}
+
+fn gen_copy_clone(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+    if gen.sys || def.is_blittable() {
+        quote! {
+            #arch_cfg
+            #feature_cfg
+            impl ::core::marker::Copy for #name {}
+            #arch_cfg
+            #feature_cfg
+            impl ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    *self
+                }
             }
         }
-        #nested_structs
+    } else {
+        let fields = def.fields().map(|f| {
+            let name = gen_ident(f.name());
+            if f.is_literal() {
+                quote! {}
+            } else if f.is_blittable(Some(def)) {
+                quote! { #name: self.#name }
+            } else {
+                quote! { #name: self.#name.clone() }
+            }
+        });
+
+        quote! {
+            #arch_cfg
+            #feature_cfg
+            impl ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self { #(#fields),* }
+                }
+            }
+        }
     }
 }
 
