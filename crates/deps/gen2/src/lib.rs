@@ -1,10 +1,10 @@
 mod callback;
-mod interface;
 mod constant;
 mod delegate;
 mod r#enum;
 mod function;
 mod gen;
+mod interface;
 mod name;
 mod sig;
 mod r#struct;
@@ -14,11 +14,11 @@ use constant::*;
 use delegate::*;
 use function::*;
 pub use gen::*;
+use interface::*;
 use name::*;
 use r#enum::*;
 use r#struct::*;
 use sig::*;
-use interface::*;
 
 use quote::*;
 use reader::*;

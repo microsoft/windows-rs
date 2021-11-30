@@ -10,10 +10,10 @@ pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
                 extern "system" {
                     #(#functions)*
                 }
-            } 
-        } else {
-                quote! {}
             }
+        } else {
+            quote! {}
+        }
     } else {
         quote! {}
     }
@@ -30,11 +30,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        let name = gen_ident(def.name());
-        
-        quote! {
-            pub type #name = u32;
-        }
+        quote! {}
     }
 }
 

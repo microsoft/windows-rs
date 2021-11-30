@@ -25,14 +25,13 @@ fn gen_sys_interface(def: &TypeDef, _gen: &Gen) -> TokenStream {
             quote! {}
         }
     }
-
 }
 
 fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_generic_ident(def.name());
     let is_exclusive = def.is_exclusive();
 
-    let mut tokens = if is_exclusive { 
+    let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
     } else {
         quote! {}
@@ -81,11 +80,7 @@ fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     for def in def.vtable_types() {
         match def {
-            ElementType::TypeDef(def) => {
-                for method in def.methods() {
-
-                }
-            }
+            ElementType::TypeDef(def) => for method in def.methods() {},
             ElementType::IInspectable => tokens.combine(&quote! {
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut #guid) -> #hresult,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> #hresult,
@@ -107,8 +102,7 @@ fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
 fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.generics.is_empty() {
         match GUID::from_attributes(def.attributes()) {
-            Some(guid) => 
-                gen_guid(&guid, gen),
+            Some(guid) => gen_guid(&guid, gen),
             None => {
                 quote! {
                     ::windows::core::GUID::zeroed()

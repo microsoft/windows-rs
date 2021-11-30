@@ -44,13 +44,11 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
 
     if fields.is_empty() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
-            let guid = gen_guid(&guid, gen);
-
-            return quote! {
-                pub const #name: ::windows_sys::core::GUID = #guid;
-            };
+            let value = gen_guid(&guid, gen);
+            let guid = gen_element_name(&ElementType::GUID, gen);
+            return quote! { pub const #name: #guid = #value; };
         } else if name.as_str().ends_with("Vtbl") {
-            return quote! {}
+            return quote! {};
         } else {
             return quote! {
                 #[repr(C)]
@@ -79,7 +77,6 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
     } else {
         quote! { struct }
     };
-
 
     let mut tokens = quote! {
         #repr

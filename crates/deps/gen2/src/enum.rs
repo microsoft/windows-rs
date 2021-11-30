@@ -60,7 +60,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
                 impl ::core::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         self.0 == other.0
-                    } 
+                    }
                 }
                 impl ::core::cmp::Eq for #name {}
             });
