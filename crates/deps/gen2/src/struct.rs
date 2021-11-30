@@ -5,10 +5,10 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    gen_sys_struct_with_name(def, def.name(), gen, &quote! {}, &quote! {})
+    gen_struct_with_name(def, def.name(), gen, &quote! {}, &quote! {})
 }
 
-fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     let name = gen_ident(struct_name);
 
     if def.is_handle() {
@@ -29,20 +29,20 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
     let arch_cfg = if arch_cfg.is_empty() { gen.arch_cfg(def.attributes()) } else { arch_cfg.clone() };
     let feature_cfg = if feature_cfg.is_empty() { gen.type_cfg(def) } else { feature_cfg.clone() };
 
-    let fields: Vec<(Field, Signature, TokenStream)> = def
-        .fields()
-        .filter_map(move |f| {
-            if f.is_literal() {
-                None
-            } else {
-                let signature = f.signature(Some(def));
-                let name = f.name();
-                Some((f, signature, gen_ident(name)))
-            }
-        })
-        .collect();
+    // let fields: Vec<(Field, Signature, TokenStream)> = def
+    //     .fields()
+    //     .filter_map(move |f| {
+    //         if f.is_literal() {
+    //             None
+    //         } else {
+    //             let signature = f.signature(Some(def));
+    //             let name = f.name();
+    //             Some((f, signature, gen_ident(name)))
+    //         }
+    //     })
+    //     .collect();
 
-    if fields.is_empty() {
+    if def.fields().next().is_none() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
             let value = gen_guid(&guid, gen);
             let guid = gen_element_name(&ElementType::GUID, gen);
@@ -64,11 +64,15 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
         quote! { #[repr(C)] }
     };
 
-    let fields = fields.iter().map(|(_, signature, name)| {
-        let kind = gen_sig(signature, gen);
-
-        quote! {
-            pub #name: #kind
+    let fields = def.fields().map(|f| {
+        let name = gen_ident(f.name());
+        let sig = gen_sig(&f.signature(Some(def)), gen);
+        if f.is_literal() {
+            quote! {}
+        } else if !gen.sys && is_union && !f.is_blittable(Some(def)) {
+            quote! { pub #name: ::core::mem::ManuallyDrop<#sig>, }
+        } else {
+            quote! { pub #name: #sig, }
         }
     });
 
@@ -82,12 +86,12 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
         #repr
         #arch_cfg
         #feature_cfg
-        pub #struct_or_union #name {#(#fields),*}
+        pub #struct_or_union #name {#(#fields)*}
     };
 
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
-    tokens.combine(&gen_nested_sys_structs(struct_name, def, gen, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_nested_structs(struct_name, def, gen, &arch_cfg, &feature_cfg));
     tokens
 }
 
@@ -160,14 +164,14 @@ fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, arch_cfg: &Tok
     tokens
 }
 
-fn gen_nested_sys_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if let Some(nested_types) = enclosing_type.nested_types() {
         nested_types
             .iter()
             .enumerate()
             .map(|(index, (_, nested_type))| {
                 let nested_name = format!("{}_{}", enclosing_name, index);
-                gen_sys_struct_with_name(nested_type, &nested_name, gen, arch_cfg, feature_cfg)
+                gen_struct_with_name(nested_type, &nested_name, gen, arch_cfg, feature_cfg)
             })
             .collect()
     } else {

@@ -25,9 +25,16 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
                 quote! { #value as _ }
             };
 
-            quote! {
-                #cfg
-                pub const #name: #kind = #value;
+            if !gen.sys && signature.kind == ElementType::HRESULT {
+                quote! {
+                    #cfg
+                    pub const #name: #kind = #kind(#value);
+                }
+            } else {
+                quote! {
+                    #cfg
+                    pub const #name: #kind = #value;
+                }
             }
         }
     } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
