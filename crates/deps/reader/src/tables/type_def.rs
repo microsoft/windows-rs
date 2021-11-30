@@ -81,6 +81,10 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
+    pub fn has_default(&self) -> bool {
+        self.interface_impls().any(|interface| interface.is_default())
+    }
+
     pub fn include_dependencies(&self, include: TypeInclude) {
         match self.kind() {
             TypeKind::Interface => {

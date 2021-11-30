@@ -1,5 +1,4 @@
 mod callback;
-mod class;
 mod interface;
 mod constant;
 mod delegate;
@@ -11,7 +10,6 @@ mod sig;
 mod r#struct;
 
 use callback::*;
-use class::*;
 use constant::*;
 use delegate::*;
 use function::*;
@@ -80,10 +78,9 @@ fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Field(def) => gen_constant(def, gen),
         ElementType::TypeDef(def) => match def.kind() {
-            TypeKind::Class => gen_class(def, gen),
+            TypeKind::Class | TypeKind::Interface => gen_interface(def, gen),
             TypeKind::Enum => gen_enum(def, gen),
             TypeKind::Struct => gen_struct(def, gen),
-            TypeKind::Interface => gen_interface(def, gen),
             TypeKind::Delegate => {
                 if def.is_winrt() {
                     gen_delegate(def, gen)
