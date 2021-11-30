@@ -49,6 +49,8 @@ fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cf
             return quote! {
                 pub const #name: ::windows_sys::core::GUID = #guid;
             };
+        } else if name.as_str().ends_with("Vtbl") {
+            return quote! {}
         } else {
             return quote! {
                 #[repr(C)]

@@ -6270,59 +6270,23 @@ impl ::core::clone::Clone for HEAPALIGNMENT {
     }
 }
 pub type IDDVideoPortContainer = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDDVideoPortContainerVtbl(pub u8);
 pub type IDirectDraw = *mut ::core::ffi::c_void;
 pub type IDirectDraw2 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDraw2Vtbl(pub u8);
 pub type IDirectDraw4 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDraw4Vtbl(pub u8);
 pub type IDirectDraw7 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDraw7Vtbl(pub u8);
 pub type IDirectDrawClipper = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawClipperVtbl(pub u8);
 pub type IDirectDrawColorControl = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawColorControlVtbl(pub u8);
 pub type IDirectDrawGammaControl = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawGammaControlVtbl(pub u8);
 pub type IDirectDrawKernel = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawKernelVtbl(pub u8);
 pub type IDirectDrawPalette = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawPaletteVtbl(pub u8);
 pub type IDirectDrawSurface = *mut ::core::ffi::c_void;
 pub type IDirectDrawSurface2 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawSurface2Vtbl(pub u8);
 pub type IDirectDrawSurface3 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawSurface3Vtbl(pub u8);
 pub type IDirectDrawSurface4 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawSurface4Vtbl(pub u8);
 pub type IDirectDrawSurface7 = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawSurface7Vtbl(pub u8);
 pub type IDirectDrawSurfaceKernel = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawSurfaceKernelVtbl(pub u8);
-#[repr(C)]
-pub struct IDirectDrawSurfaceVtbl(pub u8);
 pub type IDirectDrawVideoPort = *mut ::core::ffi::c_void;
 pub type IDirectDrawVideoPortNotify = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IDirectDrawVideoPortNotifyVtbl(pub u8);
-#[repr(C)]
-pub struct IDirectDrawVideoPortVtbl(pub u8);
-#[repr(C)]
-pub struct IDirectDrawVtbl(pub u8);
 pub const IRQINFO_HANDLED: u32 = 1u32;
 pub const IRQINFO_NOTHANDLED: u32 = 2u32;
 #[repr(C)]
