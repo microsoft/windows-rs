@@ -10,16 +10,85 @@ pub fn gen_ident(name: &str) -> TokenStream {
     }
 }
 
-pub fn gen_generic_ident(name: &str) -> TokenStream {
-    let len = name.len();
-    let len = name.as_bytes().get(len - 2).map_or_else(|| len, |c| if *c == b'`' { len - 2 } else { len });
-    gen_ident(&name[..len])
+pub fn gen_generic_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_generic_name_impl(def, gen, "")
 }
 
-pub fn gen_vtbl_ident(name: &str) -> TokenStream {
-    let mut name = gen_generic_ident(name);
-    name.push_str("Vtbl");
-    name
+pub fn gen_vtbl_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_generic_name_impl(def, gen, "Vtbl")
+}
+
+fn gen_generic_name_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
+    if def.generics.is_empty() {
+        format!("{}{}", def.name(), vtbl).into()
+    } else {
+        let name = def.name();
+        let name = format!("{}{}", &name[..name.len() - 2], vtbl);
+
+        if gen.sys {
+            name.into()
+        } else {
+            let mut name = name.to_string();
+            name.push('<');
+
+            for g in &def.generics {
+                name.push_str(gen_element_name(g, gen).as_str());
+                name.push(',');
+            }
+
+            name.push('>');
+            name.into()
+        }
+    }
+}
+
+pub fn gen_phantoms(def: &TypeDef, gen:&Gen) -> Vec<TokenStream> {
+    def.generics.iter().map(|g| {
+        let name = gen_element_name(g, gen);
+        quote! { ::core::marker::PhantomData::<#name>, }
+    }).collect()
+}
+
+pub fn gen_constraints(def: &TypeDef, gen:&Gen) -> Vec<TokenStream> {
+    def.generics.iter().map(|g| {
+        let name = gen_element_name(g, gen);
+        quote! { #name: ::windows::core::RuntimeType + 'static, }
+    }).collect()
+}
+
+pub fn gen_guid_signature(def: &TypeDef, signature: &str, gen:&Gen) -> TokenStream {
+    let signature = Literal::byte_string(signature.as_bytes());
+
+    if def.generics.is_empty() {
+        return quote! { ::windows::core::ConstBuffer::from_slice(#signature) };
+    }
+
+    let generics = def.generics.iter().enumerate().map(|(index, g)| {
+        let g = gen_element_name(g, gen);
+        let semi = if index != def.generics.len() - 1 {
+            Some(quote! {
+                .push_slice(b";")
+            })
+        } else {
+            None
+        };
+
+        quote! {
+            .push_other(<#g as ::windows::core::RuntimeType>::SIGNATURE)
+            #semi
+        }
+    });
+
+    quote! {
+        {
+            ::windows::core::ConstBuffer::new()
+            .push_slice(b"pinterface(")
+            .push_slice(#signature)
+            .push_slice(b";")
+            #(#generics)*
+            .push_slice(b")")
+        }
+    }
 }
 
 pub fn gen_param_name(param: &Param) -> TokenStream {

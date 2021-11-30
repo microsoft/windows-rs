@@ -10,8 +10,8 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_sys_interface(def: &TypeDef, _gen: &Gen) -> TokenStream {
-    let name = gen_generic_ident(def.name());
+fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_generic_name(def, gen);
 
     if def.is_exclusive() {
         quote! {}
@@ -28,8 +28,10 @@ fn gen_sys_interface(def: &TypeDef, _gen: &Gen) -> TokenStream {
 }
 
 fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_ident(def.name());
+    let name = gen_generic_name(def, gen);
     let is_exclusive = def.is_exclusive();
+    let phantoms = gen_phantoms(def, gen);
+    let constraints = gen_constraints(def, gen);
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -39,10 +41,12 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     tokens.combine(&quote! {
         #[repr(transparent)]
-        pub struct #name(pub ::windows::core::IUnknown);
+        pub struct #name(pub ::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
     });
 
+    tokens.combine(&gen_std_traits(def, gen));
     tokens.combine(&gen_interface_trait(def, gen));
+    tokens.combine(&gen_runtime_trait(def, gen));
     tokens.combine(&gen_vtbl(def, gen));
     tokens
 }
@@ -55,25 +59,68 @@ fn gen_win_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
+fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if def.is_exclusive() {
+        quote! {}
+    } else {
+        let name = gen_generic_name(def, gen);
+        let constraints = gen_constraints(def, gen);
+        let phantoms = gen_phantoms(def, gen);
+
+        quote! {
+            impl<#(#constraints)*> ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0.clone(), #(#phantoms)*)
+                }
+            }
+            impl<#(#constraints)*> ::core::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl<#(#constraints)*> ::core::cmp::Eq for #name {}
+        }
+    }
+}
+
 fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_ident(def.name());
-    let vtbl = gen_vtbl_ident(def.name());
-    let guid = gen_type_guid(def, gen);
+    let name = gen_generic_name(def, gen);
+    let constraints = gen_constraints(def, gen);
+    let vtbl = gen_vtbl_name(def, gen);
+    let guid = gen_type_guid(def, gen, &"Self".into());
 
     quote! {
-        unsafe impl ::windows::core::Interface for #name {
+        unsafe impl<#(#constraints)*> ::windows::core::Interface for #name {
             type Vtable = #vtbl;
             const IID: ::windows::core::GUID = #guid;
         }
     }
 }
 
+fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if def.is_winrt() {
+        let name = gen_generic_name(def, gen);
+        let constraints = gen_constraints(def, gen);
+        let type_signature = gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()), gen);
+
+        quote! {
+            unsafe impl<#(#constraints)*> ::windows::core::RuntimeType for #name {
+                const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
+            }
+        }
+    }
+     else {
+         quote! {}
+     }
+}
+
+
 fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
     // And then consider naming them to simplify traits and debugging.
     // Should the first param be the Vtbl type?
 
-    let vtbl = gen_vtbl_ident(def.name());
+    let vtbl = gen_vtbl_name(def, gen);
     let mut tokens: TokenStream = format!("#[doc(hidden)] pub struct {} (", vtbl.as_str()).into();
     let guid = gen_element_name(&ElementType::GUID, gen);
     let hresult = gen_element_name(&ElementType::HRESULT, gen);
@@ -95,11 +142,16 @@ fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     }
 
+    let phantoms = gen_phantoms(def, gen);
+    tokens.combine(&quote! {
+        #(pub #phantoms)*
+    });
+
     tokens.push_str(");");
     tokens
 }
 
-fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStream {
     if def.generics.is_empty() {
         match GUID::from_attributes(def.attributes()) {
             Some(guid) => gen_guid(&guid, gen),
@@ -110,10 +162,8 @@ fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        let tokens = gen_type_name(def, gen);
-
         quote! {
-            ::windows::core::GUID::from_signature(<#tokens as ::windows::core::RuntimeType>::SIGNATURE)
+            ::windows::core::GUID::from_signature(<#type_name as ::windows::core::RuntimeType>::SIGNATURE)
         }
     }
 }

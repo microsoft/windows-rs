@@ -77,7 +77,9 @@ fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
 fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Field(def) => gen_constant(def, gen),
-        ElementType::TypeDef(def) => match def.kind() {
+        ElementType::TypeDef(def) => {
+            let def = &def.clone().with_generics();
+            match def.kind() {
             TypeKind::Class | TypeKind::Interface => gen_interface(def, gen),
             TypeKind::Enum => gen_enum(def, gen),
             TypeKind::Struct => gen_struct(def, gen),
@@ -88,6 +90,7 @@ fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
                     gen_callback(def, gen)
                 }
             }
+        }
         },
         ElementType::MethodDef(def) => {
             if !gen.sys {

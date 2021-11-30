@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: avoid Clone + PartialEq
+// TODO: don't require Clone + PartialEq
 pub trait DefaultType: Sized + Clone + PartialEq {
     type DefaultType: Sized + Clone + PartialEq;
 
@@ -25,7 +25,7 @@ impl<T: Interface + Clone + PartialEq> DefaultType for T {
 }
 
 #[doc(hidden)]
-pub unsafe trait RuntimeType: Abi + DefaultType + PartialEq {
+pub unsafe trait RuntimeType: Abi {
     const SIGNATURE: ConstBuffer;
 }
 
