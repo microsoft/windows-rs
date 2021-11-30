@@ -29,18 +29,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     let arch_cfg = if arch_cfg.is_empty() { gen.arch_cfg(def.attributes()) } else { arch_cfg.clone() };
     let feature_cfg = if feature_cfg.is_empty() { gen.type_cfg(def) } else { feature_cfg.clone() };
 
-    // let fields: Vec<(Field, Signature, TokenStream)> = def
-    //     .fields()
-    //     .filter_map(move |f| {
-    //         if f.is_literal() {
-    //             None
-    //         } else {
-    //             let signature = f.signature(Some(def));
-    //             let name = f.name();
-    //             Some((f, signature, gen_ident(name)))
-    //         }
-    //     })
-    //     .collect();
 
     if def.fields().next().is_none() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
