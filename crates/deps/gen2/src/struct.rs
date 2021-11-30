@@ -8,7 +8,7 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     if gen.sys {
         gen_sys_struct_with_name(def, def.name(), gen, &quote! {}, &quote! {})
     } else {
-        let name: TokenStream = def.name().into();
+        let name = gen_ident(def.name());
 
         quote! {
             pub type #name = u32;
@@ -17,7 +17,7 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_sys_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
-    let name: TokenStream = struct_name.into();
+    let name = gen_ident(struct_name);
 
     if def.is_handle() {
         let signature = if def.type_name() == TypeName::HANDLE {

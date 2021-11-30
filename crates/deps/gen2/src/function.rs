@@ -30,7 +30,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        let name: TokenStream = def.name().into();
+        let name = gen_ident(def.name());
         
         quote! {
             pub type #name = u32;
@@ -51,7 +51,7 @@ fn gen_function_if(entry: &TypeEntry, gen: &Gen) -> TokenStream {
 }
 
 fn gen_function_decl(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name: TokenStream = def.name().into();
+    let name = gen_ident(def.name());
     let signature = def.signature(&[]);
     let return_type = gen_return_sig(&signature, gen);
     let arch_cfg = gen.arch_cfg(def.attributes());

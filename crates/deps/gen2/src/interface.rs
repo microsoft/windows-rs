@@ -2,6 +2,8 @@ use super::*;
 
 pub fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_generic_ident(def.name());
+    let mut vtbl = name.clone();
+    vtbl.push_str("Vtbl");
     let is_exclusive = def.is_exclusive();
     let is_class = def.kind() == TypeKind::Class;
     let has_default = def.has_default();
@@ -27,18 +29,22 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     } else {
         //let class_name = format!("{}", def.type_name());
 
-        let mut tokens = if is_exclusive {
-            quote! { #[doc(hidden)] }
-        } else {
-            quote! {}
-        };
+        let mut tokens = quote! {};
 
-        tokens.combine(&quote! {
-            #[repr(transparent)]
-            pub struct #name(pub ::windows::core::IUnknown);
-        });
+        if !is_exclusive {
+            tokens.combine(&quote! {
+                #[repr(transparent)]
+                pub struct #name(pub ::windows::core::IUnknown);
+                unsafe impl ::windows::core::Interface for #name {
+                    type Vtable = #vtbl;
+                    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
+                }
+            });
 
-        // TODO: add methods
+            // TODO: add methods
+        }
+
+        // TODO: add vtbl
 
         tokens
     }
