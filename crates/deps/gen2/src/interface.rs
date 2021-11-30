@@ -1,51 +1,125 @@
 use super::*;
 
 pub fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_ident(def.name());
-    let mut vtbl = name.clone();
-    vtbl.push_str("Vtbl");
-    let is_exclusive = def.is_exclusive();
-    let is_class = def.kind() == TypeKind::Class;
-    let has_default = def.has_default();
-
     if gen.sys {
-        if is_exclusive {
-            quote! {}
-        } else {
-            // TODO: Generate a minimal C style interface similar to what MIDL does when compiling for C
-            // with a matching INameVtbl struct for the vtable (instead of IName_abi) just for consistency
-            // with MIDL. Any non-static classes (has_default) will have their types pointing to the default
-            // interface Vtbl instead of generating a new one.
+        gen_sys_interface(def, gen)
+    } else if def.kind() == TypeKind::Class {
+        gen_win_class(def, gen)
+    } else {
+        gen_win_interface(def, gen)
+    }
+}
 
-            if !is_class || has_default {
-                // TODO: should be *const?
-                quote! {
-                    pub type #name = *mut ::core::ffi::c_void;
+fn gen_sys_interface(def: &TypeDef, _gen: &Gen) -> TokenStream {
+    let name = gen_generic_ident(def.name());
+
+    if def.is_exclusive() {
+        quote! {}
+    } else {
+        if def.kind() == TypeKind::Interface || def.default_interface().is_some() {
+            // TODO: should be *const?
+            quote! {
+                pub type #name = *mut ::core::ffi::c_void;
+            }
+        } else {
+            quote! {}
+        }
+    }
+
+}
+
+fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_generic_ident(def.name());
+    let is_exclusive = def.is_exclusive();
+
+    let mut tokens = if is_exclusive { 
+        quote! { #[doc(hidden)] }
+    } else {
+        quote! {}
+    };
+
+    tokens.combine(&quote! {
+        #[repr(transparent)]
+        pub struct #name(pub ::windows::core::IUnknown);
+    });
+
+    tokens.combine(&gen_interface_trait(def, gen));
+    tokens.combine(&gen_vtbl(def, gen));
+    tokens
+}
+
+fn gen_win_class(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if let Some(default_interface) = def.default_interface() {
+        quote! {}
+    } else {
+        quote! {}
+    }
+}
+
+fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_generic_ident(def.name());
+    let vtbl = gen_vtbl_ident(def.name());
+    let guid = gen_type_guid(def, gen);
+
+    quote! {
+        unsafe impl ::windows::core::Interface for #name {
+            type Vtable = #vtbl;
+            const IID: ::windows::core::GUID = #guid;
+        }
+    }
+}
+
+fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
+    // TODO: consider using parent field to avoid duplicating inherited vfptrs.
+    // And then consider naming them to simplify traits and debugging.
+    // Should the first param be the Vtbl type?
+
+    let vtbl = gen_vtbl_ident(def.name());
+    let mut tokens: TokenStream = format!("#[doc(hidden)] pub struct {} (", vtbl.as_str()).into();
+    let guid = gen_element_name(&ElementType::GUID, gen);
+    let hresult = gen_element_name(&ElementType::HRESULT, gen);
+
+    for def in def.vtable_types() {
+        match def {
+            ElementType::TypeDef(def) => {
+                for method in def.methods() {
+
                 }
-            } else {
-                quote! {}
+            }
+            ElementType::IInspectable => tokens.combine(&quote! {
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut #guid) -> #hresult,
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> #hresult,
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> #hresult,
+            }),
+            ElementType::IUnknown => tokens.combine(&quote! {
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &#guid, interface: *mut *mut ::core::ffi::c_void) -> #hresult,
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+            }),
+            _ => unimplemented!(),
+        }
+    }
+
+    tokens.push_str(");");
+    tokens
+}
+
+fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if def.generics.is_empty() {
+        match GUID::from_attributes(def.attributes()) {
+            Some(guid) => 
+                gen_guid(&guid, gen),
+            None => {
+                quote! {
+                    ::windows::core::GUID::zeroed()
+                }
             }
         }
     } else {
-        //let class_name = format!("{}", def.type_name());
+        let tokens = gen_type_name(def, gen);
 
-        let mut tokens = quote! {};
-
-        if !is_exclusive {
-            tokens.combine(&quote! {
-                #[repr(transparent)]
-                pub struct #name(pub ::windows::core::IUnknown);
-                unsafe impl ::windows::core::Interface for #name {
-                    type Vtable = #vtbl;
-                    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
-                }
-            });
-
-            // TODO: add methods
+        quote! {
+            ::windows::core::GUID::from_signature(<#tokens as ::windows::core::RuntimeType>::SIGNATURE)
         }
-
-        // TODO: add vtbl
-
-        tokens
     }
 }

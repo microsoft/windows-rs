@@ -81,10 +81,6 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn has_default(&self) -> bool {
-        self.interface_impls().any(|interface| interface.is_default())
-    }
-
     pub fn include_dependencies(&self, include: TypeInclude) {
         match self.kind() {
             TypeKind::Interface => {
@@ -345,6 +341,43 @@ impl TypeDef {
         }
 
         (result, inspectable)
+    }
+
+    pub fn vtable_types(&self) -> Vec<ElementType> {
+        let mut result = Vec::new();
+
+        if self.is_winrt() {
+            result.push(ElementType::IUnknown);
+            result.push(ElementType::IInspectable);
+        } else {
+            let mut next = self.clone();
+
+            while let Some(base) = next
+                .interface_impls()
+                .map(|i| i.generic_interface(&[]))
+                .next()
+            {
+                match base {
+                    ElementType::TypeDef(ref def) => {
+                        next = def.clone();
+                        result.insert(0, base);
+                    }
+                    ElementType::IInspectable => {
+                        result.push(ElementType::IUnknown);
+                        result.push(ElementType::IInspectable);
+                        break;
+                    }
+                    ElementType::IUnknown => {
+                        result.push(ElementType::IUnknown);
+                        break;
+                    }
+                    _ => unimplemented!(),
+                }
+            }
+        }
+
+        result.push(ElementType::TypeDef(self.clone()));
+        result
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> {

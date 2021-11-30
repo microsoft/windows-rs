@@ -16,6 +16,12 @@ pub fn gen_generic_ident(name: &str) -> TokenStream {
     gen_ident(&name[..len])
 }
 
+pub fn gen_vtbl_ident(name: &str) -> TokenStream {
+    let mut name = gen_generic_ident(name);
+    name.push_str("Vtbl");
+    name
+}
+
 pub fn gen_param_name(param: &Param) -> TokenStream {
     gen_ident(&param.name().to_lowercase())
 }
