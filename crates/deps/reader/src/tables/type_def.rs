@@ -211,7 +211,7 @@ impl TypeDef {
         self.kind() == TypeKind::Enum
     }
 
-    pub fn is_explicit(&self) -> bool {
+    pub fn is_union(&self) -> bool {
         self.row.u32(0) & 0b1_0000 != 0
     }
 
@@ -220,7 +220,7 @@ impl TypeDef {
             return false;
         }
 
-        if self.is_explicit() {
+        if self.is_union() {
             true
         } else {
             self.fields().any(|f| f.signature(Some(self)).has_explicit())

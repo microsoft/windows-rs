@@ -24,7 +24,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
         };
     }
 
-    let is_union = def.is_explicit();
+    let is_union = def.is_union();
 
     let arch_cfg = if arch_cfg.is_empty() { gen.arch_cfg(def.attributes()) } else { arch_cfg.clone() };
     let feature_cfg = if feature_cfg.is_empty() { gen.type_cfg(def) } else { feature_cfg.clone() };
@@ -97,6 +97,19 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &Token
                 }
             }
         }
+    } else if def.is_union() {
+        quote! {
+            #arch_cfg
+            #feature_cfg
+            impl ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    unsafe { ::core::mem::transmute_copy(self) }
+                }
+            }
+        }
+    } else if def.class_layout().is_some() {
+        // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
+        quote! {}
     } else {
         let fields = def.fields().map(|f| {
             let name = gen_ident(f.name());

@@ -98,7 +98,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     }
 
     let is_winrt = def.is_winrt();
-    let is_union = def.is_explicit();
+    let is_union = def.is_union();
     let layout = def.class_layout();
     let is_packed = def.is_packed();
 

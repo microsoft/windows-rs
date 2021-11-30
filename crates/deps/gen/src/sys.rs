@@ -156,7 +156,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         };
     }
 
-    let is_union = def.is_explicit();
+    let is_union = def.is_union();
 
     let (doc, cfg) = if cfg.is_empty() {
         let features = features(def, gen);
