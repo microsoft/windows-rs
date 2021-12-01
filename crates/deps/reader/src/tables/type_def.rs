@@ -359,12 +359,12 @@ impl TypeDef {
                         result.insert(0, base);
                     }
                     ElementType::IInspectable => {
-                        result.push(ElementType::IUnknown);
-                        result.push(ElementType::IInspectable);
+                        result.insert(0, ElementType::IUnknown);
+                        result.insert(1, ElementType::IInspectable);
                         break;
                     }
                     ElementType::IUnknown => {
-                        result.push(ElementType::IUnknown);
+                        result.insert(0, ElementType::IUnknown);
                         break;
                     }
                     _ => unimplemented!(),

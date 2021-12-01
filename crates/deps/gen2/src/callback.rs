@@ -11,7 +11,7 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);
-        let tokens = gen_abi_param_sig(p, gen);
+        let tokens = gen_param_sig(p, gen);
         quote! { #name: #tokens }
     });
 

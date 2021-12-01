@@ -52,7 +52,7 @@ pub fn gen_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
         .collect()
 }
 
-pub fn gen_constraints(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+pub fn gen_type_constraints(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
     def.generics
         .iter()
         .map(|g| {
@@ -148,6 +148,43 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
         _ => unimplemented!(),
+    }
+}
+
+pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
+    match def {
+        ElementType::String => {
+            quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+        }
+        ElementType::IUnknown | ElementType::IInspectable => {
+            quote! { *mut ::core::ffi::c_void }
+        }
+        ElementType::Array((kind, len)) => {
+            let name = gen_abi_sig(kind, gen);
+            let len = Literal::u32_unsuffixed(*len);
+            quote! { [#name; #len] }
+        }
+        ElementType::GenericParam(generic) => {
+            let name = format_token!("{}", generic);
+            quote! { <#name as ::windows::core::Abi>::Abi }
+        }
+        ElementType::TypeDef(def) => gen_abi_type_name(def, gen),
+        _ => gen_element_name(def, gen),
+    }
+}
+
+fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+    match def.kind() {
+        TypeKind::Enum => gen_type_name(def, gen),
+        TypeKind::Struct => {
+            let tokens = gen_type_name(def, gen);
+            if def.is_blittable() {
+                tokens
+            } else {
+                quote! { ::core::mem::ManuallyDrop<#tokens> }
+            }
+        }
+        _ => quote! { ::windows::core::RawPtr },
     }
 }
 
