@@ -151,7 +151,6 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
     let name = method.rust_name();
     let overload = method_names.entry(name.to_string()).or_insert(0);
     *overload += 1;
-
     let name: TokenStream = if *overload > 1 { format_token!("{}{}", name, overload) } else { to_ident(&name) };
 
     let features = signature.method_features();

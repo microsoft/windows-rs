@@ -123,16 +123,23 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
     let is_winrt = def.is_winrt();
+    let mut vtable_offset = 0;
+    let mut method_names = BTreeMap::<String, u32>::new();
 
     for def in def.vtable_types() {
-        if let ElementType::TypeDef(def) = def {
-            for method in def.methods() {
-                if is_winrt {
-                    methods.combine(&gen_winrt_method(&def, &method, gen));
-                } else {
-                    methods.combine(&gen_com_method(&def, &method, gen));
+        match def {
+            ElementType::IUnknown | ElementType::IInspectable => vtable_offset +=3,
+            ElementType::TypeDef(def) => {
+                for method in def.methods() {
+                    if is_winrt {
+                        methods.combine(&gen_winrt_method(&def, &method, gen));
+                    } else {
+                        methods.combine(&gen_com_method(&def, &method, vtable_offset, &mut method_names, gen));
+                    }
+                    vtable_offset += 1;
                 }
             }
+            _ => unimplemented!(),
         }
     }
 
@@ -141,62 +148,6 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
             #methods
         }
     }
-}
-
-fn gen_winrt_method(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
-    let signature = method.signature(&def.generics);
-    let name = gen_ident(&method.rust_name());
-    let constraints = gen_param_constraints(&signature.params, gen);
-    let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(&method).0;
-    let params = gen_params(&signature, gen);
-
-    let return_type = if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_sig(return_sig, gen);
-        quote! { -> ::windows::core::Result<#tokens> }
-    } else {
-        quote! { -> ::windows::core::Result<()> }
-    };
-
-    quote! {
-        #arch_cfg
-        #feature_cfg
-        pub fn #name<#constraints>(&self, #params) #return_type {
-            unimplemented!()
-        }
-    }
-}
-
-fn gen_com_method(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
-    let signature = method.signature(&def.generics);
-    let name = gen_ident(&method.rust_name());
-    let constraints = gen_param_constraints(&signature.params, gen);
-    let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(&method).0;
-    let params = gen_params(&signature, gen);
-
-    // TODO: use SignatureKind...
-    let return_type = gen_return_sig(&signature, gen);
-
-    quote! {
-        #arch_cfg
-        #feature_cfg
-        pub unsafe fn #name<#constraints>(&self, #params) #return_type {
-            unimplemented!()
-        }
-    }
-}
-
-fn gen_params(signature: &MethodSignature, gen: &Gen) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for (position, param) in signature.params.iter().enumerate() {
-        let name = gen_param_name(&param.param);
-        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_param_sig(param, gen) };
-        tokens.combine(&quote! { #name: #kind, });
-    }
-
-    tokens
 }
 
 fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {

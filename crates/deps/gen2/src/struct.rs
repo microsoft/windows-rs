@@ -77,6 +77,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
 
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_windows_traits(def, &name, gen, &arch_cfg, &feature_cfg));
 
     if let Some(nested_types) = def.nested_types() {
         for (index, (_, nested_type)) in nested_types.iter().enumerate() {
@@ -86,6 +87,26 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     }
 
     tokens
+}
+
+fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+    if gen.sys {
+        quote! {}
+    } else {
+        let abi = if def.is_blittable() {
+            quote! { Self }
+        } else {
+            quote! { ::core::mem::ManuallyDrop<Self> }
+        };
+
+        quote! {
+            #arch_cfg
+            #feature_cfg
+            unsafe impl ::windows::core::Abi for #name {
+                type Abi = #abi;
+            }
+        }
+    }
 }
 
 fn gen_copy_clone(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {

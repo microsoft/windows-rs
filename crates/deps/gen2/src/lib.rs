@@ -8,6 +8,7 @@ mod interface;
 mod name;
 mod sig;
 mod r#struct;
+mod methods;
 
 use callback::*;
 use constant::*;
@@ -19,6 +20,7 @@ use name::*;
 use r#enum::*;
 use r#struct::*;
 use sig::*;
+use methods::*;
 
 use quote::*;
 use reader::*;
