@@ -24,12 +24,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
         };
     }
 
-    let is_union = def.is_union();
-
-    let arch_cfg = if arch_cfg.is_empty() { gen.arch_cfg(def.attributes()) } else { arch_cfg.clone() };
-    let feature_cfg = if feature_cfg.is_empty() { gen.type_cfg(def) } else { feature_cfg.clone() };
-
-
     if def.fields().next().is_none() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
             let value = gen_guid(&guid, gen);
@@ -44,6 +38,10 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
             };
         }
     }
+
+    let is_union = def.is_union();
+    let arch_cfg = if arch_cfg.is_empty() { gen.arch_cfg(def.attributes()) } else { arch_cfg.clone() };
+    let feature_cfg = if feature_cfg.is_empty() { gen.type_cfg(def) } else { feature_cfg.clone() };
 
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::u32_unsuffixed(layout.packing_size());
@@ -79,7 +77,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
 
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
-    tokens.combine(&gen_nested_structs(struct_name, def, gen, &arch_cfg, &feature_cfg));
+
+    if let Some(nested_types) = def.nested_types() {
+        for (index, (_, nested_type)) in nested_types.iter().enumerate() {
+            let nested_name = format!("{}_{}", struct_name, index);
+            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, gen, &arch_cfg, &feature_cfg));
+        }
+    }
+
     tokens
 }
 
@@ -163,19 +168,4 @@ fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, arch_cfg: &Tok
     }
 
     tokens
-}
-
-fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
-    if let Some(nested_types) = enclosing_type.nested_types() {
-        nested_types
-            .iter()
-            .enumerate()
-            .map(|(index, (_, nested_type))| {
-                let nested_name = format!("{}_{}", enclosing_name, index);
-                gen_struct_with_name(nested_type, &nested_name, gen, arch_cfg, feature_cfg)
-            })
-            .collect()
-    } else {
-        TokenStream::new()
-    }
 }

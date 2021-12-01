@@ -108,12 +108,10 @@ fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
                 const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
             }
         }
+    } else {
+        quote! {}
     }
-     else {
-         quote! {}
-     }
 }
-
 
 fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.

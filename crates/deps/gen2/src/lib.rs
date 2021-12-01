@@ -80,18 +80,18 @@ fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::TypeDef(def) => {
             let def = &def.clone().with_generics();
             match def.kind() {
-            TypeKind::Class | TypeKind::Interface => gen_interface(def, gen),
-            TypeKind::Enum => gen_enum(def, gen),
-            TypeKind::Struct => gen_struct(def, gen),
-            TypeKind::Delegate => {
-                if def.is_winrt() {
-                    gen_delegate(def, gen)
-                } else {
-                    gen_callback(def, gen)
+                TypeKind::Class | TypeKind::Interface => gen_interface(def, gen),
+                TypeKind::Enum => gen_enum(def, gen),
+                TypeKind::Struct => gen_struct(def, gen),
+                TypeKind::Delegate => {
+                    if def.is_winrt() {
+                        gen_delegate(def, gen)
+                    } else {
+                        gen_callback(def, gen)
+                    }
                 }
             }
         }
-        },
         ElementType::MethodDef(def) => {
             if !gen.sys {
                 gen_function(def, gen)

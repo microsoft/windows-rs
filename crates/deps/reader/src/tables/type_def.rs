@@ -352,11 +352,7 @@ impl TypeDef {
         } else {
             let mut next = self.clone();
 
-            while let Some(base) = next
-                .interface_impls()
-                .map(|i| i.generic_interface(&[]))
-                .next()
-            {
+            while let Some(base) = next.interface_impls().map(|i| i.generic_interface(&[])).next() {
                 match base {
                     ElementType::TypeDef(ref def) => {
                         next = def.clone();

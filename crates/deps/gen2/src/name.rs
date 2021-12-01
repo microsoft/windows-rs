@@ -42,21 +42,27 @@ fn gen_generic_name_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
     }
 }
 
-pub fn gen_phantoms(def: &TypeDef, gen:&Gen) -> Vec<TokenStream> {
-    def.generics.iter().map(|g| {
-        let name = gen_element_name(g, gen);
-        quote! { ::core::marker::PhantomData::<#name>, }
-    }).collect()
+pub fn gen_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { ::core::marker::PhantomData::<#name>, }
+        })
+        .collect()
 }
 
-pub fn gen_constraints(def: &TypeDef, gen:&Gen) -> Vec<TokenStream> {
-    def.generics.iter().map(|g| {
-        let name = gen_element_name(g, gen);
-        quote! { #name: ::windows::core::RuntimeType + 'static, }
-    }).collect()
+pub fn gen_constraints(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { #name: ::windows::core::RuntimeType + 'static, }
+        })
+        .collect()
 }
 
-pub fn gen_guid_signature(def: &TypeDef, signature: &str, gen:&Gen) -> TokenStream {
+pub fn gen_guid_signature(def: &TypeDef, signature: &str, gen: &Gen) -> TokenStream {
     let signature = Literal::byte_string(signature.as_bytes());
 
     if def.generics.is_empty() {
