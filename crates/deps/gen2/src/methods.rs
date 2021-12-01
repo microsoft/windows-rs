@@ -105,7 +105,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
                 #arch_cfg
                 #feature_cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
-                    let mut result__: #return_sig = ::core::default::Default::default();
+                    let mut result__: #return_sig = :: core::mem::zeroed();
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }

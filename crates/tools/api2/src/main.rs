@@ -103,6 +103,7 @@ fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::T
 }
 
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
+    // TODO: don't include parent features automatically
     let feature = tree.namespace[root.len() + 1..].replace('.', "_");
 
     if let Some(pos) = feature.rfind('_') {
@@ -127,9 +128,9 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
         return;
     }
 
-    if tree.namespace != "Windows.Win32.System.Com" {
-        return;
-    }
+    // if tree.namespace != "Windows.Win32.System.Com" {
+    //     return;
+    // }
 
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);

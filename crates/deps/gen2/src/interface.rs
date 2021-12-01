@@ -60,7 +60,7 @@ fn gen_win_class(def: &TypeDef, _gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_exclusive() {
         quote! {}
     } else {
@@ -84,7 +84,7 @@ fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_generic_name(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let vtbl = gen_vtbl_name(def, gen);
@@ -98,7 +98,7 @@ fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_winrt() {
         let name = gen_generic_name(def, gen);
         let constraints = gen_type_constraints(def, gen);
@@ -150,36 +150,49 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
     // And then consider naming them to simplify traits and debugging.
     // Should the first param be the Vtbl type?
 
     let vtbl = gen_vtbl_name(def, gen);
-    let mut tokens: TokenStream = format!("#[repr(C)] #[doc(hidden)] pub struct {} (", vtbl.as_str()).into();
     let guid = gen_element_name(&ElementType::GUID, gen);
     let hresult = gen_element_name(&ElementType::HRESULT, gen);
+    let is_winrt = def.is_winrt();
+    let phantoms = gen_phantoms(def, gen);
+    let constraints = gen_type_constraints(def, gen);
+    let mut methods = quote!{};
 
     for def in def.vtable_types() {
         match def {
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
                     let signature = method.signature(&def.generics);
-                    let return_type = gen_return_sig(&signature, gen);
                     let (feature_cfg, not_feature_cfg) = gen.method_cfg(&method);
+
+                    let (trailing_return_type, return_type) = if is_winrt {
+                        if let Some(return_sig) = &signature.return_sig {
+                            let tokens = gen_abi_sig(return_sig, gen);
+                            (quote! { *mut #tokens }, quote! { -> #hresult })
+                        } else {
+                            (quote! {}, quote! { -> #hresult })
+                        }
+                    } else {
+                        (quote!{}, gen_return_sig(&signature, gen))
+                    };
 
                     let params = signature.params.iter().map(|param| {
                         let name = gen_param_name(&param.param);
                         let tokens = gen_abi_param_sig(param, gen);
-                        quote! { #name: #tokens }
+                        quote! { #name: #tokens, }
                     });
 
-                    let signature = quote! { pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#params),*) #return_type, };
+                    let signature = quote! { pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#params)* #trailing_return_type) #return_type, };
 
                     if feature_cfg.is_empty() {
-                        tokens.combine(&signature);
+                        methods.combine(&signature);
                     } else {
-                        tokens.combine(&quote! {
+                        methods.combine(&quote! {
                             #feature_cfg
                             #signature
                             #not_feature_cfg
@@ -188,12 +201,12 @@ fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
                     }
                 }
             }
-            ElementType::IInspectable => tokens.combine(&quote! {
+            ElementType::IInspectable => methods.combine(&quote! {
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut #guid) -> #hresult,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> #hresult,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> #hresult,
             }),
-            ElementType::IUnknown => tokens.combine(&quote! {
+            ElementType::IUnknown => methods.combine(&quote! {
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &#guid, interface: *mut *mut ::core::ffi::c_void) -> #hresult,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
                 pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -202,13 +215,12 @@ fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     }
 
-    let phantoms = gen_phantoms(def, gen);
-    tokens.combine(&quote! {
-        #(pub #phantoms)*
-    });
-
-    tokens.push_str(");");
-    tokens
+    quote! {
+        #[repr(C)] #[doc(hidden)] pub struct #vtbl (
+            #methods 
+            #(pub #phantoms)*
+        ) where #(#constraints)*;
+    }
 }
 
 fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStream {
