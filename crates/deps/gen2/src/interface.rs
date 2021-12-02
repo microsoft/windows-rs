@@ -41,7 +41,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     tokens.combine(&quote! {
         #[repr(transparent)]
-        pub struct #name(pub ::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
+        pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
     });
 
     tokens.combine(&gen_methods(def, gen));
@@ -49,6 +49,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     tokens.combine(&gen_interface_trait(def, gen));
     tokens.combine(&gen_runtime_trait(def, gen));
     tokens.combine(&gen_vtbl(def, gen));
+    tokens.combine(&gen_conversions(def, gen));
     tokens
 }
 
@@ -231,6 +232,45 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
             #(pub #phantoms)*
         ) where #(#constraints)*;
     }
+}
+
+fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if def.is_exclusive() {
+        return quote! {};
+    }
+    
+    let name = gen_generic_name(def, gen);
+    let constraints = gen_type_constraints(def, gen);
+    let mut tokens = quote!{};
+
+    // vtable_types includes self at the end so reverse and skip it
+    for def in def.vtable_types().iter().rev().skip(1) {
+        let into = gen_element_name(def, gen);
+        tokens.combine(&quote! {
+            impl<#(#constraints)*> ::core::convert::From<#name> for #into {
+                fn from(value: #name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
+            impl<#(#constraints)*> ::core::convert::From<&#name> for #into {
+                fn from(value: &#name) -> Self {
+                    ::core::convert::From::from(::core::clone::Clone::clone(value))
+                }
+            }
+            impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+            impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for &#name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+        });
+    }
+
+    tokens
 }
 
 fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStream {
