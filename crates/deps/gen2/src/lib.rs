@@ -9,6 +9,7 @@ mod name;
 mod sig;
 mod r#struct;
 mod methods;
+mod bstr;
 
 use callback::*;
 use constant::*;
@@ -21,6 +22,7 @@ use r#enum::*;
 use r#struct::*;
 use sig::*;
 use methods::*;
+use bstr::*;
 
 use quote::*;
 use reader::*;

@@ -16,6 +16,7 @@ pub fn gen_abi_param_sig(param: &MethodParam, gen: &Gen) -> TokenStream {
     gen_abi_sig_with_const(&param.signature, gen, !param.param.flags().output())
 }
 
+// TODO: suspect - check for UDT
 pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     if let Some(return_sig) = &signature.return_sig {
         let tokens = gen_sig(return_sig, gen);

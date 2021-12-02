@@ -178,7 +178,17 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
                             (quote! {}, quote! { -> #hresult })
                         }
                     } else {
-                        (quote!{}, gen_return_sig(&signature, gen))
+                        if let Some(return_sig) = &signature.return_sig {
+                            if return_sig.is_udt() {
+                                let tokens = gen_abi_sig(return_sig, gen);
+                                (quote! { *mut #tokens }, quote! {})
+                            } else {
+                                let tokens = gen_sig(return_sig, gen);
+                                (quote!{}, quote! { -> #tokens })
+                            }
+                        } else {
+                            (quote!{}, quote! {})
+                        }
                     };
 
                     let params = signature.params.iter().map(|param| {

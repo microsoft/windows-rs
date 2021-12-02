@@ -9,6 +9,13 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+    if !gen.sys {
+        match def.type_name() {
+            TypeName::BSTR => return gen_bstr(),
+            _ => {}
+        }
+    }
+
     let name = gen_ident(struct_name);
 
     if def.is_handle() {
