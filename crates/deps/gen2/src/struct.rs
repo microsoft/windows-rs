@@ -79,13 +79,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
         #arch_cfg
         #feature_cfg
         pub #struct_or_union #name {#(#fields)*}
-        #arch_cfg
-        #feature_cfg
-        impl ::core::default::Default for #name {
-            fn default() -> Self {
-                unsafe { ::core::mem::zeroed() }
-            }
-        }
     };
 
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
@@ -93,6 +86,16 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     tokens.combine(&gen_windows_traits(def, &name, gen, &arch_cfg, &feature_cfg));
 
     if !gen.sys {
+        tokens.combine(&quote! {
+            #arch_cfg
+            #feature_cfg
+            impl ::core::default::Default for #name {
+                fn default() -> Self {
+                    unsafe { ::core::mem::zeroed() }
+                }
+            }
+        });
+
         tokens.combine(&extensions::gen(def));
     }
 
