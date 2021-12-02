@@ -1,8 +1,7 @@
 use super::*;
 
-// TODO: don't require Clone + PartialEq
-pub trait DefaultType: Sized + Clone + PartialEq {
-    type DefaultType: Sized + Clone + PartialEq;
+pub trait DefaultType: Sized {
+    type DefaultType: Sized;
 
     /// # Safety
     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
@@ -25,7 +24,7 @@ impl<T: Interface + Clone + PartialEq> DefaultType for T {
 }
 
 #[doc(hidden)]
-pub unsafe trait RuntimeType: Abi {
+pub unsafe trait RuntimeType: Abi + DefaultType + PartialEq {
     const SIGNATURE: ConstBuffer;
 }
 

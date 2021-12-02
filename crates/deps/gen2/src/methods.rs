@@ -1,25 +1,139 @@
 use super::*;
 
-pub fn gen_winrt_method(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
+pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, vtable_offset: usize, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
-    let name = gen_ident(&method.rust_name());
-    let constraints = gen_param_constraints(&signature.params, gen);
-    let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(&method).0;
-    let params = gen_params(&signature.params, gen);
 
-    let return_type = if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_result_sig(return_sig, gen);
-        quote! { -> ::windows::core::Result<#tokens> }
+    let params = if kind == InterfaceKind::Composable || kind == InterfaceKind::Extend {
+        &signature.params[..signature.params.len() - 2]
     } else {
-        quote! { -> ::windows::core::Result<()> }
+        &signature.params
     };
 
-    quote! {
-        #arch_cfg
-        #feature_cfg
-        pub fn #name<#constraints>(&self, #params) #return_type {
-            unimplemented!()
+    let name = if (kind == InterfaceKind::Composable || kind == InterfaceKind::Extend) && signature.params.len() == 2 {
+        "new".into()
+    } else {
+        let name = method.rust_name();
+        let overload = method_names.entry(name.to_string()).or_insert(0);
+        *overload += 1;
+        if *overload > 1 { format!("{}{}", name, overload).into() } else { gen_ident(&name) }
+    };
+    
+    let constraints = gen_param_constraints(&params, gen);
+    let arch_cfg = gen.arch_cfg(method.attributes());
+    let feature_cfg = gen.method_cfg(&method).0;
+    let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
+    let args = params.iter().map(gen_win32_abi_arg);
+    let params = gen_params(&params, gen);
+    let interface_name = gen_type_name(def, gen);
+
+    let deprecated = if method.is_deprecated() {
+        quote! { #[cfg(feature = "deprecated")] }
+    } else {
+        quote! {}
+    };
+
+    let return_type_tokens = if let Some(return_sig) = &signature.return_sig {
+        let tokens = gen_result_sig(return_sig, gen);
+        if return_sig.is_array {
+            quote! { ::windows::core::Array<#tokens> }
+        } else {
+            quote! { #tokens }
+        }
+    } else {
+        quote! { () }
+    };
+
+    let return_arg = if let Some(return_sig) = &signature.return_sig {
+        if return_sig.is_array {
+            let return_sig = gen_element_name(&return_sig.kind, gen);
+            quote! { ::windows::core::Array::<#return_sig>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
+        } else {
+            quote! { &mut result__ }
+        }
+    } else {
+        quote! {}
+    };
+
+    // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
+    // arguments to ensure the call succeeds in the non-aggregating case.
+    let composable_args = match kind {
+        InterfaceKind::Composable => quote! {
+            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _,
+        },
+        InterfaceKind::Extend => quote! {
+            ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
+        },
+        _ => quote! {},
+    };
+
+    let vcall = if let Some(return_sig) = &signature.return_sig {
+        if return_sig.is_array {
+            quote! {
+                let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                    .and_then(|| result__ )
+            }
+        } else {
+            let abi_type_name = gen_abi_element_name(&return_sig.kind, gen);
+
+            quote! {
+                let mut result__: #abi_type_name = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                        .from_abi::<#return_type_tokens>(result__ )
+            }
+        }
+    } else {
+        quote! {
+            (::windows::core::Interface::vtable(this).#vtable_offset)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
+        }
+    };
+
+    match kind {
+        InterfaceKind::Default => quote! {
+            #deprecated
+            #arch_cfg
+            #feature_cfg
+            pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                let this = self;
+                unsafe {
+                    #vcall
+                }
+            }
+        },
+        InterfaceKind::NonDefault | InterfaceKind::Overridable => {
+            quote! {
+                #deprecated
+                #arch_cfg
+                #feature_cfg
+                pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                    let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
+                    unsafe {
+                        #vcall
+                    }
+                }
+            }
+        }
+        InterfaceKind::Static | InterfaceKind::Composable => {
+            quote! {
+                #deprecated
+                #arch_cfg
+                #feature_cfg
+                pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe { #vcall })
+                }
+            }
+        }
+        InterfaceKind::Extend => {
+            // TODO: only used by implement macro?
+            let interface_name = gen_ident(def.name());
+            quote! {
+                pub fn #name<#constraints>(self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                    unsafe {
+                        let (derived__, base__) = ::windows::core::Compose::compose(self);
+                        #return_type_tokens::#interface_name(|this| unsafe { #vcall })
+                    }
+                }
+            }
         }
     }
 }
@@ -136,6 +250,7 @@ pub fn gen_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     tokens
 }
 
+// TODO: not just for win32?
 pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
 

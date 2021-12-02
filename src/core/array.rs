@@ -2,18 +2,18 @@ use super::*;
 use bindings::Windows::Win32::System::Com::{CoTaskMemAlloc, CoTaskMemFree};
 
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
-pub struct Array<T: RuntimeType + DefaultType> {
+pub struct Array<T: RuntimeType> {
     data: *mut T::DefaultType,
     len: u32,
 }
 
-impl<T: RuntimeType + DefaultType> Default for Array<T> {
+impl<T: RuntimeType> Default for Array<T> {
     fn default() -> Self {
         Array { data: core::ptr::null_mut(), len: 0 }
     }
 }
 
-impl<T: RuntimeType + DefaultType> Array<T> {
+impl<T: RuntimeType> Array<T> {
     /// Creates an empty array.
     pub fn new() -> Self {
         Self::default()
@@ -104,7 +104,7 @@ impl<T: RuntimeType + DefaultType> Array<T> {
     }
 }
 
-impl<T: RuntimeType + DefaultType> core::ops::Deref for Array<T> {
+impl<T: RuntimeType> core::ops::Deref for Array<T> {
     type Target = [T::DefaultType];
 
     fn deref(&self) -> &[T::DefaultType] {
@@ -117,7 +117,7 @@ impl<T: RuntimeType + DefaultType> core::ops::Deref for Array<T> {
     }
 }
 
-impl<T: RuntimeType + DefaultType> core::ops::DerefMut for Array<T> {
+impl<T: RuntimeType> core::ops::DerefMut for Array<T> {
     fn deref_mut(&mut self) -> &mut [T::DefaultType] {
         if self.is_empty() {
             return &mut [];
@@ -128,20 +128,20 @@ impl<T: RuntimeType + DefaultType> core::ops::DerefMut for Array<T> {
     }
 }
 
-impl<T: RuntimeType + DefaultType> Drop for Array<T> {
+impl<T: RuntimeType> Drop for Array<T> {
     fn drop(&mut self) {
         self.clear();
     }
 }
 
 #[doc(hidden)]
-pub struct ArrayProxy<T: RuntimeType + DefaultType> {
+pub struct ArrayProxy<T: RuntimeType> {
     data: *mut *mut T::DefaultType,
     len: *mut u32,
     temp: core::mem::ManuallyDrop<Array<T>>,
 }
 
-impl<T: RuntimeType + DefaultType> ArrayProxy<T> {
+impl<T: RuntimeType> ArrayProxy<T> {
     pub fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
         Self { data, len, temp: core::mem::ManuallyDrop::new(Array::new()) }
     }
@@ -151,7 +151,7 @@ impl<T: RuntimeType + DefaultType> ArrayProxy<T> {
     }
 }
 
-impl<T: RuntimeType + DefaultType> Drop for ArrayProxy<T> {
+impl<T: RuntimeType> Drop for ArrayProxy<T> {
     fn drop(&mut self) {
         unsafe {
             *self.data = self.temp.data;

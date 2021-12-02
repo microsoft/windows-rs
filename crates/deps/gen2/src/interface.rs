@@ -39,6 +39,8 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         quote! {}
     };
 
+    // TODO: exclude all (even the type itself) but the vtable if its exclusive
+
     tokens.combine(&quote! {
         #[repr(transparent)]
         pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
@@ -62,9 +64,9 @@ fn gen_win_class(def: &TypeDef, _gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_exclusive() {
-        quote! {}
-    } else {
+    // if def.is_exclusive() {
+    //     quote! {}
+    // } else {
         let name = gen_generic_name(def, gen);
         let constraints = gen_type_constraints(def, gen);
         let phantoms = gen_phantoms(def, gen);
@@ -82,7 +84,7 @@ pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
             impl<#(#constraints)*> ::core::cmp::Eq for #name {}
         }
-    }
+    //}
 }
 
 pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -133,7 +135,7 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
                     if is_winrt {
-                        methods.combine(&gen_winrt_method(&def, &method, gen));
+                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method, vtable_offset, &mut method_names, gen));
                     } else {
                         methods.combine(&gen_com_method(&def, &method, vtable_offset, &mut method_names, gen));
                     }
