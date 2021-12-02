@@ -1,6 +1,5 @@
 use super::*;
 
-
 pub fn gen_winrt_method(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
     let name = gen_ident(&method.rust_name());
@@ -10,7 +9,7 @@ pub fn gen_winrt_method(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenSt
     let params = gen_params(&signature.params, gen);
 
     let return_type = if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_sig(return_sig, gen);
+        let tokens = gen_result_sig(return_sig, gen);
         quote! { -> ::windows::core::Result<#tokens> }
     } else {
         quote! { -> ::windows::core::Result<()> }
@@ -70,9 +69,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_params(leading_params, gen);
-            let mut result_sig = signature.params[signature.params.len() - 1].signature.clone();
-            result_sig.pointers -= 1;
-            let return_type_tokens = gen_sig(&result_sig, gen);
+            let return_type_tokens = gen_result_sig(&signature.params[signature.params.len() - 1].signature, gen);
 
             quote! {
                 #arch_cfg
@@ -127,7 +124,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
     }
 }
 
-fn gen_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
+pub fn gen_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
     for (position, param) in params.iter().enumerate() {
@@ -139,7 +136,7 @@ fn gen_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
+pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
 
     if param.is_convertible() {

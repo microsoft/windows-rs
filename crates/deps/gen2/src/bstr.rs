@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_bstr() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        pub struct BSTR(pub *mut u16);
+        pub struct BSTR(*mut u16);
         impl BSTR {
             pub fn new() -> Self {
                 Self(core::ptr::null_mut())

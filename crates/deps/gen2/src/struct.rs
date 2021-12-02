@@ -12,6 +12,10 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     if !gen.sys {
         match def.type_name() {
             TypeName::BSTR => return gen_bstr(),
+            // TODO: these two should be part of windows::core and support strz and wstrz macros
+            TypeName::PSTR => return gen_pstr(),
+            TypeName::PWSTR => return gen_pwstr(),
+            TypeName::BOOL => return gen_bool(),
             _ => {}
         }
     }
@@ -80,6 +84,13 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
         #arch_cfg
         #feature_cfg
         pub #struct_or_union #name {#(#fields)*}
+        #arch_cfg
+        #feature_cfg
+        impl ::core::default::Default for #name {
+            fn default() -> Self {
+                unsafe { ::core::mem::zeroed() }
+            }
+        }
     };
 
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));

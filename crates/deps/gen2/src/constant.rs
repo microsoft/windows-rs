@@ -25,7 +25,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
                 quote! { #value as _ }
             };
 
-            if !gen.sys && signature.kind == ElementType::HRESULT {
+            if !gen.sys && (signature.kind == ElementType::HRESULT || (signature.kind.is_handle() && (signature.kind.type_name() == TypeName::PWSTR || signature.kind.type_name() == TypeName::PSTR)) ) {
                 quote! {
                     #cfg
                     pub const #name: #kind = #kind(#value);
