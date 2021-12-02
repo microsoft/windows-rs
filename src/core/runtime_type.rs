@@ -1,7 +1,7 @@
 use super::*;
 
-pub trait DefaultType: Sized {
-    type DefaultType: Sized;
+pub trait DefaultType: Sized + Clone + PartialEq {
+    type DefaultType: Sized + Clone + PartialEq;
 
     /// # Safety
     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
