@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_ntstatus() -> TokenStream {
+pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
         #[derive(::core::default::Default, ::core::clone::Clone, ::core::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]

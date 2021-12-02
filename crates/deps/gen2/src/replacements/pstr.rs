@@ -1,7 +1,7 @@
 use super::*;
 
 // TODO: move to windows::core
-pub fn gen_pstr() -> TokenStream {
+pub fn gen() -> TokenStream {
     quote! {
         // TODO: get rid of derive
         #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]

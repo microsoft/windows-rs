@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_handle() -> TokenStream {
+pub fn gen() -> TokenStream {
     quote! {
         #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
         #[repr(transparent)]

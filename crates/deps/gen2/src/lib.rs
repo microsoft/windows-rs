@@ -9,11 +9,10 @@ mod name;
 mod sig;
 mod r#struct;
 mod methods;
-mod bstr;
-mod pstr;
-mod pwstr;
-mod bool32;
+mod replacements;
+mod extensions;
 
+// Remove and use ::gen() instead?
 use callback::*;
 use constant::*;
 use delegate::*;
@@ -25,10 +24,6 @@ use r#enum::*;
 use r#struct::*;
 use sig::*;
 use methods::*;
-use bstr::*;
-use pstr::*;
-use pwstr::*;
-use bool32::*;
 
 use quote::*;
 use reader::*;

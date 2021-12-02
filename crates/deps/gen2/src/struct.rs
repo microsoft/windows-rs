@@ -10,13 +10,8 @@ pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if !gen.sys {
-        match def.type_name() {
-            TypeName::BSTR => return gen_bstr(),
-            // TODO: these two should be part of windows::core and support strz and wstrz macros
-            TypeName::PSTR => return gen_pstr(),
-            TypeName::PWSTR => return gen_pwstr(),
-            TypeName::BOOL => return gen_bool(),
-            _ => {}
+        if let Some(replacement) = replacements::gen(def) {
+            return replacement;
         }
     }
 
@@ -96,6 +91,10 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_windows_traits(def, &name, gen, &arch_cfg, &feature_cfg));
+
+    if !gen.sys {
+        tokens.combine(&extensions::gen(def));
+    }
 
     if let Some(nested_types) = def.nested_types() {
         for (index, (_, nested_type)) in nested_types.iter().enumerate() {

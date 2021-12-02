@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_bstr() -> TokenStream {
+pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
         pub struct BSTR(*mut u16);
