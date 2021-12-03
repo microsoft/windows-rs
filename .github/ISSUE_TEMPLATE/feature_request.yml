@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest an improvement for this project
+description: Suggest an improvement to windows-rs
 title: 'Feature request:'
 labels: ['enhancement']
 assignees: []
@@ -48,4 +48,3 @@ body:
   - type: markdown
     attributes:
       value: "Thank you! 🦀"
-        
