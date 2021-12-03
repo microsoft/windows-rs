@@ -1,4 +1,4 @@
 ---
 name: Blank Issue
-about: Create a blank issue.
+about: Create a blank issue
 ---
