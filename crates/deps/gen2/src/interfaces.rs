@@ -44,20 +44,19 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
     });
 
-    tokens.combine(&gen_methods(def, gen));
-    tokens.combine(&gen_std_traits(def, gen));
+    if !is_exclusive {
+        tokens.combine(&gen_methods(def, gen));
+        tokens.combine(&gen_conversions(def, gen));
+        tokens.combine(&gen_std_traits(def, gen));
+        tokens.combine(&gen_runtime_trait(def, gen));    
+    }
+
     tokens.combine(&gen_interface_trait(def, gen));
-    tokens.combine(&gen_runtime_trait(def, gen));
     tokens.combine(&gen_vtbl(def, gen));
-    tokens.combine(&gen_conversions(def, gen));
     tokens
 }
 
 fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_exclusive() {
-        return quote! {};
-    }
-
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
@@ -90,10 +89,6 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_exclusive() {
-        return quote! {};
-    }
-
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut tokens = quote! {};
