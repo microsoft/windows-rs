@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
 
     let method = def.invoke_method();

@@ -1,72 +1,7 @@
 use super::*;
 
-pub fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if gen.sys {
-        gen_sys_interface(def, gen)
-    } else if def.kind() == TypeKind::Class {
-        gen_win_class(def, gen)
-    } else {
-        gen_win_interface(def, gen)
-    }
-}
-
-fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_name(def, gen);
-
-    if def.is_exclusive() {
-        quote! {}
-    } else {
-        if def.kind() == TypeKind::Interface || def.default_interface().is_some() {
-            // TODO: should be *const?
-            quote! {
-                pub type #name = *mut ::core::ffi::c_void;
-            }
-        } else {
-            quote! {}
-        }
-    }
-}
-
-fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_name(def, gen);
-    let is_exclusive = def.is_exclusive();
-    let phantoms = gen_phantoms(def, gen);
-    let constraints = gen_type_constraints(def, gen);
-
-    let mut tokens = if is_exclusive {
-        quote! { #[doc(hidden)] }
-    } else {
-        quote! {}
-    };
-
-    // TODO: exclude all (even the type itself) but the vtable if its exclusive
-
-    tokens.combine(&quote! {
-        #[repr(transparent)]
-        pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
-    });
-
-    tokens.combine(&gen_methods(def, gen));
-    tokens.combine(&gen_std_traits(def, gen));
-    tokens.combine(&gen_interface_trait(def, gen));
-    tokens.combine(&gen_runtime_trait(def, gen));
-    tokens.combine(&gen_vtbl(def, gen));
-    tokens.combine(&gen_conversions(def, gen));
-    tokens
-}
-
-fn gen_win_class(def: &TypeDef, _gen: &Gen) -> TokenStream {
-    if let Some(_default_interface) = def.default_interface() {
-        quote! {}
-    } else {
-        quote! {}
-    }
-}
 
 pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
-    // if def.is_exclusive() {
-    //     quote! {}
-    // } else {
     let name = gen_generic_name(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let phantoms = gen_phantoms(def, gen);
@@ -84,7 +19,6 @@ pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
         impl<#(#constraints)*> ::core::cmp::Eq for #name {}
     }
-    //}
 }
 
 pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -117,41 +51,6 @@ pub fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_exclusive() {
-        return quote! {};
-    }
-
-    let name = gen_generic_name(def, gen);
-    let constraints = gen_type_constraints(def, gen);
-    let mut methods = quote! {};
-    let is_winrt = def.is_winrt();
-    let mut vtable_offset = 0;
-    let mut method_names = BTreeMap::<String, u32>::new();
-
-    for def in def.vtable_types() {
-        match def {
-            ElementType::IUnknown | ElementType::IInspectable => vtable_offset += 3,
-            ElementType::TypeDef(def) => {
-                for method in def.methods() {
-                    if is_winrt {
-                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method, vtable_offset, &mut method_names, gen));
-                    } else {
-                        methods.combine(&gen_com_method(&def, &method, vtable_offset, &mut method_names, gen));
-                    }
-                    vtable_offset += 1;
-                }
-            }
-            _ => unimplemented!(),
-        }
-    }
-
-    quote! {
-        impl<#(#constraints)*> #name {
-            #methods
-        }
-    }
-}
 
 pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
@@ -265,45 +164,6 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_exclusive() {
-        return quote! {};
-    }
-
-    let name = gen_generic_name(def, gen);
-    let constraints = gen_type_constraints(def, gen);
-    let mut tokens = quote! {};
-
-    // vtable_types includes self at the end so reverse and skip it
-    for def in def.vtable_types().iter().rev().skip(1) {
-        let into = gen_element_name(def, gen);
-        tokens.combine(&quote! {
-            impl<#(#constraints)*> ::core::convert::From<#name> for #into {
-                fn from(value: #name) -> Self {
-                    unsafe { ::core::mem::transmute(value) }
-                }
-            }
-            impl<#(#constraints)*> ::core::convert::From<&#name> for #into {
-                fn from(value: &#name) -> Self {
-                    ::core::convert::From::from(::core::clone::Clone::clone(value))
-                }
-            }
-            impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-                }
-            }
-            impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for &#name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-                }
-            }
-        });
-    }
-
-    tokens
-}
-
 fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStream {
     if def.generics.is_empty() {
         match GUID::from_attributes(def.attributes()) {
@@ -318,5 +178,68 @@ fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStre
         quote! {
             ::windows::core::GUID::from_signature(<#type_name as ::windows::core::RuntimeType>::SIGNATURE)
         }
+    }
+}
+
+
+pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
+    match value {
+        ConstantValue::Bool(value) => quote! { bool = #value },
+        ConstantValue::U8(value) => quote! { u8 = #value },
+        ConstantValue::I8(value) => quote! { i8 = #value },
+        ConstantValue::U16(value) => quote! { u16 = #value },
+        ConstantValue::I16(value) => quote! { i16 = #value },
+        ConstantValue::U32(value) => quote! { u32 = #value },
+        ConstantValue::I32(value) => quote! { i32 = #value },
+        ConstantValue::U64(value) => quote! { u64 = #value },
+        ConstantValue::I64(value) => quote! { i64 = #value },
+        ConstantValue::F32(value) => quote! { f32 = #value },
+        ConstantValue::F64(value) => quote! { f64 = #value },
+        ConstantValue::String(value) => quote! { &'static str = #value },
+        _ => unimplemented!(),
+    }
+}
+
+pub fn gen_guid(value: &GUID, gen: &Gen) -> TokenStream {
+    let guid = gen_element_name(&ElementType::GUID, gen);
+
+    if gen.sys {
+        let a = Literal::u32_unsuffixed(value.0);
+        let b = Literal::u16_unsuffixed(value.1);
+        let c = Literal::u16_unsuffixed(value.2);
+        let d = Literal::u8_unsuffixed(value.3);
+        let e = Literal::u8_unsuffixed(value.4);
+        let f = Literal::u8_unsuffixed(value.5);
+        let g = Literal::u8_unsuffixed(value.6);
+        let h = Literal::u8_unsuffixed(value.7);
+        let i = Literal::u8_unsuffixed(value.8);
+        let j = Literal::u8_unsuffixed(value.9);
+        let k = Literal::u8_unsuffixed(value.10);
+
+        // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
+
+        quote! {
+            #guid { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
+        }
+    } else {
+        format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
+    }
+}
+
+pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
+    match value {
+        ConstantValue::Bool(value) => quote! { #value },
+        ConstantValue::U8(value) => quote! { #value },
+        ConstantValue::I8(value) => quote! { #value },
+        ConstantValue::U16(value) => quote! { #value },
+        ConstantValue::I16(value) => quote! { #value },
+        ConstantValue::U32(value) => quote! { #value },
+        ConstantValue::I32(value) => quote! { #value },
+        ConstantValue::U64(value) => quote! { #value },
+        ConstantValue::I64(value) => quote! { #value },
+        ConstantValue::F32(value) => quote! { #value },
+        ConstantValue::F64(value) => quote! { #value },
+        ConstantValue::String(value) => quote! { #value },
+        _ => unimplemented!(),
     }
 }

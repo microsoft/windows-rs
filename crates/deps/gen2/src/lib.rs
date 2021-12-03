@@ -1,30 +1,25 @@
-mod callback;
-mod constant;
-mod delegate;
-mod r#enum;
+mod callbacks;
+mod constants;
+mod delegates;
+mod enums;
 mod extensions;
-mod function;
+mod functions;
 mod gen;
-mod interface;
+mod interfaces;
 mod methods;
-mod name;
+mod names;
 mod replacements;
-mod sig;
-mod r#struct;
+mod signatures;
+mod structs;
+mod classes;
+mod helpers;
 
-// Remove and use ::gen() instead?
-use callback::*;
-use constant::*;
-use delegate::*;
-use function::*;
+use functions::*;
 pub use gen::*;
-use interface::*;
 use methods::*;
-use name::*;
-use r#enum::*;
-use r#struct::*;
-use sig::*;
-
+use names::*;
+use signatures::*;
+use helpers::*;
 use quote::*;
 use reader::*;
 
@@ -81,18 +76,19 @@ fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
 
 fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
-        ElementType::Field(def) => gen_constant(def, gen),
+        ElementType::Field(def) => constants::gen(def, gen),
         ElementType::TypeDef(def) => {
             let def = &def.clone().with_generics();
             match def.kind() {
-                TypeKind::Class | TypeKind::Interface => gen_interface(def, gen),
-                TypeKind::Enum => gen_enum(def, gen),
-                TypeKind::Struct => gen_struct(def, gen),
+                TypeKind::Class => classes::gen(def, gen),
+                TypeKind::Interface => interfaces::gen(def, gen),
+                TypeKind::Enum => enums::gen(def, gen),
+                TypeKind::Struct => structs::gen(def, gen),
                 TypeKind::Delegate => {
                     if def.is_winrt() {
-                        gen_delegate(def, gen)
+                        delegates::gen(def, gen)
                     } else {
-                        gen_callback(def, gen)
+                        callbacks::gen(def, gen)
                     }
                 }
             }

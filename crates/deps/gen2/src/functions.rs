@@ -66,7 +66,7 @@ fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
+fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let signature = def.signature(&[]);
     let constraints = gen_param_constraints(&signature.params, gen);

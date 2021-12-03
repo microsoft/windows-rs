@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_api_contract() {
         return quote! {};
     }

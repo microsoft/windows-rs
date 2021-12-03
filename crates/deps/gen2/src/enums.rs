@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_generic_name(def, gen);
 
     if gen.sys {
@@ -12,7 +12,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_generic_name(def, gen);
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
