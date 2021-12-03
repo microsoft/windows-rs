@@ -1,0 +1,52 @@
+name: Bug report
+description: File a bug report
+title: 'Bug:'
+labels: [bug]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you for filing a bug report! 🐛"
+  - type: dropdown
+    attributes:
+      label: Which crate is this about?
+      multiple: true
+      options:
+        - "windows"
+        - "windows-sys"
+        - "other (please share in the comments)"
+  - type: input
+    attributes:
+      label: Crate version
+      description: What is the version of the crate you're using?
+      placeholder: You can find the exact crate version in your `Cargo.lock` file.
+  - type: textarea
+    attributes:
+      label: Summary
+      description: >
+        Please provide a short summary of the bug, along with any information
+        you feel relevant to replicating the bug.
+      value: |
+        ```rust
+        <code>
+        ```
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: "I expected to see this happen:"
+      placeholder: "*explanation*"
+  - type: textarea
+    attributes:
+      label: Actual behavior
+      description: "Instead, this happened:"
+      placeholder: "*explanation*"
+  - type: textarea
+    attributes:
+      label: Additional comments
+      description: Is there anything else you'd like to share?
+      placeholder: "*additional comments*"
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: "Thank you! 🦀"
