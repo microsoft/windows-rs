@@ -27,13 +27,13 @@ pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_result_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    let mut tokens = quote!{};
+    let mut tokens = quote! {};
 
     if sig.pointers > 0 {
-    for _ in 1..sig.pointers {
-        tokens.combine(&quote! { *mut });
+        for _ in 1..sig.pointers {
+            tokens.combine(&quote! { *mut });
+        }
     }
-}
 
     tokens.combine(&gen_element_name(&sig.kind, gen));
     tokens

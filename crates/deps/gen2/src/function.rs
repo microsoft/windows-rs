@@ -150,7 +150,7 @@ pub fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let mut result_sig = signature.params[signature.params.len() - 1].signature.clone();
             result_sig.pointers -= 1;
             let return_type_tokens = gen_result_sig(&result_sig, gen);
-            
+
             quote! {
                 #arch_cfg
                 #feature_cfg

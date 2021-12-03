@@ -239,7 +239,7 @@ impl ElementType {
             Self::TypeDef(def) => match def.type_name() {
                 TypeName::BOOL | TypeName::BSTR | TypeName::HANDLE | TypeName::NTSTATUS | TypeName::PSTR | TypeName::PWSTR => true,
                 _ => false,
-            }
+            },
             _ => false,
         }
     }

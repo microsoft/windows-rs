@@ -67,23 +67,23 @@ pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
     // if def.is_exclusive() {
     //     quote! {}
     // } else {
-        let name = gen_generic_name(def, gen);
-        let constraints = gen_type_constraints(def, gen);
-        let phantoms = gen_phantoms(def, gen);
+    let name = gen_generic_name(def, gen);
+    let constraints = gen_type_constraints(def, gen);
+    let phantoms = gen_phantoms(def, gen);
 
-        quote! {
-            impl<#(#constraints)*> ::core::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    Self(self.0.clone(), #(#phantoms)*)
-                }
+    quote! {
+        impl<#(#constraints)*> ::core::clone::Clone for #name {
+            fn clone(&self) -> Self {
+                Self(self.0.clone(), #(#phantoms)*)
             }
-            impl<#(#constraints)*> ::core::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            impl<#(#constraints)*> ::core::cmp::Eq for #name {}
         }
+        impl<#(#constraints)*> ::core::cmp::PartialEq for #name {
+            fn eq(&self, other: &Self) -> bool {
+                self.0 == other.0
+            }
+        }
+        impl<#(#constraints)*> ::core::cmp::Eq for #name {}
+    }
     //}
 }
 
@@ -131,7 +131,7 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     for def in def.vtable_types() {
         match def {
-            ElementType::IUnknown | ElementType::IInspectable => vtable_offset +=3,
+            ElementType::IUnknown | ElementType::IInspectable => vtable_offset += 3,
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
                     if is_winrt {
@@ -164,7 +164,7 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     let is_winrt = def.is_winrt();
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
-    let mut methods = quote!{};
+    let mut methods = quote! {};
 
     for def in def.vtable_types() {
         match def {
@@ -191,10 +191,10 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
                                 (quote! { *mut #tokens }, quote! {})
                             } else {
                                 let tokens = gen_sig(return_sig, gen);
-                                (quote!{}, quote! { -> #tokens })
+                                (quote! {}, quote! { -> #tokens })
                             }
                         } else {
-                            (quote!{}, quote! {})
+                            (quote! {}, quote! {})
                         }
                     };
 
@@ -206,7 +206,7 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
 
                             if signature.is_array {
                                 let abi_size_name = gen_ident(&format!("{}_array_size", p.param.name()));
-                
+
                                 if p.param.is_input() {
                                     quote! { #abi_size_name: u32, #name: *const #abi, }
                                 } else if p.signature.by_ref {
@@ -259,7 +259,7 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     quote! {
         #[repr(C)] #[doc(hidden)] pub struct #vtbl (
-            #methods 
+            #methods
             #(pub #phantoms)*
         ) where #(#constraints)*;
     }
@@ -269,10 +269,10 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_exclusive() {
         return quote! {};
     }
-    
+
     let name = gen_generic_name(def, gen);
     let constraints = gen_type_constraints(def, gen);
-    let mut tokens = quote!{};
+    let mut tokens = quote! {};
 
     // vtable_types includes self at the end so reverse and skip it
     for def in def.vtable_types().iter().rev().skip(1) {

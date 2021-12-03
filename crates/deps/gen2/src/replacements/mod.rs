@@ -1,10 +1,10 @@
 use super::*;
 mod bool32;
-mod pwstr;
-mod pstr;
 mod bstr;
-mod ntstatus;
 mod handle;
+mod ntstatus;
+mod pstr;
+mod pwstr;
 
 pub fn gen(def: &TypeDef) -> Option<TokenStream> {
     match def.type_name() {

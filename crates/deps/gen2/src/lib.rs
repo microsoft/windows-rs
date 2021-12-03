@@ -2,15 +2,15 @@ mod callback;
 mod constant;
 mod delegate;
 mod r#enum;
+mod extensions;
 mod function;
 mod gen;
 mod interface;
+mod methods;
 mod name;
+mod replacements;
 mod sig;
 mod r#struct;
-mod methods;
-mod replacements;
-mod extensions;
 
 // Remove and use ::gen() instead?
 use callback::*;
@@ -19,11 +19,11 @@ use delegate::*;
 use function::*;
 pub use gen::*;
 use interface::*;
+use methods::*;
 use name::*;
 use r#enum::*;
 use r#struct::*;
 use sig::*;
-use methods::*;
 
 use quote::*;
 use reader::*;

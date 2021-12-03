@@ -3,11 +3,7 @@ use super::*;
 pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, vtable_offset: usize, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
 
-    let params = if kind == InterfaceKind::Composable || kind == InterfaceKind::Extend {
-        &signature.params[..signature.params.len() - 2]
-    } else {
-        &signature.params
-    };
+    let params = if kind == InterfaceKind::Composable || kind == InterfaceKind::Extend { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
     let name = if (kind == InterfaceKind::Composable || kind == InterfaceKind::Extend) && signature.params.len() == 2 {
         "new".into()
@@ -15,9 +11,13 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         let name = method.rust_name();
         let overload = method_names.entry(name.to_string()).or_insert(0);
         *overload += 1;
-        if *overload > 1 { format!("{}{}", name, overload).into() } else { gen_ident(&name) }
+        if *overload > 1 {
+            format!("{}{}", name, overload).into()
+        } else {
+            gen_ident(&name)
+        }
     };
-    
+
     let constraints = gen_param_constraints(&params, gen);
     let arch_cfg = gen.arch_cfg(method.attributes());
     let feature_cfg = gen.method_cfg(&method).0;
@@ -267,7 +267,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else {
                 result.combine(&quote! { #name: &mut [<#kind as ::windows::core::DefaultType>::DefaultType], });
             }
-        }  else if param.param.is_input() {
+        } else if param.param.is_input() {
             if param.is_convertible() {
                 let kind: TokenStream = format!("Param{}", position).into();
                 result.combine(&quote! { #name: #kind, });
