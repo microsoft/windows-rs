@@ -176,7 +176,11 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
                     let (trailing_return_type, return_type) = if is_winrt {
                         if let Some(return_sig) = &signature.return_sig {
                             let tokens = gen_abi_sig(return_sig, gen);
-                            (quote! { *mut #tokens }, quote! { -> #hresult })
+                            if return_sig.is_array {
+                                (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult })
+                            } else {
+                                (quote! { *mut #tokens }, quote! { -> #hresult })
+                            }
                         } else {
                             (quote! {}, quote! { -> #hresult })
                         }
@@ -194,10 +198,35 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
                         }
                     };
 
-                    let params = signature.params.iter().map(|param| {
-                        let name = gen_param_name(&param.param);
-                        let tokens = gen_abi_param_sig(param, gen);
-                        quote! { #name: #tokens, }
+                    let params = signature.params.iter().map(|p| {
+                        let name = gen_param_name(&p.param);
+                        if is_winrt {
+                            let signature = &p.signature;
+                            let abi = gen_abi_sig(signature, gen);
+
+                            if signature.is_array {
+                                let abi_size_name = gen_ident(&format!("{}_array_size", p.param.name()));
+                
+                                if p.param.is_input() {
+                                    quote! { #abi_size_name: u32, #name: *const #abi, }
+                                } else if p.signature.by_ref {
+                                    quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi, }
+                                } else {
+                                    quote! { #abi_size_name: u32, #name: *mut #abi, }
+                                }
+                            } else if p.param.is_input() {
+                                if p.signature.is_const {
+                                    quote! { #name: &#abi, }
+                                } else {
+                                    quote! { #name: #abi, }
+                                }
+                            } else {
+                                quote! { #name: *mut #abi, }
+                            }
+                        } else {
+                            let abi = gen_abi_param_sig(p, gen);
+                            quote! { #name: #abi, }
+                        }
                     });
 
                     let signature = quote! { pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#params)* #trailing_return_type) #return_type, };

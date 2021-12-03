@@ -84,6 +84,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_windows_traits(def, &name, gen, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_compare_traits(def, &name, gen, &arch_cfg, &feature_cfg));
 
     if !gen.sys {
         tokens.combine(&quote! {
@@ -119,12 +120,52 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &T
             quote! { ::core::mem::ManuallyDrop<Self> }
         };
 
-        quote! {
+        let mut tokens = quote! {
             #arch_cfg
             #feature_cfg
             unsafe impl ::windows::core::Abi for #name {
                 type Abi = #abi;
             }
+        };
+
+        if def.is_winrt() {
+            let signature = Literal::byte_string(def.type_signature().as_bytes());
+
+            tokens.combine(&quote! {
+                #arch_cfg
+                #feature_cfg
+                unsafe impl ::windows::core::RuntimeType for #name {
+                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
+                }
+                #arch_cfg
+                #feature_cfg
+                impl ::windows::core::DefaultType for #name {
+                    type DefaultType = Self;
+                }
+            });
+        }
+
+        tokens
+    }
+}
+
+fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+    if gen.sys {
+        quote! {}
+    } else {
+        quote! {
+            #arch_cfg
+            #feature_cfg
+            impl ::core::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    unsafe {
+                        ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<#name>()) == 0
+                    }
+                }
+            }
+            #arch_cfg
+            #feature_cfg
+            impl ::core::cmp::Eq for #name {}
         }
     }
 }
