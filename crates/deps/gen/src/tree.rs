@@ -50,7 +50,7 @@ pub fn gen_source_file(root: &'static str, tree: &TypeTree, ignore_windows_featu
 pub fn gen_source_tree() -> TokenStream {
     let reader = TypeReader::get();
 
-    namespace_iter(&reader.types).fold(TokenStream::with_capacity(), |mut accum, n| {
+    namespace_iter(&reader.types).fold(TokenStream::new(), |mut accum, n| {
         accum.combine(&n);
         accum
     })

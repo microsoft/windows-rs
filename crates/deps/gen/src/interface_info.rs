@@ -28,7 +28,7 @@ impl InterfaceInfo {
 
     pub fn gen_methods(interfaces: &[Self], gen: &Gen) -> TokenStream {
         let mut method_names = BTreeMap::<String, u32>::new();
-        let mut tokens = TokenStream::with_capacity();
+        let mut tokens = TokenStream::new();
 
         for interface in interfaces {
             if interface.is_base && gen.relative.starts_with("Windows.UI.Xaml") && !interface.def.namespace().starts_with("Windows.Foundation") {

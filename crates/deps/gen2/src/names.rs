@@ -10,25 +10,27 @@ pub fn gen_ident(name: &str) -> TokenStream {
     }
 }
 
-pub fn gen_generic_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_generic_name_impl(def, gen, "")
+pub fn gen_type_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_type_ident_impl(def, gen, "")
 }
 
-pub fn gen_vtbl_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_generic_name_impl(def, gen, "Vtbl")
+pub fn gen_vtbl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_type_ident_impl(def, gen, "Vtbl")
 }
 
-fn gen_generic_name_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
+fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
+    let mut name = gen_ident(def.name());
+
     if def.generics.is_empty() {
-        format!("{}{}", def.name(), vtbl).into()
+        name.push_str(vtbl);
+        name
     } else {
-        let name = def.name();
-        let name = format!("{}{}", &name[..name.len() - 2], vtbl);
+        name.0.truncate(name.0.len() - 2);
+        name.push_str(vtbl);
 
         if gen.sys {
-            name.into()
+            name
         } else {
-            let mut name = name.to_string();
             name.push('<');
 
             for g in &def.generics {
@@ -37,7 +39,7 @@ fn gen_generic_name_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
             }
 
             name.push('>');
-            name.into()
+            name
         }
     }
 }
@@ -165,7 +167,7 @@ pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { [#name; #len] }
         }
         ElementType::GenericParam(generic) => {
-            let name = format_token!("{}", generic);
+            let name = gen_ident(generic);
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
         ElementType::TypeDef(def) => gen_abi_type_name(def, gen),

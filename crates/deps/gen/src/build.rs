@@ -106,7 +106,7 @@ impl ToTokens for RawString {
 fn gen_source_tree(redirect: bool) -> TokenStream {
     let reader = TypeReader::get();
 
-    namespace_iter(&reader.types, redirect).fold(TokenStream::with_capacity(), |mut accum, n| {
+    namespace_iter(&reader.types, redirect).fold(TokenStream::new(), |mut accum, n| {
         accum.combine(&n);
         accum
     })

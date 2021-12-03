@@ -42,7 +42,7 @@ macro_rules! quote {
         $crate::TokenStream::new()
     };
     ($($tt:tt)*) => {{
-        let mut _s = $crate::TokenStream::with_capacity();
+        let mut _s = $crate::TokenStream::new();
         $crate::quote_each_token!(_s $($tt)*);
         _s
     }};

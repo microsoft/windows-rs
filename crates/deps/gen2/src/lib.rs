@@ -1,27 +1,27 @@
 mod callbacks;
+mod classes;
 mod constants;
 mod delegates;
 mod enums;
 mod extensions;
 mod functions;
 mod gen;
+mod helpers;
 mod interfaces;
 mod methods;
 mod names;
 mod replacements;
 mod signatures;
 mod structs;
-mod classes;
-mod helpers;
 
 use functions::*;
 pub use gen::*;
+use helpers::*;
 use methods::*;
 use names::*;
-use signatures::*;
-use helpers::*;
 use quote::*;
 use reader::*;
+use signatures::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();

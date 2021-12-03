@@ -44,7 +44,7 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
     for (position, param) in params.iter().enumerate() {
         if param.is_convertible() {
-            let name = format_token!("Param{}", position);
+            let name: TokenStream = format!("Param{}", position).into();
             let into = gen_element_name(&param.signature.kind, gen);
             tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });
         }
@@ -58,7 +58,7 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
 }
 
 fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
+    let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
         if is_const {
@@ -73,7 +73,7 @@ fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenSt
 }
 
 fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
+    let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
         if is_const {

@@ -9,7 +9,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_name(def, gen);
+    let name = gen_type_ident(def, gen);
 
     if def.is_exclusive() {
         quote! {}
@@ -26,7 +26,7 @@ fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_name(def, gen);
+    let name = gen_type_ident(def, gen);
     let is_exclusive = def.is_exclusive();
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
@@ -58,7 +58,7 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    let name = gen_generic_name(def, gen);
+    let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
     let is_winrt = def.is_winrt();
@@ -94,7 +94,7 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    let name = gen_generic_name(def, gen);
+    let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut tokens = quote! {};
 
@@ -127,4 +127,3 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     tokens
 }
-

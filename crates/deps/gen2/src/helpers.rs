@@ -1,8 +1,7 @@
 use super::*;
 
-
 pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_name(def, gen);
+    let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let phantoms = gen_phantoms(def, gen);
 
@@ -22,9 +21,9 @@ pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_generic_name(def, gen);
+    let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
-    let vtbl = gen_vtbl_name(def, gen);
+    let vtbl = gen_vtbl_ident(def, gen);
     let guid = gen_type_guid(def, gen, &"Self".into());
 
     quote! {
@@ -37,7 +36,7 @@ pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 pub fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_winrt() {
-        let name = gen_generic_name(def, gen);
+        let name = gen_type_ident(def, gen);
         let constraints = gen_type_constraints(def, gen);
         let type_signature = gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()), gen);
 
@@ -51,13 +50,12 @@ pub fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-
 pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
     // And then consider naming them to simplify traits and debugging.
     // Should the first param be the Vtbl type?
 
-    let vtbl = gen_vtbl_name(def, gen);
+    let vtbl = gen_vtbl_ident(def, gen);
     let guid = gen_element_name(&ElementType::GUID, gen);
     let hresult = gen_element_name(&ElementType::HRESULT, gen);
     let is_winrt = def.is_winrt();
@@ -180,7 +178,6 @@ fn gen_type_guid(def: &TypeDef, gen: &Gen, type_name: &TokenStream) -> TokenStre
         }
     }
 }
-
 
 pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
     match value {

@@ -26,7 +26,7 @@ impl Gen<'_> {
                 namespace.next();
             }
 
-            let mut tokens = TokenStream::with_capacity();
+            let mut tokens = TokenStream::new();
 
             for _ in 0..relative.count() {
                 tokens.push_str("super::");

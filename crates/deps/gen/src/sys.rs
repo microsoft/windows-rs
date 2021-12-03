@@ -442,7 +442,7 @@ fn gen_sys_param(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 fn gen_sys_param_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
+    let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
         if is_const {

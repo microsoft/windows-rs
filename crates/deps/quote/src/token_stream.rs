@@ -1,34 +1,28 @@
 /// A stream of tokens
 #[derive(Debug, Clone)]
-pub struct TokenStream {
-    inner: String,
-}
+pub struct TokenStream(pub String);
 
 impl From<String> for TokenStream {
-    fn from(inner: String) -> Self {
-        Self { inner }
+    fn from(tokens: String) -> Self {
+        Self(tokens)
     }
 }
 
 impl From<&String> for TokenStream {
-    fn from(inner: &String) -> Self {
-        Self { inner: inner.to_string() }
+    fn from(tokens: &String) -> Self {
+        Self(tokens.to_string())
     }
 }
 
 impl From<&str> for TokenStream {
-    fn from(inner: &str) -> Self {
-        Self { inner: inner.to_string() }
+    fn from(tokens: &str) -> Self {
+        Self(tokens.to_string())
     }
 }
 
 impl TokenStream {
     pub fn new() -> Self {
-        Self { inner: String::new() }
-    }
-
-    pub fn with_capacity() -> Self {
-        Self { inner: String::with_capacity(1000) }
+        Self(String::new())
     }
 
     /// Appends another stream to the stream
@@ -36,21 +30,21 @@ impl TokenStream {
     /// note: a space will be inserted before the other stream
     pub fn combine(&mut self, other: &TokenStream) {
         self.push_space();
-        self.inner.push_str(&other.inner)
+        self.0.push_str(&other.0)
     }
 
     pub fn is_empty(&self) -> bool {
-        self.inner.is_empty()
+        self.0.is_empty()
     }
 
     /// View the stream as a string
     pub fn as_str(&self) -> &str {
-        &self.inner
+        &self.0
     }
 
     /// Convert the stream into a `String`
     pub fn into_string(self) -> String {
-        self.inner
+        self.0
     }
 
     /// Parse the token stream as something
@@ -63,20 +57,20 @@ impl TokenStream {
     pub(crate) fn push_space(&mut self) {
         match self.last_char() {
             None | Some(' ') => {}
-            _ => self.inner.push(' '),
+            _ => self.0.push(' '),
         }
     }
 
     pub fn push(&mut self, c: char) {
-        self.inner.push(c)
+        self.0.push(c)
     }
 
     pub fn push_str(&mut self, str: &str) {
-        self.inner.push_str(str)
+        self.0.push_str(str)
     }
 
     fn last_char(&self) -> Option<char> {
-        self.inner.chars().last()
+        self.0.chars().last()
     }
 }
 
