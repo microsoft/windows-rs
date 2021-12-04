@@ -37,8 +37,6 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         quote! {}
     };
 
-    // TODO: exclude all (even the type itself) but the vtable if its exclusive
-
     tokens.combine(&quote! {
         #[repr(transparent)]
         pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
@@ -81,6 +79,16 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     }
 
+    if is_winrt {
+        for def in def.required_interfaces() {
+                let mut vtable_offset = 6;
+                for method in def.methods() {
+                    methods.combine(&gen_winrt_method(&def, InterfaceKind::NonDefault, &method, vtable_offset, &mut method_names, gen));
+                    vtable_offset += 1;
+                }
+            }
+        }
+
     quote! {
         impl<#(#constraints)*> #name {
             #methods
@@ -119,6 +127,8 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         });
     }
+
+    // TODO: add winrt required interface conversions
 
     tokens
 }

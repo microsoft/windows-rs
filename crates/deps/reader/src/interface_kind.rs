@@ -2,8 +2,7 @@
 pub enum InterfaceKind {
     Default,
     NonDefault,
-    Overridable,
     Static,
     Composable,
-    Extend,
+    Base,
 }

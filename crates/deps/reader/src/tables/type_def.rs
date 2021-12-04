@@ -57,6 +57,28 @@ impl TypeDef {
         self.interface_impls().filter_map(move |i| if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) { Some(def) } else { None })
     }
 
+    pub fn required_interfaces(&self) -> Vec<Self> {
+        fn add_interfaces(result: &mut Vec<TypeDef>, parent: &TypeDef) {
+            for child in parent.interface_impls() {
+                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                    if !result.iter().any(|def| def == def) {
+                        add_interfaces(result, &def);
+                        result.push(def);
+                    }
+                }
+            }
+        }
+    
+        let mut result = vec![];
+        add_interfaces(&mut result, self);
+        result.sort_by(|a, b| a.name().cmp(&b.name()));
+        result
+    }
+
+    pub fn class_interfaces(&self) -> Vec<(Self, InterfaceKind)> {
+        vec![]
+    }
+
     pub fn is_packed(&self) -> bool {
         if self.kind() != TypeKind::Struct {
             return false;
