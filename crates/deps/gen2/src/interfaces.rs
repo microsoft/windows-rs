@@ -128,7 +128,42 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
         });
     }
 
-    // TODO: add winrt required interface conversions
+    if def.is_winrt() {
+        for def in def.required_interfaces() {
+            let into = gen_type_name(&def, gen);
+            let cfg = gen.type_cfg(&def);
+            tokens.combine(&quote! {
+                #cfg
+                impl<#(#constraints)*> ::core::convert::TryFrom<#name> for #into {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: #name) -> ::windows::core::Result<Self> {
+                        ::core::convert::TryFrom::try_from(&value)
+                    }
+                }
+                #cfg
+                impl<#(#constraints)*> ::core::convert::TryFrom<&#name> for #into {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                        ::windows::core::Interface::cast(value)
+                    }
+                }
+                #cfg
+                impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for #name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::IntoParam::into_param(&self)
+                    }
+                }
+                #cfg
+                impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for &#name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::core::convert::TryInto::<#into>::try_into(self)
+                            .map(::windows::core::Param::Owned)
+                            .unwrap_or(::windows::core::Param::None)
+                    }
+                }
+            });
+        }
+    }
 
     tokens
 }
