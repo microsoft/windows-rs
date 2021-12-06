@@ -58,11 +58,11 @@ impl TypeDef {
     }
 
     pub fn required_interfaces(&self) -> Vec<Self> {
-        fn add_interfaces(result: &mut Vec<TypeDef>, parent: &TypeDef) {
+        fn walk(result: &mut Vec<TypeDef>, parent: &TypeDef) {
             for child in parent.interface_impls() {
                 if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|def| def == def) {
-                        add_interfaces(result, &def);
+                        walk(result, &def);
                         result.push(def);
                     }
                 }
@@ -70,13 +70,71 @@ impl TypeDef {
         }
     
         let mut result = vec![];
-        add_interfaces(&mut result, self);
+        walk(&mut result, self);
         result.sort_by(|a, b| a.name().cmp(&b.name()));
         result
     }
 
     pub fn class_interfaces(&self) -> Vec<(Self, InterfaceKind)> {
-        vec![]
+        fn walk(result: &mut Vec<(TypeDef, InterfaceKind)>, parent: &TypeDef, is_base: bool) {
+            for child in parent.interface_impls() {
+                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                    let kind = if !is_base && child.is_default() {
+                        InterfaceKind::Default
+                    } else if child.is_overridable() {
+                        continue;
+                    } else {
+                        InterfaceKind::NonDefault
+                    };
+
+                    let mut found = false;
+
+                    for existing in result.iter_mut() {
+                        if existing.0 == def {
+                            found = true;
+
+                            if kind == InterfaceKind::Default {
+                                existing.1 = kind;
+                            }
+                        }
+                    }
+
+                    if !found {
+                        walk(result, &def, is_base);
+                        result.push((def, kind));
+                    }
+                }
+            }
+        }
+    
+        let mut result = vec![];
+        walk(&mut result, self, false);
+
+        for base in self.bases() {
+            walk(&mut result, &base, true);
+        }
+
+        for attribute in self.attributes() {
+            match attribute.name() {
+                "StaticAttribute" | "ActivatableAttribute" => {
+                    for (_, arg) in attribute.args() {
+                        if let ConstantValue::TypeDef(def) = arg {
+                            result.push((def, InterfaceKind::Static));
+                            break;
+                        }
+                    }
+                }
+                "ComposableAttribute" => {
+                    if let Some(def) = attribute.composable_type() {
+                        result.push((def,  InterfaceKind::Composable));
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        result.sort_by(|a, b| a.0.name().cmp(&b.0.name()));
+        result
     }
 
     pub fn is_packed(&self) -> bool {
