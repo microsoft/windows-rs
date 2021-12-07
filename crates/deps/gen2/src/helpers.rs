@@ -21,15 +21,29 @@ pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
-    let constraints = gen_type_constraints(def, gen);
-    let vtbl = gen_vtbl_ident(def, gen);
-    let guid = gen_type_guid(def, gen, &"Self".into());
+    if let Some(default) = def.default_interface() {
+        let name = gen_type_ident(def, gen);
+        let vtbl = gen_vtbl_ident(&default, gen);
+        let guid = gen_type_guid(&default, gen, &"Self".into());
+        let namespace = gen.namespace(default.namespace());
+        
+        quote! {
+            unsafe impl ::windows::core::Interface for #name {
+                type Vtable = #namespace #vtbl;
+                const IID: ::windows::core::GUID = #guid;
+            }
+        }
+    } else {
+        let name = gen_type_ident(def, gen);
+        let constraints = gen_type_constraints(def, gen);
+        let vtbl = gen_vtbl_ident(def, gen);
+        let guid = gen_type_guid(def, gen, &"Self".into());
 
-    quote! {
-        unsafe impl<#(#constraints)*> ::windows::core::Interface for #name {
-            type Vtable = #vtbl;
-            const IID: ::windows::core::GUID = #guid;
+        quote! {
+            unsafe impl<#(#constraints)*> ::windows::core::Interface for #name {
+                type Vtable = #vtbl;
+                const IID: ::windows::core::GUID = #guid;
+            }
         }
     }
 }
@@ -68,7 +82,7 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
                     let signature = method.signature(&def.generics);
-                    let (feature_cfg, not_feature_cfg) = gen.method_cfg(&method);
+                    let (feature_cfg, not_feature_cfg) = gen.method_cfg(&def, &method);
 
                     let (trailing_return_type, return_type) = if is_winrt {
                         if let Some(return_sig) = &signature.return_sig {

@@ -86,7 +86,7 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn method_cfg(&self, def: &MethodDef) -> (TokenStream, TokenStream) {
+    pub(crate) fn function_cfg(&self, def: &MethodDef) -> (TokenStream, TokenStream) {
         if !self.cfg {
             (quote! {}, quote! {})
         } else {
@@ -94,6 +94,30 @@ impl Gen<'_> {
             let mut keys = HashSet::new();
             self.method_requirements(&def.signature(&[]), &mut namespaces, &mut keys);
             (cfg(&namespaces), cfg_not(&namespaces))
+        }
+    }
+
+    pub(crate) fn method_cfg(&self, def: &TypeDef, method: &MethodDef) -> (TokenStream, TokenStream) {
+        if !self.cfg {
+            (quote! {}, quote! {})
+        } else {
+            let mut namespaces = BTreeSet::new();
+            let mut keys = HashSet::new();
+            self.add_namespace(def.namespace(), &mut namespaces);
+            self.method_requirements(&method.signature(&[]), &mut namespaces, &mut keys);
+            (cfg(&namespaces), cfg_not(&namespaces))
+        }
+    }
+
+        
+    fn add_namespace(&self, namespace: &'static str, namespaces: &mut BTreeSet<&'static str>) {
+        if !namespace.is_empty() && namespace != self.namespace {
+            //namespaces.insert(namespace);
+
+            // TODO: use the above instead to iclude parent dependencies
+            if !self.namespace.starts_with(format!("{}.", namespace).as_str()) {
+                namespaces.insert(namespace);
+            }
         }
     }
 
@@ -110,18 +134,7 @@ impl Gen<'_> {
             return;
         }
 
-        fn add_namespace(namespace: &'static str, namespaces: &mut BTreeSet<&'static str>, gen: &Gen) {
-            if !namespace.is_empty() && namespace != gen.namespace {
-                //namespaces.insert(namespace);
-
-                // TODO: use the above instead to iclude parent dependencies
-                if !gen.namespace.starts_with(format!("{}.", namespace).as_str()) {
-                    namespaces.insert(namespace);
-                }
-            }
-        }
-
-        add_namespace(def.namespace(), namespaces, self);
+        self.add_namespace(def.namespace(), namespaces);
 
         for generic in &def.generics {
             self.element_requirements(generic, namespaces, keys);
@@ -130,7 +143,7 @@ impl Gen<'_> {
         match def.kind() {
             TypeKind::Class => {
                 if let Some(def) = def.default_interface() {
-                    add_namespace(def.namespace(), namespaces, self);
+                    self.add_namespace(def.namespace(), namespaces);
                 }
             }
             TypeKind::Struct => {
@@ -138,7 +151,7 @@ impl Gen<'_> {
 
                 // TODO: needed?
                 if let Some(def) = def.is_convertible_to() {
-                    add_namespace(def.type_name().namespace, namespaces, self);
+                    self.add_namespace(def.type_name().namespace, namespaces);
                 }
             }
             TypeKind::Delegate => self.method_requirements(&def.invoke_method().signature(&[]), namespaces, keys),

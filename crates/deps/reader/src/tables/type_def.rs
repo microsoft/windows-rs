@@ -106,7 +106,7 @@ impl TypeDef {
                 }
             }
         }
-    
+
         let mut result = vec![];
         walk(&mut result, self, false);
 
@@ -133,6 +133,7 @@ impl TypeDef {
             }
         }
 
+        // TODO: need to sort by hierarchy as well?
         result.sort_by(|a, b| a.0.name().cmp(&b.0.name()));
         result
     }

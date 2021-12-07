@@ -20,7 +20,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
 
     let constraints = gen_param_constraints(&params, gen);
     let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(&method).0;
+    let feature_cfg = gen.method_cfg(def, &method).0;
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
     let args = params.iter().map(gen_winrt_abi_arg);
     let params = gen_winrt_params(&params, gen);
@@ -135,7 +135,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
 
     let constraints = gen_param_constraints(&signature.params, gen);
     let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(&method).0;
+    let feature_cfg = gen.method_cfg(def, &method).0;
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
 
     match signature.kind() {
