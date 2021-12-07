@@ -7,7 +7,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let signature = method.signature(&[]);
     let return_sig = gen_return_sig(&signature, gen);
     let arch_cfg = gen.arch_cfg(def.attributes());
-    let feature_cfg = gen.function_cfg(&method).0;
+    let feature_cfg = gen.function_cfg(&method);
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);

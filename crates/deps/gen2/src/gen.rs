@@ -86,14 +86,14 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn function_cfg(&self, def: &MethodDef) -> (TokenStream, TokenStream) {
+    pub(crate) fn function_cfg(&self, def: &MethodDef) -> TokenStream {
         if !self.cfg {
-            (quote! {}, quote! {})
+            quote! {}
         } else {
             let mut namespaces = BTreeSet::new();
             let mut keys = HashSet::new();
             self.method_requirements(&def.signature(&[]), &mut namespaces, &mut keys);
-            (cfg(&namespaces), cfg_not(&namespaces))
+            cfg(&namespaces)
         }
     }
 
