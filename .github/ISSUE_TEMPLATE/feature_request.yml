@@ -1,0 +1,50 @@
+name: Feature request
+description: Suggest an improvement to windows-rs
+title: 'Feature request:'
+labels: ['enhancement']
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thank you for submitting a feature request! 
+  - type: textarea
+    attributes:
+      label: Motivation
+      description: >
+        Why are we doing this? What use cases does it support?
+        What is the expected outcome?
+      placeholder: "Please list the motivation here."
+  - type: textarea
+    attributes:
+      label: Drawbacks
+      description: Why should we _not_ do this?
+      placeholder: "Please list the drawbacks you perceive here."
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Rationale and alternatives
+      description: >
+        Which alternative solutions or features have you considered?
+        What is the impact if we don't do this?
+      placeholder: |
+        - Why is this design the best in the space of possible designs?
+        - What other designs have been considered and what is the rationale for not choosing them?
+        - What is the impact of not doing this?
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: >
+        Please share any additional context on the issue.
+      placeholder: |
+        - Is there prior art for this feature?
+        - Are there any unresolved questions?
+        - What possibilites do you think this feature will open up in the future?
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: "Thank you! 🦀"
