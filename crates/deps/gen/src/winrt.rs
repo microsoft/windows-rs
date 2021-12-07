@@ -240,7 +240,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
                 }
             }
         },
-        InterfaceKind::NonDefault | InterfaceKind::Overridable => {
+        InterfaceKind::NonDefault | InterfaceKind::Overridable | InterfaceKind::Base => {
             quote! {
                 #deprecated
                 #cfg

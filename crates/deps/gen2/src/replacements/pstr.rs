@@ -24,7 +24,7 @@ pub fn gen() -> TokenStream {
             unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
                 if let ::windows::core::Param::Boxed(value) = param {
                     if !value.is_null() {
-                        unsafe { ::windows::core::alloc::boxed::Box::from_raw(value.0); }
+                        ::windows::core::alloc::boxed::Box::from_raw(value.0);
                     }
                 }
             }

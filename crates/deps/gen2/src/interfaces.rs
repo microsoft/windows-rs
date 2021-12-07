@@ -43,13 +43,16 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     });
 
     if !is_exclusive {
+        let cfg = quote! {};
+
         tokens.combine(&gen_methods(def, gen));
         tokens.combine(&gen_conversions(def, gen));
-        tokens.combine(&gen_std_traits(def, gen));
-        tokens.combine(&gen_runtime_trait(def, gen));    
+        tokens.combine(&gen_std_traits(def, &cfg, gen));
+        tokens.combine(&gen_runtime_trait(def, &cfg, gen));    
+        tokens.combine(&gen_async(def, &cfg, gen));
     }
 
-    tokens.combine(&gen_interface_trait(def, gen));
+    tokens.combine(&gen_interface_trait(def, &quote!{}, gen));
     tokens.combine(&gen_vtbl(def, gen));
     tokens
 }

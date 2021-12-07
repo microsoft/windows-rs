@@ -1,26 +1,29 @@
 use super::*;
 
-pub fn gen_std_traits(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_std_traits(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let phantoms = gen_phantoms(def, gen);
 
     quote! {
+        #cfg
         impl<#(#constraints)*> ::core::clone::Clone for #name {
             fn clone(&self) -> Self {
                 Self(self.0.clone(), #(#phantoms)*)
             }
         }
+        #cfg
         impl<#(#constraints)*> ::core::cmp::PartialEq for #name {
             fn eq(&self, other: &Self) -> bool {
                 self.0 == other.0
             }
         }
+        #cfg
         impl<#(#constraints)*> ::core::cmp::Eq for #name {}
     }
 }
 
-pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_interface_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
     if let Some(default) = def.default_interface() {
         let name = gen_type_ident(def, gen);
         let vtbl = gen_vtbl_ident(&default, gen);
@@ -28,6 +31,7 @@ pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
         let namespace = gen.namespace(default.namespace());
         
         quote! {
+            #cfg
             unsafe impl ::windows::core::Interface for #name {
                 type Vtable = #namespace #vtbl;
                 const IID: ::windows::core::GUID = #guid;
@@ -48,13 +52,17 @@ pub fn gen_interface_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_runtime_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_runtime_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
     if def.is_winrt() {
         let name = gen_type_ident(def, gen);
         let constraints = gen_type_constraints(def, gen);
-        let type_signature = gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()), gen);
+        let type_signature = if def.kind() == TypeKind::Class {
+            let type_signature = Literal::byte_string(def.type_signature().as_bytes());
+            quote! { ::windows::core::ConstBuffer::from_slice(#type_signature) }
+        } else { gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()), gen) };
 
         quote! {
+            #cfg
             unsafe impl<#(#constraints)*> ::windows::core::RuntimeType for #name {
                 const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
             }

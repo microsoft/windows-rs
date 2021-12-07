@@ -13,6 +13,7 @@ mod names;
 mod replacements;
 mod signatures;
 mod structs;
+mod r#async;
 
 use functions::*;
 pub use gen::*;
@@ -22,6 +23,7 @@ use names::*;
 use quote::*;
 use reader::*;
 use signatures::*;
+use r#async::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();

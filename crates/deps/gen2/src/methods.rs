@@ -122,6 +122,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
+        InterfaceKind::Extend | InterfaceKind::Overridable => unimplemented!(), // TODO: should remove these flags
     }
 }
 

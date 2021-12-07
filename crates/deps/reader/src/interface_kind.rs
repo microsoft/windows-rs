@@ -5,4 +5,8 @@ pub enum InterfaceKind {
     Static,
     Composable,
     Base,
+
+    // TODO: only used by old gen
+    Extend,
+    Overridable,
 }

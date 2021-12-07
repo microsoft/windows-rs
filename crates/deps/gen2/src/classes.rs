@@ -52,7 +52,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         _ => None,
     });
 
-    let mut tokens = if has_default {
+    if has_default {
         let new = if def.has_default_constructor() {
             quote! {
                 pub fn new() -> ::windows::core::Result<Self> {
@@ -70,9 +70,13 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {}
         };
 
+        let cfg = gen.type_cfg(&def);
+
         let mut tokens = quote! {
+            #cfg
             #[repr(transparent)]
             pub struct #name(::windows::core::IUnknown);
+            #cfg
             impl #name {
                 #new
                 #methods
@@ -80,29 +84,32 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         };
 
-        // tokens.combine(&gen_std_traits(def, gen));
-        // tokens.combine(&gen_runtime_trait(def, gen));    
-        tokens.combine(&gen_interface_trait(def, gen));
+        tokens.combine(&gen_std_traits(def, &cfg, gen));
+        tokens.combine(&gen_runtime_trait(def, &cfg, gen));    
+        tokens.combine(&gen_interface_trait(def, &cfg, gen));
+        tokens.combine(&gen_runtime_name(def, &cfg, gen));
+        tokens.combine(&gen_async(def,&cfg,gen));
         tokens
     } else {
-        quote! {
+        let mut tokens = quote! {
             pub struct #name {}
             impl #name {
                 #methods
                 #(#factories)*
             }
-        }
-    };
+        };
 
-    tokens.combine(&gen_runtime_name(def, gen));
-    tokens
+        tokens.combine(&gen_runtime_name(def, &quote!{}, gen));
+        tokens
+    }
 }
 
-fn gen_runtime_name(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_runtime_name(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let runtime_name = format!("{}", def.type_name());
 
     quote! {
+        #cfg
         impl ::windows::core::RuntimeName for #name {
             const NAME: &'static str = #runtime_name;
         }
