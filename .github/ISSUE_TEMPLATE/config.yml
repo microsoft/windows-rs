@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Windows API question
-    url: https://stackoverflow.com/questions/tagged/winapi
-    about: Please ask and answer questions about the Windows API on StackOverflow
+    url: https://docs.microsoft.com/en-us/answers/topics/windows-api.html
+    about: Please ask and answer questions about the Windows API on Microsoft Q&A
