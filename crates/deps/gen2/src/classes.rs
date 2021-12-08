@@ -89,6 +89,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_interface_trait(def, &cfg, gen));
         tokens.combine(&gen_runtime_name(def, &cfg, gen));
         tokens.combine(&gen_async(def,&cfg,gen));
+        tokens.combine(&gen_iterator(def, &cfg, gen));
         tokens
     } else {
         let mut tokens = quote! {

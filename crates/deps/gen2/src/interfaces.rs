@@ -50,6 +50,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_std_traits(def, &cfg, gen));
         tokens.combine(&gen_runtime_trait(def, &cfg, gen));    
         tokens.combine(&gen_async(def, &cfg, gen));
+        tokens.combine(&gen_iterator(def, &cfg, gen));
     }
 
     tokens.combine(&gen_interface_trait(def, &quote!{}, gen));

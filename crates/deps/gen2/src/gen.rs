@@ -64,6 +64,16 @@ impl Gen<'_> {
         quote! {}
     }
 
+    pub(crate) fn iterator_cfg(&self) -> TokenStream {
+        if !self.cfg {
+            quote! {}
+        } else {
+            let mut namespaces = BTreeSet::new();
+            self.add_namespace("Windows.Foundation.Collections", &mut namespaces);
+            cfg(&namespaces)
+        }
+    }
+
     pub(crate) fn type_cfg(&self, def: &TypeDef) -> TokenStream {
         if !self.cfg {
             quote! {}

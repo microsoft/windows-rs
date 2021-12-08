@@ -14,6 +14,7 @@ mod replacements;
 mod signatures;
 mod structs;
 mod r#async;
+mod iterator;
 
 use functions::*;
 pub use gen::*;
@@ -24,6 +25,7 @@ use quote::*;
 use reader::*;
 use signatures::*;
 use r#async::*;
+use iterator::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();
