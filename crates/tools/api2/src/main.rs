@@ -128,9 +128,9 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
         return;
     }
 
-    if tree.namespace != "Windows.Foundation" {
-        return;
-    }
+    // if tree.namespace != "Windows.Foundation" {
+    //     return;
+    // }
 
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);

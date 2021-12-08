@@ -47,7 +47,7 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
         impl<#(#constraints)*> #name {
             pub fn get(&self) -> ::windows::core::Result<#return_sig> {
                 if self.Status()? == #namespace AsyncStatus::Started {
-                    let (waiter, signaler) = ::windows::core::Waiter::new();
+                    let (_waiter, signaler) = ::windows::core::Waiter::new();
                     self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
                         // Safe because the waiter will only be dropped after being signaled.
                         unsafe { signaler.signal(); }
