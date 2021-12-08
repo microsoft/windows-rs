@@ -90,7 +90,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_runtime_name(def, &cfg, gen));
         tokens.combine(&gen_async(def,&cfg,gen));
         tokens.combine(&gen_iterator(def, &cfg, gen));
-        tokens.combine(&gen_conversions(def, gen));
+        tokens.combine(&gen_conversions(def, &cfg, gen));
         tokens
     } else {
         let mut tokens = quote! {
@@ -118,28 +118,32 @@ fn gen_runtime_name(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream 
     }
 }
 
-fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_conversions(def: &TypeDef, cfg:&TokenStream, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let mut tokens = quote! {};
 
     for def in &[ElementType::IUnknown, ElementType::IInspectable] {
         let into = gen_element_name(def, gen);
         tokens.combine(&quote! {
+            #cfg
             impl ::core::convert::From<#name> for #into {
                 fn from(value: #name) -> Self {
                     unsafe { ::core::mem::transmute(value) }
                 }
             }
+            #cfg
             impl ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
+            #cfg
             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
                 }
             }
+            #cfg
             impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -158,7 +162,9 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
 
             let into = gen_type_name(&def, gen);
-            let cfg = gen.type_cfg(&def);
+            let mut cfg = cfg.clone();
+            cfg.combine(&gen.type_cfg(&def));
+
             tokens.combine(&quote! {
                 #cfg
                 impl ::core::convert::TryFrom<#name> for #into {

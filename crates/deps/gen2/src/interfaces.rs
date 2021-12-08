@@ -108,22 +108,27 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     // vtable_types includes self at the end so reverse and skip it
     for def in def.vtable_types().iter().rev().skip(1) {
         let into = gen_element_name(def, gen);
+        let cfg = gen.element_cfg(&def);
         tokens.combine(&quote! {
+            #cfg
             impl<#(#constraints)*> ::core::convert::From<#name> for #into {
                 fn from(value: #name) -> Self {
                     unsafe { ::core::mem::transmute(value) }
                 }
             }
+            #cfg
             impl<#(#constraints)*> ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
+            #cfg
             impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
                 }
             }
+            #cfg
             impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for &#name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })

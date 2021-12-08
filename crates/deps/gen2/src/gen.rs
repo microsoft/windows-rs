@@ -74,6 +74,14 @@ impl Gen<'_> {
         }
     }
 
+    pub(crate) fn element_cfg(&self, def: &ElementType) -> TokenStream {
+        if let ElementType::TypeDef(def) = def {
+            self.type_cfg(def)
+        } else {
+            quote! {}
+        }
+    }
+
     pub(crate) fn type_cfg(&self, def: &TypeDef) -> TokenStream {
         if !self.cfg {
             quote! {}

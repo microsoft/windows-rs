@@ -132,7 +132,6 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
     //     return;
     // }
 
-    println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
     path.push(tree.namespace.replace('.', "/"));
@@ -148,9 +147,10 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
     let output = child.wait_with_output().unwrap();
 
     if output.status.success() {
+        println!("{}", tree.namespace);
         tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
     } else {
-        println!("  rustfmt failed");
+        println!("** {} - rustfmt failed", tree.namespace);
     }
 
     std::fs::write(&path, tokens).unwrap();

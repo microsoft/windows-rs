@@ -83,7 +83,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
             if return_sig.is_array {
                 (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult })
             } else {
-                (quote! { *mut #tokens }, quote! { -> #hresult })
+                (quote! { result__: *mut #tokens }, quote! { -> #hresult })
             }
         } else {
             (quote! {}, quote! { -> #hresult })
@@ -92,7 +92,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         if let Some(return_sig) = &signature.return_sig {
             if return_sig.is_udt() {
                 let tokens = gen_abi_sig(return_sig, gen);
-                (quote! { *mut #tokens }, quote! {})
+                (quote! { result__: *mut #tokens }, quote! {})
             } else {
                 let tokens = gen_sig(return_sig, gen);
                 (quote! {}, quote! { -> #tokens })
