@@ -90,6 +90,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_runtime_name(def, &cfg, gen));
         tokens.combine(&gen_async(def,&cfg,gen));
         tokens.combine(&gen_iterator(def, &cfg, gen));
+        tokens.combine(&gen_conversions(def, gen));
         tokens
     } else {
         let mut tokens = quote! {
@@ -115,4 +116,80 @@ fn gen_runtime_name(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream 
             const NAME: &'static str = #runtime_name;
         }
     }
+}
+
+fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_type_ident(def, gen);
+    let mut tokens = quote! {};
+
+    for def in &[ElementType::IUnknown, ElementType::IInspectable] {
+        let into = gen_element_name(def, gen);
+        tokens.combine(&quote! {
+            impl ::core::convert::From<#name> for #into {
+                fn from(value: #name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
+            impl ::core::convert::From<&#name> for #into {
+                fn from(value: &#name) -> Self {
+                    ::core::convert::From::from(::core::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+        });
+    }
+
+        for (def, kind) in def.class_interfaces() {
+            if def.is_exclusive() {
+                continue;
+            }
+
+            if kind != InterfaceKind::Default && kind != InterfaceKind::NonDefault {
+                continue;
+            }
+
+            let into = gen_type_name(&def, gen);
+            let cfg = gen.type_cfg(&def);
+            tokens.combine(&quote! {
+                #cfg
+                impl ::core::convert::TryFrom<#name> for #into {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: #name) -> ::windows::core::Result<Self> {
+                        ::core::convert::TryFrom::try_from(&value)
+                    }
+                }
+                #cfg
+                impl ::core::convert::TryFrom<&#name> for #into {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                        ::windows::core::Interface::cast(value)
+                    }
+                }
+                #cfg
+                impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::IntoParam::into_param(&self)
+                    }
+                }
+                #cfg
+                impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::core::convert::TryInto::<#into>::try_into(self)
+                            .map(::windows::core::Param::Owned)
+                            .unwrap_or(::windows::core::Param::None)
+                    }
+                }
+            });
+        }
+
+    tokens
 }
