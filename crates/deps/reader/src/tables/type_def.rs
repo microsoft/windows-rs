@@ -429,7 +429,9 @@ impl TypeDef {
 
         if self.is_winrt() {
             result.push(ElementType::IUnknown);
-            result.push(ElementType::IInspectable);
+            if self.kind() != TypeKind::Delegate {
+                result.push(ElementType::IInspectable);
+            }
         } else {
             let mut next = self.clone();
 

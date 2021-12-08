@@ -89,6 +89,10 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
         match def {
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
+                    if method.name() == ".ctor" {
+                        continue;
+                    }
+
                     let signature = method.signature(&def.generics);
                     let (feature_cfg, not_feature_cfg) = gen.method_cfg(&def, &method);
 

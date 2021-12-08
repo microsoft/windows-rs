@@ -14,6 +14,9 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
+    let vtbl = gen_vtbl_ident(def, gen);
+    let box = gen_box_ident(def, gen);
+
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let method = def.invoke_method();
@@ -25,7 +28,7 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         pub struct #name(pub ::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
         #cfg
         impl<#(#constraints)*> #name {
-            
+
         }
     };
 

@@ -18,6 +18,10 @@ pub fn gen_vtbl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen_type_ident_impl(def, gen, "Vtbl")
 }
 
+pub fn gen_box_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_type_ident_impl(def, gen, "_box")
+}
+
 fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
     let mut name = gen_ident(def.name());
 
