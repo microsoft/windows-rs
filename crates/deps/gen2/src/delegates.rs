@@ -104,11 +104,10 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    // tokens.combine(&gen_methods(def, gen));
-    tokens.combine(&gen_std_traits(def, &quote!{}, gen));
-    tokens.combine(&gen_interface_trait(def, &quote!{}, gen));
-    tokens.combine(&gen_runtime_trait(def, &quote!{}, gen));
-    tokens.combine(&gen_vtbl(def, gen));
+    tokens.combine(&gen_std_traits(def, &cfg, gen));
+    tokens.combine(&gen_interface_trait(def, &cfg, gen));
+    tokens.combine(&gen_runtime_trait(def, &cfg, gen));
+    tokens.combine(&gen_vtbl(def, &cfg, gen));
 
     tokens
 }

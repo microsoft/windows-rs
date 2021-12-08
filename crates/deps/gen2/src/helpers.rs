@@ -44,6 +44,7 @@ pub fn gen_interface_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> Token
         let guid = gen_type_guid(def, gen, &"Self".into());
 
         quote! {
+            #cfg
             unsafe impl<#(#constraints)*> ::windows::core::Interface for #name {
                 type Vtable = #vtbl;
                 const IID: ::windows::core::GUID = #guid;
@@ -136,7 +137,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
     quote! { (this: *mut ::core::ffi::c_void, #(#params)* #trailing_return_type) #return_type }
 }
 
-pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_vtbl(def: &TypeDef, cfg:&TokenStream, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
     // And then consider naming them to simplify traits and debugging.
     // Should the first param be the Vtbl type?
@@ -188,6 +189,7 @@ pub fn gen_vtbl(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     quote! {
+        #cfg
         #[repr(C)] #[doc(hidden)] pub struct #vtbl (
             #methods
             #(pub #phantoms)*

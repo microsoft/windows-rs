@@ -30,6 +30,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let is_exclusive = def.is_exclusive();
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
+    let cfg = quote! {};
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -43,8 +44,6 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     });
 
     if !is_exclusive {
-        let cfg = quote! {};
-
         tokens.combine(&gen_methods(def, gen));
         tokens.combine(&gen_conversions(def, gen));
         tokens.combine(&gen_std_traits(def, &cfg, gen));
@@ -53,8 +52,8 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_iterator(def, &cfg, gen));
     }
 
-    tokens.combine(&gen_interface_trait(def, &quote!{}, gen));
-    tokens.combine(&gen_vtbl(def, gen));
+    tokens.combine(&gen_interface_trait(def, &cfg, gen));
+    tokens.combine(&gen_vtbl(def, &cfg, gen));
     tokens
 }
 
