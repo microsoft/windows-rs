@@ -3,12 +3,8 @@ use super::*;
 pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        #[derive(::core::default::Default, ::core::clone::Clone, ::core::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
         pub struct BOOL(pub i32);
 
-        unsafe impl ::windows::core::Abi for BOOL {
-            type Abi = Self;
-        }
         impl BOOL {
             #[inline]
             pub fn as_bool(self) -> bool {
@@ -36,6 +32,30 @@ pub fn gen() -> TokenStream {
                 self.ok().expect(msg);
             }
         }
+
+        impl ::core::default::Default for BOOL {
+            fn default() -> Self {
+                Self(0)
+            }
+        }
+
+        impl ::core::clone::Clone for BOOL {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
+
+        impl ::core::marker::Copy for BOOL {}
+
+        impl ::core::cmp::PartialEq for BOOL {
+            fn eq(&self, other: &Self) -> bool {
+                unsafe {
+                    self.0 == other.0
+                }
+            }
+        }
+
+        impl ::core::cmp::Eq for BOOL {}
 
         impl ::core::convert::From<BOOL> for bool {
             fn from(value: BOOL) -> Self {
@@ -86,6 +106,10 @@ pub fn gen() -> TokenStream {
                     BOOL(1)
                 }
             }
+        }
+
+        unsafe impl ::windows::core::Abi for BOOL {
+            type Abi = Self;
         }
 
         impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
