@@ -84,7 +84,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_windows_traits(def, &name, gen, &arch_cfg, &feature_cfg));
-    tokens.combine(&gen_compare_traits(def, &name, gen, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_compare_traits(&name, gen, &arch_cfg, &feature_cfg));
 
     if !gen.sys {
         tokens.combine(&quote! {
@@ -149,7 +149,7 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &T
     }
 }
 
-fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+fn gen_compare_traits(name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if gen.sys {
         quote! {}
     } else {

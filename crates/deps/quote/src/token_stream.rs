@@ -33,6 +33,10 @@ impl TokenStream {
         self.0.push_str(&other.0)
     }
 
+    pub fn join(&self, value: &str) -> Self {
+        Self(format!("{}{}", self.0, value))
+    }
+
     pub fn is_empty(&self) -> bool {
         self.0.is_empty()
     }

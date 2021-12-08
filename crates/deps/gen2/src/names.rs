@@ -10,16 +10,25 @@ pub fn gen_ident(name: &str) -> TokenStream {
     }
 }
 
+pub fn gen_type_ident2(def: &TypeDef) -> TokenStream {
+    let mut name = gen_ident(def.name());
+
+    if def.generics.is_empty() {
+        name
+    } else {
+        name.0.truncate(name.0.len() - 2);
+        name
+    }
+}
+
+// TODO: use above instead
 pub fn gen_type_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen_type_ident_impl(def, gen, "")
 }
 
+// TODO: use above instead
 pub fn gen_vtbl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen_type_ident_impl(def, gen, "Vtbl")
-}
-
-pub fn gen_box_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_type_ident_impl(def, gen, "_box")
 }
 
 fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
@@ -54,6 +63,16 @@ pub fn gen_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
         .map(|g| {
             let name = gen_element_name(g, gen);
             quote! { ::core::marker::PhantomData::<#name>, }
+        })
+        .collect()
+}
+
+pub fn gen_type_generics(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { #name, }
         })
         .collect()
 }
