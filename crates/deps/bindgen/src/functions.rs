@@ -151,7 +151,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             return_sig.pointers -= 1;
             let return_type_tokens = gen_result_sig(&return_sig, gen);
             let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
-            
+
             quote! {
                 #arch_cfg
                 #feature_cfg

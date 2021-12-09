@@ -133,7 +133,7 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
     path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
-    let gen = bindgen::Gen { namespace: tree.namespace, sys: false, cfg: true, ..Default::default() };
+    let gen = bindgen::Gen { namespace: tree.namespace, min_xaml: true, cfg: true, ..Default::default() };
     let mut tokens = bindgen::gen_namespace(&gen);
 
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");

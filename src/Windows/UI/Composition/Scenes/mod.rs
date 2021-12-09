@@ -887,6 +887,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SceneBoundingBox> for SceneObject {
+    fn from(value: SceneBoundingBox) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneBoundingBox> for SceneObject {
+    fn from(value: &SceneBoundingBox) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneBoundingBox {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneBoundingBox {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneBoundingBox> for super::CompositionObject {
+    fn from(value: SceneBoundingBox) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneBoundingBox> for super::CompositionObject {
+    fn from(value: &SceneBoundingBox) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneBoundingBox {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneBoundingBox {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneComponent(::windows::core::IUnknown);
 impl SceneComponent {
@@ -1089,6 +1129,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneComponent {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneComponent> for SceneObject {
+    fn from(value: SceneComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneComponent> for SceneObject {
+    fn from(value: &SceneComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneComponent> for super::CompositionObject {
+    fn from(value: SceneComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneComponent> for super::CompositionObject {
+    fn from(value: &SceneComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1473,6 +1553,54 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<SceneComponent>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<SceneComponentCollection> for SceneObject {
+    fn from(value: SceneComponentCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&SceneComponentCollection> for SceneObject {
+    fn from(value: &SceneComponentCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneComponentCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneComponentCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<SceneComponentCollection> for super::CompositionObject {
+    fn from(value: SceneComponentCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&SceneComponentCollection> for super::CompositionObject {
+    fn from(value: &SceneComponentCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneComponentCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneComponentCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
@@ -1696,6 +1824,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SceneMaterial> for SceneObject {
+    fn from(value: SceneMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMaterial> for SceneObject {
+    fn from(value: &SceneMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMaterial> for super::CompositionObject {
+    fn from(value: SceneMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMaterial> for super::CompositionObject {
+    fn from(value: &SceneMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneMaterialInput(::windows::core::IUnknown);
 impl SceneMaterialInput {
@@ -1891,6 +2059,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneMaterialInput {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneMaterialInput> for SceneObject {
+    fn from(value: SceneMaterialInput) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMaterialInput> for SceneObject {
+    fn from(value: &SceneMaterialInput) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMaterialInput> for super::CompositionObject {
+    fn from(value: SceneMaterialInput) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMaterialInput> for super::CompositionObject {
+    fn from(value: &SceneMaterialInput) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -2123,6 +2331,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneMesh {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneMesh> for SceneObject {
+    fn from(value: SceneMesh) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMesh> for SceneObject {
+    fn from(value: &SceneMesh) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneMesh {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneMesh {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMesh> for super::CompositionObject {
+    fn from(value: SceneMesh) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMesh> for super::CompositionObject {
+    fn from(value: &SceneMesh) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneMesh {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -2448,6 +2696,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, SceneAttributeSemantic>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SceneMeshMaterialAttributeMap> for SceneObject {
+    fn from(value: SceneMeshMaterialAttributeMap) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for SceneObject {
+    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMeshMaterialAttributeMap> for super::CompositionObject {
+    fn from(value: SceneMeshMaterialAttributeMap) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMeshMaterialAttributeMap> for super::CompositionObject {
+    fn from(value: &SceneMeshMaterialAttributeMap) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMeshMaterialAttributeMap {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneMeshRendererComponent(::windows::core::IUnknown);
 impl SceneMeshRendererComponent {
@@ -2689,6 +2977,86 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneMeshRendererComponent {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneMeshRendererComponent> for SceneRendererComponent {
+    fn from(value: SceneMeshRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMeshRendererComponent> for SceneRendererComponent {
+    fn from(value: &SceneMeshRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneRendererComponent> for SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneRendererComponent> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneRendererComponent> for &SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneRendererComponent> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneRendererComponent>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMeshRendererComponent> for SceneComponent {
+    fn from(value: SceneMeshRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMeshRendererComponent> for SceneComponent {
+    fn from(value: &SceneMeshRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneComponent> for SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneComponent> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneComponent> for &SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneComponent> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneComponent>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMeshRendererComponent> for SceneObject {
+    fn from(value: SceneMeshRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMeshRendererComponent> for SceneObject {
+    fn from(value: &SceneMeshRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMeshRendererComponent> for super::CompositionObject {
+    fn from(value: SceneMeshRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMeshRendererComponent> for super::CompositionObject {
+    fn from(value: &SceneMeshRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMeshRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -3056,6 +3424,86 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SceneMetallicRoughnessMaterial> for ScenePbrMaterial {
+    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for ScenePbrMaterial {
+    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ScenePbrMaterial> for SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, ScenePbrMaterial> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ScenePbrMaterial> for &SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, ScenePbrMaterial> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ScenePbrMaterial>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMetallicRoughnessMaterial> for SceneMaterial {
+    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for SceneMaterial {
+    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneMaterial> for SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneMaterial> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneMaterial> for &SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneMaterial> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneMaterial>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMetallicRoughnessMaterial> for SceneObject {
+    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for SceneObject {
+    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneMetallicRoughnessMaterial> for super::CompositionObject {
+    fn from(value: SceneMetallicRoughnessMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneMetallicRoughnessMaterial> for super::CompositionObject {
+    fn from(value: &SceneMetallicRoughnessMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMetallicRoughnessMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneModelTransform(::windows::core::IUnknown);
 impl SceneModelTransform {
@@ -3327,6 +3775,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SceneModelTransform> for super::CompositionTransform {
+    fn from(value: SceneModelTransform) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneModelTransform> for super::CompositionTransform {
+    fn from(value: &SceneModelTransform) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionTransform> for SceneModelTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionTransform> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionTransform> for &SceneModelTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionTransform> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionTransform>::into(self))
+    }
+}
+impl ::core::convert::From<SceneModelTransform> for super::CompositionObject {
+    fn from(value: SceneModelTransform) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneModelTransform> for super::CompositionObject {
+    fn from(value: &SceneModelTransform) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneModelTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneModelTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneNode(::windows::core::IUnknown);
 impl SceneNode {
@@ -3569,6 +4057,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneNode {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneNode> for SceneObject {
+    fn from(value: SceneNode) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneNode> for SceneObject {
+    fn from(value: &SceneNode) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneNode {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneNode {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneNode> for super::CompositionObject {
+    fn from(value: SceneNode) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneNode> for super::CompositionObject {
+    fn from(value: &SceneNode) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneNode {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneNode {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -3953,6 +4481,54 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<SceneNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<SceneNodeCollection> for SceneObject {
+    fn from(value: SceneNodeCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&SceneNodeCollection> for SceneObject {
+    fn from(value: &SceneNodeCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneNodeCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneNodeCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<SceneNodeCollection> for super::CompositionObject {
+    fn from(value: SceneNodeCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&SceneNodeCollection> for super::CompositionObject {
+    fn from(value: &SceneNodeCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneNodeCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneNodeCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneObject(::windows::core::IUnknown);
 impl SceneObject {
@@ -4148,6 +4724,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneObject {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneObject> for super::CompositionObject {
+    fn from(value: SceneObject) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneObject> for super::CompositionObject {
+    fn from(value: &SceneObject) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneObject {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneObject {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4448,6 +5044,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ScenePbrMaterial> for SceneMaterial {
+    fn from(value: ScenePbrMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScenePbrMaterial> for SceneMaterial {
+    fn from(value: &ScenePbrMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneMaterial> for ScenePbrMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneMaterial> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneMaterial> for &ScenePbrMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneMaterial> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneMaterial>::into(self))
+    }
+}
+impl ::core::convert::From<ScenePbrMaterial> for SceneObject {
+    fn from(value: ScenePbrMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScenePbrMaterial> for SceneObject {
+    fn from(value: &ScenePbrMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for ScenePbrMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &ScenePbrMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<ScenePbrMaterial> for super::CompositionObject {
+    fn from(value: ScenePbrMaterial) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScenePbrMaterial> for super::CompositionObject {
+    fn from(value: &ScenePbrMaterial) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for ScenePbrMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &ScenePbrMaterial {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SceneRendererComponent(::windows::core::IUnknown);
 impl SceneRendererComponent {
@@ -4650,6 +5306,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneRendererComponent {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneRendererComponent> for SceneComponent {
+    fn from(value: SceneRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneRendererComponent> for SceneComponent {
+    fn from(value: &SceneRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneComponent> for SceneRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneComponent> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneComponent> for &SceneRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneComponent> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneComponent>::into(self))
+    }
+}
+impl ::core::convert::From<SceneRendererComponent> for SceneObject {
+    fn from(value: SceneRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneRendererComponent> for SceneObject {
+    fn from(value: &SceneRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneRendererComponent> for super::CompositionObject {
+    fn from(value: SceneRendererComponent) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneRendererComponent> for super::CompositionObject {
+    fn from(value: &SceneRendererComponent) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneRendererComponent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4901,6 +5617,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneSurfaceMaterialInput {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneSurfaceMaterialInput> for SceneMaterialInput {
+    fn from(value: SceneSurfaceMaterialInput) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneSurfaceMaterialInput> for SceneMaterialInput {
+    fn from(value: &SceneSurfaceMaterialInput) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneMaterialInput> for SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneMaterialInput> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneMaterialInput> for &SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneMaterialInput> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneMaterialInput>::into(self))
+    }
+}
+impl ::core::convert::From<SceneSurfaceMaterialInput> for SceneObject {
+    fn from(value: SceneSurfaceMaterialInput) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneSurfaceMaterialInput> for SceneObject {
+    fn from(value: &SceneSurfaceMaterialInput) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, SceneObject> for &SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, SceneObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<SceneObject>::into(self))
+    }
+}
+impl ::core::convert::From<SceneSurfaceMaterialInput> for super::CompositionObject {
+    fn from(value: SceneSurfaceMaterialInput) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneSurfaceMaterialInput> for super::CompositionObject {
+    fn from(value: &SceneSurfaceMaterialInput) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneSurfaceMaterialInput {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5384,6 +6160,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneVisual {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SceneVisual> for super::ContainerVisual {
+    fn from(value: SceneVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneVisual> for super::ContainerVisual {
+    fn from(value: &SceneVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::ContainerVisual> for SceneVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, super::ContainerVisual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::ContainerVisual> for &SceneVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, super::ContainerVisual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::ContainerVisual>::into(self))
+    }
+}
+impl ::core::convert::From<SceneVisual> for super::Visual {
+    fn from(value: SceneVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneVisual> for super::Visual {
+    fn from(value: &SceneVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::Visual> for SceneVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::Visual> for &SceneVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::Visual>::into(self))
+    }
+}
+impl ::core::convert::From<SceneVisual> for super::CompositionObject {
+    fn from(value: SceneVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SceneVisual> for super::CompositionObject {
+    fn from(value: &SceneVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for SceneVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]

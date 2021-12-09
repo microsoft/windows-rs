@@ -87,358 +87,6 @@ impl Block {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
     pub fn IBlockStatics<R, F: FnOnce(&IBlockStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Block, IBlockStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -507,6 +155,46 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Block
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Block {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<Block> for TextElement {
+    fn from(value: Block) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Block> for TextElement {
+    fn from(value: &Block) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Block {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Block {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Block> for super::DependencyObject {
+    fn from(value: Block) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Block> for super::DependencyObject {
+    fn from(value: &Block) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Block {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Block {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -761,371 +449,6 @@ impl Bold {
         static mut SHARED: ::windows::core::FactoryCache<Bold, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Inlines(&self) -> ::windows::core::Result<InlineCollection> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InlineCollection>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetInlines<'a, Param0: ::windows::core::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
 }
 impl ::core::clone::Clone for Bold {
     fn clone(&self) -> Self {
@@ -1188,6 +511,86 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bold
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<Bold> for Span {
+    fn from(value: Bold) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Bold> for Span {
+    fn from(value: &Bold) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for &Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Span>::into(self))
+    }
+}
+impl ::core::convert::From<Bold> for Inline {
+    fn from(value: Bold) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Bold> for Inline {
+    fn from(value: &Bold) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<Bold> for TextElement {
+    fn from(value: Bold) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Bold> for TextElement {
+    fn from(value: &Bold) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Bold> for super::DependencyObject {
+    fn from(value: Bold) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Bold> for super::DependencyObject {
+    fn from(value: &Bold) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Bold {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct ContactContentLinkProvider(::windows::core::IUnknown);
 impl ContactContentLinkProvider {
@@ -1197,54 +600,6 @@ impl ContactContentLinkProvider {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactContentLinkProvider, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
 }
 impl ::core::clone::Clone for ContactContentLinkProvider {
@@ -1306,6 +661,46 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conta
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContactContentLinkProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ContactContentLinkProvider> for ContentLinkProvider {
+    fn from(value: ContactContentLinkProvider) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContactContentLinkProvider> for ContentLinkProvider {
+    fn from(value: &ContactContentLinkProvider) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContentLinkProvider> for ContactContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ContentLinkProvider> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContentLinkProvider> for &ContactContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ContentLinkProvider> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ContentLinkProvider>::into(self))
+    }
+}
+impl ::core::convert::From<ContactContentLinkProvider> for super::DependencyObject {
+    fn from(value: ContactContentLinkProvider) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContactContentLinkProvider> for super::DependencyObject {
+    fn from(value: &ContactContentLinkProvider) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for ContactContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContactContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -1623,358 +1018,6 @@ impl ContentLink {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
     pub fn IContentLinkStatics<R, F: FnOnce(&IContentLinkStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentLink, IContentLinkStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2039,6 +1082,66 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conte
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContentLink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ContentLink> for Inline {
+    fn from(value: ContentLink) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContentLink> for Inline {
+    fn from(value: &ContentLink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for ContentLink {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &ContentLink {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<ContentLink> for TextElement {
+    fn from(value: ContentLink) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContentLink> for TextElement {
+    fn from(value: &ContentLink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for ContentLink {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &ContentLink {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<ContentLink> for super::DependencyObject {
+    fn from(value: ContentLink) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContentLink> for super::DependencyObject {
+    fn from(value: &ContentLink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for ContentLink {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContentLink {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -2127,56 +1230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 #[repr(transparent)]
 pub struct ContentLinkProvider(::windows::core::IUnknown);
-impl ContentLinkProvider {
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-}
+impl ContentLinkProvider {}
 impl ::core::clone::Clone for ContentLinkProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2236,6 +1290,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conte
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContentLinkProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ContentLinkProvider> for super::DependencyObject {
+    fn from(value: ContentLinkProvider) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContentLinkProvider> for super::DependencyObject {
+    fn from(value: &ContentLinkProvider) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for ContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -2471,506 +1545,6 @@ impl Glyphs {
         static mut SHARED: ::windows::core::FactoryCache<Glyphs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[cfg(feature = "UI_Composition")]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Triggers(&self) -> ::windows::core::Result<super::TriggerCollection> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::TriggerCollection>(result__)
-        }
-    }
-    pub fn Resources(&self) -> ::windows::core::Result<super::ResourceDictionary> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ResourceDictionary>(result__)
-        }
-    }
-    pub fn SetResources<'a, Param0: ::windows::core::IntoParam<'a, super::ResourceDictionary>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Tag(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ActualWidth(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn ActualHeight(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn Width(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetWidth(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn Height(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetHeight(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn MinWidth(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetMinWidth(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn MaxWidth(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetMaxWidth(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn MinHeight(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetMinHeight(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn MaxHeight(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetMaxHeight(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn HorizontalAlignment(&self) -> ::windows::core::Result<super::HorizontalAlignment> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::HorizontalAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HorizontalAlignment>(result__)
-        }
-    }
-    pub fn SetHorizontalAlignment(&self, value: super::HorizontalAlignment) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn VerticalAlignment(&self) -> ::windows::core::Result<super::VerticalAlignment> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::VerticalAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::VerticalAlignment>(result__)
-        }
-    }
-    pub fn SetVerticalAlignment(&self, value: super::VerticalAlignment) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn Margin(&self) -> ::windows::core::Result<super::Thickness> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
-        }
-    }
-    pub fn SetMargin<'a, Param0: ::windows::core::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn BaseUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
-        }
-    }
-    pub fn DataContext(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetDataContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Style(&self) -> ::windows::core::Result<super::Style> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Style>(result__)
-        }
-    }
-    pub fn SetStyle<'a, Param0: ::windows::core::IntoParam<'a, super::Style>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Parent(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn FlowDirection(&self) -> ::windows::core::Result<super::FlowDirection> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::FlowDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::FlowDirection>(result__)
-        }
-    }
-    pub fn SetFlowDirection(&self, value: super::FlowDirection) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn Loaded<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveLoaded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn Unloaded<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveUnloaded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn SizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::SizeChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn LayoutUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveLayoutUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Data")]
-    pub fn SetBinding<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::Data::BindingBase>>(&self, dp: Param0, binding: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), dp.into_param().abi(), binding.into_param().abi()).ok() }
-    }
-    pub fn RequestedTheme(&self) -> ::windows::core::Result<super::ElementTheme> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement2>(self)?;
-        unsafe {
-            let mut result__: super::ElementTheme = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementTheme>(result__)
-        }
-    }
-    pub fn SetRequestedTheme(&self, value: super::ElementTheme) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn DataContextChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, super::DataContextChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement2>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDataContextChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Data")]
-    pub fn GetBindingExpression<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<super::Data::BindingExpression> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement2>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<super::Data::BindingExpression>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn Loading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement3>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveLoading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn FocusVisualMargin(&self) -> ::windows::core::Result<super::Thickness> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
-        }
-    }
-    pub fn SetFocusVisualMargin<'a, Param0: ::windows::core::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn FocusVisualSecondaryThickness(&self) -> ::windows::core::Result<super::Thickness> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
-        }
-    }
-    pub fn SetFocusVisualSecondaryThickness<'a, Param0: ::windows::core::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn FocusVisualPrimaryThickness(&self) -> ::windows::core::Result<super::Thickness> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
-        }
-    }
-    pub fn SetFocusVisualPrimaryThickness<'a, Param0: ::windows::core::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FocusVisualSecondaryBrush(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFocusVisualSecondaryBrush<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FocusVisualPrimaryBrush(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFocusVisualPrimaryBrush<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn AllowFocusWhenDisabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusWhenDisabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn ActualTheme(&self) -> ::windows::core::Result<super::ElementTheme> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement6>(self)?;
-        unsafe {
-            let mut result__: super::ElementTheme = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementTheme>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn ActualThemeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement6>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveActualThemeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn IsLoaded(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement7>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn EffectiveViewportChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, super::EffectiveViewportChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement7>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveEffectiveViewportChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElement7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn InvalidateViewport(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IFrameworkElementProtected7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
-    }
     pub fn UnicodeString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3147,1280 +1721,6 @@ impl Glyphs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[cfg(feature = "Foundation")]
-    pub fn DesiredSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
-        }
-    }
-    pub fn AllowDrop(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowDrop(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn Opacity(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Clip(&self) -> ::windows::core::Result<super::Media::RectangleGeometry> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::RectangleGeometry>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetClip<'a, Param0: ::windows::core::IntoParam<'a, super::Media::RectangleGeometry>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn RenderTransform(&self) -> ::windows::core::Result<super::Media::Transform> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Transform>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetRenderTransform<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Transform>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Projection(&self) -> ::windows::core::Result<super::Media::Projection> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Projection>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetProjection<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Projection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RenderTransformOrigin(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn SetRenderTransformOrigin<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn IsHitTestVisible(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsHitTestVisible(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn Visibility(&self) -> ::windows::core::Result<super::Visibility> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::Visibility = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Visibility>(result__)
-        }
-    }
-    pub fn SetVisibility(&self, value: super::Visibility) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RenderSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
-        }
-    }
-    pub fn UseLayoutRounding(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetUseLayoutRounding(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
-    pub fn Transitions(&self) -> ::windows::core::Result<super::Media::Animation::TransitionCollection> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::TransitionCollection>(result__)
-        }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
-    pub fn SetTransitions<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Animation::TransitionCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn CacheMode(&self) -> ::windows::core::Result<super::Media::CacheMode> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::CacheMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetCacheMode<'a, Param0: ::windows::core::IntoParam<'a, super::Media::CacheMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn IsTapEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTapEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsDoubleTapEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsDoubleTapEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsRightTapEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsRightTapEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsHoldingEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsHoldingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn ManipulationMode(&self) -> ::windows::core::Result<super::Input::ManipulationModes> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::Input::ManipulationModes = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::ManipulationModes>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetManipulationMode(&self, value: super::Input::ManipulationModes) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))]
-    pub fn PointerCaptures(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::Input::Pointer>> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::Input::Pointer>>(result__)
-        }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn KeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn KeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn GotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveGotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn LostFocus<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveLostFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn DragEnter<'a, Param0: ::windows::core::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDragEnter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn DragLeave<'a, Param0: ::windows::core::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDragLeave<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn DragOver<'a, Param0: ::windows::core::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).53)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDragOver<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).54)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn Drop<'a, Param0: ::windows::core::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).55)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDrop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).56)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).57)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).58)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).59)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).60)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).61)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).62)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).63)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).64)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).65)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).66)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).67)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerCaptureLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).68)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).69)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).70)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).71)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePointerWheelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).72)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn Tapped<'a, Param0: ::windows::core::IntoParam<'a, super::Input::TappedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).73)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).74)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn DoubleTapped<'a, Param0: ::windows::core::IntoParam<'a, super::Input::DoubleTappedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).75)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDoubleTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).76)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn Holding<'a, Param0: ::windows::core::IntoParam<'a, super::Input::HoldingEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).77)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveHolding<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).78)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn RightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::Input::RightTappedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).79)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveRightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).80)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ManipulationStarting<'a, Param0: ::windows::core::IntoParam<'a, super::Input::ManipulationStartingEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).81)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).82)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ManipulationInertiaStarting<'a, Param0: ::windows::core::IntoParam<'a, super::Input::ManipulationInertiaStartingEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).83)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationInertiaStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).84)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::Input::ManipulationStartedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).85)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).86)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ManipulationDelta<'a, Param0: ::windows::core::IntoParam<'a, super::Input::ManipulationDeltaEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).87)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationDelta<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).88)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::Input::ManipulationCompletedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).89)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).90)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn Measure<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(&self, availablesize: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).91)(::core::mem::transmute_copy(this), availablesize.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn Arrange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, finalrect: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).92)(::core::mem::transmute_copy(this), finalrect.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn CapturePointer<'a, Param0: ::windows::core::IntoParam<'a, super::Input::Pointer>>(&self, value: Param0) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).93)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn ReleasePointerCapture<'a, Param0: ::windows::core::IntoParam<'a, super::Input::Pointer>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).94)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ReleasePointerCaptures(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).95)(::core::mem::transmute_copy(this)).ok() }
-    }
-    pub fn AddHandler<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEvent>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, routedevent: Param0, handler: Param1, handledeventstoo: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).96)(::core::mem::transmute_copy(this), routedevent.into_param().abi(), handler.into_param().abi(), handledeventstoo).ok() }
-    }
-    pub fn RemoveHandler<'a, Param0: ::windows::core::IntoParam<'a, super::RoutedEvent>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, routedevent: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).97)(::core::mem::transmute_copy(this), routedevent.into_param().abi(), handler.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn TransformToVisual<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, visual: Param0) -> ::windows::core::Result<super::Media::GeneralTransform> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).98)(::core::mem::transmute_copy(this), visual.into_param().abi(), &mut result__).from_abi::<super::Media::GeneralTransform>(result__)
-        }
-    }
-    pub fn InvalidateMeasure(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).99)(::core::mem::transmute_copy(this)).ok() }
-    }
-    pub fn InvalidateArrange(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).100)(::core::mem::transmute_copy(this)).ok() }
-    }
-    pub fn UpdateLayout(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).101)(::core::mem::transmute_copy(this)).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ActualOffset(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn ActualSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector2> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Vector2 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector2>(result__)
-        }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn UIContext(&self) -> ::windows::core::Result<super::super::UIContext> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UIContext>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Shadow(&self) -> ::windows::core::Result<super::Media::Shadow> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Shadow>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetShadow<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Shadow>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement10>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn CompositeMode(&self) -> ::windows::core::Result<super::Media::ElementCompositeMode> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement2>(self)?;
-        unsafe {
-            let mut result__: super::Media::ElementCompositeMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::ElementCompositeMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetCompositeMode(&self, value: super::Media::ElementCompositeMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CancelDirectManipulations(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media_Media3D")]
-    pub fn Transform3D(&self) -> ::windows::core::Result<super::Media::Media3D::Transform3D> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Media3D::Transform3D>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media_Media3D")]
-    pub fn SetTransform3D<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Media3D::Transform3D>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn CanDrag(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetCanDrag(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn DragStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::DragStartingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDragStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn DropCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::DropCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDropCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "UI_Input"))]
-    pub fn StartDragAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Input::PointerPoint>>(&self, pointerpoint: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackageOperation>> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement3>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), pointerpoint.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackageOperation>>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn ContextFlyout(&self) -> ::windows::core::Result<super::Controls::Primitives::FlyoutBase> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Controls::Primitives::FlyoutBase>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn SetContextFlyout<'a, Param0: ::windows::core::IntoParam<'a, super::Controls::Primitives::FlyoutBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ContextRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::ContextRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveContextRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn ContextCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::RoutedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveContextCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))]
-    pub fn Lights(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::Media::XamlLight>> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::Media::XamlLight>>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn XYFocusKeyboardNavigation(&self) -> ::windows::core::Result<super::Input::XYFocusKeyboardNavigationMode> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::XYFocusKeyboardNavigationMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::XYFocusKeyboardNavigationMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetXYFocusKeyboardNavigation(&self, value: super::Input::XYFocusKeyboardNavigationMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn XYFocusUpNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::XYFocusNavigationStrategy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::XYFocusNavigationStrategy>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetXYFocusUpNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn XYFocusDownNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::XYFocusNavigationStrategy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::XYFocusNavigationStrategy>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetXYFocusDownNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn XYFocusLeftNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::XYFocusNavigationStrategy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::XYFocusNavigationStrategy>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetXYFocusLeftNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn XYFocusRightNavigationStrategy(&self) -> ::windows::core::Result<super::Input::XYFocusNavigationStrategy> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::XYFocusNavigationStrategy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::XYFocusNavigationStrategy>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetXYFocusRightNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn HighContrastAdjustment(&self) -> ::windows::core::Result<super::ElementHighContrastAdjustment> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::ElementHighContrastAdjustment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementHighContrastAdjustment>(result__)
-        }
-    }
-    pub fn SetHighContrastAdjustment(&self, value: super::ElementHighContrastAdjustment) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn TabFocusNavigation(&self) -> ::windows::core::Result<super::Input::KeyboardNavigationMode> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyboardNavigationMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyboardNavigationMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetTabFocusNavigation(&self, value: super::Input::KeyboardNavigationMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn GettingFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::GettingFocusEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveGettingFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn LosingFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::LosingFocusEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveLosingFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn NoFocusCandidateFound<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::NoFocusCandidateFoundEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveNoFocusCandidateFound<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn StartBringIntoView(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this)).ok() }
-    }
-    pub fn StartBringIntoViewWithOptions<'a, Param0: ::windows::core::IntoParam<'a, super::BringIntoViewOptions>>(&self, options: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), options.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))]
-    pub fn KeyboardAccelerators(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::Input::KeyboardAccelerator>> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::Input::KeyboardAccelerator>>(result__)
-        }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn CharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::CharacterReceivedRoutedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveCharacterReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn ProcessKeyboardAccelerators<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::ProcessKeyboardAcceleratorEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveProcessKeyboardAccelerators<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PreviewKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePreviewKeyDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn PreviewKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePreviewKeyUp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn TryInvokeKeyboardAccelerator<'a, Param0: ::windows::core::IntoParam<'a, super::Input::ProcessKeyboardAcceleratorEventArgs>>(&self, args: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), args.into_param().abi()).ok() }
-    }
-    pub fn KeyTipTarget(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetKeyTipTarget<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn KeyboardAcceleratorPlacementTarget(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetKeyboardAcceleratorPlacementTarget<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyboardAcceleratorPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyboardAcceleratorPlacementMode> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyboardAcceleratorPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyboardAcceleratorPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyboardAcceleratorPlacementMode(&self, value: super::Input::KeyboardAcceleratorPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn BringIntoViewRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::BringIntoViewRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveBringIntoViewRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement8>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn CanBeScrollAnchor(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetCanBeScrollAnchor(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn OpacityTransition(&self) -> ::windows::core::Result<super::ScalarTransition> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ScalarTransition>(result__)
-        }
-    }
-    pub fn SetOpacityTransition<'a, Param0: ::windows::core::IntoParam<'a, super::ScalarTransition>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Translation(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTranslation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn TranslationTransition(&self) -> ::windows::core::Result<super::Vector3Transition> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Vector3Transition>(result__)
-        }
-    }
-    pub fn SetTranslationTransition<'a, Param0: ::windows::core::IntoParam<'a, super::Vector3Transition>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Rotation(&self) -> ::windows::core::Result<f32> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
-        }
-    }
-    pub fn SetRotation(&self, value: f32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn RotationTransition(&self) -> ::windows::core::Result<super::ScalarTransition> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ScalarTransition>(result__)
-        }
-    }
-    pub fn SetRotationTransition<'a, Param0: ::windows::core::IntoParam<'a, super::ScalarTransition>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn Scale(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetScale<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ScaleTransition(&self) -> ::windows::core::Result<super::Vector3Transition> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Vector3Transition>(result__)
-        }
-    }
-    pub fn SetScaleTransition<'a, Param0: ::windows::core::IntoParam<'a, super::Vector3Transition>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Matrix4x4 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Matrix4x4>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetTransformMatrix<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Matrix4x4>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetCenterPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRotationAxis<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(&self, animation: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), animation.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Composition")]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(&self, animation: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IUIElement9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), animation.into_param().abi()).ok() }
-    }
     pub fn IGlyphsStatics<R, F: FnOnce(&IGlyphsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Glyphs, IGlyphsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4543,6 +1843,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
         ::core::convert::TryInto::<super::super::Composition::IVisualElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<Glyphs> for super::FrameworkElement {
+    fn from(value: Glyphs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Glyphs> for super::FrameworkElement {
+    fn from(value: &Glyphs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Glyphs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Glyphs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+    }
+}
+impl ::core::convert::From<Glyphs> for super::UIElement {
+    fn from(value: Glyphs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Glyphs> for super::UIElement {
+    fn from(value: &Glyphs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Glyphs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Glyphs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+    }
+}
+impl ::core::convert::From<Glyphs> for super::DependencyObject {
+    fn from(value: Glyphs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Glyphs> for super::DependencyObject {
+    fn from(value: &Glyphs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Glyphs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Glyphs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct Hyperlink(::windows::core::IUnknown);
 impl Hyperlink {
@@ -4552,54 +1912,6 @@ impl Hyperlink {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Hyperlink, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation")]
     pub fn NavigateUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
@@ -4891,323 +2203,6 @@ impl Hyperlink {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Inlines(&self) -> ::windows::core::Result<InlineCollection> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InlineCollection>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetInlines<'a, Param0: ::windows::core::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
     pub fn IHyperlinkStatics<R, F: FnOnce(&IHyperlinkStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Hyperlink, IHyperlinkStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5290,17 +2285,89 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hype
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[repr(transparent)]
-pub struct HyperlinkClickEventArgs(::windows::core::IUnknown);
-impl HyperlinkClickEventArgs {
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
+impl ::core::convert::From<Hyperlink> for Span {
+    fn from(value: Hyperlink) -> Self {
+        ::core::convert::From::from(&value)
     }
 }
+impl ::core::convert::From<&Hyperlink> for Span {
+    fn from(value: &Hyperlink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for &Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Span>::into(self))
+    }
+}
+impl ::core::convert::From<Hyperlink> for Inline {
+    fn from(value: Hyperlink) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Hyperlink> for Inline {
+    fn from(value: &Hyperlink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<Hyperlink> for TextElement {
+    fn from(value: Hyperlink) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Hyperlink> for TextElement {
+    fn from(value: &Hyperlink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Hyperlink> for super::DependencyObject {
+    fn from(value: Hyperlink) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Hyperlink> for super::DependencyObject {
+    fn from(value: &Hyperlink) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Hyperlink {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
+#[repr(transparent)]
+pub struct HyperlinkClickEventArgs(::windows::core::IUnknown);
+impl HyperlinkClickEventArgs {}
 impl ::core::clone::Clone for HyperlinkClickEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5360,6 +2427,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Hyper
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HyperlinkClickEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<HyperlinkClickEventArgs> for super::RoutedEventArgs {
+    fn from(value: HyperlinkClickEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&HyperlinkClickEventArgs> for super::RoutedEventArgs {
+    fn from(value: &HyperlinkClickEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for HyperlinkClickEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &HyperlinkClickEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[doc(hidden)]
@@ -6831,360 +3918,7 @@ pub struct IUnderlineVtbl(
 );
 #[repr(transparent)]
 pub struct Inline(::windows::core::IUnknown);
-impl Inline {
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-}
+impl Inline {}
 impl ::core::clone::Clone for Inline {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7244,6 +3978,46 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inlin
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<Inline> for TextElement {
+    fn from(value: Inline) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Inline> for TextElement {
+    fn from(value: &Inline) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Inline {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Inline {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Inline> for super::DependencyObject {
+    fn from(value: Inline) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Inline> for super::DependencyObject {
+    fn from(value: &Inline) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Inline {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Inline {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -7498,54 +4272,6 @@ impl InlineUIContainer {
         static mut SHARED: ::windows::core::FactoryCache<InlineUIContainer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     pub fn Child(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
@@ -7555,310 +4281,6 @@ impl InlineUIContainer {
     }
     pub fn SetChild<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
@@ -7923,6 +4345,66 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<InlineUIContainer> for Inline {
+    fn from(value: InlineUIContainer) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InlineUIContainer> for Inline {
+    fn from(value: &InlineUIContainer) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for InlineUIContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &InlineUIContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<InlineUIContainer> for TextElement {
+    fn from(value: InlineUIContainer) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InlineUIContainer> for TextElement {
+    fn from(value: &InlineUIContainer) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for InlineUIContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &InlineUIContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<InlineUIContainer> for super::DependencyObject {
+    fn from(value: InlineUIContainer) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InlineUIContainer> for super::DependencyObject {
+    fn from(value: &InlineUIContainer) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for InlineUIContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InlineUIContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct Italic(::windows::core::IUnknown);
 impl Italic {
@@ -7932,371 +4414,6 @@ impl Italic {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Italic, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Inlines(&self) -> ::windows::core::Result<InlineCollection> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InlineCollection>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetInlines<'a, Param0: ::windows::core::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Italic {
@@ -8360,6 +4477,86 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ital
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<Italic> for Span {
+    fn from(value: Italic) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Italic> for Span {
+    fn from(value: &Italic) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for &Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Span>::into(self))
+    }
+}
+impl ::core::convert::From<Italic> for Inline {
+    fn from(value: Italic) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Italic> for Inline {
+    fn from(value: &Italic) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<Italic> for TextElement {
+    fn from(value: Italic) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Italic> for TextElement {
+    fn from(value: &Italic) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Italic> for super::DependencyObject {
+    fn from(value: Italic) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Italic> for super::DependencyObject {
+    fn from(value: &Italic) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Italic {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct LineBreak(::windows::core::IUnknown);
 impl LineBreak {
@@ -8369,358 +4566,6 @@ impl LineBreak {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineBreak, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for LineBreak {
@@ -8784,6 +4629,66 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<LineBreak> for Inline {
+    fn from(value: LineBreak) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LineBreak> for Inline {
+    fn from(value: &LineBreak) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for LineBreak {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &LineBreak {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<LineBreak> for TextElement {
+    fn from(value: LineBreak) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LineBreak> for TextElement {
+    fn from(value: &LineBreak) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for LineBreak {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &LineBreak {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<LineBreak> for super::DependencyObject {
+    fn from(value: LineBreak) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LineBreak> for super::DependencyObject {
+    fn from(value: &LineBreak) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for LineBreak {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineBreak {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct LogicalDirection(pub i32);
 impl LogicalDirection {
@@ -8821,109 +4726,6 @@ impl Paragraph {
         static mut SHARED: ::windows::core::FactoryCache<Paragraph, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn TextAlignment(&self) -> ::windows::core::Result<super::TextAlignment> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe {
-            let mut result__: super::TextAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::TextAlignment>(result__)
-        }
-    }
-    pub fn SetTextAlignment(&self, value: super::TextAlignment) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn LineHeight(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetLineHeight(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn LineStackingStrategy(&self) -> ::windows::core::Result<super::LineStackingStrategy> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe {
-            let mut result__: super::LineStackingStrategy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::LineStackingStrategy>(result__)
-        }
-    }
-    pub fn SetLineStackingStrategy(&self, value: super::LineStackingStrategy) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn Margin(&self) -> ::windows::core::Result<super::Thickness> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe {
-            let mut result__: super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
-        }
-    }
-    pub fn SetMargin<'a, Param0: ::windows::core::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBlock>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn HorizontalTextAlignment(&self) -> ::windows::core::Result<super::TextAlignment> {
-        let this = &::windows::core::Interface::cast::<IBlock2>(self)?;
-        unsafe {
-            let mut result__: super::TextAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::TextAlignment>(result__)
-        }
-    }
-    pub fn SetHorizontalTextAlignment(&self, value: super::TextAlignment) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBlock2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Inlines(&self) -> ::windows::core::Result<InlineCollection> {
         let this = self;
@@ -8948,310 +4750,6 @@ impl Paragraph {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn IParagraphStatics<R, F: FnOnce(&IParagraphStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Paragraph, IParagraphStatics> = ::windows::core::FactoryCache::new();
@@ -9319,6 +4817,66 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Para
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<Paragraph> for Block {
+    fn from(value: Paragraph) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Paragraph> for Block {
+    fn from(value: &Paragraph) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Block> for Paragraph {
+    fn into_param(self) -> ::windows::core::Param<'a, Block> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Block> for &Paragraph {
+    fn into_param(self) -> ::windows::core::Param<'a, Block> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Block>::into(self))
+    }
+}
+impl ::core::convert::From<Paragraph> for TextElement {
+    fn from(value: Paragraph) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Paragraph> for TextElement {
+    fn from(value: &Paragraph) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Paragraph {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Paragraph {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Paragraph> for super::DependencyObject {
+    fn from(value: Paragraph) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Paragraph> for super::DependencyObject {
+    fn from(value: &Paragraph) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Paragraph {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Paragraph {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct PlaceContentLinkProvider(::windows::core::IUnknown);
 impl PlaceContentLinkProvider {
@@ -9328,54 +4886,6 @@ impl PlaceContentLinkProvider {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlaceContentLinkProvider, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
 }
 impl ::core::clone::Clone for PlaceContentLinkProvider {
@@ -9439,6 +4949,46 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plac
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<PlaceContentLinkProvider> for ContentLinkProvider {
+    fn from(value: PlaceContentLinkProvider) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PlaceContentLinkProvider> for ContentLinkProvider {
+    fn from(value: &PlaceContentLinkProvider) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContentLinkProvider> for PlaceContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ContentLinkProvider> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContentLinkProvider> for &PlaceContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ContentLinkProvider> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ContentLinkProvider>::into(self))
+    }
+}
+impl ::core::convert::From<PlaceContentLinkProvider> for super::DependencyObject {
+    fn from(value: PlaceContentLinkProvider) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PlaceContentLinkProvider> for super::DependencyObject {
+    fn from(value: &PlaceContentLinkProvider) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for PlaceContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PlaceContentLinkProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct Run(::windows::core::IUnknown);
 impl Run {
@@ -9448,54 +4998,6 @@ impl Run {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Run, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -9524,310 +5026,6 @@ impl Run {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn IRunStatics<R, F: FnOnce(&IRunStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Run, IRunStatics> = ::windows::core::FactoryCache::new();
@@ -9895,57 +5093,69 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Run 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<Run> for Inline {
+    fn from(value: Run) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Run> for Inline {
+    fn from(value: &Run) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for Run {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &Run {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<Run> for TextElement {
+    fn from(value: Run) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Run> for TextElement {
+    fn from(value: &Run) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Run {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Run {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Run> for super::DependencyObject {
+    fn from(value: Run) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Run> for super::DependencyObject {
+    fn from(value: &Run) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Run {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Run {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct Span(::windows::core::IUnknown);
 impl Span {
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Inlines(&self) -> ::windows::core::Result<InlineCollection> {
         let this = self;
@@ -9964,310 +5174,6 @@ impl Span {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Span>(result__)
         })
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn ISpanFactory<R, F: FnOnce(&ISpanFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Span, ISpanFactory> = ::windows::core::FactoryCache::new();
@@ -10335,57 +5241,69 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Span
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<Span> for Inline {
+    fn from(value: Span) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Span> for Inline {
+    fn from(value: &Span) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for Span {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &Span {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<Span> for TextElement {
+    fn from(value: Span) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Span> for TextElement {
+    fn from(value: &Span) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Span {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Span {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Span> for super::DependencyObject {
+    fn from(value: Span) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Span> for super::DependencyObject {
+    fn from(value: &Span) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Span {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Span {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct TextElement(::windows::core::IUnknown);
 impl TextElement {
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10876,6 +5794,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<TextElement> for super::DependencyObject {
+    fn from(value: TextElement) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&TextElement> for super::DependencyObject {
+    fn from(value: &TextElement) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for TextElement {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TextElement {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct TextHighlighter(::windows::core::IUnknown);
 impl TextHighlighter {
@@ -11003,56 +5941,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 }
 #[repr(transparent)]
 pub struct TextHighlighterBase(::windows::core::IUnknown);
-impl TextHighlighterBase {
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-}
+impl TextHighlighterBase {}
 impl ::core::clone::Clone for TextHighlighterBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11112,6 +6001,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextH
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextHighlighterBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<TextHighlighterBase> for super::DependencyObject {
+    fn from(value: TextHighlighterBase) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&TextHighlighterBase> for super::DependencyObject {
+    fn from(value: &TextHighlighterBase) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for TextHighlighterBase {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TextHighlighterBase {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -11977,371 +6886,6 @@ impl Underline {
         static mut SHARED: ::windows::core::FactoryCache<Underline, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Inlines(&self) -> ::windows::core::Result<InlineCollection> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InlineCollection>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetInlines<'a, Param0: ::windows::core::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ISpan>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FontSize(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetFontSize(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn FontFamily(&self) -> ::windows::core::Result<super::Media::FontFamily> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::FontFamily>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetFontFamily<'a, Param0: ::windows::core::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> ::windows::core::Result<super::super::Text::FontWeight> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontWeight = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontWeight>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontWeight<'a, Param0: ::windows::core::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> ::windows::core::Result<super::super::Text::FontStyle> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStyle>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> ::windows::core::Result<super::super::Text::FontStretch> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::FontStretch = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::FontStretch>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn CharacterSpacing(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
-        }
-    }
-    pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn Foreground(&self) -> ::windows::core::Result<super::Media::Brush> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Brush>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetForeground<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ContentStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ContentEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementStart(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn ElementEnd(&self) -> ::windows::core::Result<TextPointer> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
-        }
-    }
-    pub fn FindName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<ITextElement>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn IsTextScaleFactorEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AllowFocusOnInteraction(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn TextDecorations(&self) -> ::windows::core::Result<super::super::Text::TextDecorations> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::Text::TextDecorations = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::TextDecorations>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Text")]
-    pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn IsAccessKeyScope(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn AccessKeyScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
-        }
-    }
-    pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn KeyTipPlacementMode(&self) -> ::windows::core::Result<super::Input::KeyTipPlacementMode> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::Input::KeyTipPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Input::KeyTipPlacementMode>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Input")]
-    pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipHorizontalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    pub fn KeyTipVerticalOffset(&self) -> ::windows::core::Result<f64> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
-    pub fn AccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn XamlRoot(&self) -> ::windows::core::Result<super::XamlRoot> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
-        }
-    }
-    pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ITextElement5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
 }
 impl ::core::clone::Clone for Underline {
     fn clone(&self) -> Self {
@@ -12402,6 +6946,86 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Under
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Underline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<Underline> for Span {
+    fn from(value: Underline) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Underline> for Span {
+    fn from(value: &Underline) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Span> for &Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, Span> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Span>::into(self))
+    }
+}
+impl ::core::convert::From<Underline> for Inline {
+    fn from(value: Underline) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Underline> for Inline {
+    fn from(value: &Underline) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Inline> for &Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, Inline> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Inline>::into(self))
+    }
+}
+impl ::core::convert::From<Underline> for TextElement {
+    fn from(value: Underline) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Underline> for TextElement {
+    fn from(value: &Underline) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, TextElement> for &Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, TextElement> {
+        ::windows::core::Param::Owned(::core::convert::Into::<TextElement>::into(self))
+    }
+}
+impl ::core::convert::From<Underline> for super::DependencyObject {
+    fn from(value: Underline) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Underline> for super::DependencyObject {
+    fn from(value: &Underline) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Underline {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]

@@ -23,6 +23,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut method_names = BTreeMap::<String, u32>::new();
 
     for (def, kind) in &interfaces {
+        if gen.min_xaml && *kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !def.namespace().starts_with("Windows.Foundation") {
+            continue;
+        }
+
         let mut vtable_offset = 6;
         for method in def.methods() {
             methods.combine(&gen_winrt_method(&def, *kind, &method, vtable_offset, &mut method_names, gen));
@@ -157,7 +161,7 @@ fn gen_conversions(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
             continue;
         }
 
-        if kind != InterfaceKind::Default && kind != InterfaceKind::NonDefault {
+        if kind != InterfaceKind::Default && kind != InterfaceKind::NonDefault && kind != InterfaceKind::Base {
             continue;
         }
 
@@ -192,6 +196,41 @@ fn gen_conversions(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
                     ::core::convert::TryInto::<#into>::try_into(self)
                         .map(::windows::core::Param::Owned)
                         .unwrap_or(::windows::core::Param::None)
+                }
+            }
+        });
+    }
+
+    for def in def.bases() {
+        let into = gen_type_name(&def, gen);
+        let mut cfg = cfg.clone();
+        cfg.combine(&gen.type_cfg(&def));
+
+        tokens.combine(&quote! {
+            #cfg
+            impl ::core::convert::From<#name> for #into {
+                fn from(value: #name) -> Self {
+                    ::core::convert::From::from(&value)
+                }
+            }
+            #cfg
+            impl ::core::convert::From<&#name> for #into {
+                fn from(value: &#name) -> Self {
+                    // This unwrap is legitimate because conversion to base can never fail because
+                    // the base can never change across versions.
+                    ::windows::core::Interface::cast(value).unwrap()
+                }
+            }
+            #cfg
+            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::IntoParam::into_param(&self)
+                }
+            }
+            #cfg
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))
                 }
             }
         });

@@ -3061,6 +3061,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<InputActivationListener> for AttachableInputObject {
+    fn from(value: InputActivationListener) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InputActivationListener> for AttachableInputObject {
+    fn from(value: &InputActivationListener) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &InputActivationListener {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InputActivationListenerActivationChangedEventArgs(::windows::core::IUnknown);
 impl InputActivationListenerActivationChangedEventArgs {
@@ -6190,6 +6210,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SystemButtonEventController {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SystemButtonEventController> for AttachableInputObject {
+    fn from(value: SystemButtonEventController) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SystemButtonEventController> for AttachableInputObject {
+    fn from(value: &SystemButtonEventController) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &SystemButtonEventController {
+    fn into_param(self) -> ::windows::core::Param<'a, AttachableInputObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
     }
 }
 #[repr(transparent)]

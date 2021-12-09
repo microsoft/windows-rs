@@ -249,7 +249,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         #[repr(C)]
         struct #box_ident<#(#generics,)*> where #constraints {
             base: ::core::option::Option<::windows::core::IInspectable>,
-            identity_vtable: *const ::windows::core::IInspectable_abi,
+            identity_vtable: *const ::windows::core::IInspectableVtbl,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
             count: ::windows::core::WeakRefCount,
@@ -258,7 +258,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
-            const IDENTITY_VTABLE: ::windows::core::IInspectable_abi = ::windows::core::IInspectable_abi(
+            const IDENTITY_VTABLE: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl(
                 Self::identity_query_interface,
                 Self::identity_add_ref,
                 Self::identity_release,

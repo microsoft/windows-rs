@@ -83,6 +83,8 @@ impl TypeDef {
                         InterfaceKind::Default
                     } else if child.is_overridable() {
                         continue;
+                    } else if is_base {
+                        InterfaceKind::Base
                     } else {
                         InterfaceKind::NonDefault
                     };

@@ -255,6 +255,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<AmbientLight> for CompositionLight {
+    fn from(value: AmbientLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&AmbientLight> for CompositionLight {
+    fn from(value: &AmbientLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for AmbientLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for &AmbientLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionLight>::into(self))
+    }
+}
+impl ::core::convert::From<AmbientLight> for CompositionObject {
+    fn from(value: AmbientLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&AmbientLight> for CompositionObject {
+    fn from(value: &AmbientLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for AmbientLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AmbientLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct AnimationController(::windows::core::IUnknown);
 impl AnimationController {
@@ -507,6 +547,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &AnimationController {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<AnimationController> for CompositionObject {
+    fn from(value: AnimationController) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&AnimationController> for CompositionObject {
+    fn from(value: &AnimationController) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for AnimationController {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AnimationController {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -870,6 +930,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<AnimationPropertyInfo> for CompositionObject {
+    fn from(value: AnimationPropertyInfo) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&AnimationPropertyInfo> for CompositionObject {
+    fn from(value: &AnimationPropertyInfo) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for AnimationPropertyInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AnimationPropertyInfo {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
@@ -1107,6 +1187,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &BackEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<BackEasingFunction> for CompositionEasingFunction {
+    fn from(value: BackEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BackEasingFunction> for CompositionEasingFunction {
+    fn from(value: &BackEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for BackEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &BackEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<BackEasingFunction> for CompositionObject {
+    fn from(value: BackEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BackEasingFunction> for CompositionObject {
+    fn from(value: &BackEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for BackEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BackEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -1505,6 +1625,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &BooleanK
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<BooleanKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: BooleanKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BooleanKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &BooleanKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for BooleanKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &BooleanKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BooleanKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: BooleanKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BooleanKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &BooleanKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for BooleanKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &BooleanKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BooleanKeyFrameAnimation> for CompositionObject {
+    fn from(value: BooleanKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BooleanKeyFrameAnimation> for CompositionObject {
+    fn from(value: &BooleanKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for BooleanKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BooleanKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct BounceEasingFunction(::windows::core::IUnknown);
 impl BounceEasingFunction {
@@ -1721,6 +1901,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &BounceEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<BounceEasingFunction> for CompositionEasingFunction {
+    fn from(value: BounceEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceEasingFunction> for CompositionEasingFunction {
+    fn from(value: &BounceEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for BounceEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &BounceEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<BounceEasingFunction> for CompositionObject {
+    fn from(value: BounceEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceEasingFunction> for CompositionObject {
+    fn from(value: &BounceEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for BounceEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -2111,6 +2331,86 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for BounceSca
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &BounceScalarNaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<BounceScalarNaturalMotionAnimation> for ScalarNaturalMotionAnimation {
+    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for ScalarNaturalMotionAnimation {
+    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ScalarNaturalMotionAnimation> for BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, ScalarNaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ScalarNaturalMotionAnimation> for &BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, ScalarNaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ScalarNaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceScalarNaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceScalarNaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceScalarNaturalMotionAnimation> for CompositionObject {
+    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceScalarNaturalMotionAnimation> for CompositionObject {
+    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -2505,6 +2805,86 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &BounceVe
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<BounceVector2NaturalMotionAnimation> for Vector2NaturalMotionAnimation {
+    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for Vector2NaturalMotionAnimation {
+    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector2NaturalMotionAnimation> for BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector2NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector2NaturalMotionAnimation> for &BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector2NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Vector2NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceVector2NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceVector2NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceVector2NaturalMotionAnimation> for CompositionObject {
+    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector2NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct BounceVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector3NaturalMotionAnimation {
@@ -2897,6 +3277,86 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &BounceVe
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<BounceVector3NaturalMotionAnimation> for Vector3NaturalMotionAnimation {
+    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for Vector3NaturalMotionAnimation {
+    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector3NaturalMotionAnimation> for BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector3NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector3NaturalMotionAnimation> for &BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector3NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Vector3NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceVector3NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceVector3NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<BounceVector3NaturalMotionAnimation> for CompositionObject {
+    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&BounceVector3NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CircleEasingFunction(::windows::core::IUnknown);
 impl CircleEasingFunction {
@@ -3099,6 +3559,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CircleEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CircleEasingFunction> for CompositionEasingFunction {
+    fn from(value: CircleEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CircleEasingFunction> for CompositionEasingFunction {
+    fn from(value: &CircleEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for CircleEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &CircleEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<CircleEasingFunction> for CompositionObject {
+    fn from(value: CircleEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CircleEasingFunction> for CompositionObject {
+    fn from(value: &CircleEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CircleEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CircleEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -3512,6 +4012,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &ColorKey
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ColorKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: ColorKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ColorKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &ColorKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for ColorKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &ColorKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ColorKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: ColorKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ColorKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &ColorKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for ColorKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &ColorKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ColorKeyFrameAnimation> for CompositionObject {
+    fn from(value: ColorKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ColorKeyFrameAnimation> for CompositionObject {
+    fn from(value: &ColorKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ColorKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ColorKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionAnimation(::windows::core::IUnknown);
 impl CompositionAnimation {
@@ -3808,6 +4368,26 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Composit
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionAnimation> for CompositionObject {
+    fn from(value: CompositionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionAnimation> for CompositionObject {
+    fn from(value: &CompositionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionAnimationGroup(::windows::core::IUnknown);
 impl CompositionAnimationGroup {
@@ -4096,6 +4676,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionAnimationGroup> for CompositionObject {
+    fn from(value: CompositionAnimationGroup) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionAnimationGroup> for CompositionObject {
+    fn from(value: &CompositionAnimationGroup) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionAnimationGroup {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionAnimationGroup {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionBackdropBrush(::windows::core::IUnknown);
 impl CompositionBackdropBrush {
@@ -4291,6 +4891,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionBackdropBrush {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionBackdropBrush> for CompositionBrush {
+    fn from(value: CompositionBackdropBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionBackdropBrush> for CompositionBrush {
+    fn from(value: &CompositionBackdropBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionBackdropBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionBackdropBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionBackdropBrush> for CompositionObject {
+    fn from(value: CompositionBackdropBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionBackdropBrush> for CompositionObject {
+    fn from(value: &CompositionBackdropBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionBackdropBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBackdropBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4516,6 +5156,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionBatchCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionBatchCompletedEventArgs> for CompositionObject {
+    fn from(value: CompositionBatchCompletedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionBatchCompletedEventArgs> for CompositionObject {
+    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionBatchCompletedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBatchCompletedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4806,6 +5466,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionBrush {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionBrush> for CompositionObject {
+    fn from(value: CompositionBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionBrush> for CompositionObject {
+    fn from(value: &CompositionBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5194,6 +5874,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionClip> for CompositionObject {
+    fn from(value: CompositionClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionClip> for CompositionObject {
+    fn from(value: &CompositionClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionColorBrush(::windows::core::IUnknown);
 impl CompositionColorBrush {
@@ -5400,6 +6100,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionColorBrush> for CompositionBrush {
+    fn from(value: CompositionColorBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionColorBrush> for CompositionBrush {
+    fn from(value: &CompositionColorBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionColorBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionColorBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionColorBrush> for CompositionObject {
+    fn from(value: CompositionColorBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionColorBrush> for CompositionObject {
+    fn from(value: &CompositionColorBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionColorBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionColorBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5619,6 +6359,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionColorGradientStop {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionColorGradientStop> for CompositionObject {
+    fn from(value: CompositionColorGradientStop) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionColorGradientStop> for CompositionObject {
+    fn from(value: &CompositionColorGradientStop) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionColorGradientStop {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionColorGradientStop {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -6091,6 +6851,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionCommitBatch> for CompositionObject {
+    fn from(value: CompositionCommitBatch) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionCommitBatch> for CompositionObject {
+    fn from(value: &CompositionCommitBatch) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionCommitBatch {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionCommitBatch {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
@@ -6399,6 +7179,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionContainerShape> for CompositionShape {
+    fn from(value: CompositionContainerShape) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionContainerShape> for CompositionShape {
+    fn from(value: &CompositionContainerShape) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionShape> for CompositionContainerShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionShape> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionShape> for &CompositionContainerShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionShape> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionShape>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionContainerShape> for CompositionObject {
+    fn from(value: CompositionContainerShape) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionContainerShape> for CompositionObject {
+    fn from(value: &CompositionContainerShape) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionContainerShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionContainerShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionDrawingSurface(::windows::core::IUnknown);
 impl CompositionDrawingSurface {
@@ -6673,6 +7493,26 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for CompositionDraw
 impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for &CompositionDrawingSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionSurface> {
         ::core::convert::TryInto::<ICompositionSurface>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionDrawingSurface> for CompositionObject {
+    fn from(value: CompositionDrawingSurface) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionDrawingSurface> for CompositionObject {
+    fn from(value: &CompositionDrawingSurface) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionDrawingSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionDrawingSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -6970,6 +7810,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionEasingFunction> for CompositionObject {
+    fn from(value: CompositionEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionEasingFunction> for CompositionObject {
+    fn from(value: &CompositionEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
@@ -7206,6 +8066,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionEffectBrush> for CompositionBrush {
+    fn from(value: CompositionEffectBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionEffectBrush> for CompositionBrush {
+    fn from(value: &CompositionEffectBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionEffectBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionEffectBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionEffectBrush> for CompositionObject {
+    fn from(value: CompositionEffectBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionEffectBrush> for CompositionObject {
+    fn from(value: &CompositionEffectBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionEffectBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEffectBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionEffectFactory(::windows::core::IUnknown);
 impl CompositionEffectFactory {
@@ -7422,6 +8322,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionEffectFactory {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionEffectFactory> for CompositionObject {
+    fn from(value: CompositionEffectFactory) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionEffectFactory> for CompositionObject {
+    fn from(value: &CompositionEffectFactory) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionEffectFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEffectFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -7817,6 +8737,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionEllipseGeometry> for CompositionGeometry {
+    fn from(value: CompositionEllipseGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionEllipseGeometry> for CompositionGeometry {
+    fn from(value: &CompositionEllipseGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for CompositionEllipseGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for &CompositionEllipseGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGeometry>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionEllipseGeometry> for CompositionObject {
+    fn from(value: CompositionEllipseGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionEllipseGeometry> for CompositionObject {
+    fn from(value: &CompositionEllipseGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionEllipseGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEllipseGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionGeometricClip(::windows::core::IUnknown);
 impl CompositionGeometricClip {
@@ -8123,6 +9083,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionGeometricClip> for CompositionClip {
+    fn from(value: CompositionGeometricClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionGeometricClip> for CompositionClip {
+    fn from(value: &CompositionGeometricClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionClip> for CompositionGeometricClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionClip> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionClip> for &CompositionGeometricClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionClip> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionClip>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionGeometricClip> for CompositionObject {
+    fn from(value: CompositionGeometricClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionGeometricClip> for CompositionObject {
+    fn from(value: &CompositionGeometricClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionGeometricClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGeometricClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionGeometry(::windows::core::IUnknown);
 impl CompositionGeometry {
@@ -8351,6 +9351,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionGeometry> for CompositionObject {
+    fn from(value: CompositionGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionGeometry> for CompositionObject {
+    fn from(value: &CompositionGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -8705,6 +9725,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionGradientBrush> for CompositionBrush {
+    fn from(value: CompositionGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionGradientBrush> for CompositionBrush {
+    fn from(value: &CompositionGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionGradientBrush> for CompositionObject {
+    fn from(value: CompositionGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionGradientBrush> for CompositionObject {
+    fn from(value: &CompositionGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
@@ -8987,6 +10047,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionGraphicsDevice> for CompositionObject {
+    fn from(value: CompositionGraphicsDevice) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionGraphicsDevice> for CompositionObject {
+    fn from(value: &CompositionGraphicsDevice) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionGraphicsDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGraphicsDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionLight(::windows::core::IUnknown);
 impl CompositionLight {
@@ -9207,6 +10287,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionLight {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionLight> for CompositionObject {
+    fn from(value: CompositionLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionLight> for CompositionObject {
+    fn from(value: &CompositionLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -9463,6 +10563,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionLineGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionLineGeometry> for CompositionGeometry {
+    fn from(value: CompositionLineGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionLineGeometry> for CompositionGeometry {
+    fn from(value: &CompositionLineGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for CompositionLineGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for &CompositionLineGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGeometry>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionLineGeometry> for CompositionObject {
+    fn from(value: CompositionLineGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionLineGeometry> for CompositionObject {
+    fn from(value: &CompositionLineGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionLineGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLineGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -9815,6 +10955,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionLinearGradientBrush> for CompositionGradientBrush {
+    fn from(value: CompositionLinearGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionLinearGradientBrush> for CompositionGradientBrush {
+    fn from(value: &CompositionLinearGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGradientBrush> for CompositionLinearGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGradientBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGradientBrush> for &CompositionLinearGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGradientBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGradientBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionLinearGradientBrush> for CompositionBrush {
+    fn from(value: CompositionLinearGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionLinearGradientBrush> for CompositionBrush {
+    fn from(value: &CompositionLinearGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionLinearGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionLinearGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionLinearGradientBrush> for CompositionObject {
+    fn from(value: CompositionLinearGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionLinearGradientBrush> for CompositionObject {
+    fn from(value: &CompositionLinearGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionLinearGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLinearGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
@@ -10059,6 +11259,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionMaskBrush {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionMaskBrush> for CompositionBrush {
+    fn from(value: CompositionMaskBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionMaskBrush> for CompositionBrush {
+    fn from(value: &CompositionMaskBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionMaskBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionMaskBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionMaskBrush> for CompositionObject {
+    fn from(value: CompositionMaskBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionMaskBrush> for CompositionObject {
+    fn from(value: &CompositionMaskBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionMaskBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionMaskBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -10316,6 +11556,26 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for CompositionMipm
 impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for &CompositionMipmapSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionSurface> {
         ::core::convert::TryInto::<ICompositionSurface>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionMipmapSurface> for CompositionObject {
+    fn from(value: CompositionMipmapSurface) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionMipmapSurface> for CompositionObject {
+    fn from(value: &CompositionMipmapSurface) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionMipmapSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionMipmapSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -10639,6 +11899,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionNineGridBrush {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionNineGridBrush> for CompositionBrush {
+    fn from(value: CompositionNineGridBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionNineGridBrush> for CompositionBrush {
+    fn from(value: &CompositionNineGridBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionNineGridBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionNineGridBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionNineGridBrush> for CompositionObject {
+    fn from(value: CompositionNineGridBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionNineGridBrush> for CompositionObject {
+    fn from(value: &CompositionNineGridBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionNineGridBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionNineGridBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -11191,6 +12491,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionPathGeometry> for CompositionGeometry {
+    fn from(value: CompositionPathGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionPathGeometry> for CompositionGeometry {
+    fn from(value: &CompositionPathGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for CompositionPathGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for &CompositionPathGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGeometry>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionPathGeometry> for CompositionObject {
+    fn from(value: CompositionPathGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionPathGeometry> for CompositionObject {
+    fn from(value: &CompositionPathGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionPathGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionPathGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionProjectedShadow(::windows::core::IUnknown);
 impl CompositionProjectedShadow {
@@ -11446,6 +12786,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionProjectedShadow> for CompositionObject {
+    fn from(value: CompositionProjectedShadow) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionProjectedShadow> for CompositionObject {
+    fn from(value: &CompositionProjectedShadow) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionProjectedShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProjectedShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCaster(::windows::core::IUnknown);
 impl CompositionProjectedShadowCaster {
@@ -11663,6 +13023,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionProjectedShadowCaster {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionProjectedShadowCaster> for CompositionObject {
+    fn from(value: CompositionProjectedShadowCaster) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionProjectedShadowCaster> for CompositionObject {
+    fn from(value: &CompositionProjectedShadowCaster) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionProjectedShadowCaster {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProjectedShadowCaster {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -11953,6 +13333,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionProjectedShadowCasterCollection> for CompositionObject {
+    fn from(value: CompositionProjectedShadowCasterCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionProjectedShadowCasterCollection> for CompositionObject {
+    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionProjectedShadowCasterCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProjectedShadowCasterCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiver(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiver {
@@ -12159,6 +13559,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionProjectedShadowReceiver {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionProjectedShadowReceiver> for CompositionObject {
+    fn from(value: CompositionProjectedShadowReceiver) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionProjectedShadowReceiver> for CompositionObject {
+    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionProjectedShadowReceiver {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProjectedShadowReceiver {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -12425,6 +13845,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>> for &CompositionProjectedShadowReceiverUnorderedCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionProjectedShadowReceiverUnorderedCollection> for CompositionObject {
+    fn from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for CompositionObject {
+    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionProjectedShadowReceiverUnorderedCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProjectedShadowReceiverUnorderedCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -12733,6 +14173,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionPropertySet> for CompositionObject {
+    fn from(value: CompositionPropertySet) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionPropertySet> for CompositionObject {
+    fn from(value: &CompositionPropertySet) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionPropertySet {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionPropertySet {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -13098,6 +14558,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionRadialGradientBrush> for CompositionGradientBrush {
+    fn from(value: CompositionRadialGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRadialGradientBrush> for CompositionGradientBrush {
+    fn from(value: &CompositionRadialGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGradientBrush> for CompositionRadialGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGradientBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGradientBrush> for &CompositionRadialGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGradientBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGradientBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionRadialGradientBrush> for CompositionBrush {
+    fn from(value: CompositionRadialGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRadialGradientBrush> for CompositionBrush {
+    fn from(value: &CompositionRadialGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionRadialGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionRadialGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionRadialGradientBrush> for CompositionObject {
+    fn from(value: CompositionRadialGradientBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRadialGradientBrush> for CompositionObject {
+    fn from(value: &CompositionRadialGradientBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionRadialGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRadialGradientBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRectangleGeometry {
@@ -13352,6 +14872,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionRectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionRectangleGeometry> for CompositionGeometry {
+    fn from(value: CompositionRectangleGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRectangleGeometry> for CompositionGeometry {
+    fn from(value: &CompositionRectangleGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for CompositionRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for &CompositionRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGeometry>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionRectangleGeometry> for CompositionObject {
+    fn from(value: CompositionRectangleGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRectangleGeometry> for CompositionObject {
+    fn from(value: &CompositionRectangleGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -13623,6 +15183,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionRoundedRectangleGeometry> for CompositionGeometry {
+    fn from(value: CompositionRoundedRectangleGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRoundedRectangleGeometry> for CompositionGeometry {
+    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for CompositionRoundedRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionGeometry> for &CompositionRoundedRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionGeometry> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionGeometry>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionRoundedRectangleGeometry> for CompositionObject {
+    fn from(value: CompositionRoundedRectangleGeometry) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionRoundedRectangleGeometry> for CompositionObject {
+    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionRoundedRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRoundedRectangleGeometry {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionScopedBatch(::windows::core::IUnknown);
 impl CompositionScopedBatch {
@@ -13859,6 +15459,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionScopedBatch> for CompositionObject {
+    fn from(value: CompositionScopedBatch) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionScopedBatch> for CompositionObject {
+    fn from(value: &CompositionScopedBatch) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionScopedBatch {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionScopedBatch {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionShadow(::windows::core::IUnknown);
 impl CompositionShadow {
@@ -14054,6 +15674,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionShadow {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionShadow> for CompositionObject {
+    fn from(value: CompositionShadow) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionShadow> for CompositionObject {
+    fn from(value: &CompositionShadow) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -14325,6 +15965,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionShape {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionShape> for CompositionObject {
+    fn from(value: CompositionShape) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionShape> for CompositionObject {
+    fn from(value: &CompositionShape) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -14707,6 +16367,30 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<CompositionShape>> for &CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<CompositionShape>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<CompositionShape>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<CompositionShapeCollection> for CompositionObject {
+    fn from(value: CompositionShapeCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&CompositionShapeCollection> for CompositionObject {
+    fn from(value: &CompositionShapeCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionShapeCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShapeCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -15107,6 +16791,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionSpriteShape {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionSpriteShape> for CompositionShape {
+    fn from(value: CompositionSpriteShape) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionSpriteShape> for CompositionShape {
+    fn from(value: &CompositionSpriteShape) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionShape> for CompositionSpriteShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionShape> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionShape> for &CompositionSpriteShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionShape> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionShape>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionSpriteShape> for CompositionObject {
+    fn from(value: CompositionSpriteShape) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionSpriteShape> for CompositionObject {
+    fn from(value: &CompositionSpriteShape) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionSpriteShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionSpriteShape {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -15549,6 +17273,30 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<f32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<CompositionStrokeDashArray> for CompositionObject {
+    fn from(value: CompositionStrokeDashArray) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&CompositionStrokeDashArray> for CompositionObject {
+    fn from(value: &CompositionStrokeDashArray) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionStrokeDashArray {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionStrokeDashArray {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
@@ -15928,6 +17676,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionSurfaceBrush> for CompositionBrush {
+    fn from(value: CompositionSurfaceBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionSurfaceBrush> for CompositionBrush {
+    fn from(value: &CompositionSurfaceBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for CompositionSurfaceBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionBrush> for &CompositionSurfaceBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionBrush> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionBrush>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionSurfaceBrush> for CompositionObject {
+    fn from(value: CompositionSurfaceBrush) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionSurfaceBrush> for CompositionObject {
+    fn from(value: &CompositionSurfaceBrush) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionSurfaceBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionSurfaceBrush {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
@@ -16136,6 +17924,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionTarget> for CompositionObject {
+    fn from(value: CompositionTarget) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionTarget> for CompositionObject {
+    fn from(value: &CompositionTarget) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionTransform(::windows::core::IUnknown);
 impl CompositionTransform {
@@ -16331,6 +18139,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionTransform {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionTransform> for CompositionObject {
+    fn from(value: CompositionTransform) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionTransform> for CompositionObject {
+    fn from(value: &CompositionTransform) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -16587,6 +18415,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionViewBox {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionViewBox> for CompositionObject {
+    fn from(value: CompositionViewBox) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionViewBox> for CompositionObject {
+    fn from(value: &CompositionViewBox) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionViewBox {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionViewBox {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -16870,6 +18718,46 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for &CompositionVir
         ::core::convert::TryInto::<ICompositionSurface>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionVirtualDrawingSurface> for CompositionDrawingSurface {
+    fn from(value: CompositionVirtualDrawingSurface) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionVirtualDrawingSurface> for CompositionDrawingSurface {
+    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionDrawingSurface> for CompositionVirtualDrawingSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionDrawingSurface> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionDrawingSurface> for &CompositionVirtualDrawingSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionDrawingSurface> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionDrawingSurface>::into(self))
+    }
+}
+impl ::core::convert::From<CompositionVirtualDrawingSurface> for CompositionObject {
+    fn from(value: CompositionVirtualDrawingSurface) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionVirtualDrawingSurface> for CompositionObject {
+    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionVirtualDrawingSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionVirtualDrawingSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionVisualSurface(::windows::core::IUnknown);
 impl CompositionVisualSurface {
@@ -17124,6 +19012,26 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for CompositionVisu
 impl<'a> ::windows::core::IntoParam<'a, ICompositionSurface> for &CompositionVisualSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionSurface> {
         ::core::convert::TryInto::<ICompositionSurface>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionVisualSurface> for CompositionObject {
+    fn from(value: CompositionVisualSurface) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionVisualSurface> for CompositionObject {
+    fn from(value: &CompositionVisualSurface) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CompositionVisualSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionVisualSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -18267,6 +20175,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ContainerVisual> for Visual {
+    fn from(value: ContainerVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContainerVisual> for Visual {
+    fn from(value: &ContainerVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for ContainerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for &ContainerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Visual>::into(self))
+    }
+}
+impl ::core::convert::From<ContainerVisual> for CompositionObject {
+    fn from(value: ContainerVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContainerVisual> for CompositionObject {
+    fn from(value: &ContainerVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ContainerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ContainerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CubicBezierEasingFunction(::windows::core::IUnknown);
 impl CubicBezierEasingFunction {
@@ -18478,6 +20426,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CubicBezierEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CubicBezierEasingFunction> for CompositionEasingFunction {
+    fn from(value: CubicBezierEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CubicBezierEasingFunction> for CompositionEasingFunction {
+    fn from(value: &CubicBezierEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for CubicBezierEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &CubicBezierEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<CubicBezierEasingFunction> for CompositionObject {
+    fn from(value: CubicBezierEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CubicBezierEasingFunction> for CompositionObject {
+    fn from(value: &CubicBezierEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for CubicBezierEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CubicBezierEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -18975,6 +20963,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<DelegatedInkTrailVisual> for Visual {
+    fn from(value: DelegatedInkTrailVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DelegatedInkTrailVisual> for Visual {
+    fn from(value: &DelegatedInkTrailVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for DelegatedInkTrailVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for &DelegatedInkTrailVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Visual>::into(self))
+    }
+}
+impl ::core::convert::From<DelegatedInkTrailVisual> for CompositionObject {
+    fn from(value: DelegatedInkTrailVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DelegatedInkTrailVisual> for CompositionObject {
+    fn from(value: &DelegatedInkTrailVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for DelegatedInkTrailVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DelegatedInkTrailVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct DistantLight(::windows::core::IUnknown);
 impl DistantLight {
@@ -19243,6 +21271,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<DistantLight> for CompositionLight {
+    fn from(value: DistantLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DistantLight> for CompositionLight {
+    fn from(value: &DistantLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for DistantLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for &DistantLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionLight>::into(self))
+    }
+}
+impl ::core::convert::From<DistantLight> for CompositionObject {
+    fn from(value: DistantLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DistantLight> for CompositionObject {
+    fn from(value: &DistantLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for DistantLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DistantLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct DropShadow(::windows::core::IUnknown);
 impl DropShadow {
@@ -19508,6 +21576,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<DropShadow> for CompositionShadow {
+    fn from(value: DropShadow) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DropShadow> for CompositionShadow {
+    fn from(value: &DropShadow) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionShadow> for DropShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionShadow> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionShadow> for &DropShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionShadow> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionShadow>::into(self))
+    }
+}
+impl ::core::convert::From<DropShadow> for CompositionObject {
+    fn from(value: DropShadow) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DropShadow> for CompositionObject {
+    fn from(value: &DropShadow) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for DropShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DropShadow {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct ElasticEasingFunction(::windows::core::IUnknown);
 impl ElasticEasingFunction {
@@ -19726,6 +21834,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ElasticEasingFunction> for CompositionEasingFunction {
+    fn from(value: ElasticEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ElasticEasingFunction> for CompositionEasingFunction {
+    fn from(value: &ElasticEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for ElasticEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &ElasticEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<ElasticEasingFunction> for CompositionObject {
+    fn from(value: ElasticEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ElasticEasingFunction> for CompositionObject {
+    fn from(value: &ElasticEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ElasticEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ElasticEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct ExponentialEasingFunction(::windows::core::IUnknown);
 impl ExponentialEasingFunction {
@@ -19935,6 +22083,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ExponentialEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<ExponentialEasingFunction> for CompositionEasingFunction {
+    fn from(value: ExponentialEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ExponentialEasingFunction> for CompositionEasingFunction {
+    fn from(value: &ExponentialEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for ExponentialEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &ExponentialEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<ExponentialEasingFunction> for CompositionObject {
+    fn from(value: ExponentialEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ExponentialEasingFunction> for CompositionObject {
+    fn from(value: &ExponentialEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ExponentialEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ExponentialEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -20242,6 +22430,46 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for Expressio
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &ExpressionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<ExpressionAnimation> for CompositionAnimation {
+    fn from(value: ExpressionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ExpressionAnimation> for CompositionAnimation {
+    fn from(value: &ExpressionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for ExpressionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &ExpressionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ExpressionAnimation> for CompositionObject {
+    fn from(value: ExpressionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ExpressionAnimation> for CompositionObject {
+    fn from(value: &ExpressionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ExpressionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ExpressionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[doc(hidden)]
@@ -24964,6 +27192,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ImplicitAnimationCollection> for CompositionObject {
+    fn from(value: ImplicitAnimationCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ImplicitAnimationCollection> for CompositionObject {
+    fn from(value: &ImplicitAnimationCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ImplicitAnimationCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ImplicitAnimationCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct InitialValueExpressionCollection(::windows::core::IUnknown);
@@ -25319,6 +27567,30 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for &InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<InitialValueExpressionCollection> for CompositionObject {
+    fn from(value: InitialValueExpressionCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&InitialValueExpressionCollection> for CompositionObject {
+    fn from(value: &InitialValueExpressionCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for InitialValueExpressionCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &InitialValueExpressionCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(C)]
@@ -25687,6 +27959,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &InsetClip {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<InsetClip> for CompositionClip {
+    fn from(value: InsetClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InsetClip> for CompositionClip {
+    fn from(value: &InsetClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionClip> for InsetClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionClip> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionClip> for &InsetClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionClip> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionClip>::into(self))
+    }
+}
+impl ::core::convert::From<InsetClip> for CompositionObject {
+    fn from(value: InsetClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InsetClip> for CompositionObject {
+    fn from(value: &InsetClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for InsetClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &InsetClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -26079,6 +28391,46 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for KeyFrameA
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &KeyFrameAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<KeyFrameAnimation> for CompositionObject {
+    fn from(value: KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&KeyFrameAnimation> for CompositionObject {
+    fn from(value: &KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -26565,6 +28917,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<LayerVisual> for ContainerVisual {
+    fn from(value: LayerVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LayerVisual> for ContainerVisual {
+    fn from(value: &LayerVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for LayerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for &LayerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ContainerVisual>::into(self))
+    }
+}
+impl ::core::convert::From<LayerVisual> for Visual {
+    fn from(value: LayerVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LayerVisual> for Visual {
+    fn from(value: &LayerVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for LayerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for &LayerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Visual>::into(self))
+    }
+}
+impl ::core::convert::From<LayerVisual> for CompositionObject {
+    fn from(value: LayerVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LayerVisual> for CompositionObject {
+    fn from(value: &LayerVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for LayerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &LayerVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct LinearEasingFunction(::windows::core::IUnknown);
 impl LinearEasingFunction {
@@ -26760,6 +29172,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &LinearEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<LinearEasingFunction> for CompositionEasingFunction {
+    fn from(value: LinearEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LinearEasingFunction> for CompositionEasingFunction {
+    fn from(value: &LinearEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for LinearEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &LinearEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<LinearEasingFunction> for CompositionObject {
+    fn from(value: LinearEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LinearEasingFunction> for CompositionObject {
+    fn from(value: &LinearEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for LinearEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &LinearEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -27091,6 +29543,46 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for NaturalMo
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &NaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<NaturalMotionAnimation> for CompositionObject {
+    fn from(value: NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -27493,6 +29985,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &PathKeyF
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<PathKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: PathKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PathKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &PathKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for PathKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &PathKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<PathKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: PathKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PathKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &PathKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for PathKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &PathKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<PathKeyFrameAnimation> for CompositionObject {
+    fn from(value: PathKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PathKeyFrameAnimation> for CompositionObject {
+    fn from(value: &PathKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for PathKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PathKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct PointLight(::windows::core::IUnknown);
 impl PointLight {
@@ -27816,6 +30368,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<PointLight> for CompositionLight {
+    fn from(value: PointLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PointLight> for CompositionLight {
+    fn from(value: &PointLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for PointLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for &PointLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionLight>::into(self))
+    }
+}
+impl ::core::convert::From<PointLight> for CompositionObject {
+    fn from(value: PointLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PointLight> for CompositionObject {
+    fn from(value: &PointLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for PointLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PointLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct PowerEasingFunction(::windows::core::IUnknown);
 impl PowerEasingFunction {
@@ -28025,6 +30617,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &PowerEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<PowerEasingFunction> for CompositionEasingFunction {
+    fn from(value: PowerEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PowerEasingFunction> for CompositionEasingFunction {
+    fn from(value: &PowerEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for PowerEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &PowerEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<PowerEasingFunction> for CompositionObject {
+    fn from(value: PowerEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PowerEasingFunction> for CompositionObject {
+    fn from(value: &PowerEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for PowerEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PowerEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -28429,6 +31061,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Quaterni
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<QuaternionKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: QuaternionKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&QuaternionKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for QuaternionKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &QuaternionKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<QuaternionKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: QuaternionKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&QuaternionKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for QuaternionKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &QuaternionKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<QuaternionKeyFrameAnimation> for CompositionObject {
+    fn from(value: QuaternionKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&QuaternionKeyFrameAnimation> for CompositionObject {
+    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for QuaternionKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &QuaternionKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct RectangleClip(::windows::core::IUnknown);
 impl RectangleClip {
@@ -28807,6 +31499,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &RectangleClip {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<RectangleClip> for CompositionClip {
+    fn from(value: RectangleClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RectangleClip> for CompositionClip {
+    fn from(value: &RectangleClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionClip> for RectangleClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionClip> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionClip> for &RectangleClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionClip> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionClip>::into(self))
+    }
+}
+impl ::core::convert::From<RectangleClip> for CompositionObject {
+    fn from(value: RectangleClip) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RectangleClip> for CompositionObject {
+    fn from(value: &RectangleClip) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for RectangleClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RectangleClip {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -29282,6 +32014,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<RedirectVisual> for ContainerVisual {
+    fn from(value: RedirectVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RedirectVisual> for ContainerVisual {
+    fn from(value: &RedirectVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for RedirectVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for &RedirectVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ContainerVisual>::into(self))
+    }
+}
+impl ::core::convert::From<RedirectVisual> for Visual {
+    fn from(value: RedirectVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RedirectVisual> for Visual {
+    fn from(value: &RedirectVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for RedirectVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for &RedirectVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Visual>::into(self))
+    }
+}
+impl ::core::convert::From<RedirectVisual> for CompositionObject {
+    fn from(value: RedirectVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RedirectVisual> for CompositionObject {
+    fn from(value: &RedirectVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for RedirectVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RedirectVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct RenderingDeviceReplacedEventArgs(::windows::core::IUnknown);
 impl RenderingDeviceReplacedEventArgs {
@@ -29484,6 +32276,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &RenderingDeviceReplacedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<RenderingDeviceReplacedEventArgs> for CompositionObject {
+    fn from(value: RenderingDeviceReplacedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RenderingDeviceReplacedEventArgs> for CompositionObject {
+    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for RenderingDeviceReplacedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RenderingDeviceReplacedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -29886,6 +32698,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &ScalarKe
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ScalarKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: ScalarKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScalarKeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &ScalarKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for ScalarKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &ScalarKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ScalarKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: ScalarKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScalarKeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &ScalarKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for ScalarKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &ScalarKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ScalarKeyFrameAnimation> for CompositionObject {
+    fn from(value: ScalarKeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScalarKeyFrameAnimation> for CompositionObject {
+    fn from(value: &ScalarKeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ScalarKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ScalarKeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct ScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl ScalarNaturalMotionAnimation {
@@ -30252,6 +33124,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for ScalarNat
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &ScalarNaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<ScalarNaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: ScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScalarNaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for ScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &ScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ScalarNaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: ScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScalarNaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for ScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &ScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<ScalarNaturalMotionAnimation> for CompositionObject {
+    fn from(value: ScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ScalarNaturalMotionAnimation> for CompositionObject {
+    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -30735,6 +33667,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<ShapeVisual> for ContainerVisual {
+    fn from(value: ShapeVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ShapeVisual> for ContainerVisual {
+    fn from(value: &ShapeVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for ShapeVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for &ShapeVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ContainerVisual>::into(self))
+    }
+}
+impl ::core::convert::From<ShapeVisual> for Visual {
+    fn from(value: ShapeVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ShapeVisual> for Visual {
+    fn from(value: &ShapeVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for ShapeVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for &ShapeVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Visual>::into(self))
+    }
+}
+impl ::core::convert::From<ShapeVisual> for CompositionObject {
+    fn from(value: ShapeVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ShapeVisual> for CompositionObject {
+    fn from(value: &ShapeVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for ShapeVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ShapeVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SineEasingFunction(::windows::core::IUnknown);
 impl SineEasingFunction {
@@ -30937,6 +33929,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SineEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SineEasingFunction> for CompositionEasingFunction {
+    fn from(value: SineEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SineEasingFunction> for CompositionEasingFunction {
+    fn from(value: &SineEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for SineEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &SineEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<SineEasingFunction> for CompositionObject {
+    fn from(value: SineEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SineEasingFunction> for CompositionObject {
+    fn from(value: &SineEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for SineEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SineEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -31341,6 +34373,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SpotLight> for CompositionLight {
+    fn from(value: SpotLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpotLight> for CompositionLight {
+    fn from(value: &SpotLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for SpotLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionLight> for &SpotLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionLight> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionLight>::into(self))
+    }
+}
+impl ::core::convert::From<SpotLight> for CompositionObject {
+    fn from(value: SpotLight) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpotLight> for CompositionObject {
+    fn from(value: &SpotLight) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for SpotLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpotLight {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SpringScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringScalarNaturalMotionAnimation {
@@ -31731,6 +34803,86 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for SpringSca
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &SpringScalarNaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SpringScalarNaturalMotionAnimation> for ScalarNaturalMotionAnimation {
+    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for ScalarNaturalMotionAnimation {
+    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ScalarNaturalMotionAnimation> for SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, ScalarNaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ScalarNaturalMotionAnimation> for &SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, ScalarNaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ScalarNaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringScalarNaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringScalarNaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringScalarNaturalMotionAnimation> for CompositionObject {
+    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringScalarNaturalMotionAnimation> for CompositionObject {
+    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringScalarNaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -32127,6 +35279,86 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &SpringVe
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SpringVector2NaturalMotionAnimation> for Vector2NaturalMotionAnimation {
+    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for Vector2NaturalMotionAnimation {
+    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector2NaturalMotionAnimation> for SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector2NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector2NaturalMotionAnimation> for &SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector2NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Vector2NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringVector2NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringVector2NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringVector2NaturalMotionAnimation> for CompositionObject {
+    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector2NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringVector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct SpringVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector3NaturalMotionAnimation {
@@ -32519,6 +35751,86 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for SpringVec
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &SpringVector3NaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<SpringVector3NaturalMotionAnimation> for Vector3NaturalMotionAnimation {
+    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for Vector3NaturalMotionAnimation {
+    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector3NaturalMotionAnimation> for SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector3NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Vector3NaturalMotionAnimation> for &SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, Vector3NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Vector3NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringVector3NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringVector3NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<SpringVector3NaturalMotionAnimation> for CompositionObject {
+    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpringVector3NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringVector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -33005,6 +36317,66 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<SpriteVisual> for ContainerVisual {
+    fn from(value: SpriteVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpriteVisual> for ContainerVisual {
+    fn from(value: &SpriteVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for SpriteVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ContainerVisual> for &SpriteVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, ContainerVisual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<ContainerVisual>::into(self))
+    }
+}
+impl ::core::convert::From<SpriteVisual> for Visual {
+    fn from(value: SpriteVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpriteVisual> for Visual {
+    fn from(value: &SpriteVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for SpriteVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, Visual> for &SpriteVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, Visual> {
+        ::windows::core::Param::Owned(::core::convert::Into::<Visual>::into(self))
+    }
+}
+impl ::core::convert::From<SpriteVisual> for CompositionObject {
+    fn from(value: SpriteVisual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&SpriteVisual> for CompositionObject {
+    fn from(value: &SpriteVisual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for SpriteVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpriteVisual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct StepEasingFunction(::windows::core::IUnknown);
 impl StepEasingFunction {
@@ -33255,6 +36627,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &StepEasingFunction {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<StepEasingFunction> for CompositionEasingFunction {
+    fn from(value: StepEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&StepEasingFunction> for CompositionEasingFunction {
+    fn from(value: &StepEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for StepEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionEasingFunction> for &StepEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionEasingFunction> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionEasingFunction>::into(self))
+    }
+}
+impl ::core::convert::From<StepEasingFunction> for CompositionObject {
+    fn from(value: StepEasingFunction) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&StepEasingFunction> for CompositionObject {
+    fn from(value: &StepEasingFunction) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for StepEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &StepEasingFunction {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -33659,6 +37071,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Vector2K
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<Vector2KeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: Vector2KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector2KeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &Vector2KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for Vector2KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &Vector2KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector2KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: Vector2KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector2KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &Vector2KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for Vector2KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &Vector2KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector2KeyFrameAnimation> for CompositionObject {
+    fn from(value: Vector2KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector2KeyFrameAnimation> for CompositionObject {
+    fn from(value: &Vector2KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for Vector2KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector2KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct Vector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector2NaturalMotionAnimation {
@@ -34027,6 +37499,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for Vector2Na
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Vector2NaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<Vector2NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: Vector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector2NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for Vector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &Vector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector2NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: Vector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector2NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for Vector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &Vector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector2NaturalMotionAnimation> for CompositionObject {
+    fn from(value: Vector2NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector2NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for Vector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector2NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -34431,6 +37963,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Vector3K
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<Vector3KeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: Vector3KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector3KeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &Vector3KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for Vector3KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &Vector3KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector3KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: Vector3KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector3KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &Vector3KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for Vector3KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &Vector3KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector3KeyFrameAnimation> for CompositionObject {
+    fn from(value: Vector3KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector3KeyFrameAnimation> for CompositionObject {
+    fn from(value: &Vector3KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for Vector3KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector3KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct Vector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector3NaturalMotionAnimation {
@@ -34799,6 +38391,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for Vector3Na
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Vector3NaturalMotionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<Vector3NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: Vector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector3NaturalMotionAnimation> for NaturalMotionAnimation {
+    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for Vector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, NaturalMotionAnimation> for &Vector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, NaturalMotionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<NaturalMotionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector3NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: Vector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector3NaturalMotionAnimation> for CompositionAnimation {
+    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for Vector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &Vector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector3NaturalMotionAnimation> for CompositionObject {
+    fn from(value: Vector3NaturalMotionAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector3NaturalMotionAnimation> for CompositionObject {
+    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for Vector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector3NaturalMotionAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -35201,6 +38853,66 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for Vector4Ke
 impl<'a> ::windows::core::IntoParam<'a, ICompositionAnimationBase> for &Vector4KeyFrameAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionAnimationBase> {
         ::core::convert::TryInto::<ICompositionAnimationBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<Vector4KeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: Vector4KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector4KeyFrameAnimation> for KeyFrameAnimation {
+    fn from(value: &Vector4KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for Vector4KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, KeyFrameAnimation> for &Vector4KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, KeyFrameAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<KeyFrameAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector4KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: Vector4KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector4KeyFrameAnimation> for CompositionAnimation {
+    fn from(value: &Vector4KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for Vector4KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionAnimation> for &Vector4KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionAnimation> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionAnimation>::into(self))
+    }
+}
+impl ::core::convert::From<Vector4KeyFrameAnimation> for CompositionObject {
+    fn from(value: Vector4KeyFrameAnimation) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Vector4KeyFrameAnimation> for CompositionObject {
+    fn from(value: &Vector4KeyFrameAnimation) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for Vector4KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector4KeyFrameAnimation {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -35658,6 +39370,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<Visual> for CompositionObject {
+    fn from(value: Visual) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&Visual> for CompositionObject {
+    fn from(value: &Visual) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for Visual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Visual {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct VisualCollection(::windows::core::IUnknown);
 impl VisualCollection {
@@ -35936,6 +39668,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<Visual>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<VisualCollection> for CompositionObject {
+    fn from(value: VisualCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&VisualCollection> for CompositionObject {
+    fn from(value: &VisualCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for VisualCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &VisualCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct VisualUnorderedCollection(::windows::core::IUnknown);
 impl VisualUnorderedCollection {
@@ -36200,5 +39952,25 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<Visual>> for &VisualUnorderedCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<Visual>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<Visual>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<VisualUnorderedCollection> for CompositionObject {
+    fn from(value: VisualUnorderedCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&VisualUnorderedCollection> for CompositionObject {
+    fn from(value: &VisualUnorderedCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for VisualUnorderedCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &VisualUnorderedCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }

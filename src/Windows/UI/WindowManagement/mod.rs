@@ -1398,6 +1398,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
+    fn from(value: CompactOverlayPresentationConfiguration) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
+    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for CompactOverlayPresentationConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for &CompactOverlayPresentationConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct DefaultPresentationConfiguration(::windows::core::IUnknown);
 impl DefaultPresentationConfiguration {
@@ -1475,6 +1495,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Defau
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DefaultPresentationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
+    fn from(value: DefaultPresentationConfiguration) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
+    fn from(value: &DefaultPresentationConfiguration) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for DefaultPresentationConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for &DefaultPresentationConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
 #[repr(transparent)]
@@ -1680,6 +1720,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FullS
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FullScreenPresentationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
+    fn from(value: FullScreenPresentationConfiguration) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
+    fn from(value: &FullScreenPresentationConfiguration) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for FullScreenPresentationConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for &FullScreenPresentationConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
+        ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
 #[doc(hidden)]

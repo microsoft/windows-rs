@@ -228,6 +228,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<CompositionConditionalValue> for super::CompositionObject {
+    fn from(value: CompositionConditionalValue) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionConditionalValue> for super::CompositionObject {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for CompositionConditionalValue {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &CompositionConditionalValue {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
 impl CompositionInteractionSourceCollection {
@@ -492,6 +512,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> for &CompositionInteractionSourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<CompositionInteractionSourceCollection> for super::CompositionObject {
+    fn from(value: CompositionInteractionSourceCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for super::CompositionObject {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for CompositionInteractionSourceCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &CompositionInteractionSourceCollection {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[doc(hidden)]
@@ -1806,6 +1846,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<InteractionSourceConfiguration> for super::CompositionObject {
+    fn from(value: InteractionSourceConfiguration) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionSourceConfiguration> for super::CompositionObject {
+    fn from(value: &InteractionSourceConfiguration) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionSourceConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionSourceConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
@@ -2351,6 +2411,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<InteractionTracker> for super::CompositionObject {
+    fn from(value: InteractionTracker) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTracker> for super::CompositionObject {
+    fn from(value: &InteractionTracker) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTracker {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTracker {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
@@ -2733,6 +2813,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<InteractionTrackerInertiaModifier> for super::CompositionObject {
+    fn from(value: InteractionTrackerInertiaModifier) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaModifier> for super::CompositionObject {
+    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaModifier {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaModifier {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaMotion {
@@ -2960,6 +3060,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerInertiaMotion {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<InteractionTrackerInertiaMotion> for InteractionTrackerInertiaModifier {
+    fn from(value: InteractionTrackerInertiaMotion) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaMotion> for InteractionTrackerInertiaModifier {
+    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for InteractionTrackerInertiaMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for &InteractionTrackerInertiaMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
+        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerInertiaModifier>::into(self))
+    }
+}
+impl ::core::convert::From<InteractionTrackerInertiaMotion> for super::CompositionObject {
+    fn from(value: InteractionTrackerInertiaMotion) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaMotion> for super::CompositionObject {
+    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -3191,6 +3331,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for InteractionTrackerInertiaModifier {
+    fn from(value: InteractionTrackerInertiaNaturalMotion) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for InteractionTrackerInertiaModifier {
+    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for InteractionTrackerInertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for &InteractionTrackerInertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
+        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerInertiaModifier>::into(self))
+    }
+}
+impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for super::CompositionObject {
+    fn from(value: InteractionTrackerInertiaNaturalMotion) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for super::CompositionObject {
+    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaRestingValue(::windows::core::IUnknown);
 impl InteractionTrackerInertiaRestingValue {
@@ -3418,6 +3598,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerInertiaRestingValue {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for InteractionTrackerInertiaModifier {
+    fn from(value: InteractionTrackerInertiaRestingValue) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for InteractionTrackerInertiaModifier {
+    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for InteractionTrackerInertiaRestingValue {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for &InteractionTrackerInertiaRestingValue {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
+        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerInertiaModifier>::into(self))
+    }
+}
+impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for super::CompositionObject {
+    fn from(value: InteractionTrackerInertiaRestingValue) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for super::CompositionObject {
+    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaRestingValue {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaRestingValue {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4014,6 +4234,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<InteractionTrackerVector2InertiaModifier> for super::CompositionObject {
+    fn from(value: InteractionTrackerVector2InertiaModifier) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for super::CompositionObject {
+    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerVector2InertiaModifier {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerVector2InertiaModifier {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaNaturalMotion {
@@ -4241,6 +4481,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerVector2InertiaNaturalMotion {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for InteractionTrackerVector2InertiaModifier {
+    fn from(value: InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for InteractionTrackerVector2InertiaModifier {
+    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerVector2InertiaModifier> for InteractionTrackerVector2InertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerVector2InertiaModifier> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerVector2InertiaModifier> for &InteractionTrackerVector2InertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerVector2InertiaModifier> {
+        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerVector2InertiaModifier>::into(self))
+    }
+}
+impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for super::CompositionObject {
+    fn from(value: InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for super::CompositionObject {
+    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerVector2InertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerVector2InertiaNaturalMotion {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4668,6 +4948,26 @@ impl<'a> ::windows::core::IntoParam<'a, ICompositionInteractionSource> for Visua
 impl<'a> ::windows::core::IntoParam<'a, ICompositionInteractionSource> for &VisualInteractionSource {
     fn into_param(self) -> ::windows::core::Param<'a, ICompositionInteractionSource> {
         ::core::convert::TryInto::<ICompositionInteractionSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<VisualInteractionSource> for super::CompositionObject {
+    fn from(value: VisualInteractionSource) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&VisualInteractionSource> for super::CompositionObject {
+    fn from(value: &VisualInteractionSource) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for VisualInteractionSource {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &VisualInteractionSource {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
 #[repr(transparent)]

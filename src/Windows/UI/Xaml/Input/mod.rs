@@ -447,13 +447,6 @@ impl CharacterReceivedRoutedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for CharacterReceivedRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -516,6 +509,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Char
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<CharacterReceivedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: CharacterReceivedRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CharacterReceivedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &CharacterReceivedRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for CharacterReceivedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &CharacterReceivedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct ContextRequestedEventArgs(::windows::core::IUnknown);
 impl ContextRequestedEventArgs {
@@ -543,13 +556,6 @@ impl ContextRequestedEventArgs {
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), relativeto.into_param().abi(), point, &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -612,6 +618,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conte
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContextRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ContextRequestedEventArgs> for super::RoutedEventArgs {
+    fn from(value: ContextRequestedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ContextRequestedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &ContextRequestedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for ContextRequestedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ContextRequestedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -719,13 +745,6 @@ impl DoubleTappedRoutedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for DoubleTappedRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -786,6 +805,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Doubl
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DoubleTappedRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<DoubleTappedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: DoubleTappedRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DoubleTappedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &DoubleTappedRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for DoubleTappedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &DoubleTappedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -1577,13 +1616,6 @@ impl GettingFocusEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for GettingFocusEventArgs {
     fn clone(&self) -> Self {
@@ -1644,6 +1676,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Getti
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GettingFocusEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<GettingFocusEventArgs> for super::RoutedEventArgs {
+    fn from(value: GettingFocusEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&GettingFocusEventArgs> for super::RoutedEventArgs {
+    fn from(value: &GettingFocusEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for GettingFocusEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &GettingFocusEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -1759,13 +1811,6 @@ impl HoldingRoutedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for HoldingRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -1826,6 +1871,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holdi
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HoldingRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<HoldingRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: HoldingRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&HoldingRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &HoldingRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for HoldingRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &HoldingRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[doc(hidden)]
@@ -3631,54 +3696,6 @@ impl InputScope {
         static mut SHARED: ::windows::core::FactoryCache<InputScope, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Names(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<InputScopeName>> {
         let this = self;
@@ -3749,6 +3766,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inpu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<InputScope> for super::DependencyObject {
+    fn from(value: InputScope) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InputScope> for super::DependencyObject {
+    fn from(value: &InputScope) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for InputScope {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InputScope {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct InputScopeName(::windows::core::IUnknown);
 impl InputScopeName {
@@ -3758,54 +3795,6 @@ impl InputScopeName {
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InputScopeName, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     pub fn NameValue(&self) -> ::windows::core::Result<InputScopeNameValue> {
         let this = self;
@@ -3888,6 +3877,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Input
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InputScopeName {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<InputScopeName> for super::DependencyObject {
+    fn from(value: InputScopeName) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&InputScopeName> for super::DependencyObject {
+    fn from(value: &InputScopeName) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for InputScopeName {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InputScopeName {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4072,13 +4081,6 @@ impl KeyRoutedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for KeyRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -4141,6 +4143,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<KeyRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: KeyRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&KeyRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &KeyRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for KeyRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &KeyRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct KeyTipPlacementMode(pub i32);
 impl KeyTipPlacementMode {
@@ -4176,54 +4198,6 @@ impl ::windows::core::DefaultType for KeyTipPlacementMode {
 #[repr(transparent)]
 pub struct KeyboardAccelerator(::windows::core::IUnknown);
 impl KeyboardAccelerator {
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     #[cfg(feature = "System")]
     pub fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey> {
         let this = self;
@@ -4383,6 +4357,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Keybo
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyboardAccelerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<KeyboardAccelerator> for super::DependencyObject {
+    fn from(value: KeyboardAccelerator) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&KeyboardAccelerator> for super::DependencyObject {
+    fn from(value: &KeyboardAccelerator) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for KeyboardAccelerator {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &KeyboardAccelerator {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4615,13 +4609,6 @@ impl LosingFocusEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for LosingFocusEventArgs {
     fn clone(&self) -> Self {
@@ -4682,6 +4669,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Losin
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LosingFocusEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<LosingFocusEventArgs> for super::RoutedEventArgs {
+    fn from(value: LosingFocusEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&LosingFocusEventArgs> for super::RoutedEventArgs {
+    fn from(value: &LosingFocusEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for LosingFocusEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &LosingFocusEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -4819,13 +4826,6 @@ impl ManipulationCompletedRoutedEventArgs {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for ManipulationCompletedRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -4886,6 +4886,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Manip
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ManipulationCompletedRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ManipulationCompletedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: ManipulationCompletedRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ManipulationCompletedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &ManipulationCompletedRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for ManipulationCompletedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ManipulationCompletedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5035,13 +5055,6 @@ impl ManipulationDeltaRoutedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for ManipulationDeltaRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -5102,6 +5115,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Manip
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ManipulationDeltaRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ManipulationDeltaRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: ManipulationDeltaRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ManipulationDeltaRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &ManipulationDeltaRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for ManipulationDeltaRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ManipulationDeltaRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5265,13 +5298,6 @@ impl ManipulationInertiaStartingRoutedEventArgs {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Input::ManipulationVelocities>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for ManipulationInertiaStartingRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -5332,6 +5358,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Manip
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ManipulationInertiaStartingRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ManipulationInertiaStartingRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: ManipulationInertiaStartingRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ManipulationInertiaStartingRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &ManipulationInertiaStartingRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for ManipulationInertiaStartingRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ManipulationInertiaStartingRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5601,13 +5647,6 @@ impl ManipulationStartedRoutedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
         })
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
     pub fn IManipulationStartedRoutedEventArgsFactory<R, F: FnOnce(&IManipulationStartedRoutedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ManipulationStartedRoutedEventArgs, IManipulationStartedRoutedEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5672,6 +5711,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Manip
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ManipulationStartedRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ManipulationStartedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: ManipulationStartedRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ManipulationStartedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &ManipulationStartedRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for ManipulationStartedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ManipulationStartedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -5796,13 +5855,6 @@ impl ManipulationStartingRoutedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for ManipulationStartingRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -5865,6 +5917,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<ManipulationStartingRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: ManipulationStartingRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&ManipulationStartingRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &ManipulationStartingRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for ManipulationStartingRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ManipulationStartingRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct NoFocusCandidateFoundEventArgs(::windows::core::IUnknown);
 impl NoFocusCandidateFoundEventArgs {
@@ -5891,13 +5963,6 @@ impl NoFocusCandidateFoundEventArgs {
         unsafe {
             let mut result__: FocusInputDeviceKind = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FocusInputDeviceKind>(result__)
-        }
-    }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -5960,6 +6025,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NoFoc
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NoFocusCandidateFoundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<NoFocusCandidateFoundEventArgs> for super::RoutedEventArgs {
+    fn from(value: NoFocusCandidateFoundEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&NoFocusCandidateFoundEventArgs> for super::RoutedEventArgs {
+    fn from(value: &NoFocusCandidateFoundEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for NoFocusCandidateFoundEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &NoFocusCandidateFoundEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -6176,13 +6261,6 @@ impl PointerRoutedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for PointerRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -6243,6 +6321,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointerRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<PointerRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: PointerRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&PointerRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &PointerRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for PointerRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &PointerRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -6442,13 +6540,6 @@ impl RightTappedRoutedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
 }
 impl ::core::clone::Clone for RightTappedRoutedEventArgs {
     fn clone(&self) -> Self {
@@ -6511,81 +6602,29 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Righ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<RightTappedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: RightTappedRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&RightTappedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &RightTappedRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for RightTappedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &RightTappedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
+    }
+}
 #[repr(transparent)]
 pub struct StandardUICommand(::windows::core::IUnknown);
 impl StandardUICommand {
-    #[cfg(feature = "Foundation")]
-    pub fn CanExecuteChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<ICommand>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveCanExecuteChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn CanExecute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, parameter: Param0) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ICommand>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), parameter.into_param().abi(), &mut result__).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Execute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, parameter: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), parameter.into_param().abi()).ok() }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
-    }
     pub fn Kind(&self) -> ::windows::core::Result<StandardUICommandKind> {
         let this = self;
         unsafe {
@@ -6614,101 +6653,6 @@ impl StandardUICommand {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
-    }
-    pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn IconSource(&self) -> ::windows::core::Result<super::Controls::IconSource> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Controls::IconSource>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn SetIconSource<'a, Param0: ::windows::core::IntoParam<'a, super::Controls::IconSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn KeyboardAccelerators(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>>(result__)
-        }
-    }
-    pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetAccessKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    pub fn Command(&self) -> ::windows::core::Result<ICommand> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ICommand>(result__)
-        }
-    }
-    pub fn SetCommand<'a, Param0: ::windows::core::IntoParam<'a, ICommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn ExecuteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<XamlUICommand, ExecuteRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveExecuteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn CanExecuteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<XamlUICommand, CanExecuteRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveCanExecuteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
-    }
-    pub fn NotifyCanExecuteChanged(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IXamlUICommand>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this)).ok() }
     }
     pub fn IStandardUICommandFactory<R, F: FnOnce(&IStandardUICommandFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StandardUICommand, IStandardUICommandFactory> = ::windows::core::FactoryCache::new();
@@ -6800,6 +6744,46 @@ impl<'a> ::windows::core::IntoParam<'a, ICommand> for StandardUICommand {
 impl<'a> ::windows::core::IntoParam<'a, ICommand> for &StandardUICommand {
     fn into_param(self) -> ::windows::core::Param<'a, ICommand> {
         ::core::convert::TryInto::<ICommand>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<StandardUICommand> for XamlUICommand {
+    fn from(value: StandardUICommand) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&StandardUICommand> for XamlUICommand {
+    fn from(value: &StandardUICommand) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, XamlUICommand> for StandardUICommand {
+    fn into_param(self) -> ::windows::core::Param<'a, XamlUICommand> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, XamlUICommand> for &StandardUICommand {
+    fn into_param(self) -> ::windows::core::Param<'a, XamlUICommand> {
+        ::windows::core::Param::Owned(::core::convert::Into::<XamlUICommand>::into(self))
+    }
+}
+impl ::core::convert::From<StandardUICommand> for super::DependencyObject {
+    fn from(value: StandardUICommand) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&StandardUICommand> for super::DependencyObject {
+    fn from(value: &StandardUICommand) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for StandardUICommand {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &StandardUICommand {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 #[repr(transparent)]
@@ -6922,13 +6906,6 @@ impl TappedRoutedEventArgs {
         static mut SHARED: ::windows::core::FactoryCache<TappedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn OriginalSource(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IRoutedEventArgs>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -7016,6 +6993,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Tappe
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TappedRoutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<TappedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: TappedRoutedEventArgs) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&TappedRoutedEventArgs> for super::RoutedEventArgs {
+    fn from(value: &TappedRoutedEventArgs) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for TappedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &TappedRoutedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::RoutedEventArgs> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
 #[repr(transparent)]
@@ -7131,54 +7128,6 @@ impl XamlUICommand {
     pub fn Execute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, parameter: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommand>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), parameter.into_param().abi()).ok() }
-    }
-    pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
-    }
-    pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
-    }
-    pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
-        }
-    }
-    pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -7407,5 +7356,25 @@ impl<'a> ::windows::core::IntoParam<'a, ICommand> for XamlUICommand {
 impl<'a> ::windows::core::IntoParam<'a, ICommand> for &XamlUICommand {
     fn into_param(self) -> ::windows::core::Param<'a, ICommand> {
         ::core::convert::TryInto::<ICommand>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::From<XamlUICommand> for super::DependencyObject {
+    fn from(value: XamlUICommand) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&XamlUICommand> for super::DependencyObject {
+    fn from(value: &XamlUICommand) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for XamlUICommand {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlUICommand {
+    fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }

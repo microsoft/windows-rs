@@ -9,6 +9,7 @@ pub struct Gen<'a> {
     pub cfg: bool,
     pub min_enum: bool,
     pub min_inherit: bool,
+    pub min_xaml: bool,
 }
 
 impl Gen<'_> {

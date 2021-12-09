@@ -193,7 +193,7 @@ pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
             let name = gen_ident(generic);
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
-        ElementType::TypeDef(def) =>     match def.kind() {
+        ElementType::TypeDef(def) => match def.kind() {
             TypeKind::Enum => gen_type_name(def, gen),
             TypeKind::Struct => {
                 let tokens = gen_type_name(def, gen);

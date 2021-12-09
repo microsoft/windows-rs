@@ -214,6 +214,46 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::convert::From<DesktopWindowTarget> for super::CompositionTarget {
+    fn from(value: DesktopWindowTarget) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DesktopWindowTarget> for super::CompositionTarget {
+    fn from(value: &DesktopWindowTarget) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionTarget> for DesktopWindowTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionTarget> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionTarget> for &DesktopWindowTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionTarget> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionTarget>::into(self))
+    }
+}
+impl ::core::convert::From<DesktopWindowTarget> for super::CompositionObject {
+    fn from(value: DesktopWindowTarget) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&DesktopWindowTarget> for super::CompositionObject {
+    fn from(value: &DesktopWindowTarget) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for DesktopWindowTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &DesktopWindowTarget {
+    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
+        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+    }
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDesktopWindowTarget(::windows::core::IUnknown);
