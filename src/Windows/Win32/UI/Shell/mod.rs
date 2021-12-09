@@ -838,7 +838,7 @@ unsafe impl ::windows::core::Abi for BANDINFOSFB {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl ::core::cmp::PartialEq for BANDINFOSFB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BANDINFOSFB>()) == 0 }
+        self.dwMask == other.dwMask && self.dwStateMask == other.dwStateMask && self.dwState == other.dwState && self.crBkgnd == other.crBkgnd && self.crBtnLt == other.crBtnLt && self.crBtnDk == other.crBtnDk && self.wViewMode == other.wViewMode && self.wAlign == other.wAlign && self.psf == other.psf && self.pidl == other.pidl
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -990,7 +990,33 @@ unsafe impl ::windows::core::Abi for BASEBROWSERDATALH {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::cmp::PartialEq for BASEBROWSERDATALH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BASEBROWSERDATALH>()) == 0 }
+        self._hwnd == other._hwnd
+            && self._ptl == other._ptl
+            && self._phlf == other._phlf
+            && self._pautoWB2 == other._pautoWB2
+            && self._pautoEDS == other._pautoEDS
+            && self._pautoSS == other._pautoSS
+            && self._eSecureLockIcon == other._eSecureLockIcon
+            && self._bitfield == other._bitfield
+            && self._uActivateState == other._uActivateState
+            && self._pidlViewState == other._pidlViewState
+            && self._pctView == other._pctView
+            && self._pidlCur == other._pidlCur
+            && self._psv == other._psv
+            && self._psf == other._psf
+            && self._hwndView == other._hwndView
+            && self._pszTitleCur == other._pszTitleCur
+            && self._pidlPending == other._pidlPending
+            && self._psvPending == other._psvPending
+            && self._psfPending == other._psfPending
+            && self._hwndViewPending == other._hwndViewPending
+            && self._pszTitlePending == other._pszTitlePending
+            && self._fIsViewMSHTML == other._fIsViewMSHTML
+            && self._fPrivacyImpacted == other._fPrivacyImpacted
+            && self._clsidView == other._clsidView
+            && self._clsidViewPending == other._clsidViewPending
+            && self._hwndFrame == other._hwndFrame
+            && self._lPhishingFilterStatus == other._lPhishingFilterStatus
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
@@ -1071,7 +1097,32 @@ unsafe impl ::windows::core::Abi for BASEBROWSERDATAXP {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::core::cmp::PartialEq for BASEBROWSERDATAXP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BASEBROWSERDATAXP>()) == 0 }
+        self._hwnd == other._hwnd
+            && self._ptl == other._ptl
+            && self._phlf == other._phlf
+            && self._pautoWB2 == other._pautoWB2
+            && self._pautoEDS == other._pautoEDS
+            && self._pautoSS == other._pautoSS
+            && self._eSecureLockIcon == other._eSecureLockIcon
+            && self._bitfield == other._bitfield
+            && self._uActivateState == other._uActivateState
+            && self._pidlViewState == other._pidlViewState
+            && self._pctView == other._pctView
+            && self._pidlCur == other._pidlCur
+            && self._psv == other._psv
+            && self._psf == other._psf
+            && self._hwndView == other._hwndView
+            && self._pszTitleCur == other._pszTitleCur
+            && self._pidlPending == other._pidlPending
+            && self._psvPending == other._psvPending
+            && self._psfPending == other._psfPending
+            && self._hwndViewPending == other._hwndViewPending
+            && self._pszTitlePending == other._pszTitlePending
+            && self._fIsViewMSHTML == other._fIsViewMSHTML
+            && self._fPrivacyImpacted == other._fPrivacyImpacted
+            && self._clsidView == other._clsidView
+            && self._clsidViewPending == other._clsidViewPending
+            && self._hwndFrame == other._hwndFrame
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
@@ -1860,7 +1911,7 @@ unsafe impl ::windows::core::Abi for CONFIRM_CONFLICT_ITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONFIRM_CONFLICT_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIRM_CONFLICT_ITEM>()) == 0 }
+        self.pShellItem == other.pShellItem && self.pszOriginalName == other.pszOriginalName && self.pszAlternateName == other.pszAlternateName && self.pszLocationShort == other.pszLocationShort && self.pszLocationFull == other.pszLocationFull && self.nType == other.nType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2193,7 +2244,7 @@ unsafe impl ::windows::core::Abi for CSFV {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::cmp::PartialEq for CSFV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSFV>()) == 0 }
+        self.cbSize == other.cbSize && self.pshf == other.pshf && self.psvOuter == other.psvOuter && self.pidl == other.pidl && self.lEvents == other.lEvents && self.pfnCallback.map(|f| f as usize) == other.pfnCallback.map(|f| f as usize) && self.fvm == other.fvm
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -2617,7 +2668,7 @@ unsafe impl ::windows::core::Abi for DEFCONTEXTMENU {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 impl ::core::cmp::PartialEq for DEFCONTEXTMENU {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEFCONTEXTMENU>()) == 0 }
+        self.hwnd == other.hwnd && self.pcmcb == other.pcmcb && self.pidlFolder == other.pidlFolder && self.psf == other.psf && self.cidl == other.cidl && self.apidl == other.apidl && self.punkAssociationInfo == other.punkAssociationInfo && self.cKeys == other.cKeys && self.aKeys == other.aKeys
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
@@ -2898,7 +2949,7 @@ unsafe impl ::windows::core::Abi for DFMICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DFMICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFMICS>()) == 0 }
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.lParam == other.lParam && self.idCmdFirst == other.idCmdFirst && self.idDefMax == other.idDefMax && self.pici == other.pici && self.punkSite == other.punkSite
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -49877,7 +49928,7 @@ unsafe impl ::windows::core::Abi for NSTCCUSTOMDRAW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for NSTCCUSTOMDRAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NSTCCUSTOMDRAW>()) == 0 }
+        self.psi == other.psi && self.uItemState == other.uItemState && self.nstcis == other.nstcis && self.pszText == other.pszText && self.iImage == other.iImage && self.himl == other.himl && self.iLevel == other.iLevel && self.iIndent == other.iIndent
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -53531,7 +53582,7 @@ unsafe impl ::windows::core::Abi for SFV_CREATE {
 }
 impl ::core::cmp::PartialEq for SFV_CREATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SFV_CREATE>()) == 0 }
+        self.cbSize == other.cbSize && self.pshf == other.pshf && self.psvOuter == other.psvOuter && self.psfvcb == other.psfvcb
     }
 }
 impl ::core::cmp::Eq for SFV_CREATE {}
@@ -59184,7 +59235,7 @@ unsafe impl ::windows::core::Abi for SMDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for SMDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMDATA>()) == 0 }
+        self.dwMask == other.dwMask && self.dwFlags == other.dwFlags && self.hmenu == other.hmenu && self.hwnd == other.hwnd && self.uId == other.uId && self.uIdParent == other.uIdParent && self.uIdAncestor == other.uIdAncestor && self.punk == other.punk && self.pidlFolder == other.pidlFolder && self.pidlItem == other.pidlItem && self.psf == other.psf && self.pvUserData == other.pvUserData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -59434,7 +59485,7 @@ unsafe impl ::windows::core::Abi for SV2CVW2_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SV2CVW2_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SV2CVW2_PARAMS>()) == 0 }
+        self.cbSize == other.cbSize && self.psvPrev == other.psvPrev && self.pfs == other.pfs && self.psbOwner == other.psbOwner && self.prcView == other.prcView && self.pvid == other.pvid && self.hwndView == other.hwndView
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -61409,7 +61460,7 @@ unsafe impl ::windows::core::Abi for TOOLBARITEM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for TOOLBARITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOOLBARITEM>()) == 0 }
+        self.ptbar == other.ptbar && self.rcBorderTool == other.rcBorderTool && self.pwszItem == other.pwszItem && self.fShow == other.fShow && self.hMon == other.hMon
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

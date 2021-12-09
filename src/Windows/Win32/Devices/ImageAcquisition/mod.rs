@@ -101,7 +101,7 @@ unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICEDIALOGDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICEDIALOGDATA>()) == 0 }
+        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.lIntent == other.lIntent && self.lItemCount == other.lItemCount && self.ppWiaItems == other.ppWiaItems
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -148,7 +148,7 @@ unsafe impl ::windows::core::Abi for DEVICEDIALOGDATA2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICEDIALOGDATA2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICEDIALOGDATA2>()) == 0 }
+        self.cbSize == other.cbSize && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.hwndParent == other.hwndParent && self.bstrFolderName == other.bstrFolderName && self.bstrFilename == other.bstrFilename && self.lNumFiles == other.lNumFiles && self.pbstrFilePaths == other.pbstrFilePaths && self.pWiaItem == other.pWiaItem
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2678,7 +2678,33 @@ unsafe impl ::windows::core::Abi for MINIDRV_TRANSFER_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MINIDRV_TRANSFER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDRV_TRANSFER_CONTEXT>()) == 0 }
+        self.lSize == other.lSize
+            && self.lWidthInPixels == other.lWidthInPixels
+            && self.lLines == other.lLines
+            && self.lDepth == other.lDepth
+            && self.lXRes == other.lXRes
+            && self.lYRes == other.lYRes
+            && self.lCompression == other.lCompression
+            && self.guidFormatID == other.guidFormatID
+            && self.tymed == other.tymed
+            && self.hFile == other.hFile
+            && self.cbOffset == other.cbOffset
+            && self.lBufferSize == other.lBufferSize
+            && self.lActiveBuffer == other.lActiveBuffer
+            && self.lNumBuffers == other.lNumBuffers
+            && self.pBaseBuffer == other.pBaseBuffer
+            && self.pTransferBuffer == other.pTransferBuffer
+            && self.bTransferDataCB == other.bTransferDataCB
+            && self.bClassDrvAllocBuf == other.bClassDrvAllocBuf
+            && self.lClientAddress == other.lClientAddress
+            && self.pIWiaMiniDrvCallBack == other.pIWiaMiniDrvCallBack
+            && self.lImageSize == other.lImageSize
+            && self.lHeaderSize == other.lHeaderSize
+            && self.lItemSize == other.lItemSize
+            && self.cbWidthInBytes == other.cbWidthInBytes
+            && self.lPage == other.lPage
+            && self.lCurIfdOffset == other.lCurIfdOffset
+            && self.lPrevIfdOffset == other.lPrevIfdOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2937,7 +2963,7 @@ unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO>()) == 0 }
+        self.bChanged == other.bChanged && self.vt == other.vt && self.Old == other.Old && self.Current == other.Current
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3414,7 +3440,7 @@ unsafe impl ::windows::core::Abi for WIA_DEV_CAP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_DEV_CAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DEV_CAP>()) == 0 }
+        self.guid == other.guid && self.ulFlags == other.ulFlags && self.bstrName == other.bstrName && self.bstrDescription == other.bstrDescription && self.bstrIcon == other.bstrIcon && self.bstrCommandline == other.bstrCommandline
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3507,7 +3533,7 @@ unsafe impl ::windows::core::Abi for WIA_DITHER_PATTERN_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_DITHER_PATTERN_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DITHER_PATTERN_DATA>()) == 0 }
+        self.lSize == other.lSize && self.bstrPatternName == other.bstrPatternName && self.lPatternWidth == other.lPatternWidth && self.lPatternLength == other.lPatternLength && self.cbPattern == other.cbPattern && self.pbPattern == other.pbPattern
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4229,7 +4255,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO>()) == 0 }
+        self.lAccessFlags == other.lAccessFlags && self.vt == other.vt && self.ValidVal == other.ValidVal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4328,7 +4354,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_1>()) == 0 }
+        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
 #[cfg(feature = "Win32_Foundation")]

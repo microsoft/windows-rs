@@ -7359,7 +7359,7 @@ unsafe impl ::windows::core::Abi for OBO_TOKEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBO_TOKEN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBO_TOKEN>()) == 0 }
+        self.Type == other.Type && self.pncc == other.pncc && self.pszwManufacturer == other.pszwManufacturer && self.pszwProduct == other.pszwProduct && self.pszwDisplayName == other.pszwDisplayName && self.fRegistered == other.fRegistered
     }
 }
 #[cfg(feature = "Win32_Foundation")]

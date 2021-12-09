@@ -7974,7 +7974,7 @@ unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESS
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION>()) == 0 }
+        self.pCryptoSession == other.pCryptoSession && self.BlobSize == other.BlobSize && self.pBlob == other.pBlob && self.pKeyInfoId == other.pKeyInfoId && self.PrivateDataSize == other.PrivateDataSize && self.pPrivateData == other.pPrivateData
     }
 }
 impl ::core::cmp::Eq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {}
@@ -8742,7 +8742,7 @@ unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STREAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_STREAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D11_VIDEO_PROCESSOR_STREAM>()) == 0 }
+        self.Enable == other.Enable && self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames && self.ppPastSurfaces == other.ppPastSurfaces && self.pInputSurface == other.pInputSurface && self.ppFutureSurfaces == other.ppFutureSurfaces && self.ppPastSurfacesRight == other.ppPastSurfacesRight && self.pInputSurfaceRight == other.pInputSurfaceRight && self.ppFutureSurfacesRight == other.ppFutureSurfacesRight
     }
 }
 #[cfg(feature = "Win32_Foundation")]

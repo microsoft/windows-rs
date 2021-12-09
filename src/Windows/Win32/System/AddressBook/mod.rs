@@ -5840,7 +5840,7 @@ unsafe impl ::windows::core::Abi for WABEXTDISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WABEXTDISPLAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WABEXTDISPLAY>()) == 0 }
+        self.cbSize == other.cbSize && self.lpWABObject == other.lpWABObject && self.lpAdrBook == other.lpAdrBook && self.lpPropObj == other.lpPropObj && self.fReadOnly == other.fReadOnly && self.fDataChanged == other.fDataChanged && self.ulFlags == other.ulFlags && self.lpv == other.lpv && self.lpsz == other.lpsz
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5873,7 +5873,7 @@ unsafe impl ::windows::core::Abi for WABIMPORTPARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WABIMPORTPARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WABIMPORTPARAM>()) == 0 }
+        self.cbSize == other.cbSize && self.lpAdrBook == other.lpAdrBook && self.hWnd == other.hWnd && self.ulFlags == other.ulFlags && self.lpszFileName == other.lpszFileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -27,7 +27,7 @@ unsafe impl ::windows::core::Abi for D3D9ON12_ARGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D9ON12_ARGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D9ON12_ARGS>()) == 0 }
+        self.Enable9On12 == other.Enable9On12 && self.pD3D12Device == other.pD3D12Device && self.ppD3D12Queues == other.ppD3D12Queues && self.NumQueues == other.NumQueues && self.NodeMask == other.NodeMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -39,7 +39,7 @@ unsafe impl ::windows::core::Abi for AAAccountingData {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AAAccountingData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AAAccountingData>()) == 0 }
+        self.userName == other.userName && self.clientName == other.clientName && self.authType == other.authType && self.resourceName == other.resourceName && self.portNumber == other.portNumber && self.protocolName == other.protocolName && self.numberOfBytesReceived == other.numberOfBytesReceived && self.numberOfBytesTransfered == other.numberOfBytesTransfered && self.reasonForDisconnect == other.reasonForDisconnect && self.mainSessionId == other.mainSessionId && self.subSessionId == other.subSessionId
     }
 }
 #[cfg(feature = "Win32_Foundation")]

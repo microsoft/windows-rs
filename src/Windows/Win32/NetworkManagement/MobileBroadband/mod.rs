@@ -2994,7 +2994,7 @@ unsafe impl ::windows::core::Abi for MBN_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_CONTEXT>()) == 0 }
+        self.contextID == other.contextID && self.contextType == other.contextType && self.accessString == other.accessString && self.userName == other.userName && self.password == other.password && self.compression == other.compression && self.authType == other.authType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3066,7 +3066,7 @@ unsafe impl ::windows::core::Abi for MBN_DEVICE_SERVICE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_DEVICE_SERVICE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_DEVICE_SERVICE>()) == 0 }
+        self.deviceServiceID == other.deviceServiceID && self.dataWriteSupported == other.dataWriteSupported && self.dataReadSupported == other.dataReadSupported
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3126,7 +3126,7 @@ unsafe impl ::windows::core::Abi for MBN_INTERFACE_CAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_INTERFACE_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_INTERFACE_CAPS>()) == 0 }
+        self.cellularClass == other.cellularClass && self.voiceClass == other.voiceClass && self.dataClass == other.dataClass && self.customDataClass == other.customDataClass && self.gsmBandClass == other.gsmBandClass && self.cdmaBandClass == other.cdmaBandClass && self.customBandClass == other.customBandClass && self.smsCaps == other.smsCaps && self.controlCaps == other.controlCaps && self.deviceID == other.deviceID && self.manufacturer == other.manufacturer && self.model == other.model && self.firmwareInfo == other.firmwareInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3220,7 +3220,7 @@ unsafe impl ::windows::core::Abi for MBN_PROVIDER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_PROVIDER>()) == 0 }
+        self.providerID == other.providerID && self.providerState == other.providerState && self.providerName == other.providerName && self.dataClass == other.dataClass
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3252,7 +3252,7 @@ unsafe impl ::windows::core::Abi for MBN_PROVIDER2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MBN_PROVIDER2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_PROVIDER2>()) == 0 }
+        self.provider == other.provider && self.cellularClass == other.cellularClass && self.signalStrength == other.signalStrength && self.signalError == other.signalError
     }
 }
 #[cfg(feature = "Win32_Foundation")]

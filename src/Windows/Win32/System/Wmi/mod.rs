@@ -12274,7 +12274,7 @@ unsafe impl ::windows::core::Abi for SWbemAssocQueryInf {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SWbemAssocQueryInf {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemAssocQueryInf>()) == 0 }
+        self.m_uVersion == other.m_uVersion && self.m_uAnalysisType == other.m_uAnalysisType && self.m_uFeatureMask == other.m_uFeatureMask && self.m_pPath == other.m_pPath && self.m_pszPath == other.m_pszPath && self.m_pszQueryText == other.m_pszQueryText && self.m_pszResultClass == other.m_pszResultClass && self.m_pszAssocClass == other.m_pszAssocClass && self.m_pszRole == other.m_pszRole && self.m_pszResultRole == other.m_pszResultRole && self.m_pszRequiredQualifier == other.m_pszRequiredQualifier && self.m_pszRequiredAssocQualifier == other.m_pszRequiredAssocQualifier
     }
 }
 #[cfg(feature = "Win32_Foundation")]

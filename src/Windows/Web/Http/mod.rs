@@ -2550,7 +2550,7 @@ impl ::windows::core::DefaultType for HttpProgress {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for HttpProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HttpProgress>()) == 0 }
+        self.Stage == other.Stage && self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Retries == other.Retries
     }
 }
 #[cfg(feature = "Foundation")]

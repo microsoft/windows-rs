@@ -127,7 +127,7 @@ unsafe impl ::windows::core::Abi for DWRITE_COLOR_GLYPH_RUN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_COLOR_GLYPH_RUN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_COLOR_GLYPH_RUN>()) == 0 }
+        self.glyphRun == other.glyphRun && self.glyphRunDescription == other.glyphRunDescription && self.baselineOriginX == other.baselineOriginX && self.baselineOriginY == other.baselineOriginY && self.runColor == other.runColor && self.paletteIndex == other.paletteIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -158,7 +158,7 @@ unsafe impl ::windows::core::Abi for DWRITE_COLOR_GLYPH_RUN1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_COLOR_GLYPH_RUN1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_COLOR_GLYPH_RUN1>()) == 0 }
+        self.Base == other.Base && self.glyphImageFormat == other.glyphImageFormat && self.measuringMode == other.measuringMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -723,7 +723,7 @@ unsafe impl ::windows::core::Abi for DWRITE_GLYPH_RUN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_RUN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_GLYPH_RUN>()) == 0 }
+        self.fontFace == other.fontFace && self.fontEmSize == other.fontEmSize && self.glyphCount == other.glyphCount && self.glyphIndices == other.glyphIndices && self.glyphAdvances == other.glyphAdvances && self.glyphOffsets == other.glyphOffsets && self.isSideways == other.isSideways && self.bidiLevel == other.bidiLevel
     }
 }
 #[cfg(feature = "Win32_Foundation")]

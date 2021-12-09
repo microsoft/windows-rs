@@ -2138,7 +2138,7 @@ unsafe impl ::windows::core::Abi for PROPVARIANT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPVARIANT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPVARIANT>()) == 0 }
+        self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2201,7 +2201,7 @@ unsafe impl ::windows::core::Abi for PROPVARIANT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPVARIANT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPVARIANT_0_0>()) == 0 }
+        self.vt == other.vt && self.wReserved1 == other.wReserved1 && self.wReserved2 == other.wReserved2 && self.wReserved3 == other.wReserved3 && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2919,7 +2919,7 @@ unsafe impl ::windows::core::Abi for VERSIONEDSTREAM {
 }
 impl ::core::cmp::PartialEq for VERSIONEDSTREAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VERSIONEDSTREAM>()) == 0 }
+        self.guidVersion == other.guidVersion && self.pStream == other.pStream
     }
 }
 impl ::core::cmp::Eq for VERSIONEDSTREAM {}

@@ -1111,7 +1111,7 @@ impl ::windows::core::DefaultType for TypeName {
 }
 impl ::core::cmp::PartialEq for TypeName {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TypeName>()) == 0 }
+        self.Name == other.Name && self.Kind == other.Kind
     }
 }
 impl ::core::cmp::Eq for TypeName {}

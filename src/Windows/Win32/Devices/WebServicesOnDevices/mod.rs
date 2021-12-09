@@ -4249,7 +4249,7 @@ unsafe impl ::windows::core::Abi for WSD_EVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSD_EVENT>()) == 0 }
+        self.Hr == other.Hr && self.EventType == other.EventType && self.DispatchTag == other.DispatchTag && self.HandlerContext == other.HandlerContext && self.Soap == other.Soap && self.Operation == other.Operation && self.MessageParameters == other.MessageParameters
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4440,7 +4440,7 @@ unsafe impl ::windows::core::Abi for WSD_HANDLER_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_HANDLER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSD_HANDLER_CONTEXT>()) == 0 }
+        self.Handler.map(|f| f as usize) == other.Handler.map(|f| f as usize) && self.PVoid == other.PVoid && self.Unknown == other.Unknown
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5548,7 +5548,7 @@ unsafe impl ::windows::core::Abi for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSD_SYNCHRONOUS_RESPONSE_CONTEXT>()) == 0 }
+        self.hr == other.hr && self.eventHandle == other.eventHandle && self.messageParameters == other.messageParameters && self.results == other.results
     }
 }
 #[cfg(feature = "Win32_Foundation")]

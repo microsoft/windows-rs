@@ -159,7 +159,7 @@ unsafe impl ::windows::core::Abi for D3D12_AUTO_BREADCRUMB_NODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_AUTO_BREADCRUMB_NODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_AUTO_BREADCRUMB_NODE>()) == 0 }
+        self.pCommandListDebugNameA == other.pCommandListDebugNameA && self.pCommandListDebugNameW == other.pCommandListDebugNameW && self.pCommandQueueDebugNameA == other.pCommandQueueDebugNameA && self.pCommandQueueDebugNameW == other.pCommandQueueDebugNameW && self.pCommandList == other.pCommandList && self.pCommandQueue == other.pCommandQueue && self.BreadcrumbCount == other.BreadcrumbCount && self.pLastBreadcrumbValue == other.pLastBreadcrumbValue && self.pCommandHistory == other.pCommandHistory && self.pNext == other.pNext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -212,7 +212,7 @@ unsafe impl ::windows::core::Abi for D3D12_AUTO_BREADCRUMB_NODE1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_AUTO_BREADCRUMB_NODE1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_AUTO_BREADCRUMB_NODE1>()) == 0 }
+        self.pCommandListDebugNameA == other.pCommandListDebugNameA && self.pCommandListDebugNameW == other.pCommandListDebugNameW && self.pCommandQueueDebugNameA == other.pCommandQueueDebugNameA && self.pCommandQueueDebugNameW == other.pCommandQueueDebugNameW && self.pCommandList == other.pCommandList && self.pCommandQueue == other.pCommandQueue && self.BreadcrumbCount == other.BreadcrumbCount && self.pLastBreadcrumbValue == other.pLastBreadcrumbValue && self.pCommandHistory == other.pCommandHistory && self.pNext == other.pNext && self.BreadcrumbContextsCount == other.BreadcrumbContextsCount && self.pBreadcrumbContexts == other.pBreadcrumbContexts
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -823,7 +823,7 @@ unsafe impl ::windows::core::Abi for D3D12_COMPUTE_PIPELINE_STATE_DESC {
 }
 impl ::core::cmp::PartialEq for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_COMPUTE_PIPELINE_STATE_DESC>()) == 0 }
+        self.pRootSignature == other.pRootSignature && self.CS == other.CS && self.NodeMask == other.NodeMask && self.CachedPSO == other.CachedPSO && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for D3D12_COMPUTE_PIPELINE_STATE_DESC {}
@@ -1752,7 +1752,7 @@ unsafe impl ::windows::core::Abi for D3D12_DRED_ALLOCATION_NODE1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_DRED_ALLOCATION_NODE1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_DRED_ALLOCATION_NODE1>()) == 0 }
+        self.ObjectNameA == other.ObjectNameA && self.ObjectNameW == other.ObjectNameW && self.AllocationType == other.AllocationType && self.pNext == other.pNext && self.pObject == other.pObject
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2140,7 +2140,7 @@ unsafe impl ::windows::core::Abi for D3D12_EXISTING_COLLECTION_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_EXISTING_COLLECTION_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_EXISTING_COLLECTION_DESC>()) == 0 }
+        self.pExistingCollection == other.pExistingCollection && self.NumExports == other.NumExports && self.pExports == other.pExports
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3369,7 +3369,7 @@ unsafe impl ::windows::core::Abi for D3D12_GLOBAL_ROOT_SIGNATURE {
 }
 impl ::core::cmp::PartialEq for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_GLOBAL_ROOT_SIGNATURE>()) == 0 }
+        self.pGlobalRootSignature == other.pGlobalRootSignature
     }
 }
 impl ::core::cmp::Eq for D3D12_GLOBAL_ROOT_SIGNATURE {}
@@ -3553,7 +3553,27 @@ unsafe impl ::windows::core::Abi for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_GRAPHICS_PIPELINE_STATE_DESC>()) == 0 }
+        self.pRootSignature == other.pRootSignature
+            && self.VS == other.VS
+            && self.PS == other.PS
+            && self.DS == other.DS
+            && self.HS == other.HS
+            && self.GS == other.GS
+            && self.StreamOutput == other.StreamOutput
+            && self.BlendState == other.BlendState
+            && self.SampleMask == other.SampleMask
+            && self.RasterizerState == other.RasterizerState
+            && self.DepthStencilState == other.DepthStencilState
+            && self.InputLayout == other.InputLayout
+            && self.IBStripCutValue == other.IBStripCutValue
+            && self.PrimitiveTopologyType == other.PrimitiveTopologyType
+            && self.NumRenderTargets == other.NumRenderTargets
+            && self.RTVFormats == other.RTVFormats
+            && self.DSVFormat == other.DSVFormat
+            && self.SampleDesc == other.SampleDesc
+            && self.NodeMask == other.NodeMask
+            && self.CachedPSO == other.CachedPSO
+            && self.Flags == other.Flags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4181,7 +4201,7 @@ unsafe impl ::windows::core::Abi for D3D12_LOCAL_ROOT_SIGNATURE {
 }
 impl ::core::cmp::PartialEq for D3D12_LOCAL_ROOT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_LOCAL_ROOT_SIGNATURE>()) == 0 }
+        self.pLocalRootSignature == other.pLocalRootSignature
     }
 }
 impl ::core::cmp::Eq for D3D12_LOCAL_ROOT_SIGNATURE {}
@@ -6466,7 +6486,7 @@ unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>()) == 0 }
+        self.cpuDescriptor == other.cpuDescriptor && self.DepthBeginningAccess == other.DepthBeginningAccess && self.StencilBeginningAccess == other.StencilBeginningAccess && self.DepthEndingAccess == other.DepthEndingAccess && self.StencilEndingAccess == other.StencilEndingAccess
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6496,7 +6516,7 @@ unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RENDER_PASS_ENDING_ACCESS>()) == 0 }
+        self.Type == other.Type && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6568,7 +6588,7 @@ unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PAR
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>()) == 0 }
+        self.pSrcResource == other.pSrcResource && self.pDstResource == other.pDstResource && self.SubresourceCount == other.SubresourceCount && self.pSubresourceParameters == other.pSubresourceParameters && self.Format == other.Format && self.ResolveMode == other.ResolveMode && self.PreserveResolveSource == other.PreserveResolveSource
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6644,7 +6664,7 @@ unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RENDER_PASS_RENDER_TARGET_DESC>()) == 0 }
+        self.cpuDescriptor == other.cpuDescriptor && self.BeginningAccess == other.BeginningAccess && self.EndingAccess == other.EndingAccess
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6828,7 +6848,7 @@ unsafe impl ::windows::core::Abi for D3D12_RESOURCE_ALIASING_BARRIER {
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_ALIASING_BARRIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RESOURCE_ALIASING_BARRIER>()) == 0 }
+        self.pResourceBefore == other.pResourceBefore && self.pResourceAfter == other.pResourceAfter
     }
 }
 impl ::core::cmp::Eq for D3D12_RESOURCE_ALIASING_BARRIER {}
@@ -6904,7 +6924,7 @@ unsafe impl ::windows::core::Abi for D3D12_RESOURCE_BARRIER {
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_BARRIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RESOURCE_BARRIER>()) == 0 }
+        self.Type == other.Type && self.Flags == other.Flags && self.Anonymous == other.Anonymous
     }
 }
 impl ::core::cmp::Eq for D3D12_RESOURCE_BARRIER {}
@@ -7096,7 +7116,7 @@ unsafe impl ::windows::core::Abi for D3D12_RESOURCE_TRANSITION_BARRIER {
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_TRANSITION_BARRIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RESOURCE_TRANSITION_BARRIER>()) == 0 }
+        self.pResource == other.pResource && self.Subresource == other.Subresource && self.StateBefore == other.StateBefore && self.StateAfter == other.StateAfter
     }
 }
 impl ::core::cmp::Eq for D3D12_RESOURCE_TRANSITION_BARRIER {}
@@ -7119,7 +7139,7 @@ unsafe impl ::windows::core::Abi for D3D12_RESOURCE_UAV_BARRIER {
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_UAV_BARRIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RESOURCE_UAV_BARRIER>()) == 0 }
+        self.pResource == other.pResource
     }
 }
 impl ::core::cmp::Eq for D3D12_RESOURCE_UAV_BARRIER {}
@@ -9267,7 +9287,7 @@ unsafe impl ::windows::core::Abi for D3D12_TEXTURE_COPY_LOCATION {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_TEXTURE_COPY_LOCATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_TEXTURE_COPY_LOCATION>()) == 0 }
+        self.pResource == other.pResource && self.Type == other.Type && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]

@@ -74,7 +74,7 @@ unsafe impl ::windows::core::Abi for ADSPROPINITPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ADSPROPINITPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSPROPINITPARAMS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.hr == other.hr && self.pDsObj == other.pDsObj && self.pwzCN == other.pwzCN && self.pWritableAttrs == other.pWritableAttrs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19615,7 +19615,7 @@ unsafe impl ::windows::core::Abi for OPENQUERYWINDOW {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for OPENQUERYWINDOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENQUERYWINDOW>()) == 0 }
+        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.clsidHandler == other.clsidHandler && self.pHandlerParameters == other.pHandlerParameters && self.clsidDefaultForm == other.clsidDefaultForm && self.pPersistQuery == other.pPersistQuery && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

@@ -12213,7 +12213,7 @@ unsafe impl ::windows::core::Abi for WMT_BUFFER_SEGMENT {
 }
 impl ::core::cmp::PartialEq for WMT_BUFFER_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_BUFFER_SEGMENT>()) == 0 }
+        self.pBuffer == other.pBuffer && self.cbOffset == other.cbOffset && self.cbLength == other.cbLength
     }
 }
 impl ::core::cmp::Eq for WMT_BUFFER_SEGMENT {}
@@ -12288,7 +12288,7 @@ unsafe impl ::windows::core::Abi for WMT_FILESINK_DATA_UNIT {
 }
 impl ::core::cmp::PartialEq for WMT_FILESINK_DATA_UNIT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_FILESINK_DATA_UNIT>()) == 0 }
+        self.packetHeaderBuffer == other.packetHeaderBuffer && self.cPayloads == other.cPayloads && self.pPayloadHeaderBuffers == other.pPayloadHeaderBuffers && self.cPayloadDataFragments == other.cPayloadDataFragments && self.pPayloadDataFragments == other.pPayloadDataFragments
     }
 }
 impl ::core::cmp::Eq for WMT_FILESINK_DATA_UNIT {}
@@ -12341,7 +12341,7 @@ unsafe impl ::windows::core::Abi for WMT_PAYLOAD_FRAGMENT {
 }
 impl ::core::cmp::PartialEq for WMT_PAYLOAD_FRAGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_PAYLOAD_FRAGMENT>()) == 0 }
+        self.dwPayloadIndex == other.dwPayloadIndex && self.segmentData == other.segmentData
     }
 }
 impl ::core::cmp::Eq for WMT_PAYLOAD_FRAGMENT {}
@@ -12947,7 +12947,7 @@ unsafe impl ::windows::core::Abi for WM_MEDIA_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WM_MEDIA_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_MEDIA_TYPE>()) == 0 }
+        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
     }
 }
 #[cfg(feature = "Win32_Foundation")]

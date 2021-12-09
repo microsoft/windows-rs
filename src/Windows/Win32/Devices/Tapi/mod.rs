@@ -17743,7 +17743,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.Event == other.Event && self.hCall == other.hCall && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17809,7 +17809,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_0>()) == 0 }
+        self.Type == other.Type && self.pTerminal == other.pTerminal
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17839,7 +17839,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_1 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_1>()) == 0 }
+        self.pASRTerminal == other.pASRTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17872,7 +17872,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_2 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_2>()) == 0 }
+        self.Type == other.Type && self.Cause == other.Cause && self.pStream == other.pStream && self.pTerminal == other.pTerminal && self.hrError == other.hrError
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17911,7 +17911,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_3 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_3>()) == 0 }
+        self.pParentFileTerminal == other.pParentFileTerminal && self.pFileTrack == other.pFileTrack && self.TerminalMediaState == other.TerminalMediaState && self.ftecEventCause == other.ftecEventCause && self.hrErrorCode == other.hrErrorCode
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17941,7 +17941,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_4 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_4>()) == 0 }
+        self.pEvent == other.pEvent && self.lEventCode == other.lEventCode
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17971,7 +17971,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_5 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_5>()) == 0 }
+        self.pToneTerminal == other.pToneTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18033,7 +18033,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_7 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_7>()) == 0 }
+        self.pTTSTerminal == other.pTTSTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
 #[cfg(feature = "Win32_System_Com")]

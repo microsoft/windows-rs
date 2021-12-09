@@ -1720,7 +1720,7 @@ impl ::windows::core::DefaultType for XmlnsDefinition {
 }
 impl ::core::cmp::PartialEq for XmlnsDefinition {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XmlnsDefinition>()) == 0 }
+        self.XmlNamespace == other.XmlNamespace && self.Namespace == other.Namespace
     }
 }
 impl ::core::cmp::Eq for XmlnsDefinition {}

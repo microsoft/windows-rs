@@ -13759,7 +13759,7 @@ unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASEPROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY>()) == 0 }
+        self.pszName == other.pszName && self.Anonymous == other.Anonymous && self.pszValue == other.pszValue && self.vValue == other.vValue && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements && self.pNextSibling == other.pNextSibling && self.pFirstChild == other.pFirstChild && self.SREngineConfidence == other.SREngineConfidence && self.Confidence == other.Confidence
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13982,7 +13982,7 @@ unsafe impl ::windows::core::Abi for SPPROPERTYINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPROPERTYINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPROPERTYINFO>()) == 0 }
+        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

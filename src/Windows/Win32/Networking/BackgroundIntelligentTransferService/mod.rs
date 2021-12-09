@@ -692,7 +692,7 @@ unsafe impl ::windows::core::Abi for FILESETINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILESETINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILESETINFO>()) == 0 }
+        self.bstrRemoteFile == other.bstrRemoteFile && self.bstrLocalFile == other.bstrLocalFile && self.dwSizeHint == other.dwSizeHint
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -1302,7 +1302,7 @@ unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONFIGUREDEVICESPARAMSA>()) == 0 }
+        self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONFIGUREDEVICESPARAMSW>()) == 0 }
+        self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]

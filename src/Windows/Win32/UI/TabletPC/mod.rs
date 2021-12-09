@@ -604,7 +604,7 @@ unsafe impl ::windows::core::Abi for DYNAMIC_RENDERER_CACHED_DATA {
 }
 impl ::core::cmp::PartialEq for DYNAMIC_RENDERER_CACHED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DYNAMIC_RENDERER_CACHED_DATA>()) == 0 }
+        self.strokeId == other.strokeId && self.dynamicRenderer == other.dynamicRenderer
     }
 }
 impl ::core::cmp::Eq for DYNAMIC_RENDERER_CACHED_DATA {}
@@ -1236,7 +1236,7 @@ unsafe impl ::windows::core::Abi for IEC_GESTUREINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for IEC_GESTUREINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IEC_GESTUREINFO>()) == 0 }
+        self.nmhdr == other.nmhdr && self.Cursor == other.Cursor && self.Strokes == other.Strokes && self.Gestures == other.Gestures
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
@@ -1266,7 +1266,7 @@ unsafe impl ::windows::core::Abi for IEC_RECOGNITIONRESULTINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for IEC_RECOGNITIONRESULTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IEC_RECOGNITIONRESULTINFO>()) == 0 }
+        self.nmhdr == other.nmhdr && self.RecognitionResult == other.RecognitionResult
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -1297,7 +1297,7 @@ unsafe impl ::windows::core::Abi for IEC_STROKEINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for IEC_STROKEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IEC_STROKEINFO>()) == 0 }
+        self.nmhdr == other.nmhdr && self.Cursor == other.Cursor && self.Stroke == other.Stroke
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]

@@ -12254,7 +12254,7 @@ unsafe impl ::windows::core::Abi for TF_HALTCOND {
 }
 impl ::core::cmp::PartialEq for TF_HALTCOND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_HALTCOND>()) == 0 }
+        self.pHaltRange == other.pHaltRange && self.aHaltPos == other.aHaltPos && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for TF_HALTCOND {}
@@ -12398,7 +12398,7 @@ unsafe impl ::windows::core::Abi for TF_LBBALLOONINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TF_LBBALLOONINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LBBALLOONINFO>()) == 0 }
+        self.style == other.style && self.bstrText == other.bstrText
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12457,7 +12457,7 @@ unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TF_LMLATTELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LMLATTELEMENT>()) == 0 }
+        self.dwFrameStart == other.dwFrameStart && self.dwFrameLen == other.dwFrameLen && self.dwFlags == other.dwFlags && self.Anonymous == other.Anonymous && self.bstrText == other.bstrText
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12601,7 +12601,7 @@ unsafe impl ::windows::core::Abi for TF_PROPERTYVAL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for TF_PROPERTYVAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PROPERTYVAL>()) == 0 }
+        self.guidId == other.guidId && self.varValue == other.varValue
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12648,7 +12648,7 @@ unsafe impl ::windows::core::Abi for TF_SELECTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TF_SELECTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_SELECTION>()) == 0 }
+        self.range == other.range && self.style == other.style
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12868,7 +12868,7 @@ unsafe impl ::windows::core::Abi for TS_ATTRVAL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for TS_ATTRVAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_ATTRVAL>()) == 0 }
+        self.idAttr == other.idAttr && self.dwOverlapId == other.dwOverlapId && self.varValue == other.varValue
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13025,7 +13025,7 @@ unsafe impl ::windows::core::Abi for TS_SELECTION_ANCHOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TS_SELECTION_ANCHOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTION_ANCHOR>()) == 0 }
+        self.paStart == other.paStart && self.paEnd == other.paEnd && self.style == other.style
     }
 }
 #[cfg(feature = "Win32_Foundation")]

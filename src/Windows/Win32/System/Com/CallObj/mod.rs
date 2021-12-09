@@ -114,7 +114,7 @@ unsafe impl ::windows::core::Abi for CALLFRAME_MARSHALCONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CALLFRAME_MARSHALCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALLFRAME_MARSHALCONTEXT>()) == 0 }
+        self.fIn == other.fIn && self.dwDestContext == other.dwDestContext && self.pvDestContext == other.pvDestContext && self.punkReserved == other.punkReserved && self.guidTransferSyntax == other.guidTransferSyntax
     }
 }
 #[cfg(feature = "Win32_Foundation")]

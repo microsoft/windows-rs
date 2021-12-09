@@ -509,7 +509,7 @@ unsafe impl ::windows::core::Abi for HH_GLOBAL_PROPERTY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for HH_GLOBAL_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_GLOBAL_PROPERTY>()) == 0 }
+        self.id == other.id && self.var == other.var
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

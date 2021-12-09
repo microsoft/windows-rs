@@ -497,7 +497,7 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAP_PROPERTIES1 {
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D2D1_BITMAP_PROPERTIES1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BITMAP_PROPERTIES1>()) == 0 }
+        self.pixelFormat == other.pixelFormat && self.dpiX == other.dpiX && self.dpiY == other.dpiY && self.bitmapOptions == other.bitmapOptions && self.colorContext == other.colorContext
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1005,7 +1005,7 @@ unsafe impl ::windows::core::Abi for D2D1_EFFECT_INPUT_DESCRIPTION {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_EFFECT_INPUT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_EFFECT_INPUT_DESCRIPTION>()) == 0 }
+        self.effect == other.effect && self.inputIndex == other.inputIndex && self.inputRectangle == other.inputRectangle
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1626,7 +1626,7 @@ unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_LAYER_PARAMETERS>()) == 0 }
+        self.contentBounds == other.contentBounds && self.geometricMask == other.geometricMask && self.maskAntialiasMode == other.maskAntialiasMode && self.maskTransform == other.maskTransform && self.opacity == other.opacity && self.opacityBrush == other.opacityBrush && self.layerOptions == other.layerOptions
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1669,7 +1669,7 @@ unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS1 {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_LAYER_PARAMETERS1>()) == 0 }
+        self.contentBounds == other.contentBounds && self.geometricMask == other.geometricMask && self.maskAntialiasMode == other.maskAntialiasMode && self.maskTransform == other.maskTransform && self.opacity == other.opacity && self.opacityBrush == other.opacityBrush && self.layerOptions == other.layerOptions
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]

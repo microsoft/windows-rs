@@ -438,7 +438,7 @@ unsafe impl ::windows::core::Abi for ExtendedProperty {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ExtendedProperty {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ExtendedProperty>()) == 0 }
+        self.PropertyName == other.PropertyName && self.PropertyValue == other.PropertyValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21804,7 +21804,7 @@ unsafe impl ::windows::core::Abi for UIAutomationPatternInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UIAutomationPatternInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationPatternInfo>()) == 0 }
+        self.guid == other.guid && self.pProgrammaticName == other.pProgrammaticName && self.providerInterfaceId == other.providerInterfaceId && self.clientInterfaceId == other.clientInterfaceId && self.cProperties == other.cProperties && self.pProperties == other.pProperties && self.cMethods == other.cMethods && self.pMethods == other.pMethods && self.cEvents == other.cEvents && self.pEvents == other.pEvents && self.pPatternHandler == other.pPatternHandler
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21997,7 +21997,7 @@ unsafe impl ::windows::core::Abi for UiaChangeInfo {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for UiaChangeInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaChangeInfo>()) == 0 }
+        self.uiaId == other.uiaId && self.payload == other.payload && self.extraInfo == other.extraInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -22586,7 +22586,7 @@ unsafe impl ::windows::core::Abi for UiaPropertyChangedEventArgs {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for UiaPropertyChangedEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaPropertyChangedEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId && self.PropertyId == other.PropertyId && self.OldValue == other.OldValue && self.NewValue == other.NewValue
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -22618,7 +22618,7 @@ unsafe impl ::windows::core::Abi for UiaPropertyCondition {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for UiaPropertyCondition {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaPropertyCondition>()) == 0 }
+        self.ConditionType == other.ConditionType && self.PropertyId == other.PropertyId && self.Value == other.Value && self.Flags == other.Flags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

@@ -537,7 +537,7 @@ unsafe impl ::windows::core::Abi for CONFIGURATION_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONFIGURATION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIGURATION_ENTRY>()) == 0 }
+        self.bstrKey == other.bstrKey && self.bstrValue == other.bstrValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -121,7 +121,7 @@ unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMO_MEDIA_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMO_MEDIA_TYPE>()) == 0 }
+        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -149,7 +149,7 @@ unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
 }
 impl ::core::cmp::PartialEq for DMO_OUTPUT_DATA_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMO_OUTPUT_DATA_BUFFER>()) == 0 }
+        self.pBuffer == other.pBuffer && self.dwStatus == other.dwStatus && self.rtTimestamp == other.rtTimestamp && self.rtTimelength == other.rtTimelength
     }
 }
 impl ::core::cmp::Eq for DMO_OUTPUT_DATA_BUFFER {}

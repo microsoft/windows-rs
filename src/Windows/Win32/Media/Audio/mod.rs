@@ -1400,7 +1400,7 @@ unsafe impl ::windows::core::Abi for AudioExtensionParams {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AudioExtensionParams {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AudioExtensionParams>()) == 0 }
+        self.AddPageParam == other.AddPageParam && self.pEndpoint == other.pEndpoint && self.pPnpInterface == other.pPnpInterface && self.pPnpDevnode == other.pPnpDevnode
     }
 }
 #[cfg(feature = "Win32_Foundation")]

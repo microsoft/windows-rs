@@ -641,7 +641,7 @@ unsafe impl ::windows::core::Abi for BINDINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for BINDINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BINDINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.szExtraInfo == other.szExtraInfo && self.stgmedData == other.stgmedData && self.grfBindInfoF == other.grfBindInfoF && self.dwBindVerb == other.dwBindVerb && self.szCustomVerb == other.szCustomVerb && self.cbstgmedData == other.cbstgmedData && self.dwOptions == other.dwOptions && self.dwOptionsFlags == other.dwOptionsFlags && self.dwCodePage == other.dwCodePage && self.securityAttributes == other.securityAttributes && self.iid == other.iid && self.pUnk == other.pUnk && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::Abi for CONNECTDATA {
 }
 impl ::core::cmp::PartialEq for CONNECTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTDATA>()) == 0 }
+        self.pUnk == other.pUnk && self.dwCookie == other.dwCookie
     }
 }
 impl ::core::cmp::Eq for CONNECTDATA {}
@@ -1241,7 +1241,7 @@ unsafe impl ::windows::core::Abi for CUSTDATAITEM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for CUSTDATAITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CUSTDATAITEM>()) == 0 }
+        self.guid == other.guid && self.varValue == other.varValue
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::Abi for EXCEPINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXCEPINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXCEPINFO>()) == 0 }
+        self.wCode == other.wCode && self.wReserved == other.wReserved && self.bstrSource == other.bstrSource && self.bstrDescription == other.bstrDescription && self.bstrHelpFile == other.bstrHelpFile && self.dwHelpContext == other.dwHelpContext && self.pvReserved == other.pvReserved && self.pfnDeferredFillIn.map(|f| f as usize) == other.pfnDeferredFillIn.map(|f| f as usize) && self.scode == other.scode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2932,7 +2932,7 @@ unsafe impl ::windows::core::Abi for FLAG_STGMEDIUM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for FLAG_STGMEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAG_STGMEDIUM>()) == 0 }
+        self.ContextFlags == other.ContextFlags && self.fPassOwnership == other.fPassOwnership && self.Stgmed == other.Stgmed
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6895,7 +6895,7 @@ unsafe impl ::windows::core::Abi for INTERFACEINFO {
 }
 impl ::core::cmp::PartialEq for INTERFACEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERFACEINFO>()) == 0 }
+        self.pUnk == other.pUnk && self.iid == other.iid && self.wMethod == other.wMethod
     }
 }
 impl ::core::cmp::Eq for INTERFACEINFO {}
@@ -10933,7 +10933,7 @@ unsafe impl ::windows::core::Abi for MULTI_QI {
 }
 impl ::core::cmp::PartialEq for MULTI_QI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MULTI_QI>()) == 0 }
+        self.pIID == other.pIID && self.pItf == other.pItf && self.hr == other.hr
     }
 }
 impl ::core::cmp::Eq for MULTI_QI {}
@@ -11365,7 +11365,7 @@ unsafe impl ::windows::core::Abi for STATDATA {
 }
 impl ::core::cmp::PartialEq for STATDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STATDATA>()) == 0 }
+        self.formatetc == other.formatetc && self.advf == other.advf && self.pAdvSink == other.pAdvSink && self.dwConnection == other.dwConnection
     }
 }
 impl ::core::cmp::Eq for STATDATA {}
@@ -11435,7 +11435,7 @@ unsafe impl ::windows::core::Abi for STGMEDIUM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for STGMEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STGMEDIUM>()) == 0 }
+        self.tymed == other.tymed && self.Anonymous == other.Anonymous && self.pUnkForRelease == other.pUnkForRelease
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -11894,7 +11894,7 @@ unsafe impl ::windows::core::Abi for VARIANT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for VARIANT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARIANT>()) == 0 }
+        self.Anonymous == other.Anonymous
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -11957,7 +11957,7 @@ unsafe impl ::windows::core::Abi for VARIANT_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for VARIANT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARIANT_0_0>()) == 0 }
+        self.vt == other.vt && self.wReserved1 == other.wReserved1 && self.wReserved2 == other.wReserved2 && self.wReserved3 == other.wReserved3 && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -12061,7 +12061,7 @@ unsafe impl ::windows::core::Abi for VARIANT_0_0_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for VARIANT_0_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARIANT_0_0_0_0>()) == 0 }
+        self.pvRecord == other.pvRecord && self.pRecInfo == other.pRecInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -12251,7 +12251,7 @@ unsafe impl ::windows::core::Abi for userFLAG_STGMEDIUM {
 }
 impl ::core::cmp::PartialEq for userFLAG_STGMEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<userFLAG_STGMEDIUM>()) == 0 }
+        self.ContextFlags == other.ContextFlags && self.fPassOwnership == other.fPassOwnership && self.Stgmed == other.Stgmed
     }
 }
 impl ::core::cmp::Eq for userFLAG_STGMEDIUM {}
@@ -12274,7 +12274,7 @@ unsafe impl ::windows::core::Abi for userSTGMEDIUM {
 }
 impl ::core::cmp::PartialEq for userSTGMEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<userSTGMEDIUM>()) == 0 }
+        self.pUnkForRelease == other.pUnkForRelease
     }
 }
 impl ::core::cmp::Eq for userSTGMEDIUM {}

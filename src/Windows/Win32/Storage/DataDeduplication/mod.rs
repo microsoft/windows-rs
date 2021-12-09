@@ -192,7 +192,7 @@ unsafe impl ::windows::core::Abi for DedupStream {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DedupStream {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DedupStream>()) == 0 }
+        self.Path == other.Path && self.Offset == other.Offset && self.Length == other.Length && self.ChunkCount == other.ChunkCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]

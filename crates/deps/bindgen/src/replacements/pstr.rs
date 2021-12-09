@@ -21,6 +21,12 @@ pub fn gen() -> TokenStream {
             }
         }
         impl ::core::marker::Copy for PSTR {}
+        impl ::core::cmp::PartialEq for PSTR {
+            fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+            }
+        }
+        impl ::core::cmp::Eq for PSTR {}
         unsafe impl ::windows::core::Abi for PSTR {
             type Abi = Self;
 

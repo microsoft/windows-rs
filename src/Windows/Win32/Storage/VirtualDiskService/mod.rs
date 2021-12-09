@@ -2337,7 +2337,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT>()) == 0 }
+        self.r#type == other.r#type && self.Anonymous == other.Anonymous
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT {}
@@ -2390,7 +2390,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_0 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_0>()) == 0 }
+        self.pVolumeUnk == other.pVolumeUnk
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_0 {}
@@ -2413,7 +2413,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_1 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_1>()) == 0 }
+        self.pLunUnk == other.pLunUnk
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_1 {}
@@ -2461,7 +2461,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_3 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_3>()) == 0 }
+        self.pPortalGroupUnk == other.pPortalGroupUnk
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_3 {}
@@ -2484,7 +2484,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_4 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_4>()) == 0 }
+        self.pTargetUnk == other.pTargetUnk
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_4 {}
@@ -2507,7 +2507,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_5 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_5>()) == 0 }
+        self.pVolumeUnk == other.pVolumeUnk
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_5 {}
@@ -2530,7 +2530,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_6 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_6>()) == 0 }
+        self.pVDiskUnk == other.pVDiskUnk
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_6 {}

@@ -33,7 +33,7 @@ unsafe impl ::windows::core::Abi for COMEVENTSYSCHANGEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMEVENTSYSCHANGEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMEVENTSYSCHANGEINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.changeType == other.changeType && self.objectId == other.objectId && self.partitionId == other.partitionId && self.applicationId == other.applicationId && self.reserved == other.reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]

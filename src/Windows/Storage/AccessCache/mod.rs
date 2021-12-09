@@ -50,7 +50,7 @@ impl ::windows::core::DefaultType for AccessListEntry {
 }
 impl ::core::cmp::PartialEq for AccessListEntry {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AccessListEntry>()) == 0 }
+        self.Token == other.Token && self.Metadata == other.Metadata
     }
 }
 impl ::core::cmp::Eq for AccessListEntry {}

@@ -5226,7 +5226,7 @@ unsafe impl ::windows::core::Abi for MMC_SNAPIN_PROPERTY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for MMC_SNAPIN_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SNAPIN_PROPERTY>()) == 0 }
+        self.pszPropName == other.pszPropName && self.varValue == other.varValue && self.eAction == other.eAction
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6303,7 +6303,7 @@ unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO>()) == 0 }
+        self.pstrPersistableViewDescription == other.pstrPersistableViewDescription && self.eViewType == other.eViewType && self.dwMiscOptions == other.dwMiscOptions && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6396,7 +6396,7 @@ unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0_1>()) == 0 }
+        self.dwOCXOptions == other.dwOCXOptions && self.pUnkControl == other.pUnkControl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6519,7 +6519,7 @@ unsafe impl ::windows::core::Abi for SMMCDataObjects {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SMMCDataObjects {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMMCDataObjects>()) == 0 }
+        self.count == other.count && self.lpDataObject == other.lpDataObject
     }
 }
 #[cfg(feature = "Win32_System_Com")]

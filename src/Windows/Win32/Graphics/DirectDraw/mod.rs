@@ -232,7 +232,7 @@ unsafe impl ::windows::core::Abi for DDBLTBATCH {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDBLTBATCH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDBLTBATCH>()) == 0 }
+        self.lprDest == other.lprDest && self.lpDDSSrc == other.lpDDSSrc && self.lprSrc == other.lprSrc && self.dwFlags == other.dwFlags && self.lpDDBltFx == other.lpDDBltFx
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -308,7 +308,29 @@ unsafe impl ::windows::core::Abi for DDBLTFX {
 }
 impl ::core::cmp::PartialEq for DDBLTFX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDBLTFX>()) == 0 }
+        self.dwSize == other.dwSize
+            && self.dwDDFX == other.dwDDFX
+            && self.dwROP == other.dwROP
+            && self.dwDDROP == other.dwDDROP
+            && self.dwRotationAngle == other.dwRotationAngle
+            && self.dwZBufferOpCode == other.dwZBufferOpCode
+            && self.dwZBufferLow == other.dwZBufferLow
+            && self.dwZBufferHigh == other.dwZBufferHigh
+            && self.dwZBufferBaseDest == other.dwZBufferBaseDest
+            && self.dwZDestConstBitDepth == other.dwZDestConstBitDepth
+            && self.Anonymous1 == other.Anonymous1
+            && self.dwZSrcConstBitDepth == other.dwZSrcConstBitDepth
+            && self.Anonymous2 == other.Anonymous2
+            && self.dwAlphaEdgeBlendBitDepth == other.dwAlphaEdgeBlendBitDepth
+            && self.dwAlphaEdgeBlend == other.dwAlphaEdgeBlend
+            && self.dwReserved == other.dwReserved
+            && self.dwAlphaDestConstBitDepth == other.dwAlphaDestConstBitDepth
+            && self.Anonymous3 == other.Anonymous3
+            && self.dwAlphaSrcConstBitDepth == other.dwAlphaSrcConstBitDepth
+            && self.Anonymous4 == other.Anonymous4
+            && self.Anonymous5 == other.Anonymous5
+            && self.ddckDestColorkey == other.ddckDestColorkey
+            && self.ddckSrcColorkey == other.ddckSrcColorkey
     }
 }
 impl ::core::cmp::Eq for DDBLTFX {}
@@ -1825,7 +1847,7 @@ unsafe impl ::windows::core::Abi for DDHAL_BLTDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_BLTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDHAL_BLTDATA>()) == 0 }
+        self.lpDD == other.lpDD && self.lpDDDestSurface == other.lpDDDestSurface && self.rDest == other.rDest && self.lpDDSrcSurface == other.lpDDSrcSurface && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags && self.dwROPFlags == other.dwROPFlags && self.bltFX == other.bltFX && self.ddRVal == other.ddRVal && self.Blt.map(|f| f as usize) == other.Blt.map(|f| f as usize) && self.IsClipped == other.IsClipped && self.rOrigDest == other.rOrigDest && self.rOrigSrc == other.rOrigSrc && self.dwRectCnt == other.dwRectCnt && self.prDestRects == other.prDestRects
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4262,7 +4284,7 @@ unsafe impl ::windows::core::Abi for DDHAL_UPDATEOVERLAYDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_UPDATEOVERLAYDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDHAL_UPDATEOVERLAYDATA>()) == 0 }
+        self.lpDD == other.lpDD && self.lpDDDestSurface == other.lpDDDestSurface && self.rDest == other.rDest && self.lpDDSrcSurface == other.lpDDSrcSurface && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags && self.overlayFX == other.overlayFX && self.ddRVal == other.ddRVal && self.UpdateOverlay.map(|f| f as usize) == other.UpdateOverlay.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4959,7 +4981,7 @@ unsafe impl ::windows::core::Abi for DDOVERLAYFX {
 }
 impl ::core::cmp::PartialEq for DDOVERLAYFX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDOVERLAYFX>()) == 0 }
+        self.dwSize == other.dwSize && self.dwAlphaEdgeBlendBitDepth == other.dwAlphaEdgeBlendBitDepth && self.dwAlphaEdgeBlend == other.dwAlphaEdgeBlend && self.dwReserved == other.dwReserved && self.dwAlphaDestConstBitDepth == other.dwAlphaDestConstBitDepth && self.Anonymous1 == other.Anonymous1 && self.dwAlphaSrcConstBitDepth == other.dwAlphaSrcConstBitDepth && self.Anonymous2 == other.Anonymous2 && self.dckDestColorkey == other.dckDestColorkey && self.dckSrcColorkey == other.dckSrcColorkey && self.dwDDFX == other.dwDDFX && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for DDOVERLAYFX {}
@@ -5566,7 +5588,7 @@ unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDRAWI_DDRAWCLIPPER_LCL>()) == 0 }
+        self.lpClipMore == other.lpClipMore && self.lpGbl == other.lpGbl && self.lpDD_lcl == other.lpDD_lcl && self.dwLocalRefCnt == other.dwLocalRefCnt && self.pUnkOuter == other.pUnkOuter && self.lpDD_int == other.lpDD_int && self.dwReserved1 == other.dwReserved1 && self.pAddrefedThisOwner == other.pAddrefedThisOwner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5722,7 +5744,7 @@ unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDRAWI_DDRAWPALETTE_LCL>()) == 0 }
+        self.lpPalMore == other.lpPalMore && self.lpGbl == other.lpGbl && self.dwUnused0 == other.dwUnused0 && self.dwLocalRefCnt == other.dwLocalRefCnt && self.pUnkOuter == other.pUnkOuter && self.lpDD_lcl == other.lpDD_lcl && self.dwReserved1 == other.dwReserved1 && self.dwDDRAWReserved1 == other.dwDDRAWReserved1 && self.dwDDRAWReserved2 == other.dwDDRAWReserved2 && self.dwDDRAWReserved3 == other.dwDDRAWReserved3
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6478,7 +6500,32 @@ unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DIRECTDRAW_LCL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDRAWI_DIRECTDRAW_LCL>()) == 0 }
+        self.lpDDMore == other.lpDDMore
+            && self.lpGbl == other.lpGbl
+            && self.dwUnused0 == other.dwUnused0
+            && self.dwLocalFlags == other.dwLocalFlags
+            && self.dwLocalRefCnt == other.dwLocalRefCnt
+            && self.dwProcessId == other.dwProcessId
+            && self.pUnkOuter == other.pUnkOuter
+            && self.dwObsolete1 == other.dwObsolete1
+            && self.hWnd == other.hWnd
+            && self.hDC == other.hDC
+            && self.dwErrorMode == other.dwErrorMode
+            && self.lpPrimary == other.lpPrimary
+            && self.lpCB == other.lpCB
+            && self.dwPreferredMode == other.dwPreferredMode
+            && self.hD3DInstance == other.hD3DInstance
+            && self.pD3DIUnknown == other.pD3DIUnknown
+            && self.lpDDCB == other.lpDDCB
+            && self.hDDVxd == other.hDDVxd
+            && self.dwAppHackFlags == other.dwAppHackFlags
+            && self.hFocusWnd == other.hFocusWnd
+            && self.dwHotTracking == other.dwHotTracking
+            && self.dwIMEState == other.dwIMEState
+            && self.hWndPopup == other.hWndPopup
+            && self.hDD == other.hDD
+            && self.hGammaCalibrator == other.hGammaCalibrator
+            && self.lpGammaCalibrator.map(|f| f as usize) == other.lpGammaCalibrator.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7837,7 +7884,7 @@ unsafe impl ::windows::core::Abi for DD_BLTDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_BLTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DD_BLTDATA>()) == 0 }
+        self.lpDD == other.lpDD && self.lpDDDestSurface == other.lpDDDestSurface && self.rDest == other.rDest && self.lpDDSrcSurface == other.lpDDSrcSurface && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags && self.dwROPFlags == other.dwROPFlags && self.bltFX == other.bltFX && self.ddRVal == other.ddRVal && self.Blt == other.Blt && self.IsClipped == other.IsClipped && self.rOrigDest == other.rOrigDest && self.rOrigSrc == other.rOrigSrc && self.dwRectCnt == other.dwRectCnt && self.prDestRects == other.prDestRects && self.dwAFlags == other.dwAFlags && self.ddargbScaleFactors == other.ddargbScaleFactors
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10720,7 +10767,7 @@ unsafe impl ::windows::core::Abi for DD_UPDATEOVERLAYDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_UPDATEOVERLAYDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DD_UPDATEOVERLAYDATA>()) == 0 }
+        self.lpDD == other.lpDD && self.lpDDDestSurface == other.lpDDDestSurface && self.rDest == other.rDest && self.lpDDSrcSurface == other.lpDDSrcSurface && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags && self.overlayFX == other.overlayFX && self.ddRVal == other.ddRVal && self.UpdateOverlay == other.UpdateOverlay
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13569,7 +13616,7 @@ unsafe impl ::windows::core::Abi for IUNKNOWN_LIST {
 }
 impl ::core::cmp::PartialEq for IUNKNOWN_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IUNKNOWN_LIST>()) == 0 }
+        self.lpLink == other.lpLink && self.lpGuid == other.lpGuid && self.lpIUnknown == other.lpIUnknown
     }
 }
 impl ::core::cmp::Eq for IUNKNOWN_LIST {}

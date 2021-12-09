@@ -2732,7 +2732,7 @@ impl ::windows::core::DefaultType for StorePackageUpdateStatus {
 }
 impl ::core::cmp::PartialEq for StorePackageUpdateStatus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<StorePackageUpdateStatus>()) == 0 }
+        self.PackageFamilyName == other.PackageFamilyName && self.PackageDownloadSizeInBytes == other.PackageDownloadSizeInBytes && self.PackageBytesDownloaded == other.PackageBytesDownloaded && self.PackageDownloadProgress == other.PackageDownloadProgress && self.TotalDownloadProgress == other.TotalDownloadProgress && self.PackageUpdateState == other.PackageUpdateState
     }
 }
 impl ::core::cmp::Eq for StorePackageUpdateStatus {}

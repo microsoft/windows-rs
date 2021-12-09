@@ -272,7 +272,7 @@ unsafe impl ::windows::core::Abi for CONFIRMSAFETY {
 }
 impl ::core::cmp::PartialEq for CONFIRMSAFETY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIRMSAFETY>()) == 0 }
+        self.clsid == other.clsid && self.pUnk == other.pUnk && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for CONFIRMSAFETY {}
@@ -4729,7 +4729,7 @@ unsafe impl ::windows::core::Abi for PROTOCOLFILTERDATA {
 }
 impl ::core::cmp::PartialEq for PROTOCOLFILTERDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOLFILTERDATA>()) == 0 }
+        self.cbSize == other.cbSize && self.pProtocolSink == other.pProtocolSink && self.pProtocol == other.pProtocol && self.pUnk == other.pUnk && self.dwFilterFlags == other.dwFilterFlags
     }
 }
 impl ::core::cmp::Eq for PROTOCOLFILTERDATA {}
@@ -4961,7 +4961,7 @@ unsafe impl ::windows::core::Abi for RemBINDINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RemBINDINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemBINDINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.szExtraInfo == other.szExtraInfo && self.grfBindInfoF == other.grfBindInfoF && self.dwBindVerb == other.dwBindVerb && self.szCustomVerb == other.szCustomVerb && self.cbstgmedData == other.cbstgmedData && self.dwOptions == other.dwOptions && self.dwOptionsFlags == other.dwOptionsFlags && self.dwCodePage == other.dwCodePage && self.securityAttributes == other.securityAttributes && self.iid == other.iid && self.pUnk == other.pUnk && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5135,7 +5135,7 @@ unsafe impl ::windows::core::Abi for StartParam {
 }
 impl ::core::cmp::PartialEq for StartParam {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<StartParam>()) == 0 }
+        self.iid == other.iid && self.pIBindCtx == other.pIBindCtx && self.pItf == other.pItf
     }
 }
 impl ::core::cmp::Eq for StartParam {}

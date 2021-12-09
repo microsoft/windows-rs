@@ -20862,7 +20862,7 @@ unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__MIDL___MIDL_itf_imgerror_0000_0000_0001>()) == 0 }
+        self.description == other.description && self.guid == other.guid && self.helpContext == other.helpContext && self.helpFile == other.helpFile && self.source == other.source && self.devDescription == other.devDescription && self.errorID == other.errorID && self.cUserParameters == other.cUserParameters && self.aUserParameters == other.aUserParameters && self.userFallback == other.userFallback && self.exceptionID == other.exceptionID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

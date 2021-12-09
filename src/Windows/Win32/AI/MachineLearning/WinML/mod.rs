@@ -1708,7 +1708,7 @@ unsafe impl ::windows::core::Abi for WINML_BINDING_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ::core::cmp::PartialEq for WINML_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_BINDING_DESC>()) == 0 }
+        self.Name == other.Name && self.BindType == other.BindType && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -2001,7 +2001,7 @@ unsafe impl ::windows::core::Abi for WINML_RESOURCE_BINDING_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for WINML_RESOURCE_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_RESOURCE_BINDING_DESC>()) == 0 }
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.pResource == other.pResource
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]

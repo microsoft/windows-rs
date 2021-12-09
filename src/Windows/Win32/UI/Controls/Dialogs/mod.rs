@@ -2352,7 +2352,27 @@ unsafe impl ::windows::core::Abi for PRINTDLGEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGEXA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGEXA>()) == 0 }
+        self.lStructSize == other.lStructSize
+            && self.hwndOwner == other.hwndOwner
+            && self.hDevMode == other.hDevMode
+            && self.hDevNames == other.hDevNames
+            && self.hDC == other.hDC
+            && self.Flags == other.Flags
+            && self.Flags2 == other.Flags2
+            && self.ExclusionFlags == other.ExclusionFlags
+            && self.nPageRanges == other.nPageRanges
+            && self.nMaxPageRanges == other.nMaxPageRanges
+            && self.lpPageRanges == other.lpPageRanges
+            && self.nMinPage == other.nMinPage
+            && self.nMaxPage == other.nMaxPage
+            && self.nCopies == other.nCopies
+            && self.hInstance == other.hInstance
+            && self.lpPrintTemplateName == other.lpPrintTemplateName
+            && self.lpCallback == other.lpCallback
+            && self.nPropertyPages == other.nPropertyPages
+            && self.lphPropertyPages == other.lphPropertyPages
+            && self.nStartPage == other.nStartPage
+            && self.dwResultAction == other.dwResultAction
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2477,7 +2497,27 @@ unsafe impl ::windows::core::Abi for PRINTDLGEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGEXW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGEXW>()) == 0 }
+        self.lStructSize == other.lStructSize
+            && self.hwndOwner == other.hwndOwner
+            && self.hDevMode == other.hDevMode
+            && self.hDevNames == other.hDevNames
+            && self.hDC == other.hDC
+            && self.Flags == other.Flags
+            && self.Flags2 == other.Flags2
+            && self.ExclusionFlags == other.ExclusionFlags
+            && self.nPageRanges == other.nPageRanges
+            && self.nMaxPageRanges == other.nMaxPageRanges
+            && self.lpPageRanges == other.lpPageRanges
+            && self.nMinPage == other.nMinPage
+            && self.nMaxPage == other.nMaxPage
+            && self.nCopies == other.nCopies
+            && self.hInstance == other.hInstance
+            && self.lpPrintTemplateName == other.lpPrintTemplateName
+            && self.lpCallback == other.lpCallback
+            && self.nPropertyPages == other.nPropertyPages
+            && self.lphPropertyPages == other.lphPropertyPages
+            && self.nStartPage == other.nStartPage
+            && self.dwResultAction == other.dwResultAction
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]

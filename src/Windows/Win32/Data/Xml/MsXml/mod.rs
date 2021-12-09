@@ -17385,7 +17385,7 @@ unsafe impl ::windows::core::Abi for XML_ERROR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XML_ERROR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XML_ERROR>()) == 0 }
+        self._nLine == other._nLine && self._pchBuf == other._pchBuf && self._cchBuf == other._cchBuf && self._ich == other._ich && self._pszFound == other._pszFound && self._pszExpected == other._pszExpected && self._reserved1 == other._reserved1 && self._reserved2 == other._reserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]

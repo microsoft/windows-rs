@@ -889,7 +889,7 @@ unsafe impl ::windows::core::Abi for DML_BINDING_TABLE_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BINDING_TABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DML_BINDING_TABLE_DESC>()) == 0 }
+        self.Dispatchable == other.Dispatchable && self.CPUDescriptorHandle == other.CPUDescriptorHandle && self.GPUDescriptorHandle == other.GPUDescriptorHandle && self.SizeInDescriptors == other.SizeInDescriptors
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -956,7 +956,7 @@ unsafe impl ::windows::core::Abi for DML_BUFFER_BINDING {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BUFFER_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DML_BUFFER_BINDING>()) == 0 }
+        self.Buffer == other.Buffer && self.Offset == other.Offset && self.SizeInBytes == other.SizeInBytes
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3995,7 +3995,7 @@ unsafe impl ::windows::core::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DML_OPERATOR_GRAPH_NODE_DESC>()) == 0 }
+        self.Operator == other.Operator && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -2141,7 +2141,7 @@ unsafe impl ::windows::core::Abi for D3D10_PASS_SHADER_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_PASS_SHADER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_PASS_SHADER_DESC>()) == 0 }
+        self.pShaderVariable == other.pShaderVariable && self.ShaderIndex == other.ShaderIndex
     }
 }
 impl ::core::cmp::Eq for D3D10_PASS_SHADER_DESC {}

@@ -9762,7 +9762,7 @@ unsafe impl ::windows::core::Abi for PM_BSATASKID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_BSATASKID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_BSATASKID>()) == 0 }
+        self.ProductID == other.ProductID && self.TaskID == other.TaskID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9792,7 +9792,7 @@ unsafe impl ::windows::core::Abi for PM_BWTASKID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_BWTASKID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_BWTASKID>()) == 0 }
+        self.ProductID == other.ProductID && self.TaskID == other.TaskID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9855,7 +9855,7 @@ unsafe impl ::windows::core::Abi for PM_ENUM_FILTER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_ENUM_FILTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_ENUM_FILTER>()) == 0 }
+        self.FilterType == other.FilterType && self.FilterParameter == other.FilterParameter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9943,7 +9943,7 @@ unsafe impl ::windows::core::Abi for PM_EXTENSIONCONSUMER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_EXTENSIONCONSUMER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_EXTENSIONCONSUMER>()) == 0 }
+        self.ConsumerPID == other.ConsumerPID && self.ExtensionID == other.ExtensionID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9990,7 +9990,7 @@ unsafe impl ::windows::core::Abi for PM_INSTALLINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_INSTALLINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_INSTALLINFO>()) == 0 }
+        self.ProductID == other.ProductID && self.PackagePath == other.PackagePath && self.InstanceID == other.InstanceID && self.pbLicense == other.pbLicense && self.cbLicense == other.cbLicense && self.IsUninstallDisabled == other.IsUninstallDisabled && self.DeploymentOptions == other.DeploymentOptions && self.OfferID == other.OfferID && self.MarketplaceAppVersion == other.MarketplaceAppVersion
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10020,7 +10020,7 @@ unsafe impl ::windows::core::Abi for PM_INVOCATIONINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_INVOCATIONINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_INVOCATIONINFO>()) == 0 }
+        self.URIBaseOrAUMID == other.URIBaseOrAUMID && self.URIFragmentOrArgs == other.URIFragmentOrArgs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10081,7 +10081,7 @@ unsafe impl ::windows::core::Abi for PM_STARTAPPBLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_STARTAPPBLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_STARTAPPBLOB>()) == 0 }
+        self.cbSize == other.cbSize && self.ProductID == other.ProductID && self.AppTitle == other.AppTitle && self.IconPath == other.IconPath && self.IsUninstallable == other.IsUninstallable && self.AppInstallType == other.AppInstallType && self.InstanceID == other.InstanceID && self.State == other.State && self.IsModern == other.IsModern && self.IsModernLightUp == other.IsModernLightUp && self.LightUpSupportMask == other.LightUpSupportMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10136,7 +10136,7 @@ unsafe impl ::windows::core::Abi for PM_STARTTILEBLOB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_STARTTILEBLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_STARTTILEBLOB>()) == 0 }
+        self.cbSize == other.cbSize && self.ProductID == other.ProductID && self.TileID == other.TileID && self.TemplateType == other.TemplateType && self.HubPosition == other.HubPosition && self.HubVisibilityBitmask == other.HubVisibilityBitmask && self.IsDefault == other.IsDefault && self.TileType == other.TileType && self.pbPropBlob == other.pbPropBlob && self.cbPropBlob == other.cbPropBlob && self.IsRestoring == other.IsRestoring && self.IsModern == other.IsModern && self.InvocationInfo == other.InvocationInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10218,7 +10218,7 @@ unsafe impl ::windows::core::Abi for PM_UPDATEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_UPDATEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_UPDATEINFO>()) == 0 }
+        self.ProductID == other.ProductID && self.PackagePath == other.PackagePath && self.InstanceID == other.InstanceID && self.pbLicense == other.pbLicense && self.cbLicense == other.cbLicense && self.MarketplaceAppVersion == other.MarketplaceAppVersion && self.DeploymentOptions == other.DeploymentOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10259,7 +10259,7 @@ unsafe impl ::windows::core::Abi for PM_UPDATEINFO_LEGACY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PM_UPDATEINFO_LEGACY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_UPDATEINFO_LEGACY>()) == 0 }
+        self.ProductID == other.ProductID && self.PackagePath == other.PackagePath && self.InstanceID == other.InstanceID && self.pbLicense == other.pbLicense && self.cbLicense == other.cbLicense && self.MarketplaceAppVersion == other.MarketplaceAppVersion
     }
 }
 #[cfg(feature = "Win32_Foundation")]

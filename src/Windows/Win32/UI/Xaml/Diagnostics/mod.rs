@@ -70,7 +70,7 @@ unsafe impl ::windows::core::Abi for CollectionElementValue {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CollectionElementValue {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CollectionElementValue>()) == 0 }
+        self.Index == other.Index && self.ValueType == other.ValueType && self.Value == other.Value && self.MetadataBits == other.MetadataBits
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -102,7 +102,7 @@ unsafe impl ::windows::core::Abi for EnumType {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for EnumType {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EnumType>()) == 0 }
+        self.Name == other.Name && self.ValueInts == other.ValueInts && self.ValueStrings == other.ValueStrings
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -939,7 +939,7 @@ unsafe impl ::windows::core::Abi for PropertyChainSource {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PropertyChainSource {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PropertyChainSource>()) == 0 }
+        self.Handle == other.Handle && self.TargetType == other.TargetType && self.Name == other.Name && self.Source == other.Source && self.SrcInfo == other.SrcInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -988,7 +988,7 @@ unsafe impl ::windows::core::Abi for PropertyChainValue {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PropertyChainValue {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PropertyChainValue>()) == 0 }
+        self.Index == other.Index && self.Type == other.Type && self.DeclaringType == other.DeclaringType && self.ValueType == other.ValueType && self.ItemType == other.ItemType && self.Value == other.Value && self.Overridden == other.Overridden && self.MetadataBits == other.MetadataBits && self.PropertyName == other.PropertyName && self.PropertyChainIndex == other.PropertyChainIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1033,7 +1033,7 @@ unsafe impl ::windows::core::Abi for SourceInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SourceInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SourceInfo>()) == 0 }
+        self.FileName == other.FileName && self.LineNumber == other.LineNumber && self.ColumnNumber == other.ColumnNumber && self.CharPosition == other.CharPosition && self.Hash == other.Hash
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1066,7 +1066,7 @@ unsafe impl ::windows::core::Abi for VisualElement {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VisualElement {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VisualElement>()) == 0 }
+        self.Handle == other.Handle && self.SrcInfo == other.SrcInfo && self.Type == other.Type && self.Name == other.Name && self.NumChildren == other.NumChildren
     }
 }
 #[cfg(feature = "Win32_Foundation")]

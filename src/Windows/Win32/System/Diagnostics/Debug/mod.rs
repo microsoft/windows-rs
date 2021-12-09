@@ -5000,7 +5000,7 @@ unsafe impl ::windows::core::Abi for DebugPropertyInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DebugPropertyInfo>()) == 0 }
+        self.m_dwValidFields == other.m_dwValidFields && self.m_bstrName == other.m_bstrName && self.m_bstrType == other.m_bstrType && self.m_bstrValue == other.m_bstrValue && self.m_bstrFullName == other.m_bstrFullName && self.m_dwAttrib == other.m_dwAttrib && self.m_pDebugProp == other.m_pDebugProp
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5047,7 +5047,7 @@ unsafe impl ::windows::core::Abi for DebugStackFrameDescriptor {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DebugStackFrameDescriptor {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DebugStackFrameDescriptor>()) == 0 }
+        self.pdsf == other.pdsf && self.dwMin == other.dwMin && self.dwLim == other.dwLim && self.fFinal == other.fFinal && self.punkFinal == other.punkFinal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5080,7 +5080,7 @@ unsafe impl ::windows::core::Abi for DebugStackFrameDescriptor64 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DebugStackFrameDescriptor64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DebugStackFrameDescriptor64>()) == 0 }
+        self.pdsf == other.pdsf && self.dwMin == other.dwMin && self.dwLim == other.dwLim && self.fFinal == other.fFinal && self.punkFinal == other.punkFinal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5821,7 +5821,7 @@ unsafe impl ::windows::core::Abi for ExtendedDebugPropertyInfo {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for ExtendedDebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ExtendedDebugPropertyInfo>()) == 0 }
+        self.dwValidFields == other.dwValidFields && self.pszName == other.pszName && self.pszType == other.pszType && self.pszValue == other.pszValue && self.pszFullName == other.pszFullName && self.dwAttrib == other.dwAttrib && self.pDebugProp == other.pDebugProp && self.nDISPID == other.nDISPID && self.nType == other.nType && self.varValue == other.varValue && self.plbValue == other.plbValue && self.pDebugExtProp == other.pDebugExtProp
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -40993,7 +40993,7 @@ unsafe impl ::windows::core::Abi for JsDebugPropertyInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JsDebugPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JsDebugPropertyInfo>()) == 0 }
+        self.name == other.name && self.r#type == other.r#type && self.value == other.value && self.fullName == other.fullName && self.attr == other.attr
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -45606,7 +45606,7 @@ unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILER_HEAP_OBJECT_RELATIONSHIP>()) == 0 }
+        self.relationshipId == other.relationshipId && self.relationshipInfo == other.relationshipInfo && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -45676,7 +45676,7 @@ unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST>()) == 0 }
+        self.count == other.count && self.elements == other.elements
     }
 }
 #[cfg(feature = "Win32_Foundation")]

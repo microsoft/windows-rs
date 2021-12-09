@@ -1736,7 +1736,65 @@ unsafe impl ::windows::core::Abi for MIDL_STUB_MESSAGE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MIDL_STUB_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_STUB_MESSAGE>()) == 0 }
+        self.RpcMsg == other.RpcMsg
+            && self.Buffer == other.Buffer
+            && self.BufferStart == other.BufferStart
+            && self.BufferEnd == other.BufferEnd
+            && self.BufferMark == other.BufferMark
+            && self.BufferLength == other.BufferLength
+            && self.MemorySize == other.MemorySize
+            && self.Memory == other.Memory
+            && self.IsClient == other.IsClient
+            && self.Pad == other.Pad
+            && self.uFlags2 == other.uFlags2
+            && self.ReuseBuffer == other.ReuseBuffer
+            && self.pAllocAllNodesContext == other.pAllocAllNodesContext
+            && self.pPointerQueueState == other.pPointerQueueState
+            && self.IgnoreEmbeddedPointers == other.IgnoreEmbeddedPointers
+            && self.PointerBufferMark == other.PointerBufferMark
+            && self.CorrDespIncrement == other.CorrDespIncrement
+            && self.uFlags == other.uFlags
+            && self.UniquePtrCount == other.UniquePtrCount
+            && self.MaxCount == other.MaxCount
+            && self.Offset == other.Offset
+            && self.ActualCount == other.ActualCount
+            && self.pfnAllocate == other.pfnAllocate
+            && self.pfnFree == other.pfnFree
+            && self.StackTop == other.StackTop
+            && self.pPresentedType == other.pPresentedType
+            && self.pTransmitType == other.pTransmitType
+            && self.SavedHandle == other.SavedHandle
+            && self.StubDesc == other.StubDesc
+            && self.FullPtrXlatTables == other.FullPtrXlatTables
+            && self.FullPtrRefId == other.FullPtrRefId
+            && self.PointerLength == other.PointerLength
+            && self._bitfield == other._bitfield
+            && self.dwDestContext == other.dwDestContext
+            && self.pvDestContext == other.pvDestContext
+            && self.SavedContextHandles == other.SavedContextHandles
+            && self.ParamNumber == other.ParamNumber
+            && self.pRpcChannelBuffer == other.pRpcChannelBuffer
+            && self.pArrayInfo == other.pArrayInfo
+            && self.SizePtrCountArray == other.SizePtrCountArray
+            && self.SizePtrOffsetArray == other.SizePtrOffsetArray
+            && self.SizePtrLengthArray == other.SizePtrLengthArray
+            && self.pArgQueue == other.pArgQueue
+            && self.dwStubPhase == other.dwStubPhase
+            && self.LowStackMark == other.LowStackMark
+            && self.pAsyncMsg == other.pAsyncMsg
+            && self.pCorrInfo == other.pCorrInfo
+            && self.pCorrMemory == other.pCorrMemory
+            && self.pMemoryList == other.pMemoryList
+            && self.pCSInfo == other.pCSInfo
+            && self.ConformanceMark == other.ConformanceMark
+            && self.VarianceMark == other.VarianceMark
+            && self.Unused == other.Unused
+            && self.pContext == other.pContext
+            && self.ContextHandleHash == other.ContextHandleHash
+            && self.pUserMarshalList == other.pUserMarshalList
+            && self.Reserved51_3 == other.Reserved51_3
+            && self.Reserved51_4 == other.Reserved51_4
+            && self.Reserved51_5 == other.Reserved51_5
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3946,7 +4004,7 @@ unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_USER_MARSHAL_INFO>()) == 0 }
+        self.InformationLevel == other.InformationLevel && self.Anonymous == other.Anonymous
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4016,7 +4074,7 @@ unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_USER_MARSHAL_INFO_LEVEL1>()) == 0 }
+        self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.pfnAllocate == other.pfnAllocate && self.pfnFree == other.pfnFree && self.pRpcChannelBuffer == other.pRpcChannelBuffer && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_System_Com")]

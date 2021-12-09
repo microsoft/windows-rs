@@ -1634,7 +1634,7 @@ impl ::windows::core::DefaultType for SortEntry {
 }
 impl ::core::cmp::PartialEq for SortEntry {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SortEntry>()) == 0 }
+        self.PropertyName == other.PropertyName && self.AscendingOrder == other.AscendingOrder
     }
 }
 impl ::core::cmp::Eq for SortEntry {}

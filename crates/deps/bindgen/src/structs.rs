@@ -84,7 +84,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, arch_cfg: &
     tokens.combine(&gen_struct_constants(def, &name, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_copy_clone(def, &name, gen, &arch_cfg, &feature_cfg));
     tokens.combine(&gen_windows_traits(def, &name, gen, &arch_cfg, &feature_cfg));
-    tokens.combine(&gen_compare_traits(&name, gen, &arch_cfg, &feature_cfg));
+    tokens.combine(&gen_compare_traits(def, &name, gen, &arch_cfg, &feature_cfg));
 
     if !gen.sys {
         tokens.combine(&quote! {
@@ -152,7 +152,7 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &T
 fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if gen.sys {
         quote! {}
-    } else if def.is_blittable() {
+    } else if def.is_blittable() || def.is_union() || def.class_layout().is_some() {
         quote! {
             #arch_cfg
             #feature_cfg
@@ -173,7 +173,14 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &T
             if f.is_literal() {
                 quote! {}
             } else {
-                quote! { self.#name == other.#name && }
+                let sig = f.signature(Some(def));
+                if sig.kind.is_callback() {
+                    quote! {
+                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
+                    }
+                } else {
+                    quote! { self.#name == other.#name }
+                }
             }
         });
 
@@ -182,7 +189,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &T
             #feature_cfg
             impl ::core::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
-                    #(#fields)*
+                    #(#fields)&&*
                 }
             }
             #arch_cfg

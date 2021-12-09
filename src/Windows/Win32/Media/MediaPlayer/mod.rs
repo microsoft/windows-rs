@@ -16079,7 +16079,7 @@ unsafe impl ::windows::core::Abi for WMPContextMenuInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WMPContextMenuInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMPContextMenuInfo>()) == 0 }
+        self.dwID == other.dwID && self.bstrMenuText == other.bstrMenuText && self.bstrHelpText == other.bstrHelpText
     }
 }
 #[cfg(feature = "Win32_Foundation")]

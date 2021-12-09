@@ -3065,6 +3065,12 @@ impl ::core::clone::Clone for PSTR {
     }
 }
 impl ::core::marker::Copy for PSTR {}
+impl ::core::cmp::PartialEq for PSTR {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PSTR {}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -3106,6 +3112,12 @@ impl ::core::clone::Clone for PWSTR {
     }
 }
 impl ::core::marker::Copy for PWSTR {}
+impl ::core::cmp::PartialEq for PWSTR {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PWSTR {}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
