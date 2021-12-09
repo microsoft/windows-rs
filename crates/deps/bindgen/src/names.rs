@@ -176,8 +176,8 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
-    match def {
+pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
+    match &sig.kind {
         ElementType::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
         }
@@ -193,23 +193,19 @@ pub fn gen_abi_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
             let name = gen_ident(generic);
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
-        ElementType::TypeDef(def) => gen_abi_type_name(def, gen),
-        _ => gen_element_name(def, gen),
-    }
-}
-
-fn gen_abi_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
-    match def.kind() {
-        TypeKind::Enum => gen_type_name(def, gen),
-        TypeKind::Struct => {
-            let tokens = gen_type_name(def, gen);
-            if def.is_blittable() {
-                tokens
-            } else {
-                quote! { ::core::mem::ManuallyDrop<#tokens> }
+        ElementType::TypeDef(def) =>     match def.kind() {
+            TypeKind::Enum => gen_type_name(def, gen),
+            TypeKind::Struct => {
+                let tokens = gen_type_name(def, gen);
+                if def.is_blittable() || sig.pointers > 0 {
+                    tokens
+                } else {
+                    quote! { ::core::mem::ManuallyDrop<#tokens> }
+                }
             }
-        }
-        _ => quote! { ::windows::core::RawPtr },
+            _ => quote! { ::windows::core::RawPtr },
+        },
+        _ => gen_element_name(&sig.kind, gen),
     }
 }
 

@@ -80,28 +80,28 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
     let signature = method.signature(&def.generics);
     let hresult = gen_element_name(&ElementType::HRESULT, gen);
 
-    let (trailing_return_type, return_type) = if is_winrt {
+    let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
         if let Some(return_sig) = &signature.return_sig {
             let tokens = gen_abi_sig(return_sig, gen);
             if return_sig.is_array {
-                (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult })
+                (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult }, quote! {})
             } else {
-                (quote! { result__: *mut #tokens }, quote! { -> #hresult })
+                (quote! { result__: *mut #tokens }, quote! { -> #hresult }, quote! {})
             }
         } else {
-            (quote! {}, quote! { -> #hresult })
+            (quote! {}, quote! { -> #hresult }, quote! {})
         }
     } else {
         if let Some(return_sig) = &signature.return_sig {
             if return_sig.is_udt() {
                 let tokens = gen_abi_sig(return_sig, gen);
-                (quote! { result__: *mut #tokens }, quote! {})
+                (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
             } else {
                 let tokens = gen_sig(return_sig, gen);
-                (quote! {}, quote! { -> #tokens })
+                (quote! {}, quote! { -> #tokens }, quote! {})
             }
         } else {
-            (quote! {}, quote! {})
+            (quote! {}, quote! {}, quote! {})
         }
     };
 
@@ -136,7 +136,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         }
     });
 
-    quote! { (this: *mut ::core::ffi::c_void, #(#params)* #trailing_return_type) #return_type }
+    quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
 }
 
 pub fn gen_vtbl(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {

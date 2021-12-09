@@ -73,7 +73,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                     .and_then(|| result__ )
             }
         } else {
-            let abi_type_name = gen_abi_element_name(&return_sig.kind, gen);
+            let abi_type_name = gen_abi_element_name(&return_sig, gen);
 
             quote! {
                 let mut result__: #abi_type_name = ::core::mem::zeroed();
@@ -171,14 +171,18 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
-            let return_type_tokens = gen_result_sig(&signature.params[signature.params.len() - 1].signature, gen);
+
+            let mut return_sig = signature.params[signature.params.len() - 1].signature.clone();
+            return_sig.pointers -= 1;
+            let return_type_tokens = gen_result_sig(&return_sig, gen);
+            let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
 
             quote! {
                 #arch_cfg
                 #feature_cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
-                    let mut result__: <#return_type_tokens as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &mut result__)
+                    let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -198,7 +202,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
         SignatureKind::ReturnStruct => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
-            let return_sig = gen_abi_element_name(&signature.return_sig.unwrap().kind, gen);
+            let return_sig = gen_abi_element_name(&signature.return_sig.unwrap(), gen);
 
             quote! {
                 #arch_cfg

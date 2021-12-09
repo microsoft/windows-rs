@@ -26,19 +26,6 @@ pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_result_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    let mut tokens = quote! {};
-
-    if sig.pointers > 0 {
-        for _ in 1..sig.pointers {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    tokens.combine(&gen_element_name(&sig.kind, gen));
-    tokens
-}
-
 pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
@@ -68,7 +55,22 @@ fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenSt
         }
     }
 
-    tokens.combine(&gen_abi_element_name(&sig.kind, gen));
+    tokens.combine(&gen_abi_element_name(sig, gen));
+    tokens
+}
+
+pub fn gen_result_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+    let mut tokens = TokenStream::new();
+
+    for _ in 0..sig.pointers {
+        if sig.is_const {
+            tokens.combine(&quote! { *const });
+        } else {
+            tokens.combine(&quote! { *mut });
+        }
+    }
+
+    tokens.combine(&gen_element_name(&sig.kind, gen));
     tokens
 }
 

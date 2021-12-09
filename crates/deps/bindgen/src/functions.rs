@@ -147,8 +147,11 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
-            let return_type_tokens = gen_result_sig(&signature.params[signature.params.len() - 1].signature, gen);
-
+            let mut return_sig = signature.params[signature.params.len() - 1].signature.clone();
+            return_sig.pointers -= 1;
+            let return_type_tokens = gen_result_sig(&return_sig, gen);
+            let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
+            
             quote! {
                 #arch_cfg
                 #feature_cfg
@@ -160,8 +163,8 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        let mut result__: <#return_type_tokens as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-                        #name(#(#args,)* &mut result__).from_abi::<#return_type_tokens>(result__)
+                        let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
+                        #name(#(#args,)* ::core::mem::transmute(&mut result__)).from_abi::<#return_type_tokens>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
