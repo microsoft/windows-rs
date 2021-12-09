@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub struct DeviceLockdownProfile {}
 impl DeviceLockdownProfile {
     #[cfg(feature = "Foundation_Collections")]
@@ -36,8 +36,7 @@ impl ::windows::core::RuntimeName for DeviceLockdownProfile {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfile";
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DeviceLockdownProfileInformation(pub ::windows::core::IInspectable);
+pub struct DeviceLockdownProfileInformation(::windows::core::IUnknown);
 impl DeviceLockdownProfileInformation {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -47,11 +46,22 @@ impl DeviceLockdownProfileInformation {
         }
     }
 }
+impl ::core::clone::Clone for DeviceLockdownProfileInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceLockdownProfileInformation {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceLockdownProfileInformation {}
 unsafe impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
 }
 unsafe impl ::windows::core::Interface for DeviceLockdownProfileInformation {
-    type Vtable = IDeviceLockdownProfileInformation_abi;
+    type Vtable = IDeviceLockdownProfileInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 impl ::windows::core::RuntimeName for DeviceLockdownProfileInformation {
@@ -59,84 +69,82 @@ impl ::windows::core::RuntimeName for DeviceLockdownProfileInformation {
 }
 impl ::core::convert::From<DeviceLockdownProfileInformation> for ::windows::core::IUnknown {
     fn from(value: DeviceLockdownProfileInformation) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceLockdownProfileInformation> for ::windows::core::IUnknown {
     fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceLockdownProfileInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceLockdownProfileInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceLockdownProfileInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<DeviceLockdownProfileInformation> for ::windows::core::IInspectable {
     fn from(value: DeviceLockdownProfileInformation) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceLockdownProfileInformation> for ::windows::core::IInspectable {
     fn from(value: &DeviceLockdownProfileInformation) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceLockdownProfileInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceLockdownProfileInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceLockdownProfileInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
-unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileInformation(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
-    type Vtable = IDeviceLockdownProfileInformation_abi;
+    type Vtable = IDeviceLockdownProfileInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileInformation_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct IDeviceLockdownProfileInformationVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
-    type Vtable = IDeviceLockdownProfileStatics_abi;
+    type Vtable = IDeviceLockdownProfileStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDeviceLockdownProfileStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, profileid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, profileid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );

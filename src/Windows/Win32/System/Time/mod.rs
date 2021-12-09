@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
@@ -14,30 +13,30 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DYNAMIC_TIME_ZONE_INFORMATION {}
+impl ::core::marker::Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
-    }
+unsafe impl ::windows::core::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias && self.TimeZoneKeyName == other.TimeZoneKeyName && self.DynamicDaylightTimeDisabled == other.DynamicDaylightTimeDisabled
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DYNAMIC_TIME_ZONE_INFORMATION>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
-    type Abi = Self;
+impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -221,7 +220,6 @@ pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: *const DY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TIME_ZONE_INFORMATION {
@@ -234,30 +232,30 @@ pub struct TIME_ZONE_INFORMATION {
     pub DaylightBias: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TIME_ZONE_INFORMATION {}
+impl ::core::marker::Copy for TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TIME_ZONE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for TIME_ZONE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TIME_ZONE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).finish()
-    }
+unsafe impl ::windows::core::Abi for TIME_ZONE_INFORMATION {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TIME_ZONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIME_ZONE_INFORMATION>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TIME_ZONE_INFORMATION {
-    type Abi = Self;
+impl ::core::default::Default for TIME_ZONE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const TSF_Authenticated: u32 = 2u32;
 pub const TSF_Hardware: u32 = 1u32;

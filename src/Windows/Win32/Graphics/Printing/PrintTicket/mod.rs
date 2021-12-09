@@ -1,31 +1,11 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EDefaultDevmodeType(pub i32);
-pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
-pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
-impl ::core::convert::From<i32> for EDefaultDevmodeType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EDefaultDevmodeType {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EPrintTicketScope(pub i32);
-pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
-pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
-pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
-impl ::core::convert::From<i32> for EPrintTicketScope {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EPrintTicketScope {
-    type Abi = Self;
-}
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type EDefaultDevmodeType = i32;
+pub const kUserDefaultDevmode: EDefaultDevmodeType = 0i32;
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = 1i32;
+pub type EPrintTicketScope = i32;
+pub const kPTPageScope: EPrintTicketScope = 0i32;
+pub const kPTDocumentScope: EPrintTicketScope = 1i32;
+pub const kPTJobScope: EPrintTicketScope = 2i32;
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;

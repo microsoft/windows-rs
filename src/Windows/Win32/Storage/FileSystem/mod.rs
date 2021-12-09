@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddLogContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pcbcontainer: *const u64, pwszcontainerpath: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -111,7 +111,6 @@ pub unsafe fn AreShortNamesEnabled<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BY_HANDLE_FILE_INFORMATION {
@@ -127,41 +126,30 @@ pub struct BY_HANDLE_FILE_INFORMATION {
     pub nFileIndexLow: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BY_HANDLE_FILE_INFORMATION {}
+impl ::core::marker::Copy for BY_HANDLE_FILE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BY_HANDLE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for BY_HANDLE_FILE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BY_HANDLE_FILE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BY_HANDLE_FILE_INFORMATION")
-            .field("dwFileAttributes", &self.dwFileAttributes)
-            .field("ftCreationTime", &self.ftCreationTime)
-            .field("ftLastAccessTime", &self.ftLastAccessTime)
-            .field("ftLastWriteTime", &self.ftLastWriteTime)
-            .field("dwVolumeSerialNumber", &self.dwVolumeSerialNumber)
-            .field("nFileSizeHigh", &self.nFileSizeHigh)
-            .field("nFileSizeLow", &self.nFileSizeLow)
-            .field("nNumberOfLinks", &self.nNumberOfLinks)
-            .field("nFileIndexHigh", &self.nFileIndexHigh)
-            .field("nFileIndexLow", &self.nFileIndexLow)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for BY_HANDLE_FILE_INFORMATION {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BY_HANDLE_FILE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.dwVolumeSerialNumber == other.dwVolumeSerialNumber && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow && self.nNumberOfLinks == other.nNumberOfLinks && self.nFileIndexHigh == other.nFileIndexHigh && self.nFileIndexLow == other.nFileIndexLow
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BY_HANDLE_FILE_INFORMATION>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BY_HANDLE_FILE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BY_HANDLE_FILE_INFORMATION {
-    type Abi = Self;
+impl ::core::default::Default for BY_HANDLE_FILE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -271,64 +259,16 @@ pub type CLAIMMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pbuf
 pub type CLAIMMEDIALABELEX = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::core::GUID) -> u32>;
 pub type CLFS_BLOCK_ALLOCATION = ::core::option::Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 pub type CLFS_BLOCK_DEALLOCATION = ::core::option::Option<unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLFS_CONTEXT_MODE(pub i32);
-pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
-pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
-pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
-pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
-impl ::core::convert::From<i32> for CLFS_CONTEXT_MODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLFS_CONTEXT_MODE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLFS_FLAG(pub u32);
-pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
-pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
-pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
-pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
-impl ::core::convert::From<u32> for CLFS_FLAG {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLFS_FLAG {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CLFS_FLAG {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CLFS_FLAG {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CLFS_FLAG {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CLFS_FLAG {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CLFS_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CLFS_CONTEXT_MODE = i32;
+pub const ClfsContextNone: CLFS_CONTEXT_MODE = 0i32;
+pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = 1i32;
+pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = 2i32;
+pub const ClfsContextForward: CLFS_CONTEXT_MODE = 3i32;
+pub type CLFS_FLAG = u32;
+pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = 1u32;
+pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = 2u32;
+pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = 0u32;
+pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = 4u32;
 pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
 pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
 pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
@@ -338,105 +278,72 @@ pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
 pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
 pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLFS_IOSTATS_CLASS(pub i32);
-pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
-pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
-impl ::core::convert::From<i32> for CLFS_IOSTATS_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLFS_IOSTATS_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
-pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
-pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
-impl ::core::convert::From<i32> for CLFS_LOG_ARCHIVE_MODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLFS_LOG_ARCHIVE_MODE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CLFS_IOSTATS_CLASS = i32;
+pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = 0i32;
+pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = 65535i32;
+pub type CLFS_LOG_ARCHIVE_MODE = i32;
+pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = 1i32;
+pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = 2i32;
 #[repr(C)]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
 }
-impl CLFS_LOG_NAME_INFORMATION {}
+impl ::core::marker::Copy for CLFS_LOG_NAME_INFORMATION {}
+impl ::core::clone::Clone for CLFS_LOG_NAME_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_LOG_NAME_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_LOG_NAME_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_LOG_NAME_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_LOG_NAME_INFORMATION {}
 impl ::core::default::Default for CLFS_LOG_NAME_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_LOG_NAME_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLFS_LOG_NAME_INFORMATION").field("NameLengthInBytes", &self.NameLengthInBytes).field("Name", &self.Name).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_LOG_NAME_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NameLengthInBytes == other.NameLengthInBytes && self.Name == other.Name
-    }
-}
-impl ::core::cmp::Eq for CLFS_LOG_NAME_INFORMATION {}
-unsafe impl ::windows::core::Abi for CLFS_LOG_NAME_INFORMATION {
-    type Abi = Self;
-}
 pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
 pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: CLS_LSN,
     pub LogIsPinned: u16,
 }
-impl CLFS_MGMT_NOTIFICATION {}
+impl ::core::marker::Copy for CLFS_MGMT_NOTIFICATION {}
+impl ::core::clone::Clone for CLFS_MGMT_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_NOTIFICATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_NOTIFICATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_NOTIFICATION {}
 impl ::core::default::Default for CLFS_MGMT_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_NOTIFICATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLFS_MGMT_NOTIFICATION").field("Notification", &self.Notification).field("Lsn", &self.Lsn).field("LogIsPinned", &self.LogIsPinned).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Notification == other.Notification && self.Lsn == other.Lsn && self.LogIsPinned == other.LogIsPinned
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_NOTIFICATION {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
-pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
-pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
-pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
-pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
-impl ::core::convert::From<i32> for CLFS_MGMT_NOTIFICATION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CLFS_MGMT_NOTIFICATION_TYPE = i32;
+pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = 0i32;
+pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = 1i32;
+pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = 2i32;
+pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY {
     pub Version: u32,
@@ -445,22 +352,26 @@ pub struct CLFS_MGMT_POLICY {
     pub PolicyType: CLFS_MGMT_POLICY_TYPE,
     pub PolicyParameters: CLFS_MGMT_POLICY_0,
 }
-impl CLFS_MGMT_POLICY {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY {}
 impl ::core::default::Default for CLFS_MGMT_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union CLFS_MGMT_POLICY_0 {
     pub MaximumSize: CLFS_MGMT_POLICY_0_4,
@@ -474,350 +385,333 @@ pub union CLFS_MGMT_POLICY_0 {
     pub NewContainerSuffix: CLFS_MGMT_POLICY_0_9,
     pub NewContainerExtension: CLFS_MGMT_POLICY_0_6,
 }
-impl CLFS_MGMT_POLICY_0 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Enabled: u32,
 }
-impl CLFS_MGMT_POLICY_0_0 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_0 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_0 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_AutoGrow_e__Struct").field("Enabled", &self.Enabled).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enabled == other.Enabled
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_0 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Percentage: u32,
 }
-impl CLFS_MGMT_POLICY_0_1 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_1 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_1 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_AutoShrink_e__Struct").field("Percentage", &self.Percentage).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Percentage == other.Percentage
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_1 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
 }
-impl CLFS_MGMT_POLICY_0_2 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_2 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_2 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_GrowthRate_e__Struct").field("AbsoluteGrowthInContainers", &self.AbsoluteGrowthInContainers).field("RelativeGrowthPercentage", &self.RelativeGrowthPercentage).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AbsoluteGrowthInContainers == other.AbsoluteGrowthInContainers && self.RelativeGrowthPercentage == other.RelativeGrowthPercentage
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_2 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
 }
-impl CLFS_MGMT_POLICY_0_3 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_3 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_3 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_LogTail_e__Struct").field("MinimumAvailablePercentage", &self.MinimumAvailablePercentage).field("MinimumAvailableContainers", &self.MinimumAvailableContainers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinimumAvailablePercentage == other.MinimumAvailablePercentage && self.MinimumAvailableContainers == other.MinimumAvailableContainers
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_3 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub Containers: u32,
 }
-impl CLFS_MGMT_POLICY_0_4 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_4 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_4 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_4>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_4 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MaximumSize_e__Struct").field("Containers", &self.Containers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Containers == other.Containers
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_4 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Containers: u32,
 }
-impl CLFS_MGMT_POLICY_0_5 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_5 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_5 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MinimumSize_e__Struct").field("Containers", &self.Containers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Containers == other.Containers
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_5 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
 }
-impl CLFS_MGMT_POLICY_0_6 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_6 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_6 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NewContainerExtension_e__Struct").field("ExtensionLengthInBytes", &self.ExtensionLengthInBytes).field("ExtensionString", &self.ExtensionString).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtensionLengthInBytes == other.ExtensionLengthInBytes && self.ExtensionString == other.ExtensionString
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_6 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
 }
-impl CLFS_MGMT_POLICY_0_7 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_7 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_7 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_7 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_7>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_7 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_7 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NewContainerPrefix_e__Struct").field("PrefixLengthInBytes", &self.PrefixLengthInBytes).field("PrefixString", &self.PrefixString).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrefixLengthInBytes == other.PrefixLengthInBytes && self.PrefixString == other.PrefixString
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_7 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_7 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub SizeInBytes: u32,
 }
-impl CLFS_MGMT_POLICY_0_8 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_8 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_8 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_8 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_8>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_8 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_8 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NewContainerSize_e__Struct").field("SizeInBytes", &self.SizeInBytes).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeInBytes == other.SizeInBytes
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_8 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_8 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub NextContainerSuffix: u64,
 }
-impl CLFS_MGMT_POLICY_0_9 {}
+impl ::core::marker::Copy for CLFS_MGMT_POLICY_0_9 {}
+impl ::core::clone::Clone for CLFS_MGMT_POLICY_0_9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_9 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_9 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_MGMT_POLICY_0_9>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_9 {}
 impl ::core::default::Default for CLFS_MGMT_POLICY_0_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_9 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NewContainerSuffix_e__Struct").field("NextContainerSuffix", &self.NextContainerSuffix).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextContainerSuffix == other.NextContainerSuffix
-    }
-}
-impl ::core::cmp::Eq for CLFS_MGMT_POLICY_0_9 {}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_9 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
-pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
-pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(1i32);
-pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(2i32);
-pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(3i32);
-pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(4i32);
-pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(5i32);
-pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(6i32);
-pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(7i32);
-pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
-pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
-pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
-impl ::core::convert::From<i32> for CLFS_MGMT_POLICY_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_TYPE {
-    type Abi = Self;
-}
+pub type CLFS_MGMT_POLICY_TYPE = i32;
+pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = 0i32;
+pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = 1i32;
+pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = 2i32;
+pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = 3i32;
+pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = 4i32;
+pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = 5i32;
+pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = 6i32;
+pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = 7i32;
+pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = 8i32;
+pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = 9i32;
+pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = 10i32;
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
 }
-impl CLFS_NODE_ID {}
+impl ::core::marker::Copy for CLFS_NODE_ID {}
+impl ::core::clone::Clone for CLFS_NODE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_NODE_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_NODE_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_NODE_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_NODE_ID {}
 impl ::core::default::Default for CLFS_NODE_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_NODE_ID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLFS_NODE_ID").field("cType", &self.cType).field("cbNode", &self.cbNode).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_NODE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cType == other.cType && self.cbNode == other.cbNode
-    }
-}
-impl ::core::cmp::Eq for CLFS_NODE_ID {}
-unsafe impl ::windows::core::Abi for CLFS_NODE_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLS_LSN,
     pub PhysicalLsn: CLS_LSN,
 }
-impl CLFS_PHYSICAL_LSN_INFORMATION {}
+impl ::core::marker::Copy for CLFS_PHYSICAL_LSN_INFORMATION {}
+impl ::core::clone::Clone for CLFS_PHYSICAL_LSN_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_PHYSICAL_LSN_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_PHYSICAL_LSN_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_PHYSICAL_LSN_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_PHYSICAL_LSN_INFORMATION {}
 impl ::core::default::Default for CLFS_PHYSICAL_LSN_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for CLFS_PHYSICAL_LSN_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLFS_PHYSICAL_LSN_INFORMATION").field("StreamIdentifier", &self.StreamIdentifier).field("VirtualLsn", &self.VirtualLsn).field("PhysicalLsn", &self.PhysicalLsn).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_PHYSICAL_LSN_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StreamIdentifier == other.StreamIdentifier && self.VirtualLsn == other.VirtualLsn && self.PhysicalLsn == other.PhysicalLsn
-    }
-}
-impl ::core::cmp::Eq for CLFS_PHYSICAL_LSN_INFORMATION {}
-unsafe impl ::windows::core::Abi for CLFS_PHYSICAL_LSN_INFORMATION {
-    type Abi = Self;
 }
 pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
 pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
@@ -825,60 +719,57 @@ pub const CLFS_SCAN_CLOSE: u8 = 8u8;
 pub const CLFS_SCAN_FORWARD: u8 = 2u8;
 pub const CLFS_SCAN_INIT: u8 = 1u8;
 pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
-impl CLFS_STREAM_ID_INFORMATION {}
+impl ::core::marker::Copy for CLFS_STREAM_ID_INFORMATION {}
+impl ::core::clone::Clone for CLFS_STREAM_ID_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLFS_STREAM_ID_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLFS_STREAM_ID_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLFS_STREAM_ID_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLFS_STREAM_ID_INFORMATION {}
 impl ::core::default::Default for CLFS_STREAM_ID_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLFS_STREAM_ID_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLFS_STREAM_ID_INFORMATION").field("StreamIdentifier", &self.StreamIdentifier).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLFS_STREAM_ID_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StreamIdentifier == other.StreamIdentifier
-    }
-}
-impl ::core::cmp::Eq for CLFS_STREAM_ID_INFORMATION {}
-unsafe impl ::windows::core::Abi for CLFS_STREAM_ID_INFORMATION {
-    type Abi = Self;
-}
 pub const CLSID_DiskQuotaControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
     pub infoContainer: CLS_CONTAINER_INFORMATION,
 }
-impl CLS_ARCHIVE_DESCRIPTOR {}
+impl ::core::marker::Copy for CLS_ARCHIVE_DESCRIPTOR {}
+impl ::core::clone::Clone for CLS_ARCHIVE_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_ARCHIVE_DESCRIPTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_ARCHIVE_DESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_ARCHIVE_DESCRIPTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_ARCHIVE_DESCRIPTOR {}
 impl ::core::default::Default for CLS_ARCHIVE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_ARCHIVE_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_ARCHIVE_DESCRIPTOR").field("coffLow", &self.coffLow).field("coffHigh", &self.coffHigh).field("infoContainer", &self.infoContainer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_ARCHIVE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.coffLow == other.coffLow && self.coffHigh == other.coffHigh && self.infoContainer == other.infoContainer
-    }
-}
-impl ::core::cmp::Eq for CLS_ARCHIVE_DESCRIPTOR {}
-unsafe impl ::windows::core::Abi for CLS_ARCHIVE_DESCRIPTOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
@@ -893,54 +784,31 @@ pub struct CLS_CONTAINER_INFORMATION {
     pub PhysicalContainerId: u32,
     pub LogicalContainerId: u32,
 }
-impl CLS_CONTAINER_INFORMATION {}
+impl ::core::marker::Copy for CLS_CONTAINER_INFORMATION {}
+impl ::core::clone::Clone for CLS_CONTAINER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_CONTAINER_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_CONTAINER_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_CONTAINER_INFORMATION {}
 impl ::core::default::Default for CLS_CONTAINER_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_CONTAINER_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_CONTAINER_INFORMATION")
-            .field("FileAttributes", &self.FileAttributes)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ContainerSize", &self.ContainerSize)
-            .field("FileNameActualLength", &self.FileNameActualLength)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileName", &self.FileName)
-            .field("State", &self.State)
-            .field("PhysicalContainerId", &self.PhysicalContainerId)
-            .field("LogicalContainerId", &self.LogicalContainerId)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileAttributes == other.FileAttributes && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ContainerSize == other.ContainerSize && self.FileNameActualLength == other.FileNameActualLength && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName && self.State == other.State && self.PhysicalContainerId == other.PhysicalContainerId && self.LogicalContainerId == other.LogicalContainerId
-    }
-}
-impl ::core::cmp::Eq for CLS_CONTAINER_INFORMATION {}
-unsafe impl ::windows::core::Abi for CLS_CONTAINER_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLS_CONTEXT_MODE(pub i32);
-pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
-pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
-pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
-pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
-impl ::core::convert::From<i32> for CLS_CONTEXT_MODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLS_CONTEXT_MODE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CLS_CONTEXT_MODE = i32;
+pub const ClsContextNone: CLS_CONTEXT_MODE = 0i32;
+pub const ClsContextUndoNext: CLS_CONTEXT_MODE = 1i32;
+pub const ClsContextPrevious: CLS_CONTEXT_MODE = 2i32;
+pub const ClsContextForward: CLS_CONTEXT_MODE = 3i32;
 #[repr(C)]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
@@ -961,58 +829,29 @@ pub struct CLS_INFORMATION {
     pub RestartLsn: CLS_LSN,
     pub Identity: ::windows::core::GUID,
 }
-impl CLS_INFORMATION {}
+impl ::core::marker::Copy for CLS_INFORMATION {}
+impl ::core::clone::Clone for CLS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_INFORMATION {}
 impl ::core::default::Default for CLS_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_INFORMATION")
-            .field("TotalAvailable", &self.TotalAvailable)
-            .field("CurrentAvailable", &self.CurrentAvailable)
-            .field("TotalReservation", &self.TotalReservation)
-            .field("BaseFileSize", &self.BaseFileSize)
-            .field("ContainerSize", &self.ContainerSize)
-            .field("TotalContainers", &self.TotalContainers)
-            .field("FreeContainers", &self.FreeContainers)
-            .field("TotalClients", &self.TotalClients)
-            .field("Attributes", &self.Attributes)
-            .field("FlushThreshold", &self.FlushThreshold)
-            .field("SectorSize", &self.SectorSize)
-            .field("MinArchiveTailLsn", &self.MinArchiveTailLsn)
-            .field("BaseLsn", &self.BaseLsn)
-            .field("LastFlushedLsn", &self.LastFlushedLsn)
-            .field("LastLsn", &self.LastLsn)
-            .field("RestartLsn", &self.RestartLsn)
-            .field("Identity", &self.Identity)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalAvailable == other.TotalAvailable && self.CurrentAvailable == other.CurrentAvailable && self.TotalReservation == other.TotalReservation && self.BaseFileSize == other.BaseFileSize && self.ContainerSize == other.ContainerSize && self.TotalContainers == other.TotalContainers && self.FreeContainers == other.FreeContainers && self.TotalClients == other.TotalClients && self.Attributes == other.Attributes && self.FlushThreshold == other.FlushThreshold && self.SectorSize == other.SectorSize && self.MinArchiveTailLsn == other.MinArchiveTailLsn && self.BaseLsn == other.BaseLsn && self.LastFlushedLsn == other.LastFlushedLsn && self.LastLsn == other.LastLsn && self.RestartLsn == other.RestartLsn && self.Identity == other.Identity
-    }
-}
-impl ::core::cmp::Eq for CLS_INFORMATION {}
-unsafe impl ::windows::core::Abi for CLS_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLS_IOSTATS_CLASS(pub i32);
-pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
-pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
-impl ::core::convert::From<i32> for CLS_IOSTATS_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLS_IOSTATS_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CLS_IOSTATS_CLASS = i32;
+pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = 0i32;
+pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = 65535i32;
 #[repr(C)]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
@@ -1021,27 +860,26 @@ pub struct CLS_IO_STATISTICS {
     pub cMetaFlush: u64,
     pub cbMetaFlush: u64,
 }
-impl CLS_IO_STATISTICS {}
+impl ::core::marker::Copy for CLS_IO_STATISTICS {}
+impl ::core::clone::Clone for CLS_IO_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_IO_STATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_IO_STATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_IO_STATISTICS {}
 impl ::core::default::Default for CLS_IO_STATISTICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_IO_STATISTICS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_IO_STATISTICS").field("hdrIoStats", &self.hdrIoStats).field("cFlush", &self.cFlush).field("cbFlush", &self.cbFlush).field("cMetaFlush", &self.cMetaFlush).field("cbMetaFlush", &self.cbMetaFlush).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_IO_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.hdrIoStats == other.hdrIoStats && self.cFlush == other.cFlush && self.cbFlush == other.cbFlush && self.cMetaFlush == other.cMetaFlush && self.cbMetaFlush == other.cbMetaFlush
-    }
-}
-impl ::core::cmp::Eq for CLS_IO_STATISTICS {}
-unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
@@ -1050,69 +888,57 @@ pub struct CLS_IO_STATISTICS_HEADER {
     pub cbLength: u16,
     pub coffData: u32,
 }
-impl CLS_IO_STATISTICS_HEADER {}
+impl ::core::marker::Copy for CLS_IO_STATISTICS_HEADER {}
+impl ::core::clone::Clone for CLS_IO_STATISTICS_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_IO_STATISTICS_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_IO_STATISTICS_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_IO_STATISTICS_HEADER {}
 impl ::core::default::Default for CLS_IO_STATISTICS_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_IO_STATISTICS_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_IO_STATISTICS_HEADER").field("ubMajorVersion", &self.ubMajorVersion).field("ubMinorVersion", &self.ubMinorVersion).field("eStatsClass", &self.eStatsClass).field("cbLength", &self.cbLength).field("coffData", &self.coffData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_IO_STATISTICS_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ubMajorVersion == other.ubMajorVersion && self.ubMinorVersion == other.ubMinorVersion && self.eStatsClass == other.eStatsClass && self.cbLength == other.cbLength && self.coffData == other.coffData
-    }
-}
-impl ::core::cmp::Eq for CLS_IO_STATISTICS_HEADER {}
-unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
-pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
-pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(1i32);
-pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(2i32);
-pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
-pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
-pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
-impl ::core::convert::From<i32> for CLS_LOG_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLS_LOG_INFORMATION_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CLS_LOG_INFORMATION_CLASS = i32;
+pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = 0i32;
+pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = 1i32;
+pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = 2i32;
+pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = 3i32;
+pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = 4i32;
+pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = 5i32;
 #[repr(C)]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
-impl CLS_LSN {}
+impl ::core::marker::Copy for CLS_LSN {}
+impl ::core::clone::Clone for CLS_LSN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_LSN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_LSN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_LSN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_LSN {}
 impl ::core::default::Default for CLS_LSN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_LSN {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_LSN").field("Internal", &self.Internal).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_LSN {
-    fn eq(&self, other: &Self) -> bool {
-        self.Internal == other.Internal
-    }
-}
-impl ::core::cmp::Eq for CLS_LSN {}
-unsafe impl ::windows::core::Abi for CLS_LSN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLS_SCAN_CONTEXT {
@@ -1125,83 +951,80 @@ pub struct CLS_SCAN_CONTEXT {
     pub pinfoContainer: *mut CLS_CONTAINER_INFORMATION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CLS_SCAN_CONTEXT {}
+impl ::core::marker::Copy for CLS_SCAN_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLS_SCAN_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CLS_SCAN_CONTEXT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CLS_SCAN_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_SCAN_CONTEXT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CLS_SCAN_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CLS_SCAN_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLS_SCAN_CONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_SCAN_CONTEXT").field("cidNode", &self.cidNode).field("hLog", &self.hLog).field("cIndex", &self.cIndex).field("cContainers", &self.cContainers).field("cContainersReturned", &self.cContainersReturned).field("eScanMode", &self.eScanMode).field("pinfoContainer", &self.pinfoContainer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CLS_SCAN_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cidNode == other.cidNode && self.hLog == other.hLog && self.cIndex == other.cIndex && self.cContainers == other.cContainers && self.cContainersReturned == other.cContainersReturned && self.eScanMode == other.eScanMode && self.pinfoContainer == other.pinfoContainer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CLS_SCAN_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CLS_SCAN_CONTEXT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut ::core::ffi::c_void,
     pub ByteLength: u32,
 }
-impl CLS_WRITE_ENTRY {}
+impl ::core::marker::Copy for CLS_WRITE_ENTRY {}
+impl ::core::clone::Clone for CLS_WRITE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLS_WRITE_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLS_WRITE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLS_WRITE_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLS_WRITE_ENTRY {}
 impl ::core::default::Default for CLS_WRITE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CLS_WRITE_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_WRITE_ENTRY").field("Buffer", &self.Buffer).field("ByteLength", &self.ByteLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CLS_WRITE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer && self.ByteLength == other.ByteLength
-    }
-}
-impl ::core::cmp::Eq for CLS_WRITE_ENTRY {}
-unsafe impl ::windows::core::Abi for CLS_WRITE_ENTRY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
-impl CONNECTION_INFO_0 {}
+impl ::core::marker::Copy for CONNECTION_INFO_0 {}
+impl ::core::clone::Clone for CONNECTION_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTION_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONNECTION_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONNECTION_INFO_0 {}
 impl ::core::default::Default for CONNECTION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CONNECTION_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONNECTION_INFO_0").field("coni0_id", &self.coni0_id).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CONNECTION_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.coni0_id == other.coni0_id
-    }
-}
-impl ::core::cmp::Eq for CONNECTION_INFO_0 {}
-unsafe impl ::windows::core::Abi for CONNECTION_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONNECTION_INFO_1 {
@@ -1214,51 +1037,40 @@ pub struct CONNECTION_INFO_1 {
     pub coni1_netname: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CONNECTION_INFO_1 {}
+impl ::core::marker::Copy for CONNECTION_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONNECTION_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CONNECTION_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CONNECTION_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION_INFO_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CONNECTION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONNECTION_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONNECTION_INFO_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONNECTION_INFO_1").field("coni1_id", &self.coni1_id).field("coni1_type", &self.coni1_type).field("coni1_num_opens", &self.coni1_num_opens).field("coni1_num_users", &self.coni1_num_users).field("coni1_time", &self.coni1_time).field("coni1_username", &self.coni1_username).field("coni1_netname", &self.coni1_netname).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONNECTION_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.coni1_id == other.coni1_id && self.coni1_type == other.coni1_type && self.coni1_num_opens == other.coni1_num_opens && self.coni1_num_users == other.coni1_num_users && self.coni1_time == other.coni1_time && self.coni1_username == other.coni1_username && self.coni1_netname == other.coni1_netname
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONNECTION_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONNECTION_INFO_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COPYFILE2_COPY_PHASE(pub i32);
-pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
-pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(1i32);
-pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(2i32);
-pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(3i32);
-pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(4i32);
-pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
-pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
-pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
-impl ::core::convert::From<i32> for COPYFILE2_COPY_PHASE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COPYFILE2_COPY_PHASE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type COPYFILE2_COPY_PHASE = i32;
+pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = 0i32;
+pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = 1i32;
+pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = 2i32;
+pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = 3i32;
+pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = 4i32;
+pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = 5i32;
+pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = 6i32;
+pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = 7i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
@@ -1269,32 +1081,31 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub pvCallbackContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_EXTENDED_PARAMETERS {}
+impl ::core::marker::Copy for COPYFILE2_EXTENDED_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_EXTENDED_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_EXTENDED_PARAMETERS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COPYFILE2_EXTENDED_PARAMETERS").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pvCallbackContext", &self.pvCallbackContext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCopyFlags == other.dwCopyFlags && self.pfCancel == other.pfCancel && self.pProgressRoutine.map(|f| f as usize) == other.pProgressRoutine.map(|f| f as usize) && self.pvCallbackContext == other.pvCallbackContext
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
@@ -1309,32 +1120,31 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub reserved: [*mut ::core::ffi::c_void; 8],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_EXTENDED_PARAMETERS_V2 {}
+impl ::core::marker::Copy for COPYFILE2_EXTENDED_PARAMETERS_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_EXTENDED_PARAMETERS_V2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COPYFILE2_EXTENDED_PARAMETERS_V2").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pvCallbackContext", &self.pvCallbackContext).field("dwCopyFlagsV2", &self.dwCopyFlagsV2).field("ioDesiredSize", &self.ioDesiredSize).field("ioDesiredRate", &self.ioDesiredRate).field("reserved", &self.reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCopyFlags == other.dwCopyFlags && self.pfCancel == other.pfCancel && self.pProgressRoutine.map(|f| f as usize) == other.pProgressRoutine.map(|f| f as usize) && self.pvCallbackContext == other.pvCallbackContext && self.dwCopyFlagsV2 == other.dwCopyFlagsV2 && self.ioDesiredSize == other.ioDesiredSize && self.ioDesiredRate == other.ioDesiredRate && self.reserved == other.reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_EXTENDED_PARAMETERS_V2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE {
@@ -1343,26 +1153,31 @@ pub struct COPYFILE2_MESSAGE {
     pub Info: COPYFILE2_MESSAGE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union COPYFILE2_MESSAGE_0 {
@@ -1374,26 +1189,31 @@ pub union COPYFILE2_MESSAGE_0 {
     pub Error: COPYFILE2_MESSAGE_0_2,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_0 {
@@ -1409,43 +1229,31 @@ pub struct COPYFILE2_MESSAGE_0_0 {
     pub uliTotalBytesTransferred: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0_0 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ChunkFinished_e__Struct")
-            .field("dwStreamNumber", &self.dwStreamNumber)
-            .field("dwFlags", &self.dwFlags)
-            .field("hSourceFile", &self.hSourceFile)
-            .field("hDestinationFile", &self.hDestinationFile)
-            .field("uliChunkNumber", &self.uliChunkNumber)
-            .field("uliChunkSize", &self.uliChunkSize)
-            .field("uliStreamSize", &self.uliStreamSize)
-            .field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred)
-            .field("uliTotalFileSize", &self.uliTotalFileSize)
-            .field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamNumber == other.dwStreamNumber && self.dwFlags == other.dwFlags && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliChunkNumber == other.uliChunkNumber && self.uliChunkSize == other.uliChunkSize && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_1 {
@@ -1459,32 +1267,31 @@ pub struct COPYFILE2_MESSAGE_0_1 {
     pub uliTotalFileSize: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0_1 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ChunkStarted_e__Struct").field("dwStreamNumber", &self.dwStreamNumber).field("dwReserved", &self.dwReserved).field("hSourceFile", &self.hSourceFile).field("hDestinationFile", &self.hDestinationFile).field("uliChunkNumber", &self.uliChunkNumber).field("uliChunkSize", &self.uliChunkSize).field("uliStreamSize", &self.uliStreamSize).field("uliTotalFileSize", &self.uliTotalFileSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamNumber == other.dwStreamNumber && self.dwReserved == other.dwReserved && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliChunkNumber == other.uliChunkNumber && self.uliChunkSize == other.uliChunkSize && self.uliStreamSize == other.uliStreamSize && self.uliTotalFileSize == other.uliTotalFileSize
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_2 {
@@ -1499,64 +1306,62 @@ pub struct COPYFILE2_MESSAGE_0_2 {
     pub uliTotalBytesTransferred: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0_2 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Error_e__Struct").field("CopyPhase", &self.CopyPhase).field("dwStreamNumber", &self.dwStreamNumber).field("hrFailure", &self.hrFailure).field("dwReserved", &self.dwReserved).field("uliChunkNumber", &self.uliChunkNumber).field("uliStreamSize", &self.uliStreamSize).field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred).field("uliTotalFileSize", &self.uliTotalFileSize).field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CopyPhase == other.CopyPhase && self.dwStreamNumber == other.dwStreamNumber && self.hrFailure == other.hrFailure && self.dwReserved == other.dwReserved && self.uliChunkNumber == other.uliChunkNumber && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0_3 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_PollContinue_e__Struct").field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_4 {
@@ -1570,32 +1375,31 @@ pub struct COPYFILE2_MESSAGE_0_4 {
     pub uliTotalBytesTransferred: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0_4 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0_4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_StreamFinished_e__Struct").field("dwStreamNumber", &self.dwStreamNumber).field("dwReserved", &self.dwReserved).field("hSourceFile", &self.hSourceFile).field("hDestinationFile", &self.hDestinationFile).field("uliStreamSize", &self.uliStreamSize).field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred).field("uliTotalFileSize", &self.uliTotalFileSize).field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamNumber == other.dwStreamNumber && self.dwReserved == other.dwReserved && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_5 {
@@ -1607,67 +1411,46 @@ pub struct COPYFILE2_MESSAGE_0_5 {
     pub uliTotalFileSize: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COPYFILE2_MESSAGE_0_5 {}
+impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYFILE2_MESSAGE_0_5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_StreamStarted_e__Struct").field("dwStreamNumber", &self.dwStreamNumber).field("dwReserved", &self.dwReserved).field("hSourceFile", &self.hSourceFile).field("hDestinationFile", &self.hDestinationFile).field("uliStreamSize", &self.uliStreamSize).field("uliTotalFileSize", &self.uliTotalFileSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamNumber == other.dwStreamNumber && self.dwReserved == other.dwReserved && self.hSourceFile == other.hSourceFile && self.hDestinationFile == other.hDestinationFile && self.uliStreamSize == other.uliStreamSize && self.uliTotalFileSize == other.uliTotalFileSize
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COPYFILE2_MESSAGE_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_5 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
-pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
-pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(1i32);
-pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
-pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
-pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
-impl ::core::convert::From<i32> for COPYFILE2_MESSAGE_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
-pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
-pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(1i32);
-pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(2i32);
-pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
-pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
-pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
-pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
-pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
-impl ::core::convert::From<i32> for COPYFILE2_MESSAGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type COPYFILE2_MESSAGE_ACTION = i32;
+pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = 0i32;
+pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = 1i32;
+pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = 2i32;
+pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = 3i32;
+pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = 4i32;
+pub type COPYFILE2_MESSAGE_TYPE = i32;
+pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = 0i32;
+pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = 1i32;
+pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = 2i32;
+pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = 3i32;
+pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = 4i32;
+pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = 5i32;
+pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = 6i32;
+pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
@@ -1679,45 +1462,35 @@ pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub hTemplateFile: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl CREATEFILE2_EXTENDED_PARAMETERS {}
+impl ::core::marker::Copy for CREATEFILE2_EXTENDED_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for CREATEFILE2_EXTENDED_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for CREATEFILE2_EXTENDED_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATEFILE2_EXTENDED_PARAMETERS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for CREATEFILE2_EXTENDED_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for CREATEFILE2_EXTENDED_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATEFILE2_EXTENDED_PARAMETERS").field("dwSize", &self.dwSize).field("dwFileAttributes", &self.dwFileAttributes).field("dwFileFlags", &self.dwFileFlags).field("dwSecurityQosFlags", &self.dwSecurityQosFlags).field("lpSecurityAttributes", &self.lpSecurityAttributes).field("hTemplateFile", &self.hTemplateFile).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for CREATEFILE2_EXTENDED_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFileAttributes == other.dwFileAttributes && self.dwFileFlags == other.dwFileFlags && self.dwSecurityQosFlags == other.dwSecurityQosFlags && self.lpSecurityAttributes == other.lpSecurityAttributes && self.hTemplateFile == other.hTemplateFile
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for CREATEFILE2_EXTENDED_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CREATE_TAPE_PARTITION_METHOD(pub i32);
-pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0i32);
-pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2i32);
-pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1i32);
-impl ::core::convert::From<i32> for CREATE_TAPE_PARTITION_METHOD {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CREATE_TAPE_PARTITION_METHOD {
-    type Abi = Self;
-}
+pub type CREATE_TAPE_PARTITION_METHOD = i32;
+pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 0i32;
+pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 2i32;
+pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 1i32;
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
 pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
 pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
@@ -2442,50 +2215,12 @@ pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
-pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
-pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(2u32);
-pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
-pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
-pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
-impl ::core::convert::From<u32> for DEFINE_DOS_DEVICE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEFINE_DOS_DEVICE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type DEFINE_DOS_DEVICE_FLAGS = u32;
+pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = 1u32;
+pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = 2u32;
+pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = 4u32;
+pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = 8u32;
+pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = 16u32;
 pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
 pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
 pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
@@ -2495,82 +2230,42 @@ pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
 pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
 pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
-pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
-pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
-pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
-impl ::core::convert::From<u32> for DISKQUOTA_USERNAME_RESOLVE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DISKQUOTA_USERNAME_RESOLVE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DISKQUOTA_USERNAME_RESOLVE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DISKQUOTA_USERNAME_RESOLVE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DISKQUOTA_USERNAME_RESOLVE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DISKQUOTA_USERNAME_RESOLVE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DISKQUOTA_USERNAME_RESOLVE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type DISKQUOTA_USERNAME_RESOLVE = u32;
+pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = 2u32;
+pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = 0u32;
+pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = 1u32;
 pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
 pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
 pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
 pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
 pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
 pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
     pub QuotaLimit: i64,
 }
-impl DISKQUOTA_USER_INFORMATION {}
+impl ::core::marker::Copy for DISKQUOTA_USER_INFORMATION {}
+impl ::core::clone::Clone for DISKQUOTA_USER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISKQUOTA_USER_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DISKQUOTA_USER_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISKQUOTA_USER_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DISKQUOTA_USER_INFORMATION {}
 impl ::core::default::Default for DISKQUOTA_USER_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DISKQUOTA_USER_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISKQUOTA_USER_INFORMATION").field("QuotaUsed", &self.QuotaUsed).field("QuotaThreshold", &self.QuotaThreshold).field("QuotaLimit", &self.QuotaLimit).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DISKQUOTA_USER_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.QuotaUsed == other.QuotaUsed && self.QuotaThreshold == other.QuotaThreshold && self.QuotaLimit == other.QuotaLimit
-    }
-}
-impl ::core::cmp::Eq for DISKQUOTA_USER_INFORMATION {}
-unsafe impl ::windows::core::Abi for DISKQUOTA_USER_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
@@ -2587,51 +2282,25 @@ pub struct DISK_SPACE_INFORMATION {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl DISK_SPACE_INFORMATION {}
+impl ::core::marker::Copy for DISK_SPACE_INFORMATION {}
+impl ::core::clone::Clone for DISK_SPACE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISK_SPACE_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DISK_SPACE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISK_SPACE_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DISK_SPACE_INFORMATION {}
 impl ::core::default::Default for DISK_SPACE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DISK_SPACE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISK_SPACE_INFORMATION")
-            .field("ActualTotalAllocationUnits", &self.ActualTotalAllocationUnits)
-            .field("ActualAvailableAllocationUnits", &self.ActualAvailableAllocationUnits)
-            .field("ActualPoolUnavailableAllocationUnits", &self.ActualPoolUnavailableAllocationUnits)
-            .field("CallerTotalAllocationUnits", &self.CallerTotalAllocationUnits)
-            .field("CallerAvailableAllocationUnits", &self.CallerAvailableAllocationUnits)
-            .field("CallerPoolUnavailableAllocationUnits", &self.CallerPoolUnavailableAllocationUnits)
-            .field("UsedAllocationUnits", &self.UsedAllocationUnits)
-            .field("TotalReservedAllocationUnits", &self.TotalReservedAllocationUnits)
-            .field("VolumeStorageReserveAllocationUnits", &self.VolumeStorageReserveAllocationUnits)
-            .field("AvailableCommittedAllocationUnits", &self.AvailableCommittedAllocationUnits)
-            .field("PoolAvailableAllocationUnits", &self.PoolAvailableAllocationUnits)
-            .field("SectorsPerAllocationUnit", &self.SectorsPerAllocationUnit)
-            .field("BytesPerSector", &self.BytesPerSector)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DISK_SPACE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ActualTotalAllocationUnits == other.ActualTotalAllocationUnits
-            && self.ActualAvailableAllocationUnits == other.ActualAvailableAllocationUnits
-            && self.ActualPoolUnavailableAllocationUnits == other.ActualPoolUnavailableAllocationUnits
-            && self.CallerTotalAllocationUnits == other.CallerTotalAllocationUnits
-            && self.CallerAvailableAllocationUnits == other.CallerAvailableAllocationUnits
-            && self.CallerPoolUnavailableAllocationUnits == other.CallerPoolUnavailableAllocationUnits
-            && self.UsedAllocationUnits == other.UsedAllocationUnits
-            && self.TotalReservedAllocationUnits == other.TotalReservedAllocationUnits
-            && self.VolumeStorageReserveAllocationUnits == other.VolumeStorageReserveAllocationUnits
-            && self.AvailableCommittedAllocationUnits == other.AvailableCommittedAllocationUnits
-            && self.PoolAvailableAllocationUnits == other.PoolAvailableAllocationUnits
-            && self.SectorsPerAllocationUnit == other.SectorsPerAllocationUnit
-            && self.BytesPerSector == other.BytesPerSector
-    }
-}
-impl ::core::cmp::Eq for DISK_SPACE_INFORMATION {}
-unsafe impl ::windows::core::Abi for DISK_SPACE_INFORMATION {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2857,89 +2526,85 @@ pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl EFS_CERTIFICATE_BLOB {}
+impl ::core::marker::Copy for EFS_CERTIFICATE_BLOB {}
+impl ::core::clone::Clone for EFS_CERTIFICATE_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_CERTIFICATE_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_CERTIFICATE_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_CERTIFICATE_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_CERTIFICATE_BLOB {}
 impl ::core::default::Default for EFS_CERTIFICATE_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_CERTIFICATE_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_CERTIFICATE_BLOB").field("dwCertEncodingType", &self.dwCertEncodingType).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_CERTIFICATE_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCertEncodingType == other.dwCertEncodingType && self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl ::core::cmp::Eq for EFS_CERTIFICATE_BLOB {}
-unsafe impl ::windows::core::Abi for EFS_CERTIFICATE_BLOB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
-impl EFS_COMPATIBILITY_INFO {}
+impl ::core::marker::Copy for EFS_COMPATIBILITY_INFO {}
+impl ::core::clone::Clone for EFS_COMPATIBILITY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_COMPATIBILITY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_COMPATIBILITY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_COMPATIBILITY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_COMPATIBILITY_INFO {}
 impl ::core::default::Default for EFS_COMPATIBILITY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_COMPATIBILITY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_COMPATIBILITY_INFO").field("EfsVersion", &self.EfsVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_COMPATIBILITY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EfsVersion == other.EfsVersion
-    }
-}
-impl ::core::cmp::Eq for EFS_COMPATIBILITY_INFO {}
-unsafe impl ::windows::core::Abi for EFS_COMPATIBILITY_INFO {
-    type Abi = Self;
-}
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
     pub cbHash: u32,
 }
-impl EFS_DECRYPTION_STATUS_INFO {}
+impl ::core::marker::Copy for EFS_DECRYPTION_STATUS_INFO {}
+impl ::core::clone::Clone for EFS_DECRYPTION_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_DECRYPTION_STATUS_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_DECRYPTION_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_DECRYPTION_STATUS_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_DECRYPTION_STATUS_INFO {}
 impl ::core::default::Default for EFS_DECRYPTION_STATUS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_DECRYPTION_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_DECRYPTION_STATUS_INFO").field("dwDecryptionError", &self.dwDecryptionError).field("dwHashOffset", &self.dwHashOffset).field("cbHash", &self.cbHash).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_DECRYPTION_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDecryptionError == other.dwDecryptionError && self.dwHashOffset == other.dwHashOffset && self.cbHash == other.cbHash
-    }
-}
-impl ::core::cmp::Eq for EFS_DECRYPTION_STATUS_INFO {}
-unsafe impl ::windows::core::Abi for EFS_DECRYPTION_STATUS_INFO {
-    type Abi = Self;
-}
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
@@ -2947,58 +2612,56 @@ pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub dwEncryptionError: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl EFS_ENCRYPTION_STATUS_INFO {}
+impl ::core::marker::Copy for EFS_ENCRYPTION_STATUS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EFS_ENCRYPTION_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for EFS_ENCRYPTION_STATUS_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for EFS_ENCRYPTION_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_ENCRYPTION_STATUS_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for EFS_ENCRYPTION_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EFS_ENCRYPTION_STATUS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EFS_ENCRYPTION_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_ENCRYPTION_STATUS_INFO").field("bHasCurrentKey", &self.bHasCurrentKey).field("dwEncryptionError", &self.dwEncryptionError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EFS_ENCRYPTION_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bHasCurrentKey == other.bHasCurrentKey && self.dwEncryptionError == other.dwEncryptionError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EFS_ENCRYPTION_STATUS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EFS_ENCRYPTION_STATUS_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl EFS_HASH_BLOB {}
+impl ::core::marker::Copy for EFS_HASH_BLOB {}
+impl ::core::clone::Clone for EFS_HASH_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_HASH_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_HASH_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_HASH_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_HASH_BLOB {}
 impl ::core::default::Default for EFS_HASH_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_HASH_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_HASH_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_HASH_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl ::core::cmp::Eq for EFS_HASH_BLOB {}
-unsafe impl ::windows::core::Abi for EFS_HASH_BLOB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
@@ -3006,25 +2669,25 @@ pub struct EFS_KEY_INFO {
     pub Algorithm: u32,
     pub KeyLength: u32,
 }
-impl EFS_KEY_INFO {}
+impl ::core::marker::Copy for EFS_KEY_INFO {}
+impl ::core::clone::Clone for EFS_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_KEY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_KEY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_KEY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_KEY_INFO {}
 impl ::core::default::Default for EFS_KEY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for EFS_KEY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_KEY_INFO").field("dwVersion", &self.dwVersion).field("Entropy", &self.Entropy).field("Algorithm", &self.Algorithm).field("KeyLength", &self.KeyLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Entropy == other.Entropy && self.Algorithm == other.Algorithm && self.KeyLength == other.KeyLength
-    }
-}
-impl ::core::cmp::Eq for EFS_KEY_INFO {}
-unsafe impl ::windows::core::Abi for EFS_KEY_INFO {
-    type Abi = Self;
 }
 pub const EFS_METADATA_ADD_USER: u32 = 1u32;
 pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
@@ -3032,87 +2695,83 @@ pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
 pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
 pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl EFS_PIN_BLOB {}
+impl ::core::marker::Copy for EFS_PIN_BLOB {}
+impl ::core::clone::Clone for EFS_PIN_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_PIN_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_PIN_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_PIN_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_PIN_BLOB {}
 impl ::core::default::Default for EFS_PIN_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_PIN_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_PIN_BLOB").field("cbPadding", &self.cbPadding).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_PIN_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbPadding == other.cbPadding && self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl ::core::cmp::Eq for EFS_PIN_BLOB {}
-unsafe impl ::windows::core::Abi for EFS_PIN_BLOB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl EFS_RPC_BLOB {}
+impl ::core::marker::Copy for EFS_RPC_BLOB {}
+impl ::core::clone::Clone for EFS_RPC_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_RPC_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_RPC_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_RPC_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_RPC_BLOB {}
 impl ::core::default::Default for EFS_RPC_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_RPC_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_RPC_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_RPC_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl ::core::cmp::Eq for EFS_RPC_BLOB {}
-unsafe impl ::windows::core::Abi for EFS_RPC_BLOB {
-    type Abi = Self;
-}
 pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
 }
-impl EFS_VERSION_INFO {}
+impl ::core::marker::Copy for EFS_VERSION_INFO {}
+impl ::core::clone::Clone for EFS_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFS_VERSION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EFS_VERSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFS_VERSION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EFS_VERSION_INFO {}
 impl ::core::default::Default for EFS_VERSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EFS_VERSION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EFS_VERSION_INFO").field("EfsVersion", &self.EfsVersion).field("SubVersion", &self.SubVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EFS_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EfsVersion == other.EfsVersion && self.SubVersion == other.SubVersion
-    }
-}
-impl ::core::cmp::Eq for EFS_VERSION_INFO {}
-unsafe impl ::windows::core::Abi for EFS_VERSION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
@@ -3122,32 +2781,31 @@ pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub pEfsStreamSignature: *mut EFS_RPC_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ENCRYPTED_FILE_METADATA_SIGNATURE {}
+impl ::core::marker::Copy for ENCRYPTED_FILE_METADATA_SIGNATURE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTED_FILE_METADATA_SIGNATURE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for ENCRYPTED_FILE_METADATA_SIGNATURE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTED_FILE_METADATA_SIGNATURE").field("dwEfsAccessType", &self.dwEfsAccessType).field("pCertificatesAdded", &self.pCertificatesAdded).field("pEncryptionCertificate", &self.pEncryptionCertificate).field("pEfsStreamSignature", &self.pEfsStreamSignature).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwEfsAccessType == other.dwEfsAccessType && self.pCertificatesAdded == other.pCertificatesAdded && self.pEncryptionCertificate == other.pEncryptionCertificate && self.pEfsStreamSignature == other.pEfsStreamSignature
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for ENCRYPTED_FILE_METADATA_SIGNATURE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE {
@@ -3156,32 +2814,31 @@ pub struct ENCRYPTION_CERTIFICATE {
     pub pCertBlob: *mut EFS_CERTIFICATE_BLOB,
 }
 #[cfg(feature = "Win32_Security")]
-impl ENCRYPTION_CERTIFICATE {}
+impl ::core::marker::Copy for ENCRYPTION_CERTIFICATE {}
+#[cfg(feature = "Win32_Security")]
+impl ::core::clone::Clone for ENCRYPTION_CERTIFICATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security")]
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security")]
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTION_CERTIFICATE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE {}
 #[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for ENCRYPTION_CERTIFICATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_CERTIFICATE").field("cbTotalLength", &self.cbTotalLength).field("pUserSid", &self.pUserSid).field("pCertBlob", &self.pCertBlob).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbTotalLength == other.cbTotalLength && self.pUserSid == other.pUserSid && self.pCertBlob == other.pCertBlob
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
@@ -3191,32 +2848,31 @@ pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub lpDisplayInformation: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ENCRYPTION_CERTIFICATE_HASH {}
+impl ::core::marker::Copy for ENCRYPTION_CERTIFICATE_HASH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for ENCRYPTION_CERTIFICATE_HASH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTION_CERTIFICATE_HASH>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_CERTIFICATE_HASH").field("cbTotalLength", &self.cbTotalLength).field("pUserSid", &self.pUserSid).field("pHash", &self.pHash).field("lpDisplayInformation", &self.lpDisplayInformation).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbTotalLength == other.cbTotalLength && self.pUserSid == other.pUserSid && self.pHash == other.pHash && self.lpDisplayInformation == other.lpDisplayInformation
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
@@ -3224,32 +2880,31 @@ pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ENCRYPTION_CERTIFICATE_HASH_LIST {}
+impl ::core::marker::Copy for ENCRYPTION_CERTIFICATE_HASH_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTION_CERTIFICATE_HASH_LIST>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_CERTIFICATE_HASH_LIST").field("nCert_Hash", &self.nCert_Hash).field("pUsers", &self.pUsers).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.nCert_Hash == other.nCert_Hash && self.pUsers == other.pUsers
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_HASH_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
@@ -3257,32 +2912,31 @@ pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
 }
 #[cfg(feature = "Win32_Security")]
-impl ENCRYPTION_CERTIFICATE_LIST {}
+impl ::core::marker::Copy for ENCRYPTION_CERTIFICATE_LIST {}
+#[cfg(feature = "Win32_Security")]
+impl ::core::clone::Clone for ENCRYPTION_CERTIFICATE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security")]
+unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_LIST {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security")]
+impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTION_CERTIFICATE_LIST>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security")]
+impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_LIST {}
 #[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for ENCRYPTION_CERTIFICATE_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_CERTIFICATE_LIST").field("nUsers", &self.nUsers).field("pUsers", &self.pUsers).finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.nUsers == other.nUsers && self.pUsers == other.pUsers
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::core::cmp::Eq for ENCRYPTION_CERTIFICATE_LIST {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_LIST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_PROTECTOR {
@@ -3291,32 +2945,31 @@ pub struct ENCRYPTION_PROTECTOR {
     pub lpProtectorDescriptor: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ENCRYPTION_PROTECTOR {}
+impl ::core::marker::Copy for ENCRYPTION_PROTECTOR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for ENCRYPTION_PROTECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTION_PROTECTOR>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ENCRYPTION_PROTECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for ENCRYPTION_PROTECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_PROTECTOR").field("cbTotalLength", &self.cbTotalLength).field("pUserSid", &self.pUserSid).field("lpProtectorDescriptor", &self.lpProtectorDescriptor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbTotalLength == other.cbTotalLength && self.pUserSid == other.pUserSid && self.lpProtectorDescriptor == other.lpProtectorDescriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_PROTECTOR_LIST {
@@ -3324,46 +2977,36 @@ pub struct ENCRYPTION_PROTECTOR_LIST {
     pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ENCRYPTION_PROTECTOR_LIST {}
+impl ::core::marker::Copy for ENCRYPTION_PROTECTOR_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for ENCRYPTION_PROTECTOR_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR_LIST {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTION_PROTECTOR_LIST>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for ENCRYPTION_PROTECTOR_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for ENCRYPTION_PROTECTOR_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_PROTECTOR_LIST").field("nProtectors", &self.nProtectors).field("pProtectors", &self.pProtectors).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.nProtectors == other.nProtectors && self.pProtectors == other.pProtectors
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for ENCRYPTION_PROTECTOR_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR_LIST {
-    type Abi = Self;
-}
 pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ERASE_TAPE_TYPE(pub i32);
-pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1i32);
-pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0i32);
-impl ::core::convert::From<i32> for ERASE_TAPE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ERASE_TAPE_TYPE {
-    type Abi = Self;
-}
+pub type ERASE_TAPE_TYPE = i32;
+pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = 1i32;
+pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = 0i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -3424,7 +3067,6 @@ pub unsafe fn EraseTape<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub type FCACHE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_RICHCREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FH_OVERLAPPED {
@@ -3440,217 +3082,137 @@ pub struct FH_OVERLAPPED {
     pub Reserved4: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FH_OVERLAPPED {}
+impl ::core::marker::Copy for FH_OVERLAPPED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FH_OVERLAPPED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FH_OVERLAPPED {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FH_OVERLAPPED {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FH_OVERLAPPED>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FH_OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FH_OVERLAPPED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FH_OVERLAPPED {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FH_OVERLAPPED").field("Internal", &self.Internal).field("InternalHigh", &self.InternalHigh).field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).field("hEvent", &self.hEvent).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FH_OVERLAPPED {
-    fn eq(&self, other: &Self) -> bool {
-        self.Internal == other.Internal && self.InternalHigh == other.InternalHigh && self.Offset == other.Offset && self.OffsetHigh == other.OffsetHigh && self.hEvent == other.hEvent && self.pfnCompletion.map(|f| f as usize) == other.pfnCompletion.map(|f| f as usize) && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FH_OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FH_OVERLAPPED {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_ACCESS_FLAGS(pub u32);
-pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1u32);
-pub const FILE_LIST_DIRECTORY: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1u32);
-pub const FILE_WRITE_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2u32);
-pub const FILE_ADD_FILE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2u32);
-pub const FILE_APPEND_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(4u32);
-pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(4u32);
-pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(4u32);
-pub const FILE_READ_EA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(8u32);
-pub const FILE_WRITE_EA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(16u32);
-pub const FILE_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(32u32);
-pub const FILE_TRAVERSE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(32u32);
-pub const FILE_DELETE_CHILD: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(64u32);
-pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(128u32);
-pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(256u32);
-pub const READ_CONTROL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-pub const SYNCHRONIZE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1048576u32);
-pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(983040u32);
-pub const STANDARD_RIGHTS_READ: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2031616u32);
-pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(65535u32);
-pub const FILE_ALL_ACCESS: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2032127u32);
-pub const FILE_GENERIC_READ: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179785u32);
-pub const FILE_GENERIC_WRITE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179926u32);
-pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179808u32);
-impl ::core::convert::From<u32> for FILE_ACCESS_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_ACCESS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_ACCESS_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_ACCESS_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_ACCESS_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_ACCESS_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_ACCESS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_ACTION(pub u32);
-pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
-pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
-pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
-pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
-pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
-impl ::core::convert::From<u32> for FILE_ACTION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_ACTION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_ACTION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_ACTION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_ACTION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_ACTION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_ACCESS_FLAGS = u32;
+pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = 1u32;
+pub const FILE_LIST_DIRECTORY: FILE_ACCESS_FLAGS = 1u32;
+pub const FILE_WRITE_DATA: FILE_ACCESS_FLAGS = 2u32;
+pub const FILE_ADD_FILE: FILE_ACCESS_FLAGS = 2u32;
+pub const FILE_APPEND_DATA: FILE_ACCESS_FLAGS = 4u32;
+pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_FLAGS = 4u32;
+pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_FLAGS = 4u32;
+pub const FILE_READ_EA: FILE_ACCESS_FLAGS = 8u32;
+pub const FILE_WRITE_EA: FILE_ACCESS_FLAGS = 16u32;
+pub const FILE_EXECUTE: FILE_ACCESS_FLAGS = 32u32;
+pub const FILE_TRAVERSE: FILE_ACCESS_FLAGS = 32u32;
+pub const FILE_DELETE_CHILD: FILE_ACCESS_FLAGS = 64u32;
+pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_FLAGS = 128u32;
+pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_FLAGS = 256u32;
+pub const READ_CONTROL: FILE_ACCESS_FLAGS = 131072u32;
+pub const SYNCHRONIZE: FILE_ACCESS_FLAGS = 1048576u32;
+pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_FLAGS = 983040u32;
+pub const STANDARD_RIGHTS_READ: FILE_ACCESS_FLAGS = 131072u32;
+pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_FLAGS = 131072u32;
+pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_FLAGS = 131072u32;
+pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_FLAGS = 2031616u32;
+pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_FLAGS = 65535u32;
+pub const FILE_ALL_ACCESS: FILE_ACCESS_FLAGS = 2032127u32;
+pub const FILE_GENERIC_READ: FILE_ACCESS_FLAGS = 1179785u32;
+pub const FILE_GENERIC_WRITE: FILE_ACCESS_FLAGS = 1179926u32;
+pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_FLAGS = 1179808u32;
+pub type FILE_ACTION = u32;
+pub const FILE_ACTION_ADDED: FILE_ACTION = 1u32;
+pub const FILE_ACTION_REMOVED: FILE_ACTION = 2u32;
+pub const FILE_ACTION_MODIFIED: FILE_ACTION = 3u32;
+pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = 4u32;
+pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = 5u32;
 #[repr(C)]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
-impl FILE_ALIGNMENT_INFO {}
+impl ::core::marker::Copy for FILE_ALIGNMENT_INFO {}
+impl ::core::clone::Clone for FILE_ALIGNMENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ALIGNMENT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ALIGNMENT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ALIGNMENT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ALIGNMENT_INFO {}
 impl ::core::default::Default for FILE_ALIGNMENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ALIGNMENT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ALIGNMENT_INFO").field("AlignmentRequirement", &self.AlignmentRequirement).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ALIGNMENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.AlignmentRequirement == other.AlignmentRequirement
-    }
-}
-impl ::core::cmp::Eq for FILE_ALIGNMENT_INFO {}
-unsafe impl ::windows::core::Abi for FILE_ALIGNMENT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
-impl FILE_ALLOCATION_INFO {}
+impl ::core::marker::Copy for FILE_ALLOCATION_INFO {}
+impl ::core::clone::Clone for FILE_ALLOCATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ALLOCATION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ALLOCATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ALLOCATION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ALLOCATION_INFO {}
 impl ::core::default::Default for FILE_ALLOCATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ALLOCATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ALLOCATION_INFO").field("AllocationSize", &self.AllocationSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ALLOCATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllocationSize == other.AllocationSize
-    }
-}
-impl ::core::cmp::Eq for FILE_ALLOCATION_INFO {}
-unsafe impl ::windows::core::Abi for FILE_ALLOCATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
 }
-impl FILE_ATTRIBUTE_TAG_INFO {}
+impl ::core::marker::Copy for FILE_ATTRIBUTE_TAG_INFO {}
+impl ::core::clone::Clone for FILE_ATTRIBUTE_TAG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ATTRIBUTE_TAG_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ATTRIBUTE_TAG_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ATTRIBUTE_TAG_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ATTRIBUTE_TAG_INFO {}
 impl ::core::default::Default for FILE_ATTRIBUTE_TAG_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ATTRIBUTE_TAG_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ATTRIBUTE_TAG_INFO").field("FileAttributes", &self.FileAttributes).field("ReparseTag", &self.ReparseTag).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ATTRIBUTE_TAG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileAttributes == other.FileAttributes && self.ReparseTag == other.ReparseTag
-    }
-}
-impl ::core::cmp::Eq for FILE_ATTRIBUTE_TAG_INFO {}
-unsafe impl ::windows::core::Abi for FILE_ATTRIBUTE_TAG_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_BASIC_INFO {
     pub CreationTime: i64,
@@ -3659,27 +3221,26 @@ pub struct FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
-impl FILE_BASIC_INFO {}
+impl ::core::marker::Copy for FILE_BASIC_INFO {}
+impl ::core::clone::Clone for FILE_BASIC_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_BASIC_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_BASIC_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_BASIC_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_BASIC_INFO {}
 impl ::core::default::Default for FILE_BASIC_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_BASIC_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_BASIC_INFO").field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.FileAttributes == other.FileAttributes
-    }
-}
-impl ::core::cmp::Eq for FILE_BASIC_INFO {}
-unsafe impl ::windows::core::Abi for FILE_BASIC_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
@@ -3689,281 +3250,163 @@ pub struct FILE_COMPRESSION_INFO {
     pub ClusterShift: u8,
     pub Reserved: [u8; 3],
 }
-impl FILE_COMPRESSION_INFO {}
+impl ::core::marker::Copy for FILE_COMPRESSION_INFO {}
+impl ::core::clone::Clone for FILE_COMPRESSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_COMPRESSION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_COMPRESSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_COMPRESSION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_COMPRESSION_INFO {}
 impl ::core::default::Default for FILE_COMPRESSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_COMPRESSION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_COMPRESSION_INFO").field("CompressedFileSize", &self.CompressedFileSize).field("CompressionFormat", &self.CompressionFormat).field("CompressionUnitShift", &self.CompressionUnitShift).field("ChunkShift", &self.ChunkShift).field("ClusterShift", &self.ClusterShift).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_COMPRESSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompressedFileSize == other.CompressedFileSize && self.CompressionFormat == other.CompressionFormat && self.CompressionUnitShift == other.CompressionUnitShift && self.ChunkShift == other.ChunkShift && self.ClusterShift == other.ClusterShift && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for FILE_COMPRESSION_INFO {}
-unsafe impl ::windows::core::Abi for FILE_COMPRESSION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_CREATION_DISPOSITION(pub u32);
-pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
-pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
-pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
-pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
-pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
-impl ::core::convert::From<u32> for FILE_CREATION_DISPOSITION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_CREATION_DISPOSITION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_CREATION_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_CREATION_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_CREATION_DISPOSITION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_CREATION_DISPOSITION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_CREATION_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_DEVICE_TYPE(pub u32);
-pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
-pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
-pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
-pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
-impl ::core::convert::From<u32> for FILE_DEVICE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_DEVICE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_DEVICE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_DEVICE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_DEVICE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_DEVICE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_DEVICE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_CREATION_DISPOSITION = u32;
+pub const CREATE_NEW: FILE_CREATION_DISPOSITION = 1u32;
+pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = 2u32;
+pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = 3u32;
+pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = 4u32;
+pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = 5u32;
+pub type FILE_DEVICE_TYPE = u32;
+pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = 2u32;
+pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = 7u32;
+pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = 31u32;
+pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = 51u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_DISPOSITION_INFO {
     pub DeleteFileA: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_DISPOSITION_INFO {}
+impl ::core::marker::Copy for FILE_DISPOSITION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILE_DISPOSITION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_DISPOSITION_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FILE_DISPOSITION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_DISPOSITION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILE_DISPOSITION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_DISPOSITION_INFO").field("DeleteFileA", &self.DeleteFileA).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeleteFileA == other.DeleteFileA
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FILE_DISPOSITION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
-impl FILE_END_OF_FILE_INFO {}
+impl ::core::marker::Copy for FILE_END_OF_FILE_INFO {}
+impl ::core::clone::Clone for FILE_END_OF_FILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_END_OF_FILE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_END_OF_FILE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_END_OF_FILE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_END_OF_FILE_INFO {}
 impl ::core::default::Default for FILE_END_OF_FILE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_END_OF_FILE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_END_OF_FILE_INFO").field("EndOfFile", &self.EndOfFile).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_END_OF_FILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndOfFile == other.EndOfFile
-    }
-}
-impl ::core::cmp::Eq for FILE_END_OF_FILE_INFO {}
-unsafe impl ::windows::core::Abi for FILE_END_OF_FILE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
 }
-impl FILE_EXTENT {}
+impl ::core::marker::Copy for FILE_EXTENT {}
+impl ::core::clone::Clone for FILE_EXTENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_EXTENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_EXTENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_EXTENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_EXTENT {}
 impl ::core::default::Default for FILE_EXTENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_EXTENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_EXTENT").field("VolumeOffset", &self.VolumeOffset).field("ExtentLength", &self.ExtentLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeOffset == other.VolumeOffset && self.ExtentLength == other.ExtentLength
-    }
-}
-impl ::core::cmp::Eq for FILE_EXTENT {}
-unsafe impl ::windows::core::Abi for FILE_EXTENT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
-pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4u32);
-pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16u32);
-pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32u32);
-pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(64u32);
-pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(128u32);
-pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(256u32);
-pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(512u32);
-pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1024u32);
-pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2048u32);
-pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4096u32);
-pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8192u32);
-pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16384u32);
-pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32768u32);
-pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4194304u32);
-pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2147483648u32);
-pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1073741824u32);
-pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(536870912u32);
-pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(268435456u32);
-pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(134217728u32);
-pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(67108864u32);
-pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(33554432u32);
-pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16777216u32);
-pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8388608u32);
-pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2097152u32);
-pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
-pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(0u32);
-pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(196608u32);
-pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
-impl ::core::convert::From<u32> for FILE_FLAGS_AND_ATTRIBUTES {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_FLAGS_AND_ATTRIBUTES {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_FLAGS_AND_ATTRIBUTES = u32;
+pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = 1u32;
+pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = 2u32;
+pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = 4u32;
+pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = 16u32;
+pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = 32u32;
+pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = 64u32;
+pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = 128u32;
+pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = 256u32;
+pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = 512u32;
+pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = 1024u32;
+pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = 2048u32;
+pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = 4096u32;
+pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = 8192u32;
+pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = 16384u32;
+pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = 32768u32;
+pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = 65536u32;
+pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = 131072u32;
+pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = 262144u32;
+pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = 524288u32;
+pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
+pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = 262144u32;
+pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = 4194304u32;
+pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = 2147483648u32;
+pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = 1073741824u32;
+pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = 536870912u32;
+pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = 268435456u32;
+pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = 134217728u32;
+pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = 67108864u32;
+pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = 33554432u32;
+pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = 16777216u32;
+pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = 8388608u32;
+pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = 2097152u32;
+pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
+pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = 524288u32;
+pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = 3u32;
+pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = 1u32;
+pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = 2u32;
+pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = 0u32;
+pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = 65536u32;
+pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = 131072u32;
+pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = 196608u32;
+pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = 262144u32;
+pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = 524288u32;
+pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
+pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = 2031616u32;
 #[repr(C)]
 pub struct FILE_FULL_DIR_INFO {
     pub NextEntryOffset: u32,
@@ -3979,65 +3422,50 @@ pub struct FILE_FULL_DIR_INFO {
     pub EaSize: u32,
     pub FileName: [u16; 1],
 }
-impl FILE_FULL_DIR_INFO {}
+impl ::core::marker::Copy for FILE_FULL_DIR_INFO {}
+impl ::core::clone::Clone for FILE_FULL_DIR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_FULL_DIR_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_FULL_DIR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_FULL_DIR_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_FULL_DIR_INFO {}
 impl ::core::default::Default for FILE_FULL_DIR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_FULL_DIR_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_FULL_DIR_INFO")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("FileIndex", &self.FileIndex)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ChangeTime", &self.ChangeTime)
-            .field("EndOfFile", &self.EndOfFile)
-            .field("AllocationSize", &self.AllocationSize)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("EaSize", &self.EaSize)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_FULL_DIR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.EndOfFile == other.EndOfFile && self.AllocationSize == other.AllocationSize && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.EaSize == other.EaSize && self.FileName == other.FileName
-    }
-}
-impl ::core::cmp::Eq for FILE_FULL_DIR_INFO {}
-unsafe impl ::windows::core::Abi for FILE_FULL_DIR_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
-impl FILE_ID_128 {}
+impl ::core::marker::Copy for FILE_ID_128 {}
+impl ::core::clone::Clone for FILE_ID_128 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ID_128 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ID_128 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ID_128>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ID_128 {}
 impl ::core::default::Default for FILE_ID_128 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ID_128 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ID_128").field("Identifier", &self.Identifier).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ID_128 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Identifier == other.Identifier
-    }
-}
-impl ::core::cmp::Eq for FILE_ID_128 {}
-unsafe impl ::windows::core::Abi for FILE_ID_128 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ID_BOTH_DIR_INFO {
     pub NextEntryOffset: u32,
@@ -4056,87 +3484,78 @@ pub struct FILE_ID_BOTH_DIR_INFO {
     pub FileId: i64,
     pub FileName: [u16; 1],
 }
-impl FILE_ID_BOTH_DIR_INFO {}
+impl ::core::marker::Copy for FILE_ID_BOTH_DIR_INFO {}
+impl ::core::clone::Clone for FILE_ID_BOTH_DIR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ID_BOTH_DIR_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ID_BOTH_DIR_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ID_BOTH_DIR_INFO {}
 impl ::core::default::Default for FILE_ID_BOTH_DIR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ID_BOTH_DIR_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ID_BOTH_DIR_INFO")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("FileIndex", &self.FileIndex)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ChangeTime", &self.ChangeTime)
-            .field("EndOfFile", &self.EndOfFile)
-            .field("AllocationSize", &self.AllocationSize)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("EaSize", &self.EaSize)
-            .field("ShortNameLength", &self.ShortNameLength)
-            .field("ShortName", &self.ShortName)
-            .field("FileId", &self.FileId)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.EndOfFile == other.EndOfFile && self.AllocationSize == other.AllocationSize && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.EaSize == other.EaSize && self.ShortNameLength == other.ShortNameLength && self.ShortName == other.ShortName && self.FileId == other.FileId && self.FileName == other.FileName
-    }
-}
-impl ::core::cmp::Eq for FILE_ID_BOTH_DIR_INFO {}
-unsafe impl ::windows::core::Abi for FILE_ID_BOTH_DIR_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ID_DESCRIPTOR {
     pub dwSize: u32,
     pub Type: FILE_ID_TYPE,
     pub Anonymous: FILE_ID_DESCRIPTOR_0,
 }
-impl FILE_ID_DESCRIPTOR {}
+impl ::core::marker::Copy for FILE_ID_DESCRIPTOR {}
+impl ::core::clone::Clone for FILE_ID_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ID_DESCRIPTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR {}
 impl ::core::default::Default for FILE_ID_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR {}
-unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union FILE_ID_DESCRIPTOR_0 {
     pub FileId: i64,
     pub ObjectId: ::windows::core::GUID,
     pub ExtendedFileId: FILE_ID_128,
 }
-impl FILE_ID_DESCRIPTOR_0 {}
+impl ::core::marker::Copy for FILE_ID_DESCRIPTOR_0 {}
+impl ::core::clone::Clone for FILE_ID_DESCRIPTOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ID_DESCRIPTOR_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR_0 {}
 impl ::core::default::Default for FILE_ID_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILE_ID_DESCRIPTOR_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILE_ID_DESCRIPTOR_0 {}
-unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ID_EXTD_DIR_INFO {
     pub NextEntryOffset: u32,
@@ -4154,108 +3573,80 @@ pub struct FILE_ID_EXTD_DIR_INFO {
     pub FileId: FILE_ID_128,
     pub FileName: [u16; 1],
 }
-impl FILE_ID_EXTD_DIR_INFO {}
+impl ::core::marker::Copy for FILE_ID_EXTD_DIR_INFO {}
+impl ::core::clone::Clone for FILE_ID_EXTD_DIR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ID_EXTD_DIR_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ID_EXTD_DIR_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ID_EXTD_DIR_INFO {}
 impl ::core::default::Default for FILE_ID_EXTD_DIR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ID_EXTD_DIR_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ID_EXTD_DIR_INFO")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("FileIndex", &self.FileIndex)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ChangeTime", &self.ChangeTime)
-            .field("EndOfFile", &self.EndOfFile)
-            .field("AllocationSize", &self.AllocationSize)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("EaSize", &self.EaSize)
-            .field("ReparsePointTag", &self.ReparsePointTag)
-            .field("FileId", &self.FileId)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.EndOfFile == other.EndOfFile && self.AllocationSize == other.AllocationSize && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.EaSize == other.EaSize && self.ReparsePointTag == other.ReparsePointTag && self.FileId == other.FileId && self.FileName == other.FileName
-    }
-}
-impl ::core::cmp::Eq for FILE_ID_EXTD_DIR_INFO {}
-unsafe impl ::windows::core::Abi for FILE_ID_EXTD_DIR_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_ID_INFO {
     pub VolumeSerialNumber: u64,
     pub FileId: FILE_ID_128,
 }
-impl FILE_ID_INFO {}
+impl ::core::marker::Copy for FILE_ID_INFO {}
+impl ::core::clone::Clone for FILE_ID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_ID_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_ID_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_ID_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_ID_INFO {}
 impl ::core::default::Default for FILE_ID_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_ID_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_ID_INFO").field("VolumeSerialNumber", &self.VolumeSerialNumber).field("FileId", &self.FileId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_ID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeSerialNumber == other.VolumeSerialNumber && self.FileId == other.FileId
-    }
-}
-impl ::core::cmp::Eq for FILE_ID_INFO {}
-unsafe impl ::windows::core::Abi for FILE_ID_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_ID_TYPE(pub i32);
-pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
-pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
-pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
-pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
-impl ::core::convert::From<i32> for FILE_ID_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_ID_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_ID_TYPE = i32;
+pub const FileIdType: FILE_ID_TYPE = 0i32;
+pub const ObjectIdType: FILE_ID_TYPE = 1i32;
+pub const ExtendedFileIdType: FILE_ID_TYPE = 2i32;
+pub const MaximumFileIdType: FILE_ID_TYPE = 3i32;
 #[repr(C)]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
-impl FILE_INFO_2 {}
+impl ::core::marker::Copy for FILE_INFO_2 {}
+impl ::core::clone::Clone for FILE_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_INFO_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_INFO_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_INFO_2 {}
 impl ::core::default::Default for FILE_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_INFO_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_INFO_2").field("fi2_id", &self.fi2_id).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fi2_id == other.fi2_id
-    }
-}
-impl ::core::cmp::Eq for FILE_INFO_2 {}
-unsafe impl ::windows::core::Abi for FILE_INFO_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_INFO_3 {
@@ -4266,250 +3657,123 @@ pub struct FILE_INFO_3 {
     pub fi3_username: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_INFO_3 {}
+impl ::core::marker::Copy for FILE_INFO_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILE_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_INFO_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FILE_INFO_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_INFO_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FILE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_INFO_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILE_INFO_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_INFO_3").field("fi3_id", &self.fi3_id).field("fi3_permissions", &self.fi3_permissions).field("fi3_num_locks", &self.fi3_num_locks).field("fi3_pathname", &self.fi3_pathname).field("fi3_username", &self.fi3_username).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FILE_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fi3_id == other.fi3_id && self.fi3_permissions == other.fi3_permissions && self.fi3_num_locks == other.fi3_num_locks && self.fi3_pathname == other.fi3_pathname && self.fi3_username == other.fi3_username
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FILE_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_INFO_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
-pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
-pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(1i32);
-pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(2i32);
-pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(3i32);
-pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(4i32);
-pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(5i32);
-pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(6i32);
-pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(7i32);
-pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(8i32);
-pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(9i32);
-pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(10i32);
-pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(11i32);
-pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(12i32);
-pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(13i32);
-pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(14i32);
-pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(15i32);
-pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(16i32);
-pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(17i32);
-pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(18i32);
-pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(19i32);
-pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(20i32);
-pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(21i32);
-pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(22i32);
-pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
-pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
-pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
-impl ::core::convert::From<i32> for FILE_INFO_BY_HANDLE_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_INFO_BY_HANDLE_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
-pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
-pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
-pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
-impl ::core::convert::From<u32> for FILE_INFO_FLAGS_PERMISSIONS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_INFO_FLAGS_PERMISSIONS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_INFO_BY_HANDLE_CLASS = i32;
+pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = 0i32;
+pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = 1i32;
+pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = 2i32;
+pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = 3i32;
+pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = 4i32;
+pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = 5i32;
+pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = 6i32;
+pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = 7i32;
+pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = 8i32;
+pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = 9i32;
+pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = 10i32;
+pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = 11i32;
+pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = 12i32;
+pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = 13i32;
+pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = 14i32;
+pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = 15i32;
+pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = 16i32;
+pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = 17i32;
+pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = 18i32;
+pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = 19i32;
+pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = 20i32;
+pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = 21i32;
+pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = 22i32;
+pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = 23i32;
+pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = 24i32;
+pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = 25i32;
+pub type FILE_INFO_FLAGS_PERMISSIONS = u32;
+pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = 1u32;
+pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = 2u32;
+pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = 4u32;
 #[repr(C)]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
-impl FILE_IO_PRIORITY_HINT_INFO {}
+impl ::core::marker::Copy for FILE_IO_PRIORITY_HINT_INFO {}
+impl ::core::clone::Clone for FILE_IO_PRIORITY_HINT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_IO_PRIORITY_HINT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_IO_PRIORITY_HINT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_IO_PRIORITY_HINT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_IO_PRIORITY_HINT_INFO {}
 impl ::core::default::Default for FILE_IO_PRIORITY_HINT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_IO_PRIORITY_HINT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_IO_PRIORITY_HINT_INFO").field("PriorityHint", &self.PriorityHint).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_IO_PRIORITY_HINT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PriorityHint == other.PriorityHint
-    }
-}
-impl ::core::cmp::Eq for FILE_IO_PRIORITY_HINT_INFO {}
-unsafe impl ::windows::core::Abi for FILE_IO_PRIORITY_HINT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_NAME(pub u32);
-pub const FILE_NAME_NORMALIZED: FILE_NAME = FILE_NAME(0u32);
-pub const FILE_NAME_OPENED: FILE_NAME = FILE_NAME(8u32);
-impl ::core::convert::From<u32> for FILE_NAME {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_NAME {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_NAME {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_NAME {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_NAME {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_NAME {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_NAME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_NAME = u32;
+pub const FILE_NAME_NORMALIZED: FILE_NAME = 0u32;
+pub const FILE_NAME_OPENED: FILE_NAME = 8u32;
 #[repr(C)]
 pub struct FILE_NAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl FILE_NAME_INFO {}
+impl ::core::marker::Copy for FILE_NAME_INFO {}
+impl ::core::clone::Clone for FILE_NAME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_NAME_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_NAME_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_NAME_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_NAME_INFO {}
 impl ::core::default::Default for FILE_NAME_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_NAME_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_NAME_INFO").field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_NAME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
-    }
-}
-impl ::core::cmp::Eq for FILE_NAME_INFO {}
-unsafe impl ::windows::core::Abi for FILE_NAME_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_NOTIFY_CHANGE(pub u32);
-pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
-pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(2u32);
-pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(4u32);
-pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(8u32);
-pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(16u32);
-pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
-pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
-pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
-impl ::core::convert::From<u32> for FILE_NOTIFY_CHANGE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_NOTIFY_CHANGE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_NOTIFY_CHANGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_NOTIFY_CHANGE = u32;
+pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = 1u32;
+pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = 2u32;
+pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = 4u32;
+pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = 8u32;
+pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = 16u32;
+pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = 32u32;
+pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = 64u32;
+pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = 256u32;
 #[repr(C)]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub NextEntryOffset: u32,
@@ -4527,42 +3791,26 @@ pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl FILE_NOTIFY_EXTENDED_INFORMATION {}
+impl ::core::marker::Copy for FILE_NOTIFY_EXTENDED_INFORMATION {}
+impl ::core::clone::Clone for FILE_NOTIFY_EXTENDED_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_NOTIFY_EXTENDED_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_NOTIFY_EXTENDED_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_NOTIFY_EXTENDED_INFORMATION {}
 impl ::core::default::Default for FILE_NOTIFY_EXTENDED_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_NOTIFY_EXTENDED_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_NOTIFY_EXTENDED_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("Action", &self.Action)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastModificationTime", &self.LastModificationTime)
-            .field("LastChangeTime", &self.LastChangeTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("AllocatedLength", &self.AllocatedLength)
-            .field("FileSize", &self.FileSize)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("ReparsePointTag", &self.ReparsePointTag)
-            .field("FileId", &self.FileId)
-            .field("ParentFileId", &self.ParentFileId)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.Action == other.Action && self.CreationTime == other.CreationTime && self.LastModificationTime == other.LastModificationTime && self.LastChangeTime == other.LastChangeTime && self.LastAccessTime == other.LastAccessTime && self.AllocatedLength == other.AllocatedLength && self.FileSize == other.FileSize && self.FileAttributes == other.FileAttributes && self.ReparsePointTag == other.ReparsePointTag && self.FileId == other.FileId && self.ParentFileId == other.ParentFileId && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
-    }
-}
-impl ::core::cmp::Eq for FILE_NOTIFY_EXTENDED_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILE_NOTIFY_EXTENDED_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
@@ -4570,31 +3818,30 @@ pub struct FILE_NOTIFY_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl FILE_NOTIFY_INFORMATION {}
+impl ::core::marker::Copy for FILE_NOTIFY_INFORMATION {}
+impl ::core::clone::Clone for FILE_NOTIFY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_NOTIFY_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_NOTIFY_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_NOTIFY_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_NOTIFY_INFORMATION {}
 impl ::core::default::Default for FILE_NOTIFY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_NOTIFY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_NOTIFY_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Action", &self.Action).field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_NOTIFY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.Action == other.Action && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
-    }
-}
-impl ::core::cmp::Eq for FILE_NOTIFY_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILE_NOTIFY_INFORMATION {
-    type Abi = Self;
-}
 pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub StructureVersion: u16,
@@ -4608,145 +3855,149 @@ pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
     pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
 }
-impl FILE_REMOTE_PROTOCOL_INFO {}
+impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO {}
+impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_REMOTE_PROTOCOL_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO {}
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO {}
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
-impl FILE_REMOTE_PROTOCOL_INFO_0 {}
+impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO_0 {}
+impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_REMOTE_PROTOCOL_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_0 {}
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_GenericReserved_e__Struct").field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_0 {}
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union FILE_REMOTE_PROTOCOL_INFO_1 {
     pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
     pub Reserved: [u32; 16],
 }
-impl FILE_REMOTE_PROTOCOL_INFO_1 {}
+impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO_1 {}
+impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_REMOTE_PROTOCOL_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1 {}
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1 {}
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
 }
-impl FILE_REMOTE_PROTOCOL_INFO_1_0 {}
+impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
+impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_REMOTE_PROTOCOL_INFO_1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Smb2_e__Struct").field("Server", &self.Server).field("Share", &self.Share).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Server == other.Server && self.Share == other.Share
-    }
-}
-impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
-impl FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
+impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
+impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_REMOTE_PROTOCOL_INFO_1_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Server_e__Struct").field("Capabilities", &self.Capabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
     pub CachingFlags: u32,
 }
-impl FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
+impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
+impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_REMOTE_PROTOCOL_INFO_1_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Share_e__Struct").field("Capabilities", &self.Capabilities).field("CachingFlags", &self.CachingFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.CachingFlags == other.CachingFlags
-    }
-}
-impl ::core::cmp::Eq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_RENAME_INFO {
@@ -4756,26 +4007,31 @@ pub struct FILE_RENAME_INFO {
     pub FileName: [u16; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_RENAME_INFO {}
+impl ::core::marker::Copy for FILE_RENAME_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILE_RENAME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_RENAME_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FILE_RENAME_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_RENAME_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FILE_RENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_RENAME_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FILE_RENAME_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FILE_RENAME_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_RENAME_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union FILE_RENAME_INFO_0 {
@@ -4783,90 +4039,61 @@ pub union FILE_RENAME_INFO_0 {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_RENAME_INFO_0 {}
+impl ::core::marker::Copy for FILE_RENAME_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILE_RENAME_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_RENAME_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FILE_RENAME_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_RENAME_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FILE_RENAME_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_RENAME_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FILE_RENAME_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FILE_RENAME_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_RENAME_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union FILE_SEGMENT_ELEMENT {
     pub Buffer: *mut ::core::ffi::c_void,
     pub Alignment: u64,
 }
-impl FILE_SEGMENT_ELEMENT {}
+impl ::core::marker::Copy for FILE_SEGMENT_ELEMENT {}
+impl ::core::clone::Clone for FILE_SEGMENT_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_SEGMENT_ELEMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_SEGMENT_ELEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_SEGMENT_ELEMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_SEGMENT_ELEMENT {}
 impl ::core::default::Default for FILE_SEGMENT_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILE_SEGMENT_ELEMENT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILE_SEGMENT_ELEMENT {}
-unsafe impl ::windows::core::Abi for FILE_SEGMENT_ELEMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILE_SHARE_MODE(pub u32);
-pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
-pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
-pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
-pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
-impl ::core::convert::From<u32> for FILE_SHARE_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_SHARE_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FILE_SHARE_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_SHARE_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_SHARE_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_SHARE_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FILE_SHARE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILE_SHARE_MODE = u32;
+pub const FILE_SHARE_NONE: FILE_SHARE_MODE = 0u32;
+pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = 4u32;
+pub const FILE_SHARE_READ: FILE_SHARE_MODE = 1u32;
+pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_STANDARD_INFO {
@@ -4877,32 +4104,31 @@ pub struct FILE_STANDARD_INFO {
     pub Directory: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_STANDARD_INFO {}
+impl ::core::marker::Copy for FILE_STANDARD_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILE_STANDARD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_STANDARD_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FILE_STANDARD_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_STANDARD_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FILE_STANDARD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_STANDARD_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILE_STANDARD_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_STANDARD_INFO").field("AllocationSize", &self.AllocationSize).field("EndOfFile", &self.EndOfFile).field("NumberOfLinks", &self.NumberOfLinks).field("DeletePending", &self.DeletePending).field("Directory", &self.Directory).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FILE_STANDARD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllocationSize == other.AllocationSize && self.EndOfFile == other.EndOfFile && self.NumberOfLinks == other.NumberOfLinks && self.DeletePending == other.DeletePending && self.Directory == other.Directory
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FILE_STANDARD_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_STANDARD_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_STORAGE_INFO {
     pub LogicalBytesPerSector: u32,
@@ -4913,35 +4139,26 @@ pub struct FILE_STORAGE_INFO {
     pub ByteOffsetForSectorAlignment: u32,
     pub ByteOffsetForPartitionAlignment: u32,
 }
-impl FILE_STORAGE_INFO {}
+impl ::core::marker::Copy for FILE_STORAGE_INFO {}
+impl ::core::clone::Clone for FILE_STORAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_STORAGE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_STORAGE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_STORAGE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_STORAGE_INFO {}
 impl ::core::default::Default for FILE_STORAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_STORAGE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_STORAGE_INFO")
-            .field("LogicalBytesPerSector", &self.LogicalBytesPerSector)
-            .field("PhysicalBytesPerSectorForAtomicity", &self.PhysicalBytesPerSectorForAtomicity)
-            .field("PhysicalBytesPerSectorForPerformance", &self.PhysicalBytesPerSectorForPerformance)
-            .field("FileSystemEffectivePhysicalBytesPerSectorForAtomicity", &self.FileSystemEffectivePhysicalBytesPerSectorForAtomicity)
-            .field("Flags", &self.Flags)
-            .field("ByteOffsetForSectorAlignment", &self.ByteOffsetForSectorAlignment)
-            .field("ByteOffsetForPartitionAlignment", &self.ByteOffsetForPartitionAlignment)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_STORAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogicalBytesPerSector == other.LogicalBytesPerSector && self.PhysicalBytesPerSectorForAtomicity == other.PhysicalBytesPerSectorForAtomicity && self.PhysicalBytesPerSectorForPerformance == other.PhysicalBytesPerSectorForPerformance && self.FileSystemEffectivePhysicalBytesPerSectorForAtomicity == other.FileSystemEffectivePhysicalBytesPerSectorForAtomicity && self.Flags == other.Flags && self.ByteOffsetForSectorAlignment == other.ByteOffsetForSectorAlignment && self.ByteOffsetForPartitionAlignment == other.ByteOffsetForPartitionAlignment
-    }
-}
-impl ::core::cmp::Eq for FILE_STORAGE_INFO {}
-unsafe impl ::windows::core::Abi for FILE_STORAGE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
@@ -4950,98 +4167,39 @@ pub struct FILE_STREAM_INFO {
     pub StreamAllocationSize: i64,
     pub StreamName: [u16; 1],
 }
-impl FILE_STREAM_INFO {}
+impl ::core::marker::Copy for FILE_STREAM_INFO {}
+impl ::core::clone::Clone for FILE_STREAM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_STREAM_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_STREAM_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_STREAM_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_STREAM_INFO {}
 impl ::core::default::Default for FILE_STREAM_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILE_STREAM_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_STREAM_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("StreamNameLength", &self.StreamNameLength).field("StreamSize", &self.StreamSize).field("StreamAllocationSize", &self.StreamAllocationSize).field("StreamName", &self.StreamName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILE_STREAM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.StreamNameLength == other.StreamNameLength && self.StreamSize == other.StreamSize && self.StreamAllocationSize == other.StreamAllocationSize && self.StreamName == other.StreamName
-    }
-}
-impl ::core::cmp::Eq for FILE_STREAM_INFO {}
-unsafe impl ::windows::core::Abi for FILE_STREAM_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FINDEX_INFO_LEVELS(pub i32);
-pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
-pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
-pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
-impl ::core::convert::From<i32> for FINDEX_INFO_LEVELS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FINDEX_INFO_LEVELS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FINDEX_SEARCH_OPS(pub i32);
-pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
-pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
-pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
-pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
-impl ::core::convert::From<i32> for FINDEX_SEARCH_OPS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FINDEX_SEARCH_OPS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FIND_FIRST_EX_FLAGS(pub u32);
-pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
-pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
-pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
-impl ::core::convert::From<u32> for FIND_FIRST_EX_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FIND_FIRST_EX_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FIND_FIRST_EX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FINDEX_INFO_LEVELS = i32;
+pub const FindExInfoStandard: FINDEX_INFO_LEVELS = 0i32;
+pub const FindExInfoBasic: FINDEX_INFO_LEVELS = 1i32;
+pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = 2i32;
+pub type FINDEX_SEARCH_OPS = i32;
+pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = 0i32;
+pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = 1i32;
+pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = 2i32;
+pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = 3i32;
+pub type FIND_FIRST_EX_FLAGS = u32;
+pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = 1u32;
+pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = 2u32;
+pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FIO_CONTEXT {
@@ -5052,30 +4210,30 @@ pub struct FIO_CONTEXT {
     pub m_dwHeaderLength: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FIO_CONTEXT {}
+impl ::core::marker::Copy for FIO_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FIO_CONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FIO_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FIO_CONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FIO_CONTEXT").field("m_dwTempHack", &self.m_dwTempHack).field("m_dwSignature", &self.m_dwSignature).field("m_hFile", &self.m_hFile).field("m_dwLinesOffset", &self.m_dwLinesOffset).field("m_dwHeaderLength", &self.m_dwHeaderLength).finish()
-    }
+unsafe impl ::windows::core::Abi for FIO_CONTEXT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FIO_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.m_dwTempHack == other.m_dwTempHack && self.m_dwSignature == other.m_dwSignature && self.m_hFile == other.m_hFile && self.m_dwLinesOffset == other.m_dwLinesOffset && self.m_dwHeaderLength == other.m_dwHeaderLength
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FIO_CONTEXT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FIO_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FIO_CONTEXT {
-    type Abi = Self;
+impl ::core::default::Default for FIO_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5119,18 +4277,7 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FindChangeNotificationHandle(pub isize);
-impl ::core::default::Default for FindChangeNotificationHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FindChangeNotificationHandle {}
-unsafe impl ::windows::core::Abi for FindChangeNotificationHandle {
-    type Abi = Self;
-}
+pub type FindChangeNotificationHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindClose<'a, Param0: ::windows::core::IntoParam<'a, FindFileHandle>>(hfindfile: Param0) -> super::super::Foundation::BOOL {
@@ -5159,30 +4306,8 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FindFileHandle(pub isize);
-impl ::core::default::Default for FindFileHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FindFileHandle {}
-unsafe impl ::windows::core::Abi for FindFileHandle {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FindFileNameHandle(pub isize);
-impl ::core::default::Default for FindFileNameHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FindFileNameHandle {}
-unsafe impl ::windows::core::Abi for FindFileNameHandle {
-    type Abi = Self;
-}
+pub type FindFileHandle = isize;
+pub type FindFileNameHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
@@ -5547,18 +4672,7 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FindStreamHandle(pub isize);
-impl ::core::default::Default for FindStreamHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FindStreamHandle {}
-unsafe impl ::windows::core::Abi for FindStreamHandle {
-    type Abi = Self;
-}
+pub type FindStreamHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0) -> super::super::Foundation::BOOL {
@@ -5573,30 +4687,8 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FindVolumeHandle(pub isize);
-impl ::core::default::Default for FindVolumeHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FindVolumeHandle {}
-unsafe impl ::windows::core::Abi for FindVolumeHandle {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FindVolumeMointPointHandle(pub isize);
-impl ::core::default::Default for FindVolumeMointPointHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FindVolumeMointPointHandle {}
-unsafe impl ::windows::core::Abi for FindVolumeMointPointHandle {
-    type Abi = Self;
-}
+pub type FindVolumeHandle = isize;
+pub type FindVolumeMointPointHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
@@ -5694,102 +4786,16 @@ pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedreco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_FILEEX_INFO_LEVELS(pub i32);
-pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
-pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
-impl ::core::convert::From<i32> for GET_FILEEX_INFO_LEVELS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_FILEEX_INFO_LEVELS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
-pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
-pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
-pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
-impl ::core::convert::From<u32> for GET_FILE_VERSION_INFO_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_FILE_VERSION_INFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
-pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
-pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
-impl ::core::convert::From<u32> for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type GET_FILEEX_INFO_LEVELS = i32;
+pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = 0i32;
+pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = 1i32;
+pub type GET_FILE_VERSION_INFO_FLAGS = u32;
+pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = 1u32;
+pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = 2u32;
+pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = 4u32;
+pub type GET_TAPE_DRIVE_PARAMETERS_OPERATION = u32;
+pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = 1u32;
+pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
@@ -6995,30 +6001,29 @@ pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HIORING__ {
     pub unused: i32,
 }
-impl HIORING__ {}
+impl ::core::marker::Copy for HIORING__ {}
+impl ::core::clone::Clone for HIORING__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIORING__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIORING__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIORING__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIORING__ {}
 impl ::core::default::Default for HIORING__ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for HIORING__ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HIORING__").field("unused", &self.unused).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HIORING__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for HIORING__ {}
-unsafe impl ::windows::core::Abi for HIORING__ {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7035,8 +6040,7 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaControl(pub ::windows::core::IUnknown);
+pub struct IDiskQuotaControl(::windows::core::IUnknown);
 impl IDiskQuotaControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
@@ -7125,30 +6129,6 @@ impl IDiskQuotaControl {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDiskQuotaControl {
-    type Vtable = IDiskQuotaControl_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
-}
-impl ::core::convert::From<IDiskQuotaControl> for ::windows::core::IUnknown {
-    fn from(value: IDiskQuotaControl) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDiskQuotaControl> for ::windows::core::IUnknown {
-    fn from(value: &IDiskQuotaControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
     fn from(value: IDiskQuotaControl) -> Self {
@@ -7173,84 +6153,128 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDiskQuotaControl> for ::windows::core::IUnknown {
+    fn from(value: IDiskQuotaControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDiskQuotaControl> for ::windows::core::IUnknown {
+    fn from(value: &IDiskQuotaControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaControl {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDiskQuotaControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDiskQuotaControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDiskQuotaControl {}
+unsafe impl ::windows::core::Interface for IDiskQuotaControl {
+    type Vtable = IDiskQuotaControlVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaControl_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDiskQuotaControlVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppcp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwstate: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwstate: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwflags: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, llthreshold: i64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllthreshold: *mut i64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llthreshold: i64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lllimit: i64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plllimit: *mut i64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lllimit: i64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszlogonname: super::super::Foundation::PWSTR, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlogonname: super::super::Foundation::PWSTR, ppuser: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaEvents(pub ::windows::core::IUnknown);
+pub struct IDiskQuotaEvents(::windows::core::IUnknown);
 impl IDiskQuotaEvents {
     pub unsafe fn OnUserNameChanged<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
-    type Vtable = IDiskQuotaEvents_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
-}
 impl ::core::convert::From<IDiskQuotaEvents> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaEvents) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDiskQuotaEvents> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaEvents) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDiskQuotaEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDiskQuotaEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDiskQuotaEvents {}
+unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
+    type Vtable = IDiskQuotaEventsVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaEvents_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+pub struct IDiskQuotaEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaUser(pub ::windows::core::IUnknown);
+pub struct IDiskQuotaUser(::windows::core::IUnknown);
 impl IDiskQuotaUser {
     pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulid)).ok()
@@ -7304,61 +6328,71 @@ impl IDiskQuotaUser {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstatus)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDiskQuotaUser {
-    type Vtable = IDiskQuotaUser_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
-}
 impl ::core::convert::From<IDiskQuotaUser> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaUser) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDiskQuotaUser> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaUser) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaUser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaUser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaUser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDiskQuotaUser {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDiskQuotaUser {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDiskQuotaUser {}
+unsafe impl ::windows::core::Interface for IDiskQuotaUser {
+    type Vtable = IDiskQuotaUserVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaUser_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulid: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::HRESULT,
+pub struct IDiskQuotaUserVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwlength: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllthreshold: *mut i64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plllimit: *mut i64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pllused: *mut i64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllused: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDiskQuotaUserBatch(pub ::windows::core::IUnknown);
+pub struct IDiskQuotaUserBatch(::windows::core::IUnknown);
 impl IDiskQuotaUserBatch {
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
@@ -7373,44 +6407,54 @@ impl IDiskQuotaUserBatch {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
-    type Vtable = IDiskQuotaUserBatch_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
-}
 impl ::core::convert::From<IDiskQuotaUserBatch> for ::windows::core::IUnknown {
     fn from(value: IDiskQuotaUserBatch) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDiskQuotaUserBatch> for ::windows::core::IUnknown {
     fn from(value: &IDiskQuotaUserBatch) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuotaUserBatch {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaUserBatch {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaUserBatch {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDiskQuotaUserBatch {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDiskQuotaUserBatch {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDiskQuotaUserBatch {}
+unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
+    type Vtable = IDiskQuotaUserBatchVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaUserBatch_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDiskQuotaUserBatchVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IEnumDiskQuotaUsers(pub ::windows::core::IUnknown);
+pub struct IEnumDiskQuotaUsers(::windows::core::IUnknown);
 impl IEnumDiskQuotaUsers {
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers), ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
@@ -7426,40 +6470,51 @@ impl IEnumDiskQuotaUsers {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumDiskQuotaUsers>(result__)
     }
 }
-unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
-    type Vtable = IEnumDiskQuotaUsers_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
-}
 impl ::core::convert::From<IEnumDiskQuotaUsers> for ::windows::core::IUnknown {
     fn from(value: IEnumDiskQuotaUsers) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IEnumDiskQuotaUsers> for ::windows::core::IUnknown {
     fn from(value: &IEnumDiskQuotaUsers) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDiskQuotaUsers {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDiskQuotaUsers {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumDiskQuotaUsers {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IEnumDiskQuotaUsers {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IEnumDiskQuotaUsers {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IEnumDiskQuotaUsers {}
+unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
+    type Vtable = IEnumDiskQuotaUsersVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDiskQuotaUsers_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cusers: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IEnumDiskQuotaUsersVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
@@ -7492,75 +6547,81 @@ pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
 pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IORING_BUFFER_INFO {
     pub Address: *mut ::core::ffi::c_void,
     pub Length: u32,
 }
-impl IORING_BUFFER_INFO {}
+impl ::core::marker::Copy for IORING_BUFFER_INFO {}
+impl ::core::clone::Clone for IORING_BUFFER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_BUFFER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_BUFFER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_BUFFER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_BUFFER_INFO {}
 impl ::core::default::Default for IORING_BUFFER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IORING_BUFFER_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IORING_BUFFER_INFO").field("Address", &self.Address).field("Length", &self.Length).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IORING_BUFFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address && self.Length == other.Length
-    }
-}
-impl ::core::cmp::Eq for IORING_BUFFER_INFO {}
-unsafe impl ::windows::core::Abi for IORING_BUFFER_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IORING_BUFFER_REF {
     pub Kind: IORING_REF_KIND,
     pub Buffer: IORING_BUFFER_REF_0,
 }
-impl IORING_BUFFER_REF {}
+impl ::core::marker::Copy for IORING_BUFFER_REF {}
+impl ::core::clone::Clone for IORING_BUFFER_REF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_BUFFER_REF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_BUFFER_REF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_BUFFER_REF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_BUFFER_REF {}
 impl ::core::default::Default for IORING_BUFFER_REF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IORING_BUFFER_REF {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IORING_BUFFER_REF {}
-unsafe impl ::windows::core::Abi for IORING_BUFFER_REF {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union IORING_BUFFER_REF_0 {
     pub Address: *mut ::core::ffi::c_void,
     pub IndexAndOffset: IORING_REGISTERED_BUFFER,
 }
-impl IORING_BUFFER_REF_0 {}
+impl ::core::marker::Copy for IORING_BUFFER_REF_0 {}
+impl ::core::clone::Clone for IORING_BUFFER_REF_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_BUFFER_REF_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_BUFFER_REF_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_BUFFER_REF_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_BUFFER_REF_0 {}
 impl ::core::default::Default for IORING_BUFFER_REF_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IORING_BUFFER_REF_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IORING_BUFFER_REF_0 {}
-unsafe impl ::windows::core::Abi for IORING_BUFFER_REF_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IORING_CAPABILITIES {
     pub MaxVersion: IORING_VERSION,
@@ -7568,118 +6629,85 @@ pub struct IORING_CAPABILITIES {
     pub MaxCompletionQueueSize: u32,
     pub FeatureFlags: IORING_FEATURE_FLAGS,
 }
-impl IORING_CAPABILITIES {}
+impl ::core::marker::Copy for IORING_CAPABILITIES {}
+impl ::core::clone::Clone for IORING_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_CAPABILITIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_CAPABILITIES {}
 impl ::core::default::Default for IORING_CAPABILITIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IORING_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IORING_CAPABILITIES").field("MaxVersion", &self.MaxVersion).field("MaxSubmissionQueueSize", &self.MaxSubmissionQueueSize).field("MaxCompletionQueueSize", &self.MaxCompletionQueueSize).field("FeatureFlags", &self.FeatureFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IORING_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxVersion == other.MaxVersion && self.MaxSubmissionQueueSize == other.MaxSubmissionQueueSize && self.MaxCompletionQueueSize == other.MaxCompletionQueueSize && self.FeatureFlags == other.FeatureFlags
-    }
-}
-impl ::core::cmp::Eq for IORING_CAPABILITIES {}
-unsafe impl ::windows::core::Abi for IORING_CAPABILITIES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IORING_CQE {
     pub UserData: usize,
     pub ResultCode: ::windows::core::HRESULT,
     pub Information: usize,
 }
-impl IORING_CQE {}
+impl ::core::marker::Copy for IORING_CQE {}
+impl ::core::clone::Clone for IORING_CQE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_CQE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_CQE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_CQE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_CQE {}
 impl ::core::default::Default for IORING_CQE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IORING_CQE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IORING_CQE").field("UserData", &self.UserData).field("ResultCode", &self.ResultCode).field("Information", &self.Information).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IORING_CQE {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserData == other.UserData && self.ResultCode == other.ResultCode && self.Information == other.Information
-    }
-}
-impl ::core::cmp::Eq for IORING_CQE {}
-unsafe impl ::windows::core::Abi for IORING_CQE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
-pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
-impl ::core::convert::From<i32> for IORING_CREATE_ADVISORY_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_CREATE_ADVISORY_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type IORING_CREATE_ADVISORY_FLAGS = i32;
+pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = 0i32;
 #[repr(C)]
 pub struct IORING_CREATE_FLAGS {
     pub Required: IORING_CREATE_REQUIRED_FLAGS,
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
 }
-impl IORING_CREATE_FLAGS {}
+impl ::core::marker::Copy for IORING_CREATE_FLAGS {}
+impl ::core::clone::Clone for IORING_CREATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_CREATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_CREATE_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_CREATE_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_CREATE_FLAGS {}
 impl ::core::default::Default for IORING_CREATE_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IORING_CREATE_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IORING_CREATE_FLAGS").field("Required", &self.Required).field("Advisory", &self.Advisory).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IORING_CREATE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Required == other.Required && self.Advisory == other.Advisory
-    }
-}
-impl ::core::cmp::Eq for IORING_CREATE_FLAGS {}
-unsafe impl ::windows::core::Abi for IORING_CREATE_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
-pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
-impl ::core::convert::From<i32> for IORING_CREATE_REQUIRED_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_CREATE_REQUIRED_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_FEATURE_FLAGS(pub i32);
-pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
-pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
-pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
-impl ::core::convert::From<i32> for IORING_FEATURE_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_FEATURE_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type IORING_CREATE_REQUIRED_FLAGS = i32;
+pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = 0i32;
+pub type IORING_FEATURE_FLAGS = i32;
+pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = 0i32;
+pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = 1i32;
+pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IORING_HANDLE_REF {
@@ -7687,26 +6715,31 @@ pub struct IORING_HANDLE_REF {
     pub Handle: IORING_HANDLE_REF_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IORING_HANDLE_REF {}
+impl ::core::marker::Copy for IORING_HANDLE_REF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IORING_HANDLE_REF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for IORING_HANDLE_REF {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for IORING_HANDLE_REF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_HANDLE_REF>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for IORING_HANDLE_REF {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IORING_HANDLE_REF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for IORING_HANDLE_REF {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for IORING_HANDLE_REF {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IORING_HANDLE_REF {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IORING_HANDLE_REF_0 {
@@ -7714,26 +6747,31 @@ pub union IORING_HANDLE_REF_0 {
     pub Index: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IORING_HANDLE_REF_0 {}
+impl ::core::marker::Copy for IORING_HANDLE_REF_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IORING_HANDLE_REF_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for IORING_HANDLE_REF_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for IORING_HANDLE_REF_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_HANDLE_REF_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for IORING_HANDLE_REF_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IORING_HANDLE_REF_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for IORING_HANDLE_REF_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for IORING_HANDLE_REF_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IORING_HANDLE_REF_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IORING_INFO {
     pub IoRingVersion: IORING_VERSION,
@@ -7741,106 +6779,65 @@ pub struct IORING_INFO {
     pub SubmissionQueueSize: u32,
     pub CompletionQueueSize: u32,
 }
-impl IORING_INFO {}
+impl ::core::marker::Copy for IORING_INFO {}
+impl ::core::clone::Clone for IORING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_INFO {}
 impl ::core::default::Default for IORING_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IORING_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IORING_INFO").field("IoRingVersion", &self.IoRingVersion).field("Flags", &self.Flags).field("SubmissionQueueSize", &self.SubmissionQueueSize).field("CompletionQueueSize", &self.CompletionQueueSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IORING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.IoRingVersion == other.IoRingVersion && self.Flags == other.Flags && self.SubmissionQueueSize == other.SubmissionQueueSize && self.CompletionQueueSize == other.CompletionQueueSize
-    }
-}
-impl ::core::cmp::Eq for IORING_INFO {}
-unsafe impl ::windows::core::Abi for IORING_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_OP_CODE(pub i32);
-pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
-pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
-pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
-pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
-pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
-impl ::core::convert::From<i32> for IORING_OP_CODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_OP_CODE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_REF_KIND(pub i32);
-pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
-pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
-impl ::core::convert::From<i32> for IORING_REF_KIND {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_REF_KIND {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type IORING_OP_CODE = i32;
+pub const IORING_OP_NOP: IORING_OP_CODE = 0i32;
+pub const IORING_OP_READ: IORING_OP_CODE = 1i32;
+pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = 2i32;
+pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = 3i32;
+pub const IORING_OP_CANCEL: IORING_OP_CODE = 4i32;
+pub type IORING_REF_KIND = i32;
+pub const IORING_REF_RAW: IORING_REF_KIND = 0i32;
+pub const IORING_REF_REGISTERED: IORING_REF_KIND = 1i32;
 #[repr(C)]
 pub struct IORING_REGISTERED_BUFFER {
     pub BufferIndex: u32,
     pub Offset: u32,
 }
-impl IORING_REGISTERED_BUFFER {}
+impl ::core::marker::Copy for IORING_REGISTERED_BUFFER {}
+impl ::core::clone::Clone for IORING_REGISTERED_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IORING_REGISTERED_BUFFER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IORING_REGISTERED_BUFFER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IORING_REGISTERED_BUFFER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IORING_REGISTERED_BUFFER {}
 impl ::core::default::Default for IORING_REGISTERED_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IORING_REGISTERED_BUFFER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IORING_REGISTERED_BUFFER").field("BufferIndex", &self.BufferIndex).field("Offset", &self.Offset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IORING_REGISTERED_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.BufferIndex == other.BufferIndex && self.Offset == other.Offset
-    }
-}
-impl ::core::cmp::Eq for IORING_REGISTERED_BUFFER {}
-unsafe impl ::windows::core::Abi for IORING_REGISTERED_BUFFER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_SQE_FLAGS(pub i32);
-pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
-impl ::core::convert::From<i32> for IORING_SQE_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_SQE_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IORING_VERSION(pub i32);
-pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
-pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
-impl ::core::convert::From<i32> for IORING_VERSION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IORING_VERSION {
-    type Abi = Self;
-}
+pub type IORING_SQE_FLAGS = i32;
+pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = 0i32;
+pub type IORING_VERSION = i32;
+pub const IORING_VERSION_INVALID: IORING_VERSION = 0i32;
+pub const IORING_VERSION_1: IORING_VERSION = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ppolicy: *mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL {
@@ -7869,7 +6866,6 @@ pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
@@ -7877,27 +6873,26 @@ pub struct KCRM_MARSHAL_HEADER {
     pub NumProtocols: u32,
     pub Unused: u32,
 }
-impl KCRM_MARSHAL_HEADER {}
+impl ::core::marker::Copy for KCRM_MARSHAL_HEADER {}
+impl ::core::clone::Clone for KCRM_MARSHAL_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KCRM_MARSHAL_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KCRM_MARSHAL_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KCRM_MARSHAL_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KCRM_MARSHAL_HEADER {}
 impl ::core::default::Default for KCRM_MARSHAL_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KCRM_MARSHAL_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KCRM_MARSHAL_HEADER").field("VersionMajor", &self.VersionMajor).field("VersionMinor", &self.VersionMinor).field("NumProtocols", &self.NumProtocols).field("Unused", &self.Unused).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KCRM_MARSHAL_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.VersionMajor == other.VersionMajor && self.VersionMinor == other.VersionMinor && self.NumProtocols == other.NumProtocols && self.Unused == other.Unused
-    }
-}
-impl ::core::cmp::Eq for KCRM_MARSHAL_HEADER {}
-unsafe impl ::windows::core::Abi for KCRM_MARSHAL_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: ::windows::core::GUID,
@@ -7906,27 +6901,26 @@ pub struct KCRM_PROTOCOL_BLOB {
     pub Unused1: u32,
     pub Unused2: u32,
 }
-impl KCRM_PROTOCOL_BLOB {}
+impl ::core::marker::Copy for KCRM_PROTOCOL_BLOB {}
+impl ::core::clone::Clone for KCRM_PROTOCOL_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KCRM_PROTOCOL_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KCRM_PROTOCOL_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KCRM_PROTOCOL_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KCRM_PROTOCOL_BLOB {}
 impl ::core::default::Default for KCRM_PROTOCOL_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KCRM_PROTOCOL_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KCRM_PROTOCOL_BLOB").field("ProtocolId", &self.ProtocolId).field("StaticInfoLength", &self.StaticInfoLength).field("TransactionIdInfoLength", &self.TransactionIdInfoLength).field("Unused1", &self.Unused1).field("Unused2", &self.Unused2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KCRM_PROTOCOL_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProtocolId == other.ProtocolId && self.StaticInfoLength == other.StaticInfoLength && self.TransactionIdInfoLength == other.TransactionIdInfoLength && self.Unused1 == other.Unused1 && self.Unused2 == other.Unused2
-    }
-}
-impl ::core::cmp::Eq for KCRM_PROTOCOL_BLOB {}
-unsafe impl ::windows::core::Abi for KCRM_PROTOCOL_BLOB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: ::windows::core::GUID,
@@ -7936,70 +6930,31 @@ pub struct KCRM_TRANSACTION_BLOB {
     pub Timeout: u32,
     pub Description: [u16; 64],
 }
-impl KCRM_TRANSACTION_BLOB {}
+impl ::core::marker::Copy for KCRM_TRANSACTION_BLOB {}
+impl ::core::clone::Clone for KCRM_TRANSACTION_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KCRM_TRANSACTION_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KCRM_TRANSACTION_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KCRM_TRANSACTION_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KCRM_TRANSACTION_BLOB {}
 impl ::core::default::Default for KCRM_TRANSACTION_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KCRM_TRANSACTION_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KCRM_TRANSACTION_BLOB").field("UOW", &self.UOW).field("TmIdentity", &self.TmIdentity).field("IsolationLevel", &self.IsolationLevel).field("IsolationFlags", &self.IsolationFlags).field("Timeout", &self.Timeout).field("Description", &self.Description).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KCRM_TRANSACTION_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.UOW == other.UOW && self.TmIdentity == other.TmIdentity && self.IsolationLevel == other.IsolationLevel && self.IsolationFlags == other.IsolationFlags && self.Timeout == other.Timeout && self.Description == other.Description
-    }
-}
-impl ::core::cmp::Eq for KCRM_TRANSACTION_BLOB {}
-unsafe impl ::windows::core::Abi for KCRM_TRANSACTION_BLOB {
-    type Abi = Self;
-}
 pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LOCK_FILE_FLAGS(pub u32);
-pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
-pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
-impl ::core::convert::From<u32> for LOCK_FILE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LOCK_FILE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LOCK_FILE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LOCK_FILE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for LOCK_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type LOCK_FILE_FLAGS = u32;
+pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = 2u32;
+pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOG_MANAGEMENT_CALLBACKS {
@@ -8009,76 +6964,38 @@ pub struct LOG_MANAGEMENT_CALLBACKS {
     pub LogUnpinnedCallback: PLOG_UNPINNED_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl LOG_MANAGEMENT_CALLBACKS {}
+impl ::core::marker::Copy for LOG_MANAGEMENT_CALLBACKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LOG_MANAGEMENT_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for LOG_MANAGEMENT_CALLBACKS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LOG_MANAGEMENT_CALLBACKS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOG_MANAGEMENT_CALLBACKS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LOG_MANAGEMENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LOG_MANAGEMENT_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LOG_MANAGEMENT_CALLBACKS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LOG_MANAGEMENT_CALLBACKS").field("CallbackContext", &self.CallbackContext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LOG_MANAGEMENT_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        self.CallbackContext == other.CallbackContext && self.AdvanceTailCallback.map(|f| f as usize) == other.AdvanceTailCallback.map(|f| f as usize) && self.LogFullHandlerCallback.map(|f| f as usize) == other.LogFullHandlerCallback.map(|f| f as usize) && self.LogUnpinnedCallback.map(|f| f as usize) == other.LogUnpinnedCallback.map(|f| f as usize)
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LOG_MANAGEMENT_CALLBACKS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOG_MANAGEMENT_CALLBACKS {
-    type Abi = Self;
-}
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
-pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
-pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
-impl ::core::convert::From<u32> for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type LPPROGRESS_ROUTINE_CALLBACK_REASON = u32;
+pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = 0u32;
+pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = 1u32;
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
     #[cfg(windows)]
@@ -8139,61 +7056,23 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LZOPENFILE_STYLE(pub u32);
-pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u32);
-pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u32);
-pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u32);
-pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u32);
-pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u32);
-pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u32);
-pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
-pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u32);
-pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u32);
-pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u32);
-pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u32);
-pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u32);
-pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u32);
-pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u32);
-pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
-pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u32);
-impl ::core::convert::From<u32> for LZOPENFILE_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LZOPENFILE_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LZOPENFILE_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LZOPENFILE_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for LZOPENFILE_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type LZOPENFILE_STYLE = u32;
+pub const OF_CANCEL: LZOPENFILE_STYLE = 2048u32;
+pub const OF_CREATE: LZOPENFILE_STYLE = 4096u32;
+pub const OF_DELETE: LZOPENFILE_STYLE = 512u32;
+pub const OF_EXIST: LZOPENFILE_STYLE = 16384u32;
+pub const OF_PARSE: LZOPENFILE_STYLE = 256u32;
+pub const OF_PROMPT: LZOPENFILE_STYLE = 8192u32;
+pub const OF_READ: LZOPENFILE_STYLE = 0u32;
+pub const OF_READWRITE: LZOPENFILE_STYLE = 2u32;
+pub const OF_REOPEN: LZOPENFILE_STYLE = 32768u32;
+pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = 64u32;
+pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = 48u32;
+pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = 32u32;
+pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = 16u32;
+pub const OF_WRITE: LZOPENFILE_STYLE = 1u32;
+pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = 0u32;
+pub const OF_VERIFY: LZOPENFILE_STYLE = 1024u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
@@ -8457,52 +7336,13 @@ pub type MAXMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pmaxsi
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
 pub const MAX_SID_SIZE: u32 = 256u32;
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MOVE_FILE_FLAGS(pub u32);
-pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
-pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(16u32);
-pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
-pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
-pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
-pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
-impl ::core::convert::From<u32> for MOVE_FILE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MOVE_FILE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MOVE_FILE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MOVE_FILE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MOVE_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MOVE_FILE_FLAGS = u32;
+pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = 2u32;
+pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = 16u32;
+pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = 4u32;
+pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = 1u32;
+pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = 8u32;
+pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = 32u32;
 #[repr(C)]
 pub struct MediaLabelInfo {
     pub LabelType: [u16; 64],
@@ -8510,25 +7350,25 @@ pub struct MediaLabelInfo {
     pub LabelID: [u8; 256],
     pub LabelAppDescr: [u16; 256],
 }
-impl MediaLabelInfo {}
+impl ::core::marker::Copy for MediaLabelInfo {}
+impl ::core::clone::Clone for MediaLabelInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MediaLabelInfo {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MediaLabelInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MediaLabelInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MediaLabelInfo {}
 impl ::core::default::Default for MediaLabelInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MediaLabelInfo {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MediaLabelInfo").field("LabelType", &self.LabelType).field("LabelIDSize", &self.LabelIDSize).field("LabelID", &self.LabelID).field("LabelAppDescr", &self.LabelAppDescr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MediaLabelInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.LabelType == other.LabelType && self.LabelIDSize == other.LabelIDSize && self.LabelID == other.LabelID && self.LabelAppDescr == other.LabelAppDescr
-    }
-}
-impl ::core::cmp::Eq for MediaLabelInfo {}
-unsafe impl ::windows::core::Abi for MediaLabelInfo {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8656,63 +7496,60 @@ pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
-impl NAME_CACHE_CONTEXT {}
+impl ::core::marker::Copy for NAME_CACHE_CONTEXT {}
+impl ::core::clone::Clone for NAME_CACHE_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NAME_CACHE_CONTEXT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NAME_CACHE_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NAME_CACHE_CONTEXT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NAME_CACHE_CONTEXT {}
 impl ::core::default::Default for NAME_CACHE_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NAME_CACHE_CONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NAME_CACHE_CONTEXT").field("m_dwSignature", &self.m_dwSignature).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NAME_CACHE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_dwSignature == other.m_dwSignature
-    }
-}
-impl ::core::cmp::Eq for NAME_CACHE_CONTEXT {}
-unsafe impl ::windows::core::Abi for NAME_CACHE_CONTEXT {
-    type Abi = Self;
-}
 pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
     pub AllocatedFrom: ::windows::core::GUID,
 }
-impl NTMS_ALLOCATION_INFORMATION {}
+impl ::core::marker::Copy for NTMS_ALLOCATION_INFORMATION {}
+impl ::core::clone::Clone for NTMS_ALLOCATION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_ALLOCATION_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_ALLOCATION_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_ALLOCATION_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_ALLOCATION_INFORMATION {}
 impl ::core::default::Default for NTMS_ALLOCATION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_ALLOCATION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_ALLOCATION_INFORMATION").field("dwSize", &self.dwSize).field("lpReserved", &self.lpReserved).field("AllocatedFrom", &self.AllocatedFrom).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_ALLOCATION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpReserved == other.lpReserved && self.AllocatedFrom == other.AllocatedFrom
-    }
-}
-impl ::core::cmp::Eq for NTMS_ALLOCATION_INFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_ALLOCATION_INFORMATION {
-    type Abi = Self;
-}
 pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_ASYNC_IO {
@@ -8725,33 +7562,32 @@ pub struct NTMS_ASYNC_IO {
     pub bOnStateChange: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_ASYNC_IO {}
+impl ::core::marker::Copy for NTMS_ASYNC_IO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_ASYNC_IO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_ASYNC_IO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_ASYNC_IO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_ASYNC_IO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_ASYNC_IO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_ASYNC_IO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_ASYNC_IO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_ASYNC_IO").field("OperationId", &self.OperationId).field("EventId", &self.EventId).field("dwOperationType", &self.dwOperationType).field("dwResult", &self.dwResult).field("dwAsyncState", &self.dwAsyncState).field("hEvent", &self.hEvent).field("bOnStateChange", &self.bOnStateChange).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_ASYNC_IO {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationId == other.OperationId && self.EventId == other.EventId && self.dwOperationType == other.dwOperationType && self.dwResult == other.dwResult && self.dwAsyncState == other.dwAsyncState && self.hEvent == other.hEvent && self.bOnStateChange == other.bOnStateChange
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_ASYNC_IO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_ASYNC_IO {
-    type Abi = Self;
-}
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERINFORMATIONA {
@@ -8767,32 +7603,31 @@ pub struct NTMS_CHANGERINFORMATIONA {
     pub Library: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_CHANGERINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_CHANGERINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_CHANGERINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_CHANGERINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_CHANGERINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_CHANGERINFORMATIONA").field("Number", &self.Number).field("ChangerType", &self.ChangerType).field("szSerialNumber", &self.szSerialNumber).field("szRevision", &self.szRevision).field("szDeviceName", &self.szDeviceName).field("ScsiPort", &self.ScsiPort).field("ScsiBus", &self.ScsiBus).field("ScsiTarget", &self.ScsiTarget).field("ScsiLun", &self.ScsiLun).field("Library", &self.Library).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.ChangerType == other.ChangerType && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.szDeviceName == other.szDeviceName && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.Library == other.Library
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
@@ -8806,27 +7641,26 @@ pub struct NTMS_CHANGERINFORMATIONW {
     pub ScsiLun: u16,
     pub Library: ::windows::core::GUID,
 }
-impl NTMS_CHANGERINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_CHANGERINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_CHANGERINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_CHANGERINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONW {}
 impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_CHANGERINFORMATIONW").field("Number", &self.Number).field("ChangerType", &self.ChangerType).field("szSerialNumber", &self.szSerialNumber).field("szRevision", &self.szRevision).field("szDeviceName", &self.szDeviceName).field("ScsiPort", &self.ScsiPort).field("ScsiBus", &self.ScsiBus).field("ScsiTarget", &self.ScsiTarget).field("ScsiLun", &self.ScsiLun).field("Library", &self.Library).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.ChangerType == other.ChangerType && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.szDeviceName == other.szDeviceName && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.Library == other.Library
-    }
-}
-impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
@@ -8835,59 +7669,57 @@ pub struct NTMS_CHANGERTYPEINFORMATIONA {
     pub DeviceType: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_CHANGERTYPEINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_CHANGERTYPEINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_CHANGERTYPEINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_CHANGERTYPEINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_CHANGERTYPEINFORMATIONA").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("DeviceType", &self.DeviceType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.DeviceType == other.DeviceType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
     pub DeviceType: u32,
 }
-impl NTMS_CHANGERTYPEINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_CHANGERTYPEINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_CHANGERTYPEINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_CHANGERTYPEINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONW {}
 impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_CHANGERTYPEINFORMATIONW").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("DeviceType", &self.DeviceType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.DeviceType == other.DeviceType
-    }
-}
-impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_COMPUTERINFORMATION {
     pub dwLibRequestPurgeTime: u32,
@@ -8896,30 +7728,29 @@ pub struct NTMS_COMPUTERINFORMATION {
     pub dwOpRequestFlags: u32,
     pub dwMediaPoolPolicy: u32,
 }
-impl NTMS_COMPUTERINFORMATION {}
+impl ::core::marker::Copy for NTMS_COMPUTERINFORMATION {}
+impl ::core::clone::Clone for NTMS_COMPUTERINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_COMPUTERINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_COMPUTERINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_COMPUTERINFORMATION {}
 impl ::core::default::Default for NTMS_COMPUTERINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_COMPUTERINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_COMPUTERINFORMATION").field("dwLibRequestPurgeTime", &self.dwLibRequestPurgeTime).field("dwOpRequestPurgeTime", &self.dwOpRequestPurgeTime).field("dwLibRequestFlags", &self.dwLibRequestFlags).field("dwOpRequestFlags", &self.dwOpRequestFlags).field("dwMediaPoolPolicy", &self.dwMediaPoolPolicy).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLibRequestPurgeTime == other.dwLibRequestPurgeTime && self.dwOpRequestPurgeTime == other.dwOpRequestPurgeTime && self.dwLibRequestFlags == other.dwLibRequestFlags && self.dwOpRequestFlags == other.dwOpRequestFlags && self.dwMediaPoolPolicy == other.dwMediaPoolPolicy
-    }
-}
-impl ::core::cmp::Eq for NTMS_COMPUTERINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_COMPUTERINFORMATION {
-    type Abi = Self;
-}
 pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
 pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONA {
@@ -8941,49 +7772,31 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub dwDeferDismountDelay: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_DRIVEINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_DRIVEINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_DRIVEINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_DRIVEINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_DRIVEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_DRIVEINFORMATIONA")
-            .field("Number", &self.Number)
-            .field("State", &self.State)
-            .field("DriveType", &self.DriveType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szSerialNumber", &self.szSerialNumber)
-            .field("szRevision", &self.szRevision)
-            .field("ScsiPort", &self.ScsiPort)
-            .field("ScsiBus", &self.ScsiBus)
-            .field("ScsiTarget", &self.ScsiTarget)
-            .field("ScsiLun", &self.ScsiLun)
-            .field("dwMountCount", &self.dwMountCount)
-            .field("LastCleanedTs", &self.LastCleanedTs)
-            .field("SavedPartitionId", &self.SavedPartitionId)
-            .field("Library", &self.Library)
-            .field("Reserved", &self.Reserved)
-            .field("dwDeferDismountDelay", &self.dwDeferDismountDelay)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.State == other.State && self.DriveType == other.DriveType && self.szDeviceName == other.szDeviceName && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.dwMountCount == other.dwMountCount && self.LastCleanedTs == other.LastCleanedTs && self.SavedPartitionId == other.SavedPartitionId && self.Library == other.Library && self.Reserved == other.Reserved && self.dwDeferDismountDelay == other.dwDeferDismountDelay
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONW {
@@ -9005,49 +7818,31 @@ pub struct NTMS_DRIVEINFORMATIONW {
     pub dwDeferDismountDelay: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_DRIVEINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_DRIVEINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_DRIVEINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_DRIVEINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_DRIVEINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_DRIVEINFORMATIONW")
-            .field("Number", &self.Number)
-            .field("State", &self.State)
-            .field("DriveType", &self.DriveType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szSerialNumber", &self.szSerialNumber)
-            .field("szRevision", &self.szRevision)
-            .field("ScsiPort", &self.ScsiPort)
-            .field("ScsiBus", &self.ScsiBus)
-            .field("ScsiTarget", &self.ScsiTarget)
-            .field("ScsiLun", &self.ScsiLun)
-            .field("dwMountCount", &self.dwMountCount)
-            .field("LastCleanedTs", &self.LastCleanedTs)
-            .field("SavedPartitionId", &self.SavedPartitionId)
-            .field("Library", &self.Library)
-            .field("Reserved", &self.Reserved)
-            .field("dwDeferDismountDelay", &self.dwDeferDismountDelay)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.State == other.State && self.DriveType == other.DriveType && self.szDeviceName == other.szDeviceName && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.dwMountCount == other.dwMountCount && self.LastCleanedTs == other.LastCleanedTs && self.SavedPartitionId == other.SavedPartitionId && self.Library == other.Library && self.Reserved == other.Reserved && self.dwDeferDismountDelay == other.dwDeferDismountDelay
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_DRIVEINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
@@ -9057,32 +7852,31 @@ pub struct NTMS_DRIVETYPEINFORMATIONA {
     pub DeviceType: FILE_DEVICE_TYPE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_DRIVETYPEINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_DRIVETYPEINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_DRIVETYPEINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_DRIVETYPEINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_DRIVETYPEINFORMATIONA").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("NumberOfHeads", &self.NumberOfHeads).field("DeviceType", &self.DeviceType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.NumberOfHeads == other.NumberOfHeads && self.DeviceType == other.DeviceType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub szVendor: [u16; 128],
@@ -9090,54 +7884,52 @@ pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-impl NTMS_DRIVETYPEINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_DRIVETYPEINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_DRIVETYPEINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_DRIVETYPEINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONW {}
 impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_DRIVETYPEINFORMATIONW").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("NumberOfHeads", &self.NumberOfHeads).field("DeviceType", &self.DeviceType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.NumberOfHeads == other.NumberOfHeads && self.DeviceType == other.DeviceType
-    }
-}
-impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_FILESYSTEM_INFO {
     pub FileSystemType: [u16; 64],
     pub VolumeName: [u16; 256],
     pub SerialNumber: u32,
 }
-impl NTMS_FILESYSTEM_INFO {}
+impl ::core::marker::Copy for NTMS_FILESYSTEM_INFO {}
+impl ::core::clone::Clone for NTMS_FILESYSTEM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_FILESYSTEM_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_FILESYSTEM_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_FILESYSTEM_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_FILESYSTEM_INFO {}
 impl ::core::default::Default for NTMS_FILESYSTEM_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_FILESYSTEM_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_FILESYSTEM_INFO").field("FileSystemType", &self.FileSystemType).field("VolumeName", &self.VolumeName).field("SerialNumber", &self.SerialNumber).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_FILESYSTEM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileSystemType == other.FileSystemType && self.VolumeName == other.VolumeName && self.SerialNumber == other.SerialNumber
-    }
-}
-impl ::core::cmp::Eq for NTMS_FILESYSTEM_INFO {}
-unsafe impl ::windows::core::Abi for NTMS_FILESYSTEM_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBRARYINFORMATION {
@@ -9164,74 +7956,31 @@ pub struct NTMS_I1_LIBRARYINFORMATION {
     pub Reserved: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_LIBRARYINFORMATION {}
+impl ::core::marker::Copy for NTMS_I1_LIBRARYINFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_LIBRARYINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_LIBRARYINFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_LIBRARYINFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_LIBRARYINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_LIBRARYINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_LIBRARYINFORMATION")
-            .field("LibraryType", &self.LibraryType)
-            .field("CleanerSlot", &self.CleanerSlot)
-            .field("CleanerSlotDefault", &self.CleanerSlotDefault)
-            .field("LibrarySupportsDriveCleaning", &self.LibrarySupportsDriveCleaning)
-            .field("BarCodeReaderInstalled", &self.BarCodeReaderInstalled)
-            .field("InventoryMethod", &self.InventoryMethod)
-            .field("dwCleanerUsesRemaining", &self.dwCleanerUsesRemaining)
-            .field("FirstDriveNumber", &self.FirstDriveNumber)
-            .field("dwNumberOfDrives", &self.dwNumberOfDrives)
-            .field("FirstSlotNumber", &self.FirstSlotNumber)
-            .field("dwNumberOfSlots", &self.dwNumberOfSlots)
-            .field("FirstDoorNumber", &self.FirstDoorNumber)
-            .field("dwNumberOfDoors", &self.dwNumberOfDoors)
-            .field("FirstPortNumber", &self.FirstPortNumber)
-            .field("dwNumberOfPorts", &self.dwNumberOfPorts)
-            .field("FirstChangerNumber", &self.FirstChangerNumber)
-            .field("dwNumberOfChangers", &self.dwNumberOfChangers)
-            .field("dwNumberOfMedia", &self.dwNumberOfMedia)
-            .field("dwNumberOfMediaTypes", &self.dwNumberOfMediaTypes)
-            .field("dwNumberOfLibRequests", &self.dwNumberOfLibRequests)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.LibraryType == other.LibraryType
-            && self.CleanerSlot == other.CleanerSlot
-            && self.CleanerSlotDefault == other.CleanerSlotDefault
-            && self.LibrarySupportsDriveCleaning == other.LibrarySupportsDriveCleaning
-            && self.BarCodeReaderInstalled == other.BarCodeReaderInstalled
-            && self.InventoryMethod == other.InventoryMethod
-            && self.dwCleanerUsesRemaining == other.dwCleanerUsesRemaining
-            && self.FirstDriveNumber == other.FirstDriveNumber
-            && self.dwNumberOfDrives == other.dwNumberOfDrives
-            && self.FirstSlotNumber == other.FirstSlotNumber
-            && self.dwNumberOfSlots == other.dwNumberOfSlots
-            && self.FirstDoorNumber == other.FirstDoorNumber
-            && self.dwNumberOfDoors == other.dwNumberOfDoors
-            && self.FirstPortNumber == other.FirstPortNumber
-            && self.dwNumberOfPorts == other.dwNumberOfPorts
-            && self.FirstChangerNumber == other.FirstChangerNumber
-            && self.dwNumberOfChangers == other.dwNumberOfChangers
-            && self.dwNumberOfMedia == other.dwNumberOfMedia
-            && self.dwNumberOfMediaTypes == other.dwNumberOfMediaTypes
-            && self.dwNumberOfLibRequests == other.dwNumberOfLibRequests
-            && self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_LIBRARYINFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_LIBRARYINFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
@@ -9250,46 +7999,31 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub szComputer: [super::super::Foundation::CHAR; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_LIBREQUESTINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_I1_LIBREQUESTINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_LIBREQUESTINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_LIBREQUESTINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_LIBREQUESTINFORMATIONA")
-            .field("OperationCode", &self.OperationCode)
-            .field("OperationOption", &self.OperationOption)
-            .field("State", &self.State)
-            .field("PartitionId", &self.PartitionId)
-            .field("DriveId", &self.DriveId)
-            .field("PhysMediaId", &self.PhysMediaId)
-            .field("Library", &self.Library)
-            .field("SlotId", &self.SlotId)
-            .field("TimeQueued", &self.TimeQueued)
-            .field("TimeCompleted", &self.TimeCompleted)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
@@ -9308,47 +8042,32 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub szComputer: [u16; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_LIBREQUESTINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_I1_LIBREQUESTINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_LIBREQUESTINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_LIBREQUESTINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_LIBREQUESTINFORMATIONW")
-            .field("OperationCode", &self.OperationCode)
-            .field("OperationOption", &self.OperationOption)
-            .field("State", &self.State)
-            .field("PartitionId", &self.PartitionId)
-            .field("DriveId", &self.DriveId)
-            .field("PhysMediaId", &self.PhysMediaId)
-            .field("Library", &self.Library)
-            .field("SlotId", &self.SlotId)
-            .field("TimeQueued", &self.TimeQueued)
-            .field("TimeCompleted", &self.TimeCompleted)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
-    type Abi = Self;
-}
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
@@ -9364,26 +8083,31 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_OBJECTINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_OBJECTINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
@@ -9404,26 +8128,31 @@ pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_OBJECTINFORMATIONA_0 {}
+impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_OBJECTINFORMATIONA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONW {
@@ -9439,26 +8168,31 @@ pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub Info: NTMS_I1_OBJECTINFORMATIONW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_OBJECTINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_OBJECTINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
@@ -9479,26 +8213,31 @@ pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONW,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_OBJECTINFORMATIONW_0 {}
+impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_OBJECTINFORMATIONW_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_OBJECTINFORMATIONW_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
@@ -9515,32 +8254,31 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub szComputer: [super::super::Foundation::CHAR; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_OPREQUESTINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_I1_OPREQUESTINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_OPREQUESTINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_OPREQUESTINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONA").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONW {
@@ -9557,32 +8295,31 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub szComputer: [u16; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_OPREQUESTINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_I1_OPREQUESTINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_OPREQUESTINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_OPREQUESTINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONW").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
@@ -9598,32 +8335,31 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub dwAllocateCount: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_PARTITIONINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_I1_PARTITIONINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_PARTITIONINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_PARTITIONINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONA").field("PhysicalMedia", &self.PhysicalMedia).field("LogicalMedia", &self.LogicalMedia).field("State", &self.State).field("Side", &self.Side).field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength).field("OmidLabelId", &self.OmidLabelId).field("szOmidLabelType", &self.szOmidLabelType).field("szOmidLabelInfo", &self.szOmidLabelInfo).field("dwMountCount", &self.dwMountCount).field("dwAllocateCount", &self.dwAllocateCount).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub PhysicalMedia: ::windows::core::GUID,
@@ -9637,27 +8373,26 @@ pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
-impl NTMS_I1_PARTITIONINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_I1_PARTITIONINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_I1_PARTITIONINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_PARTITIONINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONW {}
 impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONW").field("PhysicalMedia", &self.PhysicalMedia).field("LogicalMedia", &self.LogicalMedia).field("State", &self.State).field("Side", &self.Side).field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength).field("OmidLabelId", &self.OmidLabelId).field("szOmidLabelType", &self.szOmidLabelType).field("szOmidLabelInfo", &self.szOmidLabelInfo).field("dwMountCount", &self.dwMountCount).field("dwAllocateCount", &self.dwAllocateCount).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount
-    }
-}
-impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PMIDINFORMATIONA {
@@ -9674,44 +8409,31 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
     pub dwNumberOfPartitions: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_I1_PMIDINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_I1_PMIDINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_I1_PMIDINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_PMIDINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_PMIDINFORMATIONA")
-            .field("CurrentLibrary", &self.CurrentLibrary)
-            .field("MediaPool", &self.MediaPool)
-            .field("Location", &self.Location)
-            .field("LocationType", &self.LocationType)
-            .field("MediaType", &self.MediaType)
-            .field("HomeSlot", &self.HomeSlot)
-            .field("szBarCode", &self.szBarCode)
-            .field("BarCodeState", &self.BarCodeState)
-            .field("szSequenceNumber", &self.szSequenceNumber)
-            .field("MediaState", &self.MediaState)
-            .field("dwNumberOfPartitions", &self.dwNumberOfPartitions)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_I1_PMIDINFORMATIONW {
     pub CurrentLibrary: ::windows::core::GUID,
@@ -9726,39 +8448,26 @@ pub struct NTMS_I1_PMIDINFORMATIONW {
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
-impl NTMS_I1_PMIDINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_I1_PMIDINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_I1_PMIDINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_I1_PMIDINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONW {}
 impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_PMIDINFORMATIONW")
-            .field("CurrentLibrary", &self.CurrentLibrary)
-            .field("MediaPool", &self.MediaPool)
-            .field("Location", &self.Location)
-            .field("LocationType", &self.LocationType)
-            .field("MediaType", &self.MediaType)
-            .field("HomeSlot", &self.HomeSlot)
-            .field("szBarCode", &self.szBarCode)
-            .field("BarCodeState", &self.BarCodeState)
-            .field("szSequenceNumber", &self.szSequenceNumber)
-            .field("MediaState", &self.MediaState)
-            .field("dwNumberOfPartitions", &self.dwNumberOfPartitions)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions
-    }
-}
-impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
@@ -9766,27 +8475,26 @@ pub struct NTMS_IEDOORINFORMATION {
     pub MaxOpenSecs: u16,
     pub Library: ::windows::core::GUID,
 }
-impl NTMS_IEDOORINFORMATION {}
+impl ::core::marker::Copy for NTMS_IEDOORINFORMATION {}
+impl ::core::clone::Clone for NTMS_IEDOORINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_IEDOORINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_IEDOORINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_IEDOORINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_IEDOORINFORMATION {}
 impl ::core::default::Default for NTMS_IEDOORINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_IEDOORINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_IEDOORINFORMATION").field("Number", &self.Number).field("State", &self.State).field("MaxOpenSecs", &self.MaxOpenSecs).field("Library", &self.Library).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_IEDOORINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.State == other.State && self.MaxOpenSecs == other.MaxOpenSecs && self.Library == other.Library
-    }
-}
-impl ::core::cmp::Eq for NTMS_IEDOORINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_IEDOORINFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_IEPORTINFORMATION {
     pub Number: u32,
@@ -9795,27 +8503,26 @@ pub struct NTMS_IEPORTINFORMATION {
     pub MaxExtendSecs: u16,
     pub Library: ::windows::core::GUID,
 }
-impl NTMS_IEPORTINFORMATION {}
+impl ::core::marker::Copy for NTMS_IEPORTINFORMATION {}
+impl ::core::clone::Clone for NTMS_IEPORTINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_IEPORTINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_IEPORTINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_IEPORTINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_IEPORTINFORMATION {}
 impl ::core::default::Default for NTMS_IEPORTINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_IEPORTINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_IEPORTINFORMATION").field("Number", &self.Number).field("Content", &self.Content).field("Position", &self.Position).field("MaxExtendSecs", &self.MaxExtendSecs).field("Library", &self.Library).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_IEPORTINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.Content == other.Content && self.Position == other.Position && self.MaxExtendSecs == other.MaxExtendSecs && self.Library == other.Library
-    }
-}
-impl ::core::cmp::Eq for NTMS_IEPORTINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_IEPORTINFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBRARYINFORMATION {
@@ -9844,78 +8551,31 @@ pub struct NTMS_LIBRARYINFORMATION {
     pub dwFlags: NtmsLibraryFlags,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_LIBRARYINFORMATION {}
+impl ::core::marker::Copy for NTMS_LIBRARYINFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_LIBRARYINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_LIBRARYINFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_LIBRARYINFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_LIBRARYINFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_LIBRARYINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_LIBRARYINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_LIBRARYINFORMATION")
-            .field("LibraryType", &self.LibraryType)
-            .field("CleanerSlot", &self.CleanerSlot)
-            .field("CleanerSlotDefault", &self.CleanerSlotDefault)
-            .field("LibrarySupportsDriveCleaning", &self.LibrarySupportsDriveCleaning)
-            .field("BarCodeReaderInstalled", &self.BarCodeReaderInstalled)
-            .field("InventoryMethod", &self.InventoryMethod)
-            .field("dwCleanerUsesRemaining", &self.dwCleanerUsesRemaining)
-            .field("FirstDriveNumber", &self.FirstDriveNumber)
-            .field("dwNumberOfDrives", &self.dwNumberOfDrives)
-            .field("FirstSlotNumber", &self.FirstSlotNumber)
-            .field("dwNumberOfSlots", &self.dwNumberOfSlots)
-            .field("FirstDoorNumber", &self.FirstDoorNumber)
-            .field("dwNumberOfDoors", &self.dwNumberOfDoors)
-            .field("FirstPortNumber", &self.FirstPortNumber)
-            .field("dwNumberOfPorts", &self.dwNumberOfPorts)
-            .field("FirstChangerNumber", &self.FirstChangerNumber)
-            .field("dwNumberOfChangers", &self.dwNumberOfChangers)
-            .field("dwNumberOfMedia", &self.dwNumberOfMedia)
-            .field("dwNumberOfMediaTypes", &self.dwNumberOfMediaTypes)
-            .field("dwNumberOfLibRequests", &self.dwNumberOfLibRequests)
-            .field("Reserved", &self.Reserved)
-            .field("AutoRecovery", &self.AutoRecovery)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.LibraryType == other.LibraryType
-            && self.CleanerSlot == other.CleanerSlot
-            && self.CleanerSlotDefault == other.CleanerSlotDefault
-            && self.LibrarySupportsDriveCleaning == other.LibrarySupportsDriveCleaning
-            && self.BarCodeReaderInstalled == other.BarCodeReaderInstalled
-            && self.InventoryMethod == other.InventoryMethod
-            && self.dwCleanerUsesRemaining == other.dwCleanerUsesRemaining
-            && self.FirstDriveNumber == other.FirstDriveNumber
-            && self.dwNumberOfDrives == other.dwNumberOfDrives
-            && self.FirstSlotNumber == other.FirstSlotNumber
-            && self.dwNumberOfSlots == other.dwNumberOfSlots
-            && self.FirstDoorNumber == other.FirstDoorNumber
-            && self.dwNumberOfDoors == other.dwNumberOfDoors
-            && self.FirstPortNumber == other.FirstPortNumber
-            && self.dwNumberOfPorts == other.dwNumberOfPorts
-            && self.FirstChangerNumber == other.FirstChangerNumber
-            && self.dwNumberOfChangers == other.dwNumberOfChangers
-            && self.dwNumberOfMedia == other.dwNumberOfMedia
-            && self.dwNumberOfMediaTypes == other.dwNumberOfMediaTypes
-            && self.dwNumberOfLibRequests == other.dwNumberOfLibRequests
-            && self.Reserved == other.Reserved
-            && self.AutoRecovery == other.AutoRecovery
-            && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_LIBRARYINFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_LIBRARYINFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
@@ -9937,49 +8597,31 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub dwPriority: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_LIBREQUESTINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_LIBREQUESTINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_LIBREQUESTINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_LIBREQUESTINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_LIBREQUESTINFORMATIONA")
-            .field("OperationCode", &self.OperationCode)
-            .field("OperationOption", &self.OperationOption)
-            .field("State", &self.State)
-            .field("PartitionId", &self.PartitionId)
-            .field("DriveId", &self.DriveId)
-            .field("PhysMediaId", &self.PhysMediaId)
-            .field("Library", &self.Library)
-            .field("SlotId", &self.SlotId)
-            .field("TimeQueued", &self.TimeQueued)
-            .field("TimeCompleted", &self.TimeCompleted)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .field("dwErrorCode", &self.dwErrorCode)
-            .field("WorkItemId", &self.WorkItemId)
-            .field("dwPriority", &self.dwPriority)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer && self.dwErrorCode == other.dwErrorCode && self.WorkItemId == other.WorkItemId && self.dwPriority == other.dwPriority
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONW {
@@ -10001,77 +8643,58 @@ pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub dwPriority: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_LIBREQUESTINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_LIBREQUESTINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_LIBREQUESTINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_LIBREQUESTINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_LIBREQUESTINFORMATIONW")
-            .field("OperationCode", &self.OperationCode)
-            .field("OperationOption", &self.OperationOption)
-            .field("State", &self.State)
-            .field("PartitionId", &self.PartitionId)
-            .field("DriveId", &self.DriveId)
-            .field("PhysMediaId", &self.PhysMediaId)
-            .field("Library", &self.Library)
-            .field("SlotId", &self.SlotId)
-            .field("TimeQueued", &self.TimeQueued)
-            .field("TimeCompleted", &self.TimeCompleted)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .field("dwErrorCode", &self.dwErrorCode)
-            .field("WorkItemId", &self.WorkItemId)
-            .field("dwPriority", &self.dwPriority)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer && self.dwErrorCode == other.dwErrorCode && self.WorkItemId == other.WorkItemId && self.dwPriority == other.dwPriority
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_LIBREQUESTINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_LMIDINFORMATION {
     pub MediaPool: ::windows::core::GUID,
     pub dwNumberOfPartitions: u32,
 }
-impl NTMS_LMIDINFORMATION {}
+impl ::core::marker::Copy for NTMS_LMIDINFORMATION {}
+impl ::core::clone::Clone for NTMS_LMIDINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_LMIDINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_LMIDINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_LMIDINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_LMIDINFORMATION {}
 impl ::core::default::Default for NTMS_LMIDINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_LMIDINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_LMIDINFORMATION").field("MediaPool", &self.MediaPool).field("dwNumberOfPartitions", &self.dwNumberOfPartitions).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_LMIDINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MediaPool == other.MediaPool && self.dwNumberOfPartitions == other.dwNumberOfPartitions
-    }
-}
-impl ::core::cmp::Eq for NTMS_LMIDINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_LMIDINFORMATION {
-    type Abi = Self;
-}
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
@@ -10084,37 +8707,26 @@ pub struct NTMS_MEDIAPOOLINFORMATION {
     pub dwNumberOfLogicalMedia: u32,
     pub dwNumberOfMediaPools: u32,
 }
-impl NTMS_MEDIAPOOLINFORMATION {}
+impl ::core::marker::Copy for NTMS_MEDIAPOOLINFORMATION {}
+impl ::core::clone::Clone for NTMS_MEDIAPOOLINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_MEDIAPOOLINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_MEDIAPOOLINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_MEDIAPOOLINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_MEDIAPOOLINFORMATION {}
 impl ::core::default::Default for NTMS_MEDIAPOOLINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_MEDIAPOOLINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_MEDIAPOOLINFORMATION")
-            .field("PoolType", &self.PoolType)
-            .field("MediaType", &self.MediaType)
-            .field("Parent", &self.Parent)
-            .field("AllocationPolicy", &self.AllocationPolicy)
-            .field("DeallocationPolicy", &self.DeallocationPolicy)
-            .field("dwMaxAllocates", &self.dwMaxAllocates)
-            .field("dwNumberOfPhysicalMedia", &self.dwNumberOfPhysicalMedia)
-            .field("dwNumberOfLogicalMedia", &self.dwNumberOfLogicalMedia)
-            .field("dwNumberOfMediaPools", &self.dwNumberOfMediaPools)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_MEDIAPOOLINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.PoolType == other.PoolType && self.MediaType == other.MediaType && self.Parent == other.Parent && self.AllocationPolicy == other.AllocationPolicy && self.DeallocationPolicy == other.DeallocationPolicy && self.dwMaxAllocates == other.dwMaxAllocates && self.dwNumberOfPhysicalMedia == other.dwNumberOfPhysicalMedia && self.dwNumberOfLogicalMedia == other.dwNumberOfLogicalMedia && self.dwNumberOfMediaPools == other.dwNumberOfMediaPools
-    }
-}
-impl ::core::cmp::Eq for NTMS_MEDIAPOOLINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_MEDIAPOOLINFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_MEDIATYPEINFORMATION {
     pub MediaType: u32,
@@ -10122,80 +8734,77 @@ pub struct NTMS_MEDIATYPEINFORMATION {
     pub ReadWriteCharacteristics: NtmsReadWriteCharacteristics,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-impl NTMS_MEDIATYPEINFORMATION {}
+impl ::core::marker::Copy for NTMS_MEDIATYPEINFORMATION {}
+impl ::core::clone::Clone for NTMS_MEDIATYPEINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_MEDIATYPEINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_MEDIATYPEINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_MEDIATYPEINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_MEDIATYPEINFORMATION {}
 impl ::core::default::Default for NTMS_MEDIATYPEINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_MEDIATYPEINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_MEDIATYPEINFORMATION").field("MediaType", &self.MediaType).field("NumberOfSides", &self.NumberOfSides).field("ReadWriteCharacteristics", &self.ReadWriteCharacteristics).field("DeviceType", &self.DeviceType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_MEDIATYPEINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MediaType == other.MediaType && self.NumberOfSides == other.NumberOfSides && self.ReadWriteCharacteristics == other.ReadWriteCharacteristics && self.DeviceType == other.DeviceType
-    }
-}
-impl ::core::cmp::Eq for NTMS_MEDIATYPEINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_MEDIATYPEINFORMATION {
-    type Abi = Self;
-}
 pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
 }
-impl NTMS_MOUNT_INFORMATION {}
+impl ::core::marker::Copy for NTMS_MOUNT_INFORMATION {}
+impl ::core::clone::Clone for NTMS_MOUNT_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_MOUNT_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_MOUNT_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_MOUNT_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_MOUNT_INFORMATION {}
 impl ::core::default::Default for NTMS_MOUNT_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_MOUNT_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_MOUNT_INFORMATION").field("dwSize", &self.dwSize).field("lpReserved", &self.lpReserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_MOUNT_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpReserved == other.lpReserved
-    }
-}
-impl ::core::cmp::Eq for NTMS_MOUNT_INFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_MOUNT_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: NtmsNotificationOperations,
     pub ObjectId: ::windows::core::GUID,
 }
-impl NTMS_NOTIFICATIONINFORMATION {}
+impl ::core::marker::Copy for NTMS_NOTIFICATIONINFORMATION {}
+impl ::core::clone::Clone for NTMS_NOTIFICATIONINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_NOTIFICATIONINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_NOTIFICATIONINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_NOTIFICATIONINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_NOTIFICATIONINFORMATION {}
 impl ::core::default::Default for NTMS_NOTIFICATIONINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_NOTIFICATIONINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_NOTIFICATIONINFORMATION").field("dwOperation", &self.dwOperation).field("ObjectId", &self.ObjectId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_NOTIFICATIONINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOperation == other.dwOperation && self.ObjectId == other.ObjectId
-    }
-}
-impl ::core::cmp::Eq for NTMS_NOTIFICATIONINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_NOTIFICATIONINFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONA {
@@ -10211,26 +8820,31 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_OBJECTINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_OBJECTINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONA_0 {
@@ -10252,26 +8866,31 @@ pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Computer: NTMS_COMPUTERINFORMATION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_OBJECTINFORMATIONA_0 {}
+impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_OBJECTINFORMATIONA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONW {
@@ -10287,26 +8906,31 @@ pub struct NTMS_OBJECTINFORMATIONW {
     pub Info: NTMS_OBJECTINFORMATIONW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_OBJECTINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_OBJECTINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONW_0 {
@@ -10328,71 +8952,38 @@ pub union NTMS_OBJECTINFORMATIONW_0 {
     pub Computer: NTMS_COMPUTERINFORMATION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_OBJECTINFORMATIONW_0 {}
+impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_OBJECTINFORMATIONW_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_OBJECTINFORMATIONW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_OBJECTINFORMATIONW_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW_0 {
-    type Abi = Self;
-}
 pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
 pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
 pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NTMS_OMID_TYPE(pub u32);
-pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
-pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
-impl ::core::convert::From<u32> for NTMS_OMID_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NTMS_OMID_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NTMS_OMID_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NTMS_OMID_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NTMS_OMID_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NTMS_OMID_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NTMS_OMID_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type NTMS_OMID_TYPE = u32;
+pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = 2u32;
+pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONA {
@@ -10409,32 +9000,31 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
     pub szComputer: [super::super::Foundation::CHAR; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_OPREQUESTINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_OPREQUESTINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_OPREQUESTINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_OPREQUESTINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_OPREQUESTINFORMATIONA").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONW {
@@ -10451,32 +9041,31 @@ pub struct NTMS_OPREQUESTINFORMATIONW {
     pub szComputer: [u16; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_OPREQUESTINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_OPREQUESTINFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_OPREQUESTINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_OPREQUESTINFORMATIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_OPREQUESTINFORMATIONW").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Request == other.Request && self.Submitted == other.Submitted && self.State == other.State && self.szMessage == other.szMessage && self.Arg1Type == other.Arg1Type && self.Arg1 == other.Arg1 && self.Arg2Type == other.Arg2Type && self.Arg2 == other.Arg2 && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_OPREQUESTINFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PARTITIONINFORMATIONA {
@@ -10493,44 +9082,31 @@ pub struct NTMS_PARTITIONINFORMATIONA {
     pub Capacity: i64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_PARTITIONINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_PARTITIONINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_PARTITIONINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_PARTITIONINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_PARTITIONINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_PARTITIONINFORMATIONA")
-            .field("PhysicalMedia", &self.PhysicalMedia)
-            .field("LogicalMedia", &self.LogicalMedia)
-            .field("State", &self.State)
-            .field("Side", &self.Side)
-            .field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength)
-            .field("OmidLabelId", &self.OmidLabelId)
-            .field("szOmidLabelType", &self.szOmidLabelType)
-            .field("szOmidLabelInfo", &self.szOmidLabelInfo)
-            .field("dwMountCount", &self.dwMountCount)
-            .field("dwAllocateCount", &self.dwAllocateCount)
-            .field("Capacity", &self.Capacity)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount && self.Capacity == other.Capacity
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_PARTITIONINFORMATIONW {
     pub PhysicalMedia: ::windows::core::GUID,
@@ -10545,39 +9121,26 @@ pub struct NTMS_PARTITIONINFORMATIONW {
     pub dwAllocateCount: u32,
     pub Capacity: i64,
 }
-impl NTMS_PARTITIONINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_PARTITIONINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_PARTITIONINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_PARTITIONINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONW {}
 impl ::core::default::Default for NTMS_PARTITIONINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_PARTITIONINFORMATIONW")
-            .field("PhysicalMedia", &self.PhysicalMedia)
-            .field("LogicalMedia", &self.LogicalMedia)
-            .field("State", &self.State)
-            .field("Side", &self.Side)
-            .field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength)
-            .field("OmidLabelId", &self.OmidLabelId)
-            .field("szOmidLabelType", &self.szOmidLabelType)
-            .field("szOmidLabelInfo", &self.szOmidLabelInfo)
-            .field("dwMountCount", &self.dwMountCount)
-            .field("dwAllocateCount", &self.dwAllocateCount)
-            .field("Capacity", &self.Capacity)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount && self.Capacity == other.Capacity
-    }
-}
-impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PMIDINFORMATIONA {
@@ -10597,47 +9160,31 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub MountedPartition: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NTMS_PMIDINFORMATIONA {}
+impl ::core::marker::Copy for NTMS_PMIDINFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NTMS_PMIDINFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_PMIDINFORMATIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_PMIDINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_PMIDINFORMATIONA")
-            .field("CurrentLibrary", &self.CurrentLibrary)
-            .field("MediaPool", &self.MediaPool)
-            .field("Location", &self.Location)
-            .field("LocationType", &self.LocationType)
-            .field("MediaType", &self.MediaType)
-            .field("HomeSlot", &self.HomeSlot)
-            .field("szBarCode", &self.szBarCode)
-            .field("BarCodeState", &self.BarCodeState)
-            .field("szSequenceNumber", &self.szSequenceNumber)
-            .field("MediaState", &self.MediaState)
-            .field("dwNumberOfPartitions", &self.dwNumberOfPartitions)
-            .field("dwMediaTypeCode", &self.dwMediaTypeCode)
-            .field("dwDensityCode", &self.dwDensityCode)
-            .field("MountedPartition", &self.MountedPartition)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions && self.dwMediaTypeCode == other.dwMediaTypeCode && self.dwDensityCode == other.dwDensityCode && self.MountedPartition == other.MountedPartition
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_PMIDINFORMATIONW {
     pub CurrentLibrary: ::windows::core::GUID,
@@ -10655,120 +9202,66 @@ pub struct NTMS_PMIDINFORMATIONW {
     pub dwDensityCode: u32,
     pub MountedPartition: ::windows::core::GUID,
 }
-impl NTMS_PMIDINFORMATIONW {}
+impl ::core::marker::Copy for NTMS_PMIDINFORMATIONW {}
+impl ::core::clone::Clone for NTMS_PMIDINFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_PMIDINFORMATIONW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONW {}
 impl ::core::default::Default for NTMS_PMIDINFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_PMIDINFORMATIONW")
-            .field("CurrentLibrary", &self.CurrentLibrary)
-            .field("MediaPool", &self.MediaPool)
-            .field("Location", &self.Location)
-            .field("LocationType", &self.LocationType)
-            .field("MediaType", &self.MediaType)
-            .field("HomeSlot", &self.HomeSlot)
-            .field("szBarCode", &self.szBarCode)
-            .field("BarCodeState", &self.BarCodeState)
-            .field("szSequenceNumber", &self.szSequenceNumber)
-            .field("MediaState", &self.MediaState)
-            .field("dwNumberOfPartitions", &self.dwNumberOfPartitions)
-            .field("dwMediaTypeCode", &self.dwMediaTypeCode)
-            .field("dwDensityCode", &self.dwDensityCode)
-            .field("MountedPartition", &self.MountedPartition)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions && self.dwMediaTypeCode == other.dwMediaTypeCode && self.dwDensityCode == other.dwDensityCode && self.MountedPartition == other.MountedPartition
-    }
-}
-impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONW {}
-unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONW {
-    type Abi = Self;
 }
 pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
 pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
 pub const NTMS_REVISION_LENGTH: u32 = 32u32;
 pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
 pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
     pub Library: ::windows::core::GUID,
 }
-impl NTMS_STORAGESLOTINFORMATION {}
+impl ::core::marker::Copy for NTMS_STORAGESLOTINFORMATION {}
+impl ::core::clone::Clone for NTMS_STORAGESLOTINFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NTMS_STORAGESLOTINFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NTMS_STORAGESLOTINFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NTMS_STORAGESLOTINFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NTMS_STORAGESLOTINFORMATION {}
 impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NTMS_STORAGESLOTINFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_STORAGESLOTINFORMATION").field("Number", &self.Number).field("State", &self.State).field("Library", &self.Library).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NTMS_STORAGESLOTINFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.State == other.State && self.Library == other.Library
-    }
-}
-impl ::core::cmp::Eq for NTMS_STORAGESLOTINFORMATION {}
-unsafe impl ::windows::core::Abi for NTMS_STORAGESLOTINFORMATION {
-    type Abi = Self;
-}
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NT_CREATE_FILE_DISPOSITION(pub u32);
-pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(0u32);
-pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(2u32);
-pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(1u32);
-pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(3u32);
-pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(4u32);
-pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(5u32);
-impl ::core::convert::From<u32> for NT_CREATE_FILE_DISPOSITION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NT_CREATE_FILE_DISPOSITION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NT_CREATE_FILE_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NT_CREATE_FILE_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NT_CREATE_FILE_DISPOSITION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NT_CREATE_FILE_DISPOSITION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NT_CREATE_FILE_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type NT_CREATE_FILE_DISPOSITION = u32;
+pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = 0u32;
+pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = 2u32;
+pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = 1u32;
+pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = 3u32;
+pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = 4u32;
+pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
@@ -11062,663 +9555,252 @@ pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, de
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsAccessMask(pub i32);
-pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
-pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
-pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
-impl ::core::convert::From<i32> for NtmsAccessMask {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsAccessMask {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsAllocateOptions(pub i32);
-pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
-pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
-pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
-impl ::core::convert::From<i32> for NtmsAllocateOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsAllocateOptions {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsAllocationPolicy(pub i32);
-pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
-impl ::core::convert::From<i32> for NtmsAllocationPolicy {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsAllocationPolicy {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsAsyncOperations(pub i32);
-pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
-impl ::core::convert::From<i32> for NtmsAsyncOperations {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsAsyncOperations {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsAsyncStatus(pub i32);
-pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
-pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32);
-pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
-pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
-pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
-impl ::core::convert::From<i32> for NtmsAsyncStatus {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsAsyncStatus {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsBarCodeState(pub i32);
-pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
-pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
-impl ::core::convert::From<i32> for NtmsBarCodeState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsBarCodeState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsCreateNtmsMediaOptions(pub i32);
-pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
-impl ::core::convert::From<i32> for NtmsCreateNtmsMediaOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsCreateNtmsMediaOptions {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsCreateOptions(pub i32);
-pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
-pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
-pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
-impl ::core::convert::From<i32> for NtmsCreateOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsCreateOptions {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsDeallocationPolicy(pub i32);
-pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
-impl ::core::convert::From<i32> for NtmsDeallocationPolicy {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsDeallocationPolicy {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsDismountOptions(pub i32);
-pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
-pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
-impl ::core::convert::From<i32> for NtmsDismountOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsDismountOptions {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsDoorState(pub i32);
-pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
-pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
-pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
-impl ::core::convert::From<i32> for NtmsDoorState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsDoorState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsDriveState(pub i32);
-pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
-pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = NtmsDriveState(1i32);
-pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
-pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
-pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
-pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
-impl ::core::convert::From<i32> for NtmsDriveState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsDriveState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsDriveType(pub i32);
-pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
-impl ::core::convert::From<i32> for NtmsDriveType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsDriveType {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsEjectOperation(pub i32);
-pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
-pub const NTMS_EJECT_STOP: NtmsEjectOperation = NtmsEjectOperation(1i32);
-pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
-pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
-pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
-pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
-impl ::core::convert::From<i32> for NtmsEjectOperation {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsEjectOperation {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsEnumerateOption(pub i32);
-pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
-pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
-impl ::core::convert::From<i32> for NtmsEnumerateOption {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsEnumerateOption {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsInjectOperation(pub i32);
-pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
-pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
-pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
-pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
-impl ::core::convert::From<i32> for NtmsInjectOperation {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsInjectOperation {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsInventoryMethod(pub i32);
-pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
-pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = NtmsInventoryMethod(1i32);
-pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = NtmsInventoryMethod(2i32);
-pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32);
-pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
-pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
-pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
-impl ::core::convert::From<i32> for NtmsInventoryMethod {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsInventoryMethod {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsLibRequestFlags(pub i32);
-pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
-pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
-impl ::core::convert::From<i32> for NtmsLibRequestFlags {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsLibRequestFlags {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsLibraryFlags(pub i32);
-pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
-pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2i32);
-pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
-pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
-pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
-impl ::core::convert::From<i32> for NtmsLibraryFlags {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsLibraryFlags {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsLibraryType(pub i32);
-pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
-pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
-pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
-pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
-impl ::core::convert::From<i32> for NtmsLibraryType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsLibraryType {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsLmOperation(pub i32);
-pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
-pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = NtmsLmOperation(1i32);
-pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = NtmsLmOperation(1i32);
-pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = NtmsLmOperation(2i32);
-pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = NtmsLmOperation(2i32);
-pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = NtmsLmOperation(3i32);
-pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = NtmsLmOperation(4i32);
-pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = NtmsLmOperation(5i32);
-pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = NtmsLmOperation(6i32);
-pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = NtmsLmOperation(7i32);
-pub const NTMS_LM_INVENTORY: NtmsLmOperation = NtmsLmOperation(8i32);
-pub const NTMS_LM_DOORACCESS: NtmsLmOperation = NtmsLmOperation(9i32);
-pub const NTMS_LM_EJECT: NtmsLmOperation = NtmsLmOperation(10i32);
-pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = NtmsLmOperation(11i32);
-pub const NTMS_LM_INJECT: NtmsLmOperation = NtmsLmOperation(12i32);
-pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = NtmsLmOperation(13i32);
-pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = NtmsLmOperation(14i32);
-pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = NtmsLmOperation(15i32);
-pub const NTMS_LM_DISMOUNT: NtmsLmOperation = NtmsLmOperation(16i32);
-pub const NTMS_LM_MOUNT: NtmsLmOperation = NtmsLmOperation(17i32);
-pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = NtmsLmOperation(18i32);
-pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
-pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
-pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
-pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
-impl ::core::convert::From<i32> for NtmsLmOperation {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsLmOperation {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsLmState(pub i32);
-pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
-pub const NTMS_LM_INPROCESS: NtmsLmState = NtmsLmState(1i32);
-pub const NTMS_LM_PASSED: NtmsLmState = NtmsLmState(2i32);
-pub const NTMS_LM_FAILED: NtmsLmState = NtmsLmState(3i32);
-pub const NTMS_LM_INVALID: NtmsLmState = NtmsLmState(4i32);
-pub const NTMS_LM_WAITING: NtmsLmState = NtmsLmState(5i32);
-pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
-pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
-pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
-pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
-impl ::core::convert::From<i32> for NtmsLmState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsLmState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsMediaPoolPolicy(pub i32);
-pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
-pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
-impl ::core::convert::From<i32> for NtmsMediaPoolPolicy {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsMediaPoolPolicy {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsMediaState(pub i32);
-pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
-pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = NtmsMediaState(1i32);
-pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = NtmsMediaState(2i32);
-pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
-pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
-pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
-pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
-impl ::core::convert::From<i32> for NtmsMediaState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsMediaState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsMountOptions(pub i32);
-pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
-pub const NTMS_MOUNT_WRITE: NtmsMountOptions = NtmsMountOptions(2i32);
-pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
-pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
-impl ::core::convert::From<i32> for NtmsMountOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsMountOptions {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsMountPriority(pub i32);
-pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
-pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = NtmsMountPriority(15i32);
-pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
-pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
-pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
-pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
-impl ::core::convert::From<i32> for NtmsMountPriority {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsMountPriority {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsNotificationOperations(pub i32);
-pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
-pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperations(2i32);
-pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
-pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
-pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
-impl ::core::convert::From<i32> for NtmsNotificationOperations {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsNotificationOperations {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsObjectsTypes(pub i32);
-pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
-pub const NTMS_OBJECT: NtmsObjectsTypes = NtmsObjectsTypes(1i32);
-pub const NTMS_CHANGER: NtmsObjectsTypes = NtmsObjectsTypes(2i32);
-pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(3i32);
-pub const NTMS_COMPUTER: NtmsObjectsTypes = NtmsObjectsTypes(4i32);
-pub const NTMS_DRIVE: NtmsObjectsTypes = NtmsObjectsTypes(5i32);
-pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(6i32);
-pub const NTMS_IEDOOR: NtmsObjectsTypes = NtmsObjectsTypes(7i32);
-pub const NTMS_IEPORT: NtmsObjectsTypes = NtmsObjectsTypes(8i32);
-pub const NTMS_LIBRARY: NtmsObjectsTypes = NtmsObjectsTypes(9i32);
-pub const NTMS_LIBREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(10i32);
-pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(11i32);
-pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = NtmsObjectsTypes(12i32);
-pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(13i32);
-pub const NTMS_PARTITION: NtmsObjectsTypes = NtmsObjectsTypes(14i32);
-pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(15i32);
-pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
-pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
-pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
-pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
-impl ::core::convert::From<i32> for NtmsObjectsTypes {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsObjectsTypes {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsOpRequestFlags(pub i32);
-pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
-pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
-pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
-pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
-impl ::core::convert::From<i32> for NtmsOpRequestFlags {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsOpRequestFlags {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsOperationalState(pub i32);
-pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
-pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
-pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
-pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
-impl ::core::convert::From<i32> for NtmsOperationalState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsOperationalState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsOpreqCommand(pub i32);
-pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
-pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(1i32);
-pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
-pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
-pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
-pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
-impl ::core::convert::From<i32> for NtmsOpreqCommand {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsOpreqCommand {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsOpreqState(pub i32);
-pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
-pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = NtmsOpreqState(1i32);
-pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
-pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
-pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
-pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
-impl ::core::convert::From<i32> for NtmsOpreqState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsOpreqState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsPartitionState(pub i32);
-pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
-pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = NtmsPartitionState(1i32);
-pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = NtmsPartitionState(2i32);
-pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = NtmsPartitionState(3i32);
-pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = NtmsPartitionState(4i32);
-pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = NtmsPartitionState(5i32);
-pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32);
-pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
-pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
-pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
-impl ::core::convert::From<i32> for NtmsPartitionState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsPartitionState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsPoolType(pub i32);
-pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
-pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
-pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
-pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
-pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
-impl ::core::convert::From<i32> for NtmsPoolType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsPoolType {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsPortContent(pub i32);
-pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
-pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
-pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
-impl ::core::convert::From<i32> for NtmsPortContent {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsPortContent {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsPortPosition(pub i32);
-pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
-pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
-pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
-impl ::core::convert::From<i32> for NtmsPortPosition {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsPortPosition {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsReadWriteCharacteristics(pub i32);
-pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
-pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
-pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
-pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
-impl ::core::convert::From<i32> for NtmsReadWriteCharacteristics {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsReadWriteCharacteristics {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsSessionOptions(pub i32);
-pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
-impl ::core::convert::From<i32> for NtmsSessionOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsSessionOptions {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsSlotState(pub i32);
-pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
-pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
-pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
-pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
-pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
-impl ::core::convert::From<i32> for NtmsSlotState {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsSlotState {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsUIOperations(pub i32);
-pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
-pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
-pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
-pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
-impl ::core::convert::From<i32> for NtmsUIOperations {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsUIOperations {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NtmsUITypes(pub i32);
-pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
-pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
-pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
-pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
-pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
-impl ::core::convert::From<i32> for NtmsUITypes {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NtmsUITypes {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type NtmsAccessMask = i32;
+pub const NTMS_USE_ACCESS: NtmsAccessMask = 1i32;
+pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = 2i32;
+pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = 4i32;
+pub type NtmsAllocateOptions = i32;
+pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = 1i32;
+pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = 2i32;
+pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = 4i32;
+pub type NtmsAllocationPolicy = i32;
+pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = 1i32;
+pub type NtmsAsyncOperations = i32;
+pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = 1i32;
+pub type NtmsAsyncStatus = i32;
+pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = 0i32;
+pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = 1i32;
+pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = 2i32;
+pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = 3i32;
+pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = 4i32;
+pub type NtmsBarCodeState = i32;
+pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = 1i32;
+pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = 2i32;
+pub type NtmsCreateNtmsMediaOptions = i32;
+pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = 1i32;
+pub type NtmsCreateOptions = i32;
+pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = 1i32;
+pub const NTMS_CREATE_NEW: NtmsCreateOptions = 2i32;
+pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = 3i32;
+pub type NtmsDeallocationPolicy = i32;
+pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = 1i32;
+pub type NtmsDismountOptions = i32;
+pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = 1i32;
+pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = 2i32;
+pub type NtmsDoorState = i32;
+pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = 0i32;
+pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = 1i32;
+pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = 2i32;
+pub type NtmsDriveState = i32;
+pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = 0i32;
+pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = 1i32;
+pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = 2i32;
+pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = 5i32;
+pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = 6i32;
+pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = 7i32;
+pub type NtmsDriveType = i32;
+pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = 0i32;
+pub type NtmsEjectOperation = i32;
+pub const NTMS_EJECT_START: NtmsEjectOperation = 0i32;
+pub const NTMS_EJECT_STOP: NtmsEjectOperation = 1i32;
+pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = 2i32;
+pub const NTMS_EJECT_FORCE: NtmsEjectOperation = 3i32;
+pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = 4i32;
+pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = 5i32;
+pub type NtmsEnumerateOption = i32;
+pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = 0i32;
+pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = 1i32;
+pub type NtmsInjectOperation = i32;
+pub const NTMS_INJECT_START: NtmsInjectOperation = 0i32;
+pub const NTMS_INJECT_STOP: NtmsInjectOperation = 1i32;
+pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = 2i32;
+pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = 3i32;
+pub type NtmsInventoryMethod = i32;
+pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = 0i32;
+pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = 1i32;
+pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = 2i32;
+pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = 3i32;
+pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = 4i32;
+pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = 5i32;
+pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = 6i32;
+pub type NtmsLibRequestFlags = i32;
+pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = 1i32;
+pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = 2i32;
+pub type NtmsLibraryFlags = i32;
+pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = 1i32;
+pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = 2i32;
+pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = 4i32;
+pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = 8i32;
+pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = 16i32;
+pub type NtmsLibraryType = i32;
+pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = 0i32;
+pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = 1i32;
+pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = 2i32;
+pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = 3i32;
+pub type NtmsLmOperation = i32;
+pub const NTMS_LM_REMOVE: NtmsLmOperation = 0i32;
+pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = 1i32;
+pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = 1i32;
+pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = 2i32;
+pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = 2i32;
+pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = 3i32;
+pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = 4i32;
+pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = 5i32;
+pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = 6i32;
+pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = 7i32;
+pub const NTMS_LM_INVENTORY: NtmsLmOperation = 8i32;
+pub const NTMS_LM_DOORACCESS: NtmsLmOperation = 9i32;
+pub const NTMS_LM_EJECT: NtmsLmOperation = 10i32;
+pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = 11i32;
+pub const NTMS_LM_INJECT: NtmsLmOperation = 12i32;
+pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = 13i32;
+pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = 14i32;
+pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = 15i32;
+pub const NTMS_LM_DISMOUNT: NtmsLmOperation = 16i32;
+pub const NTMS_LM_MOUNT: NtmsLmOperation = 17i32;
+pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = 18i32;
+pub const NTMS_LM_CLASSIFY: NtmsLmOperation = 19i32;
+pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = 20i32;
+pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = 21i32;
+pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = 22i32;
+pub type NtmsLmState = i32;
+pub const NTMS_LM_QUEUED: NtmsLmState = 0i32;
+pub const NTMS_LM_INPROCESS: NtmsLmState = 1i32;
+pub const NTMS_LM_PASSED: NtmsLmState = 2i32;
+pub const NTMS_LM_FAILED: NtmsLmState = 3i32;
+pub const NTMS_LM_INVALID: NtmsLmState = 4i32;
+pub const NTMS_LM_WAITING: NtmsLmState = 5i32;
+pub const NTMS_LM_DEFERRED: NtmsLmState = 6i32;
+pub const NTMS_LM_DEFFERED: NtmsLmState = 6i32;
+pub const NTMS_LM_CANCELLED: NtmsLmState = 7i32;
+pub const NTMS_LM_STOPPED: NtmsLmState = 8i32;
+pub type NtmsMediaPoolPolicy = i32;
+pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = 1i32;
+pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = 2i32;
+pub type NtmsMediaState = i32;
+pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = 0i32;
+pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = 1i32;
+pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = 2i32;
+pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = 3i32;
+pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = 4i32;
+pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = 5i32;
+pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = 6i32;
+pub type NtmsMountOptions = i32;
+pub const NTMS_MOUNT_READ: NtmsMountOptions = 1i32;
+pub const NTMS_MOUNT_WRITE: NtmsMountOptions = 2i32;
+pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = 4i32;
+pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = 4i32;
+pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = 8i32;
+pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = 8i32;
+pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = 16i32;
+pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = 32i32;
+pub type NtmsMountPriority = i32;
+pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = 0i32;
+pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = 15i32;
+pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = 7i32;
+pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = 0i32;
+pub const NTMS_PRIORITY_LOW: NtmsMountPriority = -7i32;
+pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = -15i32;
+pub type NtmsNotificationOperations = i32;
+pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = 1i32;
+pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = 2i32;
+pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = 3i32;
+pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = 4i32;
+pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = 5i32;
+pub type NtmsObjectsTypes = i32;
+pub const NTMS_UNKNOWN: NtmsObjectsTypes = 0i32;
+pub const NTMS_OBJECT: NtmsObjectsTypes = 1i32;
+pub const NTMS_CHANGER: NtmsObjectsTypes = 2i32;
+pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = 3i32;
+pub const NTMS_COMPUTER: NtmsObjectsTypes = 4i32;
+pub const NTMS_DRIVE: NtmsObjectsTypes = 5i32;
+pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = 6i32;
+pub const NTMS_IEDOOR: NtmsObjectsTypes = 7i32;
+pub const NTMS_IEPORT: NtmsObjectsTypes = 8i32;
+pub const NTMS_LIBRARY: NtmsObjectsTypes = 9i32;
+pub const NTMS_LIBREQUEST: NtmsObjectsTypes = 10i32;
+pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = 11i32;
+pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = 12i32;
+pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = 13i32;
+pub const NTMS_PARTITION: NtmsObjectsTypes = 14i32;
+pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = 15i32;
+pub const NTMS_STORAGESLOT: NtmsObjectsTypes = 16i32;
+pub const NTMS_OPREQUEST: NtmsObjectsTypes = 17i32;
+pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = 18i32;
+pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = 19i32;
+pub type NtmsOpRequestFlags = i32;
+pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = 1i32;
+pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = 2i32;
+pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = 16i32;
+pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = 32i32;
+pub type NtmsOperationalState = i32;
+pub const NTMS_READY: NtmsOperationalState = 0i32;
+pub const NTMS_INITIALIZING: NtmsOperationalState = 10i32;
+pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = 20i32;
+pub const NTMS_NOT_PRESENT: NtmsOperationalState = 21i32;
+pub type NtmsOpreqCommand = i32;
+pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = 0i32;
+pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = 1i32;
+pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = 2i32;
+pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = 3i32;
+pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = 4i32;
+pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = 5i32;
+pub type NtmsOpreqState = i32;
+pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = 0i32;
+pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = 1i32;
+pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = 2i32;
+pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = 3i32;
+pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = 4i32;
+pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = 5i32;
+pub type NtmsPartitionState = i32;
+pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = 0i32;
+pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = 1i32;
+pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = 2i32;
+pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = 3i32;
+pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = 4i32;
+pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = 5i32;
+pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = 6i32;
+pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = 7i32;
+pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = 8i32;
+pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = 9i32;
+pub type NtmsPoolType = i32;
+pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = 0i32;
+pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = 1i32;
+pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = 2i32;
+pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = 3i32;
+pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = 1000i32;
+pub type NtmsPortContent = i32;
+pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = 0i32;
+pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = 1i32;
+pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = 2i32;
+pub type NtmsPortPosition = i32;
+pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = 0i32;
+pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = 1i32;
+pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = 2i32;
+pub type NtmsReadWriteCharacteristics = i32;
+pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = 0i32;
+pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = 1i32;
+pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = 2i32;
+pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = 3i32;
+pub type NtmsSessionOptions = i32;
+pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = 1i32;
+pub type NtmsSlotState = i32;
+pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = 0i32;
+pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = 1i32;
+pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = 2i32;
+pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = 3i32;
+pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = 4i32;
+pub type NtmsUIOperations = i32;
+pub const NTMS_UIDEST_ADD: NtmsUIOperations = 1i32;
+pub const NTMS_UIDEST_DELETE: NtmsUIOperations = 2i32;
+pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = 3i32;
+pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = 4i32;
+pub type NtmsUITypes = i32;
+pub const NTMS_UITYPE_INVALID: NtmsUITypes = 0i32;
+pub const NTMS_UITYPE_INFO: NtmsUITypes = 1i32;
+pub const NTMS_UITYPE_REQ: NtmsUITypes = 2i32;
+pub const NTMS_UITYPE_ERR: NtmsUITypes = 3i32;
+pub const NTMS_UITYPE_MAX: NtmsUITypes = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFSTRUCT {
@@ -11730,30 +9812,30 @@ pub struct OFSTRUCT {
     pub szPathName: [super::super::Foundation::CHAR; 128],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl OFSTRUCT {}
+impl ::core::marker::Copy for OFSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFSTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for OFSTRUCT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OFSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OFSTRUCT").field("cBytes", &self.cBytes).field("fFixedDisk", &self.fFixedDisk).field("nErrCode", &self.nErrCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("szPathName", &self.szPathName).finish()
-    }
+unsafe impl ::windows::core::Abi for OFSTRUCT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.cBytes == other.cBytes && self.fFixedDisk == other.fFixedDisk && self.nErrCode == other.nErrCode && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.szPathName == other.szPathName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFSTRUCT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFSTRUCT {
-    type Abi = Self;
+impl ::core::default::Default for OFSTRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11918,38 +10000,18 @@ pub type PLOG_FULL_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "syst
 pub type PLOG_TAIL_ADVANCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PREPARE_TAPE_OPERATION(pub i32);
-pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5i32);
-pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(0i32);
-pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3i32);
-pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2i32);
-pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1i32);
-pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4i32);
-impl ::core::convert::From<i32> for PREPARE_TAPE_OPERATION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PREPARE_TAPE_OPERATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PRIORITY_HINT(pub i32);
-pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
-pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
-pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
-pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
-impl ::core::convert::From<i32> for PRIORITY_HINT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PRIORITY_HINT {
-    type Abi = Self;
-}
+pub type PREPARE_TAPE_OPERATION = i32;
+pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = 5i32;
+pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = 0i32;
+pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = 3i32;
+pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = 2i32;
+pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = 1i32;
+pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = 4i32;
+pub type PRIORITY_HINT = i32;
+pub const IoPriorityHintVeryLow: PRIORITY_HINT = 0i32;
+pub const IoPriorityHintLow: PRIORITY_HINT = 1i32;
+pub const IoPriorityHintNormal: PRIORITY_HINT = 2i32;
+pub const MaximumIoPriorityHintType: PRIORITY_HINT = 3i32;
 #[inline]
 pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::core::Result<IORING_CQE> {
     #[cfg(windows)]
@@ -12132,20 +10194,9 @@ pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
-pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
-impl ::core::convert::From<i32> for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
+pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 1i32;
+pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 2i32;
 #[repr(C)]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
@@ -12154,93 +10205,54 @@ pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseGuid: ::windows::core::GUID,
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
-impl REPARSE_GUID_DATA_BUFFER {}
+impl ::core::marker::Copy for REPARSE_GUID_DATA_BUFFER {}
+impl ::core::clone::Clone for REPARSE_GUID_DATA_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPARSE_GUID_DATA_BUFFER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER {}
 impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for REPARSE_GUID_DATA_BUFFER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REPARSE_GUID_DATA_BUFFER").field("ReparseTag", &self.ReparseTag).field("ReparseDataLength", &self.ReparseDataLength).field("Reserved", &self.Reserved).field("ReparseGuid", &self.ReparseGuid).field("GenericReparseBuffer", &self.GenericReparseBuffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReparseTag == other.ReparseTag && self.ReparseDataLength == other.ReparseDataLength && self.Reserved == other.Reserved && self.ReparseGuid == other.ReparseGuid && self.GenericReparseBuffer == other.GenericReparseBuffer
-    }
-}
-impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER {}
-unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
-impl REPARSE_GUID_DATA_BUFFER_0 {}
+impl ::core::marker::Copy for REPARSE_GUID_DATA_BUFFER_0 {}
+impl ::core::clone::Clone for REPARSE_GUID_DATA_BUFFER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPARSE_GUID_DATA_BUFFER_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER_0 {}
 impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for REPARSE_GUID_DATA_BUFFER_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_GenericReparseBuffer_e__Struct").field("DataBuffer", &self.DataBuffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataBuffer == other.DataBuffer
-    }
-}
-impl ::core::cmp::Eq for REPARSE_GUID_DATA_BUFFER_0 {}
-unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REPLACE_FILE_FLAGS(pub u32);
-pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
-pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
-pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
-impl ::core::convert::From<u32> for REPLACE_FILE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REPLACE_FILE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REPLACE_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type REPLACE_FILE_FLAGS = u32;
+pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = 1u32;
+pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = 2u32;
+pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = 4u32;
 pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
@@ -12789,7 +10801,6 @@ pub unsafe fn RollforwardTransactionManager<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_ALIAS_INFO_0 {
@@ -12799,32 +10810,31 @@ pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_reserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVER_ALIAS_INFO_0 {}
+impl ::core::marker::Copy for SERVER_ALIAS_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVER_ALIAS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVER_ALIAS_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVER_ALIAS_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_ALIAS_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVER_ALIAS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVER_ALIAS_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVER_ALIAS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVER_ALIAS_INFO_0").field("srvai0_alias", &self.srvai0_alias).field("srvai0_target", &self.srvai0_target).field("srvai0_default", &self.srvai0_default).field("srvai0_reserved", &self.srvai0_reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVER_ALIAS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.srvai0_alias == other.srvai0_alias && self.srvai0_target == other.srvai0_target && self.srvai0_default == other.srvai0_default && self.srvai0_reserved == other.srvai0_reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVER_ALIAS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_ALIAS_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_CERTIFICATE_INFO_0 {
@@ -12842,91 +10852,66 @@ pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVER_CERTIFICATE_INFO_0 {}
+impl ::core::marker::Copy for SERVER_CERTIFICATE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVER_CERTIFICATE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_CERTIFICATE_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVER_CERTIFICATE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVER_CERTIFICATE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVER_CERTIFICATE_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVER_CERTIFICATE_INFO_0")
-            .field("srvci0_name", &self.srvci0_name)
-            .field("srvci0_subject", &self.srvci0_subject)
-            .field("srvci0_issuer", &self.srvci0_issuer)
-            .field("srvci0_thumbprint", &self.srvci0_thumbprint)
-            .field("srvci0_friendlyname", &self.srvci0_friendlyname)
-            .field("srvci0_notbefore", &self.srvci0_notbefore)
-            .field("srvci0_notafter", &self.srvci0_notafter)
-            .field("srvci0_storelocation", &self.srvci0_storelocation)
-            .field("srvci0_storename", &self.srvci0_storename)
-            .field("srvci0_renewalchain", &self.srvci0_renewalchain)
-            .field("srvci0_type", &self.srvci0_type)
-            .field("srvci0_flags", &self.srvci0_flags)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.srvci0_name == other.srvci0_name && self.srvci0_subject == other.srvci0_subject && self.srvci0_issuer == other.srvci0_issuer && self.srvci0_thumbprint == other.srvci0_thumbprint && self.srvci0_friendlyname == other.srvci0_friendlyname && self.srvci0_notbefore == other.srvci0_notbefore && self.srvci0_notafter == other.srvci0_notafter && self.srvci0_storelocation == other.srvci0_storelocation && self.srvci0_storename == other.srvci0_storename && self.srvci0_renewalchain == other.srvci0_renewalchain && self.srvci0_type == other.srvci0_type && self.srvci0_flags == other.srvci0_flags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVER_CERTIFICATE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVER_CERTIFICATE_TYPE(pub i32);
-pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
-impl ::core::convert::From<i32> for SERVER_CERTIFICATE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_TYPE {
-    type Abi = Self;
-}
+pub type SERVER_CERTIFICATE_TYPE = i32;
+pub const QUIC: SERVER_CERTIFICATE_TYPE = 0i32;
 pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
 pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SESSION_INFO_0 {}
+impl ::core::marker::Copy for SESSION_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SESSION_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SESSION_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SESSION_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SESSION_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SESSION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SESSION_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_0").field("sesi0_cname", &self.sesi0_cname).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SESSION_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sesi0_cname == other.sesi0_cname
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SESSION_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SESSION_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_1 {
@@ -12938,32 +10923,31 @@ pub struct SESSION_INFO_1 {
     pub sesi1_user_flags: SESSION_INFO_USER_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SESSION_INFO_1 {}
+impl ::core::marker::Copy for SESSION_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SESSION_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SESSION_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SESSION_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_INFO_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SESSION_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SESSION_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SESSION_INFO_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_1").field("sesi1_cname", &self.sesi1_cname).field("sesi1_username", &self.sesi1_username).field("sesi1_num_opens", &self.sesi1_num_opens).field("sesi1_time", &self.sesi1_time).field("sesi1_idle_time", &self.sesi1_idle_time).field("sesi1_user_flags", &self.sesi1_user_flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SESSION_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sesi1_cname == other.sesi1_cname && self.sesi1_username == other.sesi1_username && self.sesi1_num_opens == other.sesi1_num_opens && self.sesi1_time == other.sesi1_time && self.sesi1_idle_time == other.sesi1_idle_time && self.sesi1_user_flags == other.sesi1_user_flags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SESSION_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SESSION_INFO_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_10 {
@@ -12973,32 +10957,31 @@ pub struct SESSION_INFO_10 {
     pub sesi10_idle_time: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SESSION_INFO_10 {}
+impl ::core::marker::Copy for SESSION_INFO_10 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SESSION_INFO_10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SESSION_INFO_10 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SESSION_INFO_10 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_INFO_10>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SESSION_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SESSION_INFO_10 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SESSION_INFO_10 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_10").field("sesi10_cname", &self.sesi10_cname).field("sesi10_username", &self.sesi10_username).field("sesi10_time", &self.sesi10_time).field("sesi10_idle_time", &self.sesi10_idle_time).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SESSION_INFO_10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sesi10_cname == other.sesi10_cname && self.sesi10_username == other.sesi10_username && self.sesi10_time == other.sesi10_time && self.sesi10_idle_time == other.sesi10_idle_time
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SESSION_INFO_10 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SESSION_INFO_10 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_2 {
@@ -13011,32 +10994,31 @@ pub struct SESSION_INFO_2 {
     pub sesi2_cltype_name: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SESSION_INFO_2 {}
+impl ::core::marker::Copy for SESSION_INFO_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SESSION_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SESSION_INFO_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SESSION_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_INFO_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SESSION_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SESSION_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SESSION_INFO_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_2").field("sesi2_cname", &self.sesi2_cname).field("sesi2_username", &self.sesi2_username).field("sesi2_num_opens", &self.sesi2_num_opens).field("sesi2_time", &self.sesi2_time).field("sesi2_idle_time", &self.sesi2_idle_time).field("sesi2_user_flags", &self.sesi2_user_flags).field("sesi2_cltype_name", &self.sesi2_cltype_name).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SESSION_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sesi2_cname == other.sesi2_cname && self.sesi2_username == other.sesi2_username && self.sesi2_num_opens == other.sesi2_num_opens && self.sesi2_time == other.sesi2_time && self.sesi2_idle_time == other.sesi2_idle_time && self.sesi2_user_flags == other.sesi2_user_flags && self.sesi2_cltype_name == other.sesi2_cltype_name
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SESSION_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SESSION_INFO_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_502 {
@@ -13050,149 +11032,71 @@ pub struct SESSION_INFO_502 {
     pub sesi502_transport: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SESSION_INFO_502 {}
+impl ::core::marker::Copy for SESSION_INFO_502 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SESSION_INFO_502 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SESSION_INFO_502 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SESSION_INFO_502 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_INFO_502>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SESSION_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SESSION_INFO_502 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SESSION_INFO_502 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_502").field("sesi502_cname", &self.sesi502_cname).field("sesi502_username", &self.sesi502_username).field("sesi502_num_opens", &self.sesi502_num_opens).field("sesi502_time", &self.sesi502_time).field("sesi502_idle_time", &self.sesi502_idle_time).field("sesi502_user_flags", &self.sesi502_user_flags).field("sesi502_cltype_name", &self.sesi502_cltype_name).field("sesi502_transport", &self.sesi502_transport).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SESSION_INFO_502 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sesi502_cname == other.sesi502_cname && self.sesi502_username == other.sesi502_username && self.sesi502_num_opens == other.sesi502_num_opens && self.sesi502_time == other.sesi502_time && self.sesi502_idle_time == other.sesi502_idle_time && self.sesi502_user_flags == other.sesi502_user_flags && self.sesi502_cltype_name == other.sesi502_cltype_name && self.sesi502_transport == other.sesi502_transport
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SESSION_INFO_502 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SESSION_INFO_502 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SESSION_INFO_USER_FLAGS(pub u32);
-pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
-pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
-impl ::core::convert::From<u32> for SESSION_INFO_USER_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SESSION_INFO_USER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SESSION_INFO_USER_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SESSION_INFO_USER_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SESSION_INFO_USER_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SESSION_INFO_USER_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SESSION_INFO_USER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
-pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
-pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
-pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
-impl ::core::convert::From<u32> for SET_FILE_POINTER_MOVE_METHOD {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SET_FILE_POINTER_MOVE_METHOD {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SET_FILE_POINTER_MOVE_METHOD {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SET_FILE_POINTER_MOVE_METHOD {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SET_FILE_POINTER_MOVE_METHOD {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SET_FILE_POINTER_MOVE_METHOD {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SET_FILE_POINTER_MOVE_METHOD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SESSION_INFO_USER_FLAGS = u32;
+pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = 1u32;
+pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = 2u32;
+pub type SET_FILE_POINTER_MOVE_METHOD = u32;
+pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = 0u32;
+pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = 1u32;
+pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = 2u32;
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SHARE_INFO_0 {}
+impl ::core::marker::Copy for SHARE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHARE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SHARE_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SHARE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SHARE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHARE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHARE_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_0").field("shi0_netname", &self.shi0_netname).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SHARE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi0_netname == other.shi0_netname
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SHARE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_1 {
@@ -13201,114 +11105,110 @@ pub struct SHARE_INFO_1 {
     pub shi1_remark: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SHARE_INFO_1 {}
+impl ::core::marker::Copy for SHARE_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHARE_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SHARE_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SHARE_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SHARE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHARE_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHARE_INFO_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_1").field("shi1_netname", &self.shi1_netname).field("shi1_type", &self.shi1_type).field("shi1_remark", &self.shi1_remark).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SHARE_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi1_netname == other.shi1_netname && self.shi1_type == other.shi1_type && self.shi1_remark == other.shi1_remark
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SHARE_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SHARE_INFO_1004 {}
+impl ::core::marker::Copy for SHARE_INFO_1004 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHARE_INFO_1004 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SHARE_INFO_1004 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SHARE_INFO_1004 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_1004>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SHARE_INFO_1004 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHARE_INFO_1004 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHARE_INFO_1004 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_1004").field("shi1004_remark", &self.shi1004_remark).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SHARE_INFO_1004 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi1004_remark == other.shi1004_remark
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SHARE_INFO_1004 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_1004 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
-impl SHARE_INFO_1005 {}
+impl ::core::marker::Copy for SHARE_INFO_1005 {}
+impl ::core::clone::Clone for SHARE_INFO_1005 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHARE_INFO_1005 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SHARE_INFO_1005 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_1005>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SHARE_INFO_1005 {}
 impl ::core::default::Default for SHARE_INFO_1005 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SHARE_INFO_1005 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_1005").field("shi1005_flags", &self.shi1005_flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SHARE_INFO_1005 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi1005_flags == other.shi1005_flags
-    }
-}
-impl ::core::cmp::Eq for SHARE_INFO_1005 {}
-unsafe impl ::windows::core::Abi for SHARE_INFO_1005 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
-impl SHARE_INFO_1006 {}
+impl ::core::marker::Copy for SHARE_INFO_1006 {}
+impl ::core::clone::Clone for SHARE_INFO_1006 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHARE_INFO_1006 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SHARE_INFO_1006 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_1006>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SHARE_INFO_1006 {}
 impl ::core::default::Default for SHARE_INFO_1006 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SHARE_INFO_1006 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_1006").field("shi1006_max_uses", &self.shi1006_max_uses).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SHARE_INFO_1006 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi1006_max_uses == other.shi1006_max_uses
-    }
-}
-impl ::core::cmp::Eq for SHARE_INFO_1006 {}
-unsafe impl ::windows::core::Abi for SHARE_INFO_1006 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SHARE_INFO_1501 {
@@ -13316,57 +11216,55 @@ pub struct SHARE_INFO_1501 {
     pub shi1501_security_descriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl SHARE_INFO_1501 {}
+impl ::core::marker::Copy for SHARE_INFO_1501 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for SHARE_INFO_1501 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for SHARE_INFO_1501 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for SHARE_INFO_1501 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_1501>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for SHARE_INFO_1501 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for SHARE_INFO_1501 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for SHARE_INFO_1501 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_1501").field("shi1501_reserved", &self.shi1501_reserved).field("shi1501_security_descriptor", &self.shi1501_security_descriptor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for SHARE_INFO_1501 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi1501_reserved == other.shi1501_reserved && self.shi1501_security_descriptor == other.shi1501_security_descriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for SHARE_INFO_1501 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for SHARE_INFO_1501 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: ::windows::core::GUID,
 }
-impl SHARE_INFO_1503 {}
+impl ::core::marker::Copy for SHARE_INFO_1503 {}
+impl ::core::clone::Clone for SHARE_INFO_1503 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHARE_INFO_1503 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SHARE_INFO_1503 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_1503>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SHARE_INFO_1503 {}
 impl ::core::default::Default for SHARE_INFO_1503 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SHARE_INFO_1503 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_1503").field("shi1503_sharefilter", &self.shi1503_sharefilter).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SHARE_INFO_1503 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi1503_sharefilter == other.shi1503_sharefilter
-    }
-}
-impl ::core::cmp::Eq for SHARE_INFO_1503 {}
-unsafe impl ::windows::core::Abi for SHARE_INFO_1503 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_2 {
@@ -13380,32 +11278,31 @@ pub struct SHARE_INFO_2 {
     pub shi2_passwd: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SHARE_INFO_2 {}
+impl ::core::marker::Copy for SHARE_INFO_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHARE_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SHARE_INFO_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SHARE_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SHARE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHARE_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHARE_INFO_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_2").field("shi2_netname", &self.shi2_netname).field("shi2_type", &self.shi2_type).field("shi2_remark", &self.shi2_remark).field("shi2_permissions", &self.shi2_permissions).field("shi2_max_uses", &self.shi2_max_uses).field("shi2_current_uses", &self.shi2_current_uses).field("shi2_path", &self.shi2_path).field("shi2_passwd", &self.shi2_passwd).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SHARE_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi2_netname == other.shi2_netname && self.shi2_type == other.shi2_type && self.shi2_remark == other.shi2_remark && self.shi2_permissions == other.shi2_permissions && self.shi2_max_uses == other.shi2_max_uses && self.shi2_current_uses == other.shi2_current_uses && self.shi2_path == other.shi2_path && self.shi2_passwd == other.shi2_passwd
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SHARE_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_501 {
@@ -13415,32 +11312,31 @@ pub struct SHARE_INFO_501 {
     pub shi501_flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SHARE_INFO_501 {}
+impl ::core::marker::Copy for SHARE_INFO_501 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHARE_INFO_501 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SHARE_INFO_501 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SHARE_INFO_501 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_501>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SHARE_INFO_501 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHARE_INFO_501 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHARE_INFO_501 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_501").field("shi501_netname", &self.shi501_netname).field("shi501_type", &self.shi501_type).field("shi501_remark", &self.shi501_remark).field("shi501_flags", &self.shi501_flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SHARE_INFO_501 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi501_netname == other.shi501_netname && self.shi501_type == other.shi501_type && self.shi501_remark == other.shi501_remark && self.shi501_flags == other.shi501_flags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SHARE_INFO_501 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_501 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SHARE_INFO_502 {
@@ -13456,43 +11352,31 @@ pub struct SHARE_INFO_502 {
     pub shi502_security_descriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl SHARE_INFO_502 {}
+impl ::core::marker::Copy for SHARE_INFO_502 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for SHARE_INFO_502 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for SHARE_INFO_502 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for SHARE_INFO_502 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_502>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for SHARE_INFO_502 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for SHARE_INFO_502 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for SHARE_INFO_502 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_502")
-            .field("shi502_netname", &self.shi502_netname)
-            .field("shi502_type", &self.shi502_type)
-            .field("shi502_remark", &self.shi502_remark)
-            .field("shi502_permissions", &self.shi502_permissions)
-            .field("shi502_max_uses", &self.shi502_max_uses)
-            .field("shi502_current_uses", &self.shi502_current_uses)
-            .field("shi502_path", &self.shi502_path)
-            .field("shi502_passwd", &self.shi502_passwd)
-            .field("shi502_reserved", &self.shi502_reserved)
-            .field("shi502_security_descriptor", &self.shi502_security_descriptor)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for SHARE_INFO_502 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi502_netname == other.shi502_netname && self.shi502_type == other.shi502_type && self.shi502_remark == other.shi502_remark && self.shi502_permissions == other.shi502_permissions && self.shi502_max_uses == other.shi502_max_uses && self.shi502_current_uses == other.shi502_current_uses && self.shi502_path == other.shi502_path && self.shi502_passwd == other.shi502_passwd && self.shi502_reserved == other.shi502_reserved && self.shi502_security_descriptor == other.shi502_security_descriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for SHARE_INFO_502 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for SHARE_INFO_502 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SHARE_INFO_503 {
@@ -13509,90 +11393,40 @@ pub struct SHARE_INFO_503 {
     pub shi503_security_descriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl SHARE_INFO_503 {}
+impl ::core::marker::Copy for SHARE_INFO_503 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for SHARE_INFO_503 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for SHARE_INFO_503 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for SHARE_INFO_503 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHARE_INFO_503>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for SHARE_INFO_503 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for SHARE_INFO_503 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for SHARE_INFO_503 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_503")
-            .field("shi503_netname", &self.shi503_netname)
-            .field("shi503_type", &self.shi503_type)
-            .field("shi503_remark", &self.shi503_remark)
-            .field("shi503_permissions", &self.shi503_permissions)
-            .field("shi503_max_uses", &self.shi503_max_uses)
-            .field("shi503_current_uses", &self.shi503_current_uses)
-            .field("shi503_path", &self.shi503_path)
-            .field("shi503_passwd", &self.shi503_passwd)
-            .field("shi503_servername", &self.shi503_servername)
-            .field("shi503_reserved", &self.shi503_reserved)
-            .field("shi503_security_descriptor", &self.shi503_security_descriptor)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for SHARE_INFO_503 {
-    fn eq(&self, other: &Self) -> bool {
-        self.shi503_netname == other.shi503_netname && self.shi503_type == other.shi503_type && self.shi503_remark == other.shi503_remark && self.shi503_permissions == other.shi503_permissions && self.shi503_max_uses == other.shi503_max_uses && self.shi503_current_uses == other.shi503_current_uses && self.shi503_path == other.shi503_path && self.shi503_passwd == other.shi503_passwd && self.shi503_servername == other.shi503_servername && self.shi503_reserved == other.shi503_reserved && self.shi503_security_descriptor == other.shi503_security_descriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for SHARE_INFO_503 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for SHARE_INFO_503 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SHARE_INFO_PERMISSIONS(pub u32);
-pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
-pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(2u32);
-pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(4u32);
-pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(8u32);
-pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
-pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
-pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
-pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
-impl ::core::convert::From<u32> for SHARE_INFO_PERMISSIONS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SHARE_INFO_PERMISSIONS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SHARE_INFO_PERMISSIONS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SHARE_INFO_PERMISSIONS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SHARE_INFO_PERMISSIONS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SHARE_INFO_PERMISSIONS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SHARE_INFO_PERMISSIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SHARE_INFO_PERMISSIONS = u32;
+pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = 1u32;
+pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = 2u32;
+pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = 4u32;
+pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = 8u32;
+pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = 16u32;
+pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = 32u32;
+pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = 64u32;
+pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = 32768u32;
 pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
 pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
 pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
@@ -13600,52 +11434,14 @@ pub const SHARE_PATH_PARMNUM: u32 = 8u32;
 pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
 pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SHARE_TYPE(pub u32);
-pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
-pub const STYPE_PRINTQ: SHARE_TYPE = SHARE_TYPE(1u32);
-pub const STYPE_DEVICE: SHARE_TYPE = SHARE_TYPE(2u32);
-pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
-pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
-pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
-pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
-impl ::core::convert::From<u32> for SHARE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SHARE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SHARE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SHARE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SHARE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SHARE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SHARE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SHARE_TYPE = u32;
+pub const STYPE_DISKTREE: SHARE_TYPE = 0u32;
+pub const STYPE_PRINTQ: SHARE_TYPE = 1u32;
+pub const STYPE_DEVICE: SHARE_TYPE = 2u32;
+pub const STYPE_IPC: SHARE_TYPE = 3u32;
+pub const STYPE_SPECIAL: SHARE_TYPE = 2147483648u32;
+pub const STYPE_TEMPORARY: SHARE_TYPE = 1073741824u32;
+pub const STYPE_MASK: SHARE_TYPE = 255u32;
 pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
 pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
 pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
@@ -13666,7 +11462,6 @@ pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
 pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
 pub const STATSOPT_CLR: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
@@ -13687,61 +11482,26 @@ pub struct STAT_SERVER_0 {
     pub sts0_reqbufneed: u32,
     pub sts0_bigbufneed: u32,
 }
-impl STAT_SERVER_0 {}
+impl ::core::marker::Copy for STAT_SERVER_0 {}
+impl ::core::clone::Clone for STAT_SERVER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STAT_SERVER_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for STAT_SERVER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STAT_SERVER_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for STAT_SERVER_0 {}
 impl ::core::default::Default for STAT_SERVER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for STAT_SERVER_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STAT_SERVER_0")
-            .field("sts0_start", &self.sts0_start)
-            .field("sts0_fopens", &self.sts0_fopens)
-            .field("sts0_devopens", &self.sts0_devopens)
-            .field("sts0_jobsqueued", &self.sts0_jobsqueued)
-            .field("sts0_sopens", &self.sts0_sopens)
-            .field("sts0_stimedout", &self.sts0_stimedout)
-            .field("sts0_serrorout", &self.sts0_serrorout)
-            .field("sts0_pwerrors", &self.sts0_pwerrors)
-            .field("sts0_permerrors", &self.sts0_permerrors)
-            .field("sts0_syserrors", &self.sts0_syserrors)
-            .field("sts0_bytessent_low", &self.sts0_bytessent_low)
-            .field("sts0_bytessent_high", &self.sts0_bytessent_high)
-            .field("sts0_bytesrcvd_low", &self.sts0_bytesrcvd_low)
-            .field("sts0_bytesrcvd_high", &self.sts0_bytesrcvd_high)
-            .field("sts0_avresponse", &self.sts0_avresponse)
-            .field("sts0_reqbufneed", &self.sts0_reqbufneed)
-            .field("sts0_bigbufneed", &self.sts0_bigbufneed)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for STAT_SERVER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sts0_start == other.sts0_start
-            && self.sts0_fopens == other.sts0_fopens
-            && self.sts0_devopens == other.sts0_devopens
-            && self.sts0_jobsqueued == other.sts0_jobsqueued
-            && self.sts0_sopens == other.sts0_sopens
-            && self.sts0_stimedout == other.sts0_stimedout
-            && self.sts0_serrorout == other.sts0_serrorout
-            && self.sts0_pwerrors == other.sts0_pwerrors
-            && self.sts0_permerrors == other.sts0_permerrors
-            && self.sts0_syserrors == other.sts0_syserrors
-            && self.sts0_bytessent_low == other.sts0_bytessent_low
-            && self.sts0_bytessent_high == other.sts0_bytessent_high
-            && self.sts0_bytesrcvd_low == other.sts0_bytesrcvd_low
-            && self.sts0_bytesrcvd_high == other.sts0_bytesrcvd_high
-            && self.sts0_avresponse == other.sts0_avresponse
-            && self.sts0_reqbufneed == other.sts0_reqbufneed
-            && self.sts0_bigbufneed == other.sts0_bigbufneed
-    }
-}
-impl ::core::cmp::Eq for STAT_SERVER_0 {}
-unsafe impl ::windows::core::Abi for STAT_SERVER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
@@ -13785,199 +11545,61 @@ pub struct STAT_WORKSTATION_0 {
     pub FailedUseCount: u32,
     pub CurrentCommands: u32,
 }
-impl STAT_WORKSTATION_0 {}
+impl ::core::marker::Copy for STAT_WORKSTATION_0 {}
+impl ::core::clone::Clone for STAT_WORKSTATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STAT_WORKSTATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for STAT_WORKSTATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STAT_WORKSTATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for STAT_WORKSTATION_0 {}
 impl ::core::default::Default for STAT_WORKSTATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for STAT_WORKSTATION_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STAT_WORKSTATION_0")
-            .field("StatisticsStartTime", &self.StatisticsStartTime)
-            .field("BytesReceived", &self.BytesReceived)
-            .field("SmbsReceived", &self.SmbsReceived)
-            .field("PagingReadBytesRequested", &self.PagingReadBytesRequested)
-            .field("NonPagingReadBytesRequested", &self.NonPagingReadBytesRequested)
-            .field("CacheReadBytesRequested", &self.CacheReadBytesRequested)
-            .field("NetworkReadBytesRequested", &self.NetworkReadBytesRequested)
-            .field("BytesTransmitted", &self.BytesTransmitted)
-            .field("SmbsTransmitted", &self.SmbsTransmitted)
-            .field("PagingWriteBytesRequested", &self.PagingWriteBytesRequested)
-            .field("NonPagingWriteBytesRequested", &self.NonPagingWriteBytesRequested)
-            .field("CacheWriteBytesRequested", &self.CacheWriteBytesRequested)
-            .field("NetworkWriteBytesRequested", &self.NetworkWriteBytesRequested)
-            .field("InitiallyFailedOperations", &self.InitiallyFailedOperations)
-            .field("FailedCompletionOperations", &self.FailedCompletionOperations)
-            .field("ReadOperations", &self.ReadOperations)
-            .field("RandomReadOperations", &self.RandomReadOperations)
-            .field("ReadSmbs", &self.ReadSmbs)
-            .field("LargeReadSmbs", &self.LargeReadSmbs)
-            .field("SmallReadSmbs", &self.SmallReadSmbs)
-            .field("WriteOperations", &self.WriteOperations)
-            .field("RandomWriteOperations", &self.RandomWriteOperations)
-            .field("WriteSmbs", &self.WriteSmbs)
-            .field("LargeWriteSmbs", &self.LargeWriteSmbs)
-            .field("SmallWriteSmbs", &self.SmallWriteSmbs)
-            .field("RawReadsDenied", &self.RawReadsDenied)
-            .field("RawWritesDenied", &self.RawWritesDenied)
-            .field("NetworkErrors", &self.NetworkErrors)
-            .field("Sessions", &self.Sessions)
-            .field("FailedSessions", &self.FailedSessions)
-            .field("Reconnects", &self.Reconnects)
-            .field("CoreConnects", &self.CoreConnects)
-            .field("Lanman20Connects", &self.Lanman20Connects)
-            .field("Lanman21Connects", &self.Lanman21Connects)
-            .field("LanmanNtConnects", &self.LanmanNtConnects)
-            .field("ServerDisconnects", &self.ServerDisconnects)
-            .field("HungSessions", &self.HungSessions)
-            .field("UseCount", &self.UseCount)
-            .field("FailedUseCount", &self.FailedUseCount)
-            .field("CurrentCommands", &self.CurrentCommands)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for STAT_WORKSTATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StatisticsStartTime == other.StatisticsStartTime
-            && self.BytesReceived == other.BytesReceived
-            && self.SmbsReceived == other.SmbsReceived
-            && self.PagingReadBytesRequested == other.PagingReadBytesRequested
-            && self.NonPagingReadBytesRequested == other.NonPagingReadBytesRequested
-            && self.CacheReadBytesRequested == other.CacheReadBytesRequested
-            && self.NetworkReadBytesRequested == other.NetworkReadBytesRequested
-            && self.BytesTransmitted == other.BytesTransmitted
-            && self.SmbsTransmitted == other.SmbsTransmitted
-            && self.PagingWriteBytesRequested == other.PagingWriteBytesRequested
-            && self.NonPagingWriteBytesRequested == other.NonPagingWriteBytesRequested
-            && self.CacheWriteBytesRequested == other.CacheWriteBytesRequested
-            && self.NetworkWriteBytesRequested == other.NetworkWriteBytesRequested
-            && self.InitiallyFailedOperations == other.InitiallyFailedOperations
-            && self.FailedCompletionOperations == other.FailedCompletionOperations
-            && self.ReadOperations == other.ReadOperations
-            && self.RandomReadOperations == other.RandomReadOperations
-            && self.ReadSmbs == other.ReadSmbs
-            && self.LargeReadSmbs == other.LargeReadSmbs
-            && self.SmallReadSmbs == other.SmallReadSmbs
-            && self.WriteOperations == other.WriteOperations
-            && self.RandomWriteOperations == other.RandomWriteOperations
-            && self.WriteSmbs == other.WriteSmbs
-            && self.LargeWriteSmbs == other.LargeWriteSmbs
-            && self.SmallWriteSmbs == other.SmallWriteSmbs
-            && self.RawReadsDenied == other.RawReadsDenied
-            && self.RawWritesDenied == other.RawWritesDenied
-            && self.NetworkErrors == other.NetworkErrors
-            && self.Sessions == other.Sessions
-            && self.FailedSessions == other.FailedSessions
-            && self.Reconnects == other.Reconnects
-            && self.CoreConnects == other.CoreConnects
-            && self.Lanman20Connects == other.Lanman20Connects
-            && self.Lanman21Connects == other.Lanman21Connects
-            && self.LanmanNtConnects == other.LanmanNtConnects
-            && self.ServerDisconnects == other.ServerDisconnects
-            && self.HungSessions == other.HungSessions
-            && self.UseCount == other.UseCount
-            && self.FailedUseCount == other.FailedUseCount
-            && self.CurrentCommands == other.CurrentCommands
-    }
-}
-impl ::core::cmp::Eq for STAT_WORKSTATION_0 {}
-unsafe impl ::windows::core::Abi for STAT_WORKSTATION_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct STORAGE_BUS_TYPE(pub i32);
-pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
-pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
-pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
-pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
-pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
-pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
-pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
-pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
-pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
-pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
-pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
-pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
-pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
-pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
-pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
-pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
-pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
-pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
-pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
-pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
-pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
-pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
-impl ::core::convert::From<i32> for STORAGE_BUS_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for STORAGE_BUS_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct STREAM_INFO_LEVELS(pub i32);
-pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
-pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
-impl ::core::convert::From<i32> for STREAM_INFO_LEVELS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for STREAM_INFO_LEVELS {
-    type Abi = Self;
-}
+pub type STORAGE_BUS_TYPE = i32;
+pub const BusTypeUnknown: STORAGE_BUS_TYPE = 0i32;
+pub const BusTypeScsi: STORAGE_BUS_TYPE = 1i32;
+pub const BusTypeAtapi: STORAGE_BUS_TYPE = 2i32;
+pub const BusTypeAta: STORAGE_BUS_TYPE = 3i32;
+pub const BusType1394: STORAGE_BUS_TYPE = 4i32;
+pub const BusTypeSsa: STORAGE_BUS_TYPE = 5i32;
+pub const BusTypeFibre: STORAGE_BUS_TYPE = 6i32;
+pub const BusTypeUsb: STORAGE_BUS_TYPE = 7i32;
+pub const BusTypeRAID: STORAGE_BUS_TYPE = 8i32;
+pub const BusTypeiScsi: STORAGE_BUS_TYPE = 9i32;
+pub const BusTypeSas: STORAGE_BUS_TYPE = 10i32;
+pub const BusTypeSata: STORAGE_BUS_TYPE = 11i32;
+pub const BusTypeSd: STORAGE_BUS_TYPE = 12i32;
+pub const BusTypeMmc: STORAGE_BUS_TYPE = 13i32;
+pub const BusTypeVirtual: STORAGE_BUS_TYPE = 14i32;
+pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = 15i32;
+pub const BusTypeSpaces: STORAGE_BUS_TYPE = 16i32;
+pub const BusTypeNvme: STORAGE_BUS_TYPE = 17i32;
+pub const BusTypeSCM: STORAGE_BUS_TYPE = 18i32;
+pub const BusTypeUfs: STORAGE_BUS_TYPE = 19i32;
+pub const BusTypeMax: STORAGE_BUS_TYPE = 20i32;
+pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = 127i32;
+pub type STREAM_INFO_LEVELS = i32;
+pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = 0i32;
+pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = 1i32;
 pub const STYPE_RESERVED1: u32 = 16777216u32;
 pub const STYPE_RESERVED2: u32 = 33554432u32;
 pub const STYPE_RESERVED3: u32 = 67108864u32;
 pub const STYPE_RESERVED4: u32 = 134217728u32;
 pub const STYPE_RESERVED5: u32 = 1048576u32;
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYMBOLIC_LINK_FLAGS(pub u32);
-pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
-pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
-impl ::core::convert::From<u32> for SYMBOLIC_LINK_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYMBOLIC_LINK_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SYMBOLIC_LINK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SYMBOLIC_LINK_FLAGS = u32;
+pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = 1u32;
+pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -14550,22 +12172,11 @@ pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, millis
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TAPEMARK_TYPE(pub i32);
-pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1i32);
-pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3i32);
-pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0i32);
-pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2i32);
-impl ::core::convert::From<i32> for TAPEMARK_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TAPEMARK_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type TAPEMARK_TYPE = i32;
+pub const TAPE_FILEMARKS: TAPEMARK_TYPE = 1i32;
+pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = 3i32;
+pub const TAPE_SETMARKS: TAPEMARK_TYPE = 0i32;
+pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_ERASE {
@@ -14573,133 +12184,73 @@ pub struct TAPE_ERASE {
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TAPE_ERASE {}
+impl ::core::marker::Copy for TAPE_ERASE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TAPE_ERASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TAPE_ERASE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_ERASE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPE_ERASE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_ERASE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TAPE_ERASE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TAPE_ERASE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAPE_ERASE").field("Type", &self.Type).field("Immediate", &self.Immediate).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TAPE_ERASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Immediate == other.Immediate
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TAPE_ERASE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_ERASE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TAPE_GET_POSITION {
     pub Type: TAPE_POSITION_TYPE,
     pub Partition: u32,
     pub Offset: i64,
 }
-impl TAPE_GET_POSITION {}
+impl ::core::marker::Copy for TAPE_GET_POSITION {}
+impl ::core::clone::Clone for TAPE_GET_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TAPE_GET_POSITION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TAPE_GET_POSITION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPE_GET_POSITION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TAPE_GET_POSITION {}
 impl ::core::default::Default for TAPE_GET_POSITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TAPE_GET_POSITION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAPE_GET_POSITION").field("Type", &self.Type).field("Partition", &self.Partition).field("Offset", &self.Offset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TAPE_GET_POSITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Partition == other.Partition && self.Offset == other.Offset
-    }
-}
-impl ::core::cmp::Eq for TAPE_GET_POSITION {}
-unsafe impl ::windows::core::Abi for TAPE_GET_POSITION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TAPE_INFORMATION_TYPE(pub u32);
-pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
-pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
-impl ::core::convert::From<u32> for TAPE_INFORMATION_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TAPE_INFORMATION_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for TAPE_INFORMATION_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for TAPE_INFORMATION_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TAPE_INFORMATION_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TAPE_INFORMATION_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for TAPE_INFORMATION_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TAPE_POSITION_METHOD(pub i32);
-pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1i32);
-pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(2i32);
-pub const TAPE_REWIND: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(0i32);
-pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(4i32);
-pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(6i32);
-pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(5i32);
-pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7i32);
-pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9i32);
-pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8i32);
-impl ::core::convert::From<i32> for TAPE_POSITION_METHOD {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TAPE_POSITION_METHOD {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TAPE_POSITION_TYPE(pub i32);
-pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0i32);
-pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1i32);
-impl ::core::convert::From<i32> for TAPE_POSITION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TAPE_POSITION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type TAPE_INFORMATION_TYPE = u32;
+pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = 1u32;
+pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = 0u32;
+pub type TAPE_POSITION_METHOD = i32;
+pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = 1i32;
+pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = 2i32;
+pub const TAPE_REWIND: TAPE_POSITION_METHOD = 0i32;
+pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = 4i32;
+pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = 6i32;
+pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = 5i32;
+pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = 7i32;
+pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = 9i32;
+pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = 8i32;
+pub type TAPE_POSITION_TYPE = i32;
+pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = 0i32;
+pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_PREPARE {
@@ -14707,32 +12258,31 @@ pub struct TAPE_PREPARE {
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TAPE_PREPARE {}
+impl ::core::marker::Copy for TAPE_PREPARE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TAPE_PREPARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TAPE_PREPARE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_PREPARE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPE_PREPARE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_PREPARE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TAPE_PREPARE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TAPE_PREPARE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAPE_PREPARE").field("Operation", &self.Operation).field("Immediate", &self.Immediate).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TAPE_PREPARE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Operation == other.Operation && self.Immediate == other.Immediate
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TAPE_PREPARE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_PREPARE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_SET_POSITION {
@@ -14742,32 +12292,31 @@ pub struct TAPE_SET_POSITION {
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TAPE_SET_POSITION {}
+impl ::core::marker::Copy for TAPE_SET_POSITION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TAPE_SET_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TAPE_SET_POSITION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAPE_SET_POSITION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPE_SET_POSITION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAPE_SET_POSITION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TAPE_SET_POSITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TAPE_SET_POSITION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAPE_SET_POSITION").field("Method", &self.Method).field("Partition", &self.Partition).field("Offset", &self.Offset).field("Immediate", &self.Immediate).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TAPE_SET_POSITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Method == other.Method && self.Partition == other.Partition && self.Offset == other.Offset && self.Immediate == other.Immediate
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TAPE_SET_POSITION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_SET_POSITION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_WRITE_MARKS {
@@ -14776,30 +12325,30 @@ pub struct TAPE_WRITE_MARKS {
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TAPE_WRITE_MARKS {}
+impl ::core::marker::Copy for TAPE_WRITE_MARKS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TAPE_WRITE_MARKS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for TAPE_WRITE_MARKS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TAPE_WRITE_MARKS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAPE_WRITE_MARKS").field("Type", &self.Type).field("Count", &self.Count).field("Immediate", &self.Immediate).finish()
-    }
+unsafe impl ::windows::core::Abi for TAPE_WRITE_MARKS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAPE_WRITE_MARKS {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Count == other.Count && self.Immediate == other.Immediate
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPE_WRITE_MARKS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TAPE_WRITE_MARKS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_WRITE_MARKS {
-    type Abi = Self;
+impl ::core::default::Default for TAPE_WRITE_MARKS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
 pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
@@ -14811,7 +12360,6 @@ pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
 pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut ::core::ffi::c_void,
@@ -14819,53 +12367,51 @@ pub struct TRANSACTION_NOTIFICATION {
     pub TmVirtualClock: i64,
     pub ArgumentLength: u32,
 }
-impl TRANSACTION_NOTIFICATION {}
+impl ::core::marker::Copy for TRANSACTION_NOTIFICATION {}
+impl ::core::clone::Clone for TRANSACTION_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSACTION_NOTIFICATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_NOTIFICATION").field("TransactionKey", &self.TransactionKey).field("TransactionNotification", &self.TransactionNotification).field("TmVirtualClock", &self.TmVirtualClock).field("ArgumentLength", &self.ArgumentLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransactionKey == other.TransactionKey && self.TransactionNotification == other.TransactionNotification && self.TmVirtualClock == other.TmVirtualClock && self.ArgumentLength == other.ArgumentLength
-    }
-}
-impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION {}
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: ::windows::core::GUID,
 }
-impl TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
+impl ::core::marker::Copy for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
+impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT").field("MarshalCookie", &self.MarshalCookie).field("UOW", &self.UOW).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MarshalCookie == other.MarshalCookie && self.UOW == other.UOW
-    }
-}
-impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
@@ -14873,102 +12419,99 @@ pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub TmIdentity: ::windows::core::GUID,
     pub BufferLength: u32,
 }
-impl TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
+impl ::core::marker::Copy for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
+impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT").field("PropagationCookie", &self.PropagationCookie).field("UOW", &self.UOW).field("TmIdentity", &self.TmIdentity).field("BufferLength", &self.BufferLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropagationCookie == other.PropagationCookie && self.UOW == other.UOW && self.TmIdentity == other.TmIdentity && self.BufferLength == other.BufferLength
-    }
-}
-impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: ::windows::core::GUID,
     pub UOW: ::windows::core::GUID,
 }
-impl TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
+impl ::core::marker::Copy for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
+impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT").field("EnlistmentId", &self.EnlistmentId).field("UOW", &self.UOW).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnlistmentId == other.EnlistmentId && self.UOW == other.UOW
-    }
-}
-impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
-impl TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
+impl ::core::marker::Copy for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
+impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT").field("SavepointId", &self.SavepointId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SavepointId == other.SavepointId
-    }
-}
-impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: ::windows::core::GUID,
     pub Flags: u32,
 }
-impl TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
+impl ::core::marker::Copy for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
+impl ::core::clone::Clone for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
 impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT").field("TmIdentity", &self.TmIdentity).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.TmIdentity == other.TmIdentity && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    type Abi = Self;
 }
 pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
 pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
@@ -14998,104 +12541,63 @@ pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
 pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
 pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
 pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TRANSACTION_OUTCOME(pub i32);
-pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
-pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
-pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
-impl ::core::convert::From<i32> for TRANSACTION_OUTCOME {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TRANSACTION_OUTCOME {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TXFS_MINIVERSION(pub u32);
-pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
-pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
-pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
-impl ::core::convert::From<u32> for TXFS_MINIVERSION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TXFS_MINIVERSION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for TXFS_MINIVERSION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for TXFS_MINIVERSION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TXFS_MINIVERSION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TXFS_MINIVERSION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for TXFS_MINIVERSION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type TRANSACTION_OUTCOME = i32;
+pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = 1i32;
+pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = 2i32;
+pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = 3i32;
+pub type TXFS_MINIVERSION = u32;
+pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = 0u32;
+pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = 65535u32;
+pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = 65534u32;
 #[repr(C)]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
-impl TXF_ID {}
+impl ::core::marker::Copy for TXF_ID {}
+impl ::core::clone::Clone for TXF_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TXF_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TXF_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TXF_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TXF_ID {}
 impl ::core::default::Default for TXF_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TXF_ID {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TXF_ID {}
-unsafe impl ::windows::core::Abi for TXF_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
-impl TXF_ID_0 {}
+impl ::core::marker::Copy for TXF_ID_0 {}
+impl ::core::clone::Clone for TXF_ID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TXF_ID_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TXF_ID_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TXF_ID_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TXF_ID_0 {}
 impl ::core::default::Default for TXF_ID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TXF_ID_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TXF_ID_0 {}
-unsafe impl ::windows::core::Abi for TXF_ID_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
@@ -15106,53 +12608,56 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-impl TXF_LOG_RECORD_AFFECTED_FILE {}
+impl ::core::marker::Copy for TXF_LOG_RECORD_AFFECTED_FILE {}
+impl ::core::clone::Clone for TXF_LOG_RECORD_AFFECTED_FILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_AFFECTED_FILE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_AFFECTED_FILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TXF_LOG_RECORD_AFFECTED_FILE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_AFFECTED_FILE {}
 impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TXF_LOG_RECORD_AFFECTED_FILE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TXF_LOG_RECORD_AFFECTED_FILE {}
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_AFFECTED_FILE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
     pub RecordType: TXF_LOG_RECORD_TYPE,
     pub RecordLength: u32,
 }
-impl TXF_LOG_RECORD_BASE {}
+impl ::core::marker::Copy for TXF_LOG_RECORD_BASE {}
+impl ::core::clone::Clone for TXF_LOG_RECORD_BASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_BASE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_BASE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TXF_LOG_RECORD_BASE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_BASE {}
 impl ::core::default::Default for TXF_LOG_RECORD_BASE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TXF_LOG_RECORD_BASE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TXF_LOG_RECORD_BASE").field("Version", &self.Version).field("RecordType", &self.RecordType).field("RecordLength", &self.RecordLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TXF_LOG_RECORD_BASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.RecordType == other.RecordType && self.RecordLength == other.RecordLength
-    }
-}
-impl ::core::cmp::Eq for TXF_LOG_RECORD_BASE {}
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_BASE {
-    type Abi = Self;
-}
 pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
@@ -15165,36 +12670,30 @@ pub struct TXF_LOG_RECORD_TRUNCATE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-impl TXF_LOG_RECORD_TRUNCATE {}
+impl ::core::marker::Copy for TXF_LOG_RECORD_TRUNCATE {}
+impl ::core::clone::Clone for TXF_LOG_RECORD_TRUNCATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TRUNCATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_TRUNCATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TXF_LOG_RECORD_TRUNCATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_TRUNCATE {}
 impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TXF_LOG_RECORD_TRUNCATE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TXF_LOG_RECORD_TRUNCATE {}
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TRUNCATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TXF_LOG_RECORD_TYPE(pub u16);
-pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
-pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
-pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
-impl ::core::convert::From<u16> for TXF_LOG_RECORD_TYPE {
-    fn from(value: u16) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type TXF_LOG_RECORD_TYPE = u16;
+pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = 4u16;
+pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = 2u16;
+pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = 1u16;
 #[repr(C, packed(4))]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,
@@ -15209,20 +12708,25 @@ pub struct TXF_LOG_RECORD_WRITE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-impl TXF_LOG_RECORD_WRITE {}
+impl ::core::marker::Copy for TXF_LOG_RECORD_WRITE {}
+impl ::core::clone::Clone for TXF_LOG_RECORD_WRITE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_WRITE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TXF_LOG_RECORD_WRITE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TXF_LOG_RECORD_WRITE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TXF_LOG_RECORD_WRITE {}
 impl ::core::default::Default for TXF_LOG_RECORD_WRITE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for TXF_LOG_RECORD_WRITE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TXF_LOG_RECORD_WRITE {}
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_WRITE {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -15418,190 +12922,37 @@ pub unsafe fn UnlockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VER_FIND_FILE_FLAGS(pub u32);
-pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
-impl ::core::convert::From<u32> for VER_FIND_FILE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VER_FIND_FILE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for VER_FIND_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for VER_FIND_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VER_FIND_FILE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VER_FIND_FILE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for VER_FIND_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VER_FIND_FILE_STATUS(pub u32);
-pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
-pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
-pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
-impl ::core::convert::From<u32> for VER_FIND_FILE_STATUS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VER_FIND_FILE_STATUS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for VER_FIND_FILE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VER_INSTALL_FILE_FLAGS(pub u32);
-pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
-pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
-impl ::core::convert::From<u32> for VER_INSTALL_FILE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for VER_INSTALL_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for VER_INSTALL_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VER_INSTALL_FILE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VER_INSTALL_FILE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for VER_INSTALL_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VER_INSTALL_FILE_STATUS(pub u32);
-pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
-pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2u32);
-pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4u32);
-pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8u32);
-pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16u32);
-pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32u32);
-pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(64u32);
-pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(128u32);
-pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(256u32);
-pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(512u32);
-pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1024u32);
-pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2048u32);
-pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4096u32);
-pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8192u32);
-pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16384u32);
-pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32768u32);
-pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(65536u32);
-pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(131072u32);
-pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
-pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
-pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
-impl ::core::convert::From<u32> for VER_INSTALL_FILE_STATUS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_STATUS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for VER_INSTALL_FILE_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type VER_FIND_FILE_FLAGS = u32;
+pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = 1u32;
+pub type VER_FIND_FILE_STATUS = u32;
+pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = 1u32;
+pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = 2u32;
+pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = 4u32;
+pub type VER_INSTALL_FILE_FLAGS = u32;
+pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = 1u32;
+pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = 2u32;
+pub type VER_INSTALL_FILE_STATUS = u32;
+pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = 1u32;
+pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = 2u32;
+pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = 4u32;
+pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = 8u32;
+pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = 16u32;
+pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = 32u32;
+pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = 64u32;
+pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = 128u32;
+pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = 256u32;
+pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = 512u32;
+pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = 1024u32;
+pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = 2048u32;
+pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = 4096u32;
+pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = 8192u32;
+pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = 16384u32;
+pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = 32768u32;
+pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = 65536u32;
+pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = 131072u32;
+pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = 262144u32;
+pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = 524288u32;
+pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = 1048576u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
@@ -15617,163 +12968,157 @@ pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub AccessMode: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl VOLUME_ALLOCATE_BC_STREAM_INPUT {}
+impl ::core::marker::Copy for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_ALLOCATE_BC_STREAM_INPUT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_ALLOCATE_BC_STREAM_INPUT").field("Version", &self.Version).field("RequestsPerPeriod", &self.RequestsPerPeriod).field("Period", &self.Period).field("RetryFailures", &self.RetryFailures).field("Discardable", &self.Discardable).field("Reserved1", &self.Reserved1).field("LowestByteOffset", &self.LowestByteOffset).field("HighestByteOffset", &self.HighestByteOffset).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.RequestsPerPeriod == other.RequestsPerPeriod && self.Period == other.Period && self.RetryFailures == other.RetryFailures && self.Discardable == other.Discardable && self.Reserved1 == other.Reserved1 && self.LowestByteOffset == other.LowestByteOffset && self.HighestByteOffset == other.HighestByteOffset && self.AccessType == other.AccessType && self.AccessMode == other.AccessMode
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
 }
-impl VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
+impl ::core::marker::Copy for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
+impl ::core::clone::Clone for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_ALLOCATE_BC_STREAM_OUTPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
 impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_ALLOCATE_BC_STREAM_OUTPUT").field("RequestSize", &self.RequestSize).field("NumOutStandingRequests", &self.NumOutStandingRequests).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.RequestSize == other.RequestSize && self.NumOutStandingRequests == other.NumOutStandingRequests
-    }
-}
-impl ::core::cmp::Eq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
     pub StartingClusterNumber: i64,
 }
-impl VOLUME_ALLOCATION_HINT_INPUT {}
+impl ::core::marker::Copy for VOLUME_ALLOCATION_HINT_INPUT {}
+impl ::core::clone::Clone for VOLUME_ALLOCATION_HINT_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_INPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_INPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_ALLOCATION_HINT_INPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_INPUT {}
 impl ::core::default::Default for VOLUME_ALLOCATION_HINT_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_ALLOCATION_HINT_INPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_ALLOCATION_HINT_INPUT").field("ClusterSize", &self.ClusterSize).field("NumberOfClusters", &self.NumberOfClusters).field("StartingClusterNumber", &self.StartingClusterNumber).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClusterSize == other.ClusterSize && self.NumberOfClusters == other.NumberOfClusters && self.StartingClusterNumber == other.StartingClusterNumber
-    }
-}
-impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_INPUT {}
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_INPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
-impl VOLUME_ALLOCATION_HINT_OUTPUT {}
+impl ::core::marker::Copy for VOLUME_ALLOCATION_HINT_OUTPUT {}
+impl ::core::clone::Clone for VOLUME_ALLOCATION_HINT_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_OUTPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_ALLOCATION_HINT_OUTPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_OUTPUT {}
 impl ::core::default::Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_ALLOCATION_HINT_OUTPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_ALLOCATION_HINT_OUTPUT").field("Bitmap", &self.Bitmap).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bitmap == other.Bitmap
-    }
-}
-impl ::core::cmp::Eq for VOLUME_ALLOCATION_HINT_OUTPUT {}
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
     pub Extents: [FILE_EXTENT; 1],
 }
-impl VOLUME_CRITICAL_IO {}
+impl ::core::marker::Copy for VOLUME_CRITICAL_IO {}
+impl ::core::clone::Clone for VOLUME_CRITICAL_IO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_CRITICAL_IO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_CRITICAL_IO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_CRITICAL_IO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_CRITICAL_IO {}
 impl ::core::default::Default for VOLUME_CRITICAL_IO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_CRITICAL_IO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_CRITICAL_IO").field("AccessType", &self.AccessType).field("ExtentsCount", &self.ExtentsCount).field("Extents", &self.Extents).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_CRITICAL_IO {
-    fn eq(&self, other: &Self) -> bool {
-        self.AccessType == other.AccessType && self.ExtentsCount == other.ExtentsCount && self.Extents == other.Extents
-    }
-}
-impl ::core::cmp::Eq for VOLUME_CRITICAL_IO {}
-unsafe impl ::windows::core::Abi for VOLUME_CRITICAL_IO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
 }
-impl VOLUME_FAILOVER_SET {}
+impl ::core::marker::Copy for VOLUME_FAILOVER_SET {}
+impl ::core::clone::Clone for VOLUME_FAILOVER_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_FAILOVER_SET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_FAILOVER_SET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_FAILOVER_SET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_FAILOVER_SET {}
 impl ::core::default::Default for VOLUME_FAILOVER_SET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_FAILOVER_SET {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_FAILOVER_SET").field("NumberOfDisks", &self.NumberOfDisks).field("DiskNumbers", &self.DiskNumbers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_FAILOVER_SET {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfDisks == other.NumberOfDisks && self.DiskNumbers == other.DiskNumbers
-    }
-}
-impl ::core::cmp::Eq for VOLUME_FAILOVER_SET {}
-unsafe impl ::windows::core::Abi for VOLUME_FAILOVER_SET {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
@@ -15783,27 +13128,26 @@ pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub AccessType: u32,
     pub AccessMode: u32,
 }
-impl VOLUME_GET_BC_PROPERTIES_INPUT {}
+impl ::core::marker::Copy for VOLUME_GET_BC_PROPERTIES_INPUT {}
+impl ::core::clone::Clone for VOLUME_GET_BC_PROPERTIES_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_INPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_GET_BC_PROPERTIES_INPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_INPUT {}
 impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_INPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_INPUT").field("Version", &self.Version).field("Reserved1", &self.Reserved1).field("LowestByteOffset", &self.LowestByteOffset).field("HighestByteOffset", &self.HighestByteOffset).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Reserved1 == other.Reserved1 && self.LowestByteOffset == other.LowestByteOffset && self.HighestByteOffset == other.HighestByteOffset && self.AccessType == other.AccessType && self.AccessMode == other.AccessMode
-    }
-}
-impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_INPUT {}
-unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_INPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
@@ -15813,157 +13157,151 @@ pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub NumOutStandingRequests: u32,
     pub RequestSize: u64,
 }
-impl VOLUME_GET_BC_PROPERTIES_OUTPUT {}
+impl ::core::marker::Copy for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
+impl ::core::clone::Clone for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_GET_BC_PROPERTIES_OUTPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
 impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_OUTPUT").field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumRequestSize", &self.MaximumRequestSize).field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest).field("NumOutStandingRequests", &self.NumOutStandingRequests).field("RequestSize", &self.RequestSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaximumRequestsPerPeriod == other.MaximumRequestsPerPeriod && self.MinimumPeriod == other.MinimumPeriod && self.MaximumRequestSize == other.MaximumRequestSize && self.EstimatedTimePerRequest == other.EstimatedTimePerRequest && self.NumOutStandingRequests == other.NumOutStandingRequests && self.RequestSize == other.RequestSize
-    }
-}
-impl ::core::cmp::Eq for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
-unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
-impl VOLUME_LOGICAL_OFFSET {}
+impl ::core::marker::Copy for VOLUME_LOGICAL_OFFSET {}
+impl ::core::clone::Clone for VOLUME_LOGICAL_OFFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_LOGICAL_OFFSET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_LOGICAL_OFFSET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_LOGICAL_OFFSET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_LOGICAL_OFFSET {}
 impl ::core::default::Default for VOLUME_LOGICAL_OFFSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_LOGICAL_OFFSET {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_LOGICAL_OFFSET").field("LogicalOffset", &self.LogicalOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_LOGICAL_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogicalOffset == other.LogicalOffset
-    }
-}
-impl ::core::cmp::Eq for VOLUME_LOGICAL_OFFSET {}
-unsafe impl ::windows::core::Abi for VOLUME_LOGICAL_OFFSET {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
 }
-impl VOLUME_NUMBER {}
+impl ::core::marker::Copy for VOLUME_NUMBER {}
+impl ::core::clone::Clone for VOLUME_NUMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_NUMBER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_NUMBER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_NUMBER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_NUMBER {}
 impl ::core::default::Default for VOLUME_NUMBER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_NUMBER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_NUMBER").field("VolumeNumber", &self.VolumeNumber).field("VolumeManagerName", &self.VolumeManagerName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_NUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeNumber == other.VolumeNumber && self.VolumeManagerName == other.VolumeManagerName
-    }
-}
-impl ::core::cmp::Eq for VOLUME_NUMBER {}
-unsafe impl ::windows::core::Abi for VOLUME_NUMBER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
 }
-impl VOLUME_PHYSICAL_OFFSET {}
+impl ::core::marker::Copy for VOLUME_PHYSICAL_OFFSET {}
+impl ::core::clone::Clone for VOLUME_PHYSICAL_OFFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_PHYSICAL_OFFSET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSET {}
 impl ::core::default::Default for VOLUME_PHYSICAL_OFFSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_PHYSICAL_OFFSET {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_PHYSICAL_OFFSET").field("DiskNumber", &self.DiskNumber).field("Offset", &self.Offset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiskNumber == other.DiskNumber && self.Offset == other.Offset
-    }
-}
-impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSET {}
-unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSET {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
 }
-impl VOLUME_PHYSICAL_OFFSETS {}
+impl ::core::marker::Copy for VOLUME_PHYSICAL_OFFSETS {}
+impl ::core::clone::Clone for VOLUME_PHYSICAL_OFFSETS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSETS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSETS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_PHYSICAL_OFFSETS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSETS {}
 impl ::core::default::Default for VOLUME_PHYSICAL_OFFSETS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_PHYSICAL_OFFSETS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_PHYSICAL_OFFSETS").field("NumberOfPhysicalOffsets", &self.NumberOfPhysicalOffsets).field("PhysicalOffset", &self.PhysicalOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSETS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfPhysicalOffsets == other.NumberOfPhysicalOffsets && self.PhysicalOffset == other.PhysicalOffset
-    }
-}
-impl ::core::cmp::Eq for VOLUME_PHYSICAL_OFFSETS {}
-unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSETS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
     pub PlexNumber: u32,
 }
-impl VOLUME_READ_PLEX_INPUT {}
+impl ::core::marker::Copy for VOLUME_READ_PLEX_INPUT {}
+impl ::core::clone::Clone for VOLUME_READ_PLEX_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_READ_PLEX_INPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_READ_PLEX_INPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_READ_PLEX_INPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_READ_PLEX_INPUT {}
 impl ::core::default::Default for VOLUME_READ_PLEX_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_READ_PLEX_INPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_READ_PLEX_INPUT").field("ByteOffset", &self.ByteOffset).field("Length", &self.Length).field("PlexNumber", &self.PlexNumber).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_READ_PLEX_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteOffset == other.ByteOffset && self.Length == other.Length && self.PlexNumber == other.PlexNumber
-    }
-}
-impl ::core::cmp::Eq for VOLUME_READ_PLEX_INPUT {}
-unsafe impl ::windows::core::Abi for VOLUME_READ_PLEX_INPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
@@ -15974,60 +13312,58 @@ pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub Reserved2: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
+impl ::core::marker::Copy for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_SET_GPT_ATTRIBUTES_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_SET_GPT_ATTRIBUTES_INFORMATION").field("GptAttributes", &self.GptAttributes).field("RevertOnClose", &self.RevertOnClose).field("ApplyToAllConnectedVolumes", &self.ApplyToAllConnectedVolumes).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.GptAttributes == other.GptAttributes && self.RevertOnClose == other.RevertOnClose && self.ApplyToAllConnectedVolumes == other.ApplyToAllConnectedVolumes && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
-impl VOLUME_SHRINK_INFO {}
+impl ::core::marker::Copy for VOLUME_SHRINK_INFO {}
+impl ::core::clone::Clone for VOLUME_SHRINK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VOLUME_SHRINK_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VOLUME_SHRINK_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VOLUME_SHRINK_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VOLUME_SHRINK_INFO {}
 impl ::core::default::Default for VOLUME_SHRINK_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VOLUME_SHRINK_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_SHRINK_INFO").field("VolumeSize", &self.VolumeSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for VOLUME_SHRINK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeSize == other.VolumeSize
-    }
-}
-impl ::core::cmp::Eq for VOLUME_SHRINK_INFO {}
-unsafe impl ::windows::core::Abi for VOLUME_SHRINK_INFO {
-    type Abi = Self;
-}
 pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
 pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
 pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
@@ -16044,157 +13380,75 @@ pub struct VS_FIXEDFILEINFO {
     pub dwFileDateMS: u32,
     pub dwFileDateLS: u32,
 }
-impl VS_FIXEDFILEINFO {}
+impl ::core::marker::Copy for VS_FIXEDFILEINFO {}
+impl ::core::clone::Clone for VS_FIXEDFILEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for VS_FIXEDFILEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VS_FIXEDFILEINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for VS_FIXEDFILEINFO {}
 impl ::core::default::Default for VS_FIXEDFILEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for VS_FIXEDFILEINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VS_FIXEDFILEINFO")
-            .field("dwSignature", &self.dwSignature)
-            .field("dwStrucVersion", &self.dwStrucVersion)
-            .field("dwFileVersionMS", &self.dwFileVersionMS)
-            .field("dwFileVersionLS", &self.dwFileVersionLS)
-            .field("dwProductVersionMS", &self.dwProductVersionMS)
-            .field("dwProductVersionLS", &self.dwProductVersionLS)
-            .field("dwFileFlagsMask", &self.dwFileFlagsMask)
-            .field("dwFileFlags", &self.dwFileFlags)
-            .field("dwFileOS", &self.dwFileOS)
-            .field("dwFileType", &self.dwFileType)
-            .field("dwFileSubtype", &self.dwFileSubtype)
-            .field("dwFileDateMS", &self.dwFileDateMS)
-            .field("dwFileDateLS", &self.dwFileDateLS)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for VS_FIXEDFILEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSignature == other.dwSignature && self.dwStrucVersion == other.dwStrucVersion && self.dwFileVersionMS == other.dwFileVersionMS && self.dwFileVersionLS == other.dwFileVersionLS && self.dwProductVersionMS == other.dwProductVersionMS && self.dwProductVersionLS == other.dwProductVersionLS && self.dwFileFlagsMask == other.dwFileFlagsMask && self.dwFileFlags == other.dwFileFlags && self.dwFileOS == other.dwFileOS && self.dwFileType == other.dwFileType && self.dwFileSubtype == other.dwFileSubtype && self.dwFileDateMS == other.dwFileDateMS && self.dwFileDateLS == other.dwFileDateLS
-    }
-}
-impl ::core::cmp::Eq for VS_FIXEDFILEINFO {}
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
-pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
-pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(2u32);
-pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(4u32);
-pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
-pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
-pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
-impl ::core::convert::From<u32> for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VS_FIXEDFILEINFO_FILE_OS(pub i32);
-pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0i32);
-pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65536i32);
-pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131072i32);
-pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196608i32);
-pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262144i32);
-pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(327680i32);
-pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0i32);
-pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(1i32);
-pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(2i32);
-pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(3i32);
-pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(4i32);
-pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65537i32);
-pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65540i32);
-pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074i32);
-pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611i32);
-pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148i32);
-impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_OS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_OS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
-pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
-pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(4i32);
-pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(5i32);
-pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(6i32);
-pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(7i32);
-pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(8i32);
-pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(9i32);
-pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(10i32);
-pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(11i32);
-pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(12i32);
-pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_SUBTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_SUBTYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
-pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
-pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(1i32);
-pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(2i32);
-pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32);
-pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
-pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
-pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
-impl ::core::convert::From<i32> for VS_FIXEDFILEINFO_FILE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_TYPE {
-    type Abi = Self;
-}
+pub type VS_FIXEDFILEINFO_FILE_FLAGS = u32;
+pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = 1u32;
+pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = 2u32;
+pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = 4u32;
+pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = 8u32;
+pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = 16u32;
+pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = 32u32;
+pub type VS_FIXEDFILEINFO_FILE_OS = i32;
+pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = 0i32;
+pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = 65536i32;
+pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = 131072i32;
+pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = 196608i32;
+pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = 262144i32;
+pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = 327680i32;
+pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = 0i32;
+pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = 1i32;
+pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = 2i32;
+pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = 3i32;
+pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = 4i32;
+pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = 65537i32;
+pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = 65540i32;
+pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = 131074i32;
+pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = 196611i32;
+pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = 262148i32;
+pub type VS_FIXEDFILEINFO_FILE_SUBTYPE = i32;
+pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = 0i32;
+pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = 1i32;
+pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = 2i32;
+pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 3i32;
+pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = 4i32;
+pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 5i32;
+pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = 6i32;
+pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = 7i32;
+pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 8i32;
+pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = 9i32;
+pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = 10i32;
+pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = 11i32;
+pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = 12i32;
+pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = 1i32;
+pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = 2i32;
+pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 3i32;
+pub type VS_FIXEDFILEINFO_FILE_TYPE = i32;
+pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = 0i32;
+pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = 1i32;
+pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = 2i32;
+pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = 3i32;
+pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = 4i32;
+pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = 5i32;
+pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = 7i32;
 pub const VS_USER_DEFINED: u32 = 100u32;
 pub const VS_VERSION_INFO: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -16327,7 +13581,6 @@ pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
 pub const WIM_BOOT_OS_WIM: u32 = 1u32;
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIM_ENTRY_INFO {
@@ -16340,62 +13593,60 @@ pub struct WIM_ENTRY_INFO {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WIM_ENTRY_INFO {}
+impl ::core::marker::Copy for WIM_ENTRY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIM_ENTRY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIM_ENTRY_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIM_ENTRY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIM_ENTRY_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIM_ENTRY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIM_ENTRY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIM_ENTRY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIM_ENTRY_INFO").field("WimEntryInfoSize", &self.WimEntryInfoSize).field("WimType", &self.WimType).field("DataSourceId", &self.DataSourceId).field("WimGuid", &self.WimGuid).field("WimPath", &self.WimPath).field("WimIndex", &self.WimIndex).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIM_ENTRY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.WimEntryInfoSize == other.WimEntryInfoSize && self.WimType == other.WimType && self.DataSourceId == other.DataSourceId && self.WimGuid == other.WimGuid && self.WimPath == other.WimPath && self.WimIndex == other.WimIndex && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIM_ENTRY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIM_ENTRY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WIM_EXTERNAL_FILE_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
     pub Flags: u32,
 }
-impl WIM_EXTERNAL_FILE_INFO {}
+impl ::core::marker::Copy for WIM_EXTERNAL_FILE_INFO {}
+impl ::core::clone::Clone for WIM_EXTERNAL_FILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WIM_EXTERNAL_FILE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIM_EXTERNAL_FILE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIM_EXTERNAL_FILE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIM_EXTERNAL_FILE_INFO {}
 impl ::core::default::Default for WIM_EXTERNAL_FILE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WIM_EXTERNAL_FILE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIM_EXTERNAL_FILE_INFO").field("DataSourceId", &self.DataSourceId).field("ResourceHash", &self.ResourceHash).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WIM_EXTERNAL_FILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataSourceId == other.DataSourceId && self.ResourceHash == other.ResourceHash && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for WIM_EXTERNAL_FILE_INFO {}
-unsafe impl ::windows::core::Abi for WIM_EXTERNAL_FILE_INFO {
-    type Abi = Self;
-}
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
 pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
@@ -16407,32 +13658,31 @@ pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub nFileSizeLow: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WIN32_FILE_ATTRIBUTE_DATA {}
+impl ::core::marker::Copy for WIN32_FILE_ATTRIBUTE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIN32_FILE_ATTRIBUTE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIN32_FILE_ATTRIBUTE_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIN32_FILE_ATTRIBUTE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN32_FILE_ATTRIBUTE_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIN32_FILE_ATTRIBUTE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIN32_FILE_ATTRIBUTE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIN32_FILE_ATTRIBUTE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIN32_FILE_ATTRIBUTE_DATA").field("dwFileAttributes", &self.dwFileAttributes).field("ftCreationTime", &self.ftCreationTime).field("ftLastAccessTime", &self.ftLastAccessTime).field("ftLastWriteTime", &self.ftLastWriteTime).field("nFileSizeHigh", &self.nFileSizeHigh).field("nFileSizeLow", &self.nFileSizeLow).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIN32_FILE_ATTRIBUTE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIN32_FILE_ATTRIBUTE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIN32_FILE_ATTRIBUTE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAA {
@@ -16448,43 +13698,31 @@ pub struct WIN32_FIND_DATAA {
     pub cAlternateFileName: [super::super::Foundation::CHAR; 14],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WIN32_FIND_DATAA {}
+impl ::core::marker::Copy for WIN32_FIND_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIN32_FIND_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIN32_FIND_DATAA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIN32_FIND_DATAA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN32_FIND_DATAA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIN32_FIND_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIN32_FIND_DATAA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIN32_FIND_DATAA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIN32_FIND_DATAA")
-            .field("dwFileAttributes", &self.dwFileAttributes)
-            .field("ftCreationTime", &self.ftCreationTime)
-            .field("ftLastAccessTime", &self.ftLastAccessTime)
-            .field("ftLastWriteTime", &self.ftLastWriteTime)
-            .field("nFileSizeHigh", &self.nFileSizeHigh)
-            .field("nFileSizeLow", &self.nFileSizeLow)
-            .field("dwReserved0", &self.dwReserved0)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("cFileName", &self.cFileName)
-            .field("cAlternateFileName", &self.cAlternateFileName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIN32_FIND_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow && self.dwReserved0 == other.dwReserved0 && self.dwReserved1 == other.dwReserved1 && self.cFileName == other.cFileName && self.cAlternateFileName == other.cAlternateFileName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIN32_FIND_DATAA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIN32_FIND_DATAA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAW {
@@ -16500,69 +13738,56 @@ pub struct WIN32_FIND_DATAW {
     pub cAlternateFileName: [u16; 14],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WIN32_FIND_DATAW {}
+impl ::core::marker::Copy for WIN32_FIND_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WIN32_FIND_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WIN32_FIND_DATAW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WIN32_FIND_DATAW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN32_FIND_DATAW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WIN32_FIND_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIN32_FIND_DATAW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WIN32_FIND_DATAW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIN32_FIND_DATAW")
-            .field("dwFileAttributes", &self.dwFileAttributes)
-            .field("ftCreationTime", &self.ftCreationTime)
-            .field("ftLastAccessTime", &self.ftLastAccessTime)
-            .field("ftLastWriteTime", &self.ftLastWriteTime)
-            .field("nFileSizeHigh", &self.nFileSizeHigh)
-            .field("nFileSizeLow", &self.nFileSizeLow)
-            .field("dwReserved0", &self.dwReserved0)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("cFileName", &self.cFileName)
-            .field("cAlternateFileName", &self.cAlternateFileName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIN32_FIND_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFileAttributes == other.dwFileAttributes && self.ftCreationTime == other.ftCreationTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastWriteTime == other.ftLastWriteTime && self.nFileSizeHigh == other.nFileSizeHigh && self.nFileSizeLow == other.nFileSizeLow && self.dwReserved0 == other.dwReserved0 && self.dwReserved1 == other.dwReserved1 && self.cFileName == other.cFileName && self.cAlternateFileName == other.cAlternateFileName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIN32_FIND_DATAW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIN32_FIND_DATAW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],
 }
-impl WIN32_FIND_STREAM_DATA {}
+impl ::core::marker::Copy for WIN32_FIND_STREAM_DATA {}
+impl ::core::clone::Clone for WIN32_FIND_STREAM_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WIN32_FIND_STREAM_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIN32_FIND_STREAM_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN32_FIND_STREAM_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIN32_FIND_STREAM_DATA {}
 impl ::core::default::Default for WIN32_FIND_STREAM_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WIN32_FIND_STREAM_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIN32_FIND_STREAM_DATA").field("StreamSize", &self.StreamSize).field("cStreamName", &self.cStreamName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WIN32_FIND_STREAM_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.StreamSize == other.StreamSize && self.cStreamName == other.cStreamName
-    }
-}
-impl ::core::cmp::Eq for WIN32_FIND_STREAM_DATA {}
-unsafe impl ::windows::core::Abi for WIN32_FIND_STREAM_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WIN32_STREAM_ID {
     pub dwStreamId: WIN_STREAM_ID,
@@ -16571,126 +13796,86 @@ pub struct WIN32_STREAM_ID {
     pub dwStreamNameSize: u32,
     pub cStreamName: [u16; 1],
 }
-impl WIN32_STREAM_ID {}
+impl ::core::marker::Copy for WIN32_STREAM_ID {}
+impl ::core::clone::Clone for WIN32_STREAM_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WIN32_STREAM_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WIN32_STREAM_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN32_STREAM_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WIN32_STREAM_ID {}
 impl ::core::default::Default for WIN32_STREAM_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WIN32_STREAM_ID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIN32_STREAM_ID").field("dwStreamId", &self.dwStreamId).field("dwStreamAttributes", &self.dwStreamAttributes).field("Size", &self.Size).field("dwStreamNameSize", &self.dwStreamNameSize).field("cStreamName", &self.cStreamName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WIN32_STREAM_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStreamId == other.dwStreamId && self.dwStreamAttributes == other.dwStreamAttributes && self.Size == other.Size && self.dwStreamNameSize == other.dwStreamNameSize && self.cStreamName == other.cStreamName
-    }
-}
-impl ::core::cmp::Eq for WIN32_STREAM_ID {}
-unsafe impl ::windows::core::Abi for WIN32_STREAM_ID {
-    type Abi = Self;
-}
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WIN_STREAM_ID(pub u32);
-pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
-pub const BACKUP_DATA: WIN_STREAM_ID = WIN_STREAM_ID(1u32);
-pub const BACKUP_EA_DATA: WIN_STREAM_ID = WIN_STREAM_ID(2u32);
-pub const BACKUP_LINK: WIN_STREAM_ID = WIN_STREAM_ID(5u32);
-pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = WIN_STREAM_ID(7u32);
-pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(6u32);
-pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
-pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
-pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
-pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
-impl ::core::convert::From<u32> for WIN_STREAM_ID {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WIN_STREAM_ID {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WIN_STREAM_ID {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WIN_STREAM_ID {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIN_STREAM_ID {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIN_STREAM_ID {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WIN_STREAM_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WIN_STREAM_ID = u32;
+pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = 4u32;
+pub const BACKUP_DATA: WIN_STREAM_ID = 1u32;
+pub const BACKUP_EA_DATA: WIN_STREAM_ID = 2u32;
+pub const BACKUP_LINK: WIN_STREAM_ID = 5u32;
+pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = 7u32;
+pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = 6u32;
+pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = 8u32;
+pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = 3u32;
+pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = 9u32;
+pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = 10u32;
 #[repr(C)]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
-impl WOF_FILE_COMPRESSION_INFO_V0 {}
+impl ::core::marker::Copy for WOF_FILE_COMPRESSION_INFO_V0 {}
+impl ::core::clone::Clone for WOF_FILE_COMPRESSION_INFO_V0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WOF_FILE_COMPRESSION_INFO_V0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V0 {}
 impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WOF_FILE_COMPRESSION_INFO_V0").field("Algorithm", &self.Algorithm).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Algorithm == other.Algorithm
-    }
-}
-impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V0 {}
-unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Algorithm: u32,
     pub Flags: u32,
 }
-impl WOF_FILE_COMPRESSION_INFO_V1 {}
+impl ::core::marker::Copy for WOF_FILE_COMPRESSION_INFO_V1 {}
+impl ::core::clone::Clone for WOF_FILE_COMPRESSION_INFO_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WOF_FILE_COMPRESSION_INFO_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V1 {}
 impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WOF_FILE_COMPRESSION_INFO_V1").field("Algorithm", &self.Algorithm).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Algorithm == other.Algorithm && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for WOF_FILE_COMPRESSION_INFO_V1 {}
-unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
-    type Abi = Self;
 }
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
 pub const WOF_PROVIDER_WIM: u32 = 1u32;

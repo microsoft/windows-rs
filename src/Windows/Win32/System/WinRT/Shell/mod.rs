@@ -1,21 +1,10 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type CreateProcessMethod = i32;
+pub const CpCreateProcess: CreateProcessMethod = 0i32;
+pub const CpCreateProcessAsUser: CreateProcessMethod = 1i32;
+pub const CpAicLaunchAdminProcess: CreateProcessMethod = 2i32;
 #[repr(transparent)]
-pub struct CreateProcessMethod(pub i32);
-pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
-pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
-pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
-impl ::core::convert::From<i32> for CreateProcessMethod {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CreateProcessMethod {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDDEInitializer(pub ::windows::core::IUnknown);
+pub struct IDDEInitializer(::windows::core::IUnknown);
 impl IDDEInitializer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::UI::Shell::IShellItem>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
@@ -33,36 +22,47 @@ impl IDDEInitializer {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), fileextensionorprotocol.into_param().abi(), ::core::mem::transmute(method), currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDDEInitializer {
-    type Vtable = IDDEInitializer_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
-}
 impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
     fn from(value: IDDEInitializer) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDDEInitializer> for ::windows::core::IUnknown {
     fn from(value: &IDDEInitializer) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDDEInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDDEInitializer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDDEInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDDEInitializer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDDEInitializer {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDDEInitializer {}
+unsafe impl ::windows::core::Interface for IDDEInitializer {
+    type Vtable = IDDEInitializerVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDDEInitializer_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: ::windows::core::RawPtr, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+pub struct IDDEInitializerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell")))] usize,
 );

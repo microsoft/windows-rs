@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct ARRAY_INFO {
     pub Dimension: i32,
@@ -9,98 +8,100 @@ pub struct ARRAY_INFO {
     pub OffsetArray: *mut u32,
     pub ActualCountArray: *mut u32,
 }
-impl ARRAY_INFO {}
+impl ::core::marker::Copy for ARRAY_INFO {}
+impl ::core::clone::Clone for ARRAY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ARRAY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ARRAY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARRAY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ARRAY_INFO {}
 impl ::core::default::Default for ARRAY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for ARRAY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ARRAY_INFO").field("Dimension", &self.Dimension).field("BufferConformanceMark", &self.BufferConformanceMark).field("BufferVarianceMark", &self.BufferVarianceMark).field("MaxCountArray", &self.MaxCountArray).field("OffsetArray", &self.OffsetArray).field("ActualCountArray", &self.ActualCountArray).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ARRAY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dimension == other.Dimension && self.BufferConformanceMark == other.BufferConformanceMark && self.BufferVarianceMark == other.BufferVarianceMark && self.MaxCountArray == other.MaxCountArray && self.OffsetArray == other.OffsetArray && self.ActualCountArray == other.ActualCountArray
-    }
-}
-impl ::core::cmp::Eq for ARRAY_INFO {}
-unsafe impl ::windows::core::Abi for ARRAY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BinaryParam {
     pub Buffer: *mut ::core::ffi::c_void,
     pub Size: i16,
 }
-impl BinaryParam {}
+impl ::core::marker::Copy for BinaryParam {}
+impl ::core::clone::Clone for BinaryParam {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BinaryParam {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BinaryParam {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BinaryParam>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BinaryParam {}
 impl ::core::default::Default for BinaryParam {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BinaryParam {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BinaryParam").field("Buffer", &self.Buffer).field("Size", &self.Size).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BinaryParam {
-    fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer && self.Size == other.Size
-    }
-}
-impl ::core::cmp::Eq for BinaryParam {}
-unsafe impl ::windows::core::Abi for BinaryParam {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union CLIENT_CALL_RETURN {
     pub Pointer: *mut ::core::ffi::c_void,
     pub Simple: isize,
 }
-impl CLIENT_CALL_RETURN {}
+impl ::core::marker::Copy for CLIENT_CALL_RETURN {}
+impl ::core::clone::Clone for CLIENT_CALL_RETURN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLIENT_CALL_RETURN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLIENT_CALL_RETURN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENT_CALL_RETURN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLIENT_CALL_RETURN {}
 impl ::core::default::Default for CLIENT_CALL_RETURN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CLIENT_CALL_RETURN {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CLIENT_CALL_RETURN {}
-unsafe impl ::windows::core::Abi for CLIENT_CALL_RETURN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct COMM_FAULT_OFFSETS {
     pub CommOffset: i16,
     pub FaultOffset: i16,
 }
-impl COMM_FAULT_OFFSETS {}
+impl ::core::marker::Copy for COMM_FAULT_OFFSETS {}
+impl ::core::clone::Clone for COMM_FAULT_OFFSETS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMM_FAULT_OFFSETS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMM_FAULT_OFFSETS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMM_FAULT_OFFSETS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMM_FAULT_OFFSETS {}
 impl ::core::default::Default for COMM_FAULT_OFFSETS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for COMM_FAULT_OFFSETS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMM_FAULT_OFFSETS").field("CommOffset", &self.CommOffset).field("FaultOffset", &self.FaultOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for COMM_FAULT_OFFSETS {
-    fn eq(&self, other: &Self) -> bool {
-        self.CommOffset == other.CommOffset && self.FaultOffset == other.FaultOffset
-    }
-}
-impl ::core::cmp::Eq for COMM_FAULT_OFFSETS {}
-unsafe impl ::windows::core::Abi for COMM_FAULT_OFFSETS {
-    type Abi = Self;
 }
 pub type CS_TAG_GETTING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32)>;
 pub type CS_TYPE_FROM_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32)>;
@@ -140,45 +141,24 @@ pub const EEInfoNextRecordsMissing: u32 = 2u32;
 pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
 pub const EEInfoUseFileTime: u32 = 4u32;
 #[cfg(feature = "Win32_System_Com")]
-pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EXPR_TOKEN(pub i32);
-pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0i32);
-pub const FC_EXPR_ILLEGAL: EXPR_TOKEN = EXPR_TOKEN(0i32);
-pub const FC_EXPR_CONST32: EXPR_TOKEN = EXPR_TOKEN(1i32);
-pub const FC_EXPR_CONST64: EXPR_TOKEN = EXPR_TOKEN(2i32);
-pub const FC_EXPR_VAR: EXPR_TOKEN = EXPR_TOKEN(3i32);
-pub const FC_EXPR_OPER: EXPR_TOKEN = EXPR_TOKEN(4i32);
-pub const FC_EXPR_NOOP: EXPR_TOKEN = EXPR_TOKEN(5i32);
-pub const FC_EXPR_END: EXPR_TOKEN = EXPR_TOKEN(6i32);
-impl ::core::convert::From<i32> for EXPR_TOKEN {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EXPR_TOKEN {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ExtendedErrorParamTypes(pub i32);
-pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);
-pub const eeptUnicodeString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(2i32);
-pub const eeptLongVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(3i32);
-pub const eeptShortVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(4i32);
-pub const eeptPointerVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(5i32);
-pub const eeptNone: ExtendedErrorParamTypes = ExtendedErrorParamTypes(6i32);
-pub const eeptBinary: ExtendedErrorParamTypes = ExtendedErrorParamTypes(7i32);
-impl ::core::convert::From<i32> for ExtendedErrorParamTypes {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ExtendedErrorParamTypes {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
+pub type EXPR_TOKEN = i32;
+pub const FC_EXPR_START: EXPR_TOKEN = 0i32;
+pub const FC_EXPR_ILLEGAL: EXPR_TOKEN = 0i32;
+pub const FC_EXPR_CONST32: EXPR_TOKEN = 1i32;
+pub const FC_EXPR_CONST64: EXPR_TOKEN = 2i32;
+pub const FC_EXPR_VAR: EXPR_TOKEN = 3i32;
+pub const FC_EXPR_OPER: EXPR_TOKEN = 4i32;
+pub const FC_EXPR_NOOP: EXPR_TOKEN = 5i32;
+pub const FC_EXPR_END: EXPR_TOKEN = 6i32;
+pub type ExtendedErrorParamTypes = i32;
+pub const eeptAnsiString: ExtendedErrorParamTypes = 1i32;
+pub const eeptUnicodeString: ExtendedErrorParamTypes = 2i32;
+pub const eeptLongVal: ExtendedErrorParamTypes = 3i32;
+pub const eeptShortVal: ExtendedErrorParamTypes = 4i32;
+pub const eeptPointerVal: ExtendedErrorParamTypes = 5i32;
+pub const eeptNone: ExtendedErrorParamTypes = 6i32;
+pub const eeptBinary: ExtendedErrorParamTypes = 7i32;
 #[repr(C)]
 pub struct FULL_PTR_XLAT_TABLES {
     pub RefIdToPointer: *mut ::core::ffi::c_void,
@@ -186,27 +166,26 @@ pub struct FULL_PTR_XLAT_TABLES {
     pub NextRefId: u32,
     pub XlatSide: XLAT_SIDE,
 }
-impl FULL_PTR_XLAT_TABLES {}
+impl ::core::marker::Copy for FULL_PTR_XLAT_TABLES {}
+impl ::core::clone::Clone for FULL_PTR_XLAT_TABLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FULL_PTR_XLAT_TABLES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FULL_PTR_XLAT_TABLES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FULL_PTR_XLAT_TABLES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FULL_PTR_XLAT_TABLES {}
 impl ::core::default::Default for FULL_PTR_XLAT_TABLES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FULL_PTR_XLAT_TABLES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FULL_PTR_XLAT_TABLES").field("RefIdToPointer", &self.RefIdToPointer).field("PointerToRefId", &self.PointerToRefId).field("NextRefId", &self.NextRefId).field("XlatSide", &self.XlatSide).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FULL_PTR_XLAT_TABLES {
-    fn eq(&self, other: &Self) -> bool {
-        self.RefIdToPointer == other.RefIdToPointer && self.PointerToRefId == other.PointerToRefId && self.NextRefId == other.NextRefId && self.XlatSide == other.XlatSide
-    }
-}
-impl ::core::cmp::Eq for FULL_PTR_XLAT_TABLES {}
-unsafe impl ::windows::core::Abi for FULL_PTR_XLAT_TABLES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut ::core::ffi::c_void,
@@ -214,109 +193,60 @@ pub struct GENERIC_BINDING_INFO {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
-impl GENERIC_BINDING_INFO {}
+impl ::core::marker::Copy for GENERIC_BINDING_INFO {}
+impl ::core::clone::Clone for GENERIC_BINDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GENERIC_BINDING_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GENERIC_BINDING_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GENERIC_BINDING_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GENERIC_BINDING_INFO {}
 impl ::core::default::Default for GENERIC_BINDING_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GENERIC_BINDING_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GENERIC_BINDING_INFO").field("pObj", &self.pObj).field("Size", &self.Size).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GENERIC_BINDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pObj == other.pObj && self.Size == other.Size && self.pfnBind.map(|f| f as usize) == other.pfnBind.map(|f| f as usize) && self.pfnUnbind.map(|f| f as usize) == other.pfnUnbind.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for GENERIC_BINDING_INFO {}
-unsafe impl ::windows::core::Abi for GENERIC_BINDING_INFO {
-    type Abi = Self;
-}
 pub type GENERIC_BINDING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
-impl GENERIC_BINDING_ROUTINE_PAIR {}
+impl ::core::marker::Copy for GENERIC_BINDING_ROUTINE_PAIR {}
+impl ::core::clone::Clone for GENERIC_BINDING_ROUTINE_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GENERIC_BINDING_ROUTINE_PAIR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GENERIC_BINDING_ROUTINE_PAIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GENERIC_BINDING_ROUTINE_PAIR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GENERIC_BINDING_ROUTINE_PAIR {}
 impl ::core::default::Default for GENERIC_BINDING_ROUTINE_PAIR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GENERIC_BINDING_ROUTINE_PAIR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GENERIC_BINDING_ROUTINE_PAIR").finish()
-    }
-}
-impl ::core::cmp::PartialEq for GENERIC_BINDING_ROUTINE_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pfnBind.map(|f| f as usize) == other.pfnBind.map(|f| f as usize) && self.pfnUnbind.map(|f| f as usize) == other.pfnUnbind.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for GENERIC_BINDING_ROUTINE_PAIR {}
-unsafe impl ::windows::core::Abi for GENERIC_BINDING_ROUTINE_PAIR {
-    type Abi = Self;
-}
 pub type GENERIC_UNBIND_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GROUP_NAME_SYNTAX(pub u32);
-pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
-pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(3u32);
-impl ::core::convert::From<u32> for GROUP_NAME_SYNTAX {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GROUP_NAME_SYNTAX {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GROUP_NAME_SYNTAX {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GROUP_NAME_SYNTAX {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GROUP_NAME_SYNTAX {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GROUP_NAME_SYNTAX {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GROUP_NAME_SYNTAX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IDL_CS_CONVERT(pub i32);
-pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
-pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(1i32);
-pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(2i32);
-impl ::core::convert::From<i32> for IDL_CS_CONVERT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IDL_CS_CONVERT {
-    type Abi = Self;
-}
+pub type GROUP_NAME_SYNTAX = u32;
+pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = 0u32;
+pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = 3u32;
+pub type IDL_CS_CONVERT = i32;
+pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = 0i32;
+pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = 1i32;
+pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = 2i32;
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 #[inline]
 pub unsafe fn IUnknown_AddRef_Proxy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(this: Param0) -> u32 {
@@ -324,7 +254,7 @@ pub unsafe fn IUnknown_AddRef_Proxy<'a, Param0: ::windows::core::IntoParam<'a, :
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_AddRef_Proxy(this: ::windows::core::RawPtr) -> u32;
+            fn IUnknown_AddRef_Proxy(this: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(IUnknown_AddRef_Proxy(this.into_param().abi()))
     }
@@ -337,7 +267,7 @@ pub unsafe fn IUnknown_QueryInterface_Proxy<'a, Param0: ::windows::core::IntoPar
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_QueryInterface_Proxy(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn IUnknown_QueryInterface_Proxy(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         IUnknown_QueryInterface_Proxy(this.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -350,7 +280,7 @@ pub unsafe fn IUnknown_Release_Proxy<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_Release_Proxy(this: ::windows::core::RawPtr) -> u32;
+            fn IUnknown_Release_Proxy(this: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(IUnknown_Release_Proxy(this.into_param().abi()))
     }
@@ -921,7 +851,6 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
     unimplemented!("Unsupported target OS");
 }
 pub type I_RpcPerformCalloutFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyCallbackInterface {
@@ -936,38 +865,30 @@ pub struct I_RpcProxyCallbackInterface {
     pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl I_RpcProxyCallbackInterface {}
+impl ::core::marker::Copy for I_RpcProxyCallbackInterface {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for I_RpcProxyCallbackInterface {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for I_RpcProxyCallbackInterface {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for I_RpcProxyCallbackInterface {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("I_RpcProxyCallbackInterface").finish()
-    }
+unsafe impl ::windows::core::Abi for I_RpcProxyCallbackInterface {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for I_RpcProxyCallbackInterface {
     fn eq(&self, other: &Self) -> bool {
-        self.IsValidMachineFn.map(|f| f as usize) == other.IsValidMachineFn.map(|f| f as usize)
-            && self.GetClientAddressFn.map(|f| f as usize) == other.GetClientAddressFn.map(|f| f as usize)
-            && self.GetConnectionTimeoutFn.map(|f| f as usize) == other.GetConnectionTimeoutFn.map(|f| f as usize)
-            && self.PerformCalloutFn.map(|f| f as usize) == other.PerformCalloutFn.map(|f| f as usize)
-            && self.FreeCalloutStateFn.map(|f| f as usize) == other.FreeCalloutStateFn.map(|f| f as usize)
-            && self.GetClientSessionAndResourceUUIDFn.map(|f| f as usize) == other.GetClientSessionAndResourceUUIDFn.map(|f| f as usize)
-            && self.ProxyFilterIfFn.map(|f| f as usize) == other.ProxyFilterIfFn.map(|f| f as usize)
-            && self.RpcProxyUpdatePerfCounterFn.map(|f| f as usize) == other.RpcProxyUpdatePerfCounterFn.map(|f| f as usize)
-            && self.RpcProxyUpdatePerfCounterBackendServerFn.map(|f| f as usize) == other.RpcProxyUpdatePerfCounterBackendServerFn.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<I_RpcProxyCallbackInterface>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for I_RpcProxyCallbackInterface {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for I_RpcProxyCallbackInterface {
-    type Abi = Self;
+impl ::core::default::Default for I_RpcProxyCallbackInterface {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub type I_RpcProxyFilterIfFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows::core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -1354,104 +1275,71 @@ pub unsafe fn I_UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
-pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
-pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
-impl ::core::convert::From<i32> for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = i32;
+pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 0i32;
+pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = 1i32;
 #[repr(C)]
 pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
 }
-impl MALLOC_FREE_STRUCT {}
+impl ::core::marker::Copy for MALLOC_FREE_STRUCT {}
+impl ::core::clone::Clone for MALLOC_FREE_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MALLOC_FREE_STRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MALLOC_FREE_STRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MALLOC_FREE_STRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MALLOC_FREE_STRUCT {}
 impl ::core::default::Default for MALLOC_FREE_STRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MALLOC_FREE_STRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MALLOC_FREE_STRUCT").field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MALLOC_FREE_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pfnAllocate == other.pfnAllocate && self.pfnFree == other.pfnFree
-    }
-}
-impl ::core::cmp::Eq for MALLOC_FREE_STRUCT {}
-unsafe impl ::windows::core::Abi for MALLOC_FREE_STRUCT {
-    type Abi = Self;
-}
 pub type MIDL_ES_ALLOC = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MIDL_ES_CODE(pub i32);
-pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
-pub const MES_DECODE: MIDL_ES_CODE = MIDL_ES_CODE(1i32);
-pub const MES_ENCODE_NDR64: MIDL_ES_CODE = MIDL_ES_CODE(2i32);
-impl ::core::convert::From<i32> for MIDL_ES_CODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MIDL_ES_CODE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MIDL_ES_HANDLE_STYLE(pub i32);
-pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
-pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(1i32);
-pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2i32);
-impl ::core::convert::From<i32> for MIDL_ES_HANDLE_STYLE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MIDL_ES_HANDLE_STYLE {
-    type Abi = Self;
-}
+pub type MIDL_ES_CODE = i32;
+pub const MES_ENCODE: MIDL_ES_CODE = 0i32;
+pub const MES_DECODE: MIDL_ES_CODE = 1i32;
+pub const MES_ENCODE_NDR64: MIDL_ES_CODE = 2i32;
+pub type MIDL_ES_HANDLE_STYLE = i32;
+pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = 0i32;
+pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = 1i32;
+pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = 2i32;
 pub type MIDL_ES_READ = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type MIDL_ES_WRITE = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_FORMAT_STRING {
     pub Pad: i16,
     pub Format: [u8; 1],
 }
-impl MIDL_FORMAT_STRING {}
+impl ::core::marker::Copy for MIDL_FORMAT_STRING {}
+impl ::core::clone::Clone for MIDL_FORMAT_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_FORMAT_STRING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_FORMAT_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_FORMAT_STRING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_FORMAT_STRING {}
 impl ::core::default::Default for MIDL_FORMAT_STRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_FORMAT_STRING {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_FORMAT_STRING").field("Pad", &self.Pad).field("Format", &self.Format).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_FORMAT_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Pad == other.Pad && self.Format == other.Format
-    }
-}
-impl ::core::cmp::Eq for MIDL_FORMAT_STRING {}
-unsafe impl ::windows::core::Abi for MIDL_FORMAT_STRING {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_INTERCEPTION_INFO {
     pub Version: u32,
@@ -1460,105 +1348,101 @@ pub struct MIDL_INTERCEPTION_INFO {
     pub ProcCount: u32,
     pub TypeString: *mut u8,
 }
-impl MIDL_INTERCEPTION_INFO {}
+impl ::core::marker::Copy for MIDL_INTERCEPTION_INFO {}
+impl ::core::clone::Clone for MIDL_INTERCEPTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_INTERCEPTION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_INTERCEPTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_INTERCEPTION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_INTERCEPTION_INFO {}
 impl ::core::default::Default for MIDL_INTERCEPTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_INTERCEPTION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_INTERCEPTION_INFO").field("Version", &self.Version).field("ProcString", &self.ProcString).field("ProcFormatOffsetTable", &self.ProcFormatOffsetTable).field("ProcCount", &self.ProcCount).field("TypeString", &self.TypeString).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_INTERCEPTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ProcString == other.ProcString && self.ProcFormatOffsetTable == other.ProcFormatOffsetTable && self.ProcCount == other.ProcCount && self.TypeString == other.TypeString
-    }
-}
-impl ::core::cmp::Eq for MIDL_INTERCEPTION_INFO {}
-unsafe impl ::windows::core::Abi for MIDL_INTERCEPTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
     pub MethodProperties: *mut *mut MIDL_METHOD_PROPERTY_MAP,
 }
-impl MIDL_INTERFACE_METHOD_PROPERTIES {}
+impl ::core::marker::Copy for MIDL_INTERFACE_METHOD_PROPERTIES {}
+impl ::core::clone::Clone for MIDL_INTERFACE_METHOD_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_INTERFACE_METHOD_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_INTERFACE_METHOD_PROPERTIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_INTERFACE_METHOD_PROPERTIES {}
 impl ::core::default::Default for MIDL_INTERFACE_METHOD_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_INTERFACE_METHOD_PROPERTIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_INTERFACE_METHOD_PROPERTIES").field("MethodCount", &self.MethodCount).field("MethodProperties", &self.MethodProperties).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.MethodCount == other.MethodCount && self.MethodProperties == other.MethodProperties
-    }
-}
-impl ::core::cmp::Eq for MIDL_INTERFACE_METHOD_PROPERTIES {}
-unsafe impl ::windows::core::Abi for MIDL_INTERFACE_METHOD_PROPERTIES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_METHOD_PROPERTY {
     pub Id: u32,
     pub Value: usize,
 }
-impl MIDL_METHOD_PROPERTY {}
+impl ::core::marker::Copy for MIDL_METHOD_PROPERTY {}
+impl ::core::clone::Clone for MIDL_METHOD_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_METHOD_PROPERTY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY {}
 impl ::core::default::Default for MIDL_METHOD_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_METHOD_PROPERTY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_METHOD_PROPERTY").field("Id", &self.Id).field("Value", &self.Value).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id && self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY {}
-unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
     pub Properties: *mut MIDL_METHOD_PROPERTY,
 }
-impl MIDL_METHOD_PROPERTY_MAP {}
+impl ::core::marker::Copy for MIDL_METHOD_PROPERTY_MAP {}
+impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY_MAP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY_MAP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_METHOD_PROPERTY_MAP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY_MAP {}
 impl ::core::default::Default for MIDL_METHOD_PROPERTY_MAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_METHOD_PROPERTY_MAP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_METHOD_PROPERTY_MAP").field("Count", &self.Count).field("Properties", &self.Properties).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Properties == other.Properties
-    }
-}
-impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY_MAP {}
-unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY_MAP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_SERVER_INFO {
@@ -1572,32 +1456,31 @@ pub struct MIDL_SERVER_INFO {
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl MIDL_SERVER_INFO {}
+impl ::core::marker::Copy for MIDL_SERVER_INFO {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MIDL_SERVER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for MIDL_SERVER_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for MIDL_SERVER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_SERVER_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for MIDL_SERVER_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MIDL_SERVER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_SERVER_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_SERVER_INFO").field("pStubDesc", &self.pStubDesc).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_SERVER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pStubDesc == other.pStubDesc && self.DispatchTable == other.DispatchTable && self.ProcString == other.ProcString && self.FmtStringOffset == other.FmtStringOffset && self.ThunkTable == other.ThunkTable && self.pTransferSyntax == other.pTransferSyntax && self.nCount == other.nCount && self.pSyntaxInfo == other.pSyntaxInfo
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_SERVER_INFO {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for MIDL_SERVER_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUBLESS_PROXY_INFO {
@@ -1609,32 +1492,31 @@ pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl MIDL_STUBLESS_PROXY_INFO {}
+impl ::core::marker::Copy for MIDL_STUBLESS_PROXY_INFO {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MIDL_STUBLESS_PROXY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for MIDL_STUBLESS_PROXY_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for MIDL_STUBLESS_PROXY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_STUBLESS_PROXY_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for MIDL_STUBLESS_PROXY_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MIDL_STUBLESS_PROXY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_STUBLESS_PROXY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_STUBLESS_PROXY_INFO").field("pStubDesc", &self.pStubDesc).field("ProcFormatString", &self.ProcFormatString).field("FormatStringOffset", &self.FormatStringOffset).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_STUBLESS_PROXY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pStubDesc == other.pStubDesc && self.ProcFormatString == other.ProcFormatString && self.FormatStringOffset == other.FormatStringOffset && self.pTransferSyntax == other.pTransferSyntax && self.nCount == other.nCount && self.pSyntaxInfo == other.pSyntaxInfo
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_STUBLESS_PROXY_INFO {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for MIDL_STUBLESS_PROXY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_DESC {
@@ -1660,26 +1542,31 @@ pub struct MIDL_STUB_DESC {
     pub pExprInfo: *mut NDR_EXPR_DESC,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl MIDL_STUB_DESC {}
+impl ::core::marker::Copy for MIDL_STUB_DESC {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MIDL_STUB_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for MIDL_STUB_DESC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for MIDL_STUB_DESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_STUB_DESC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for MIDL_STUB_DESC {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MIDL_STUB_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_STUB_DESC {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_STUB_DESC {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for MIDL_STUB_DESC {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union MIDL_STUB_DESC_0 {
@@ -1688,26 +1575,31 @@ pub union MIDL_STUB_DESC_0 {
     pub pGenericBindingInfo: *mut GENERIC_BINDING_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl MIDL_STUB_DESC_0 {}
+impl ::core::marker::Copy for MIDL_STUB_DESC_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MIDL_STUB_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for MIDL_STUB_DESC_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for MIDL_STUB_DESC_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_STUB_DESC_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for MIDL_STUB_DESC_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MIDL_STUB_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_STUB_DESC_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_STUB_DESC_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for MIDL_STUB_DESC_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_MESSAGE {
@@ -1772,150 +1664,89 @@ pub struct MIDL_STUB_MESSAGE {
     pub Reserved51_5: isize,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl MIDL_STUB_MESSAGE {}
+impl ::core::clone::Clone for MIDL_STUB_MESSAGE {
+    fn clone(&self) -> Self {
+        Self {
+            RpcMsg: self.RpcMsg,
+            Buffer: self.Buffer,
+            BufferStart: self.BufferStart,
+            BufferEnd: self.BufferEnd,
+            BufferMark: self.BufferMark,
+            BufferLength: self.BufferLength,
+            MemorySize: self.MemorySize,
+            Memory: self.Memory,
+            IsClient: self.IsClient,
+            Pad: self.Pad,
+            uFlags2: self.uFlags2,
+            ReuseBuffer: self.ReuseBuffer,
+            pAllocAllNodesContext: self.pAllocAllNodesContext,
+            pPointerQueueState: self.pPointerQueueState,
+            IgnoreEmbeddedPointers: self.IgnoreEmbeddedPointers,
+            PointerBufferMark: self.PointerBufferMark,
+            CorrDespIncrement: self.CorrDespIncrement,
+            uFlags: self.uFlags,
+            UniquePtrCount: self.UniquePtrCount,
+            MaxCount: self.MaxCount,
+            Offset: self.Offset,
+            ActualCount: self.ActualCount,
+            pfnAllocate: self.pfnAllocate,
+            pfnFree: self.pfnFree,
+            StackTop: self.StackTop,
+            pPresentedType: self.pPresentedType,
+            pTransmitType: self.pTransmitType,
+            SavedHandle: self.SavedHandle,
+            StubDesc: self.StubDesc,
+            FullPtrXlatTables: self.FullPtrXlatTables,
+            FullPtrRefId: self.FullPtrRefId,
+            PointerLength: self.PointerLength,
+            _bitfield: self._bitfield,
+            dwDestContext: self.dwDestContext,
+            pvDestContext: self.pvDestContext,
+            SavedContextHandles: self.SavedContextHandles,
+            ParamNumber: self.ParamNumber,
+            pRpcChannelBuffer: self.pRpcChannelBuffer.clone(),
+            pArrayInfo: self.pArrayInfo,
+            SizePtrCountArray: self.SizePtrCountArray,
+            SizePtrOffsetArray: self.SizePtrOffsetArray,
+            SizePtrLengthArray: self.SizePtrLengthArray,
+            pArgQueue: self.pArgQueue,
+            dwStubPhase: self.dwStubPhase,
+            LowStackMark: self.LowStackMark,
+            pAsyncMsg: self.pAsyncMsg,
+            pCorrInfo: self.pCorrInfo,
+            pCorrMemory: self.pCorrMemory,
+            pMemoryList: self.pMemoryList,
+            pCSInfo: self.pCSInfo,
+            ConformanceMark: self.ConformanceMark,
+            VarianceMark: self.VarianceMark,
+            Unused: self.Unused,
+            pContext: self.pContext,
+            ContextHandleHash: self.ContextHandleHash,
+            pUserMarshalList: self.pUserMarshalList,
+            Reserved51_3: self.Reserved51_3,
+            Reserved51_4: self.Reserved51_4,
+            Reserved51_5: self.Reserved51_5,
+        }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for MIDL_STUB_MESSAGE {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for MIDL_STUB_MESSAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_STUB_MESSAGE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for MIDL_STUB_MESSAGE {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MIDL_STUB_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_STUB_MESSAGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_STUB_MESSAGE")
-            .field("RpcMsg", &self.RpcMsg)
-            .field("Buffer", &self.Buffer)
-            .field("BufferStart", &self.BufferStart)
-            .field("BufferEnd", &self.BufferEnd)
-            .field("BufferMark", &self.BufferMark)
-            .field("BufferLength", &self.BufferLength)
-            .field("MemorySize", &self.MemorySize)
-            .field("Memory", &self.Memory)
-            .field("IsClient", &self.IsClient)
-            .field("Pad", &self.Pad)
-            .field("uFlags2", &self.uFlags2)
-            .field("ReuseBuffer", &self.ReuseBuffer)
-            .field("pAllocAllNodesContext", &self.pAllocAllNodesContext)
-            .field("pPointerQueueState", &self.pPointerQueueState)
-            .field("IgnoreEmbeddedPointers", &self.IgnoreEmbeddedPointers)
-            .field("PointerBufferMark", &self.PointerBufferMark)
-            .field("CorrDespIncrement", &self.CorrDespIncrement)
-            .field("uFlags", &self.uFlags)
-            .field("UniquePtrCount", &self.UniquePtrCount)
-            .field("MaxCount", &self.MaxCount)
-            .field("Offset", &self.Offset)
-            .field("ActualCount", &self.ActualCount)
-            .field("pfnAllocate", &self.pfnAllocate)
-            .field("pfnFree", &self.pfnFree)
-            .field("StackTop", &self.StackTop)
-            .field("pPresentedType", &self.pPresentedType)
-            .field("pTransmitType", &self.pTransmitType)
-            .field("SavedHandle", &self.SavedHandle)
-            .field("StubDesc", &self.StubDesc)
-            .field("FullPtrXlatTables", &self.FullPtrXlatTables)
-            .field("FullPtrRefId", &self.FullPtrRefId)
-            .field("PointerLength", &self.PointerLength)
-            .field("_bitfield", &self._bitfield)
-            .field("dwDestContext", &self.dwDestContext)
-            .field("pvDestContext", &self.pvDestContext)
-            .field("SavedContextHandles", &self.SavedContextHandles)
-            .field("ParamNumber", &self.ParamNumber)
-            .field("pRpcChannelBuffer", &self.pRpcChannelBuffer)
-            .field("pArrayInfo", &self.pArrayInfo)
-            .field("SizePtrCountArray", &self.SizePtrCountArray)
-            .field("SizePtrOffsetArray", &self.SizePtrOffsetArray)
-            .field("SizePtrLengthArray", &self.SizePtrLengthArray)
-            .field("pArgQueue", &self.pArgQueue)
-            .field("dwStubPhase", &self.dwStubPhase)
-            .field("LowStackMark", &self.LowStackMark)
-            .field("pAsyncMsg", &self.pAsyncMsg)
-            .field("pCorrInfo", &self.pCorrInfo)
-            .field("pCorrMemory", &self.pCorrMemory)
-            .field("pMemoryList", &self.pMemoryList)
-            .field("pCSInfo", &self.pCSInfo)
-            .field("ConformanceMark", &self.ConformanceMark)
-            .field("VarianceMark", &self.VarianceMark)
-            .field("Unused", &self.Unused)
-            .field("pContext", &self.pContext)
-            .field("ContextHandleHash", &self.ContextHandleHash)
-            .field("pUserMarshalList", &self.pUserMarshalList)
-            .field("Reserved51_3", &self.Reserved51_3)
-            .field("Reserved51_4", &self.Reserved51_4)
-            .field("Reserved51_5", &self.Reserved51_5)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_STUB_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.RpcMsg == other.RpcMsg
-            && self.Buffer == other.Buffer
-            && self.BufferStart == other.BufferStart
-            && self.BufferEnd == other.BufferEnd
-            && self.BufferMark == other.BufferMark
-            && self.BufferLength == other.BufferLength
-            && self.MemorySize == other.MemorySize
-            && self.Memory == other.Memory
-            && self.IsClient == other.IsClient
-            && self.Pad == other.Pad
-            && self.uFlags2 == other.uFlags2
-            && self.ReuseBuffer == other.ReuseBuffer
-            && self.pAllocAllNodesContext == other.pAllocAllNodesContext
-            && self.pPointerQueueState == other.pPointerQueueState
-            && self.IgnoreEmbeddedPointers == other.IgnoreEmbeddedPointers
-            && self.PointerBufferMark == other.PointerBufferMark
-            && self.CorrDespIncrement == other.CorrDespIncrement
-            && self.uFlags == other.uFlags
-            && self.UniquePtrCount == other.UniquePtrCount
-            && self.MaxCount == other.MaxCount
-            && self.Offset == other.Offset
-            && self.ActualCount == other.ActualCount
-            && self.pfnAllocate == other.pfnAllocate
-            && self.pfnFree == other.pfnFree
-            && self.StackTop == other.StackTop
-            && self.pPresentedType == other.pPresentedType
-            && self.pTransmitType == other.pTransmitType
-            && self.SavedHandle == other.SavedHandle
-            && self.StubDesc == other.StubDesc
-            && self.FullPtrXlatTables == other.FullPtrXlatTables
-            && self.FullPtrRefId == other.FullPtrRefId
-            && self.PointerLength == other.PointerLength
-            && self._bitfield == other._bitfield
-            && self.dwDestContext == other.dwDestContext
-            && self.pvDestContext == other.pvDestContext
-            && self.SavedContextHandles == other.SavedContextHandles
-            && self.ParamNumber == other.ParamNumber
-            && self.pRpcChannelBuffer == other.pRpcChannelBuffer
-            && self.pArrayInfo == other.pArrayInfo
-            && self.SizePtrCountArray == other.SizePtrCountArray
-            && self.SizePtrOffsetArray == other.SizePtrOffsetArray
-            && self.SizePtrLengthArray == other.SizePtrLengthArray
-            && self.pArgQueue == other.pArgQueue
-            && self.dwStubPhase == other.dwStubPhase
-            && self.LowStackMark == other.LowStackMark
-            && self.pAsyncMsg == other.pAsyncMsg
-            && self.pCorrInfo == other.pCorrInfo
-            && self.pCorrMemory == other.pCorrMemory
-            && self.pMemoryList == other.pMemoryList
-            && self.pCSInfo == other.pCSInfo
-            && self.ConformanceMark == other.ConformanceMark
-            && self.VarianceMark == other.VarianceMark
-            && self.Unused == other.Unused
-            && self.pContext == other.pContext
-            && self.ContextHandleHash == other.ContextHandleHash
-            && self.pUserMarshalList == other.pUserMarshalList
-            && self.Reserved51_3 == other.Reserved51_3
-            && self.Reserved51_4 == other.Reserved51_4
-            && self.Reserved51_5 == other.Reserved51_5
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_STUB_MESSAGE {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for MIDL_STUB_MESSAGE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_SYNTAX_INFO {
     pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
@@ -1927,54 +1758,52 @@ pub struct MIDL_SYNTAX_INFO {
     pub pMethodProperties: *mut MIDL_INTERFACE_METHOD_PROPERTIES,
     pub pReserved2: usize,
 }
-impl MIDL_SYNTAX_INFO {}
+impl ::core::marker::Copy for MIDL_SYNTAX_INFO {}
+impl ::core::clone::Clone for MIDL_SYNTAX_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_SYNTAX_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_SYNTAX_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_SYNTAX_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_SYNTAX_INFO {}
 impl ::core::default::Default for MIDL_SYNTAX_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_SYNTAX_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_SYNTAX_INFO").field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("TypeString", &self.TypeString).field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple).field("pMethodProperties", &self.pMethodProperties).field("pReserved2", &self.pReserved2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_SYNTAX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.ProcString == other.ProcString && self.FmtStringOffset == other.FmtStringOffset && self.TypeString == other.TypeString && self.aUserMarshalQuadruple == other.aUserMarshalQuadruple && self.pMethodProperties == other.pMethodProperties && self.pReserved2 == other.pReserved2
-    }
-}
-impl ::core::cmp::Eq for MIDL_SYNTAX_INFO {}
-unsafe impl ::windows::core::Abi for MIDL_SYNTAX_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_TYPE_PICKLING_INFO {
     pub Version: u32,
     pub Flags: u32,
     pub Reserved: [usize; 3],
 }
-impl MIDL_TYPE_PICKLING_INFO {}
+impl ::core::marker::Copy for MIDL_TYPE_PICKLING_INFO {}
+impl ::core::clone::Clone for MIDL_TYPE_PICKLING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDL_TYPE_PICKLING_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MIDL_TYPE_PICKLING_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_TYPE_PICKLING_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MIDL_TYPE_PICKLING_INFO {}
 impl ::core::default::Default for MIDL_TYPE_PICKLING_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MIDL_TYPE_PICKLING_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_TYPE_PICKLING_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MIDL_TYPE_PICKLING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for MIDL_TYPE_PICKLING_INFO {}
-unsafe impl ::windows::core::Abi for MIDL_TYPE_PICKLING_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
@@ -1985,30 +1814,30 @@ pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub StubDesc: *mut MIDL_STUB_DESC,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
+impl ::core::marker::Copy for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_WINRT_TYPE_SERIALIZATION_INFO").field("Version", &self.Version).field("TypeFormatString", &self.TypeFormatString).field("FormatStringSize", &self.FormatStringSize).field("TypeOffset", &self.TypeOffset).field("StubDesc", &self.StubDesc).finish()
-    }
+unsafe impl ::windows::core::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.TypeFormatString == other.TypeFormatString && self.FormatStringSize == other.FormatStringSize && self.TypeOffset == other.TypeOffset && self.StubDesc == other.StubDesc
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDL_WINRT_TYPE_SERIALIZATION_INFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    type Abi = Self;
+impl ::core::default::Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
 pub const MaxNumberOfEEInfoParams: u32 = 4u32;
@@ -2135,106 +1964,106 @@ pub unsafe fn MesInqProcEncodingId(handle: *mut ::core::ffi::c_void, pinterfacei
 }
 pub const MidlInterceptionInfoVersionOne: i32 = 1i32;
 pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_ARRAY_ELEMENT_INFO {
     pub ElementMemSize: u32,
     pub Element: *mut ::core::ffi::c_void,
 }
-impl NDR64_ARRAY_ELEMENT_INFO {}
+impl ::core::marker::Copy for NDR64_ARRAY_ELEMENT_INFO {}
+impl ::core::clone::Clone for NDR64_ARRAY_ELEMENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_ARRAY_ELEMENT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_ARRAY_ELEMENT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_ARRAY_ELEMENT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_ARRAY_ELEMENT_INFO {}
 impl ::core::default::Default for NDR64_ARRAY_ELEMENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_ARRAY_ELEMENT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_ARRAY_ELEMENT_INFO").field("ElementMemSize", &self.ElementMemSize).field("Element", &self.Element).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_ARRAY_ELEMENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementMemSize == other.ElementMemSize && self.Element == other.Element
-    }
-}
-impl ::core::cmp::Eq for NDR64_ARRAY_ELEMENT_INFO {}
-unsafe impl ::windows::core::Abi for NDR64_ARRAY_ELEMENT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_ARRAY_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_ARRAY_FLAGS {}
+impl ::core::marker::Copy for NDR64_ARRAY_FLAGS {}
+impl ::core::clone::Clone for NDR64_ARRAY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_ARRAY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_ARRAY_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_ARRAY_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_ARRAY_FLAGS {}
 impl ::core::default::Default for NDR64_ARRAY_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_ARRAY_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_ARRAY_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_ARRAY_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_ARRAY_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_ARRAY_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union NDR64_BINDINGS {
     pub Primitive: NDR64_BIND_PRIMITIVE,
     pub Generic: NDR64_BIND_GENERIC,
     pub Context: NDR64_BIND_CONTEXT,
 }
-impl NDR64_BINDINGS {}
+impl ::core::marker::Copy for NDR64_BINDINGS {}
+impl ::core::clone::Clone for NDR64_BINDINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BINDINGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BINDINGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BINDINGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BINDINGS {}
 impl ::core::default::Default for NDR64_BINDINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for NDR64_BINDINGS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for NDR64_BINDINGS {}
-unsafe impl ::windows::core::Abi for NDR64_BINDINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BIND_AND_NOTIFY_EXTENSION {
     pub Binding: NDR64_BIND_CONTEXT,
     pub NotifyIndex: u16,
 }
-impl NDR64_BIND_AND_NOTIFY_EXTENSION {}
+impl ::core::marker::Copy for NDR64_BIND_AND_NOTIFY_EXTENSION {}
+impl ::core::clone::Clone for NDR64_BIND_AND_NOTIFY_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BIND_AND_NOTIFY_EXTENSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BIND_AND_NOTIFY_EXTENSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BIND_AND_NOTIFY_EXTENSION {}
 impl ::core::default::Default for NDR64_BIND_AND_NOTIFY_EXTENSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_AND_NOTIFY_EXTENSION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_AND_NOTIFY_EXTENSION").field("Binding", &self.Binding).field("NotifyIndex", &self.NotifyIndex).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Binding == other.Binding && self.NotifyIndex == other.NotifyIndex
-    }
-}
-impl ::core::cmp::Eq for NDR64_BIND_AND_NOTIFY_EXTENSION {}
-unsafe impl ::windows::core::Abi for NDR64_BIND_AND_NOTIFY_EXTENSION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BIND_CONTEXT {
     pub HandleType: u8,
@@ -2243,27 +2072,26 @@ pub struct NDR64_BIND_CONTEXT {
     pub RoutineIndex: u8,
     pub Ordinal: u8,
 }
-impl NDR64_BIND_CONTEXT {}
+impl ::core::marker::Copy for NDR64_BIND_CONTEXT {}
+impl ::core::clone::Clone for NDR64_BIND_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BIND_CONTEXT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BIND_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BIND_CONTEXT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BIND_CONTEXT {}
 impl ::core::default::Default for NDR64_BIND_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_CONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_CONTEXT").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Ordinal", &self.Ordinal).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BIND_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.RoutineIndex == other.RoutineIndex && self.Ordinal == other.Ordinal
-    }
-}
-impl ::core::cmp::Eq for NDR64_BIND_CONTEXT {}
-unsafe impl ::windows::core::Abi for NDR64_BIND_CONTEXT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BIND_GENERIC {
     pub HandleType: u8,
@@ -2272,27 +2100,26 @@ pub struct NDR64_BIND_GENERIC {
     pub RoutineIndex: u8,
     pub Size: u8,
 }
-impl NDR64_BIND_GENERIC {}
+impl ::core::marker::Copy for NDR64_BIND_GENERIC {}
+impl ::core::clone::Clone for NDR64_BIND_GENERIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BIND_GENERIC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BIND_GENERIC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BIND_GENERIC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BIND_GENERIC {}
 impl ::core::default::Default for NDR64_BIND_GENERIC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_GENERIC {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_GENERIC").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Size", &self.Size).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BIND_GENERIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.RoutineIndex == other.RoutineIndex && self.Size == other.Size
-    }
-}
-impl ::core::cmp::Eq for NDR64_BIND_GENERIC {}
-unsafe impl ::windows::core::Abi for NDR64_BIND_GENERIC {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BIND_PRIMITIVE {
     pub HandleType: u8,
@@ -2300,27 +2127,26 @@ pub struct NDR64_BIND_PRIMITIVE {
     pub StackOffset: u16,
     pub Reserved: u16,
 }
-impl NDR64_BIND_PRIMITIVE {}
+impl ::core::marker::Copy for NDR64_BIND_PRIMITIVE {}
+impl ::core::clone::Clone for NDR64_BIND_PRIMITIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BIND_PRIMITIVE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BIND_PRIMITIVE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BIND_PRIMITIVE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BIND_PRIMITIVE {}
 impl ::core::default::Default for NDR64_BIND_PRIMITIVE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_PRIMITIVE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_PRIMITIVE").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BIND_PRIMITIVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_BIND_PRIMITIVE {}
-unsafe impl ::windows::core::Abi for NDR64_BIND_PRIMITIVE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2330,27 +2156,26 @@ pub struct NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     pub NumberElements: u32,
     pub Element: *mut ::core::ffi::c_void,
 }
-impl NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BOGUS_ARRAY_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BOGUS_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("NumberDims", &self.NumberDims).field("NumberElements", &self.NumberElements).field("Element", &self.Element).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.NumberDims == other.NumberDims && self.NumberElements == other.NumberElements && self.Element == other.Element
-    }
-}
-impl ::core::cmp::Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2362,27 +2187,26 @@ pub struct NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub OriginalPointerLayout: *mut ::core::ffi::c_void,
     pub PointerLayout: *mut ::core::ffi::c_void,
 }
-impl NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BOGUS_STRUCTURE_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize && self.OriginalMemberLayout == other.OriginalMemberLayout && self.OriginalPointerLayout == other.OriginalPointerLayout && self.PointerLayout == other.PointerLayout
-    }
-}
-impl ::core::cmp::Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_BUFFER_ALIGN_FORMAT {
     pub FormatCode: u8,
@@ -2390,52 +2214,50 @@ pub struct NDR64_BUFFER_ALIGN_FORMAT {
     pub Reserved: u16,
     pub Reserved2: u32,
 }
-impl NDR64_BUFFER_ALIGN_FORMAT {}
+impl ::core::marker::Copy for NDR64_BUFFER_ALIGN_FORMAT {}
+impl ::core::clone::Clone for NDR64_BUFFER_ALIGN_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_BUFFER_ALIGN_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_BUFFER_ALIGN_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_BUFFER_ALIGN_FORMAT {}
 impl ::core::default::Default for NDR64_BUFFER_ALIGN_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_BUFFER_ALIGN_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BUFFER_ALIGN_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2
-    }
-}
-impl ::core::cmp::Eq for NDR64_BUFFER_ALIGN_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_BUFFER_ALIGN_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
 }
-impl NDR64_CONFORMANT_STRING_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONFORMANT_STRING_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONFORMANT_STRING_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONFORMANT_STRING_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONFORMANT_STRING_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONFORMANT_STRING_FORMAT {}
 impl ::core::default::Default for NDR64_CONFORMANT_STRING_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONFORMANT_STRING_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONFORMANT_STRING_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONFORMANT_STRING_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONF_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2445,27 +2267,26 @@ pub struct NDR64_CONF_ARRAY_HEADER_FORMAT {
     pub ElementSize: u32,
     pub ConfDescriptor: *mut ::core::ffi::c_void,
 }
-impl NDR64_CONF_ARRAY_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONF_ARRAY_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONF_ARRAY_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONF_ARRAY_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONF_ARRAY_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ElementSize == other.ElementSize && self.ConfDescriptor == other.ConfDescriptor
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONF_ARRAY_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2478,27 +2299,26 @@ pub struct NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub PointerLayout: *mut ::core::ffi::c_void,
     pub ConfArrayDescription: *mut ::core::ffi::c_void,
 }
-impl NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Dimensions", &self.Dimensions).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).field("ConfArrayDescription", &self.ConfArrayDescription).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Dimensions == other.Dimensions && self.MemorySize == other.MemorySize && self.OriginalMemberLayout == other.OriginalMemberLayout && self.OriginalPointerLayout == other.OriginalPointerLayout && self.PointerLayout == other.PointerLayout && self.ConfArrayDescription == other.ConfArrayDescription
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2508,27 +2328,26 @@ pub struct NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     pub MemorySize: u32,
     pub ArrayDescription: *mut ::core::ffi::c_void,
 }
-impl NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONF_STRUCTURE_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("ArrayDescription", &self.ArrayDescription).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize && self.ArrayDescription == other.ArrayDescription
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2539,27 +2358,26 @@ pub struct NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     pub ConfDescriptor: *mut ::core::ffi::c_void,
     pub VarDescriptor: *mut ::core::ffi::c_void,
 }
-impl NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONF_VAR_ARRAY_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).field("VarDescriptor", &self.VarDescriptor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ElementSize == other.ElementSize && self.ConfDescriptor == other.ConfDescriptor && self.VarDescriptor == other.VarDescriptor
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     pub FixedArrayFormat: NDR64_BOGUS_ARRAY_HEADER_FORMAT,
@@ -2567,27 +2385,26 @@ pub struct NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     pub VarDescription: *mut ::core::ffi::c_void,
     pub OffsetDescription: *mut ::core::ffi::c_void,
 }
-impl NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT").field("FixedArrayFormat", &self.FixedArrayFormat).field("ConfDescription", &self.ConfDescription).field("VarDescription", &self.VarDescription).field("OffsetDescription", &self.OffsetDescription).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FixedArrayFormat == other.FixedArrayFormat && self.ConfDescription == other.ConfDescription && self.VarDescription == other.VarDescription && self.OffsetDescription == other.OffsetDescription
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONSTANT_IID_FORMAT {
     pub FormatCode: u8,
@@ -2595,52 +2412,50 @@ pub struct NDR64_CONSTANT_IID_FORMAT {
     pub Reserved: u16,
     pub Guid: ::windows::core::GUID,
 }
-impl NDR64_CONSTANT_IID_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONSTANT_IID_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONSTANT_IID_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONSTANT_IID_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONSTANT_IID_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONSTANT_IID_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONSTANT_IID_FORMAT {}
 impl ::core::default::Default for NDR64_CONSTANT_IID_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONSTANT_IID_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONSTANT_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Guid", &self.Guid).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONSTANT_IID_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Guid == other.Guid
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONSTANT_IID_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONSTANT_IID_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONTEXT_HANDLE_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_CONTEXT_HANDLE_FLAGS {}
+impl ::core::marker::Copy for NDR64_CONTEXT_HANDLE_FLAGS {}
+impl ::core::clone::Clone for NDR64_CONTEXT_HANDLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONTEXT_HANDLE_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FLAGS {}
 impl ::core::default::Default for NDR64_CONTEXT_HANDLE_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONTEXT_HANDLE_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONTEXT_HANDLE_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_CONTEXT_HANDLE_FORMAT {
     pub FormatCode: u8,
@@ -2648,27 +2463,26 @@ pub struct NDR64_CONTEXT_HANDLE_FORMAT {
     pub RundownRoutineIndex: u8,
     pub Ordinal: u8,
 }
-impl NDR64_CONTEXT_HANDLE_FORMAT {}
+impl ::core::marker::Copy for NDR64_CONTEXT_HANDLE_FORMAT {}
+impl ::core::clone::Clone for NDR64_CONTEXT_HANDLE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_CONTEXT_HANDLE_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
 impl ::core::default::Default for NDR64_CONTEXT_HANDLE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_CONTEXT_HANDLE_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONTEXT_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("ContextFlags", &self.ContextFlags).field("RundownRoutineIndex", &self.RundownRoutineIndex).field("Ordinal", &self.Ordinal).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.ContextFlags == other.ContextFlags && self.RundownRoutineIndex == other.RundownRoutineIndex && self.Ordinal == other.Ordinal
-    }
-}
-impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_CONTEXT_HANDLE_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_EMBEDDED_COMPLEX_FORMAT {
     pub FormatCode: u8,
@@ -2676,27 +2490,26 @@ pub struct NDR64_EMBEDDED_COMPLEX_FORMAT {
     pub Reserve2: u16,
     pub Type: *mut ::core::ffi::c_void,
 }
-impl NDR64_EMBEDDED_COMPLEX_FORMAT {}
+impl ::core::marker::Copy for NDR64_EMBEDDED_COMPLEX_FORMAT {}
+impl ::core::clone::Clone for NDR64_EMBEDDED_COMPLEX_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_EMBEDDED_COMPLEX_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_EMBEDDED_COMPLEX_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
 impl ::core::default::Default for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_EMBEDDED_COMPLEX_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_EMBEDDED_COMPLEX_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("Reserve2", &self.Reserve2).field("Type", &self.Type).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Reserve1 == other.Reserve1 && self.Reserve2 == other.Reserve2 && self.Type == other.Type
-    }
-}
-impl ::core::cmp::Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_EMBEDDED_COMPLEX_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_ENCAPSULATED_UNION {
     pub FormatCode: u8,
@@ -2707,27 +2520,26 @@ pub struct NDR64_ENCAPSULATED_UNION {
     pub MemorySize: u32,
     pub Reserved: u32,
 }
-impl NDR64_ENCAPSULATED_UNION {}
+impl ::core::marker::Copy for NDR64_ENCAPSULATED_UNION {}
+impl ::core::clone::Clone for NDR64_ENCAPSULATED_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_ENCAPSULATED_UNION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_ENCAPSULATED_UNION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_ENCAPSULATED_UNION {}
 impl ::core::default::Default for NDR64_ENCAPSULATED_UNION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_ENCAPSULATED_UNION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemoryOffset", &self.MemoryOffset).field("MemorySize", &self.MemorySize).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.SwitchType == other.SwitchType && self.MemoryOffset == other.MemoryOffset && self.MemorySize == other.MemorySize && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_ENCAPSULATED_UNION {}
-unsafe impl ::windows::core::Abi for NDR64_ENCAPSULATED_UNION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_EXPR_CONST32 {
     pub ExprType: u8,
@@ -2735,27 +2547,26 @@ pub struct NDR64_EXPR_CONST32 {
     pub Reserved1: u16,
     pub ConstValue: u32,
 }
-impl NDR64_EXPR_CONST32 {}
+impl ::core::marker::Copy for NDR64_EXPR_CONST32 {}
+impl ::core::clone::Clone for NDR64_EXPR_CONST32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST32 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_EXPR_CONST32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_EXPR_CONST32>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_EXPR_CONST32 {}
 impl ::core::default::Default for NDR64_EXPR_CONST32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_CONST32 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_CONST32").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_EXPR_CONST32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType && self.Reserved == other.Reserved && self.Reserved1 == other.Reserved1 && self.ConstValue == other.ConstValue
-    }
-}
-impl ::core::cmp::Eq for NDR64_EXPR_CONST32 {}
-unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_EXPR_CONST64 {
     pub ExprType: u8,
@@ -2763,54 +2574,52 @@ pub struct NDR64_EXPR_CONST64 {
     pub Reserved1: u16,
     pub ConstValue: i64,
 }
-impl NDR64_EXPR_CONST64 {}
+impl ::core::marker::Copy for NDR64_EXPR_CONST64 {}
+impl ::core::clone::Clone for NDR64_EXPR_CONST64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST64 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_EXPR_CONST64 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_EXPR_CONST64>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_EXPR_CONST64 {}
 impl ::core::default::Default for NDR64_EXPR_CONST64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_CONST64 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_CONST64").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_EXPR_CONST64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType && self.Reserved == other.Reserved && self.Reserved1 == other.Reserved1 && self.ConstValue == other.ConstValue
-    }
-}
-impl ::core::cmp::Eq for NDR64_EXPR_CONST64 {}
-unsafe impl ::windows::core::Abi for NDR64_EXPR_CONST64 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_EXPR_NOOP {
     pub ExprType: u8,
     pub Size: u8,
     pub Reserved: u16,
 }
-impl NDR64_EXPR_NOOP {}
+impl ::core::marker::Copy for NDR64_EXPR_NOOP {}
+impl ::core::clone::Clone for NDR64_EXPR_NOOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_EXPR_NOOP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_EXPR_NOOP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_EXPR_NOOP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_EXPR_NOOP {}
 impl ::core::default::Default for NDR64_EXPR_NOOP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_NOOP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_NOOP").field("ExprType", &self.ExprType).field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_EXPR_NOOP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType && self.Size == other.Size && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_EXPR_NOOP {}
-unsafe impl ::windows::core::Abi for NDR64_EXPR_NOOP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_EXPR_OPERATOR {
     pub ExprType: u8,
@@ -2818,27 +2627,26 @@ pub struct NDR64_EXPR_OPERATOR {
     pub CastType: u8,
     pub Reserved: u8,
 }
-impl NDR64_EXPR_OPERATOR {}
+impl ::core::marker::Copy for NDR64_EXPR_OPERATOR {}
+impl ::core::clone::Clone for NDR64_EXPR_OPERATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_EXPR_OPERATOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_EXPR_OPERATOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_EXPR_OPERATOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_EXPR_OPERATOR {}
 impl ::core::default::Default for NDR64_EXPR_OPERATOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_OPERATOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_OPERATOR").field("ExprType", &self.ExprType).field("Operator", &self.Operator).field("CastType", &self.CastType).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_EXPR_OPERATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType && self.Operator == other.Operator && self.CastType == other.CastType && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_EXPR_OPERATOR {}
-unsafe impl ::windows::core::Abi for NDR64_EXPR_OPERATOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_EXPR_VAR {
     pub ExprType: u8,
@@ -2846,25 +2654,25 @@ pub struct NDR64_EXPR_VAR {
     pub Reserved: u16,
     pub Offset: u32,
 }
-impl NDR64_EXPR_VAR {}
+impl ::core::marker::Copy for NDR64_EXPR_VAR {}
+impl ::core::clone::Clone for NDR64_EXPR_VAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_EXPR_VAR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_EXPR_VAR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_EXPR_VAR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_EXPR_VAR {}
 impl ::core::default::Default for NDR64_EXPR_VAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for NDR64_EXPR_VAR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_VAR").field("ExprType", &self.ExprType).field("VarType", &self.VarType).field("Reserved", &self.Reserved).field("Offset", &self.Offset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_EXPR_VAR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType && self.VarType == other.VarType && self.Reserved == other.Reserved && self.Offset == other.Offset
-    }
-}
-impl ::core::cmp::Eq for NDR64_EXPR_VAR {}
-unsafe impl ::windows::core::Abi for NDR64_EXPR_VAR {
-    type Abi = Self;
 }
 pub const NDR64_FC_AUTO_HANDLE: u32 = 3u32;
 pub const NDR64_FC_BIND_GENERIC: u32 = 1u32;
@@ -2872,34 +2680,32 @@ pub const NDR64_FC_BIND_PRIMITIVE: u32 = 2u32;
 pub const NDR64_FC_CALLBACK_HANDLE: u32 = 4u32;
 pub const NDR64_FC_EXPLICIT_HANDLE: u32 = 0u32;
 pub const NDR64_FC_NO_HANDLE: u32 = 5u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_FIXED_REPEAT_FORMAT {
     pub RepeatFormat: NDR64_REPEAT_FORMAT,
     pub Iterations: u32,
     pub Reserved: u32,
 }
-impl NDR64_FIXED_REPEAT_FORMAT {}
+impl ::core::marker::Copy for NDR64_FIXED_REPEAT_FORMAT {}
+impl ::core::clone::Clone for NDR64_FIXED_REPEAT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_FIXED_REPEAT_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_FIXED_REPEAT_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_FIXED_REPEAT_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_FIXED_REPEAT_FORMAT {}
 impl ::core::default::Default for NDR64_FIXED_REPEAT_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_FIXED_REPEAT_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_FIXED_REPEAT_FORMAT").field("RepeatFormat", &self.RepeatFormat).field("Iterations", &self.Iterations).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_FIXED_REPEAT_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.RepeatFormat == other.RepeatFormat && self.Iterations == other.Iterations && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_FIXED_REPEAT_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_FIXED_REPEAT_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -2908,52 +2714,50 @@ pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub Reserved: u8,
     pub TotalSize: u32,
 }
-impl NDR64_FIX_ARRAY_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_FIX_ARRAY_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_FIX_ARRAY_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_FIX_ARRAY_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_FIX_ARRAY_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_FIX_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_FIX_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_FIX_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize
-    }
-}
-impl ::core::cmp::Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_FIX_ARRAY_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_IID_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_IID_FLAGS {}
+impl ::core::marker::Copy for NDR64_IID_FLAGS {}
+impl ::core::clone::Clone for NDR64_IID_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_IID_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_IID_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_IID_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_IID_FLAGS {}
 impl ::core::default::Default for NDR64_IID_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_IID_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_IID_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_IID_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_IID_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_IID_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_IID_FORMAT {
     pub FormatCode: u8,
@@ -2961,27 +2765,26 @@ pub struct NDR64_IID_FORMAT {
     pub Reserved: u16,
     pub IIDDescriptor: *mut ::core::ffi::c_void,
 }
-impl NDR64_IID_FORMAT {}
+impl ::core::marker::Copy for NDR64_IID_FORMAT {}
+impl ::core::clone::Clone for NDR64_IID_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_IID_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_IID_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_IID_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_IID_FORMAT {}
 impl ::core::default::Default for NDR64_IID_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_IID_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("IIDDescriptor", &self.IIDDescriptor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_IID_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.IIDDescriptor == other.IIDDescriptor
-    }
-}
-impl ::core::cmp::Eq for NDR64_IID_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_IID_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_MEMPAD_FORMAT {
     pub FormatCode: u8,
@@ -2989,53 +2792,51 @@ pub struct NDR64_MEMPAD_FORMAT {
     pub MemPad: u16,
     pub Reserved2: u32,
 }
-impl NDR64_MEMPAD_FORMAT {}
+impl ::core::marker::Copy for NDR64_MEMPAD_FORMAT {}
+impl ::core::clone::Clone for NDR64_MEMPAD_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_MEMPAD_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_MEMPAD_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_MEMPAD_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_MEMPAD_FORMAT {}
 impl ::core::default::Default for NDR64_MEMPAD_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_MEMPAD_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_MEMPAD_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("MemPad", &self.MemPad).field("Reserved2", &self.Reserved2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_MEMPAD_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Reserve1 == other.Reserve1 && self.MemPad == other.MemPad && self.Reserved2 == other.Reserved2
-    }
-}
-impl ::core::cmp::Eq for NDR64_MEMPAD_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_MEMPAD_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_NON_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub TotalSize: u32,
 }
-impl NDR64_NON_CONFORMANT_STRING_FORMAT {}
+impl ::core::marker::Copy for NDR64_NON_CONFORMANT_STRING_FORMAT {}
+impl ::core::clone::Clone for NDR64_NON_CONFORMANT_STRING_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_NON_CONFORMANT_STRING_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_NON_CONFORMANT_STRING_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_NON_CONFORMANT_STRING_FORMAT {}
 impl ::core::default::Default for NDR64_NON_CONFORMANT_STRING_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_NON_CONFORMANT_STRING_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_NON_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("TotalSize", &self.TotalSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.TotalSize == other.TotalSize
-    }
-}
-impl ::core::cmp::Eq for NDR64_NON_CONFORMANT_STRING_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_NON_CONFORMANT_STRING_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_NON_ENCAPSULATED_UNION {
     pub FormatCode: u8,
@@ -3046,27 +2847,26 @@ pub struct NDR64_NON_ENCAPSULATED_UNION {
     pub Switch: *mut ::core::ffi::c_void,
     pub Reserved: u32,
 }
-impl NDR64_NON_ENCAPSULATED_UNION {}
+impl ::core::marker::Copy for NDR64_NON_ENCAPSULATED_UNION {}
+impl ::core::clone::Clone for NDR64_NON_ENCAPSULATED_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_NON_ENCAPSULATED_UNION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_NON_ENCAPSULATED_UNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_NON_ENCAPSULATED_UNION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_NON_ENCAPSULATED_UNION {}
 impl ::core::default::Default for NDR64_NON_ENCAPSULATED_UNION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_NON_ENCAPSULATED_UNION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_NON_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemorySize", &self.MemorySize).field("Switch", &self.Switch).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_NON_ENCAPSULATED_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.SwitchType == other.SwitchType && self.MemorySize == other.MemorySize && self.Switch == other.Switch && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_NON_ENCAPSULATED_UNION {}
-unsafe impl ::windows::core::Abi for NDR64_NON_ENCAPSULATED_UNION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_NO_REPEAT_FORMAT {
     pub FormatCode: u8,
@@ -3074,52 +2874,50 @@ pub struct NDR64_NO_REPEAT_FORMAT {
     pub Reserved1: u16,
     pub Reserved2: u32,
 }
-impl NDR64_NO_REPEAT_FORMAT {}
+impl ::core::marker::Copy for NDR64_NO_REPEAT_FORMAT {}
+impl ::core::clone::Clone for NDR64_NO_REPEAT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_NO_REPEAT_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_NO_REPEAT_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_NO_REPEAT_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_NO_REPEAT_FORMAT {}
 impl ::core::default::Default for NDR64_NO_REPEAT_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_NO_REPEAT_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_NO_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_NO_REPEAT_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
-    }
-}
-impl ::core::cmp::Eq for NDR64_NO_REPEAT_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_NO_REPEAT_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_PARAM_FLAGS {
     pub _bitfield: u16,
 }
-impl NDR64_PARAM_FLAGS {}
+impl ::core::marker::Copy for NDR64_PARAM_FLAGS {}
+impl ::core::clone::Clone for NDR64_PARAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_PARAM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_PARAM_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_PARAM_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_PARAM_FLAGS {}
 impl ::core::default::Default for NDR64_PARAM_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_PARAM_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PARAM_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_PARAM_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_PARAM_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_PARAM_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_PARAM_FORMAT {
     pub Type: *mut ::core::ffi::c_void,
@@ -3127,52 +2925,50 @@ pub struct NDR64_PARAM_FORMAT {
     pub Reserved: u16,
     pub StackOffset: u32,
 }
-impl NDR64_PARAM_FORMAT {}
+impl ::core::marker::Copy for NDR64_PARAM_FORMAT {}
+impl ::core::clone::Clone for NDR64_PARAM_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_PARAM_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_PARAM_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_PARAM_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_PARAM_FORMAT {}
 impl ::core::default::Default for NDR64_PARAM_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_PARAM_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PARAM_FORMAT").field("Type", &self.Type).field("Attributes", &self.Attributes).field("Reserved", &self.Reserved).field("StackOffset", &self.StackOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_PARAM_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Attributes == other.Attributes && self.Reserved == other.Reserved && self.StackOffset == other.StackOffset
-    }
-}
-impl ::core::cmp::Eq for NDR64_PARAM_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_PARAM_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_PIPE_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_PIPE_FLAGS {}
+impl ::core::marker::Copy for NDR64_PIPE_FLAGS {}
+impl ::core::clone::Clone for NDR64_PIPE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_PIPE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_PIPE_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_PIPE_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_PIPE_FLAGS {}
 impl ::core::default::Default for NDR64_PIPE_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_PIPE_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PIPE_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_PIPE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_PIPE_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_PIPE_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_PIPE_FORMAT {
     pub FormatCode: u8,
@@ -3183,27 +2979,26 @@ pub struct NDR64_PIPE_FORMAT {
     pub MemorySize: u32,
     pub BufferSize: u32,
 }
-impl NDR64_PIPE_FORMAT {}
+impl ::core::marker::Copy for NDR64_PIPE_FORMAT {}
+impl ::core::clone::Clone for NDR64_PIPE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_PIPE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_PIPE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_PIPE_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_PIPE_FORMAT {}
 impl ::core::default::Default for NDR64_PIPE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_PIPE_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_PIPE_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Type == other.Type && self.MemorySize == other.MemorySize && self.BufferSize == other.BufferSize
-    }
-}
-impl ::core::cmp::Eq for NDR64_PIPE_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_PIPE_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_POINTER_FORMAT {
     pub FormatCode: u8,
@@ -3211,103 +3006,99 @@ pub struct NDR64_POINTER_FORMAT {
     pub Reserved: u16,
     pub Pointee: *mut ::core::ffi::c_void,
 }
-impl NDR64_POINTER_FORMAT {}
+impl ::core::marker::Copy for NDR64_POINTER_FORMAT {}
+impl ::core::clone::Clone for NDR64_POINTER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_POINTER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_POINTER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_POINTER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_POINTER_FORMAT {}
 impl ::core::default::Default for NDR64_POINTER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_POINTER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_POINTER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Pointee", &self.Pointee).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_POINTER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Pointee == other.Pointee
-    }
-}
-impl ::core::cmp::Eq for NDR64_POINTER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_POINTER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     pub Offset: u32,
     pub Reserved: u32,
 }
-impl NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_POINTER_INSTANCE_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_POINTER_INSTANCE_HEADER_FORMAT").field("Offset", &self.Offset).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_POINTER_REPEAT_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_POINTER_REPEAT_FLAGS {}
+impl ::core::marker::Copy for NDR64_POINTER_REPEAT_FLAGS {}
+impl ::core::clone::Clone for NDR64_POINTER_REPEAT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_POINTER_REPEAT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_POINTER_REPEAT_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_POINTER_REPEAT_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_POINTER_REPEAT_FLAGS {}
 impl ::core::default::Default for NDR64_POINTER_REPEAT_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_POINTER_REPEAT_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_POINTER_REPEAT_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_POINTER_REPEAT_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_POINTER_REPEAT_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_POINTER_REPEAT_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_PROC_FLAGS {
     pub _bitfield: u32,
 }
-impl NDR64_PROC_FLAGS {}
+impl ::core::marker::Copy for NDR64_PROC_FLAGS {}
+impl ::core::clone::Clone for NDR64_PROC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_PROC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_PROC_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_PROC_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_PROC_FLAGS {}
 impl ::core::default::Default for NDR64_PROC_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_PROC_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PROC_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_PROC_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_PROC_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_PROC_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_PROC_FORMAT {
     pub Flags: u32,
@@ -3319,27 +3110,26 @@ pub struct NDR64_PROC_FORMAT {
     pub NumberOfParams: u16,
     pub ExtensionSize: u16,
 }
-impl NDR64_PROC_FORMAT {}
+impl ::core::marker::Copy for NDR64_PROC_FORMAT {}
+impl ::core::clone::Clone for NDR64_PROC_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_PROC_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_PROC_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_PROC_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_PROC_FORMAT {}
 impl ::core::default::Default for NDR64_PROC_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_PROC_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PROC_FORMAT").field("Flags", &self.Flags).field("StackSize", &self.StackSize).field("ConstantClientBufferSize", &self.ConstantClientBufferSize).field("ConstantServerBufferSize", &self.ConstantServerBufferSize).field("RpcFlags", &self.RpcFlags).field("FloatDoubleMask", &self.FloatDoubleMask).field("NumberOfParams", &self.NumberOfParams).field("ExtensionSize", &self.ExtensionSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_PROC_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.StackSize == other.StackSize && self.ConstantClientBufferSize == other.ConstantClientBufferSize && self.ConstantServerBufferSize == other.ConstantServerBufferSize && self.RpcFlags == other.RpcFlags && self.FloatDoubleMask == other.FloatDoubleMask && self.NumberOfParams == other.NumberOfParams && self.ExtensionSize == other.ExtensionSize
-    }
-}
-impl ::core::cmp::Eq for NDR64_PROC_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_PROC_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_RANGED_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
@@ -3347,27 +3137,26 @@ pub struct NDR64_RANGED_STRING_FORMAT {
     pub Min: u64,
     pub Max: u64,
 }
-impl NDR64_RANGED_STRING_FORMAT {}
+impl ::core::marker::Copy for NDR64_RANGED_STRING_FORMAT {}
+impl ::core::clone::Clone for NDR64_RANGED_STRING_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_RANGED_STRING_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_RANGED_STRING_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_RANGED_STRING_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_RANGED_STRING_FORMAT {}
 impl ::core::default::Default for NDR64_RANGED_STRING_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_RANGED_STRING_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_RANGED_STRING_FORMAT").field("Header", &self.Header).field("Reserved", &self.Reserved).field("Min", &self.Min).field("Max", &self.Max).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_RANGED_STRING_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Reserved == other.Reserved && self.Min == other.Min && self.Max == other.Max
-    }
-}
-impl ::core::cmp::Eq for NDR64_RANGED_STRING_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_RANGED_STRING_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_RANGE_FORMAT {
     pub FormatCode: u8,
@@ -3376,27 +3165,26 @@ pub struct NDR64_RANGE_FORMAT {
     pub MinValue: i64,
     pub MaxValue: i64,
 }
-impl NDR64_RANGE_FORMAT {}
+impl ::core::marker::Copy for NDR64_RANGE_FORMAT {}
+impl ::core::clone::Clone for NDR64_RANGE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_RANGE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_RANGE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_RANGE_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_RANGE_FORMAT {}
 impl ::core::default::Default for NDR64_RANGE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_RANGE_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_RANGE_FORMAT").field("FormatCode", &self.FormatCode).field("RangeType", &self.RangeType).field("Reserved", &self.Reserved).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_RANGE_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.RangeType == other.RangeType && self.Reserved == other.Reserved && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue
-    }
-}
-impl ::core::cmp::Eq for NDR64_RANGE_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_RANGE_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_RANGE_PIPE_FORMAT {
     pub FormatCode: u8,
@@ -3409,27 +3197,26 @@ pub struct NDR64_RANGE_PIPE_FORMAT {
     pub MinValue: u32,
     pub MaxValue: u32,
 }
-impl NDR64_RANGE_PIPE_FORMAT {}
+impl ::core::marker::Copy for NDR64_RANGE_PIPE_FORMAT {}
+impl ::core::clone::Clone for NDR64_RANGE_PIPE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_RANGE_PIPE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_RANGE_PIPE_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_RANGE_PIPE_FORMAT {}
 impl ::core::default::Default for NDR64_RANGE_PIPE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_RANGE_PIPE_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_RANGE_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Type == other.Type && self.MemorySize == other.MemorySize && self.BufferSize == other.BufferSize && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue
-    }
-}
-impl ::core::cmp::Eq for NDR64_RANGE_PIPE_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_RANGE_PIPE_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_REPEAT_FORMAT {
     pub FormatCode: u8,
@@ -3439,52 +3226,50 @@ pub struct NDR64_REPEAT_FORMAT {
     pub OffsetToArray: u32,
     pub NumberOfPointers: u32,
 }
-impl NDR64_REPEAT_FORMAT {}
+impl ::core::marker::Copy for NDR64_REPEAT_FORMAT {}
+impl ::core::clone::Clone for NDR64_REPEAT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_REPEAT_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_REPEAT_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_REPEAT_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_REPEAT_FORMAT {}
 impl ::core::default::Default for NDR64_REPEAT_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_REPEAT_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Increment", &self.Increment).field("OffsetToArray", &self.OffsetToArray).field("NumberOfPointers", &self.NumberOfPointers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_REPEAT_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Increment == other.Increment && self.OffsetToArray == other.OffsetToArray && self.NumberOfPointers == other.NumberOfPointers
-    }
-}
-impl ::core::cmp::Eq for NDR64_REPEAT_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_REPEAT_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_RPC_FLAGS {
     pub _bitfield: u16,
 }
-impl NDR64_RPC_FLAGS {}
+impl ::core::marker::Copy for NDR64_RPC_FLAGS {}
+impl ::core::clone::Clone for NDR64_RPC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_RPC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_RPC_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_RPC_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_RPC_FLAGS {}
 impl ::core::default::Default for NDR64_RPC_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_RPC_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_RPC_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_RPC_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_RPC_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_RPC_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_SIMPLE_MEMBER_FORMAT {
     pub FormatCode: u8,
@@ -3492,27 +3277,26 @@ pub struct NDR64_SIMPLE_MEMBER_FORMAT {
     pub Reserved2: u16,
     pub Reserved3: u32,
 }
-impl NDR64_SIMPLE_MEMBER_FORMAT {}
+impl ::core::marker::Copy for NDR64_SIMPLE_MEMBER_FORMAT {}
+impl ::core::clone::Clone for NDR64_SIMPLE_MEMBER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_SIMPLE_MEMBER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_SIMPLE_MEMBER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
 impl ::core::default::Default for NDR64_SIMPLE_MEMBER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_SIMPLE_MEMBER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_SIMPLE_MEMBER_FORMAT").field("FormatCode", &self.FormatCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
-    }
-}
-impl ::core::cmp::Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_SIMPLE_MEMBER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_SIMPLE_REGION_FORMAT {
     pub FormatCode: u8,
@@ -3520,130 +3304,125 @@ pub struct NDR64_SIMPLE_REGION_FORMAT {
     pub RegionSize: u16,
     pub Reserved: u32,
 }
-impl NDR64_SIMPLE_REGION_FORMAT {}
+impl ::core::marker::Copy for NDR64_SIMPLE_REGION_FORMAT {}
+impl ::core::clone::Clone for NDR64_SIMPLE_REGION_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_SIMPLE_REGION_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_SIMPLE_REGION_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_SIMPLE_REGION_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_SIMPLE_REGION_FORMAT {}
 impl ::core::default::Default for NDR64_SIMPLE_REGION_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_SIMPLE_REGION_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_SIMPLE_REGION_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("RegionSize", &self.RegionSize).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_SIMPLE_REGION_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.RegionSize == other.RegionSize && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_SIMPLE_REGION_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_SIMPLE_REGION_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub SizeDescription: *mut ::core::ffi::c_void,
 }
-impl NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
+impl ::core::marker::Copy for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
+impl ::core::clone::Clone for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_SIZED_CONFORMANT_STRING_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
 impl ::core::default::Default for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_SIZED_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("SizeDescription", &self.SizeDescription).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.SizeDescription == other.SizeDescription
-    }
-}
-impl ::core::cmp::Eq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_STRING_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_STRING_FLAGS {}
+impl ::core::marker::Copy for NDR64_STRING_FLAGS {}
+impl ::core::clone::Clone for NDR64_STRING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_STRING_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_STRING_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_STRING_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_STRING_FLAGS {}
 impl ::core::default::Default for NDR64_STRING_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_STRING_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_STRING_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_STRING_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_STRING_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_STRING_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_STRING_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Flags: NDR64_STRING_FLAGS,
     pub ElementSize: u16,
 }
-impl NDR64_STRING_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_STRING_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_STRING_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_STRING_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_STRING_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_STRING_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_STRING_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_STRING_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_STRING_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_STRING_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("ElementSize", &self.ElementSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_STRING_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.ElementSize == other.ElementSize
-    }
-}
-impl ::core::cmp::Eq for NDR64_STRING_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_STRING_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_STRUCTURE_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_STRUCTURE_FLAGS {}
+impl ::core::marker::Copy for NDR64_STRUCTURE_FLAGS {}
+impl ::core::clone::Clone for NDR64_STRUCTURE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_STRUCTURE_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_STRUCTURE_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_STRUCTURE_FLAGS {}
 impl ::core::default::Default for NDR64_STRUCTURE_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_STRUCTURE_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_STRUCTURE_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_STRUCTURE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_STRUCTURE_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -3652,79 +3431,76 @@ pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub Reserve: u8,
     pub MemorySize: u32,
 }
-impl NDR64_STRUCTURE_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_STRUCTURE_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_STRUCTURE_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_STRUCTURE_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize
-    }
-}
-impl ::core::cmp::Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_STRUCTURE_HEADER_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_SYSTEM_HANDLE_FORMAT {
     pub FormatCode: u8,
     pub HandleType: u8,
     pub DesiredAccess: u32,
 }
-impl NDR64_SYSTEM_HANDLE_FORMAT {}
+impl ::core::marker::Copy for NDR64_SYSTEM_HANDLE_FORMAT {}
+impl ::core::clone::Clone for NDR64_SYSTEM_HANDLE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_SYSTEM_HANDLE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_SYSTEM_HANDLE_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
 impl ::core::default::Default for NDR64_SYSTEM_HANDLE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_SYSTEM_HANDLE_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_SYSTEM_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("HandleType", &self.HandleType).field("DesiredAccess", &self.DesiredAccess).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.HandleType == other.HandleType && self.DesiredAccess == other.DesiredAccess
-    }
-}
-impl ::core::cmp::Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_SYSTEM_HANDLE_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_TRANSMIT_AS_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_TRANSMIT_AS_FLAGS {}
+impl ::core::marker::Copy for NDR64_TRANSMIT_AS_FLAGS {}
+impl ::core::clone::Clone for NDR64_TRANSMIT_AS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_TRANSMIT_AS_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FLAGS {}
 impl ::core::default::Default for NDR64_TRANSMIT_AS_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_TRANSMIT_AS_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_TRANSMIT_AS_FORMAT {
     pub FormatCode: u8,
@@ -3736,27 +3512,26 @@ pub struct NDR64_TRANSMIT_AS_FORMAT {
     pub TransmittedTypeBufferSize: u32,
     pub TransmittedType: *mut ::core::ffi::c_void,
 }
-impl NDR64_TRANSMIT_AS_FORMAT {}
+impl ::core::marker::Copy for NDR64_TRANSMIT_AS_FORMAT {}
+impl ::core::clone::Clone for NDR64_TRANSMIT_AS_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_TRANSMIT_AS_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FORMAT {}
 impl ::core::default::Default for NDR64_TRANSMIT_AS_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_TRANSMIT_AS_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("PresentedTypeMemorySize", &self.PresentedTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.RoutineIndex == other.RoutineIndex && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment && self.MemoryAlignment == other.MemoryAlignment && self.PresentedTypeMemorySize == other.PresentedTypeMemorySize && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize && self.TransmittedType == other.TransmittedType
-    }
-}
-impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_TRANSMIT_AS_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     pub FormatCode: u8,
@@ -3766,54 +3541,52 @@ pub struct NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     pub CtxtFlags: u32,
     pub CtxtID: u32,
 }
-impl NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
+impl ::core::marker::Copy for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
+impl ::core::clone::Clone for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_TYPE_STRICT_CONTEXT_HANDLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
 impl ::core::default::Default for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_TYPE_STRICT_CONTEXT_HANDLE").field("FormatCode", &self.FormatCode).field("RealFormatCode", &self.RealFormatCode).field("Reserved", &self.Reserved).field("Type", &self.Type).field("CtxtFlags", &self.CtxtFlags).field("CtxtID", &self.CtxtID).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.RealFormatCode == other.RealFormatCode && self.Reserved == other.Reserved && self.Type == other.Type && self.CtxtFlags == other.CtxtFlags && self.CtxtID == other.CtxtID
-    }
-}
-impl ::core::cmp::Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
-unsafe impl ::windows::core::Abi for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_UNION_ARM {
     pub CaseValue: i64,
     pub Type: *mut ::core::ffi::c_void,
     pub Reserved: u32,
 }
-impl NDR64_UNION_ARM {}
+impl ::core::marker::Copy for NDR64_UNION_ARM {}
+impl ::core::clone::Clone for NDR64_UNION_ARM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_UNION_ARM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_UNION_ARM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_UNION_ARM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_UNION_ARM {}
 impl ::core::default::Default for NDR64_UNION_ARM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_UNION_ARM {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_UNION_ARM").field("CaseValue", &self.CaseValue).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_UNION_ARM {
-    fn eq(&self, other: &Self) -> bool {
-        self.CaseValue == other.CaseValue && self.Type == other.Type && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for NDR64_UNION_ARM {}
-unsafe impl ::windows::core::Abi for NDR64_UNION_ARM {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_UNION_ARM_SELECTOR {
     pub Reserved1: u8,
@@ -3821,52 +3594,50 @@ pub struct NDR64_UNION_ARM_SELECTOR {
     pub Reserved2: u16,
     pub Arms: u32,
 }
-impl NDR64_UNION_ARM_SELECTOR {}
+impl ::core::marker::Copy for NDR64_UNION_ARM_SELECTOR {}
+impl ::core::clone::Clone for NDR64_UNION_ARM_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_UNION_ARM_SELECTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_UNION_ARM_SELECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_UNION_ARM_SELECTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_UNION_ARM_SELECTOR {}
 impl ::core::default::Default for NDR64_UNION_ARM_SELECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_UNION_ARM_SELECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_UNION_ARM_SELECTOR").field("Reserved1", &self.Reserved1).field("Alignment", &self.Alignment).field("Reserved2", &self.Reserved2).field("Arms", &self.Arms).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_UNION_ARM_SELECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Alignment == other.Alignment && self.Reserved2 == other.Reserved2 && self.Arms == other.Arms
-    }
-}
-impl ::core::cmp::Eq for NDR64_UNION_ARM_SELECTOR {}
-unsafe impl ::windows::core::Abi for NDR64_UNION_ARM_SELECTOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_USER_MARSHAL_FLAGS {
     pub _bitfield: u8,
 }
-impl NDR64_USER_MARSHAL_FLAGS {}
+impl ::core::marker::Copy for NDR64_USER_MARSHAL_FLAGS {}
+impl ::core::clone::Clone for NDR64_USER_MARSHAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_USER_MARSHAL_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FLAGS {}
 impl ::core::default::Default for NDR64_USER_MARSHAL_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FLAGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_USER_MARSHAL_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FLAGS {}
-unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_USER_MARSHAL_FORMAT {
     pub FormatCode: u8,
@@ -3878,27 +3649,26 @@ pub struct NDR64_USER_MARSHAL_FORMAT {
     pub TransmittedTypeBufferSize: u32,
     pub TransmittedType: *mut ::core::ffi::c_void,
 }
-impl NDR64_USER_MARSHAL_FORMAT {}
+impl ::core::marker::Copy for NDR64_USER_MARSHAL_FORMAT {}
+impl ::core::clone::Clone for NDR64_USER_MARSHAL_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_USER_MARSHAL_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FORMAT {}
 impl ::core::default::Default for NDR64_USER_MARSHAL_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_USER_MARSHAL_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("UserTypeMemorySize", &self.UserTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.RoutineIndex == other.RoutineIndex && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment && self.MemoryAlignment == other.MemoryAlignment && self.UserTypeMemorySize == other.UserTypeMemorySize && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize && self.TransmittedType == other.TransmittedType
-    }
-}
-impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_USER_MARSHAL_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR64_VAR_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
@@ -3909,25 +3679,25 @@ pub struct NDR64_VAR_ARRAY_HEADER_FORMAT {
     pub ElementSize: u32,
     pub VarDescriptor: *mut ::core::ffi::c_void,
 }
-impl NDR64_VAR_ARRAY_HEADER_FORMAT {}
+impl ::core::marker::Copy for NDR64_VAR_ARRAY_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDR64_VAR_ARRAY_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR64_VAR_ARRAY_HEADER_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
 impl ::core::default::Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for NDR64_VAR_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("ElementSize", &self.ElementSize).field("VarDescriptor", &self.VarDescriptor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize && self.ElementSize == other.ElementSize && self.VarDescriptor == other.VarDescriptor
-    }
-}
-impl ::core::cmp::Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
-unsafe impl ::windows::core::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::core::ffi::c_void {
@@ -4047,35 +3817,32 @@ pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void,
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
     pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
 }
-impl NDR_CS_ROUTINES {}
+impl ::core::marker::Copy for NDR_CS_ROUTINES {}
+impl ::core::clone::Clone for NDR_CS_ROUTINES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR_CS_ROUTINES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR_CS_ROUTINES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_CS_ROUTINES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR_CS_ROUTINES {}
 impl ::core::default::Default for NDR_CS_ROUTINES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR_CS_ROUTINES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR_CS_ROUTINES").field("pSizeConvertRoutines", &self.pSizeConvertRoutines).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR_CS_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSizeConvertRoutines == other.pSizeConvertRoutines && self.pTagGettingRoutines == other.pTagGettingRoutines
-    }
-}
-impl ::core::cmp::Eq for NDR_CS_ROUTINES {}
-unsafe impl ::windows::core::Abi for NDR_CS_ROUTINES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
@@ -4083,90 +3850,81 @@ pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
     pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
 }
-impl NDR_CS_SIZE_CONVERT_ROUTINES {}
+impl ::core::marker::Copy for NDR_CS_SIZE_CONVERT_ROUTINES {}
+impl ::core::clone::Clone for NDR_CS_SIZE_CONVERT_ROUTINES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR_CS_SIZE_CONVERT_ROUTINES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_CS_SIZE_CONVERT_ROUTINES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR_CS_SIZE_CONVERT_ROUTINES {}
 impl ::core::default::Default for NDR_CS_SIZE_CONVERT_ROUTINES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR_CS_SIZE_CONVERT_ROUTINES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR_CS_SIZE_CONVERT_ROUTINES").finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR_CS_SIZE_CONVERT_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pfnNetSize.map(|f| f as usize) == other.pfnNetSize.map(|f| f as usize) && self.pfnToNetCs.map(|f| f as usize) == other.pfnToNetCs.map(|f| f as usize) && self.pfnLocalSize.map(|f| f as usize) == other.pfnLocalSize.map(|f| f as usize) && self.pfnFromNetCs.map(|f| f as usize) == other.pfnFromNetCs.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for NDR_CS_SIZE_CONVERT_ROUTINES {}
-unsafe impl ::windows::core::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
-    type Abi = Self;
-}
 pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR_EXPR_DESC {
     pub pOffset: *mut u16,
     pub pFormatExpr: *mut u8,
 }
-impl NDR_EXPR_DESC {}
+impl ::core::marker::Copy for NDR_EXPR_DESC {}
+impl ::core::clone::Clone for NDR_EXPR_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDR_EXPR_DESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDR_EXPR_DESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_EXPR_DESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR_EXPR_DESC {}
 impl ::core::default::Default for NDR_EXPR_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NDR_EXPR_DESC {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR_EXPR_DESC").field("pOffset", &self.pOffset).field("pFormatExpr", &self.pFormatExpr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR_EXPR_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.pOffset == other.pOffset && self.pFormatExpr == other.pFormatExpr
-    }
-}
-impl ::core::cmp::Eq for NDR_EXPR_DESC {}
-unsafe impl ::windows::core::Abi for NDR_EXPR_DESC {
-    type Abi = Self;
-}
 pub type NDR_NOTIFY2_ROUTINE = ::core::option::Option<unsafe extern "system" fn(flag: u8)>;
 pub type NDR_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 pub type NDR_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR_SCONTEXT_1 {
     pub pad: [*mut ::core::ffi::c_void; 2],
     pub userContext: *mut ::core::ffi::c_void,
 }
-impl NDR_SCONTEXT_1 {}
-impl ::core::default::Default for NDR_SCONTEXT_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::marker::Copy for NDR_SCONTEXT_1 {}
+impl ::core::clone::Clone for NDR_SCONTEXT_1 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
-impl ::core::fmt::Debug for NDR_SCONTEXT_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR_SCONTEXT_1").field("pad", &self.pad).field("userContext", &self.userContext).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NDR_SCONTEXT_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pad == other.pad && self.userContext == other.userContext
-    }
-}
-impl ::core::cmp::Eq for NDR_SCONTEXT_1 {}
 unsafe impl ::windows::core::Abi for NDR_SCONTEXT_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
-    fn clone(&self) -> Self {
-        unimplemented!()
+impl ::core::cmp::PartialEq for NDR_SCONTEXT_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_SCONTEXT_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDR_SCONTEXT_1 {}
+impl ::core::default::Default for NDR_SCONTEXT_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4176,29 +3934,27 @@ pub struct NDR_USER_MARSHAL_INFO {
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl NDR_USER_MARSHAL_INFO {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for NDR_USER_MARSHAL_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
+    fn clone(&self) -> Self {
+        Self { InformationLevel: self.InformationLevel, Anonymous: self.Anonymous.clone() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
+impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_USER_MARSHAL_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::default::Default for NDR_USER_MARSHAL_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4207,26 +3963,29 @@ pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: ::core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl NDR_USER_MARSHAL_INFO_0 {}
+impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_0 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_USER_MARSHAL_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for NDR_USER_MARSHAL_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
@@ -4238,30 +3997,35 @@ pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Reserved: [usize; 5],
 }
 #[cfg(feature = "Win32_System_Com")]
-impl NDR_USER_MARSHAL_INFO_LEVEL1 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_LEVEL1 {
+    fn clone(&self) -> Self {
+        Self {
+            Buffer: self.Buffer,
+            BufferSize: self.BufferSize,
+            pfnAllocate: self.pfnAllocate,
+            pfnFree: self.pfnFree,
+            pRpcChannelBuffer: self.pRpcChannelBuffer.clone(),
+            Reserved: self.Reserved,
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for NDR_USER_MARSHAL_INFO_LEVEL1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR_USER_MARSHAL_INFO_LEVEL1").field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).field("pRpcChannelBuffer", &self.pRpcChannelBuffer).field("Reserved", &self.Reserved).finish()
-    }
+unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.pfnAllocate == other.pfnAllocate && self.pfnFree == other.pfnFree && self.pRpcChannelBuffer == other.pRpcChannelBuffer && self.Reserved == other.Reserved
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDR_USER_MARSHAL_INFO_LEVEL1>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO_LEVEL1 {}
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+impl ::core::default::Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
 #[cfg(feature = "Win32_System_Com")]
@@ -6669,24 +6433,13 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROXY_PHASE(pub i32);
-pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0i32);
-pub const PROXY_GETBUFFER: PROXY_PHASE = PROXY_PHASE(1i32);
-pub const PROXY_MARSHAL: PROXY_PHASE = PROXY_PHASE(2i32);
-pub const PROXY_SENDRECEIVE: PROXY_PHASE = PROXY_PHASE(3i32);
-pub const PROXY_UNMARSHAL: PROXY_PHASE = PROXY_PHASE(4i32);
-impl ::core::convert::From<i32> for PROXY_PHASE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROXY_PHASE {
-    type Abi = Self;
-}
+pub type PROXY_PHASE = i32;
+pub const PROXY_CALCSIZE: PROXY_PHASE = 0i32;
+pub const PROXY_GETBUFFER: PROXY_PHASE = 1i32;
+pub const PROXY_MARSHAL: PROXY_PHASE = 2i32;
+pub const PROXY_SENDRECEIVE: PROXY_PHASE = 3i32;
+pub const PROXY_UNMARSHAL: PROXY_PHASE = 4i32;
 pub type PRPC_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RDR_CALLOUT_STATE {
     pub LastError: RPC_STATUS,
@@ -6704,40 +6457,25 @@ pub struct RDR_CALLOUT_STATE {
     pub Interface: RPC_SYNTAX_IDENTIFIER,
     pub CertContext: *mut ::core::ffi::c_void,
 }
-impl RDR_CALLOUT_STATE {}
+impl ::core::marker::Copy for RDR_CALLOUT_STATE {}
+impl ::core::clone::Clone for RDR_CALLOUT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDR_CALLOUT_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RDR_CALLOUT_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDR_CALLOUT_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RDR_CALLOUT_STATE {}
 impl ::core::default::Default for RDR_CALLOUT_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RDR_CALLOUT_STATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RDR_CALLOUT_STATE")
-            .field("LastError", &self.LastError)
-            .field("LastEEInfo", &self.LastEEInfo)
-            .field("LastCalledStage", &self.LastCalledStage)
-            .field("ServerName", &self.ServerName)
-            .field("ServerPort", &self.ServerPort)
-            .field("RemoteUser", &self.RemoteUser)
-            .field("AuthType", &self.AuthType)
-            .field("ResourceTypePresent", &self.ResourceTypePresent)
-            .field("SessionIdPresent", &self.SessionIdPresent)
-            .field("InterfacePresent", &self.InterfacePresent)
-            .field("ResourceType", &self.ResourceType)
-            .field("SessionId", &self.SessionId)
-            .field("Interface", &self.Interface)
-            .field("CertContext", &self.CertContext)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RDR_CALLOUT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastError == other.LastError && self.LastEEInfo == other.LastEEInfo && self.LastCalledStage == other.LastCalledStage && self.ServerName == other.ServerName && self.ServerPort == other.ServerPort && self.RemoteUser == other.RemoteUser && self.AuthType == other.AuthType && self.ResourceTypePresent == other.ResourceTypePresent && self.SessionIdPresent == other.SessionIdPresent && self.InterfacePresent == other.InterfacePresent && self.ResourceType == other.ResourceType && self.SessionId == other.SessionId && self.Interface == other.Interface && self.CertContext == other.CertContext
-    }
-}
-impl ::core::cmp::Eq for RDR_CALLOUT_STATE {}
-unsafe impl ::windows::core::Abi for RDR_CALLOUT_STATE {
-    type Abi = Self;
 }
 pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576u32;
 pub const RPCFLG_ACCESSIBILITY_BIT2: u32 = 2097152u32;
@@ -6756,37 +6494,16 @@ pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
 pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
 pub type RPCLT_PDU_FILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
 pub type RPC_ADDRESS_CHANGE_FN = ::core::option::Option<unsafe extern "system" fn(arg: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
-pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
-pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(2i32);
-pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(3i32);
-impl ::core::convert::From<i32> for RPC_ADDRESS_CHANGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_ADDRESS_CHANGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_ASYNC_EVENT(pub i32);
-pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0i32);
-pub const RpcSendComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(1i32);
-pub const RpcReceiveComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(2i32);
-pub const RpcClientDisconnect: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(3i32);
-pub const RpcClientCancel: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(4i32);
-impl ::core::convert::From<i32> for RPC_ASYNC_EVENT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_ASYNC_EVENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RPC_ADDRESS_CHANGE_TYPE = i32;
+pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = 1i32;
+pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = 2i32;
+pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = 3i32;
+pub type RPC_ASYNC_EVENT = i32;
+pub const RpcCallComplete: RPC_ASYNC_EVENT = 0i32;
+pub const RpcSendComplete: RPC_ASYNC_EVENT = 1i32;
+pub const RpcReceiveComplete: RPC_ASYNC_EVENT = 2i32;
+pub const RpcClientDisconnect: RPC_ASYNC_EVENT = 3i32;
+pub const RpcClientCancel: RPC_ASYNC_EVENT = 4i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
@@ -6794,29 +6511,34 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
     pub IntPtr: RPC_ASYNC_NOTIFICATION_INFO_2,
     pub hEvent: super::super::Foundation::HANDLE,
-    pub NotificationRoutine: ::windows::core::RawPtr,
+    pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl RPC_ASYNC_NOTIFICATION_INFO {}
+impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ASYNC_NOTIFICATION_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
@@ -6824,32 +6546,31 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub hThread: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl RPC_ASYNC_NOTIFICATION_INFO_0 {}
+impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ASYNC_NOTIFICATION_INFO_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_APC_e__Struct").field("hThread", &self.hThread).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotificationRoutine.map(|f| f as usize) == other.NotificationRoutine.map(|f| f as usize) && self.hThread == other.hThread
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
@@ -6859,32 +6580,31 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub lpOverlapped: *mut super::IO::OVERLAPPED,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl RPC_ASYNC_NOTIFICATION_INFO_1 {}
+impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ASYNC_NOTIFICATION_INFO_1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IOC_e__Struct").field("hIOPort", &self.hIOPort).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).field("dwCompletionKey", &self.dwCompletionKey).field("lpOverlapped", &self.lpOverlapped).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hIOPort == other.hIOPort && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred && self.dwCompletionKey == other.dwCompletionKey && self.lpOverlapped == other.lpOverlapped
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
@@ -6892,32 +6612,31 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub Msg: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl RPC_ASYNC_NOTIFICATION_INFO_2 {}
+impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ASYNC_NOTIFICATION_INFO_2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IntPtr_e__Struct").field("hWnd", &self.hWnd).field("Msg", &self.Msg).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hWnd == other.hWnd && self.Msg == other.Msg
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_STATE {
@@ -6934,70 +6653,37 @@ pub struct RPC_ASYNC_STATE {
     pub Reserved: [isize; 4],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl RPC_ASYNC_STATE {}
+impl ::core::marker::Copy for RPC_ASYNC_STATE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for RPC_ASYNC_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for RPC_ASYNC_STATE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for RPC_ASYNC_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ASYNC_STATE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for RPC_ASYNC_STATE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for RPC_ASYNC_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for RPC_ASYNC_STATE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for RPC_ASYNC_STATE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for RPC_ASYNC_STATE {
-    type Abi = Self;
-}
 pub type RPC_AUTH_KEY_RETRIEVAL_FN = ::core::option::Option<unsafe extern "system" fn(arg: *const ::core::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut RPC_STATUS)>;
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
-pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
-pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(2u32);
-impl ::core::convert::From<u32> for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RPC_BINDING_HANDLE_OPTIONS_FLAGS = u32;
+pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = 1u32;
+pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = 2u32;
 #[repr(C)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub Version: u32,
@@ -7005,27 +6691,26 @@ pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub ComTimeout: u32,
     pub CallTimeout: u32,
 }
-impl RPC_BINDING_HANDLE_OPTIONS_V1 {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_OPTIONS_V1 {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_OPTIONS_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_OPTIONS_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_OPTIONS_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_HANDLE_OPTIONS_V1").field("Version", &self.Version).field("Flags", &self.Flags).field("ComTimeout", &self.ComTimeout).field("CallTimeout", &self.CallTimeout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.ComTimeout == other.ComTimeout && self.CallTimeout == other.CallTimeout
-    }
-}
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_OPTIONS_V1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
@@ -7037,32 +6722,31 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_BINDING_HANDLE_SECURITY_V1_A {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_SECURITY_V1_A {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_SECURITY_V1_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_SECURITY_V1_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_A {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_A").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ServerPrincName == other.ServerPrincName && self.AuthnLevel == other.AuthnLevel && self.AuthnSvc == other.AuthnSvc && self.AuthIdentity == other.AuthIdentity && self.SecurityQos == other.SecurityQos
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_A {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
@@ -7074,32 +6758,31 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_BINDING_HANDLE_SECURITY_V1_W {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_SECURITY_V1_W {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_SECURITY_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_SECURITY_V1_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_BINDING_HANDLE_SECURITY_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_W").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ServerPrincName == other.ServerPrincName && self.AuthnLevel == other.AuthnLevel && self.AuthnSvc == other.AuthnSvc && self.AuthIdentity == other.AuthIdentity && self.SecurityQos == other.SecurityQos
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_W {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_SECURITY_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub Version: u32,
@@ -7110,42 +6793,50 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_A_0,
     pub ObjectUuid: ::windows::core::GUID,
 }
-impl RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_TEMPLATE_V1_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     pub Reserved: *mut u8,
 }
-impl RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_TEMPLATE_V1_A_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub Version: u32,
@@ -7156,66 +6847,74 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_W_0,
     pub ObjectUuid: ::windows::core::GUID,
 }
-impl RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_TEMPLATE_V1_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     pub Reserved: *mut u16,
 }
-impl RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_HANDLE_TEMPLATE_V1_W_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
 impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
-unsafe impl ::windows::core::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_BINDING_VECTOR {
     pub Count: u32,
     pub BindingH: [*mut ::core::ffi::c_void; 1],
 }
-impl RPC_BINDING_VECTOR {}
+impl ::core::marker::Copy for RPC_BINDING_VECTOR {}
+impl ::core::clone::Clone for RPC_BINDING_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_BINDING_VECTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_BINDING_VECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_BINDING_VECTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_BINDING_VECTOR {}
 impl ::core::default::Default for RPC_BINDING_VECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RPC_BINDING_VECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_VECTOR").field("Count", &self.Count).field("BindingH", &self.BindingH).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_BINDING_VECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.BindingH == other.BindingH
-    }
-}
-impl ::core::cmp::Eq for RPC_BINDING_VECTOR {}
-unsafe impl ::windows::core::Abi for RPC_BINDING_VECTOR {
-    type Abi = Self;
 }
 pub type RPC_BLOCKING_FN = ::core::option::Option<unsafe extern "system" fn(hwnd: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, hsyncevent: *mut ::core::ffi::c_void) -> RPC_STATUS>;
 pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
@@ -7223,7 +6922,6 @@ pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
 pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
 pub const RPC_BUFFER_NONOTIFY: u32 = 65536u32;
 pub const RPC_BUFFER_PARTIAL: u32 = 8192u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
@@ -7238,42 +6936,31 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub NullSession: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_CALL_ATTRIBUTES_V1_A {}
+impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_ATTRIBUTES_V1_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V1_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_ATTRIBUTES_V1_A")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
-            .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
-            .field("ClientPrincipalName", &self.ClientPrincipalName)
-            .field("AuthenticationLevel", &self.AuthenticationLevel)
-            .field("AuthenticationService", &self.AuthenticationService)
-            .field("NullSession", &self.NullSession)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength && self.ServerPrincipalName == other.ServerPrincipalName && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength && self.ClientPrincipalName == other.ClientPrincipalName && self.AuthenticationLevel == other.AuthenticationLevel && self.AuthenticationService == other.AuthenticationService && self.NullSession == other.NullSession
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V1_W {
@@ -7288,42 +6975,31 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub NullSession: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_CALL_ATTRIBUTES_V1_W {}
+impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_ATTRIBUTES_V1_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_ATTRIBUTES_V1_W")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
-            .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
-            .field("ClientPrincipalName", &self.ClientPrincipalName)
-            .field("AuthenticationLevel", &self.AuthenticationLevel)
-            .field("AuthenticationService", &self.AuthenticationService)
-            .field("NullSession", &self.NullSession)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength && self.ServerPrincipalName == other.ServerPrincipalName && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength && self.ClientPrincipalName == other.ClientPrincipalName && self.AuthenticationLevel == other.AuthenticationLevel && self.AuthenticationService == other.AuthenticationService && self.NullSession == other.NullSession
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_W {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
@@ -7347,68 +7023,31 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub InterfaceUuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_CALL_ATTRIBUTES_V2_A {}
+impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_ATTRIBUTES_V2_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V2_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_ATTRIBUTES_V2_A")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
-            .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
-            .field("ClientPrincipalName", &self.ClientPrincipalName)
-            .field("AuthenticationLevel", &self.AuthenticationLevel)
-            .field("AuthenticationService", &self.AuthenticationService)
-            .field("NullSession", &self.NullSession)
-            .field("KernelModeCaller", &self.KernelModeCaller)
-            .field("ProtocolSequence", &self.ProtocolSequence)
-            .field("IsClientLocal", &self.IsClientLocal)
-            .field("ClientPID", &self.ClientPID)
-            .field("CallStatus", &self.CallStatus)
-            .field("CallType", &self.CallType)
-            .field("CallLocalAddress", &self.CallLocalAddress)
-            .field("OpNum", &self.OpNum)
-            .field("InterfaceUuid", &self.InterfaceUuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength
-            && self.ServerPrincipalName == other.ServerPrincipalName
-            && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength
-            && self.ClientPrincipalName == other.ClientPrincipalName
-            && self.AuthenticationLevel == other.AuthenticationLevel
-            && self.AuthenticationService == other.AuthenticationService
-            && self.NullSession == other.NullSession
-            && self.KernelModeCaller == other.KernelModeCaller
-            && self.ProtocolSequence == other.ProtocolSequence
-            && self.IsClientLocal == other.IsClientLocal
-            && self.ClientPID == other.ClientPID
-            && self.CallStatus == other.CallStatus
-            && self.CallType == other.CallType
-            && self.CallLocalAddress == other.CallLocalAddress
-            && self.OpNum == other.OpNum
-            && self.InterfaceUuid == other.InterfaceUuid
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
@@ -7432,68 +7071,31 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub InterfaceUuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_CALL_ATTRIBUTES_V2_W {}
+impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_ATTRIBUTES_V2_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_ATTRIBUTES_V2_W")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
-            .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
-            .field("ClientPrincipalName", &self.ClientPrincipalName)
-            .field("AuthenticationLevel", &self.AuthenticationLevel)
-            .field("AuthenticationService", &self.AuthenticationService)
-            .field("NullSession", &self.NullSession)
-            .field("KernelModeCaller", &self.KernelModeCaller)
-            .field("ProtocolSequence", &self.ProtocolSequence)
-            .field("IsClientLocal", &self.IsClientLocal)
-            .field("ClientPID", &self.ClientPID)
-            .field("CallStatus", &self.CallStatus)
-            .field("CallType", &self.CallType)
-            .field("CallLocalAddress", &self.CallLocalAddress)
-            .field("OpNum", &self.OpNum)
-            .field("InterfaceUuid", &self.InterfaceUuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength
-            && self.ServerPrincipalName == other.ServerPrincipalName
-            && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength
-            && self.ClientPrincipalName == other.ClientPrincipalName
-            && self.AuthenticationLevel == other.AuthenticationLevel
-            && self.AuthenticationService == other.AuthenticationService
-            && self.NullSession == other.NullSession
-            && self.KernelModeCaller == other.KernelModeCaller
-            && self.ProtocolSequence == other.ProtocolSequence
-            && self.IsClientLocal == other.IsClientLocal
-            && self.ClientPID == other.ClientPID
-            && self.CallStatus == other.CallStatus
-            && self.CallType == other.CallType
-            && self.CallLocalAddress == other.CallLocalAddress
-            && self.OpNum == other.OpNum
-            && self.InterfaceUuid == other.InterfaceUuid
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_W {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V2_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
@@ -7519,72 +7121,31 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub ClientIdentifier: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_CALL_ATTRIBUTES_V3_A {}
+impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V3_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_ATTRIBUTES_V3_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V3_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_ATTRIBUTES_V3_A")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
-            .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
-            .field("ClientPrincipalName", &self.ClientPrincipalName)
-            .field("AuthenticationLevel", &self.AuthenticationLevel)
-            .field("AuthenticationService", &self.AuthenticationService)
-            .field("NullSession", &self.NullSession)
-            .field("KernelModeCaller", &self.KernelModeCaller)
-            .field("ProtocolSequence", &self.ProtocolSequence)
-            .field("IsClientLocal", &self.IsClientLocal)
-            .field("ClientPID", &self.ClientPID)
-            .field("CallStatus", &self.CallStatus)
-            .field("CallType", &self.CallType)
-            .field("CallLocalAddress", &self.CallLocalAddress)
-            .field("OpNum", &self.OpNum)
-            .field("InterfaceUuid", &self.InterfaceUuid)
-            .field("ClientIdentifierBufferLength", &self.ClientIdentifierBufferLength)
-            .field("ClientIdentifier", &self.ClientIdentifier)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength
-            && self.ServerPrincipalName == other.ServerPrincipalName
-            && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength
-            && self.ClientPrincipalName == other.ClientPrincipalName
-            && self.AuthenticationLevel == other.AuthenticationLevel
-            && self.AuthenticationService == other.AuthenticationService
-            && self.NullSession == other.NullSession
-            && self.KernelModeCaller == other.KernelModeCaller
-            && self.ProtocolSequence == other.ProtocolSequence
-            && self.IsClientLocal == other.IsClientLocal
-            && self.ClientPID == other.ClientPID
-            && self.CallStatus == other.CallStatus
-            && self.CallType == other.CallType
-            && self.CallLocalAddress == other.CallLocalAddress
-            && self.OpNum == other.OpNum
-            && self.InterfaceUuid == other.InterfaceUuid
-            && self.ClientIdentifierBufferLength == other.ClientIdentifierBufferLength
-            && self.ClientIdentifier == other.ClientIdentifier
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
@@ -7610,73 +7171,32 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub ClientIdentifier: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_CALL_ATTRIBUTES_V3_W {}
+impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V3_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_ATTRIBUTES_V3_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V3_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_ATTRIBUTES_V3_W")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
-            .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
-            .field("ClientPrincipalName", &self.ClientPrincipalName)
-            .field("AuthenticationLevel", &self.AuthenticationLevel)
-            .field("AuthenticationService", &self.AuthenticationService)
-            .field("NullSession", &self.NullSession)
-            .field("KernelModeCaller", &self.KernelModeCaller)
-            .field("ProtocolSequence", &self.ProtocolSequence)
-            .field("IsClientLocal", &self.IsClientLocal)
-            .field("ClientPID", &self.ClientPID)
-            .field("CallStatus", &self.CallStatus)
-            .field("CallType", &self.CallType)
-            .field("CallLocalAddress", &self.CallLocalAddress)
-            .field("OpNum", &self.OpNum)
-            .field("InterfaceUuid", &self.InterfaceUuid)
-            .field("ClientIdentifierBufferLength", &self.ClientIdentifierBufferLength)
-            .field("ClientIdentifier", &self.ClientIdentifier)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength
-            && self.ServerPrincipalName == other.ServerPrincipalName
-            && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength
-            && self.ClientPrincipalName == other.ClientPrincipalName
-            && self.AuthenticationLevel == other.AuthenticationLevel
-            && self.AuthenticationService == other.AuthenticationService
-            && self.NullSession == other.NullSession
-            && self.KernelModeCaller == other.KernelModeCaller
-            && self.ProtocolSequence == other.ProtocolSequence
-            && self.IsClientLocal == other.IsClientLocal
-            && self.ClientPID == other.ClientPID
-            && self.CallStatus == other.CallStatus
-            && self.CallType == other.CallType
-            && self.CallLocalAddress == other.CallLocalAddress
-            && self.OpNum == other.OpNum
-            && self.InterfaceUuid == other.InterfaceUuid
-            && self.ClientIdentifierBufferLength == other.ClientIdentifierBufferLength
-            && self.ClientIdentifier == other.ClientIdentifier
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_W {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_CALL_ATTRIBUTES_V3_W {
-    type Abi = Self;
-}
 pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub Version: u32,
@@ -7684,31 +7204,30 @@ pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub BufferSize: u32,
     pub AddressFormat: RpcLocalAddressFormat,
 }
-impl RPC_CALL_LOCAL_ADDRESS_V1 {}
+impl ::core::marker::Copy for RPC_CALL_LOCAL_ADDRESS_V1 {}
+impl ::core::clone::Clone for RPC_CALL_LOCAL_ADDRESS_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CALL_LOCAL_ADDRESS_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
 impl ::core::default::Default for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_LOCAL_ADDRESS_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CALL_LOCAL_ADDRESS_V1").field("Version", &self.Version).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("AddressFormat", &self.AddressFormat).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.AddressFormat == other.AddressFormat
-    }
-}
-impl ::core::cmp::Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
-unsafe impl ::windows::core::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
-    type Abi = Self;
-}
 pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
 pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2u32;
 pub type RPC_CLIENT_ALLOC = ::core::option::Option<unsafe extern "system" fn(size: usize) -> *mut ::core::ffi::c_void>;
 pub type RPC_CLIENT_FREE = ::core::option::Option<unsafe extern "system" fn(ptr: *const ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_CLIENT_INFORMATION1 {
     pub UserName: *mut u8,
@@ -7716,27 +7235,26 @@ pub struct RPC_CLIENT_INFORMATION1 {
     pub Privilege: u16,
     pub AuthFlags: u32,
 }
-impl RPC_CLIENT_INFORMATION1 {}
+impl ::core::marker::Copy for RPC_CLIENT_INFORMATION1 {}
+impl ::core::clone::Clone for RPC_CLIENT_INFORMATION1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_CLIENT_INFORMATION1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_CLIENT_INFORMATION1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CLIENT_INFORMATION1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_CLIENT_INFORMATION1 {}
 impl ::core::default::Default for RPC_CLIENT_INFORMATION1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_CLIENT_INFORMATION1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CLIENT_INFORMATION1").field("UserName", &self.UserName).field("ComputerName", &self.ComputerName).field("Privilege", &self.Privilege).field("AuthFlags", &self.AuthFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_CLIENT_INFORMATION1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserName == other.UserName && self.ComputerName == other.ComputerName && self.Privilege == other.Privilege && self.AuthFlags == other.AuthFlags
-    }
-}
-impl ::core::cmp::Eq for RPC_CLIENT_INFORMATION1 {}
-unsafe impl ::windows::core::Abi for RPC_CLIENT_INFORMATION1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_CLIENT_INTERFACE {
     pub Length: u32,
@@ -7749,25 +7267,25 @@ pub struct RPC_CLIENT_INTERFACE {
     pub InterpreterInfo: *mut ::core::ffi::c_void,
     pub Flags: u32,
 }
-impl RPC_CLIENT_INTERFACE {}
+impl ::core::marker::Copy for RPC_CLIENT_INTERFACE {}
+impl ::core::clone::Clone for RPC_CLIENT_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_CLIENT_INTERFACE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_CLIENT_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_CLIENT_INTERFACE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_CLIENT_INTERFACE {}
 impl ::core::default::Default for RPC_CLIENT_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RPC_CLIENT_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CLIENT_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("Reserved", &self.Reserved).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_CLIENT_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.InterfaceId == other.InterfaceId && self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint && self.Reserved == other.Reserved && self.InterpreterInfo == other.InterpreterInfo && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for RPC_CLIENT_INTERFACE {}
-unsafe impl ::windows::core::Abi for RPC_CLIENT_INTERFACE {
-    type Abi = Self;
 }
 pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0u32;
 pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912u32;
@@ -7783,47 +7301,9 @@ pub const RPC_C_AUTHN_DPA: u32 = 17u32;
 pub const RPC_C_AUTHN_GSS_KERBEROS: u32 = 16u32;
 pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
 pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
-pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0u32);
-pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(1u32);
-impl ::core::convert::From<u32> for RPC_C_AUTHN_INFO_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_C_AUTHN_INFO_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RPC_C_AUTHN_INFO_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_AUTHN_INFO_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_AUTHN_INFO_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_AUTHN_INFO_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_AUTHN_INFO_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RPC_C_AUTHN_INFO_TYPE = u32;
+pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = 0u32;
+pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = 1u32;
 pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
 pub const RPC_C_AUTHN_LIVEXP_SSP: u32 = 35u32;
 pub const RPC_C_AUTHN_LIVE_SSP: u32 = 32u32;
@@ -7856,90 +7336,14 @@ pub const RPC_C_HTTP_AUTHN_SCHEME_DIGEST: u32 = 8u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
-pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1u32);
-pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(2u32);
-impl ::core::convert::From<u32> for RPC_C_HTTP_AUTHN_TARGET {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_C_HTTP_AUTHN_TARGET {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_HTTP_AUTHN_TARGET {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_HTTP_AUTHN_TARGET {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_HTTP_AUTHN_TARGET {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_C_HTTP_FLAGS(pub u32);
-pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1u32);
-pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(2u32);
-pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(8u32);
-pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(16u32);
-impl ::core::convert::From<u32> for RPC_C_HTTP_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_C_HTTP_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RPC_C_HTTP_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_HTTP_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_HTTP_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_HTTP_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_HTTP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RPC_C_HTTP_AUTHN_TARGET = u32;
+pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = 1u32;
+pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = 2u32;
+pub type RPC_C_HTTP_FLAGS = u32;
+pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = 1u32;
+pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = 2u32;
+pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = 8u32;
+pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = 16u32;
 pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234u32;
 pub const RPC_C_MGMT_INQ_IF_IDS: u32 = 0u32;
 pub const RPC_C_MGMT_INQ_PRINC_NAME: u32 = 1u32;
@@ -7964,7 +7368,6 @@ pub const RPC_C_OPT_ASYNC_BLOCK: u32 = 15u32;
 pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9u32;
 pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
 pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
@@ -7972,30 +7375,30 @@ pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub Buffer: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
+impl ::core::marker::Copy for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR").field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
-    }
+unsafe impl ::windows::core::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    type Abi = Self;
+impl ::core::default::Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
 pub const RPC_C_OPT_MAX_OPTIONS: u32 = 12u32;
@@ -8026,93 +7429,17 @@ pub const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4u32;
 pub const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2u32;
 pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
 pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_C_QOS_CAPABILITIES(pub u32);
-pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(0u32);
-pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(1u32);
-pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(2u32);
-pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(4u32);
-pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(8u32);
-pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(16u32);
-pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(32u32);
-impl ::core::convert::From<u32> for RPC_C_QOS_CAPABILITIES {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_C_QOS_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RPC_C_QOS_CAPABILITIES {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_QOS_CAPABILITIES {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_QOS_CAPABILITIES {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_QOS_CAPABILITIES {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_QOS_CAPABILITIES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_C_QOS_IDENTITY(pub u32);
-pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0u32);
-pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(1u32);
-impl ::core::convert::From<u32> for RPC_C_QOS_IDENTITY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_C_QOS_IDENTITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RPC_C_QOS_IDENTITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RPC_C_QOS_IDENTITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RPC_C_QOS_IDENTITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RPC_C_QOS_IDENTITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RPC_C_QOS_IDENTITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RPC_C_QOS_CAPABILITIES = u32;
+pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = 0u32;
+pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = 1u32;
+pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = 2u32;
+pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = 4u32;
+pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = 8u32;
+pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = 16u32;
+pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = 32u32;
+pub type RPC_C_QOS_IDENTITY = u32;
+pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = 0u32;
+pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = 1u32;
 pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8u32;
 pub const RPC_C_SECURITY_QOS_VERSION: i32 = 1i32;
 pub const RPC_C_SECURITY_QOS_VERSION_1: i32 = 1i32;
@@ -8133,35 +7460,33 @@ pub const RPC_C_VERS_EXACT: u32 = 3u32;
 pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
 pub const RPC_C_VERS_UPTO: u32 = 5u32;
 pub type RPC_DISPATCH_FUNCTION = ::core::option::Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
 }
-impl RPC_DISPATCH_TABLE {}
+impl ::core::marker::Copy for RPC_DISPATCH_TABLE {}
+impl ::core::clone::Clone for RPC_DISPATCH_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_DISPATCH_TABLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_DISPATCH_TABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_DISPATCH_TABLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_DISPATCH_TABLE {}
 impl ::core::default::Default for RPC_DISPATCH_TABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_DISPATCH_TABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_DISPATCH_TABLE").field("DispatchTableCount", &self.DispatchTableCount).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_DISPATCH_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DispatchTableCount == other.DispatchTableCount && self.DispatchTable.map(|f| f as usize) == other.DispatchTable.map(|f| f as usize) && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for RPC_DISPATCH_TABLE {}
-unsafe impl ::windows::core::Abi for RPC_DISPATCH_TABLE {
-    type Abi = Self;
-}
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_EE_INFO_PARAM {
@@ -8169,26 +7494,31 @@ pub struct RPC_EE_INFO_PARAM {
     pub u: RPC_EE_INFO_PARAM_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_EE_INFO_PARAM {}
+impl ::core::marker::Copy for RPC_EE_INFO_PARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_EE_INFO_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_EE_INFO_PARAM>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_EE_INFO_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_EE_INFO_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_EE_INFO_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union RPC_EE_INFO_PARAM_0 {
@@ -8200,26 +7530,31 @@ pub union RPC_EE_INFO_PARAM_0 {
     pub BVal: BinaryParam,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_EE_INFO_PARAM_0 {}
+impl ::core::marker::Copy for RPC_EE_INFO_PARAM_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_EE_INFO_PARAM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_EE_INFO_PARAM_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_EE_INFO_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_EE_INFO_PARAM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_EE_INFO_PARAM_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Version: u32,
@@ -8228,27 +7563,26 @@ pub struct RPC_ENDPOINT_TEMPLATEA {
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
     pub Backlog: u32,
 }
-impl RPC_ENDPOINT_TEMPLATEA {}
+impl ::core::marker::Copy for RPC_ENDPOINT_TEMPLATEA {}
+impl ::core::clone::Clone for RPC_ENDPOINT_TEMPLATEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ENDPOINT_TEMPLATEA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEA {}
 impl ::core::default::Default for RPC_ENDPOINT_TEMPLATEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_ENDPOINT_TEMPLATEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_ENDPOINT_TEMPLATEA").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ProtSeq == other.ProtSeq && self.Endpoint == other.Endpoint && self.SecurityDescriptor == other.SecurityDescriptor && self.Backlog == other.Backlog
-    }
-}
-impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEA {}
-unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Version: u32,
@@ -8257,54 +7591,52 @@ pub struct RPC_ENDPOINT_TEMPLATEW {
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
     pub Backlog: u32,
 }
-impl RPC_ENDPOINT_TEMPLATEW {}
+impl ::core::marker::Copy for RPC_ENDPOINT_TEMPLATEW {}
+impl ::core::clone::Clone for RPC_ENDPOINT_TEMPLATEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ENDPOINT_TEMPLATEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEW {}
 impl ::core::default::Default for RPC_ENDPOINT_TEMPLATEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_ENDPOINT_TEMPLATEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_ENDPOINT_TEMPLATEW").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ProtSeq == other.ProtSeq && self.Endpoint == other.Endpoint && self.SecurityDescriptor == other.SecurityDescriptor && self.Backlog == other.Backlog
-    }
-}
-impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEW {}
-unsafe impl ::windows::core::Abi for RPC_ENDPOINT_TEMPLATEW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_ERROR_ENUM_HANDLE {
     pub Signature: u32,
     pub CurrentPos: *mut ::core::ffi::c_void,
     pub Head: *mut ::core::ffi::c_void,
 }
-impl RPC_ERROR_ENUM_HANDLE {}
+impl ::core::marker::Copy for RPC_ERROR_ENUM_HANDLE {}
+impl ::core::clone::Clone for RPC_ERROR_ENUM_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_ERROR_ENUM_HANDLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_ERROR_ENUM_HANDLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_ERROR_ENUM_HANDLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_ERROR_ENUM_HANDLE {}
 impl ::core::default::Default for RPC_ERROR_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_ERROR_ENUM_HANDLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_ERROR_ENUM_HANDLE").field("Signature", &self.Signature).field("CurrentPos", &self.CurrentPos).field("Head", &self.Head).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_ERROR_ENUM_HANDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.CurrentPos == other.CurrentPos && self.Head == other.Head
-    }
-}
-impl ::core::cmp::Eq for RPC_ERROR_ENUM_HANDLE {}
-unsafe impl ::windows::core::Abi for RPC_ERROR_ENUM_HANDLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_EXTENDED_ERROR_INFO {
@@ -8320,26 +7652,31 @@ pub struct RPC_EXTENDED_ERROR_INFO {
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_EXTENDED_ERROR_INFO {}
+impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_EXTENDED_ERROR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_EXTENDED_ERROR_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_EXTENDED_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_EXTENDED_ERROR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_EXTENDED_ERROR_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_EXTENDED_ERROR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union RPC_EXTENDED_ERROR_INFO_0 {
@@ -8347,46 +7684,41 @@ pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub FileTime: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RPC_EXTENDED_ERROR_INFO_0 {}
+impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RPC_EXTENDED_ERROR_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_EXTENDED_ERROR_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RPC_EXTENDED_ERROR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_EXTENDED_ERROR_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RPC_EXTENDED_ERROR_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RPC_EXTENDED_ERROR_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO_0 {
-    type Abi = Self;
-}
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
 pub type RPC_FORWARD_FUNCTION = ::core::option::Option<unsafe extern "system" fn(interfaceid: *mut ::windows::core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows::core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS>;
 pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
 pub type RPC_HTTP_PROXY_FREE_STRING = ::core::option::Option<unsafe extern "system" fn(string: *const u16)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
-pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1i32);
-pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(2i32);
-pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(3i32);
-pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(4i32);
-pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(5i32);
-impl ::core::convert::From<i32> for RPC_HTTP_REDIRECTOR_STAGE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_HTTP_REDIRECTOR_STAGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RPC_HTTP_REDIRECTOR_STAGE = i32;
+pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1i32;
+pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = 2i32;
+pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3i32;
+pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = 4i32;
+pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5i32;
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
@@ -8396,27 +7728,26 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u8,
 }
-impl RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
+impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
+impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_HTTP_TRANSPORT_CREDENTIALS_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
 impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_A").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject
-    }
-}
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
-unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
@@ -8429,37 +7760,26 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
+impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
+impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
 impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A")
-            .field("TransportCredentials", &self.TransportCredentials)
-            .field("Flags", &self.Flags)
-            .field("AuthenticationTarget", &self.AuthenticationTarget)
-            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
-            .field("AuthnSchemes", &self.AuthnSchemes)
-            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
-            .field("ProxyCredentials", &self.ProxyCredentials)
-            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
-            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
-    }
-}
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
-unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
@@ -8472,37 +7792,26 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
+impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
+impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
 impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W")
-            .field("TransportCredentials", &self.TransportCredentials)
-            .field("Flags", &self.Flags)
-            .field("AuthenticationTarget", &self.AuthenticationTarget)
-            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
-            .field("AuthnSchemes", &self.AuthnSchemes)
-            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
-            .field("ProxyCredentials", &self.ProxyCredentials)
-            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
-            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
-    }
-}
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
-unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub TransportCredentials: *mut ::core::ffi::c_void,
@@ -8515,37 +7824,26 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
+impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
+impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
 impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A")
-            .field("TransportCredentials", &self.TransportCredentials)
-            .field("Flags", &self.Flags)
-            .field("AuthenticationTarget", &self.AuthenticationTarget)
-            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
-            .field("AuthnSchemes", &self.AuthnSchemes)
-            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
-            .field("ProxyCredentials", &self.ProxyCredentials)
-            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
-            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
-    }
-}
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
-unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub TransportCredentials: *mut ::core::ffi::c_void,
@@ -8558,37 +7856,26 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
+impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
+impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
 impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W")
-            .field("TransportCredentials", &self.TransportCredentials)
-            .field("Flags", &self.Flags)
-            .field("AuthenticationTarget", &self.AuthenticationTarget)
-            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
-            .field("AuthnSchemes", &self.AuthnSchemes)
-            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
-            .field("ProxyCredentials", &self.ProxyCredentials)
-            .field("NumberOfProxyAuthnSchemes", &self.NumberOfProxyAuthnSchemes)
-            .field("ProxyAuthnSchemes", &self.ProxyAuthnSchemes)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
-    }
-}
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
-unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
@@ -8598,25 +7885,25 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u16,
 }
-impl RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
+impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
+impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_HTTP_TRANSPORT_CREDENTIALS_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
 impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_W").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject
-    }
-}
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
-unsafe impl ::windows::core::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    type Abi = Self;
 }
 pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: u32 = 16u32;
 pub const RPC_IF_ALLOW_LOCAL_ONLY: u32 = 32u32;
@@ -8625,92 +7912,88 @@ pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
 pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
 pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
 pub type RPC_IF_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(interfaceuuid: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> RPC_STATUS>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_IF_ID {
     pub Uuid: ::windows::core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
-impl RPC_IF_ID {}
+impl ::core::marker::Copy for RPC_IF_ID {}
+impl ::core::clone::Clone for RPC_IF_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_IF_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_IF_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_IF_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_IF_ID {}
 impl ::core::default::Default for RPC_IF_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_IF_ID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_IF_ID").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_IF_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Uuid == other.Uuid && self.VersMajor == other.VersMajor && self.VersMinor == other.VersMinor
-    }
-}
-impl ::core::cmp::Eq for RPC_IF_ID {}
-unsafe impl ::windows::core::Abi for RPC_IF_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_IF_ID_VECTOR {
     pub Count: u32,
     pub IfId: [*mut RPC_IF_ID; 1],
 }
-impl RPC_IF_ID_VECTOR {}
+impl ::core::marker::Copy for RPC_IF_ID_VECTOR {}
+impl ::core::clone::Clone for RPC_IF_ID_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_IF_ID_VECTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_IF_ID_VECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_IF_ID_VECTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_IF_ID_VECTOR {}
 impl ::core::default::Default for RPC_IF_ID_VECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_IF_ID_VECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_IF_ID_VECTOR").field("Count", &self.Count).field("IfId", &self.IfId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_IF_ID_VECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.IfId == other.IfId
-    }
-}
-impl ::core::cmp::Eq for RPC_IF_ID_VECTOR {}
-unsafe impl ::windows::core::Abi for RPC_IF_ID_VECTOR {
-    type Abi = Self;
-}
 pub const RPC_IF_OLE: u32 = 2u32;
 pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
 pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_IMPORT_CONTEXT_P {
     pub LookupContext: *mut ::core::ffi::c_void,
     pub ProposedHandle: *mut ::core::ffi::c_void,
     pub Bindings: *mut RPC_BINDING_VECTOR,
 }
-impl RPC_IMPORT_CONTEXT_P {}
+impl ::core::marker::Copy for RPC_IMPORT_CONTEXT_P {}
+impl ::core::clone::Clone for RPC_IMPORT_CONTEXT_P {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_IMPORT_CONTEXT_P {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_IMPORT_CONTEXT_P {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_IMPORT_CONTEXT_P>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_IMPORT_CONTEXT_P {}
 impl ::core::default::Default for RPC_IMPORT_CONTEXT_P {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_IMPORT_CONTEXT_P {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_IMPORT_CONTEXT_P").field("LookupContext", &self.LookupContext).field("ProposedHandle", &self.ProposedHandle).field("Bindings", &self.Bindings).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_IMPORT_CONTEXT_P {
-    fn eq(&self, other: &Self) -> bool {
-        self.LookupContext == other.LookupContext && self.ProposedHandle == other.ProposedHandle && self.Bindings == other.Bindings
-    }
-}
-impl ::core::cmp::Eq for RPC_IMPORT_CONTEXT_P {}
-unsafe impl ::windows::core::Abi for RPC_IMPORT_CONTEXT_P {
-    type Abi = Self;
-}
 pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(ifgroup: *const ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, isgroupidle: u32)>;
 pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
@@ -8725,27 +8008,26 @@ pub struct RPC_INTERFACE_TEMPLATEA {
     pub Annotation: *mut u8,
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
 }
-impl RPC_INTERFACE_TEMPLATEA {}
+impl ::core::marker::Copy for RPC_INTERFACE_TEMPLATEA {}
+impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_INTERFACE_TEMPLATEA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEA {}
 impl ::core::default::Default for RPC_INTERFACE_TEMPLATEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_INTERFACE_TEMPLATEA").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.IfSpec == other.IfSpec && self.MgrTypeUuid == other.MgrTypeUuid && self.MgrEpv == other.MgrEpv && self.Flags == other.Flags && self.MaxCalls == other.MaxCalls && self.MaxRpcSize == other.MaxRpcSize && self.IfCallback.map(|f| f as usize) == other.IfCallback.map(|f| f as usize) && self.UuidVector == other.UuidVector && self.Annotation == other.Annotation && self.SecurityDescriptor == other.SecurityDescriptor
-    }
-}
-impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEA {}
-unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
@@ -8760,27 +8042,26 @@ pub struct RPC_INTERFACE_TEMPLATEW {
     pub Annotation: *mut u16,
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
 }
-impl RPC_INTERFACE_TEMPLATEW {}
+impl ::core::marker::Copy for RPC_INTERFACE_TEMPLATEW {}
+impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_INTERFACE_TEMPLATEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEW {}
 impl ::core::default::Default for RPC_INTERFACE_TEMPLATEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_INTERFACE_TEMPLATEW").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.IfSpec == other.IfSpec && self.MgrTypeUuid == other.MgrTypeUuid && self.MgrEpv == other.MgrEpv && self.Flags == other.Flags && self.MaxCalls == other.MaxCalls && self.MaxRpcSize == other.MaxRpcSize && self.IfCallback.map(|f| f as usize) == other.IfCallback.map(|f| f as usize) && self.UuidVector == other.UuidVector && self.Annotation == other.Annotation && self.SecurityDescriptor == other.SecurityDescriptor
-    }
-}
-impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEW {}
-unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_MESSAGE {
     pub Handle: *mut ::core::ffi::c_void,
@@ -8795,37 +8076,25 @@ pub struct RPC_MESSAGE {
     pub ImportContext: *mut ::core::ffi::c_void,
     pub RpcFlags: u32,
 }
-impl RPC_MESSAGE {}
+impl ::core::marker::Copy for RPC_MESSAGE {}
+impl ::core::clone::Clone for RPC_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_MESSAGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_MESSAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_MESSAGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_MESSAGE {}
 impl ::core::default::Default for RPC_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RPC_MESSAGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_MESSAGE")
-            .field("Handle", &self.Handle)
-            .field("DataRepresentation", &self.DataRepresentation)
-            .field("Buffer", &self.Buffer)
-            .field("BufferLength", &self.BufferLength)
-            .field("ProcNum", &self.ProcNum)
-            .field("TransferSyntax", &self.TransferSyntax)
-            .field("RpcInterfaceInformation", &self.RpcInterfaceInformation)
-            .field("ReservedForRuntime", &self.ReservedForRuntime)
-            .field("ManagerEpv", &self.ManagerEpv)
-            .field("ImportContext", &self.ImportContext)
-            .field("RpcFlags", &self.RpcFlags)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Handle == other.Handle && self.DataRepresentation == other.DataRepresentation && self.Buffer == other.Buffer && self.BufferLength == other.BufferLength && self.ProcNum == other.ProcNum && self.TransferSyntax == other.TransferSyntax && self.RpcInterfaceInformation == other.RpcInterfaceInformation && self.ReservedForRuntime == other.ReservedForRuntime && self.ManagerEpv == other.ManagerEpv && self.ImportContext == other.ImportContext && self.RpcFlags == other.RpcFlags
-    }
-}
-impl ::core::cmp::Eq for RPC_MESSAGE {}
-unsafe impl ::windows::core::Abi for RPC_MESSAGE {
-    type Abi = Self;
 }
 pub type RPC_MGMT_AUTHORIZATION_FN = ::core::option::Option<unsafe extern "system" fn(clientbinding: *const ::core::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32>;
 pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
@@ -8833,146 +8102,122 @@ pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
 pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
 pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
 pub type RPC_NEW_HTTP_PROXY_CHANNEL = ::core::option::Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_NOTIFICATIONS(pub i32);
-pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
-pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(1i32);
-pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(2i32);
-impl ::core::convert::From<i32> for RPC_NOTIFICATIONS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_NOTIFICATIONS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_NOTIFICATION_TYPES(pub i32);
-pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0i32);
-pub const RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(1i32);
-pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(2i32);
-pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(3i32);
-pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(4i32);
-pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(5i32);
-impl ::core::convert::From<i32> for RPC_NOTIFICATION_TYPES {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_NOTIFICATION_TYPES {
-    type Abi = Self;
-}
+pub type RPC_NOTIFICATIONS = i32;
+pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = 0i32;
+pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = 1i32;
+pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = 2i32;
+pub type RPC_NOTIFICATION_TYPES = i32;
+pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = 0i32;
+pub const RpcNotificationTypeEvent: RPC_NOTIFICATION_TYPES = 1i32;
+pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = 2i32;
+pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = 3i32;
+pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = 4i32;
+pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = 5i32;
 pub type RPC_OBJECT_INQ_FN = ::core::option::Option<unsafe extern "system" fn(objectuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID, status: *mut RPC_STATUS)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_POLICY {
     pub Length: u32,
     pub EndpointFlags: u32,
     pub NICFlags: u32,
 }
-impl RPC_POLICY {}
+impl ::core::marker::Copy for RPC_POLICY {}
+impl ::core::clone::Clone for RPC_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_POLICY {}
 impl ::core::default::Default for RPC_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_POLICY").field("Length", &self.Length).field("EndpointFlags", &self.EndpointFlags).field("NICFlags", &self.NICFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.EndpointFlags == other.EndpointFlags && self.NICFlags == other.NICFlags
-    }
-}
-impl ::core::cmp::Eq for RPC_POLICY {}
-unsafe impl ::windows::core::Abi for RPC_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_PROTSEQ_ENDPOINT {
     pub RpcProtocolSequence: *mut u8,
     pub Endpoint: *mut u8,
 }
-impl RPC_PROTSEQ_ENDPOINT {}
+impl ::core::marker::Copy for RPC_PROTSEQ_ENDPOINT {}
+impl ::core::clone::Clone for RPC_PROTSEQ_ENDPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_PROTSEQ_ENDPOINT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_PROTSEQ_ENDPOINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_PROTSEQ_ENDPOINT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_PROTSEQ_ENDPOINT {}
 impl ::core::default::Default for RPC_PROTSEQ_ENDPOINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_PROTSEQ_ENDPOINT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_PROTSEQ_ENDPOINT").field("RpcProtocolSequence", &self.RpcProtocolSequence).field("Endpoint", &self.Endpoint).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_PROTSEQ_ENDPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.RpcProtocolSequence == other.RpcProtocolSequence && self.Endpoint == other.Endpoint
-    }
-}
-impl ::core::cmp::Eq for RPC_PROTSEQ_ENDPOINT {}
-unsafe impl ::windows::core::Abi for RPC_PROTSEQ_ENDPOINT {
-    type Abi = Self;
-}
 pub const RPC_PROTSEQ_HTTP: u32 = 4u32;
 pub const RPC_PROTSEQ_LRPC: u32 = 3u32;
 pub const RPC_PROTSEQ_NMP: u32 = 2u32;
 pub const RPC_PROTSEQ_TCP: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_PROTSEQ_VECTORA {
     pub Count: u32,
     pub Protseq: [*mut u8; 1],
 }
-impl RPC_PROTSEQ_VECTORA {}
+impl ::core::marker::Copy for RPC_PROTSEQ_VECTORA {}
+impl ::core::clone::Clone for RPC_PROTSEQ_VECTORA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_PROTSEQ_VECTORA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORA {}
 impl ::core::default::Default for RPC_PROTSEQ_VECTORA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_PROTSEQ_VECTORA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_PROTSEQ_VECTORA").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Protseq == other.Protseq
-    }
-}
-impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORA {}
-unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_PROTSEQ_VECTORW {
     pub Count: u32,
     pub Protseq: [*mut u16; 1],
 }
-impl RPC_PROTSEQ_VECTORW {}
+impl ::core::marker::Copy for RPC_PROTSEQ_VECTORW {}
+impl ::core::clone::Clone for RPC_PROTSEQ_VECTORW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_PROTSEQ_VECTORW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORW {}
 impl ::core::default::Default for RPC_PROTSEQ_VECTORW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RPC_PROTSEQ_VECTORW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_PROTSEQ_VECTORW").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Protseq == other.Protseq
-    }
-}
-impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORW {}
-unsafe impl ::windows::core::Abi for RPC_PROTSEQ_VECTORW {
-    type Abi = Self;
 }
 pub const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0u32;
 pub const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: u32 = 1u32;
@@ -8986,7 +8231,6 @@ pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32u32;
 pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
 pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
 pub type RPC_SECURITY_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS {
@@ -8996,32 +8240,31 @@ pub struct RPC_SECURITY_QOS {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_SECURITY_QOS").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Capabilities == other.Capabilities && self.IdentityTracking == other.IdentityTracking && self.ImpersonationType == other.ImpersonationType
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V2_A {
@@ -9033,52 +8276,62 @@ pub struct RPC_SECURITY_QOS_V2_A {
     pub u: RPC_SECURITY_QOS_V2_A_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V2_A {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V2_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_A {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V2_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_A {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V2_A_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_A_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V2_A_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V2_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_A_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_A_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V2_W {
@@ -9090,52 +8343,62 @@ pub struct RPC_SECURITY_QOS_V2_W {
     pub u: RPC_SECURITY_QOS_V2_W_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V2_W {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V2_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_W {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V2_W_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_W_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_W_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V2_W_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V2_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V2_W_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V2_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V2_W_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V3_A {
@@ -9148,52 +8411,62 @@ pub struct RPC_SECURITY_QOS_V3_A {
     pub Sid: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V3_A {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_A {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V3_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_A {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V3_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_A {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V3_A_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_A_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V3_A_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V3_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_A_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_A_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V3_W {
@@ -9206,52 +8479,62 @@ pub struct RPC_SECURITY_QOS_V3_W {
     pub Sid: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V3_W {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V3_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V3_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_W {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V3_W_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_W_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_W_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V3_W_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V3_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V3_W_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V3_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V3_W_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V4_A {
@@ -9265,52 +8548,62 @@ pub struct RPC_SECURITY_QOS_V4_A {
     pub EffectiveOnly: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V4_A {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_A {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V4_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_A {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V4_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_A {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V4_A_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_A_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V4_A_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V4_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_A_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_A_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V4_W {
@@ -9324,52 +8617,62 @@ pub struct RPC_SECURITY_QOS_V4_W {
     pub EffectiveOnly: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V4_W {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V4_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V4_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_W {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V4_W_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_W_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_W_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V4_W_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V4_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V4_W_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V4_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V4_W_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V5_A {
@@ -9384,52 +8687,62 @@ pub struct RPC_SECURITY_QOS_V5_A {
     pub ServerSecurityDescriptor: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V5_A {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_A {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V5_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_A {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V5_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_A {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V5_A_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_A_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V5_A_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V5_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_A_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_A_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V5_W {
@@ -9444,79 +8757,88 @@ pub struct RPC_SECURITY_QOS_V5_W {
     pub ServerSecurityDescriptor: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V5_W {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V5_W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_W {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V5_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_W {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl RPC_SECURITY_QOS_V5_W_0 {}
+impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_W_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SECURITY_QOS_V5_W_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for RPC_SECURITY_QOS_V5_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS_V5_W_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS_V5_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for RPC_SECURITY_QOS_V5_W_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub EncryptAlgorithm: u32,
     pub KeySize: u32,
     pub SignatureAlgorithm: u32,
 }
-impl RPC_SEC_CONTEXT_KEY_INFO {}
+impl ::core::marker::Copy for RPC_SEC_CONTEXT_KEY_INFO {}
+impl ::core::clone::Clone for RPC_SEC_CONTEXT_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_SEC_CONTEXT_KEY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SEC_CONTEXT_KEY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_SEC_CONTEXT_KEY_INFO {}
 impl ::core::default::Default for RPC_SEC_CONTEXT_KEY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_SEC_CONTEXT_KEY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_SEC_CONTEXT_KEY_INFO").field("EncryptAlgorithm", &self.EncryptAlgorithm).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EncryptAlgorithm == other.EncryptAlgorithm && self.KeySize == other.KeySize && self.SignatureAlgorithm == other.SignatureAlgorithm
-    }
-}
-impl ::core::cmp::Eq for RPC_SEC_CONTEXT_KEY_INFO {}
-unsafe impl ::windows::core::Abi for RPC_SEC_CONTEXT_KEY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_SERVER_INTERFACE {
     pub Length: u32,
@@ -9529,248 +8851,234 @@ pub struct RPC_SERVER_INTERFACE {
     pub InterpreterInfo: *mut ::core::ffi::c_void,
     pub Flags: u32,
 }
-impl RPC_SERVER_INTERFACE {}
+impl ::core::marker::Copy for RPC_SERVER_INTERFACE {}
+impl ::core::clone::Clone for RPC_SERVER_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_SERVER_INTERFACE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_SERVER_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SERVER_INTERFACE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_SERVER_INTERFACE {}
 impl ::core::default::Default for RPC_SERVER_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_SERVER_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_SERVER_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("DefaultManagerEpv", &self.DefaultManagerEpv).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_SERVER_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.InterfaceId == other.InterfaceId && self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint && self.DefaultManagerEpv == other.DefaultManagerEpv && self.InterpreterInfo == other.InterpreterInfo && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for RPC_SERVER_INTERFACE {}
-unsafe impl ::windows::core::Abi for RPC_SERVER_INTERFACE {
-    type Abi = Self;
-}
-pub type RPC_SETFILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(pfnfilter: ::windows::core::RawPtr)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RPC_SETFILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
 #[repr(C)]
 pub struct RPC_STATS_VECTOR {
     pub Count: u32,
     pub Stats: [u32; 1],
 }
-impl RPC_STATS_VECTOR {}
+impl ::core::marker::Copy for RPC_STATS_VECTOR {}
+impl ::core::clone::Clone for RPC_STATS_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_STATS_VECTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_STATS_VECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_STATS_VECTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_STATS_VECTOR {}
 impl ::core::default::Default for RPC_STATS_VECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_STATS_VECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_STATS_VECTOR").field("Count", &self.Count).field("Stats", &self.Stats).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_STATS_VECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Stats == other.Stats
-    }
-}
-impl ::core::cmp::Eq for RPC_STATS_VECTOR {}
-unsafe impl ::windows::core::Abi for RPC_STATS_VECTOR {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RPC_STATUS(pub i32);
-pub const RPC_S_INVALID_STRING_BINDING: RPC_STATUS = RPC_STATUS(1700i32);
-pub const RPC_S_WRONG_KIND_OF_BINDING: RPC_STATUS = RPC_STATUS(1701i32);
-pub const RPC_S_INVALID_BINDING: RPC_STATUS = RPC_STATUS(1702i32);
-pub const RPC_S_PROTSEQ_NOT_SUPPORTED: RPC_STATUS = RPC_STATUS(1703i32);
-pub const RPC_S_INVALID_RPC_PROTSEQ: RPC_STATUS = RPC_STATUS(1704i32);
-pub const RPC_S_INVALID_STRING_UUID: RPC_STATUS = RPC_STATUS(1705i32);
-pub const RPC_S_INVALID_ENDPOINT_FORMAT: RPC_STATUS = RPC_STATUS(1706i32);
-pub const RPC_S_INVALID_NET_ADDR: RPC_STATUS = RPC_STATUS(1707i32);
-pub const RPC_S_NO_ENDPOINT_FOUND: RPC_STATUS = RPC_STATUS(1708i32);
-pub const RPC_S_INVALID_TIMEOUT: RPC_STATUS = RPC_STATUS(1709i32);
-pub const RPC_S_OBJECT_NOT_FOUND: RPC_STATUS = RPC_STATUS(1710i32);
-pub const RPC_S_ALREADY_REGISTERED: RPC_STATUS = RPC_STATUS(1711i32);
-pub const RPC_S_TYPE_ALREADY_REGISTERED: RPC_STATUS = RPC_STATUS(1712i32);
-pub const RPC_S_ALREADY_LISTENING: RPC_STATUS = RPC_STATUS(1713i32);
-pub const RPC_S_NO_PROTSEQS_REGISTERED: RPC_STATUS = RPC_STATUS(1714i32);
-pub const RPC_S_NOT_LISTENING: RPC_STATUS = RPC_STATUS(1715i32);
-pub const RPC_S_UNKNOWN_MGR_TYPE: RPC_STATUS = RPC_STATUS(1716i32);
-pub const RPC_S_UNKNOWN_IF: RPC_STATUS = RPC_STATUS(1717i32);
-pub const RPC_S_NO_BINDINGS: RPC_STATUS = RPC_STATUS(1718i32);
-pub const RPC_S_NO_PROTSEQS: RPC_STATUS = RPC_STATUS(1719i32);
-pub const RPC_S_CANT_CREATE_ENDPOINT: RPC_STATUS = RPC_STATUS(1720i32);
-pub const RPC_S_OUT_OF_RESOURCES: RPC_STATUS = RPC_STATUS(1721i32);
-pub const RPC_S_SERVER_UNAVAILABLE: RPC_STATUS = RPC_STATUS(1722i32);
-pub const RPC_S_SERVER_TOO_BUSY: RPC_STATUS = RPC_STATUS(1723i32);
-pub const RPC_S_INVALID_NETWORK_OPTIONS: RPC_STATUS = RPC_STATUS(1724i32);
-pub const RPC_S_NO_CALL_ACTIVE: RPC_STATUS = RPC_STATUS(1725i32);
-pub const RPC_S_CALL_FAILED: RPC_STATUS = RPC_STATUS(1726i32);
-pub const RPC_S_CALL_FAILED_DNE: RPC_STATUS = RPC_STATUS(1727i32);
-pub const RPC_S_PROTOCOL_ERROR: RPC_STATUS = RPC_STATUS(1728i32);
-pub const RPC_S_PROXY_ACCESS_DENIED: RPC_STATUS = RPC_STATUS(1729i32);
-pub const RPC_S_UNSUPPORTED_TRANS_SYN: RPC_STATUS = RPC_STATUS(1730i32);
-pub const RPC_S_UNSUPPORTED_TYPE: RPC_STATUS = RPC_STATUS(1732i32);
-pub const RPC_S_INVALID_TAG: RPC_STATUS = RPC_STATUS(1733i32);
-pub const RPC_S_INVALID_BOUND: RPC_STATUS = RPC_STATUS(1734i32);
-pub const RPC_S_NO_ENTRY_NAME: RPC_STATUS = RPC_STATUS(1735i32);
-pub const RPC_S_INVALID_NAME_SYNTAX: RPC_STATUS = RPC_STATUS(1736i32);
-pub const RPC_S_UNSUPPORTED_NAME_SYNTAX: RPC_STATUS = RPC_STATUS(1737i32);
-pub const RPC_S_UUID_NO_ADDRESS: RPC_STATUS = RPC_STATUS(1739i32);
-pub const RPC_S_DUPLICATE_ENDPOINT: RPC_STATUS = RPC_STATUS(1740i32);
-pub const RPC_S_UNKNOWN_AUTHN_TYPE: RPC_STATUS = RPC_STATUS(1741i32);
-pub const RPC_S_MAX_CALLS_TOO_SMALL: RPC_STATUS = RPC_STATUS(1742i32);
-pub const RPC_S_STRING_TOO_LONG: RPC_STATUS = RPC_STATUS(1743i32);
-pub const RPC_S_PROTSEQ_NOT_FOUND: RPC_STATUS = RPC_STATUS(1744i32);
-pub const RPC_S_PROCNUM_OUT_OF_RANGE: RPC_STATUS = RPC_STATUS(1745i32);
-pub const RPC_S_BINDING_HAS_NO_AUTH: RPC_STATUS = RPC_STATUS(1746i32);
-pub const RPC_S_UNKNOWN_AUTHN_SERVICE: RPC_STATUS = RPC_STATUS(1747i32);
-pub const RPC_S_UNKNOWN_AUTHN_LEVEL: RPC_STATUS = RPC_STATUS(1748i32);
-pub const RPC_S_INVALID_AUTH_IDENTITY: RPC_STATUS = RPC_STATUS(1749i32);
-pub const RPC_S_UNKNOWN_AUTHZ_SERVICE: RPC_STATUS = RPC_STATUS(1750i32);
-pub const EPT_S_INVALID_ENTRY: RPC_STATUS = RPC_STATUS(1751i32);
-pub const EPT_S_CANT_PERFORM_OP: RPC_STATUS = RPC_STATUS(1752i32);
-pub const EPT_S_NOT_REGISTERED: RPC_STATUS = RPC_STATUS(1753i32);
-pub const RPC_S_NOTHING_TO_EXPORT: RPC_STATUS = RPC_STATUS(1754i32);
-pub const RPC_S_INCOMPLETE_NAME: RPC_STATUS = RPC_STATUS(1755i32);
-pub const RPC_S_INVALID_VERS_OPTION: RPC_STATUS = RPC_STATUS(1756i32);
-pub const RPC_S_NO_MORE_MEMBERS: RPC_STATUS = RPC_STATUS(1757i32);
-pub const RPC_S_NOT_ALL_OBJS_UNEXPORTED: RPC_STATUS = RPC_STATUS(1758i32);
-pub const RPC_S_INTERFACE_NOT_FOUND: RPC_STATUS = RPC_STATUS(1759i32);
-pub const RPC_S_ENTRY_ALREADY_EXISTS: RPC_STATUS = RPC_STATUS(1760i32);
-pub const RPC_S_ENTRY_NOT_FOUND: RPC_STATUS = RPC_STATUS(1761i32);
-pub const RPC_S_NAME_SERVICE_UNAVAILABLE: RPC_STATUS = RPC_STATUS(1762i32);
-pub const RPC_S_INVALID_NAF_ID: RPC_STATUS = RPC_STATUS(1763i32);
-pub const RPC_S_CANNOT_SUPPORT: RPC_STATUS = RPC_STATUS(1764i32);
-pub const RPC_S_NO_CONTEXT_AVAILABLE: RPC_STATUS = RPC_STATUS(1765i32);
-pub const RPC_S_INTERNAL_ERROR: RPC_STATUS = RPC_STATUS(1766i32);
-pub const RPC_S_ZERO_DIVIDE: RPC_STATUS = RPC_STATUS(1767i32);
-pub const RPC_S_ADDRESS_ERROR: RPC_STATUS = RPC_STATUS(1768i32);
-pub const RPC_S_FP_DIV_ZERO: RPC_STATUS = RPC_STATUS(1769i32);
-pub const RPC_S_FP_UNDERFLOW: RPC_STATUS = RPC_STATUS(1770i32);
-pub const RPC_S_FP_OVERFLOW: RPC_STATUS = RPC_STATUS(1771i32);
-pub const RPC_S_CALL_IN_PROGRESS: RPC_STATUS = RPC_STATUS(1791i32);
-pub const RPC_S_NO_MORE_BINDINGS: RPC_STATUS = RPC_STATUS(1806i32);
-pub const RPC_S_NO_INTERFACES: RPC_STATUS = RPC_STATUS(1817i32);
-pub const RPC_S_CALL_CANCELLED: RPC_STATUS = RPC_STATUS(1818i32);
-pub const RPC_S_BINDING_INCOMPLETE: RPC_STATUS = RPC_STATUS(1819i32);
-pub const RPC_S_COMM_FAILURE: RPC_STATUS = RPC_STATUS(1820i32);
-pub const RPC_S_UNSUPPORTED_AUTHN_LEVEL: RPC_STATUS = RPC_STATUS(1821i32);
-pub const RPC_S_NO_PRINC_NAME: RPC_STATUS = RPC_STATUS(1822i32);
-pub const RPC_S_NOT_RPC_ERROR: RPC_STATUS = RPC_STATUS(1823i32);
-pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = RPC_STATUS(1824i32);
-pub const RPC_S_SEC_PKG_ERROR: RPC_STATUS = RPC_STATUS(1825i32);
-pub const RPC_S_NOT_CANCELLED: RPC_STATUS = RPC_STATUS(1826i32);
-pub const RPC_S_COOKIE_AUTH_FAILED: RPC_STATUS = RPC_STATUS(1833i32);
-pub const RPC_S_DO_NOT_DISTURB: RPC_STATUS = RPC_STATUS(1834i32);
-pub const RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: RPC_STATUS = RPC_STATUS(1835i32);
-pub const RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: RPC_STATUS = RPC_STATUS(1836i32);
-pub const RPC_S_GROUP_MEMBER_NOT_FOUND: RPC_STATUS = RPC_STATUS(1898i32);
-pub const EPT_S_CANT_CREATE: RPC_STATUS = RPC_STATUS(1899i32);
-pub const RPC_S_INVALID_OBJECT: RPC_STATUS = RPC_STATUS(1900i32);
-pub const RPC_S_SEND_INCOMPLETE: RPC_STATUS = RPC_STATUS(1913i32);
-pub const RPC_S_INVALID_ASYNC_HANDLE: RPC_STATUS = RPC_STATUS(1914i32);
-pub const RPC_S_INVALID_ASYNC_CALL: RPC_STATUS = RPC_STATUS(1915i32);
-pub const RPC_S_ENTRY_TYPE_MISMATCH: RPC_STATUS = RPC_STATUS(1922i32);
-pub const RPC_S_NOT_ALL_OBJS_EXPORTED: RPC_STATUS = RPC_STATUS(1923i32);
-pub const RPC_S_INTERFACE_NOT_EXPORTED: RPC_STATUS = RPC_STATUS(1924i32);
-pub const RPC_S_PROFILE_NOT_ADDED: RPC_STATUS = RPC_STATUS(1925i32);
-pub const RPC_S_PRF_ELT_NOT_ADDED: RPC_STATUS = RPC_STATUS(1926i32);
-pub const RPC_S_PRF_ELT_NOT_REMOVED: RPC_STATUS = RPC_STATUS(1927i32);
-pub const RPC_S_GRP_ELT_NOT_ADDED: RPC_STATUS = RPC_STATUS(1928i32);
-pub const RPC_S_GRP_ELT_NOT_REMOVED: RPC_STATUS = RPC_STATUS(1929i32);
-impl ::core::convert::From<i32> for RPC_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RPC_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RPC_STATUS = i32;
+pub const RPC_S_INVALID_STRING_BINDING: RPC_STATUS = 1700i32;
+pub const RPC_S_WRONG_KIND_OF_BINDING: RPC_STATUS = 1701i32;
+pub const RPC_S_INVALID_BINDING: RPC_STATUS = 1702i32;
+pub const RPC_S_PROTSEQ_NOT_SUPPORTED: RPC_STATUS = 1703i32;
+pub const RPC_S_INVALID_RPC_PROTSEQ: RPC_STATUS = 1704i32;
+pub const RPC_S_INVALID_STRING_UUID: RPC_STATUS = 1705i32;
+pub const RPC_S_INVALID_ENDPOINT_FORMAT: RPC_STATUS = 1706i32;
+pub const RPC_S_INVALID_NET_ADDR: RPC_STATUS = 1707i32;
+pub const RPC_S_NO_ENDPOINT_FOUND: RPC_STATUS = 1708i32;
+pub const RPC_S_INVALID_TIMEOUT: RPC_STATUS = 1709i32;
+pub const RPC_S_OBJECT_NOT_FOUND: RPC_STATUS = 1710i32;
+pub const RPC_S_ALREADY_REGISTERED: RPC_STATUS = 1711i32;
+pub const RPC_S_TYPE_ALREADY_REGISTERED: RPC_STATUS = 1712i32;
+pub const RPC_S_ALREADY_LISTENING: RPC_STATUS = 1713i32;
+pub const RPC_S_NO_PROTSEQS_REGISTERED: RPC_STATUS = 1714i32;
+pub const RPC_S_NOT_LISTENING: RPC_STATUS = 1715i32;
+pub const RPC_S_UNKNOWN_MGR_TYPE: RPC_STATUS = 1716i32;
+pub const RPC_S_UNKNOWN_IF: RPC_STATUS = 1717i32;
+pub const RPC_S_NO_BINDINGS: RPC_STATUS = 1718i32;
+pub const RPC_S_NO_PROTSEQS: RPC_STATUS = 1719i32;
+pub const RPC_S_CANT_CREATE_ENDPOINT: RPC_STATUS = 1720i32;
+pub const RPC_S_OUT_OF_RESOURCES: RPC_STATUS = 1721i32;
+pub const RPC_S_SERVER_UNAVAILABLE: RPC_STATUS = 1722i32;
+pub const RPC_S_SERVER_TOO_BUSY: RPC_STATUS = 1723i32;
+pub const RPC_S_INVALID_NETWORK_OPTIONS: RPC_STATUS = 1724i32;
+pub const RPC_S_NO_CALL_ACTIVE: RPC_STATUS = 1725i32;
+pub const RPC_S_CALL_FAILED: RPC_STATUS = 1726i32;
+pub const RPC_S_CALL_FAILED_DNE: RPC_STATUS = 1727i32;
+pub const RPC_S_PROTOCOL_ERROR: RPC_STATUS = 1728i32;
+pub const RPC_S_PROXY_ACCESS_DENIED: RPC_STATUS = 1729i32;
+pub const RPC_S_UNSUPPORTED_TRANS_SYN: RPC_STATUS = 1730i32;
+pub const RPC_S_UNSUPPORTED_TYPE: RPC_STATUS = 1732i32;
+pub const RPC_S_INVALID_TAG: RPC_STATUS = 1733i32;
+pub const RPC_S_INVALID_BOUND: RPC_STATUS = 1734i32;
+pub const RPC_S_NO_ENTRY_NAME: RPC_STATUS = 1735i32;
+pub const RPC_S_INVALID_NAME_SYNTAX: RPC_STATUS = 1736i32;
+pub const RPC_S_UNSUPPORTED_NAME_SYNTAX: RPC_STATUS = 1737i32;
+pub const RPC_S_UUID_NO_ADDRESS: RPC_STATUS = 1739i32;
+pub const RPC_S_DUPLICATE_ENDPOINT: RPC_STATUS = 1740i32;
+pub const RPC_S_UNKNOWN_AUTHN_TYPE: RPC_STATUS = 1741i32;
+pub const RPC_S_MAX_CALLS_TOO_SMALL: RPC_STATUS = 1742i32;
+pub const RPC_S_STRING_TOO_LONG: RPC_STATUS = 1743i32;
+pub const RPC_S_PROTSEQ_NOT_FOUND: RPC_STATUS = 1744i32;
+pub const RPC_S_PROCNUM_OUT_OF_RANGE: RPC_STATUS = 1745i32;
+pub const RPC_S_BINDING_HAS_NO_AUTH: RPC_STATUS = 1746i32;
+pub const RPC_S_UNKNOWN_AUTHN_SERVICE: RPC_STATUS = 1747i32;
+pub const RPC_S_UNKNOWN_AUTHN_LEVEL: RPC_STATUS = 1748i32;
+pub const RPC_S_INVALID_AUTH_IDENTITY: RPC_STATUS = 1749i32;
+pub const RPC_S_UNKNOWN_AUTHZ_SERVICE: RPC_STATUS = 1750i32;
+pub const EPT_S_INVALID_ENTRY: RPC_STATUS = 1751i32;
+pub const EPT_S_CANT_PERFORM_OP: RPC_STATUS = 1752i32;
+pub const EPT_S_NOT_REGISTERED: RPC_STATUS = 1753i32;
+pub const RPC_S_NOTHING_TO_EXPORT: RPC_STATUS = 1754i32;
+pub const RPC_S_INCOMPLETE_NAME: RPC_STATUS = 1755i32;
+pub const RPC_S_INVALID_VERS_OPTION: RPC_STATUS = 1756i32;
+pub const RPC_S_NO_MORE_MEMBERS: RPC_STATUS = 1757i32;
+pub const RPC_S_NOT_ALL_OBJS_UNEXPORTED: RPC_STATUS = 1758i32;
+pub const RPC_S_INTERFACE_NOT_FOUND: RPC_STATUS = 1759i32;
+pub const RPC_S_ENTRY_ALREADY_EXISTS: RPC_STATUS = 1760i32;
+pub const RPC_S_ENTRY_NOT_FOUND: RPC_STATUS = 1761i32;
+pub const RPC_S_NAME_SERVICE_UNAVAILABLE: RPC_STATUS = 1762i32;
+pub const RPC_S_INVALID_NAF_ID: RPC_STATUS = 1763i32;
+pub const RPC_S_CANNOT_SUPPORT: RPC_STATUS = 1764i32;
+pub const RPC_S_NO_CONTEXT_AVAILABLE: RPC_STATUS = 1765i32;
+pub const RPC_S_INTERNAL_ERROR: RPC_STATUS = 1766i32;
+pub const RPC_S_ZERO_DIVIDE: RPC_STATUS = 1767i32;
+pub const RPC_S_ADDRESS_ERROR: RPC_STATUS = 1768i32;
+pub const RPC_S_FP_DIV_ZERO: RPC_STATUS = 1769i32;
+pub const RPC_S_FP_UNDERFLOW: RPC_STATUS = 1770i32;
+pub const RPC_S_FP_OVERFLOW: RPC_STATUS = 1771i32;
+pub const RPC_S_CALL_IN_PROGRESS: RPC_STATUS = 1791i32;
+pub const RPC_S_NO_MORE_BINDINGS: RPC_STATUS = 1806i32;
+pub const RPC_S_NO_INTERFACES: RPC_STATUS = 1817i32;
+pub const RPC_S_CALL_CANCELLED: RPC_STATUS = 1818i32;
+pub const RPC_S_BINDING_INCOMPLETE: RPC_STATUS = 1819i32;
+pub const RPC_S_COMM_FAILURE: RPC_STATUS = 1820i32;
+pub const RPC_S_UNSUPPORTED_AUTHN_LEVEL: RPC_STATUS = 1821i32;
+pub const RPC_S_NO_PRINC_NAME: RPC_STATUS = 1822i32;
+pub const RPC_S_NOT_RPC_ERROR: RPC_STATUS = 1823i32;
+pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824i32;
+pub const RPC_S_SEC_PKG_ERROR: RPC_STATUS = 1825i32;
+pub const RPC_S_NOT_CANCELLED: RPC_STATUS = 1826i32;
+pub const RPC_S_COOKIE_AUTH_FAILED: RPC_STATUS = 1833i32;
+pub const RPC_S_DO_NOT_DISTURB: RPC_STATUS = 1834i32;
+pub const RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED: RPC_STATUS = 1835i32;
+pub const RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH: RPC_STATUS = 1836i32;
+pub const RPC_S_GROUP_MEMBER_NOT_FOUND: RPC_STATUS = 1898i32;
+pub const EPT_S_CANT_CREATE: RPC_STATUS = 1899i32;
+pub const RPC_S_INVALID_OBJECT: RPC_STATUS = 1900i32;
+pub const RPC_S_SEND_INCOMPLETE: RPC_STATUS = 1913i32;
+pub const RPC_S_INVALID_ASYNC_HANDLE: RPC_STATUS = 1914i32;
+pub const RPC_S_INVALID_ASYNC_CALL: RPC_STATUS = 1915i32;
+pub const RPC_S_ENTRY_TYPE_MISMATCH: RPC_STATUS = 1922i32;
+pub const RPC_S_NOT_ALL_OBJS_EXPORTED: RPC_STATUS = 1923i32;
+pub const RPC_S_INTERFACE_NOT_EXPORTED: RPC_STATUS = 1924i32;
+pub const RPC_S_PROFILE_NOT_ADDED: RPC_STATUS = 1925i32;
+pub const RPC_S_PRF_ELT_NOT_ADDED: RPC_STATUS = 1926i32;
+pub const RPC_S_PRF_ELT_NOT_REMOVED: RPC_STATUS = 1927i32;
+pub const RPC_S_GRP_ELT_NOT_ADDED: RPC_STATUS = 1928i32;
+pub const RPC_S_GRP_ELT_NOT_REMOVED: RPC_STATUS = 1929i32;
 #[repr(C)]
 pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: ::windows::core::GUID,
     pub SyntaxVersion: RPC_VERSION,
 }
-impl RPC_SYNTAX_IDENTIFIER {}
+impl ::core::marker::Copy for RPC_SYNTAX_IDENTIFIER {}
+impl ::core::clone::Clone for RPC_SYNTAX_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_SYNTAX_IDENTIFIER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_SYNTAX_IDENTIFIER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_SYNTAX_IDENTIFIER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_SYNTAX_IDENTIFIER {}
 impl ::core::default::Default for RPC_SYNTAX_IDENTIFIER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_SYNTAX_IDENTIFIER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_SYNTAX_IDENTIFIER").field("SyntaxGUID", &self.SyntaxGUID).field("SyntaxVersion", &self.SyntaxVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_SYNTAX_IDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.SyntaxGUID == other.SyntaxGUID && self.SyntaxVersion == other.SyntaxVersion
-    }
-}
-impl ::core::cmp::Eq for RPC_SYNTAX_IDENTIFIER {}
-unsafe impl ::windows::core::Abi for RPC_SYNTAX_IDENTIFIER {
-    type Abi = Self;
-}
 pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3u32;
 pub const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4u32;
 pub const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: u32 = 2u32;
 pub const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_TRANSFER_SYNTAX {
     pub Uuid: ::windows::core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
-impl RPC_TRANSFER_SYNTAX {}
+impl ::core::marker::Copy for RPC_TRANSFER_SYNTAX {}
+impl ::core::clone::Clone for RPC_TRANSFER_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_TRANSFER_SYNTAX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_TRANSFER_SYNTAX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_TRANSFER_SYNTAX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_TRANSFER_SYNTAX {}
 impl ::core::default::Default for RPC_TRANSFER_SYNTAX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RPC_TRANSFER_SYNTAX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_TRANSFER_SYNTAX").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_TRANSFER_SYNTAX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Uuid == other.Uuid && self.VersMajor == other.VersMajor && self.VersMinor == other.VersMinor
-    }
-}
-impl ::core::cmp::Eq for RPC_TRANSFER_SYNTAX {}
-unsafe impl ::windows::core::Abi for RPC_TRANSFER_SYNTAX {
-    type Abi = Self;
-}
 pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648u32;
 pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl RPC_VERSION {}
+impl ::core::marker::Copy for RPC_VERSION {}
+impl ::core::clone::Clone for RPC_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RPC_VERSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPC_VERSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_VERSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPC_VERSION {}
 impl ::core::default::Default for RPC_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RPC_VERSION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RPC_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl ::core::cmp::Eq for RPC_VERSION {}
-unsafe impl ::windows::core::Abi for RPC_VERSION {
-    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
@@ -10253,36 +9561,16 @@ pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RpcCallClientLocality(pub i32);
-pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0i32);
-pub const rcclLocal: RpcCallClientLocality = RpcCallClientLocality(1i32);
-pub const rcclRemote: RpcCallClientLocality = RpcCallClientLocality(2i32);
-pub const rcclClientUnknownLocality: RpcCallClientLocality = RpcCallClientLocality(3i32);
-impl ::core::convert::From<i32> for RpcCallClientLocality {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RpcCallClientLocality {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RpcCallType(pub i32);
-pub const rctInvalid: RpcCallType = RpcCallType(0i32);
-pub const rctNormal: RpcCallType = RpcCallType(1i32);
-pub const rctTraining: RpcCallType = RpcCallType(2i32);
-pub const rctGuaranteed: RpcCallType = RpcCallType(3i32);
-impl ::core::convert::From<i32> for RpcCallType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RpcCallType {
-    type Abi = Self;
-}
+pub type RpcCallClientLocality = i32;
+pub const rcclInvalid: RpcCallClientLocality = 0i32;
+pub const rcclLocal: RpcCallClientLocality = 1i32;
+pub const rcclRemote: RpcCallClientLocality = 2i32;
+pub const rcclClientUnknownLocality: RpcCallClientLocality = 3i32;
+pub type RpcCallType = i32;
+pub const rctInvalid: RpcCallType = 0i32;
+pub const rctNormal: RpcCallType = 1i32;
+pub const rctTraining: RpcCallType = 2i32;
+pub const rctGuaranteed: RpcCallType = 3i32;
 #[inline]
 pub unsafe fn RpcCancelThread(thread: *const ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
@@ -10639,20 +9927,10 @@ pub unsafe fn RpcImpersonateClientContainer(bindinghandle: *const ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RpcLocalAddressFormat(pub i32);
-pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
-pub const rlafIPv4: RpcLocalAddressFormat = RpcLocalAddressFormat(1i32);
-pub const rlafIPv6: RpcLocalAddressFormat = RpcLocalAddressFormat(2i32);
-impl ::core::convert::From<i32> for RpcLocalAddressFormat {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RpcLocalAddressFormat {
-    type Abi = Self;
-}
+pub type RpcLocalAddressFormat = i32;
+pub const rlafInvalid: RpcLocalAddressFormat = 0i32;
+pub const rlafIPv4: RpcLocalAddressFormat = 1i32;
+pub const rlafIPv6: RpcLocalAddressFormat = 2i32;
 #[inline]
 pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
     #[cfg(windows)]
@@ -11784,29 +11062,19 @@ pub unsafe fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RpcProxyPerfCounters(pub i32);
-pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = RpcProxyPerfCounters(1i32);
-pub const RpcBackEndConnectionAttempts: RpcProxyPerfCounters = RpcProxyPerfCounters(2i32);
-pub const RpcBackEndConnectionFailed: RpcProxyPerfCounters = RpcProxyPerfCounters(3i32);
-pub const RpcRequestsPerSecond: RpcProxyPerfCounters = RpcProxyPerfCounters(4i32);
-pub const RpcIncomingConnections: RpcProxyPerfCounters = RpcProxyPerfCounters(5i32);
-pub const RpcIncomingBandwidth: RpcProxyPerfCounters = RpcProxyPerfCounters(6i32);
-pub const RpcOutgoingBandwidth: RpcProxyPerfCounters = RpcProxyPerfCounters(7i32);
-pub const RpcAttemptedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(8i32);
-pub const RpcFailedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(9i32);
-pub const RpcAttemptedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(10i32);
-pub const RpcFailedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(11i32);
-pub const RpcLastCounter: RpcProxyPerfCounters = RpcProxyPerfCounters(12i32);
-impl ::core::convert::From<i32> for RpcProxyPerfCounters {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RpcProxyPerfCounters {
-    type Abi = Self;
-}
+pub type RpcProxyPerfCounters = i32;
+pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = 1i32;
+pub const RpcBackEndConnectionAttempts: RpcProxyPerfCounters = 2i32;
+pub const RpcBackEndConnectionFailed: RpcProxyPerfCounters = 3i32;
+pub const RpcRequestsPerSecond: RpcProxyPerfCounters = 4i32;
+pub const RpcIncomingConnections: RpcProxyPerfCounters = 5i32;
+pub const RpcIncomingBandwidth: RpcProxyPerfCounters = 6i32;
+pub const RpcOutgoingBandwidth: RpcProxyPerfCounters = 7i32;
+pub const RpcAttemptedLbsDecisions: RpcProxyPerfCounters = 8i32;
+pub const RpcFailedLbsDecisions: RpcProxyPerfCounters = 9i32;
+pub const RpcAttemptedLbsMessages: RpcProxyPerfCounters = 10i32;
+pub const RpcFailedLbsMessages: RpcProxyPerfCounters = 11i32;
+pub const RpcLastCounter: RpcProxyPerfCounters = 12i32;
 #[inline]
 pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
     #[cfg(windows)]
@@ -12835,74 +12103,34 @@ pub unsafe fn RpcUserFree(asynchandle: *mut ::core::ffi::c_void, pbuffer: *mut :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
     pub ArrayOfObjects: *mut *mut NDR_SCONTEXT_1,
 }
-impl SCONTEXT_QUEUE {}
+impl ::core::marker::Copy for SCONTEXT_QUEUE {}
+impl ::core::clone::Clone for SCONTEXT_QUEUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCONTEXT_QUEUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCONTEXT_QUEUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCONTEXT_QUEUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCONTEXT_QUEUE {}
 impl ::core::default::Default for SCONTEXT_QUEUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SCONTEXT_QUEUE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCONTEXT_QUEUE").field("NumberOfObjects", &self.NumberOfObjects).field("ArrayOfObjects", &self.ArrayOfObjects).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SCONTEXT_QUEUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfObjects == other.NumberOfObjects && self.ArrayOfObjects == other.ArrayOfObjects
-    }
-}
-impl ::core::cmp::Eq for SCONTEXT_QUEUE {}
-unsafe impl ::windows::core::Abi for SCONTEXT_QUEUE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
-pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1u32);
-pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(2u32);
-impl ::core::convert::From<u32> for SEC_WINNT_AUTH_IDENTITY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SEC_WINNT_AUTH_IDENTITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SEC_WINNT_AUTH_IDENTITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SEC_WINNT_AUTH_IDENTITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SEC_WINNT_AUTH_IDENTITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SEC_WINNT_AUTH_IDENTITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SEC_WINNT_AUTH_IDENTITY = u32;
+pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = 1u32;
+pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = 2u32;
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub User: *mut u8,
@@ -12913,27 +12141,26 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub PasswordLength: u32,
     pub Flags: SEC_WINNT_AUTH_IDENTITY,
 }
-impl SEC_WINNT_AUTH_IDENTITY_A {}
+impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY_A {}
+impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_A {}
 impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_A").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_A {}
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub User: *mut u16,
@@ -12944,44 +12171,34 @@ pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub PasswordLength: u32,
     pub Flags: SEC_WINNT_AUTH_IDENTITY,
 }
-impl SEC_WINNT_AUTH_IDENTITY_W {}
+impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY_W {}
+impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
 impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_W").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_W {
-    type Abi = Self;
-}
 pub type SERVER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct STUB_PHASE(pub i32);
-pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
-pub const STUB_CALL_SERVER: STUB_PHASE = STUB_PHASE(1i32);
-pub const STUB_MARSHAL: STUB_PHASE = STUB_PHASE(2i32);
-pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = STUB_PHASE(3i32);
-impl ::core::convert::From<i32> for STUB_PHASE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for STUB_PHASE {
-    type Abi = Self;
-}
+pub type STUB_PHASE = i32;
+pub const STUB_UNMARSHAL: STUB_PHASE = 0i32;
+pub const STUB_CALL_SERVER: STUB_PHASE = 1i32;
+pub const STUB_MARSHAL: STUB_PHASE = 2i32;
+pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = 3i32;
 #[cfg(feature = "Win32_System_Com")]
-pub type STUB_THUNK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>)>;
+pub type STUB_THUNK = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
@@ -12997,7 +12214,6 @@ pub const TRANSPORT_TYPE_LPC: u32 = 4u32;
 pub const TRANSPORT_TYPE_WMSG: u32 = 8u32;
 pub const USER_CALL_IS_ASYNC: u32 = 256u32;
 pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct USER_MARSHAL_CB {
@@ -13010,46 +12226,36 @@ pub struct USER_MARSHAL_CB {
     pub pTypeFormat: *mut u8,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl USER_MARSHAL_CB {}
+impl ::core::marker::Copy for USER_MARSHAL_CB {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for USER_MARSHAL_CB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for USER_MARSHAL_CB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for USER_MARSHAL_CB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MARSHAL_CB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for USER_MARSHAL_CB {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for USER_MARSHAL_CB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for USER_MARSHAL_CB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USER_MARSHAL_CB").field("Flags", &self.Flags).field("pStubMsg", &self.pStubMsg).field("pReserve", &self.pReserve).field("Signature", &self.Signature).field("CBType", &self.CBType).field("pFormat", &self.pFormat).field("pTypeFormat", &self.pTypeFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for USER_MARSHAL_CB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pStubMsg == other.pStubMsg && self.pReserve == other.pReserve && self.Signature == other.Signature && self.CBType == other.CBType && self.pFormat == other.pFormat && self.pTypeFormat == other.pTypeFormat
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for USER_MARSHAL_CB {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for USER_MARSHAL_CB {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct USER_MARSHAL_CB_TYPE(pub i32);
-pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(0i32);
-pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(1i32);
-pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(2i32);
-pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(3i32);
-impl ::core::convert::From<i32> for USER_MARSHAL_CB_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for USER_MARSHAL_CB_TYPE {
-    type Abi = Self;
-}
+pub type USER_MARSHAL_CB_TYPE = i32;
+pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = 0i32;
+pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = 1i32;
+pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = 2i32;
+pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = 3i32;
 pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
 pub const USER_MARSHAL_FC_CHAR: u32 = 2u32;
 pub const USER_MARSHAL_FC_DOUBLE: u32 = 12u32;
@@ -13064,7 +12270,6 @@ pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
 pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
 pub type USER_MARSHAL_FREEING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut ::core::ffi::c_void)>;
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
@@ -13072,53 +12277,52 @@ pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
     pub pfnFree: USER_MARSHAL_FREEING_ROUTINE,
 }
-impl USER_MARSHAL_ROUTINE_QUADRUPLE {}
+impl ::core::marker::Copy for USER_MARSHAL_ROUTINE_QUADRUPLE {}
+impl ::core::clone::Clone for USER_MARSHAL_ROUTINE_QUADRUPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for USER_MARSHAL_ROUTINE_QUADRUPLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MARSHAL_ROUTINE_QUADRUPLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for USER_MARSHAL_ROUTINE_QUADRUPLE {}
 impl ::core::default::Default for USER_MARSHAL_ROUTINE_QUADRUPLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USER_MARSHAL_ROUTINE_QUADRUPLE").finish()
-    }
-}
-impl ::core::cmp::PartialEq for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pfnBufferSize.map(|f| f as usize) == other.pfnBufferSize.map(|f| f as usize) && self.pfnMarshall.map(|f| f as usize) == other.pfnMarshall.map(|f| f as usize) && self.pfnUnmarshall.map(|f| f as usize) == other.pfnUnmarshall.map(|f| f as usize) && self.pfnFree.map(|f| f as usize) == other.pfnFree.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for USER_MARSHAL_ROUTINE_QUADRUPLE {}
-unsafe impl ::windows::core::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    type Abi = Self;
-}
 pub type USER_MARSHAL_SIZING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::core::ffi::c_void) -> u32>;
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UUID_VECTOR {
     pub Count: u32,
     pub Uuid: [*mut ::windows::core::GUID; 1],
 }
-impl UUID_VECTOR {}
+impl ::core::marker::Copy for UUID_VECTOR {}
+impl ::core::clone::Clone for UUID_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UUID_VECTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UUID_VECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UUID_VECTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UUID_VECTOR {}
 impl ::core::default::Default for UUID_VECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for UUID_VECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UUID_VECTOR").field("Count", &self.Count).field("Uuid", &self.Uuid).finish()
-    }
-}
-impl ::core::cmp::PartialEq for UUID_VECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Uuid == other.Uuid
-    }
-}
-impl ::core::cmp::Eq for UUID_VECTOR {}
-unsafe impl ::windows::core::Abi for UUID_VECTOR {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn UuidCompare(uuid1: *const ::windows::core::GUID, uuid2: *const ::windows::core::GUID, status: *mut RPC_STATUS) -> i32 {
@@ -13263,22 +12467,11 @@ pub unsafe fn UuidToStringW(uuid: *const ::windows::core::GUID, stringuuid: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct XLAT_SIDE(pub i32);
-pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
-pub const XLAT_CLIENT: XLAT_SIDE = XLAT_SIDE(2i32);
-impl ::core::convert::From<i32> for XLAT_SIDE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for XLAT_SIDE {
-    type Abi = Self;
-}
+pub type XLAT_SIDE = i32;
+pub const XLAT_SERVER: XLAT_SIDE = 1i32;
+pub const XLAT_CLIENT: XLAT_SIDE = 2i32;
 #[cfg(feature = "Win32_System_Com")]
-pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_ROUTINE_QUINTUPLE {
@@ -13288,90 +12481,76 @@ pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl XMIT_ROUTINE_QUINTUPLE {}
+impl ::core::marker::Copy for XMIT_ROUTINE_QUINTUPLE {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for XMIT_ROUTINE_QUINTUPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for XMIT_ROUTINE_QUINTUPLE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for XMIT_ROUTINE_QUINTUPLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XMIT_ROUTINE_QUINTUPLE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for XMIT_ROUTINE_QUINTUPLE {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for XMIT_ROUTINE_QUINTUPLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for XMIT_ROUTINE_QUINTUPLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("XMIT_ROUTINE_QUINTUPLE").finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for XMIT_ROUTINE_QUINTUPLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pfnTranslateToXmit.map(|f| f as usize) == other.pfnTranslateToXmit.map(|f| f as usize) && self.pfnTranslateFromXmit.map(|f| f as usize) == other.pfnTranslateFromXmit.map(|f| f as usize) && self.pfnFreeXmit.map(|f| f as usize) == other.pfnFreeXmit.map(|f| f as usize) && self.pfnFreeInst.map(|f| f as usize) == other.pfnFreeInst.map(|f| f as usize)
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for XMIT_ROUTINE_QUINTUPLE {}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for XMIT_ROUTINE_QUINTUPLE {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _NDR_ASYNC_MESSAGE(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _NDR_PROC_CONTEXT(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct _NDR_SCONTEXT {
     pub pad: [*mut ::core::ffi::c_void; 2],
     pub userContext: *mut ::core::ffi::c_void,
 }
-impl _NDR_SCONTEXT {}
+impl ::core::marker::Copy for _NDR_SCONTEXT {}
+impl ::core::clone::Clone for _NDR_SCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _NDR_SCONTEXT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for _NDR_SCONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_NDR_SCONTEXT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for _NDR_SCONTEXT {}
 impl ::core::default::Default for _NDR_SCONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for _NDR_SCONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NDR_SCONTEXT").field("pad", &self.pad).field("userContext", &self.userContext).finish()
-    }
-}
-impl ::core::cmp::PartialEq for _NDR_SCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pad == other.pad && self.userContext == other.userContext
-    }
-}
-impl ::core::cmp::Eq for _NDR_SCONTEXT {}
-unsafe impl ::windows::core::Abi for _NDR_SCONTEXT {
-    type Abi = Self;
-}
 pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct system_handle_t(pub i32);
-pub const SYSTEM_HANDLE_FILE: system_handle_t = system_handle_t(0i32);
-pub const SYSTEM_HANDLE_SEMAPHORE: system_handle_t = system_handle_t(1i32);
-pub const SYSTEM_HANDLE_EVENT: system_handle_t = system_handle_t(2i32);
-pub const SYSTEM_HANDLE_MUTEX: system_handle_t = system_handle_t(3i32);
-pub const SYSTEM_HANDLE_PROCESS: system_handle_t = system_handle_t(4i32);
-pub const SYSTEM_HANDLE_TOKEN: system_handle_t = system_handle_t(5i32);
-pub const SYSTEM_HANDLE_SECTION: system_handle_t = system_handle_t(6i32);
-pub const SYSTEM_HANDLE_REG_KEY: system_handle_t = system_handle_t(7i32);
-pub const SYSTEM_HANDLE_THREAD: system_handle_t = system_handle_t(8i32);
-pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = system_handle_t(9i32);
-pub const SYSTEM_HANDLE_SOCKET: system_handle_t = system_handle_t(10i32);
-pub const SYSTEM_HANDLE_JOB: system_handle_t = system_handle_t(11i32);
-pub const SYSTEM_HANDLE_PIPE: system_handle_t = system_handle_t(12i32);
-pub const SYSTEM_HANDLE_MAX: system_handle_t = system_handle_t(12i32);
-pub const SYSTEM_HANDLE_INVALID: system_handle_t = system_handle_t(255i32);
-impl ::core::convert::From<i32> for system_handle_t {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for system_handle_t {
-    type Abi = Self;
-}
+pub type system_handle_t = i32;
+pub const SYSTEM_HANDLE_FILE: system_handle_t = 0i32;
+pub const SYSTEM_HANDLE_SEMAPHORE: system_handle_t = 1i32;
+pub const SYSTEM_HANDLE_EVENT: system_handle_t = 2i32;
+pub const SYSTEM_HANDLE_MUTEX: system_handle_t = 3i32;
+pub const SYSTEM_HANDLE_PROCESS: system_handle_t = 4i32;
+pub const SYSTEM_HANDLE_TOKEN: system_handle_t = 5i32;
+pub const SYSTEM_HANDLE_SECTION: system_handle_t = 6i32;
+pub const SYSTEM_HANDLE_REG_KEY: system_handle_t = 7i32;
+pub const SYSTEM_HANDLE_THREAD: system_handle_t = 8i32;
+pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = 9i32;
+pub const SYSTEM_HANDLE_SOCKET: system_handle_t = 10i32;
+pub const SYSTEM_HANDLE_JOB: system_handle_t = 11i32;
+pub const SYSTEM_HANDLE_PIPE: system_handle_t = 12i32;
+pub const SYSTEM_HANDLE_MAX: system_handle_t = 12i32;
+pub const SYSTEM_HANDLE_INVALID: system_handle_t = 255i32;

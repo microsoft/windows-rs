@@ -1,7 +1,6 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ActivitySensorTrigger(pub ::windows::core::IInspectable);
+pub struct ActivitySensorTrigger(::windows::core::IUnknown);
 impl ActivitySensorTrigger {
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
     pub fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>> {
@@ -44,11 +43,22 @@ impl ActivitySensorTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ActivitySensorTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivitySensorTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivitySensorTrigger {}
 unsafe impl ::windows::core::RuntimeType for ActivitySensorTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ActivitySensorTrigger;{d0dd4342-e37b-4823-a5fe-6b31dfefdeb0})");
 }
 unsafe impl ::windows::core::Interface for ActivitySensorTrigger {
-    type Vtable = IActivitySensorTrigger_abi;
+    type Vtable = IActivitySensorTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 }
 impl ::windows::core::RuntimeName for ActivitySensorTrigger {
@@ -56,42 +66,42 @@ impl ::windows::core::RuntimeName for ActivitySensorTrigger {
 }
 impl ::core::convert::From<ActivitySensorTrigger> for ::windows::core::IUnknown {
     fn from(value: ActivitySensorTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ActivitySensorTrigger> for ::windows::core::IUnknown {
     fn from(value: &ActivitySensorTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivitySensorTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensorTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivitySensorTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ActivitySensorTrigger> for ::windows::core::IInspectable {
     fn from(value: ActivitySensorTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ActivitySensorTrigger> for ::windows::core::IInspectable {
     fn from(value: &ActivitySensorTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ActivitySensorTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensorTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivitySensorTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ActivitySensorTrigger> for IBackgroundTrigger {
@@ -116,25 +126,29 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ActivitySensorT
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ActivitySensorTrigger {}
-unsafe impl ::core::marker::Sync for ActivitySensorTrigger {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
-    pub const Unspecified: AlarmAccessStatus = AlarmAccessStatus(0i32);
-    pub const AllowedWithWakeupCapability: AlarmAccessStatus = AlarmAccessStatus(1i32);
-    pub const AllowedWithoutWakeupCapability: AlarmAccessStatus = AlarmAccessStatus(2i32);
-    pub const Denied: AlarmAccessStatus = AlarmAccessStatus(3i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const AllowedWithWakeupCapability: Self = Self(1i32);
+    pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for AlarmAccessStatus {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for AlarmAccessStatus {}
+impl ::core::clone::Clone for AlarmAccessStatus {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for AlarmAccessStatus {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for AlarmAccessStatus {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AlarmAccessStatus {}
 unsafe impl ::windows::core::RuntimeType for AlarmAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
 }
@@ -165,8 +179,7 @@ impl ::windows::core::RuntimeName for AlarmApplicationManager {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AlarmApplicationManager";
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct AppBroadcastTrigger(pub ::windows::core::IInspectable);
+pub struct AppBroadcastTrigger(::windows::core::IUnknown);
 impl AppBroadcastTrigger {
     pub fn SetProviderInfo<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastTriggerProviderInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -190,11 +203,22 @@ impl AppBroadcastTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for AppBroadcastTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppBroadcastTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppBroadcastTrigger {}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTrigger;{74d4f496-8d37-44ec-9481-2a0b9854eb48})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastTrigger {
-    type Vtable = IAppBroadcastTrigger_abi;
+    type Vtable = IAppBroadcastTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
 }
 impl ::windows::core::RuntimeName for AppBroadcastTrigger {
@@ -202,42 +226,42 @@ impl ::windows::core::RuntimeName for AppBroadcastTrigger {
 }
 impl ::core::convert::From<AppBroadcastTrigger> for ::windows::core::IUnknown {
     fn from(value: AppBroadcastTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AppBroadcastTrigger> for ::windows::core::IUnknown {
     fn from(value: &AppBroadcastTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBroadcastTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBroadcastTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBroadcastTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<AppBroadcastTrigger> for ::windows::core::IInspectable {
     fn from(value: AppBroadcastTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AppBroadcastTrigger> for ::windows::core::IInspectable {
     fn from(value: &AppBroadcastTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBroadcastTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBroadcastTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBroadcastTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<AppBroadcastTrigger> for IBackgroundTrigger {
@@ -262,11 +286,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &AppBroadcastTri
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for AppBroadcastTrigger {}
-unsafe impl ::core::marker::Sync for AppBroadcastTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct AppBroadcastTriggerProviderInfo(pub ::windows::core::IInspectable);
+pub struct AppBroadcastTriggerProviderInfo(::windows::core::IUnknown);
 impl AppBroadcastTriggerProviderInfo {
     pub fn SetDisplayNameResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -337,11 +358,22 @@ impl AppBroadcastTriggerProviderInfo {
         }
     }
 }
+impl ::core::clone::Clone for AppBroadcastTriggerProviderInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppBroadcastTriggerProviderInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppBroadcastTriggerProviderInfo {}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastTriggerProviderInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo;{f219352d-9de8-4420-9ce2-5eff8f17376b})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastTriggerProviderInfo {
-    type Vtable = IAppBroadcastTriggerProviderInfo_abi;
+    type Vtable = IAppBroadcastTriggerProviderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf219352d_9de8_4420_9ce2_5eff8f17376b);
 }
 impl ::windows::core::RuntimeName for AppBroadcastTriggerProviderInfo {
@@ -349,49 +381,46 @@ impl ::windows::core::RuntimeName for AppBroadcastTriggerProviderInfo {
 }
 impl ::core::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::core::IUnknown {
     fn from(value: AppBroadcastTriggerProviderInfo) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::core::IUnknown {
     fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBroadcastTriggerProviderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBroadcastTriggerProviderInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBroadcastTriggerProviderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::core::IInspectable {
     fn from(value: AppBroadcastTriggerProviderInfo) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::core::IInspectable {
     fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBroadcastTriggerProviderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBroadcastTriggerProviderInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBroadcastTriggerProviderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for AppBroadcastTriggerProviderInfo {}
-unsafe impl ::core::marker::Sync for AppBroadcastTriggerProviderInfo {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ApplicationTrigger(pub ::windows::core::IInspectable);
+pub struct ApplicationTrigger(::windows::core::IUnknown);
 impl ApplicationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -417,11 +446,22 @@ impl ApplicationTrigger {
         }
     }
 }
+impl ::core::clone::Clone for ApplicationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationTrigger {}
 unsafe impl ::windows::core::RuntimeType for ApplicationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTrigger;{0b468630-9574-492c-9e93-1a3ae6335fe9})");
 }
 unsafe impl ::windows::core::Interface for ApplicationTrigger {
-    type Vtable = IApplicationTrigger_abi;
+    type Vtable = IApplicationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b468630_9574_492c_9e93_1a3ae6335fe9);
 }
 impl ::windows::core::RuntimeName for ApplicationTrigger {
@@ -429,42 +469,42 @@ impl ::windows::core::RuntimeName for ApplicationTrigger {
 }
 impl ::core::convert::From<ApplicationTrigger> for ::windows::core::IUnknown {
     fn from(value: ApplicationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ApplicationTrigger> for ::windows::core::IUnknown {
     fn from(value: &ApplicationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ApplicationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ApplicationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ApplicationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ApplicationTrigger> for ::windows::core::IInspectable {
     fn from(value: ApplicationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ApplicationTrigger> for ::windows::core::IInspectable {
     fn from(value: &ApplicationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ApplicationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ApplicationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ApplicationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ApplicationTrigger> for IBackgroundTrigger {
@@ -489,11 +529,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ApplicationTrig
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ApplicationTrigger {}
-unsafe impl ::core::marker::Sync for ApplicationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ApplicationTriggerDetails(pub ::windows::core::IInspectable);
+pub struct ApplicationTriggerDetails(::windows::core::IUnknown);
 impl ApplicationTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Arguments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
@@ -504,11 +541,22 @@ impl ApplicationTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for ApplicationTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ApplicationTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for ApplicationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTriggerDetails;{97dc6ab2-2219-4a9e-9c5e-41d047f76e82})");
 }
 unsafe impl ::windows::core::Interface for ApplicationTriggerDetails {
-    type Vtable = IApplicationTriggerDetails_abi;
+    type Vtable = IApplicationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
 }
 impl ::windows::core::RuntimeName for ApplicationTriggerDetails {
@@ -516,63 +564,67 @@ impl ::windows::core::RuntimeName for ApplicationTriggerDetails {
 }
 impl ::core::convert::From<ApplicationTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: ApplicationTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ApplicationTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &ApplicationTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ApplicationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ApplicationTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ApplicationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ApplicationTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: ApplicationTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ApplicationTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &ApplicationTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ApplicationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ApplicationTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ApplicationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
-unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
-    pub const Allowed: ApplicationTriggerResult = ApplicationTriggerResult(0i32);
-    pub const CurrentlyRunning: ApplicationTriggerResult = ApplicationTriggerResult(1i32);
-    pub const DisabledByPolicy: ApplicationTriggerResult = ApplicationTriggerResult(2i32);
-    pub const UnknownError: ApplicationTriggerResult = ApplicationTriggerResult(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const CurrentlyRunning: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for ApplicationTriggerResult {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for ApplicationTriggerResult {}
+impl ::core::clone::Clone for ApplicationTriggerResult {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for ApplicationTriggerResult {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for ApplicationTriggerResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ApplicationTriggerResult {}
 unsafe impl ::windows::core::RuntimeType for ApplicationTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
 }
@@ -580,8 +632,7 @@ impl ::windows::core::DefaultType for ApplicationTriggerResult {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct AppointmentStoreNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct AppointmentStoreNotificationTrigger(::windows::core::IUnknown);
 impl AppointmentStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -591,11 +642,22 @@ impl AppointmentStoreNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for AppointmentStoreNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppointmentStoreNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppointmentStoreNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger;{64d4040c-c201-42ad-aa2a-e21ba3425b6d})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTrigger {
-    type Vtable = IAppointmentStoreNotificationTrigger_abi;
+    type Vtable = IAppointmentStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTrigger {
@@ -603,42 +665,42 @@ impl ::windows::core::RuntimeName for AppointmentStoreNotificationTrigger {
 }
 impl ::core::convert::From<AppointmentStoreNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: AppointmentStoreNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentStoreNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppointmentStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<AppointmentStoreNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: AppointmentStoreNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentStoreNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppointmentStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<AppointmentStoreNotificationTrigger> for IBackgroundTrigger {
@@ -663,50 +725,60 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &AppointmentStor
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for AppointmentStoreNotificationTrigger {}
-unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTrigger {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
-    pub const AlwaysAllowed: BackgroundAccessRequestKind = BackgroundAccessRequestKind(0i32);
-    pub const AllowedSubjectToSystemPolicy: BackgroundAccessRequestKind = BackgroundAccessRequestKind(1i32);
+    pub const AlwaysAllowed: Self = Self(0i32);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
 }
-impl ::core::convert::From<i32> for BackgroundAccessRequestKind {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for BackgroundAccessRequestKind {}
+impl ::core::clone::Clone for BackgroundAccessRequestKind {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundAccessRequestKind {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for BackgroundAccessRequestKind {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundAccessRequestKind {}
 unsafe impl ::windows::core::RuntimeType for BackgroundAccessRequestKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
 }
 impl ::windows::core::DefaultType for BackgroundAccessRequestKind {
     type DefaultType = Self;
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
-    pub const Unspecified: BackgroundAccessStatus = BackgroundAccessStatus(0i32);
-    pub const AllowedWithAlwaysOnRealTimeConnectivity: BackgroundAccessStatus = BackgroundAccessStatus(1i32);
-    pub const AllowedMayUseActiveRealTimeConnectivity: BackgroundAccessStatus = BackgroundAccessStatus(2i32);
-    pub const Denied: BackgroundAccessStatus = BackgroundAccessStatus(3i32);
-    pub const AlwaysAllowed: BackgroundAccessStatus = BackgroundAccessStatus(4i32);
-    pub const AllowedSubjectToSystemPolicy: BackgroundAccessStatus = BackgroundAccessStatus(5i32);
-    pub const DeniedBySystemPolicy: BackgroundAccessStatus = BackgroundAccessStatus(6i32);
-    pub const DeniedByUser: BackgroundAccessStatus = BackgroundAccessStatus(7i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const AllowedWithAlwaysOnRealTimeConnectivity: Self = Self(1i32);
+    pub const AllowedMayUseActiveRealTimeConnectivity: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
+    pub const AlwaysAllowed: Self = Self(4i32);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
+    pub const DeniedBySystemPolicy: Self = Self(6i32);
+    pub const DeniedByUser: Self = Self(7i32);
 }
-impl ::core::convert::From<i32> for BackgroundAccessStatus {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for BackgroundAccessStatus {}
+impl ::core::clone::Clone for BackgroundAccessStatus {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundAccessStatus {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for BackgroundAccessStatus {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundAccessStatus {}
 unsafe impl ::windows::core::RuntimeType for BackgroundAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
 }
@@ -790,8 +862,7 @@ impl ::windows::core::RuntimeName for BackgroundExecutionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundExecutionManager";
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskBuilder(pub ::windows::core::IInspectable);
+pub struct BackgroundTaskBuilder(::windows::core::IUnknown);
 impl BackgroundTaskBuilder {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -875,11 +946,22 @@ impl BackgroundTaskBuilder {
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), taskentrypoint.into_param().abi()).ok() }
     }
 }
+impl ::core::clone::Clone for BackgroundTaskBuilder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskBuilder {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskBuilder {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskBuilder;{0351550e-3e64-4572-a93a-84075a37c917})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskBuilder {
-    type Vtable = IBackgroundTaskBuilder_abi;
+    type Vtable = IBackgroundTaskBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0351550e_3e64_4572_a93a_84075a37c917);
 }
 impl ::windows::core::RuntimeName for BackgroundTaskBuilder {
@@ -887,75 +969,64 @@ impl ::windows::core::RuntimeName for BackgroundTaskBuilder {
 }
 impl ::core::convert::From<BackgroundTaskBuilder> for ::windows::core::IUnknown {
     fn from(value: BackgroundTaskBuilder) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskBuilder> for ::windows::core::IUnknown {
     fn from(value: &BackgroundTaskBuilder) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskBuilder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskBuilder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundTaskBuilder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BackgroundTaskBuilder> for ::windows::core::IInspectable {
     fn from(value: BackgroundTaskBuilder) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskBuilder> for ::windows::core::IInspectable {
     fn from(value: &BackgroundTaskBuilder) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskBuilder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskBuilder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundTaskBuilder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskCanceledEventHandler(::windows::core::IUnknown);
+pub struct BackgroundTaskCanceledEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCanceledEventHandler_box::<F> { vtable: &BackgroundTaskCanceledEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundTaskCanceledEventHandlerBox::<F> { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundTaskInstance>>(&self, sender: Param0, reason: BackgroundTaskCancellationReason) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), reason).ok() }
     }
 }
-unsafe impl ::windows::core::RuntimeType for BackgroundTaskCanceledEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"delegate({a6c4bac0-51f8-4c57-ac3f-156dd1680c4f})");
-}
-unsafe impl ::windows::core::Interface for BackgroundTaskCanceledEventHandler {
-    type Vtable = BackgroundTaskCanceledEventHandler_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
-}
 #[repr(C)]
-#[doc(hidden)]
-pub struct BackgroundTaskCanceledEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, reason: BackgroundTaskCancellationReason) -> ::windows::core::HRESULT);
-#[repr(C)]
-struct BackgroundTaskCanceledEventHandler_box<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const BackgroundTaskCanceledEventHandler_abi,
+struct BackgroundTaskCanceledEventHandlerBox<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + 'static> {
+    vtable: *const BackgroundTaskCanceledEventHandlerVtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + 'static> BackgroundTaskCanceledEventHandler_box<F> {
-    const VTABLE: BackgroundTaskCanceledEventHandler_abi = BackgroundTaskCanceledEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+impl<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::core::Result<()> + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
+    const VTABLE: BackgroundTaskCanceledEventHandlerVtbl = BackgroundTaskCanceledEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<BackgroundTaskCanceledEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -978,36 +1049,63 @@ impl<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCa
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, reason: BackgroundTaskCancellationReason) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, reason: BackgroundTaskCancellationReason) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         ((*this).invoke)(&*(&sender as *const <IBackgroundTaskInstance as ::windows::core::Abi>::Abi as *const <IBackgroundTaskInstance as ::windows::core::DefaultType>::DefaultType), reason).into()
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+impl ::core::clone::Clone for BackgroundTaskCanceledEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskCanceledEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskCanceledEventHandler {}
+unsafe impl ::windows::core::Interface for BackgroundTaskCanceledEventHandler {
+    type Vtable = BackgroundTaskCanceledEventHandlerVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
+}
+unsafe impl ::windows::core::RuntimeType for BackgroundTaskCanceledEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a6c4bac0-51f8-4c57-ac3f-156dd1680c4f}");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct BackgroundTaskCanceledEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, reason: BackgroundTaskCancellationReason) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
-    pub const Abort: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(0i32);
-    pub const Terminating: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(1i32);
-    pub const LoggingOff: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(2i32);
-    pub const ServicingUpdate: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(3i32);
-    pub const IdleTask: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(4i32);
-    pub const Uninstall: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(5i32);
-    pub const ConditionLoss: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(6i32);
-    pub const SystemPolicy: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(7i32);
-    pub const QuietHoursEntered: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(8i32);
-    pub const ExecutionTimeExceeded: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(9i32);
-    pub const ResourceRevocation: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(10i32);
-    pub const EnergySaver: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(11i32);
+    pub const Abort: Self = Self(0i32);
+    pub const Terminating: Self = Self(1i32);
+    pub const LoggingOff: Self = Self(2i32);
+    pub const ServicingUpdate: Self = Self(3i32);
+    pub const IdleTask: Self = Self(4i32);
+    pub const Uninstall: Self = Self(5i32);
+    pub const ConditionLoss: Self = Self(6i32);
+    pub const SystemPolicy: Self = Self(7i32);
+    pub const QuietHoursEntered: Self = Self(8i32);
+    pub const ExecutionTimeExceeded: Self = Self(9i32);
+    pub const ResourceRevocation: Self = Self(10i32);
+    pub const EnergySaver: Self = Self(11i32);
 }
-impl ::core::convert::From<i32> for BackgroundTaskCancellationReason {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for BackgroundTaskCancellationReason {}
+impl ::core::clone::Clone for BackgroundTaskCancellationReason {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundTaskCancellationReason {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for BackgroundTaskCancellationReason {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskCancellationReason {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskCancellationReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
 }
@@ -1015,8 +1113,7 @@ impl ::windows::core::DefaultType for BackgroundTaskCancellationReason {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskCompletedEventArgs(pub ::windows::core::IInspectable);
+pub struct BackgroundTaskCompletedEventArgs(::windows::core::IUnknown);
 impl BackgroundTaskCompletedEventArgs {
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -1030,11 +1127,22 @@ impl BackgroundTaskCompletedEventArgs {
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
 }
+impl ::core::clone::Clone for BackgroundTaskCompletedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskCompletedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskCompletedEventArgs {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs;{565d25cf-f209-48f4-9967-2b184f7bfbf0})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventArgs {
-    type Vtable = IBackgroundTaskCompletedEventArgs_abi;
+    type Vtable = IBackgroundTaskCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
 }
 impl ::windows::core::RuntimeName for BackgroundTaskCompletedEventArgs {
@@ -1042,77 +1150,64 @@ impl ::windows::core::RuntimeName for BackgroundTaskCompletedEventArgs {
 }
 impl ::core::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: BackgroundTaskCompletedEventArgs) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundTaskCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: BackgroundTaskCompletedEventArgs) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundTaskCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for BackgroundTaskCompletedEventArgs {}
-unsafe impl ::core::marker::Sync for BackgroundTaskCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskCompletedEventHandler(::windows::core::IUnknown);
+pub struct BackgroundTaskCompletedEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCompletedEventHandler_box::<F> { vtable: &BackgroundTaskCompletedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundTaskCompletedEventHandlerBox::<F> { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::core::IntoParam<'a, BackgroundTaskCompletedEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), args.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"delegate({5b38e929-a086-46a7-a678-439135822bcf})");
-}
-unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventHandler {
-    type Vtable = BackgroundTaskCompletedEventHandler_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b38e929_a086_46a7_a678_439135822bcf);
-}
 #[repr(C)]
-#[doc(hidden)]
-pub struct BackgroundTaskCompletedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
-#[repr(C)]
-struct BackgroundTaskCompletedEventHandler_box<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const BackgroundTaskCompletedEventHandler_abi,
+struct BackgroundTaskCompletedEventHandlerBox<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + 'static> {
+    vtable: *const BackgroundTaskCompletedEventHandlerVtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + 'static> BackgroundTaskCompletedEventHandler_box<F> {
-    const VTABLE: BackgroundTaskCompletedEventHandler_abi = BackgroundTaskCompletedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskCompletedEventArgs>) -> ::windows::core::Result<()> + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
+    const VTABLE: BackgroundTaskCompletedEventHandlerVtbl = BackgroundTaskCompletedEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<BackgroundTaskCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1135,25 +1230,56 @@ impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::opti
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         ((*this).invoke)(&*(&sender as *const <BackgroundTaskRegistration as ::windows::core::Abi>::Abi as *const <BackgroundTaskRegistration as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <BackgroundTaskCompletedEventArgs as ::windows::core::Abi>::Abi as *const <BackgroundTaskCompletedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
+impl ::core::clone::Clone for BackgroundTaskCompletedEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskCompletedEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskCompletedEventHandler {}
+unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventHandler {
+    type Vtable = BackgroundTaskCompletedEventHandlerVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b38e929_a086_46a7_a678_439135822bcf);
+}
+unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5b38e929-a086-46a7-a678-439135822bcf}");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct BackgroundTaskCompletedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskDeferral(pub ::windows::core::IInspectable);
+pub struct BackgroundTaskDeferral(::windows::core::IUnknown);
 impl BackgroundTaskDeferral {
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
+impl ::core::clone::Clone for BackgroundTaskDeferral {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskDeferral {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskDeferral {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskDeferral;{93cc156d-af27-4dd3-846e-24ee40cadd25})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskDeferral {
-    type Vtable = IBackgroundTaskDeferral_abi;
+    type Vtable = IBackgroundTaskDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cc156d_af27_4dd3_846e_24ee40cadd25);
 }
 impl ::windows::core::RuntimeName for BackgroundTaskDeferral {
@@ -1161,49 +1287,46 @@ impl ::windows::core::RuntimeName for BackgroundTaskDeferral {
 }
 impl ::core::convert::From<BackgroundTaskDeferral> for ::windows::core::IUnknown {
     fn from(value: BackgroundTaskDeferral) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskDeferral> for ::windows::core::IUnknown {
     fn from(value: &BackgroundTaskDeferral) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundTaskDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BackgroundTaskDeferral> for ::windows::core::IInspectable {
     fn from(value: BackgroundTaskDeferral) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskDeferral> for ::windows::core::IInspectable {
     fn from(value: &BackgroundTaskDeferral) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundTaskDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for BackgroundTaskDeferral {}
-unsafe impl ::core::marker::Sync for BackgroundTaskDeferral {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskProgressEventArgs(pub ::windows::core::IInspectable);
+pub struct BackgroundTaskProgressEventArgs(::windows::core::IUnknown);
 impl BackgroundTaskProgressEventArgs {
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -1220,11 +1343,22 @@ impl BackgroundTaskProgressEventArgs {
         }
     }
 }
+impl ::core::clone::Clone for BackgroundTaskProgressEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskProgressEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskProgressEventArgs {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs;{fb1468ac-8332-4d0a-9532-03eae684da31})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventArgs {
-    type Vtable = IBackgroundTaskProgressEventArgs_abi;
+    type Vtable = IBackgroundTaskProgressEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb1468ac_8332_4d0a_9532_03eae684da31);
 }
 impl ::windows::core::RuntimeName for BackgroundTaskProgressEventArgs {
@@ -1232,77 +1366,64 @@ impl ::windows::core::RuntimeName for BackgroundTaskProgressEventArgs {
 }
 impl ::core::convert::From<BackgroundTaskProgressEventArgs> for ::windows::core::IUnknown {
     fn from(value: BackgroundTaskProgressEventArgs) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::core::IUnknown {
     fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskProgressEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskProgressEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundTaskProgressEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BackgroundTaskProgressEventArgs> for ::windows::core::IInspectable {
     fn from(value: BackgroundTaskProgressEventArgs) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::core::IInspectable {
     fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskProgressEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskProgressEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundTaskProgressEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for BackgroundTaskProgressEventArgs {}
-unsafe impl ::core::marker::Sync for BackgroundTaskProgressEventArgs {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskProgressEventHandler(::windows::core::IUnknown);
+pub struct BackgroundTaskProgressEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskProgressEventHandler_box::<F> { vtable: &BackgroundTaskProgressEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = BackgroundTaskProgressEventHandlerBox::<F> { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::core::IntoParam<'a, BackgroundTaskProgressEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), args.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"delegate({46e0683c-8a88-4c99-804c-76897f6277a6})");
-}
-unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventHandler {
-    type Vtable = BackgroundTaskProgressEventHandler_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46e0683c_8a88_4c99_804c_76897f6277a6);
-}
 #[repr(C)]
-#[doc(hidden)]
-pub struct BackgroundTaskProgressEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
-#[repr(C)]
-struct BackgroundTaskProgressEventHandler_box<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const BackgroundTaskProgressEventHandler_abi,
+struct BackgroundTaskProgressEventHandlerBox<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + 'static> {
+    vtable: *const BackgroundTaskProgressEventHandlerVtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + 'static> BackgroundTaskProgressEventHandler_box<F> {
-    const VTABLE: BackgroundTaskProgressEventHandler_abi = BackgroundTaskProgressEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
+impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskProgressEventArgs>) -> ::windows::core::Result<()> + 'static> BackgroundTaskProgressEventHandlerBox<F> {
+    const VTABLE: BackgroundTaskProgressEventHandlerVtbl = BackgroundTaskProgressEventHandlerVtbl(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<BackgroundTaskProgressEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1325,14 +1446,34 @@ impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::opti
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         ((*this).invoke)(&*(&sender as *const <BackgroundTaskRegistration as ::windows::core::Abi>::Abi as *const <BackgroundTaskRegistration as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <BackgroundTaskProgressEventArgs as ::windows::core::Abi>::Abi as *const <BackgroundTaskProgressEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
+impl ::core::clone::Clone for BackgroundTaskProgressEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskProgressEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskProgressEventHandler {}
+unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventHandler {
+    type Vtable = BackgroundTaskProgressEventHandlerVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46e0683c_8a88_4c99_804c_76897f6277a6);
+}
+unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{46e0683c-8a88-4c99-804c-76897f6277a6}");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct BackgroundTaskProgressEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskRegistration(pub ::windows::core::IInspectable);
+pub struct BackgroundTaskRegistration(::windows::core::IUnknown);
 impl BackgroundTaskRegistration {
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -1385,19 +1526,19 @@ impl BackgroundTaskRegistration {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IBackgroundTrigger>(result__)
         }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn AllTasks() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>> {
-        Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>>(result__)
-        })
-    }
     pub fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTaskRegistrationGroup>(result__)
         }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn AllTasks() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>> {
+        Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::GUID, IBackgroundTaskRegistration>>(result__)
+        })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTaskGroups() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, BackgroundTaskRegistrationGroup>> {
@@ -1421,11 +1562,22 @@ impl BackgroundTaskRegistration {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for BackgroundTaskRegistration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskRegistration {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskRegistration {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistration;{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskRegistration {
-    type Vtable = IBackgroundTaskRegistration_abi;
+    type Vtable = IBackgroundTaskRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
 }
 impl ::windows::core::RuntimeName for BackgroundTaskRegistration {
@@ -1433,62 +1585,64 @@ impl ::windows::core::RuntimeName for BackgroundTaskRegistration {
 }
 impl ::core::convert::From<BackgroundTaskRegistration> for ::windows::core::IUnknown {
     fn from(value: BackgroundTaskRegistration) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskRegistration> for ::windows::core::IUnknown {
     fn from(value: &BackgroundTaskRegistration) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BackgroundTaskRegistration> for ::windows::core::IInspectable {
     fn from(value: BackgroundTaskRegistration) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskRegistration> for ::windows::core::IInspectable {
     fn from(value: &BackgroundTaskRegistration) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<BackgroundTaskRegistration> for IBackgroundTaskRegistration {
-    fn from(value: BackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration {
+    type Error = ::windows::core::Error;
+    fn try_from(value: BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&BackgroundTaskRegistration> for IBackgroundTaskRegistration {
-    fn from(value: &BackgroundTaskRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRegistration {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for &BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTaskRegistration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration2 {
@@ -1535,11 +1689,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration3> for &Backg
         ::core::convert::TryInto::<IBackgroundTaskRegistration3>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for BackgroundTaskRegistration {}
-unsafe impl ::core::marker::Sync for BackgroundTaskRegistration {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BackgroundTaskRegistrationGroup(pub ::windows::core::IInspectable);
+pub struct BackgroundTaskRegistrationGroup(::windows::core::IUnknown);
 impl BackgroundTaskRegistrationGroup {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1593,11 +1744,22 @@ impl BackgroundTaskRegistrationGroup {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for BackgroundTaskRegistrationGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundTaskRegistrationGroup {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskRegistrationGroup {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistrationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup;{2ab1919a-871b-4167-8a76-055cd67b5b23})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskRegistrationGroup {
-    type Vtable = IBackgroundTaskRegistrationGroup_abi;
+    type Vtable = IBackgroundTaskRegistrationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ab1919a_871b_4167_8a76_055cd67b5b23);
 }
 impl ::windows::core::RuntimeName for BackgroundTaskRegistrationGroup {
@@ -1605,62 +1767,66 @@ impl ::windows::core::RuntimeName for BackgroundTaskRegistrationGroup {
 }
 impl ::core::convert::From<BackgroundTaskRegistrationGroup> for ::windows::core::IUnknown {
     fn from(value: BackgroundTaskRegistrationGroup) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::core::IUnknown {
     fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskRegistrationGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskRegistrationGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundTaskRegistrationGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BackgroundTaskRegistrationGroup> for ::windows::core::IInspectable {
     fn from(value: BackgroundTaskRegistrationGroup) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::core::IInspectable {
     fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskRegistrationGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskRegistrationGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundTaskRegistrationGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
-unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
-    pub const All: BackgroundTaskThrottleCounter = BackgroundTaskThrottleCounter(0i32);
-    pub const Cpu: BackgroundTaskThrottleCounter = BackgroundTaskThrottleCounter(1i32);
-    pub const Network: BackgroundTaskThrottleCounter = BackgroundTaskThrottleCounter(2i32);
+    pub const All: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const Network: Self = Self(2i32);
 }
-impl ::core::convert::From<i32> for BackgroundTaskThrottleCounter {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for BackgroundTaskThrottleCounter {}
+impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundTaskThrottleCounter {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for BackgroundTaskThrottleCounter {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundTaskThrottleCounter {}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskThrottleCounter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
 }
@@ -1683,22 +1849,28 @@ impl BackgroundWorkCost {
 impl ::windows::core::RuntimeName for BackgroundWorkCost {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundWorkCost";
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
-    pub const Low: BackgroundWorkCostValue = BackgroundWorkCostValue(0i32);
-    pub const Medium: BackgroundWorkCostValue = BackgroundWorkCostValue(1i32);
-    pub const High: BackgroundWorkCostValue = BackgroundWorkCostValue(2i32);
+    pub const Low: Self = Self(0i32);
+    pub const Medium: Self = Self(1i32);
+    pub const High: Self = Self(2i32);
 }
-impl ::core::convert::From<i32> for BackgroundWorkCostValue {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for BackgroundWorkCostValue {}
+impl ::core::clone::Clone for BackgroundWorkCostValue {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for BackgroundWorkCostValue {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for BackgroundWorkCostValue {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundWorkCostValue {}
 unsafe impl ::windows::core::RuntimeType for BackgroundWorkCostValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
@@ -1706,8 +1878,7 @@ impl ::windows::core::DefaultType for BackgroundWorkCostValue {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BluetoothLEAdvertisementPublisherTrigger(pub ::windows::core::IInspectable);
+pub struct BluetoothLEAdvertisementPublisherTrigger(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1771,11 +1942,22 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
+impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherTrigger {}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger;{ab3e2612-25d3-48ae-8724-d81877ae6129})");
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTrigger {
-    type Vtable = IBluetoothLEAdvertisementPublisherTrigger_abi;
+    type Vtable = IBluetoothLEAdvertisementPublisherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3e2612_25d3_48ae_8724_d81877ae6129);
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
@@ -1783,42 +1965,42 @@ impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
 }
 impl ::core::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IUnknown {
     fn from(value: BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IUnknown {
     fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BluetoothLEAdvertisementPublisherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEAdvertisementPublisherTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEAdvertisementPublisherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IInspectable {
     fn from(value: BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IInspectable {
     fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BluetoothLEAdvertisementPublisherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEAdvertisementPublisherTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEAdvertisementPublisherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementPublisherTrigger> for IBackgroundTrigger {
@@ -1843,11 +2025,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &BluetoothLEAdve
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTrigger {}
-unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct BluetoothLEAdvertisementWatcherTrigger(pub ::windows::core::IInspectable);
+pub struct BluetoothLEAdvertisementWatcherTrigger(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1926,11 +2105,22 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
+impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherTrigger {}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger;{1aab1819-bce1-48eb-a827-59fb7cee52a6})");
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTrigger {
-    type Vtable = IBluetoothLEAdvertisementWatcherTrigger_abi;
+    type Vtable = IBluetoothLEAdvertisementWatcherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
@@ -1938,42 +2128,42 @@ impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
 }
 impl ::core::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IUnknown {
     fn from(value: BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IUnknown {
     fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BluetoothLEAdvertisementWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEAdvertisementWatcherTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEAdvertisementWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IInspectable {
     fn from(value: BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IInspectable {
     fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BluetoothLEAdvertisementWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEAdvertisementWatcherTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEAdvertisementWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementWatcherTrigger> for IBackgroundTrigger {
@@ -1998,11 +2188,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &BluetoothLEAdve
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTrigger {}
-unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct CachedFileUpdaterTrigger(pub ::windows::core::IInspectable);
+pub struct CachedFileUpdaterTrigger(::windows::core::IUnknown);
 impl CachedFileUpdaterTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2012,11 +2199,22 @@ impl CachedFileUpdaterTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for CachedFileUpdaterTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CachedFileUpdaterTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CachedFileUpdaterTrigger {}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTrigger;{e21caeeb-32f2-4d31-b553-b9e01bde37e0})");
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterTrigger {
-    type Vtable = ICachedFileUpdaterTrigger_abi;
+    type Vtable = ICachedFileUpdaterTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 }
 impl ::windows::core::RuntimeName for CachedFileUpdaterTrigger {
@@ -2024,42 +2222,42 @@ impl ::windows::core::RuntimeName for CachedFileUpdaterTrigger {
 }
 impl ::core::convert::From<CachedFileUpdaterTrigger> for ::windows::core::IUnknown {
     fn from(value: CachedFileUpdaterTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CachedFileUpdaterTrigger> for ::windows::core::IUnknown {
     fn from(value: &CachedFileUpdaterTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFileUpdaterTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CachedFileUpdaterTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<CachedFileUpdaterTrigger> for ::windows::core::IInspectable {
     fn from(value: CachedFileUpdaterTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CachedFileUpdaterTrigger> for ::windows::core::IInspectable {
     fn from(value: &CachedFileUpdaterTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CachedFileUpdaterTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CachedFileUpdaterTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<CachedFileUpdaterTrigger> for IBackgroundTrigger {
@@ -2084,11 +2282,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CachedFileUpdat
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for CachedFileUpdaterTrigger {}
-unsafe impl ::core::marker::Sync for CachedFileUpdaterTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct CachedFileUpdaterTriggerDetails(pub ::windows::core::IInspectable);
+pub struct CachedFileUpdaterTriggerDetails(::windows::core::IUnknown);
 impl CachedFileUpdaterTriggerDetails {
     #[cfg(feature = "Storage_Provider")]
     pub fn UpdateTarget(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileTarget> {
@@ -2114,11 +2309,22 @@ impl CachedFileUpdaterTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for CachedFileUpdaterTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CachedFileUpdaterTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CachedFileUpdaterTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails;{71838c13-1314-47b4-9597-dc7e248c17cc})");
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterTriggerDetails {
-    type Vtable = ICachedFileUpdaterTriggerDetails_abi;
+    type Vtable = ICachedFileUpdaterTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71838c13_1314_47b4_9597_dc7e248c17cc);
 }
 impl ::windows::core::RuntimeName for CachedFileUpdaterTriggerDetails {
@@ -2126,49 +2332,46 @@ impl ::windows::core::RuntimeName for CachedFileUpdaterTriggerDetails {
 }
 impl ::core::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: CachedFileUpdaterTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFileUpdaterTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CachedFileUpdaterTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: CachedFileUpdaterTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CachedFileUpdaterTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CachedFileUpdaterTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for CachedFileUpdaterTriggerDetails {}
-unsafe impl ::core::marker::Sync for CachedFileUpdaterTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ChatMessageNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct ChatMessageNotificationTrigger(::windows::core::IUnknown);
 impl ChatMessageNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2178,11 +2381,22 @@ impl ChatMessageNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ChatMessageNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ChatMessageNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ChatMessageNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageNotificationTrigger;{513b43bf-1d40-5c5d-78f5-c923fee3739e})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageNotificationTrigger {
-    type Vtable = IChatMessageNotificationTrigger_abi;
+    type Vtable = IChatMessageNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
 }
 impl ::windows::core::RuntimeName for ChatMessageNotificationTrigger {
@@ -2190,42 +2404,42 @@ impl ::windows::core::RuntimeName for ChatMessageNotificationTrigger {
 }
 impl ::core::convert::From<ChatMessageNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: ChatMessageNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ChatMessageNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &ChatMessageNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ChatMessageNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ChatMessageNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: ChatMessageNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ChatMessageNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &ChatMessageNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ChatMessageNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ChatMessageNotificationTrigger> for IBackgroundTrigger {
@@ -2250,11 +2464,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ChatMessageNoti
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ChatMessageNotificationTrigger {}
-unsafe impl ::core::marker::Sync for ChatMessageNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ChatMessageReceivedNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct ChatMessageReceivedNotificationTrigger(::windows::core::IUnknown);
 impl ChatMessageReceivedNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2264,11 +2475,22 @@ impl ChatMessageReceivedNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ChatMessageReceivedNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ChatMessageReceivedNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ChatMessageReceivedNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for ChatMessageReceivedNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger;{3ea3760e-baf5-4077-88e9-060cf6f0c6d5})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageReceivedNotificationTrigger {
-    type Vtable = IChatMessageReceivedNotificationTrigger_abi;
+    type Vtable = IChatMessageReceivedNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
 }
 impl ::windows::core::RuntimeName for ChatMessageReceivedNotificationTrigger {
@@ -2276,42 +2498,42 @@ impl ::windows::core::RuntimeName for ChatMessageReceivedNotificationTrigger {
 }
 impl ::core::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: ChatMessageReceivedNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageReceivedNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageReceivedNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ChatMessageReceivedNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: ChatMessageReceivedNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageReceivedNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageReceivedNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ChatMessageReceivedNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ChatMessageReceivedNotificationTrigger> for IBackgroundTrigger {
@@ -2336,11 +2558,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ChatMessageRece
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ChatMessageReceivedNotificationTrigger {}
-unsafe impl ::core::marker::Sync for ChatMessageReceivedNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct CommunicationBlockingAppSetAsActiveTrigger(pub ::windows::core::IInspectable);
+pub struct CommunicationBlockingAppSetAsActiveTrigger(::windows::core::IUnknown);
 impl CommunicationBlockingAppSetAsActiveTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2350,11 +2569,22 @@ impl CommunicationBlockingAppSetAsActiveTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for CommunicationBlockingAppSetAsActiveTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CommunicationBlockingAppSetAsActiveTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CommunicationBlockingAppSetAsActiveTrigger {}
 unsafe impl ::windows::core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger;{fb91f28a-16a5-486d-974c-7835a8477be2})");
 }
 unsafe impl ::windows::core::Interface for CommunicationBlockingAppSetAsActiveTrigger {
-    type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_abi;
+    type Vtable = ICommunicationBlockingAppSetAsActiveTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb91f28a_16a5_486d_974c_7835a8477be2);
 }
 impl ::windows::core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
@@ -2362,42 +2592,42 @@ impl ::windows::core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger
 }
 impl ::core::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IUnknown {
     fn from(value: CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IUnknown {
     fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommunicationBlockingAppSetAsActiveTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommunicationBlockingAppSetAsActiveTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CommunicationBlockingAppSetAsActiveTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IInspectable {
     fn from(value: CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IInspectable {
     fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CommunicationBlockingAppSetAsActiveTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommunicationBlockingAppSetAsActiveTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CommunicationBlockingAppSetAsActiveTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<CommunicationBlockingAppSetAsActiveTrigger> for IBackgroundTrigger {
@@ -2422,11 +2652,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CommunicationBl
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for CommunicationBlockingAppSetAsActiveTrigger {}
-unsafe impl ::core::marker::Sync for CommunicationBlockingAppSetAsActiveTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ContactStoreNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct ContactStoreNotificationTrigger(::windows::core::IUnknown);
 impl ContactStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2436,11 +2663,22 @@ impl ContactStoreNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ContactStoreNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactStoreNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactStoreNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContactStoreNotificationTrigger;{c833419b-4705-4571-9a16-06b997bf9c96})");
 }
 unsafe impl ::windows::core::Interface for ContactStoreNotificationTrigger {
-    type Vtable = IContactStoreNotificationTrigger_abi;
+    type Vtable = IContactStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc833419b_4705_4571_9a16_06b997bf9c96);
 }
 impl ::windows::core::RuntimeName for ContactStoreNotificationTrigger {
@@ -2448,42 +2686,42 @@ impl ::windows::core::RuntimeName for ContactStoreNotificationTrigger {
 }
 impl ::core::convert::From<ContactStoreNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: ContactStoreNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ContactStoreNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &ContactStoreNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactStoreNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContactStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ContactStoreNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: ContactStoreNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ContactStoreNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &ContactStoreNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactStoreNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContactStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ContactStoreNotificationTrigger> for IBackgroundTrigger {
@@ -2508,11 +2746,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ContactStoreNot
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ContactStoreNotificationTrigger {}
-unsafe impl ::core::marker::Sync for ContactStoreNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ContentPrefetchTrigger(pub ::windows::core::IInspectable);
+pub struct ContentPrefetchTrigger(::windows::core::IUnknown);
 impl ContentPrefetchTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2541,11 +2776,22 @@ impl ContentPrefetchTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ContentPrefetchTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContentPrefetchTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContentPrefetchTrigger {}
 unsafe impl ::windows::core::RuntimeType for ContentPrefetchTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContentPrefetchTrigger;{710627ee-04fa-440b-80c0-173202199e5d})");
 }
 unsafe impl ::windows::core::Interface for ContentPrefetchTrigger {
-    type Vtable = IContentPrefetchTrigger_abi;
+    type Vtable = IContentPrefetchTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x710627ee_04fa_440b_80c0_173202199e5d);
 }
 impl ::windows::core::RuntimeName for ContentPrefetchTrigger {
@@ -2553,42 +2799,42 @@ impl ::windows::core::RuntimeName for ContentPrefetchTrigger {
 }
 impl ::core::convert::From<ContentPrefetchTrigger> for ::windows::core::IUnknown {
     fn from(value: ContentPrefetchTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ContentPrefetchTrigger> for ::windows::core::IUnknown {
     fn from(value: &ContentPrefetchTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContentPrefetchTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContentPrefetchTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContentPrefetchTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ContentPrefetchTrigger> for ::windows::core::IInspectable {
     fn from(value: ContentPrefetchTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ContentPrefetchTrigger> for ::windows::core::IInspectable {
     fn from(value: &ContentPrefetchTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContentPrefetchTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContentPrefetchTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContentPrefetchTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ContentPrefetchTrigger> for IBackgroundTrigger {
@@ -2614,8 +2860,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ContentPrefetch
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ConversationalAgentTrigger(pub ::windows::core::IInspectable);
+pub struct ConversationalAgentTrigger(::windows::core::IUnknown);
 impl ConversationalAgentTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2625,11 +2870,22 @@ impl ConversationalAgentTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ConversationalAgentTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ConversationalAgentTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ConversationalAgentTrigger {}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ConversationalAgentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for ConversationalAgentTrigger {
@@ -2637,67 +2893,68 @@ impl ::windows::core::RuntimeName for ConversationalAgentTrigger {
 }
 impl ::core::convert::From<ConversationalAgentTrigger> for ::windows::core::IUnknown {
     fn from(value: ConversationalAgentTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ConversationalAgentTrigger> for ::windows::core::IUnknown {
     fn from(value: &ConversationalAgentTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ConversationalAgentTrigger> for ::windows::core::IInspectable {
     fn from(value: ConversationalAgentTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ConversationalAgentTrigger> for ::windows::core::IInspectable {
     fn from(value: &ConversationalAgentTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ConversationalAgentTrigger> for IBackgroundTrigger {
-    fn from(value: ConversationalAgentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<ConversationalAgentTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ConversationalAgentTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&ConversationalAgentTrigger> for IBackgroundTrigger {
-    fn from(value: &ConversationalAgentTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&ConversationalAgentTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConversationalAgentTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct CustomSystemEventTrigger(pub ::windows::core::IInspectable);
+pub struct CustomSystemEventTrigger(::windows::core::IUnknown);
 impl CustomSystemEventTrigger {
     pub fn TriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2724,11 +2981,22 @@ impl CustomSystemEventTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for CustomSystemEventTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CustomSystemEventTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CustomSystemEventTrigger {}
 unsafe impl ::windows::core::RuntimeType for CustomSystemEventTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CustomSystemEventTrigger;{f3596798-cf6b-4ef4-a0ca-29cf4a278c87})");
 }
 unsafe impl ::windows::core::Interface for CustomSystemEventTrigger {
-    type Vtable = ICustomSystemEventTrigger_abi;
+    type Vtable = ICustomSystemEventTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
 }
 impl ::windows::core::RuntimeName for CustomSystemEventTrigger {
@@ -2736,42 +3004,42 @@ impl ::windows::core::RuntimeName for CustomSystemEventTrigger {
 }
 impl ::core::convert::From<CustomSystemEventTrigger> for ::windows::core::IUnknown {
     fn from(value: CustomSystemEventTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CustomSystemEventTrigger> for ::windows::core::IUnknown {
     fn from(value: &CustomSystemEventTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CustomSystemEventTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CustomSystemEventTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CustomSystemEventTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<CustomSystemEventTrigger> for ::windows::core::IInspectable {
     fn from(value: CustomSystemEventTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&CustomSystemEventTrigger> for ::windows::core::IInspectable {
     fn from(value: &CustomSystemEventTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CustomSystemEventTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CustomSystemEventTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CustomSystemEventTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<CustomSystemEventTrigger> for IBackgroundTrigger {
@@ -2796,21 +3064,27 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CustomSystemEve
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
-    pub const Once: CustomSystemEventTriggerRecurrence = CustomSystemEventTriggerRecurrence(0i32);
-    pub const Always: CustomSystemEventTriggerRecurrence = CustomSystemEventTriggerRecurrence(1i32);
+    pub const Once: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
 }
-impl ::core::convert::From<i32> for CustomSystemEventTriggerRecurrence {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for CustomSystemEventTriggerRecurrence {}
+impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for CustomSystemEventTriggerRecurrence {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for CustomSystemEventTriggerRecurrence {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CustomSystemEventTriggerRecurrence {}
 unsafe impl ::windows::core::RuntimeType for CustomSystemEventTriggerRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
 }
@@ -2818,8 +3092,7 @@ impl ::windows::core::DefaultType for CustomSystemEventTriggerRecurrence {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DeviceConnectionChangeTrigger(pub ::windows::core::IInspectable);
+pub struct DeviceConnectionChangeTrigger(::windows::core::IUnknown);
 impl DeviceConnectionChangeTrigger {
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2858,11 +3131,22 @@ impl DeviceConnectionChangeTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for DeviceConnectionChangeTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceConnectionChangeTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceConnectionChangeTrigger {}
 unsafe impl ::windows::core::RuntimeType for DeviceConnectionChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger;{90875e64-3cdd-4efb-ab1c-5b3b6a60ce34})");
 }
 unsafe impl ::windows::core::Interface for DeviceConnectionChangeTrigger {
-    type Vtable = IDeviceConnectionChangeTrigger_abi;
+    type Vtable = IDeviceConnectionChangeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
 }
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTrigger {
@@ -2870,42 +3154,42 @@ impl ::windows::core::RuntimeName for DeviceConnectionChangeTrigger {
 }
 impl ::core::convert::From<DeviceConnectionChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: DeviceConnectionChangeTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceConnectionChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: &DeviceConnectionChangeTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceConnectionChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceConnectionChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceConnectionChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<DeviceConnectionChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: DeviceConnectionChangeTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceConnectionChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: &DeviceConnectionChangeTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceConnectionChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceConnectionChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceConnectionChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<DeviceConnectionChangeTrigger> for IBackgroundTrigger {
@@ -2930,11 +3214,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceConnectio
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for DeviceConnectionChangeTrigger {}
-unsafe impl ::core::marker::Sync for DeviceConnectionChangeTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DeviceManufacturerNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct DeviceManufacturerNotificationTrigger(::windows::core::IUnknown);
 impl DeviceManufacturerNotificationTrigger {
     #[cfg(feature = "deprecated")]
     pub fn TriggerQualifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2964,11 +3245,22 @@ impl DeviceManufacturerNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for DeviceManufacturerNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceManufacturerNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceManufacturerNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for DeviceManufacturerNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
 }
 unsafe impl ::windows::core::Interface for DeviceManufacturerNotificationTrigger {
-    type Vtable = IDeviceManufacturerNotificationTrigger_abi;
+    type Vtable = IDeviceManufacturerNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 }
 impl ::windows::core::RuntimeName for DeviceManufacturerNotificationTrigger {
@@ -2976,42 +3268,42 @@ impl ::windows::core::RuntimeName for DeviceManufacturerNotificationTrigger {
 }
 impl ::core::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceManufacturerNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceManufacturerNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<DeviceManufacturerNotificationTrigger> for IBackgroundTrigger {
@@ -3037,8 +3329,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceManufactu
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DeviceServicingTrigger(pub ::windows::core::IInspectable);
+pub struct DeviceServicingTrigger(::windows::core::IUnknown);
 impl DeviceServicingTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3064,11 +3355,22 @@ impl DeviceServicingTrigger {
         }
     }
 }
+impl ::core::clone::Clone for DeviceServicingTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceServicingTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceServicingTrigger {}
 unsafe impl ::windows::core::RuntimeType for DeviceServicingTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceServicingTrigger;{1ab217ad-6e34-49d3-9e6f-17f1b6dfa881})");
 }
 unsafe impl ::windows::core::Interface for DeviceServicingTrigger {
-    type Vtable = IDeviceServicingTrigger_abi;
+    type Vtable = IDeviceServicingTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
 }
 impl ::windows::core::RuntimeName for DeviceServicingTrigger {
@@ -3076,42 +3378,42 @@ impl ::windows::core::RuntimeName for DeviceServicingTrigger {
 }
 impl ::core::convert::From<DeviceServicingTrigger> for ::windows::core::IUnknown {
     fn from(value: DeviceServicingTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceServicingTrigger> for ::windows::core::IUnknown {
     fn from(value: &DeviceServicingTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceServicingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceServicingTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceServicingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<DeviceServicingTrigger> for ::windows::core::IInspectable {
     fn from(value: DeviceServicingTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceServicingTrigger> for ::windows::core::IInspectable {
     fn from(value: &DeviceServicingTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceServicingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceServicingTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceServicingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<DeviceServicingTrigger> for IBackgroundTrigger {
@@ -3136,25 +3438,29 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceServicing
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for DeviceServicingTrigger {}
-unsafe impl ::core::marker::Sync for DeviceServicingTrigger {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
-    pub const Allowed: DeviceTriggerResult = DeviceTriggerResult(0i32);
-    pub const DeniedByUser: DeviceTriggerResult = DeviceTriggerResult(1i32);
-    pub const DeniedBySystem: DeviceTriggerResult = DeviceTriggerResult(2i32);
-    pub const LowBattery: DeviceTriggerResult = DeviceTriggerResult(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const LowBattery: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for DeviceTriggerResult {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for DeviceTriggerResult {}
+impl ::core::clone::Clone for DeviceTriggerResult {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for DeviceTriggerResult {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for DeviceTriggerResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceTriggerResult {}
 unsafe impl ::windows::core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
 }
@@ -3162,8 +3468,7 @@ impl ::windows::core::DefaultType for DeviceTriggerResult {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DeviceUseTrigger(pub ::windows::core::IInspectable);
+pub struct DeviceUseTrigger(::windows::core::IUnknown);
 impl DeviceUseTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3189,11 +3494,22 @@ impl DeviceUseTrigger {
         }
     }
 }
+impl ::core::clone::Clone for DeviceUseTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceUseTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceUseTrigger {}
 unsafe impl ::windows::core::RuntimeType for DeviceUseTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceUseTrigger;{0da68011-334f-4d57-b6ec-6dca64b412e4})");
 }
 unsafe impl ::windows::core::Interface for DeviceUseTrigger {
-    type Vtable = IDeviceUseTrigger_abi;
+    type Vtable = IDeviceUseTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 }
 impl ::windows::core::RuntimeName for DeviceUseTrigger {
@@ -3201,42 +3517,42 @@ impl ::windows::core::RuntimeName for DeviceUseTrigger {
 }
 impl ::core::convert::From<DeviceUseTrigger> for ::windows::core::IUnknown {
     fn from(value: DeviceUseTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceUseTrigger> for ::windows::core::IUnknown {
     fn from(value: &DeviceUseTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceUseTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceUseTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceUseTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<DeviceUseTrigger> for ::windows::core::IInspectable {
     fn from(value: DeviceUseTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceUseTrigger> for ::windows::core::IInspectable {
     fn from(value: &DeviceUseTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceUseTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceUseTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceUseTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<DeviceUseTrigger> for IBackgroundTrigger {
@@ -3261,17 +3577,25 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceUseTrigge
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for DeviceUseTrigger {}
-unsafe impl ::core::marker::Sync for DeviceUseTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct DeviceWatcherTrigger(pub ::windows::core::IInspectable);
+pub struct DeviceWatcherTrigger(::windows::core::IUnknown);
 impl DeviceWatcherTrigger {}
+impl ::core::clone::Clone for DeviceWatcherTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceWatcherTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceWatcherTrigger {}
 unsafe impl ::windows::core::RuntimeType for DeviceWatcherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceWatcherTrigger;{a4617fdd-8573-4260-befc-5bec89cb693d})");
 }
 unsafe impl ::windows::core::Interface for DeviceWatcherTrigger {
-    type Vtable = IDeviceWatcherTrigger_abi;
+    type Vtable = IDeviceWatcherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4617fdd_8573_4260_befc_5bec89cb693d);
 }
 impl ::windows::core::RuntimeName for DeviceWatcherTrigger {
@@ -3279,42 +3603,42 @@ impl ::windows::core::RuntimeName for DeviceWatcherTrigger {
 }
 impl ::core::convert::From<DeviceWatcherTrigger> for ::windows::core::IUnknown {
     fn from(value: DeviceWatcherTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceWatcherTrigger> for ::windows::core::IUnknown {
     fn from(value: &DeviceWatcherTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceWatcherTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<DeviceWatcherTrigger> for ::windows::core::IInspectable {
     fn from(value: DeviceWatcherTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&DeviceWatcherTrigger> for ::windows::core::IInspectable {
     fn from(value: &DeviceWatcherTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceWatcherTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceWatcherTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<DeviceWatcherTrigger> for IBackgroundTrigger {
@@ -3340,8 +3664,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceWatcherTr
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct EmailStoreNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct EmailStoreNotificationTrigger(::windows::core::IUnknown);
 impl EmailStoreNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3351,11 +3674,22 @@ impl EmailStoreNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for EmailStoreNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for EmailStoreNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for EmailStoreNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for EmailStoreNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.EmailStoreNotificationTrigger;{986d06da-47eb-4268-a4f2-f3f77188388a})");
 }
 unsafe impl ::windows::core::Interface for EmailStoreNotificationTrigger {
-    type Vtable = IEmailStoreNotificationTrigger_abi;
+    type Vtable = IEmailStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d06da_47eb_4268_a4f2_f3f77188388a);
 }
 impl ::windows::core::RuntimeName for EmailStoreNotificationTrigger {
@@ -3363,42 +3697,42 @@ impl ::windows::core::RuntimeName for EmailStoreNotificationTrigger {
 }
 impl ::core::convert::From<EmailStoreNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: EmailStoreNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&EmailStoreNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &EmailStoreNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailStoreNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EmailStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<EmailStoreNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: EmailStoreNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&EmailStoreNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &EmailStoreNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailStoreNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EmailStoreNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<EmailStoreNotificationTrigger> for IBackgroundTrigger {
@@ -3423,11 +3757,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &EmailStoreNotif
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for EmailStoreNotificationTrigger {}
-unsafe impl ::core::marker::Sync for EmailStoreNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct GattCharacteristicNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct GattCharacteristicNotificationTrigger(::windows::core::IUnknown);
 impl GattCharacteristicNotificationTrigger {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Characteristic(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic> {
@@ -3437,13 +3768,6 @@ impl GattCharacteristicNotificationTrigger {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>(result__)
         }
     }
-    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>(characteristic: Param0) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
-        Self::IGattCharacteristicNotificationTriggerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), characteristic.into_param().abi(), &mut result__).from_abi::<GattCharacteristicNotificationTrigger>(result__)
-        })
-    }
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn EventTriggeringMode(&self) -> ::windows::core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristicNotificationTrigger2>(self)?;
@@ -3451,6 +3775,13 @@ impl GattCharacteristicNotificationTrigger {
             let mut result__: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>(result__)
         }
+    }
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>(characteristic: Param0) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
+        Self::IGattCharacteristicNotificationTriggerFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), characteristic.into_param().abi(), &mut result__).from_abi::<GattCharacteristicNotificationTrigger>(result__)
+        })
     }
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     pub fn CreateWithEventTriggeringMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>(characteristic: Param0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
@@ -3468,11 +3799,22 @@ impl GattCharacteristicNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for GattCharacteristicNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GattCharacteristicNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GattCharacteristicNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger;{e25f8fc8-0696-474f-a732-f292b0cebc5d})");
 }
 unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTrigger {
-    type Vtable = IGattCharacteristicNotificationTrigger_abi;
+    type Vtable = IGattCharacteristicNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
 }
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTrigger {
@@ -3480,42 +3822,42 @@ impl ::windows::core::RuntimeName for GattCharacteristicNotificationTrigger {
 }
 impl ::core::convert::From<GattCharacteristicNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: GattCharacteristicNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GattCharacteristicNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GattCharacteristicNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GattCharacteristicNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<GattCharacteristicNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: GattCharacteristicNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GattCharacteristicNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GattCharacteristicNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GattCharacteristicNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<GattCharacteristicNotificationTrigger> for IBackgroundTrigger {
@@ -3540,11 +3882,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GattCharacteris
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for GattCharacteristicNotificationTrigger {}
-unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct GattServiceProviderTrigger(pub ::windows::core::IInspectable);
+pub struct GattServiceProviderTrigger(::windows::core::IUnknown);
 impl GattServiceProviderTrigger {
     pub fn TriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3586,11 +3925,22 @@ impl GattServiceProviderTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for GattServiceProviderTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GattServiceProviderTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GattServiceProviderTrigger {}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTrigger;{ddc6a3e9-1557-4bd8-8542-468aa0c696f6})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderTrigger {
-    type Vtable = IGattServiceProviderTrigger_abi;
+    type Vtable = IGattServiceProviderTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderTrigger {
@@ -3598,42 +3948,42 @@ impl ::windows::core::RuntimeName for GattServiceProviderTrigger {
 }
 impl ::core::convert::From<GattServiceProviderTrigger> for ::windows::core::IUnknown {
     fn from(value: GattServiceProviderTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GattServiceProviderTrigger> for ::windows::core::IUnknown {
     fn from(value: &GattServiceProviderTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GattServiceProviderTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GattServiceProviderTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GattServiceProviderTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<GattServiceProviderTrigger> for ::windows::core::IInspectable {
     fn from(value: GattServiceProviderTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GattServiceProviderTrigger> for ::windows::core::IInspectable {
     fn from(value: &GattServiceProviderTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GattServiceProviderTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GattServiceProviderTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GattServiceProviderTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<GattServiceProviderTrigger> for IBackgroundTrigger {
@@ -3658,11 +4008,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GattServiceProv
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for GattServiceProviderTrigger {}
-unsafe impl ::core::marker::Sync for GattServiceProviderTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct GattServiceProviderTriggerResult(pub ::windows::core::IInspectable);
+pub struct GattServiceProviderTriggerResult(::windows::core::IUnknown);
 impl GattServiceProviderTriggerResult {
     pub fn Trigger(&self) -> ::windows::core::Result<GattServiceProviderTrigger> {
         let this = self;
@@ -3680,11 +4027,22 @@ impl GattServiceProviderTriggerResult {
         }
     }
 }
+impl ::core::clone::Clone for GattServiceProviderTriggerResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GattServiceProviderTriggerResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GattServiceProviderTriggerResult {}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTriggerResult;{3c4691b1-b198-4e84-bad4-cf4ad299ed3a})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderTriggerResult {
-    type Vtable = IGattServiceProviderTriggerResult_abi;
+    type Vtable = IGattServiceProviderTriggerResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerResult {
@@ -3692,49 +4050,46 @@ impl ::windows::core::RuntimeName for GattServiceProviderTriggerResult {
 }
 impl ::core::convert::From<GattServiceProviderTriggerResult> for ::windows::core::IUnknown {
     fn from(value: GattServiceProviderTriggerResult) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GattServiceProviderTriggerResult> for ::windows::core::IUnknown {
     fn from(value: &GattServiceProviderTriggerResult) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GattServiceProviderTriggerResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GattServiceProviderTriggerResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GattServiceProviderTriggerResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<GattServiceProviderTriggerResult> for ::windows::core::IInspectable {
     fn from(value: GattServiceProviderTriggerResult) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GattServiceProviderTriggerResult> for ::windows::core::IInspectable {
     fn from(value: &GattServiceProviderTriggerResult) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GattServiceProviderTriggerResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GattServiceProviderTriggerResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GattServiceProviderTriggerResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for GattServiceProviderTriggerResult {}
-unsafe impl ::core::marker::Sync for GattServiceProviderTriggerResult {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct GeovisitTrigger(pub ::windows::core::IInspectable);
+pub struct GeovisitTrigger(::windows::core::IUnknown);
 impl GeovisitTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3757,11 +4112,22 @@ impl GeovisitTrigger {
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
+impl ::core::clone::Clone for GeovisitTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GeovisitTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GeovisitTrigger {}
 unsafe impl ::windows::core::RuntimeType for GeovisitTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GeovisitTrigger;{4818edaa-04e1-4127-9a4c-19351b8a80a4})");
 }
 unsafe impl ::windows::core::Interface for GeovisitTrigger {
-    type Vtable = IGeovisitTrigger_abi;
+    type Vtable = IGeovisitTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
 }
 impl ::windows::core::RuntimeName for GeovisitTrigger {
@@ -3769,42 +4135,42 @@ impl ::windows::core::RuntimeName for GeovisitTrigger {
 }
 impl ::core::convert::From<GeovisitTrigger> for ::windows::core::IUnknown {
     fn from(value: GeovisitTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GeovisitTrigger> for ::windows::core::IUnknown {
     fn from(value: &GeovisitTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeovisitTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeovisitTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeovisitTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<GeovisitTrigger> for ::windows::core::IInspectable {
     fn from(value: GeovisitTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&GeovisitTrigger> for ::windows::core::IInspectable {
     fn from(value: &GeovisitTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GeovisitTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeovisitTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeovisitTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<GeovisitTrigger> for IBackgroundTrigger {
@@ -3829,530 +4195,543 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GeovisitTrigger
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for GeovisitTrigger {}
-unsafe impl ::core::marker::Sync for GeovisitTrigger {}
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IActivitySensorTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IActivitySensorTrigger {
-    type Vtable = IActivitySensorTrigger_abi;
+    type Vtable = IActivitySensorTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivitySensorTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IActivitySensorTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivitySensorTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IActivitySensorTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IActivitySensorTriggerFactory {
-    type Vtable = IActivitySensorTriggerFactory_abi;
+    type Vtable = IActivitySensorTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa72691c3_3837_44f7_831b_0132cc872bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivitySensorTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, reportintervalinmilliseconds: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IActivitySensorTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reportintervalinmilliseconds: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAlarmApplicationManagerStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAlarmApplicationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAlarmApplicationManagerStatics {
-    type Vtable = IAlarmApplicationManagerStatics_abi;
+    type Vtable = IAlarmApplicationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAlarmApplicationManagerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IAlarmApplicationManagerStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut AlarmAccessStatus) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AlarmAccessStatus) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAppBroadcastTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastTrigger {
-    type Vtable = IAppBroadcastTrigger_abi;
+    type Vtable = IAppBroadcastTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IAppBroadcastTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAppBroadcastTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastTriggerFactory {
-    type Vtable = IAppBroadcastTriggerFactory_abi;
+    type Vtable = IAppBroadcastTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x280b9f44_22f4_4618_a02e_e7e411eb7238);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, providerkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IAppBroadcastTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppBroadcastTriggerProviderInfo(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAppBroadcastTriggerProviderInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastTriggerProviderInfo {
-    type Vtable = IAppBroadcastTriggerProviderInfo_abi;
+    type Vtable = IAppBroadcastTriggerProviderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf219352d_9de8_4420_9ce2_5eff8f17376b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastTriggerProviderInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+pub struct IAppBroadcastTriggerProviderInfoVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IApplicationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationTrigger {
-    type Vtable = IApplicationTrigger_abi;
+    type Vtable = IApplicationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b468630_9574_492c_9e93_1a3ae6335fe9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IApplicationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, arguments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IApplicationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationTriggerDetails {
-    type Vtable = IApplicationTriggerDetails_abi;
+    type Vtable = IApplicationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IApplicationTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppointmentStoreNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAppointmentStoreNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreNotificationTrigger {
-    type Vtable = IAppointmentStoreNotificationTrigger_abi;
+    type Vtable = IAppointmentStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IAppointmentStoreNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundCondition(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundCondition {
-    type Vtable = IBackgroundCondition_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
-}
+pub struct IBackgroundCondition(::windows::core::IUnknown);
 impl IBackgroundCondition {}
-unsafe impl ::windows::core::RuntimeType for IBackgroundCondition {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
-}
-impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCondition) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCondition) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IInspectable {
     fn from(value: IBackgroundCondition) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundCondition) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundCondition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IBackgroundCondition {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundCondition {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundCondition {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundCondition {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundCondition {
+    type Vtable = IBackgroundConditionVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundCondition_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IBackgroundConditionVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundExecutionManagerStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundExecutionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics {
-    type Vtable = IBackgroundExecutionManagerStatics_abi;
+    type Vtable = IBackgroundExecutionManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundExecutionManagerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundExecutionManagerStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundExecutionManagerStatics2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundExecutionManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics2 {
-    type Vtable = IBackgroundExecutionManagerStatics2_abi;
+    type Vtable = IBackgroundExecutionManagerStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x469b24ef_9bbb_4e18_999a_fd6512931be9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundExecutionManagerStatics2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundExecutionManagerStatics2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundExecutionManagerStatics3(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundExecutionManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundExecutionManagerStatics3 {
-    type Vtable = IBackgroundExecutionManagerStatics3_abi;
+    type Vtable = IBackgroundExecutionManagerStatics3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundExecutionManagerStatics3_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundExecutionManagerStatics3Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedaccess: BackgroundAccessRequestKind, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTask(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTask {
-    type Vtable = IBackgroundTask_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
-}
+pub struct IBackgroundTask(::windows::core::IUnknown);
 impl IBackgroundTask {
     pub fn Run<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundTaskInstance>>(&self, taskinstance: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), taskinstance.into_param().abi()).ok() }
     }
 }
-unsafe impl ::windows::core::RuntimeType for IBackgroundTask {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
-}
-impl ::core::convert::From<IBackgroundTask> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTask) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTask) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundTask> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTask) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTask) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTask {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTask {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTask {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::convert::From<IBackgroundTask> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTask) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTask {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTask {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IBackgroundTask {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTask {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTask {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTask {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTask {
+    type Vtable = IBackgroundTaskVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTask_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskBuilder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder {
-    type Vtable = IBackgroundTaskBuilder_abi;
+    type Vtable = IBackgroundTaskBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0351550e_3e64_4572_a93a_84075a37c917);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, trigger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, condition: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskBuilderVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trigger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskBuilder2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder2 {
-    type Vtable = IBackgroundTaskBuilder2_abi;
+    type Vtable = IBackgroundTaskBuilder2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskBuilder2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder3(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskBuilder3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder3 {
-    type Vtable = IBackgroundTaskBuilder3_abi;
+    type Vtable = IBackgroundTaskBuilder3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder3_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskBuilder3Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder4(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskBuilder4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder4 {
-    type Vtable = IBackgroundTaskBuilder4_abi;
+    type Vtable = IBackgroundTaskBuilder4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder4_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskBuilder4Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder5(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskBuilder5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskBuilder5 {
-    type Vtable = IBackgroundTaskBuilder5_abi;
+    type Vtable = IBackgroundTaskBuilder5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077103f6_99f5_4af4_bcad_4731d0330d43);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskBuilder5_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, taskentrypoint: ::windows::core::GUID) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskBuilder5Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskentrypoint: ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskCompletedEventArgs(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskCompletedEventArgs {
-    type Vtable = IBackgroundTaskCompletedEventArgs_abi;
+    type Vtable = IBackgroundTaskCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskCompletedEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskCompletedEventArgsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskDeferral(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskDeferral {
-    type Vtable = IBackgroundTaskDeferral_abi;
+    type Vtable = IBackgroundTaskDeferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cc156d_af27_4dd3_846e_24ee40cadd25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskDeferral_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskDeferralVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTaskInstance(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTaskInstance {
-    type Vtable = IBackgroundTaskInstance_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x865bda7a_21d8_4573_8f32_928a1b0641f6);
-}
+pub struct IBackgroundTaskInstance(::windows::core::IUnknown);
 impl IBackgroundTaskInstance {
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -4382,7 +4761,7 @@ impl IBackgroundTaskInstance {
     pub fn TriggerDetails(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4414,77 +4793,87 @@ impl IBackgroundTaskInstance {
         }
     }
 }
-unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
-}
-impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskInstance) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskInstance) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTaskInstance) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskInstance) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskInstance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTaskInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTaskInstance) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IBackgroundTaskInstance {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTaskInstance {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTaskInstance {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTaskInstance {
+    type Vtable = IBackgroundTaskInstanceVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x865bda7a_21d8_4573_8f32_928a1b0641f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskInstance_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cancelhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskInstanceVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cancelhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTaskInstance2(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTaskInstance2 {
-    type Vtable = IBackgroundTaskInstance2_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
-}
+pub struct IBackgroundTaskInstance2(::windows::core::IUnknown);
 impl IBackgroundTaskInstance2 {
     pub fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32> {
         let this = self;
@@ -4521,7 +4910,7 @@ impl IBackgroundTaskInstance2 {
     pub fn TriggerDetails(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4553,47 +4942,44 @@ impl IBackgroundTaskInstance2 {
         }
     }
 }
-unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
-}
-impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskInstance2) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskInstance2) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTaskInstance2) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskInstance2) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskInstance2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTaskInstance2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTaskInstance2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskInstance2> for IBackgroundTaskInstance {
@@ -4618,25 +5004,46 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskInstance> for &IBackgroun
         ::core::convert::TryInto::<IBackgroundTaskInstance>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::clone::Clone for IBackgroundTaskInstance2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTaskInstance2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTaskInstance2 {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance2 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTaskInstance2 {
+    type Vtable = IBackgroundTaskInstance2Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskInstance2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskInstance2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTaskInstance4(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTaskInstance4 {
-    type Vtable = IBackgroundTaskInstance4_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
-}
+pub struct IBackgroundTaskInstance4(::windows::core::IUnknown);
 impl IBackgroundTaskInstance4 {
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = self;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+        }
+    }
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
@@ -4665,7 +5072,7 @@ impl IBackgroundTaskInstance4 {
     pub fn TriggerDetails(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4696,56 +5103,45 @@ impl IBackgroundTaskInstance4 {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTaskDeferral>(result__)
         }
     }
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = self;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
-        }
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance4 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
-}
-impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskInstance4) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskInstance4) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
 }
 impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTaskInstance4) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskInstance4) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskInstance4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTaskInstance4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTaskInstance4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskInstance4> for IBackgroundTaskInstance {
@@ -4770,44 +5166,57 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskInstance> for &IBackgroun
         ::core::convert::TryInto::<IBackgroundTaskInstance>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::clone::Clone for IBackgroundTaskInstance4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTaskInstance4 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTaskInstance4 {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance4 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTaskInstance4 {
+    type Vtable = IBackgroundTaskInstance4Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskInstance4_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskInstance4Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskProgressEventArgs(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskProgressEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskProgressEventArgs {
-    type Vtable = IBackgroundTaskProgressEventArgs_abi;
+    type Vtable = IBackgroundTaskProgressEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb1468ac_8332_4d0a_9532_03eae684da31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskProgressEventArgs_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskProgressEventArgsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTaskRegistration(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration {
-    type Vtable = IBackgroundTaskRegistration_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
-}
+pub struct IBackgroundTaskRegistration(::windows::core::IUnknown);
 impl IBackgroundTaskRegistration {
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -4854,77 +5263,87 @@ impl IBackgroundTaskRegistration {
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), canceltask).ok() }
     }
 }
-unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
-}
-impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskRegistration) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskRegistration) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTaskRegistration) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskRegistration) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTaskRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTaskRegistration) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IBackgroundTaskRegistration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTaskRegistration {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTaskRegistration {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration {
+    type Vtable = IBackgroundTaskRegistrationVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistration_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistrationVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, canceltask: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, canceltask: bool) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTaskRegistration2(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration2 {
-    type Vtable = IBackgroundTaskRegistration2_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6138c703_bb86_4112_afc3_7f939b166e3b);
-}
+pub struct IBackgroundTaskRegistration2(::windows::core::IUnknown);
 impl IBackgroundTaskRegistration2 {
     pub fn Trigger(&self) -> ::windows::core::Result<IBackgroundTrigger> {
         let this = self;
@@ -4978,47 +5397,44 @@ impl IBackgroundTaskRegistration2 {
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), canceltask).ok() }
     }
 }
-unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration2 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
-}
-impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskRegistration2) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskRegistration2) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTaskRegistration2) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskRegistration2) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskRegistration2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTaskRegistration2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTaskRegistration2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration2> for IBackgroundTaskRegistration {
@@ -5043,25 +5459,45 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for &IBackg
         ::core::convert::TryInto::<IBackgroundTaskRegistration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::clone::Clone for IBackgroundTaskRegistration2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTaskRegistration2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTaskRegistration2 {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration2 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration2 {
+    type Vtable = IBackgroundTaskRegistration2Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6138c703_bb86_4112_afc3_7f939b166e3b);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistration2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistration2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTaskRegistration3(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration3 {
-    type Vtable = IBackgroundTaskRegistration3_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
-}
+pub struct IBackgroundTaskRegistration3(::windows::core::IUnknown);
 impl IBackgroundTaskRegistration3 {
+    pub fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
+        let this = self;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTaskRegistrationGroup>(result__)
+        }
+    }
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
@@ -5106,55 +5542,45 @@ impl IBackgroundTaskRegistration3 {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), canceltask).ok() }
     }
-    pub fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
-        let this = self;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTaskRegistrationGroup>(result__)
-        }
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration3 {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
-}
-impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTaskRegistration3) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTaskRegistration3) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
 }
 impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTaskRegistration3) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskRegistration3) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskRegistration3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTaskRegistration3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTaskRegistration3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration3> for IBackgroundTaskRegistration {
@@ -5179,1377 +5605,1404 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for &IBackg
         ::core::convert::TryInto::<IBackgroundTaskRegistration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+impl ::core::clone::Clone for IBackgroundTaskRegistration3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTaskRegistration3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTaskRegistration3 {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration3 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTaskRegistration3 {
+    type Vtable = IBackgroundTaskRegistration3Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistration3_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistration3Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationGroup(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskRegistrationGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationGroup {
-    type Vtable = IBackgroundTaskRegistrationGroup_abi;
+    type Vtable = IBackgroundTaskRegistrationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ab1919a_871b_4167_8a76_055cd67b5b23);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationGroup_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistrationGroupVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationGroupFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskRegistrationGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationGroupFactory {
-    type Vtable = IBackgroundTaskRegistrationGroupFactory_abi;
+    type Vtable = IBackgroundTaskRegistrationGroupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d92b69_44cf_4631_9740_03c7d8741bc5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationGroupFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistrationGroupFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskRegistrationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationStatics {
-    type Vtable = IBackgroundTaskRegistrationStatics_abi;
+    type Vtable = IBackgroundTaskRegistrationStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c542f69_b000_42ba_a093_6a563c65e3f8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistrationStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationStatics2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundTaskRegistrationStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTaskRegistrationStatics2 {
-    type Vtable = IBackgroundTaskRegistrationStatics2_abi;
+    type Vtable = IBackgroundTaskRegistrationStatics2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTaskRegistrationStatics2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBackgroundTaskRegistrationStatics2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, groupid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IBackgroundTrigger(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for IBackgroundTrigger {
-    type Vtable = IBackgroundTrigger_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
-}
+pub struct IBackgroundTrigger(::windows::core::IUnknown);
 impl IBackgroundTrigger {}
-unsafe impl ::windows::core::RuntimeType for IBackgroundTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
-}
-impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundTrigger) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundTrigger) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IUnknown {
+    fn from(value: IBackgroundTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IUnknown {
+    fn from(value: &IBackgroundTrigger) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTrigger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTrigger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IBackgroundTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IBackgroundTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IBackgroundTrigger {}
+unsafe impl ::windows::core::RuntimeType for IBackgroundTrigger {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
+}
+unsafe impl ::windows::core::Interface for IBackgroundTrigger {
+    type Vtable = IBackgroundTriggerVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IBackgroundTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBackgroundWorkCostStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBackgroundWorkCostStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundWorkCostStatics {
-    type Vtable = IBackgroundWorkCostStatics_abi;
+    type Vtable = IBackgroundWorkCostStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundWorkCostStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut BackgroundWorkCostValue) -> ::windows::core::HRESULT,
+pub struct IBackgroundWorkCostStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundWorkCostValue) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBluetoothLEAdvertisementPublisherTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTrigger {
-    type Vtable = IBluetoothLEAdvertisementPublisherTrigger_abi;
+    type Vtable = IBluetoothLEAdvertisementPublisherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3e2612_25d3_48ae_8724_d81877ae6129);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth_Advertisement")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBluetoothLEAdvertisementPublisherTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTrigger2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBluetoothLEAdvertisementPublisherTrigger2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTrigger2 {
-    type Vtable = IBluetoothLEAdvertisementPublisherTrigger2_abi;
+    type Vtable = IBluetoothLEAdvertisementPublisherTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa28d064_38f4_597d_b597_4e55588c6503);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTrigger2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IBluetoothLEAdvertisementPublisherTrigger2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBluetoothLEAdvertisementWatcherTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigger {
-    type Vtable = IBluetoothLEAdvertisementWatcherTrigger_abi;
+    type Vtable = IBluetoothLEAdvertisementWatcherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+pub struct IBluetoothLEAdvertisementWatcherTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Devices_Bluetooth")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth"))] usize,
-    #[cfg(feature = "Devices_Bluetooth")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth"))] usize,
-    #[cfg(feature = "Devices_Bluetooth_Advertisement")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))] usize,
-    #[cfg(feature = "Devices_Bluetooth_Advertisement")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherTrigger2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IBluetoothLEAdvertisementWatcherTrigger2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigger2 {
-    type Vtable = IBluetoothLEAdvertisementWatcherTrigger2_abi;
+    type Vtable = IBluetoothLEAdvertisementWatcherTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39b56799_eb39_5ab6_9932_aa9e4549604d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherTrigger2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+pub struct IBluetoothLEAdvertisementWatcherTrigger2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ICachedFileUpdaterTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ICachedFileUpdaterTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterTrigger {
-    type Vtable = ICachedFileUpdaterTrigger_abi;
+    type Vtable = ICachedFileUpdaterTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICachedFileUpdaterTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct ICachedFileUpdaterTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ICachedFileUpdaterTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ICachedFileUpdaterTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterTriggerDetails {
-    type Vtable = ICachedFileUpdaterTriggerDetails_abi;
+    type Vtable = ICachedFileUpdaterTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71838c13_1314_47b4_9597_dc7e248c17cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICachedFileUpdaterTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Provider")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Storage::Provider::CachedFileTarget) -> ::windows::core::HRESULT,
+pub struct ICachedFileUpdaterTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Provider")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Storage::Provider::CachedFileTarget) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Provider"))] usize,
-    #[cfg(feature = "Storage_Provider")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Provider")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Provider"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IChatMessageNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IChatMessageNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageNotificationTrigger {
-    type Vtable = IChatMessageNotificationTrigger_abi;
+    type Vtable = IChatMessageNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IChatMessageNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IChatMessageReceivedNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IChatMessageReceivedNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageReceivedNotificationTrigger {
-    type Vtable = IChatMessageReceivedNotificationTrigger_abi;
+    type Vtable = IChatMessageReceivedNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageReceivedNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IChatMessageReceivedNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAppSetAsActiveTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ICommunicationBlockingAppSetAsActiveTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommunicationBlockingAppSetAsActiveTrigger {
-    type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_abi;
+    type Vtable = ICommunicationBlockingAppSetAsActiveTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb91f28a_16a5_486d_974c_7835a8477be2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAppSetAsActiveTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct ICommunicationBlockingAppSetAsActiveTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IContactStoreNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IContactStoreNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStoreNotificationTrigger {
-    type Vtable = IContactStoreNotificationTrigger_abi;
+    type Vtable = IContactStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc833419b_4705_4571_9a16_06b997bf9c96);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactStoreNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IContactStoreNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IContentPrefetchTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IContentPrefetchTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentPrefetchTrigger {
-    type Vtable = IContentPrefetchTrigger_abi;
+    type Vtable = IContentPrefetchTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x710627ee_04fa_440b_80c0_173202199e5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentPrefetchTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+pub struct IContentPrefetchTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IContentPrefetchTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IContentPrefetchTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentPrefetchTriggerFactory {
-    type Vtable = IContentPrefetchTriggerFactory_abi;
+    type Vtable = IContentPrefetchTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentPrefetchTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, waitinterval: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IContentPrefetchTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waitinterval: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSystemEventTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ICustomSystemEventTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSystemEventTrigger {
-    type Vtable = ICustomSystemEventTrigger_abi;
+    type Vtable = ICustomSystemEventTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSystemEventTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut CustomSystemEventTriggerRecurrence) -> ::windows::core::HRESULT,
+pub struct ICustomSystemEventTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CustomSystemEventTriggerRecurrence) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomSystemEventTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ICustomSystemEventTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSystemEventTriggerFactory {
-    type Vtable = ICustomSystemEventTriggerFactory_abi;
+    type Vtable = ICustomSystemEventTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSystemEventTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recurrence: CustomSystemEventTriggerRecurrence, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ICustomSystemEventTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recurrence: CustomSystemEventTriggerRecurrence, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceConnectionChangeTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceConnectionChangeTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTrigger {
-    type Vtable = IDeviceConnectionChangeTrigger_abi;
+    type Vtable = IDeviceConnectionChangeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceConnectionChangeTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+pub struct IDeviceConnectionChangeTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceConnectionChangeTriggerStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceConnectionChangeTriggerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTriggerStatics {
-    type Vtable = IDeviceConnectionChangeTriggerStatics_abi;
+    type Vtable = IDeviceConnectionChangeTriggerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceConnectionChangeTriggerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDeviceConnectionChangeTriggerStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceManufacturerNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceManufacturerNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTrigger {
-    type Vtable = IDeviceManufacturerNotificationTrigger_abi;
+    type Vtable = IDeviceManufacturerNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceManufacturerNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct IDeviceManufacturerNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceManufacturerNotificationTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceManufacturerNotificationTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTriggerFactory {
-    type Vtable = IDeviceManufacturerNotificationTriggerFactory_abi;
+    type Vtable = IDeviceManufacturerNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7955de75_25bb_4153_a1a2_3029fcabb652);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceManufacturerNotificationTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, triggerqualifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDeviceManufacturerNotificationTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerqualifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceServicingTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceServicingTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceServicingTrigger {
-    type Vtable = IDeviceServicingTrigger_abi;
+    type Vtable = IDeviceServicingTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceServicingTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectedduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDeviceServicingTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectedduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectedduration: super::super::Foundation::TimeSpan, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectedduration: super::super::Foundation::TimeSpan, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceUseTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceUseTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceUseTrigger {
-    type Vtable = IDeviceUseTrigger_abi;
+    type Vtable = IDeviceUseTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceUseTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IDeviceUseTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IDeviceWatcherTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IDeviceWatcherTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcherTrigger {
-    type Vtable = IDeviceWatcherTrigger_abi;
+    type Vtable = IDeviceWatcherTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4617fdd_8573_4260_befc_5bec89cb693d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceWatcherTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IDeviceWatcherTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailStoreNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IEmailStoreNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailStoreNotificationTrigger {
-    type Vtable = IEmailStoreNotificationTrigger_abi;
+    type Vtable = IEmailStoreNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d06da_47eb_4268_a4f2_f3f77188388a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailStoreNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IEmailStoreNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattCharacteristicNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigger {
-    type Vtable = IGattCharacteristicNotificationTrigger_abi;
+    type Vtable = IGattCharacteristicNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IGattCharacteristicNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTrigger2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattCharacteristicNotificationTrigger2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigger2 {
-    type Vtable = IGattCharacteristicNotificationTrigger2_abi;
+    type Vtable = IGattCharacteristicNotificationTrigger2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTrigger2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth_Background")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::HRESULT,
+pub struct IGattCharacteristicNotificationTrigger2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Background"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattCharacteristicNotificationTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTriggerFactory {
-    type Vtable = IGattCharacteristicNotificationTriggerFactory_abi;
+    type Vtable = IGattCharacteristicNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, characteristic: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IGattCharacteristicNotificationTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerFactory2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattCharacteristicNotificationTriggerFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTriggerFactory2 {
-    type Vtable = IGattCharacteristicNotificationTriggerFactory2_abi;
+    type Vtable = IGattCharacteristicNotificationTriggerFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerFactory2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, characteristic: ::windows::core::RawPtr, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IGattCharacteristicNotificationTriggerFactory2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattServiceProviderTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderTrigger {
-    type Vtable = IGattServiceProviderTrigger_abi;
+    type Vtable = IGattServiceProviderTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IGattServiceProviderTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
-    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
-    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTriggerResult(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattServiceProviderTriggerResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerResult {
-    type Vtable = IGattServiceProviderTriggerResult_abi;
+    type Vtable = IGattServiceProviderTriggerResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTriggerResult_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Bluetooth::BluetoothError) -> ::windows::core::HRESULT,
+pub struct IGattServiceProviderTriggerResultVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Bluetooth::BluetoothError) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTriggerStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGattServiceProviderTriggerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerStatics {
-    type Vtable = IGattServiceProviderTriggerStatics_abi;
+    type Vtable = IGattServiceProviderTriggerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb413a36a_e294_4591_a5a6_64891a828153);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTriggerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IGattServiceProviderTriggerStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IGeovisitTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IGeovisitTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeovisitTrigger {
-    type Vtable = IGeovisitTrigger_abi;
+    type Vtable = IGeovisitTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeovisitTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Geolocation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::HRESULT,
+pub struct IGeovisitTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Geolocation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))] usize,
-    #[cfg(feature = "Devices_Geolocation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Geolocation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILocationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILocationTrigger {
-    type Vtable = ILocationTrigger_abi;
+    type Vtable = ILocationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47666a1c_6877_481e_8026_ff7e14a811a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut LocationTriggerType) -> ::windows::core::HRESULT,
+pub struct ILocationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LocationTriggerType) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocationTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILocationTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILocationTriggerFactory {
-    type Vtable = ILocationTriggerFactory_abi;
+    type Vtable = ILocationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, triggertype: LocationTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILocationTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggertype: LocationTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IMaintenanceTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IMaintenanceTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMaintenanceTrigger {
-    type Vtable = IMaintenanceTrigger_abi;
+    type Vtable = IMaintenanceTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68184c83_fc22_4ce5_841a_7239a9810047);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMaintenanceTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct IMaintenanceTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IMaintenanceTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IMaintenanceTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMaintenanceTriggerFactory {
-    type Vtable = IMaintenanceTriggerFactory_abi;
+    type Vtable = IMaintenanceTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMaintenanceTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IMaintenanceTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IMediaProcessingTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IMediaProcessingTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaProcessingTrigger {
-    type Vtable = IMediaProcessingTrigger_abi;
+    type Vtable = IMediaProcessingTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaProcessingTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IMediaProcessingTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, arguments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorHotspotAuthenticationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct INetworkOperatorHotspotAuthenticationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorHotspotAuthenticationTrigger {
-    type Vtable = INetworkOperatorHotspotAuthenticationTrigger_abi;
+    type Vtable = INetworkOperatorHotspotAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_3001_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkOperatorHotspotAuthenticationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct INetworkOperatorHotspotAuthenticationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorNotificationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct INetworkOperatorNotificationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorNotificationTrigger {
-    type Vtable = INetworkOperatorNotificationTrigger_abi;
+    type Vtable = INetworkOperatorNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkOperatorNotificationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct INetworkOperatorNotificationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorNotificationTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct INetworkOperatorNotificationTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INetworkOperatorNotificationTriggerFactory {
-    type Vtable = INetworkOperatorNotificationTriggerFactory_abi;
+    type Vtable = INetworkOperatorNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a223e00_27d7_4353_adb9_9265aaea579d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkOperatorNotificationTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct INetworkOperatorNotificationTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneTrigger {
-    type Vtable = IPhoneTrigger_abi;
+    type Vtable = IPhoneTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Calls_Background")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Calls::Background::PhoneTriggerType) -> ::windows::core::HRESULT,
+pub struct IPhoneTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Calls_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Calls::Background::PhoneTriggerType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneTriggerFactory {
-    type Vtable = IPhoneTriggerFactory_abi;
+    type Vtable = IPhoneTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d93cda_5fc1_48fb_a546_32262040157b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Calls_Background")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPhoneTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "ApplicationModel_Calls_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPushNotificationTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPushNotificationTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPushNotificationTriggerFactory {
-    type Vtable = IPushNotificationTriggerFactory_abi;
+    type Vtable = IPushNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPushNotificationTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPushNotificationTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageAvailableTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IRcsEndUserMessageAvailableTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableTrigger {
-    type Vtable = IRcsEndUserMessageAvailableTrigger_abi;
+    type Vtable = IRcsEndUserMessageAvailableTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d0d6a_b2f6_467f_a978_a44091c11a66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageAvailableTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IRcsEndUserMessageAvailableTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IRfcommConnectionTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IRfcommConnectionTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommConnectionTrigger {
-    type Vtable = IRfcommConnectionTrigger_abi;
+    type Vtable = IRfcommConnectionTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c4cae2_0b53_4464_9394_fd875654de64);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommConnectionTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Bluetooth_Background")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IRfcommConnectionTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Background"))] usize,
-    #[cfg(feature = "Devices_Bluetooth_Background")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Background"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Networking_Sockets")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Networking_Sockets")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))] usize,
-    #[cfg(feature = "Networking_Sockets")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Networking_Sockets")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))] usize,
-    #[cfg(feature = "Networking")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Networking")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking"))] usize,
-    #[cfg(feature = "Networking")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Networking")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthenticationTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISecondaryAuthenticationFactorAuthenticationTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthenticationTrigger {
-    type Vtable = ISecondaryAuthenticationFactorAuthenticationTrigger_abi;
+    type Vtable = ISecondaryAuthenticationFactorAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct ISecondaryAuthenticationFactorAuthenticationTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISensorDataThresholdTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISensorDataThresholdTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISensorDataThresholdTrigger {
-    type Vtable = ISensorDataThresholdTrigger_abi;
+    type Vtable = ISensorDataThresholdTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorDataThresholdTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct ISensorDataThresholdTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISensorDataThresholdTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISensorDataThresholdTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISensorDataThresholdTriggerFactory {
-    type Vtable = ISensorDataThresholdTriggerFactory_abi;
+    type Vtable = ISensorDataThresholdTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x921fe675_7df0_4da3_97b3_e544ee857fe6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorDataThresholdTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Sensors")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, threshold: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ISensorDataThresholdTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Sensors")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threshold: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Sensors"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmartCardTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISmartCardTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTrigger {
-    type Vtable = ISmartCardTrigger_abi;
+    type Vtable = ISmartCardTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_SmartCards")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::HRESULT,
+pub struct ISmartCardTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_SmartCards")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_SmartCards"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmartCardTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISmartCardTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerFactory {
-    type Vtable = ISmartCardTriggerFactory_abi;
+    type Vtable = ISmartCardTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_SmartCards")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ISmartCardTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_SmartCards")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggertype: super::super::Devices::SmartCards::SmartCardTriggerType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_SmartCards"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISmsMessageReceivedTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISmsMessageReceivedTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsMessageReceivedTriggerFactory {
-    type Vtable = ISmsMessageReceivedTriggerFactory_abi;
+    type Vtable = ISmsMessageReceivedTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageReceivedTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Devices_Sms")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filterrules: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ISmsMessageReceivedTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Devices_Sms")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filterrules: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Sms"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISocketActivityTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISocketActivityTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityTrigger {
-    type Vtable = ISocketActivityTrigger_abi;
+    type Vtable = ISocketActivityTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketActivityTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct ISocketActivityTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageLibraryChangeTrackerTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IStorageLibraryChangeTrackerTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryChangeTrackerTriggerFactory {
-    type Vtable = IStorageLibraryChangeTrackerTriggerFactory_abi;
+    type Vtable = IStorageLibraryChangeTrackerTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb0ffd0_5a85_499e_a888_824607124f50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageLibraryChangeTrackerTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, tracker: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IStorageLibraryChangeTrackerTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracker: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageLibraryContentChangedTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IStorageLibraryContentChangedTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTrigger {
-    type Vtable = IStorageLibraryContentChangedTrigger_abi;
+    type Vtable = IStorageLibraryContentChangedTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageLibraryContentChangedTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IStorageLibraryContentChangedTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageLibraryContentChangedTriggerStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IStorageLibraryContentChangedTriggerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTriggerStatics {
-    type Vtable = IStorageLibraryContentChangedTriggerStatics_abi;
+    type Vtable = IStorageLibraryContentChangedTriggerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageLibraryContentChangedTriggerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, storagelibrary: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IStorageLibraryContentChangedTriggerStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagelibrary: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, storagelibraries: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagelibraries: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemCondition(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISystemCondition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemCondition {
-    type Vtable = ISystemCondition_abi;
+    type Vtable = ISystemConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15fb476_89c5_420b_abd3_fb3030472128);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemCondition_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut SystemConditionType) -> ::windows::core::HRESULT,
+pub struct ISystemConditionVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemConditionType) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemConditionFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISystemConditionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemConditionFactory {
-    type Vtable = ISystemConditionFactory_abi;
+    type Vtable = ISystemConditionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemConditionFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, conditiontype: SystemConditionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ISystemConditionFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, conditiontype: SystemConditionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISystemTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemTrigger {
-    type Vtable = ISystemTrigger_abi;
+    type Vtable = ISystemTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d80c776_3748_4463_8d7e_276dc139ac1c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut SystemTriggerType) -> ::windows::core::HRESULT,
+pub struct ISystemTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemTriggerType) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISystemTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemTriggerFactory {
-    type Vtable = ISystemTriggerFactory_abi;
+    type Vtable = ISystemTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe80423d4_8791_4579_8126_87ec8aaa407a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, triggertype: SystemTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ISystemTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggertype: SystemTriggerType, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ITimeTrigger(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ITimeTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeTrigger {
-    type Vtable = ITimeTrigger_abi;
+    type Vtable = ITimeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x656e5556_0b2a_4377_ba70_3b45a935547f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimeTrigger_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct ITimeTriggerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ITimeTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ITimeTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeTriggerFactory {
-    type Vtable = ITimeTriggerFactory_abi;
+    type Vtable = ITimeTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimeTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ITimeTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IToastNotificationActionTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IToastNotificationActionTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationActionTriggerFactory {
-    type Vtable = IToastNotificationActionTriggerFactory_abi;
+    type Vtable = IToastNotificationActionTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToastNotificationActionTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IToastNotificationActionTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IToastNotificationHistoryChangedTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IToastNotificationHistoryChangedTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationHistoryChangedTriggerFactory {
-    type Vtable = IToastNotificationHistoryChangedTriggerFactory_abi;
+    type Vtable = IToastNotificationHistoryChangedTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToastNotificationHistoryChangedTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IToastNotificationHistoryChangedTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserNotificationChangedTriggerFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IUserNotificationChangedTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotificationChangedTriggerFactory {
-    type Vtable = IUserNotificationChangedTriggerFactory_abi;
+    type Vtable = IUserNotificationChangedTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserNotificationChangedTriggerFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Notifications")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, notificationkinds: super::super::UI::Notifications::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IUserNotificationChangedTriggerFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Notifications")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationkinds: super::super::UI::Notifications::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Notifications"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LocationTrigger(pub ::windows::core::IInspectable);
+pub struct LocationTrigger(::windows::core::IUnknown);
 impl LocationTrigger {
     pub fn TriggerType(&self) -> ::windows::core::Result<LocationTriggerType> {
         let this = self;
@@ -6569,11 +7022,22 @@ impl LocationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for LocationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for LocationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LocationTrigger {}
 unsafe impl ::windows::core::RuntimeType for LocationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.LocationTrigger;{47666a1c-6877-481e-8026-ff7e14a811a0})");
 }
 unsafe impl ::windows::core::Interface for LocationTrigger {
-    type Vtable = ILocationTrigger_abi;
+    type Vtable = ILocationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47666a1c_6877_481e_8026_ff7e14a811a0);
 }
 impl ::windows::core::RuntimeName for LocationTrigger {
@@ -6581,42 +7045,42 @@ impl ::windows::core::RuntimeName for LocationTrigger {
 }
 impl ::core::convert::From<LocationTrigger> for ::windows::core::IUnknown {
     fn from(value: LocationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LocationTrigger> for ::windows::core::IUnknown {
     fn from(value: &LocationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LocationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<LocationTrigger> for ::windows::core::IInspectable {
     fn from(value: LocationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LocationTrigger> for ::windows::core::IInspectable {
     fn from(value: &LocationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LocationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LocationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<LocationTrigger> for IBackgroundTrigger {
@@ -6641,22 +7105,26 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &LocationTrigger
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for LocationTrigger {}
-unsafe impl ::core::marker::Sync for LocationTrigger {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
-    pub const Geofence: LocationTriggerType = LocationTriggerType(0i32);
+    pub const Geofence: Self = Self(0i32);
 }
-impl ::core::convert::From<i32> for LocationTriggerType {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for LocationTriggerType {}
+impl ::core::clone::Clone for LocationTriggerType {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for LocationTriggerType {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for LocationTriggerType {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LocationTriggerType {}
 unsafe impl ::windows::core::RuntimeType for LocationTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
 }
@@ -6664,8 +7132,7 @@ impl ::windows::core::DefaultType for LocationTriggerType {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MaintenanceTrigger(pub ::windows::core::IInspectable);
+pub struct MaintenanceTrigger(::windows::core::IUnknown);
 impl MaintenanceTrigger {
     pub fn FreshnessTime(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -6692,11 +7159,22 @@ impl MaintenanceTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for MaintenanceTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MaintenanceTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MaintenanceTrigger {}
 unsafe impl ::windows::core::RuntimeType for MaintenanceTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MaintenanceTrigger;{68184c83-fc22-4ce5-841a-7239a9810047})");
 }
 unsafe impl ::windows::core::Interface for MaintenanceTrigger {
-    type Vtable = IMaintenanceTrigger_abi;
+    type Vtable = IMaintenanceTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68184c83_fc22_4ce5_841a_7239a9810047);
 }
 impl ::windows::core::RuntimeName for MaintenanceTrigger {
@@ -6704,42 +7182,42 @@ impl ::windows::core::RuntimeName for MaintenanceTrigger {
 }
 impl ::core::convert::From<MaintenanceTrigger> for ::windows::core::IUnknown {
     fn from(value: MaintenanceTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MaintenanceTrigger> for ::windows::core::IUnknown {
     fn from(value: &MaintenanceTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MaintenanceTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MaintenanceTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MaintenanceTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MaintenanceTrigger> for ::windows::core::IInspectable {
     fn from(value: MaintenanceTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MaintenanceTrigger> for ::windows::core::IInspectable {
     fn from(value: &MaintenanceTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MaintenanceTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MaintenanceTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MaintenanceTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<MaintenanceTrigger> for IBackgroundTrigger {
@@ -6765,8 +7243,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MaintenanceTrig
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MediaProcessingTrigger(pub ::windows::core::IInspectable);
+pub struct MediaProcessingTrigger(::windows::core::IUnknown);
 impl MediaProcessingTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -6792,11 +7269,22 @@ impl MediaProcessingTrigger {
         }
     }
 }
+impl ::core::clone::Clone for MediaProcessingTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MediaProcessingTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MediaProcessingTrigger {}
 unsafe impl ::windows::core::RuntimeType for MediaProcessingTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MediaProcessingTrigger;{9a95be65-8a52-4b30-9011-cf38040ea8b0})");
 }
 unsafe impl ::windows::core::Interface for MediaProcessingTrigger {
-    type Vtable = IMediaProcessingTrigger_abi;
+    type Vtable = IMediaProcessingTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
 }
 impl ::windows::core::RuntimeName for MediaProcessingTrigger {
@@ -6804,42 +7292,42 @@ impl ::windows::core::RuntimeName for MediaProcessingTrigger {
 }
 impl ::core::convert::From<MediaProcessingTrigger> for ::windows::core::IUnknown {
     fn from(value: MediaProcessingTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MediaProcessingTrigger> for ::windows::core::IUnknown {
     fn from(value: &MediaProcessingTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaProcessingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaProcessingTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaProcessingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MediaProcessingTrigger> for ::windows::core::IInspectable {
     fn from(value: MediaProcessingTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MediaProcessingTrigger> for ::windows::core::IInspectable {
     fn from(value: &MediaProcessingTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaProcessingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaProcessingTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaProcessingTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<MediaProcessingTrigger> for IBackgroundTrigger {
@@ -6864,23 +7352,29 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MediaProcessing
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
-    pub const Allowed: MediaProcessingTriggerResult = MediaProcessingTriggerResult(0i32);
-    pub const CurrentlyRunning: MediaProcessingTriggerResult = MediaProcessingTriggerResult(1i32);
-    pub const DisabledByPolicy: MediaProcessingTriggerResult = MediaProcessingTriggerResult(2i32);
-    pub const UnknownError: MediaProcessingTriggerResult = MediaProcessingTriggerResult(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const CurrentlyRunning: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for MediaProcessingTriggerResult {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for MediaProcessingTriggerResult {}
+impl ::core::clone::Clone for MediaProcessingTriggerResult {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for MediaProcessingTriggerResult {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for MediaProcessingTriggerResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MediaProcessingTriggerResult {}
 unsafe impl ::windows::core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
 }
@@ -6888,8 +7382,7 @@ impl ::windows::core::DefaultType for MediaProcessingTriggerResult {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MobileBroadbandDeviceServiceNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct MobileBroadbandDeviceServiceNotificationTrigger(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -6899,11 +7392,22 @@ impl MobileBroadbandDeviceServiceNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for MobileBroadbandDeviceServiceNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MobileBroadbandDeviceServiceNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MobileBroadbandDeviceServiceNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
@@ -6911,69 +7415,68 @@ impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceNotificationTr
 }
 impl ::core::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandDeviceServiceNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandDeviceServiceNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
-    fn from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: MobileBroadbandDeviceServiceNotificationTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
-    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceNotificationTrigger {}
-unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MobileBroadbandPcoDataChangeTrigger(pub ::windows::core::IInspectable);
+pub struct MobileBroadbandPcoDataChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandPcoDataChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -6983,11 +7486,22 @@ impl MobileBroadbandPcoDataChangeTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for MobileBroadbandPcoDataChangeTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MobileBroadbandPcoDataChangeTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MobileBroadbandPcoDataChangeTrigger {}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
@@ -6995,69 +7509,68 @@ impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
 }
 impl ::core::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandPcoDataChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandPcoDataChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
-    fn from(value: MobileBroadbandPcoDataChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: MobileBroadbandPcoDataChangeTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
-    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandPcoDataChangeTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTrigger {}
-unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MobileBroadbandPinLockStateChangeTrigger(pub ::windows::core::IInspectable);
+pub struct MobileBroadbandPinLockStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7067,11 +7580,22 @@ impl MobileBroadbandPinLockStateChangeTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for MobileBroadbandPinLockStateChangeTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MobileBroadbandPinLockStateChangeTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MobileBroadbandPinLockStateChangeTrigger {}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
@@ -7079,69 +7603,68 @@ impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
 }
 impl ::core::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandPinLockStateChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandPinLockStateChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
-    fn from(value: MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: MobileBroadbandPinLockStateChangeTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
-    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandPinLockStateChangeTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTrigger {}
-unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MobileBroadbandRadioStateChangeTrigger(pub ::windows::core::IInspectable);
+pub struct MobileBroadbandRadioStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandRadioStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7151,11 +7674,22 @@ impl MobileBroadbandRadioStateChangeTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for MobileBroadbandRadioStateChangeTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MobileBroadbandRadioStateChangeTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MobileBroadbandRadioStateChangeTrigger {}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
@@ -7163,69 +7697,68 @@ impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
 }
 impl ::core::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandRadioStateChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandRadioStateChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
-    fn from(value: MobileBroadbandRadioStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: MobileBroadbandRadioStateChangeTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
-    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandRadioStateChangeTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTrigger {}
-unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MobileBroadbandRegistrationStateChangeTrigger(pub ::windows::core::IInspectable);
+pub struct MobileBroadbandRegistrationStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandRegistrationStateChangeTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7235,11 +7768,22 @@ impl MobileBroadbandRegistrationStateChangeTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for MobileBroadbandRegistrationStateChangeTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for MobileBroadbandRegistrationStateChangeTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MobileBroadbandRegistrationStateChangeTrigger {}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
@@ -7247,69 +7791,68 @@ impl ::windows::core::RuntimeName for MobileBroadbandRegistrationStateChangeTrig
 }
 impl ::core::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandRegistrationStateChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IInspectable {
     fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandRegistrationStateChangeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
-    fn from(value: MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: MobileBroadbandRegistrationStateChangeTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
-    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for MobileBroadbandRegistrationStateChangeTrigger {}
-unsafe impl ::core::marker::Sync for MobileBroadbandRegistrationStateChangeTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkOperatorDataUsageTrigger(pub ::windows::core::IInspectable);
+pub struct NetworkOperatorDataUsageTrigger(::windows::core::IUnknown);
 impl NetworkOperatorDataUsageTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7319,11 +7862,22 @@ impl NetworkOperatorDataUsageTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for NetworkOperatorDataUsageTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for NetworkOperatorDataUsageTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for NetworkOperatorDataUsageTrigger {}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTrigger {
@@ -7331,69 +7885,68 @@ impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTrigger {
 }
 impl ::core::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::core::IUnknown {
     fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::core::IUnknown {
     fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkOperatorDataUsageTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::core::IInspectable {
     fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::core::IInspectable {
     fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkOperatorDataUsageTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
-    fn from(value: NetworkOperatorDataUsageTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: NetworkOperatorDataUsageTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
-    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NetworkOperatorDataUsageTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTrigger {}
-unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkOperatorHotspotAuthenticationTrigger(pub ::windows::core::IInspectable);
+pub struct NetworkOperatorHotspotAuthenticationTrigger(::windows::core::IUnknown);
 impl NetworkOperatorHotspotAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7403,11 +7956,22 @@ impl NetworkOperatorHotspotAuthenticationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for NetworkOperatorHotspotAuthenticationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for NetworkOperatorHotspotAuthenticationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for NetworkOperatorHotspotAuthenticationTrigger {}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger;{e756c791-3001-4de5-83c7-de61d88831d0})");
 }
 unsafe impl ::windows::core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
-    type Vtable = INetworkOperatorHotspotAuthenticationTrigger_abi;
+    type Vtable = INetworkOperatorHotspotAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_3001_4de5_83c7_de61d88831d0);
 }
 impl ::windows::core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
@@ -7415,42 +7979,42 @@ impl ::windows::core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigge
 }
 impl ::core::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IUnknown {
     fn from(value: NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IUnknown {
     fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkOperatorHotspotAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkOperatorHotspotAuthenticationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NetworkOperatorHotspotAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IInspectable {
     fn from(value: NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IInspectable {
     fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkOperatorHotspotAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkOperatorHotspotAuthenticationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NetworkOperatorHotspotAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<NetworkOperatorHotspotAuthenticationTrigger> for IBackgroundTrigger {
@@ -7476,8 +8040,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperator
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct NetworkOperatorNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct NetworkOperatorNotificationTrigger(::windows::core::IUnknown);
 impl NetworkOperatorNotificationTrigger {
     pub fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -7497,11 +8060,22 @@ impl NetworkOperatorNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for NetworkOperatorNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for NetworkOperatorNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for NetworkOperatorNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger;{90089cc6-63cd-480c-95d1-6e6aef801e4a})");
 }
 unsafe impl ::windows::core::Interface for NetworkOperatorNotificationTrigger {
-    type Vtable = INetworkOperatorNotificationTrigger_abi;
+    type Vtable = INetworkOperatorNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
 }
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationTrigger {
@@ -7509,42 +8083,42 @@ impl ::windows::core::RuntimeName for NetworkOperatorNotificationTrigger {
 }
 impl ::core::convert::From<NetworkOperatorNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: NetworkOperatorNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkOperatorNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkOperatorNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NetworkOperatorNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<NetworkOperatorNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: NetworkOperatorNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkOperatorNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkOperatorNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NetworkOperatorNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<NetworkOperatorNotificationTrigger> for IBackgroundTrigger {
@@ -7570,8 +8144,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperator
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PaymentAppCanMakePaymentTrigger(pub ::windows::core::IInspectable);
+pub struct PaymentAppCanMakePaymentTrigger(::windows::core::IUnknown);
 impl PaymentAppCanMakePaymentTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7581,11 +8154,22 @@ impl PaymentAppCanMakePaymentTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for PaymentAppCanMakePaymentTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PaymentAppCanMakePaymentTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PaymentAppCanMakePaymentTrigger {}
 unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTrigger {
@@ -7593,69 +8177,68 @@ impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTrigger {
 }
 impl ::core::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::core::IUnknown {
     fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::core::IUnknown {
     fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentAppCanMakePaymentTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::core::IInspectable {
     fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::core::IInspectable {
     fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentAppCanMakePaymentTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
-    fn from(value: PaymentAppCanMakePaymentTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PaymentAppCanMakePaymentTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
-    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PaymentAppCanMakePaymentTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTrigger {}
-unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneTrigger(pub ::windows::core::IInspectable);
+pub struct PhoneTrigger(::windows::core::IUnknown);
 impl PhoneTrigger {
     pub fn OneShot(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -7684,11 +8267,22 @@ impl PhoneTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for PhoneTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneTrigger {}
 unsafe impl ::windows::core::RuntimeType for PhoneTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PhoneTrigger;{8dcfe99b-d4c5-49f1-b7d3-82e87a0e9dde})");
 }
 unsafe impl ::windows::core::Interface for PhoneTrigger {
-    type Vtable = IPhoneTrigger_abi;
+    type Vtable = IPhoneTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
 }
 impl ::windows::core::RuntimeName for PhoneTrigger {
@@ -7696,42 +8290,42 @@ impl ::windows::core::RuntimeName for PhoneTrigger {
 }
 impl ::core::convert::From<PhoneTrigger> for ::windows::core::IUnknown {
     fn from(value: PhoneTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneTrigger> for ::windows::core::IUnknown {
     fn from(value: &PhoneTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneTrigger> for ::windows::core::IInspectable {
     fn from(value: PhoneTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneTrigger> for ::windows::core::IInspectable {
     fn from(value: &PhoneTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<PhoneTrigger> for IBackgroundTrigger {
@@ -7756,11 +8350,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PhoneTrigger {
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for PhoneTrigger {}
-unsafe impl ::core::marker::Sync for PhoneTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PushNotificationTrigger(pub ::windows::core::IInspectable);
+pub struct PushNotificationTrigger(::windows::core::IUnknown);
 impl PushNotificationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7780,11 +8371,22 @@ impl PushNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for PushNotificationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PushNotificationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PushNotificationTrigger {}
 unsafe impl ::windows::core::RuntimeType for PushNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PushNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for PushNotificationTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for PushNotificationTrigger {
@@ -7792,69 +8394,68 @@ impl ::windows::core::RuntimeName for PushNotificationTrigger {
 }
 impl ::core::convert::From<PushNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: PushNotificationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PushNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &PushNotificationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PushNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PushNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PushNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PushNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: PushNotificationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PushNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &PushNotificationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PushNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PushNotificationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PushNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<PushNotificationTrigger> for IBackgroundTrigger {
-    fn from(value: PushNotificationTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<PushNotificationTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PushNotificationTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&PushNotificationTrigger> for IBackgroundTrigger {
-    fn from(value: &PushNotificationTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&PushNotificationTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PushNotificationTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for PushNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PushNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for PushNotificationTrigger {}
-unsafe impl ::core::marker::Sync for PushNotificationTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RcsEndUserMessageAvailableTrigger(pub ::windows::core::IInspectable);
+pub struct RcsEndUserMessageAvailableTrigger(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7864,11 +8465,22 @@ impl RcsEndUserMessageAvailableTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for RcsEndUserMessageAvailableTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for RcsEndUserMessageAvailableTrigger {}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger;{986d0d6a-b2f6-467f-a978-a44091c11a66})");
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTrigger {
-    type Vtable = IRcsEndUserMessageAvailableTrigger_abi;
+    type Vtable = IRcsEndUserMessageAvailableTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d0d6a_b2f6_467f_a978_a44091c11a66);
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTrigger {
@@ -7876,42 +8488,42 @@ impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTrigger {
 }
 impl ::core::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::core::IUnknown {
     fn from(value: RcsEndUserMessageAvailableTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::core::IUnknown {
     fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessageAvailableTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessageAvailableTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RcsEndUserMessageAvailableTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::core::IInspectable {
     fn from(value: RcsEndUserMessageAvailableTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::core::IInspectable {
     fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessageAvailableTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessageAvailableTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsEndUserMessageAvailableTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<RcsEndUserMessageAvailableTrigger> for IBackgroundTrigger {
@@ -7936,11 +8548,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RcsEndUserMessa
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTrigger {}
-unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct RfcommConnectionTrigger(pub ::windows::core::IInspectable);
+pub struct RfcommConnectionTrigger(::windows::core::IUnknown);
 impl RfcommConnectionTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8003,11 +8612,22 @@ impl RfcommConnectionTrigger {
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
+impl ::core::clone::Clone for RfcommConnectionTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for RfcommConnectionTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for RfcommConnectionTrigger {}
 unsafe impl ::windows::core::RuntimeType for RfcommConnectionTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RfcommConnectionTrigger;{e8c4cae2-0b53-4464-9394-fd875654de64})");
 }
 unsafe impl ::windows::core::Interface for RfcommConnectionTrigger {
-    type Vtable = IRfcommConnectionTrigger_abi;
+    type Vtable = IRfcommConnectionTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c4cae2_0b53_4464_9394_fd875654de64);
 }
 impl ::windows::core::RuntimeName for RfcommConnectionTrigger {
@@ -8015,42 +8635,42 @@ impl ::windows::core::RuntimeName for RfcommConnectionTrigger {
 }
 impl ::core::convert::From<RfcommConnectionTrigger> for ::windows::core::IUnknown {
     fn from(value: RfcommConnectionTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&RfcommConnectionTrigger> for ::windows::core::IUnknown {
     fn from(value: &RfcommConnectionTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RfcommConnectionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RfcommConnectionTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RfcommConnectionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<RfcommConnectionTrigger> for ::windows::core::IInspectable {
     fn from(value: RfcommConnectionTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&RfcommConnectionTrigger> for ::windows::core::IInspectable {
     fn from(value: &RfcommConnectionTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RfcommConnectionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RfcommConnectionTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RfcommConnectionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<RfcommConnectionTrigger> for IBackgroundTrigger {
@@ -8075,11 +8695,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RfcommConnectio
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for RfcommConnectionTrigger {}
-unsafe impl ::core::marker::Sync for RfcommConnectionTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SecondaryAuthenticationFactorAuthenticationTrigger(pub ::windows::core::IInspectable);
+pub struct SecondaryAuthenticationFactorAuthenticationTrigger(::windows::core::IUnknown);
 impl SecondaryAuthenticationFactorAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8089,11 +8706,22 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationTrigger {}
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger;{f237f327-5181-4f24-96a7-700a4e5fac62})");
 }
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
-    type Vtable = ISecondaryAuthenticationFactorAuthenticationTrigger_abi;
+    type Vtable = ISecondaryAuthenticationFactorAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
@@ -8101,42 +8729,42 @@ impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticatio
 }
 impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecondaryAuthenticationFactorAuthenticationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IInspectable {
     fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecondaryAuthenticationFactorAuthenticationTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<SecondaryAuthenticationFactorAuthenticationTrigger> for IBackgroundTrigger {
@@ -8162,8 +8790,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SecondaryAuthen
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SensorDataThresholdTrigger(pub ::windows::core::IInspectable);
+pub struct SensorDataThresholdTrigger(::windows::core::IUnknown);
 impl SensorDataThresholdTrigger {
     #[cfg(feature = "Devices_Sensors")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Sensors::ISensorDataThreshold>>(threshold: Param0) -> ::windows::core::Result<SensorDataThresholdTrigger> {
@@ -8177,11 +8804,22 @@ impl SensorDataThresholdTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for SensorDataThresholdTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SensorDataThresholdTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SensorDataThresholdTrigger {}
 unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SensorDataThresholdTrigger;{5bc0f372-d48b-4b7f-abec-15f9bacc12e2})");
 }
 unsafe impl ::windows::core::Interface for SensorDataThresholdTrigger {
-    type Vtable = ISensorDataThresholdTrigger_abi;
+    type Vtable = ISensorDataThresholdTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
 }
 impl ::windows::core::RuntimeName for SensorDataThresholdTrigger {
@@ -8189,42 +8827,42 @@ impl ::windows::core::RuntimeName for SensorDataThresholdTrigger {
 }
 impl ::core::convert::From<SensorDataThresholdTrigger> for ::windows::core::IUnknown {
     fn from(value: SensorDataThresholdTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SensorDataThresholdTrigger> for ::windows::core::IUnknown {
     fn from(value: &SensorDataThresholdTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SensorDataThresholdTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SensorDataThresholdTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SensorDataThresholdTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SensorDataThresholdTrigger> for ::windows::core::IInspectable {
     fn from(value: SensorDataThresholdTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SensorDataThresholdTrigger> for ::windows::core::IInspectable {
     fn from(value: &SensorDataThresholdTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SensorDataThresholdTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SensorDataThresholdTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SensorDataThresholdTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<SensorDataThresholdTrigger> for IBackgroundTrigger {
@@ -8249,11 +8887,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SensorDataThres
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for SensorDataThresholdTrigger {}
-unsafe impl ::core::marker::Sync for SensorDataThresholdTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SmartCardTrigger(pub ::windows::core::IInspectable);
+pub struct SmartCardTrigger(::windows::core::IUnknown);
 impl SmartCardTrigger {
     #[cfg(feature = "Devices_SmartCards")]
     pub fn TriggerType(&self) -> ::windows::core::Result<super::super::Devices::SmartCards::SmartCardTriggerType> {
@@ -8275,11 +8910,22 @@ impl SmartCardTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for SmartCardTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SmartCardTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SmartCardTrigger {}
 unsafe impl ::windows::core::RuntimeType for SmartCardTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmartCardTrigger;{f53bc5ac-84ca-4972-8ce9-e58f97b37a50})");
 }
 unsafe impl ::windows::core::Interface for SmartCardTrigger {
-    type Vtable = ISmartCardTrigger_abi;
+    type Vtable = ISmartCardTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
 }
 impl ::windows::core::RuntimeName for SmartCardTrigger {
@@ -8287,42 +8933,42 @@ impl ::windows::core::RuntimeName for SmartCardTrigger {
 }
 impl ::core::convert::From<SmartCardTrigger> for ::windows::core::IUnknown {
     fn from(value: SmartCardTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SmartCardTrigger> for ::windows::core::IUnknown {
     fn from(value: &SmartCardTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SmartCardTrigger> for ::windows::core::IInspectable {
     fn from(value: SmartCardTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SmartCardTrigger> for ::windows::core::IInspectable {
     fn from(value: &SmartCardTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<SmartCardTrigger> for IBackgroundTrigger {
@@ -8348,8 +8994,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SmartCardTrigge
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SmsMessageReceivedTrigger(pub ::windows::core::IInspectable);
+pub struct SmsMessageReceivedTrigger(::windows::core::IUnknown);
 impl SmsMessageReceivedTrigger {
     #[cfg(feature = "Devices_Sms")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Sms::SmsFilterRules>>(filterrules: Param0) -> ::windows::core::Result<SmsMessageReceivedTrigger> {
@@ -8363,11 +9008,22 @@ impl SmsMessageReceivedTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for SmsMessageReceivedTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SmsMessageReceivedTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SmsMessageReceivedTrigger {}
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmsMessageReceivedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for SmsMessageReceivedTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for SmsMessageReceivedTrigger {
@@ -8375,69 +9031,68 @@ impl ::windows::core::RuntimeName for SmsMessageReceivedTrigger {
 }
 impl ::core::convert::From<SmsMessageReceivedTrigger> for ::windows::core::IUnknown {
     fn from(value: SmsMessageReceivedTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SmsMessageReceivedTrigger> for ::windows::core::IUnknown {
     fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsMessageReceivedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SmsMessageReceivedTrigger> for ::windows::core::IInspectable {
     fn from(value: SmsMessageReceivedTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SmsMessageReceivedTrigger> for ::windows::core::IInspectable {
     fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsMessageReceivedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<SmsMessageReceivedTrigger> for IBackgroundTrigger {
-    fn from(value: SmsMessageReceivedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<SmsMessageReceivedTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: SmsMessageReceivedTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&SmsMessageReceivedTrigger> for IBackgroundTrigger {
-    fn from(value: &SmsMessageReceivedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&SmsMessageReceivedTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsMessageReceivedTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for SmsMessageReceivedTrigger {}
-unsafe impl ::core::marker::Sync for SmsMessageReceivedTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SocketActivityTrigger(pub ::windows::core::IInspectable);
+pub struct SocketActivityTrigger(::windows::core::IUnknown);
 impl SocketActivityTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8454,11 +9109,22 @@ impl SocketActivityTrigger {
         }
     }
 }
+impl ::core::clone::Clone for SocketActivityTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SocketActivityTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SocketActivityTrigger {}
 unsafe impl ::windows::core::RuntimeType for SocketActivityTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SocketActivityTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for SocketActivityTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for SocketActivityTrigger {
@@ -8466,69 +9132,68 @@ impl ::windows::core::RuntimeName for SocketActivityTrigger {
 }
 impl ::core::convert::From<SocketActivityTrigger> for ::windows::core::IUnknown {
     fn from(value: SocketActivityTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SocketActivityTrigger> for ::windows::core::IUnknown {
     fn from(value: &SocketActivityTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocketActivityTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocketActivityTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SocketActivityTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SocketActivityTrigger> for ::windows::core::IInspectable {
     fn from(value: SocketActivityTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SocketActivityTrigger> for ::windows::core::IInspectable {
     fn from(value: &SocketActivityTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocketActivityTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocketActivityTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SocketActivityTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<SocketActivityTrigger> for IBackgroundTrigger {
-    fn from(value: SocketActivityTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<SocketActivityTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: SocketActivityTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&SocketActivityTrigger> for IBackgroundTrigger {
-    fn from(value: &SocketActivityTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&SocketActivityTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SocketActivityTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SocketActivityTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SocketActivityTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for SocketActivityTrigger {}
-unsafe impl ::core::marker::Sync for SocketActivityTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct StorageLibraryChangeTrackerTrigger(pub ::windows::core::IInspectable);
+pub struct StorageLibraryChangeTrackerTrigger(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageLibraryChangeTracker>>(tracker: Param0) -> ::windows::core::Result<StorageLibraryChangeTrackerTrigger> {
@@ -8542,11 +9207,22 @@ impl StorageLibraryChangeTrackerTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for StorageLibraryChangeTrackerTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for StorageLibraryChangeTrackerTrigger {}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTrigger {
@@ -8554,69 +9230,68 @@ impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTrigger {
 }
 impl ::core::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::core::IUnknown {
     fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::core::IUnknown {
     fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageLibraryChangeTrackerTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::core::IInspectable {
     fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::core::IInspectable {
     fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageLibraryChangeTrackerTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
-    fn from(value: StorageLibraryChangeTrackerTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: StorageLibraryChangeTrackerTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
-    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StorageLibraryChangeTrackerTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerTrigger {}
-unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct StorageLibraryContentChangedTrigger(pub ::windows::core::IInspectable);
+pub struct StorageLibraryContentChangedTrigger(::windows::core::IUnknown);
 impl StorageLibraryContentChangedTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageLibrary>>(storagelibrary: Param0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger> {
@@ -8637,11 +9312,22 @@ impl StorageLibraryContentChangedTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for StorageLibraryContentChangedTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for StorageLibraryContentChangedTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for StorageLibraryContentChangedTrigger {}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger;{1637e0a7-829c-45bc-929b-a1e7ea78d89b})");
 }
 unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTrigger {
-    type Vtable = IStorageLibraryContentChangedTrigger_abi;
+    type Vtable = IStorageLibraryContentChangedTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
 }
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTrigger {
@@ -8649,42 +9335,42 @@ impl ::windows::core::RuntimeName for StorageLibraryContentChangedTrigger {
 }
 impl ::core::convert::From<StorageLibraryContentChangedTrigger> for ::windows::core::IUnknown {
     fn from(value: StorageLibraryContentChangedTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::core::IUnknown {
     fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageLibraryContentChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageLibraryContentChangedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageLibraryContentChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<StorageLibraryContentChangedTrigger> for ::windows::core::IInspectable {
     fn from(value: StorageLibraryContentChangedTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::core::IInspectable {
     fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageLibraryContentChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageLibraryContentChangedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageLibraryContentChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<StorageLibraryContentChangedTrigger> for IBackgroundTrigger {
@@ -8710,8 +9396,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &StorageLibraryC
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SystemCondition(pub ::windows::core::IInspectable);
+pub struct SystemCondition(::windows::core::IUnknown);
 impl SystemCondition {
     pub fn ConditionType(&self) -> ::windows::core::Result<SystemConditionType> {
         let this = self;
@@ -8731,11 +9416,22 @@ impl SystemCondition {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for SystemCondition {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SystemCondition {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SystemCondition {}
 unsafe impl ::windows::core::RuntimeType for SystemCondition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemCondition;{c15fb476-89c5-420b-abd3-fb3030472128})");
 }
 unsafe impl ::windows::core::Interface for SystemCondition {
-    type Vtable = ISystemCondition_abi;
+    type Vtable = ISystemConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15fb476_89c5_420b_abd3_fb3030472128);
 }
 impl ::windows::core::RuntimeName for SystemCondition {
@@ -8743,42 +9439,42 @@ impl ::windows::core::RuntimeName for SystemCondition {
 }
 impl ::core::convert::From<SystemCondition> for ::windows::core::IUnknown {
     fn from(value: SystemCondition) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SystemCondition> for ::windows::core::IUnknown {
     fn from(value: &SystemCondition) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemCondition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SystemCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SystemCondition> for ::windows::core::IInspectable {
     fn from(value: SystemCondition) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SystemCondition> for ::windows::core::IInspectable {
     fn from(value: &SystemCondition) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemCondition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SystemCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<SystemCondition> for IBackgroundCondition {
@@ -8803,28 +9499,34 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCondition> for &SystemConditi
         ::core::convert::TryInto::<IBackgroundCondition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
-    pub const Invalid: SystemConditionType = SystemConditionType(0i32);
-    pub const UserPresent: SystemConditionType = SystemConditionType(1i32);
-    pub const UserNotPresent: SystemConditionType = SystemConditionType(2i32);
-    pub const InternetAvailable: SystemConditionType = SystemConditionType(3i32);
-    pub const InternetNotAvailable: SystemConditionType = SystemConditionType(4i32);
-    pub const SessionConnected: SystemConditionType = SystemConditionType(5i32);
-    pub const SessionDisconnected: SystemConditionType = SystemConditionType(6i32);
-    pub const FreeNetworkAvailable: SystemConditionType = SystemConditionType(7i32);
-    pub const BackgroundWorkCostNotHigh: SystemConditionType = SystemConditionType(8i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const UserPresent: Self = Self(1i32);
+    pub const UserNotPresent: Self = Self(2i32);
+    pub const InternetAvailable: Self = Self(3i32);
+    pub const InternetNotAvailable: Self = Self(4i32);
+    pub const SessionConnected: Self = Self(5i32);
+    pub const SessionDisconnected: Self = Self(6i32);
+    pub const FreeNetworkAvailable: Self = Self(7i32);
+    pub const BackgroundWorkCostNotHigh: Self = Self(8i32);
 }
-impl ::core::convert::From<i32> for SystemConditionType {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for SystemConditionType {}
+impl ::core::clone::Clone for SystemConditionType {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for SystemConditionType {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for SystemConditionType {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SystemConditionType {}
 unsafe impl ::windows::core::RuntimeType for SystemConditionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
 }
@@ -8832,8 +9534,7 @@ impl ::windows::core::DefaultType for SystemConditionType {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SystemTrigger(pub ::windows::core::IInspectable);
+pub struct SystemTrigger(::windows::core::IUnknown);
 impl SystemTrigger {
     pub fn OneShot(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -8860,11 +9561,22 @@ impl SystemTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for SystemTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SystemTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SystemTrigger {}
 unsafe impl ::windows::core::RuntimeType for SystemTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemTrigger;{1d80c776-3748-4463-8d7e-276dc139ac1c})");
 }
 unsafe impl ::windows::core::Interface for SystemTrigger {
-    type Vtable = ISystemTrigger_abi;
+    type Vtable = ISystemTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d80c776_3748_4463_8d7e_276dc139ac1c);
 }
 impl ::windows::core::RuntimeName for SystemTrigger {
@@ -8872,42 +9584,42 @@ impl ::windows::core::RuntimeName for SystemTrigger {
 }
 impl ::core::convert::From<SystemTrigger> for ::windows::core::IUnknown {
     fn from(value: SystemTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SystemTrigger> for ::windows::core::IUnknown {
     fn from(value: &SystemTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SystemTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SystemTrigger> for ::windows::core::IInspectable {
     fn from(value: SystemTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SystemTrigger> for ::windows::core::IInspectable {
     fn from(value: &SystemTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SystemTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<SystemTrigger> for IBackgroundTrigger {
@@ -8932,35 +9644,41 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SystemTrigger {
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
-    pub const Invalid: SystemTriggerType = SystemTriggerType(0i32);
-    pub const SmsReceived: SystemTriggerType = SystemTriggerType(1i32);
-    pub const UserPresent: SystemTriggerType = SystemTriggerType(2i32);
-    pub const UserAway: SystemTriggerType = SystemTriggerType(3i32);
-    pub const NetworkStateChange: SystemTriggerType = SystemTriggerType(4i32);
-    pub const ControlChannelReset: SystemTriggerType = SystemTriggerType(5i32);
-    pub const InternetAvailable: SystemTriggerType = SystemTriggerType(6i32);
-    pub const SessionConnected: SystemTriggerType = SystemTriggerType(7i32);
-    pub const ServicingComplete: SystemTriggerType = SystemTriggerType(8i32);
-    pub const LockScreenApplicationAdded: SystemTriggerType = SystemTriggerType(9i32);
-    pub const LockScreenApplicationRemoved: SystemTriggerType = SystemTriggerType(10i32);
-    pub const TimeZoneChange: SystemTriggerType = SystemTriggerType(11i32);
-    pub const OnlineIdConnectedStateChange: SystemTriggerType = SystemTriggerType(12i32);
-    pub const BackgroundWorkCostChange: SystemTriggerType = SystemTriggerType(13i32);
-    pub const PowerStateChange: SystemTriggerType = SystemTriggerType(14i32);
-    pub const DefaultSignInAccountChange: SystemTriggerType = SystemTriggerType(15i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const SmsReceived: Self = Self(1i32);
+    pub const UserPresent: Self = Self(2i32);
+    pub const UserAway: Self = Self(3i32);
+    pub const NetworkStateChange: Self = Self(4i32);
+    pub const ControlChannelReset: Self = Self(5i32);
+    pub const InternetAvailable: Self = Self(6i32);
+    pub const SessionConnected: Self = Self(7i32);
+    pub const ServicingComplete: Self = Self(8i32);
+    pub const LockScreenApplicationAdded: Self = Self(9i32);
+    pub const LockScreenApplicationRemoved: Self = Self(10i32);
+    pub const TimeZoneChange: Self = Self(11i32);
+    pub const OnlineIdConnectedStateChange: Self = Self(12i32);
+    pub const BackgroundWorkCostChange: Self = Self(13i32);
+    pub const PowerStateChange: Self = Self(14i32);
+    pub const DefaultSignInAccountChange: Self = Self(15i32);
 }
-impl ::core::convert::From<i32> for SystemTriggerType {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for SystemTriggerType {}
+impl ::core::clone::Clone for SystemTriggerType {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for SystemTriggerType {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for SystemTriggerType {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SystemTriggerType {}
 unsafe impl ::windows::core::RuntimeType for SystemTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
 }
@@ -8968,8 +9686,7 @@ impl ::windows::core::DefaultType for SystemTriggerType {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct TetheringEntitlementCheckTrigger(pub ::windows::core::IInspectable);
+pub struct TetheringEntitlementCheckTrigger(::windows::core::IUnknown);
 impl TetheringEntitlementCheckTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8979,11 +9696,22 @@ impl TetheringEntitlementCheckTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for TetheringEntitlementCheckTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for TetheringEntitlementCheckTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for TetheringEntitlementCheckTrigger {}
 unsafe impl ::windows::core::RuntimeType for TetheringEntitlementCheckTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTrigger {
@@ -8991,69 +9719,68 @@ impl ::windows::core::RuntimeName for TetheringEntitlementCheckTrigger {
 }
 impl ::core::convert::From<TetheringEntitlementCheckTrigger> for ::windows::core::IUnknown {
     fn from(value: TetheringEntitlementCheckTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::core::IUnknown {
     fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TetheringEntitlementCheckTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<TetheringEntitlementCheckTrigger> for ::windows::core::IInspectable {
     fn from(value: TetheringEntitlementCheckTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::core::IInspectable {
     fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TetheringEntitlementCheckTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
-    fn from(value: TetheringEntitlementCheckTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: TetheringEntitlementCheckTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
-    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TetheringEntitlementCheckTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for TetheringEntitlementCheckTrigger {}
-unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct TimeTrigger(pub ::windows::core::IInspectable);
+pub struct TimeTrigger(::windows::core::IUnknown);
 impl TimeTrigger {
     pub fn FreshnessTime(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -9080,11 +9807,22 @@ impl TimeTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for TimeTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for TimeTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for TimeTrigger {}
 unsafe impl ::windows::core::RuntimeType for TimeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TimeTrigger;{656e5556-0b2a-4377-ba70-3b45a935547f})");
 }
 unsafe impl ::windows::core::Interface for TimeTrigger {
-    type Vtable = ITimeTrigger_abi;
+    type Vtable = ITimeTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x656e5556_0b2a_4377_ba70_3b45a935547f);
 }
 impl ::windows::core::RuntimeName for TimeTrigger {
@@ -9092,42 +9830,42 @@ impl ::windows::core::RuntimeName for TimeTrigger {
 }
 impl ::core::convert::From<TimeTrigger> for ::windows::core::IUnknown {
     fn from(value: TimeTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&TimeTrigger> for ::windows::core::IUnknown {
     fn from(value: &TimeTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TimeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<TimeTrigger> for ::windows::core::IInspectable {
     fn from(value: TimeTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&TimeTrigger> for ::windows::core::IInspectable {
     fn from(value: &TimeTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TimeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimeTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TimeTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<TimeTrigger> for IBackgroundTrigger {
@@ -9153,8 +9891,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &TimeTrigger {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ToastNotificationActionTrigger(pub ::windows::core::IInspectable);
+pub struct ToastNotificationActionTrigger(::windows::core::IUnknown);
 impl ToastNotificationActionTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -9174,11 +9911,22 @@ impl ToastNotificationActionTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ToastNotificationActionTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ToastNotificationActionTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ToastNotificationActionTrigger {}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationActionTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for ToastNotificationActionTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for ToastNotificationActionTrigger {
@@ -9186,69 +9934,68 @@ impl ::windows::core::RuntimeName for ToastNotificationActionTrigger {
 }
 impl ::core::convert::From<ToastNotificationActionTrigger> for ::windows::core::IUnknown {
     fn from(value: ToastNotificationActionTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ToastNotificationActionTrigger> for ::windows::core::IUnknown {
     fn from(value: &ToastNotificationActionTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToastNotificationActionTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ToastNotificationActionTrigger> for ::windows::core::IInspectable {
     fn from(value: ToastNotificationActionTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ToastNotificationActionTrigger> for ::windows::core::IInspectable {
     fn from(value: &ToastNotificationActionTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToastNotificationActionTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ToastNotificationActionTrigger> for IBackgroundTrigger {
-    fn from(value: ToastNotificationActionTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<ToastNotificationActionTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ToastNotificationActionTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&ToastNotificationActionTrigger> for IBackgroundTrigger {
-    fn from(value: &ToastNotificationActionTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&ToastNotificationActionTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationActionTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ToastNotificationActionTrigger {}
-unsafe impl ::core::marker::Sync for ToastNotificationActionTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ToastNotificationHistoryChangedTrigger(pub ::windows::core::IInspectable);
+pub struct ToastNotificationHistoryChangedTrigger(::windows::core::IUnknown);
 impl ToastNotificationHistoryChangedTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -9268,11 +10015,22 @@ impl ToastNotificationHistoryChangedTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for ToastNotificationHistoryChangedTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ToastNotificationHistoryChangedTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ToastNotificationHistoryChangedTrigger {}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTrigger {
@@ -9280,69 +10038,68 @@ impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTrigger {
 }
 impl ::core::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::core::IUnknown {
     fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for ::windows::core::IUnknown {
     fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToastNotificationHistoryChangedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::core::IInspectable {
     fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for ::windows::core::IInspectable {
     fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToastNotificationHistoryChangedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
-    fn from(value: ToastNotificationHistoryChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ToastNotificationHistoryChangedTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
-    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationHistoryChangedTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for ToastNotificationHistoryChangedTrigger {}
-unsafe impl ::core::marker::Sync for ToastNotificationHistoryChangedTrigger {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct UserNotificationChangedTrigger(pub ::windows::core::IInspectable);
+pub struct UserNotificationChangedTrigger(::windows::core::IUnknown);
 impl UserNotificationChangedTrigger {
     #[cfg(feature = "UI_Notifications")]
     pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows::core::Result<UserNotificationChangedTrigger> {
@@ -9356,11 +10113,22 @@ impl UserNotificationChangedTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for UserNotificationChangedTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for UserNotificationChangedTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for UserNotificationChangedTrigger {}
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.UserNotificationChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
 unsafe impl ::windows::core::Interface for UserNotificationChangedTrigger {
-    type Vtable = IBackgroundTrigger_abi;
+    type Vtable = IBackgroundTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 }
 impl ::windows::core::RuntimeName for UserNotificationChangedTrigger {
@@ -9368,63 +10136,63 @@ impl ::windows::core::RuntimeName for UserNotificationChangedTrigger {
 }
 impl ::core::convert::From<UserNotificationChangedTrigger> for ::windows::core::IUnknown {
     fn from(value: UserNotificationChangedTrigger) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&UserNotificationChangedTrigger> for ::windows::core::IUnknown {
     fn from(value: &UserNotificationChangedTrigger) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserNotificationChangedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<UserNotificationChangedTrigger> for ::windows::core::IInspectable {
     fn from(value: UserNotificationChangedTrigger) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&UserNotificationChangedTrigger> for ::windows::core::IInspectable {
     fn from(value: &UserNotificationChangedTrigger) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserNotificationChangedTrigger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<UserNotificationChangedTrigger> for IBackgroundTrigger {
-    fn from(value: UserNotificationChangedTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<UserNotificationChangedTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: UserNotificationChangedTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&UserNotificationChangedTrigger> for IBackgroundTrigger {
-    fn from(value: &UserNotificationChangedTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&UserNotificationChangedTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserNotificationChangedTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for UserNotificationChangedTrigger {}
-unsafe impl ::core::marker::Sync for UserNotificationChangedTrigger {}

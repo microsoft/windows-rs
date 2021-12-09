@@ -1,25 +1,31 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(transparent)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
-    pub const Default: AudioRoutingEndpoint = AudioRoutingEndpoint(0i32);
-    pub const Earpiece: AudioRoutingEndpoint = AudioRoutingEndpoint(1i32);
-    pub const Speakerphone: AudioRoutingEndpoint = AudioRoutingEndpoint(2i32);
-    pub const Bluetooth: AudioRoutingEndpoint = AudioRoutingEndpoint(3i32);
-    pub const WiredHeadset: AudioRoutingEndpoint = AudioRoutingEndpoint(4i32);
-    pub const WiredHeadsetSpeakerOnly: AudioRoutingEndpoint = AudioRoutingEndpoint(5i32);
-    pub const BluetoothWithNoiseAndEchoCancellation: AudioRoutingEndpoint = AudioRoutingEndpoint(6i32);
-    pub const BluetoothPreferred: AudioRoutingEndpoint = AudioRoutingEndpoint(7i32);
+    pub const Default: Self = Self(0i32);
+    pub const Earpiece: Self = Self(1i32);
+    pub const Speakerphone: Self = Self(2i32);
+    pub const Bluetooth: Self = Self(3i32);
+    pub const WiredHeadset: Self = Self(4i32);
+    pub const WiredHeadsetSpeakerOnly: Self = Self(5i32);
+    pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
+    pub const BluetoothPreferred: Self = Self(7i32);
 }
-impl ::core::convert::From<i32> for AudioRoutingEndpoint {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for AudioRoutingEndpoint {}
+impl ::core::clone::Clone for AudioRoutingEndpoint {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for AudioRoutingEndpoint {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for AudioRoutingEndpoint {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioRoutingEndpoint {}
 unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
@@ -27,8 +33,7 @@ impl ::windows::core::DefaultType for AudioRoutingEndpoint {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct AudioRoutingManager(pub ::windows::core::IInspectable);
+pub struct AudioRoutingManager(::windows::core::IUnknown);
 impl AudioRoutingManager {
     pub fn GetAudioEndpoint(&self) -> ::windows::core::Result<AudioRoutingEndpoint> {
         let this = self;
@@ -72,11 +77,22 @@ impl AudioRoutingManager {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for AudioRoutingManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioRoutingManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioRoutingManager {}
 unsafe impl ::windows::core::RuntimeType for AudioRoutingManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
 }
 unsafe impl ::windows::core::Interface for AudioRoutingManager {
-    type Vtable = IAudioRoutingManager_abi;
+    type Vtable = IAudioRoutingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 impl ::windows::core::RuntimeName for AudioRoutingManager {
@@ -84,136 +100,112 @@ impl ::windows::core::RuntimeName for AudioRoutingManager {
 }
 impl ::core::convert::From<AudioRoutingManager> for ::windows::core::IUnknown {
     fn from(value: AudioRoutingManager) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AudioRoutingManager> for ::windows::core::IUnknown {
     fn from(value: &AudioRoutingManager) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioRoutingManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioRoutingManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioRoutingManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<AudioRoutingManager> for ::windows::core::IInspectable {
     fn from(value: AudioRoutingManager) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&AudioRoutingManager> for ::windows::core::IInspectable {
     fn from(value: &AudioRoutingManager) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioRoutingManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioRoutingManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioRoutingManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for AudioRoutingManager {}
-unsafe impl ::core::marker::Sync for AudioRoutingManager {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
-    pub const None: AvailableAudioRoutingEndpoints = AvailableAudioRoutingEndpoints(0u32);
-    pub const Earpiece: AvailableAudioRoutingEndpoints = AvailableAudioRoutingEndpoints(1u32);
-    pub const Speakerphone: AvailableAudioRoutingEndpoints = AvailableAudioRoutingEndpoints(2u32);
-    pub const Bluetooth: AvailableAudioRoutingEndpoints = AvailableAudioRoutingEndpoints(4u32);
+    pub const None: Self = Self(0u32);
+    pub const Earpiece: Self = Self(1u32);
+    pub const Speakerphone: Self = Self(2u32);
+    pub const Bluetooth: Self = Self(4u32);
 }
-impl ::core::convert::From<u32> for AvailableAudioRoutingEndpoints {
-    fn from(value: u32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for AvailableAudioRoutingEndpoints {}
+impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for AvailableAudioRoutingEndpoints {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for AvailableAudioRoutingEndpoints {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AvailableAudioRoutingEndpoints {}
 unsafe impl ::windows::core::RuntimeType for AvailableAudioRoutingEndpoints {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
 }
 impl ::windows::core::DefaultType for AvailableAudioRoutingEndpoints {
     type DefaultType = Self;
 }
-impl ::core::ops::BitOr for AvailableAudioRoutingEndpoints {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for AvailableAudioRoutingEndpoints {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AvailableAudioRoutingEndpoints {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AvailableAudioRoutingEndpoints {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioRoutingManager(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAudioRoutingManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRoutingManager {
-    type Vtable = IAudioRoutingManager_abi;
+    type Vtable = IAudioRoutingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioRoutingManager_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, endpointchangehandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+pub struct IAudioRoutingManagerVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IAudioRoutingManagerStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IAudioRoutingManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
-    type Vtable = IAudioRoutingManagerStatics_abi;
+    type Vtable = IAudioRoutingManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioRoutingManagerStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IAudioRoutingManagerStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );

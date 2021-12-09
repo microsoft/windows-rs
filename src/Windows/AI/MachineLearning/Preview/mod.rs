@@ -1,226 +1,227 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
 impl FeatureElementKindPreview {
-    pub const Undefined: FeatureElementKindPreview = FeatureElementKindPreview(0i32);
-    pub const Float: FeatureElementKindPreview = FeatureElementKindPreview(1i32);
-    pub const UInt8: FeatureElementKindPreview = FeatureElementKindPreview(2i32);
-    pub const Int8: FeatureElementKindPreview = FeatureElementKindPreview(3i32);
-    pub const UInt16: FeatureElementKindPreview = FeatureElementKindPreview(4i32);
-    pub const Int16: FeatureElementKindPreview = FeatureElementKindPreview(5i32);
-    pub const Int32: FeatureElementKindPreview = FeatureElementKindPreview(6i32);
-    pub const Int64: FeatureElementKindPreview = FeatureElementKindPreview(7i32);
-    pub const String: FeatureElementKindPreview = FeatureElementKindPreview(8i32);
-    pub const Boolean: FeatureElementKindPreview = FeatureElementKindPreview(9i32);
-    pub const Float16: FeatureElementKindPreview = FeatureElementKindPreview(10i32);
-    pub const Double: FeatureElementKindPreview = FeatureElementKindPreview(11i32);
-    pub const UInt32: FeatureElementKindPreview = FeatureElementKindPreview(12i32);
-    pub const UInt64: FeatureElementKindPreview = FeatureElementKindPreview(13i32);
-    pub const Complex64: FeatureElementKindPreview = FeatureElementKindPreview(14i32);
-    pub const Complex128: FeatureElementKindPreview = FeatureElementKindPreview(15i32);
+    pub const Undefined: Self = Self(0i32);
+    pub const Float: Self = Self(1i32);
+    pub const UInt8: Self = Self(2i32);
+    pub const Int8: Self = Self(3i32);
+    pub const UInt16: Self = Self(4i32);
+    pub const Int16: Self = Self(5i32);
+    pub const Int32: Self = Self(6i32);
+    pub const Int64: Self = Self(7i32);
+    pub const String: Self = Self(8i32);
+    pub const Boolean: Self = Self(9i32);
+    pub const Float16: Self = Self(10i32);
+    pub const Double: Self = Self(11i32);
+    pub const UInt32: Self = Self(12i32);
+    pub const UInt64: Self = Self(13i32);
+    pub const Complex64: Self = Self(14i32);
+    pub const Complex128: Self = Self(15i32);
 }
-impl ::core::convert::From<i32> for FeatureElementKindPreview {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for FeatureElementKindPreview {}
+impl ::core::clone::Clone for FeatureElementKindPreview {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for FeatureElementKindPreview {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for FeatureElementKindPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FeatureElementKindPreview {}
 unsafe impl ::windows::core::RuntimeType for FeatureElementKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.FeatureElementKindPreview;i4)");
 }
 impl ::windows::core::DefaultType for FeatureElementKindPreview {
     type DefaultType = Self;
 }
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageVariableDescriptorPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IImageVariableDescriptorPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageVariableDescriptorPreview {
-    type Vtable = IImageVariableDescriptorPreview_abi;
+    type Vtable = IImageVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ae1fa72_029e_4dc5_a2f8_5fb763154150);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageVariableDescriptorPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT,
+pub struct IImageVariableDescriptorPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IInferencingOptionsPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IInferencingOptionsPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInferencingOptionsPreview {
-    type Vtable = IInferencingOptionsPreview_abi;
+    type Vtable = IInferencingOptionsPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47bc8205_4d36_47a9_8f68_ffcb339dd0fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInferencingOptionsPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut LearningModelDeviceKindPreview) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: LearningModelDeviceKindPreview) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+pub struct IInferencingOptionsPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelDeviceKindPreview) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: LearningModelDeviceKindPreview) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelBindingPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILearningModelBindingPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelBindingPreview {
-    type Vtable = ILearningModelBindingPreview_abi;
+    type Vtable = ILearningModelBindingPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c901e8_6c78_4b4f_aec1_a6bb9e691624);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelBindingPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::RawPtr, metadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILearningModelBindingPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void, metadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelBindingPreviewFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILearningModelBindingPreviewFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelBindingPreviewFactory {
-    type Vtable = ILearningModelBindingPreviewFactory_abi;
+    type Vtable = ILearningModelBindingPreviewFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48b8219f_1e51_4d77_ae50_3ec164ad3480);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelBindingPreviewFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, model: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILearningModelBindingPreviewFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, model: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelDescriptionPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILearningModelDescriptionPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelDescriptionPreview {
-    type Vtable = ILearningModelDescriptionPreview_abi;
+    type Vtable = ILearningModelDescriptionPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf52c09c6_8611_40ad_8e59_de3fd7030a40);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelDescriptionPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILearningModelDescriptionPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelEvaluationResultPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILearningModelEvaluationResultPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelEvaluationResultPreview {
-    type Vtable = ILearningModelEvaluationResultPreview_abi;
+    type Vtable = ILearningModelEvaluationResultPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf25ea9f_9863_4088_8498_87a1f4686f92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelEvaluationResultPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILearningModelEvaluationResultPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILearningModelPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelPreview {
-    type Vtable = ILearningModelPreview_abi;
+    type Vtable = ILearningModelPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x049c266a_93b4_478c_aeb8_70157bf0ff94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, binding: ::windows::core::RawPtr, correlationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILearningModelPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: ::windows::core::RawPtr, correlationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, features: ::windows::core::RawPtr, correlationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: ::windows::core::RawPtr, correlationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILearningModelPreviewStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILearningModelPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILearningModelPreviewStatics {
-    type Vtable = ILearningModelPreviewStatics_abi;
+    type Vtable = ILearningModelPreviewStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x164bbb60_8465_4786_8b93_2c16a89289d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelPreviewStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, modelfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILearningModelPreviewStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, modelstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ILearningModelVariableDescriptorPreview(pub ::windows::core::IInspectable);
-unsafe impl ::windows::core::Interface for ILearningModelVariableDescriptorPreview {
-    type Vtable = ILearningModelVariableDescriptorPreview_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb13df682_fc30_492b_8ea0_ed1f53c0b038);
-}
+pub struct ILearningModelVariableDescriptorPreview(::windows::core::IUnknown);
 impl ILearningModelVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -255,127 +256,141 @@ impl ILearningModelVariableDescriptorPreview {
         }
     }
 }
-unsafe impl ::windows::core::RuntimeType for ILearningModelVariableDescriptorPreview {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b13df682-fc30-492b-8ea0-ed1f53c0b038}");
-}
-impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
-        value.0 .0
-    }
-}
-impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
-        value.0 .0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
-    }
-}
 impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ILearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
+    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
+    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILearningModelVariableDescriptorPreview {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ILearningModelVariableDescriptorPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ILearningModelVariableDescriptorPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ILearningModelVariableDescriptorPreview {}
+unsafe impl ::windows::core::RuntimeType for ILearningModelVariableDescriptorPreview {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b13df682-fc30-492b-8ea0-ed1f53c0b038}");
+}
+unsafe impl ::windows::core::Interface for ILearningModelVariableDescriptorPreview {
+    type Vtable = ILearningModelVariableDescriptorPreviewVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb13df682_fc30_492b_8ea0_ed1f53c0b038);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILearningModelVariableDescriptorPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut LearningModelFeatureKindPreview) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct ILearningModelVariableDescriptorPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKindPreview) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IMapVariableDescriptorPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IMapVariableDescriptorPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapVariableDescriptorPreview {
-    type Vtable = IMapVariableDescriptorPreview_abi;
+    type Vtable = IMapVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb38370_c02b_4236_b3e8_6bdca49c3129);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapVariableDescriptorPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IMapVariableDescriptorPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ISequenceVariableDescriptorPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ISequenceVariableDescriptorPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISequenceVariableDescriptorPreview {
-    type Vtable = ISequenceVariableDescriptorPreview_abi;
+    type Vtable = ISequenceVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd8f292_98b2_4530_a1b6_2ded5fecbc26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISequenceVariableDescriptorPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ISequenceVariableDescriptorPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ITensorVariableDescriptorPreview(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ITensorVariableDescriptorPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITensorVariableDescriptorPreview {
-    type Vtable = ITensorVariableDescriptorPreview_abi;
+    type Vtable = ITensorVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa80f501a_9aac_4233_9784_aceaf92510b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITensorVariableDescriptorPreview_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ITensorVariableDescriptorPreviewVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct ImageVariableDescriptorPreview(pub ::windows::core::IInspectable);
+pub struct ImageVariableDescriptorPreview(::windows::core::IUnknown);
 impl ImageVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Graphics_Imaging")]
@@ -435,11 +450,22 @@ impl ImageVariableDescriptorPreview {
         }
     }
 }
+impl ::core::clone::Clone for ImageVariableDescriptorPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ImageVariableDescriptorPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ImageVariableDescriptorPreview {}
 unsafe impl ::windows::core::RuntimeType for ImageVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview;{7ae1fa72-029e-4dc5-a2f8-5fb763154150})");
 }
 unsafe impl ::windows::core::Interface for ImageVariableDescriptorPreview {
-    type Vtable = IImageVariableDescriptorPreview_abi;
+    type Vtable = IImageVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ae1fa72_029e_4dc5_a2f8_5fb763154150);
 }
 impl ::windows::core::RuntimeName for ImageVariableDescriptorPreview {
@@ -447,42 +473,42 @@ impl ::windows::core::RuntimeName for ImageVariableDescriptorPreview {
 }
 impl ::core::convert::From<ImageVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: ImageVariableDescriptorPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ImageVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: &ImageVariableDescriptorPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ImageVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ImageVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: ImageVariableDescriptorPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ImageVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &ImageVariableDescriptorPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ImageVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ImageVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ImageVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
@@ -508,8 +534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct InferencingOptionsPreview(pub ::windows::core::IInspectable);
+pub struct InferencingOptionsPreview(::windows::core::IUnknown);
 impl InferencingOptionsPreview {
     #[cfg(feature = "deprecated")]
     pub fn PreferredDeviceKind(&self) -> ::windows::core::Result<LearningModelDeviceKindPreview> {
@@ -577,11 +602,22 @@ impl InferencingOptionsPreview {
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
+impl ::core::clone::Clone for InferencingOptionsPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for InferencingOptionsPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for InferencingOptionsPreview {}
 unsafe impl ::windows::core::RuntimeType for InferencingOptionsPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.InferencingOptionsPreview;{47bc8205-4d36-47a9-8f68-ffcb339dd0fc})");
 }
 unsafe impl ::windows::core::Interface for InferencingOptionsPreview {
-    type Vtable = IInferencingOptionsPreview_abi;
+    type Vtable = IInferencingOptionsPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47bc8205_4d36_47a9_8f68_ffcb339dd0fc);
 }
 impl ::windows::core::RuntimeName for InferencingOptionsPreview {
@@ -589,48 +625,55 @@ impl ::windows::core::RuntimeName for InferencingOptionsPreview {
 }
 impl ::core::convert::From<InferencingOptionsPreview> for ::windows::core::IUnknown {
     fn from(value: InferencingOptionsPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&InferencingOptionsPreview> for ::windows::core::IUnknown {
     fn from(value: &InferencingOptionsPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InferencingOptionsPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InferencingOptionsPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InferencingOptionsPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<InferencingOptionsPreview> for ::windows::core::IInspectable {
     fn from(value: InferencingOptionsPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&InferencingOptionsPreview> for ::windows::core::IInspectable {
     fn from(value: &InferencingOptionsPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InferencingOptionsPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InferencingOptionsPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InferencingOptionsPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LearningModelBindingPreview(pub ::windows::core::IInspectable);
+pub struct LearningModelBindingPreview(::windows::core::IUnknown);
 impl LearningModelBindingPreview {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
+        }
+    }
     #[cfg(feature = "deprecated")]
     pub fn Bind<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
@@ -647,19 +690,18 @@ impl LearningModelBindingPreview {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
-        unsafe {
+    #[cfg(feature = "deprecated")]
+    pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModelPreview>>(model: Param0) -> ::windows::core::Result<LearningModelBindingPreview> {
+        Self::ILearningModelBindingPreviewFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
-        }
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), model.into_param().abi(), &mut result__).from_abi::<LearningModelBindingPreview>(result__)
+        })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -684,66 +726,86 @@ impl LearningModelBindingPreview {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
-    #[cfg(feature = "deprecated")]
-    pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModelPreview>>(model: Param0) -> ::windows::core::Result<LearningModelBindingPreview> {
-        Self::ILearningModelBindingPreviewFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), model.into_param().abi(), &mut result__).from_abi::<LearningModelBindingPreview>(result__)
-        })
-    }
     pub fn ILearningModelBindingPreviewFactory<R, F: FnOnce(&ILearningModelBindingPreviewFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LearningModelBindingPreview, ILearningModelBindingPreviewFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for LearningModelBindingPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for LearningModelBindingPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelBindingPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelBindingPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelBindingPreview;{93c901e8-6c78-4b4f-aec1-a6bb9e691624})");
 }
 unsafe impl ::windows::core::Interface for LearningModelBindingPreview {
-    type Vtable = ILearningModelBindingPreview_abi;
+    type Vtable = ILearningModelBindingPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c901e8_6c78_4b4f_aec1_a6bb9e691624);
 }
 impl ::windows::core::RuntimeName for LearningModelBindingPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelBindingPreview";
 }
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::iter::IntoIterator for LearningModelBindingPreview {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        ::core::iter::IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::iter::IntoIterator for &LearningModelBindingPreview {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 impl ::core::convert::From<LearningModelBindingPreview> for ::windows::core::IUnknown {
     fn from(value: LearningModelBindingPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelBindingPreview> for ::windows::core::IUnknown {
     fn from(value: &LearningModelBindingPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelBindingPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelBindingPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelBindingPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<LearningModelBindingPreview> for ::windows::core::IInspectable {
     fn from(value: LearningModelBindingPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelBindingPreview> for ::windows::core::IInspectable {
     fn from(value: &LearningModelBindingPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelBindingPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelBindingPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelBindingPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -798,25 +860,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(all(feature = "Foundation_Collections"))]
-impl ::core::iter::IntoIterator for LearningModelBindingPreview {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        ::core::iter::IntoIterator::into_iter(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections"))]
-impl ::core::iter::IntoIterator for &LearningModelBindingPreview {
-    type Item = super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LearningModelDescriptionPreview(pub ::windows::core::IInspectable);
+pub struct LearningModelDescriptionPreview(::windows::core::IUnknown);
 impl LearningModelDescriptionPreview {
     #[cfg(feature = "deprecated")]
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -886,11 +931,22 @@ impl LearningModelDescriptionPreview {
         }
     }
 }
+impl ::core::clone::Clone for LearningModelDescriptionPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for LearningModelDescriptionPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelDescriptionPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelDescriptionPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview;{f52c09c6-8611-40ad-8e59-de3fd7030a40})");
 }
 unsafe impl ::windows::core::Interface for LearningModelDescriptionPreview {
-    type Vtable = ILearningModelDescriptionPreview_abi;
+    type Vtable = ILearningModelDescriptionPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf52c09c6_8611_40ad_8e59_de3fd7030a40);
 }
 impl ::windows::core::RuntimeName for LearningModelDescriptionPreview {
@@ -898,63 +954,69 @@ impl ::windows::core::RuntimeName for LearningModelDescriptionPreview {
 }
 impl ::core::convert::From<LearningModelDescriptionPreview> for ::windows::core::IUnknown {
     fn from(value: LearningModelDescriptionPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelDescriptionPreview> for ::windows::core::IUnknown {
     fn from(value: &LearningModelDescriptionPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelDescriptionPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelDescriptionPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelDescriptionPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<LearningModelDescriptionPreview> for ::windows::core::IInspectable {
     fn from(value: LearningModelDescriptionPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelDescriptionPreview> for ::windows::core::IInspectable {
     fn from(value: &LearningModelDescriptionPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelDescriptionPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelDescriptionPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelDescriptionPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
 impl LearningModelDeviceKindPreview {
-    pub const LearningDeviceAny: LearningModelDeviceKindPreview = LearningModelDeviceKindPreview(0i32);
-    pub const LearningDeviceCpu: LearningModelDeviceKindPreview = LearningModelDeviceKindPreview(1i32);
-    pub const LearningDeviceGpu: LearningModelDeviceKindPreview = LearningModelDeviceKindPreview(2i32);
-    pub const LearningDeviceNpu: LearningModelDeviceKindPreview = LearningModelDeviceKindPreview(3i32);
-    pub const LearningDeviceDsp: LearningModelDeviceKindPreview = LearningModelDeviceKindPreview(4i32);
-    pub const LearningDeviceFpga: LearningModelDeviceKindPreview = LearningModelDeviceKindPreview(5i32);
+    pub const LearningDeviceAny: Self = Self(0i32);
+    pub const LearningDeviceCpu: Self = Self(1i32);
+    pub const LearningDeviceGpu: Self = Self(2i32);
+    pub const LearningDeviceNpu: Self = Self(3i32);
+    pub const LearningDeviceDsp: Self = Self(4i32);
+    pub const LearningDeviceFpga: Self = Self(5i32);
 }
-impl ::core::convert::From<i32> for LearningModelDeviceKindPreview {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for LearningModelDeviceKindPreview {}
+impl ::core::clone::Clone for LearningModelDeviceKindPreview {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for LearningModelDeviceKindPreview {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for LearningModelDeviceKindPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelDeviceKindPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview;i4)");
 }
@@ -962,8 +1024,7 @@ impl ::windows::core::DefaultType for LearningModelDeviceKindPreview {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LearningModelEvaluationResultPreview(pub ::windows::core::IInspectable);
+pub struct LearningModelEvaluationResultPreview(::windows::core::IUnknown);
 impl LearningModelEvaluationResultPreview {
     #[cfg(feature = "deprecated")]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -983,11 +1044,22 @@ impl LearningModelEvaluationResultPreview {
         }
     }
 }
+impl ::core::clone::Clone for LearningModelEvaluationResultPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for LearningModelEvaluationResultPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelEvaluationResultPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResultPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview;{df25ea9f-9863-4088-8498-87a1f4686f92})");
 }
 unsafe impl ::windows::core::Interface for LearningModelEvaluationResultPreview {
-    type Vtable = ILearningModelEvaluationResultPreview_abi;
+    type Vtable = ILearningModelEvaluationResultPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf25ea9f_9863_4088_8498_87a1f4686f92);
 }
 impl ::windows::core::RuntimeName for LearningModelEvaluationResultPreview {
@@ -995,62 +1067,68 @@ impl ::windows::core::RuntimeName for LearningModelEvaluationResultPreview {
 }
 impl ::core::convert::From<LearningModelEvaluationResultPreview> for ::windows::core::IUnknown {
     fn from(value: LearningModelEvaluationResultPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelEvaluationResultPreview> for ::windows::core::IUnknown {
     fn from(value: &LearningModelEvaluationResultPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelEvaluationResultPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelEvaluationResultPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelEvaluationResultPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<LearningModelEvaluationResultPreview> for ::windows::core::IInspectable {
     fn from(value: LearningModelEvaluationResultPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelEvaluationResultPreview> for ::windows::core::IInspectable {
     fn from(value: &LearningModelEvaluationResultPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelEvaluationResultPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelEvaluationResultPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelEvaluationResultPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);
 impl LearningModelFeatureKindPreview {
-    pub const Undefined: LearningModelFeatureKindPreview = LearningModelFeatureKindPreview(0i32);
-    pub const Tensor: LearningModelFeatureKindPreview = LearningModelFeatureKindPreview(1i32);
-    pub const Sequence: LearningModelFeatureKindPreview = LearningModelFeatureKindPreview(2i32);
-    pub const Map: LearningModelFeatureKindPreview = LearningModelFeatureKindPreview(3i32);
-    pub const Image: LearningModelFeatureKindPreview = LearningModelFeatureKindPreview(4i32);
+    pub const Undefined: Self = Self(0i32);
+    pub const Tensor: Self = Self(1i32);
+    pub const Sequence: Self = Self(2i32);
+    pub const Map: Self = Self(3i32);
+    pub const Image: Self = Self(4i32);
 }
-impl ::core::convert::From<i32> for LearningModelFeatureKindPreview {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for LearningModelFeatureKindPreview {}
+impl ::core::clone::Clone for LearningModelFeatureKindPreview {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for LearningModelFeatureKindPreview {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for LearningModelFeatureKindPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelFeatureKindPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview;i4)");
 }
@@ -1058,8 +1136,7 @@ impl ::windows::core::DefaultType for LearningModelFeatureKindPreview {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LearningModelPreview(pub ::windows::core::IInspectable);
+pub struct LearningModelPreview(::windows::core::IUnknown);
 impl LearningModelPreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -1121,11 +1198,22 @@ impl LearningModelPreview {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for LearningModelPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for LearningModelPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelPreview;{049c266a-93b4-478c-aeb8-70157bf0ff94})");
 }
 unsafe impl ::windows::core::Interface for LearningModelPreview {
-    type Vtable = ILearningModelPreview_abi;
+    type Vtable = ILearningModelPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x049c266a_93b4_478c_aeb8_70157bf0ff94);
 }
 impl ::windows::core::RuntimeName for LearningModelPreview {
@@ -1133,47 +1221,46 @@ impl ::windows::core::RuntimeName for LearningModelPreview {
 }
 impl ::core::convert::From<LearningModelPreview> for ::windows::core::IUnknown {
     fn from(value: LearningModelPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelPreview> for ::windows::core::IUnknown {
     fn from(value: &LearningModelPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<LearningModelPreview> for ::windows::core::IInspectable {
     fn from(value: LearningModelPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelPreview> for ::windows::core::IInspectable {
     fn from(value: &LearningModelPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct LearningModelVariableDescriptorPreview(pub ::windows::core::IInspectable);
+pub struct LearningModelVariableDescriptorPreview(::windows::core::IUnknown);
 impl LearningModelVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1208,11 +1295,22 @@ impl LearningModelVariableDescriptorPreview {
         }
     }
 }
+impl ::core::clone::Clone for LearningModelVariableDescriptorPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for LearningModelVariableDescriptorPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for LearningModelVariableDescriptorPreview {}
 unsafe impl ::windows::core::RuntimeType for LearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview;{b13df682-fc30-492b-8ea0-ed1f53c0b038})");
 }
 unsafe impl ::windows::core::Interface for LearningModelVariableDescriptorPreview {
-    type Vtable = ILearningModelVariableDescriptorPreview_abi;
+    type Vtable = ILearningModelVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb13df682_fc30_492b_8ea0_ed1f53c0b038);
 }
 impl ::windows::core::RuntimeName for LearningModelVariableDescriptorPreview {
@@ -1220,68 +1318,101 @@ impl ::windows::core::RuntimeName for LearningModelVariableDescriptorPreview {
 }
 impl ::core::convert::From<LearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: LearningModelVariableDescriptorPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<LearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: LearningModelVariableDescriptorPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<LearningModelVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
-    fn from(value: LearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::convert::TryFrom<LearningModelVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
+    type Error = ::windows::core::Error;
+    fn try_from(value: LearningModelVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
-    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::convert::TryFrom<&LearningModelVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+        ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct MapVariableDescriptorPreview(pub ::windows::core::IInspectable);
+pub struct MapVariableDescriptorPreview(::windows::core::IUnknown);
 impl MapVariableDescriptorPreview {
+    #[cfg(feature = "deprecated")]
+    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
+        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
+        unsafe {
+            let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
+        unsafe {
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+        }
+    }
     #[cfg(feature = "deprecated")]
     pub fn KeyKind(&self) -> ::windows::core::Result<FeatureElementKindPreview> {
         let this = self;
@@ -1316,44 +1447,23 @@ impl MapVariableDescriptorPreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
-        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
-        unsafe {
-            let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
-        unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
-        }
+}
+impl ::core::clone::Clone for MapVariableDescriptorPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
+impl ::core::cmp::PartialEq for MapVariableDescriptorPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for MapVariableDescriptorPreview {}
 unsafe impl ::windows::core::RuntimeType for MapVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview;{3cb38370-c02b-4236-b3e8-6bdca49c3129})");
 }
 unsafe impl ::windows::core::Interface for MapVariableDescriptorPreview {
-    type Vtable = IMapVariableDescriptorPreview_abi;
+    type Vtable = IMapVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb38370_c02b_4236_b3e8_6bdca49c3129);
 }
 impl ::windows::core::RuntimeName for MapVariableDescriptorPreview {
@@ -1361,42 +1471,42 @@ impl ::windows::core::RuntimeName for MapVariableDescriptorPreview {
 }
 impl ::core::convert::From<MapVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: MapVariableDescriptorPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MapVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: &MapVariableDescriptorPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MapVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<MapVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: MapVariableDescriptorPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&MapVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &MapVariableDescriptorPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<MapVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
@@ -1422,17 +1532,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct SequenceVariableDescriptorPreview(pub ::windows::core::IInspectable);
+pub struct SequenceVariableDescriptorPreview(::windows::core::IUnknown);
 impl SequenceVariableDescriptorPreview {
-    #[cfg(feature = "deprecated")]
-    pub fn ElementType(&self) -> ::windows::core::Result<ILearningModelVariableDescriptorPreview> {
-        let this = self;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
-        }
-    }
     #[cfg(feature = "deprecated")]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
@@ -1465,12 +1566,31 @@ impl SequenceVariableDescriptorPreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[cfg(feature = "deprecated")]
+    pub fn ElementType(&self) -> ::windows::core::Result<ILearningModelVariableDescriptorPreview> {
+        let this = self;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
+        }
+    }
 }
+impl ::core::clone::Clone for SequenceVariableDescriptorPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SequenceVariableDescriptorPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SequenceVariableDescriptorPreview {}
 unsafe impl ::windows::core::RuntimeType for SequenceVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview;{9cd8f292-98b2-4530-a1b6-2ded5fecbc26})");
 }
 unsafe impl ::windows::core::Interface for SequenceVariableDescriptorPreview {
-    type Vtable = ISequenceVariableDescriptorPreview_abi;
+    type Vtable = ISequenceVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd8f292_98b2_4530_a1b6_2ded5fecbc26);
 }
 impl ::windows::core::RuntimeName for SequenceVariableDescriptorPreview {
@@ -1478,42 +1598,42 @@ impl ::windows::core::RuntimeName for SequenceVariableDescriptorPreview {
 }
 impl ::core::convert::From<SequenceVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: SequenceVariableDescriptorPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SequenceVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: &SequenceVariableDescriptorPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SequenceVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SequenceVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SequenceVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<SequenceVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: SequenceVariableDescriptorPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&SequenceVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &SequenceVariableDescriptorPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SequenceVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SequenceVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SequenceVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<SequenceVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
@@ -1539,26 +1659,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct TensorVariableDescriptorPreview(pub ::windows::core::IInspectable);
+pub struct TensorVariableDescriptorPreview(::windows::core::IUnknown);
 impl TensorVariableDescriptorPreview {
-    #[cfg(feature = "deprecated")]
-    pub fn DataType(&self) -> ::windows::core::Result<FeatureElementKindPreview> {
-        let this = self;
-        unsafe {
-            let mut result__: FeatureElementKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FeatureElementKindPreview>(result__)
-        }
-    }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Shape(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<i64>> {
-        let this = self;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<i64>>(result__)
-        }
-    }
     #[cfg(feature = "deprecated")]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
@@ -1591,12 +1693,40 @@ impl TensorVariableDescriptorPreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[cfg(feature = "deprecated")]
+    pub fn DataType(&self) -> ::windows::core::Result<FeatureElementKindPreview> {
+        let this = self;
+        unsafe {
+            let mut result__: FeatureElementKindPreview = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FeatureElementKindPreview>(result__)
+        }
+    }
+    #[cfg(feature = "deprecated")]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Shape(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<i64>> {
+        let this = self;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<i64>>(result__)
+        }
+    }
 }
+impl ::core::clone::Clone for TensorVariableDescriptorPreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for TensorVariableDescriptorPreview {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for TensorVariableDescriptorPreview {}
 unsafe impl ::windows::core::RuntimeType for TensorVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview;{a80f501a-9aac-4233-9784-aceaf92510b5})");
 }
 unsafe impl ::windows::core::Interface for TensorVariableDescriptorPreview {
-    type Vtable = ITensorVariableDescriptorPreview_abi;
+    type Vtable = ITensorVariableDescriptorPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa80f501a_9aac_4233_9784_aceaf92510b5);
 }
 impl ::windows::core::RuntimeName for TensorVariableDescriptorPreview {
@@ -1604,42 +1734,42 @@ impl ::windows::core::RuntimeName for TensorVariableDescriptorPreview {
 }
 impl ::core::convert::From<TensorVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: TensorVariableDescriptorPreview) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&TensorVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: &TensorVariableDescriptorPreview) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TensorVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<TensorVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: TensorVariableDescriptorPreview) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&TensorVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &TensorVariableDescriptorPreview) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TensorVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<TensorVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {

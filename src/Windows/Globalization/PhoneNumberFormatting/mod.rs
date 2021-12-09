@@ -1,126 +1,132 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[repr(transparent)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc(hidden)]
-pub struct IPhoneNumberFormatter(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneNumberFormatter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberFormatter {
-    type Vtable = IPhoneNumberFormatter_abi;
+    type Vtable = IPhoneNumberFormatterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNumberFormatter_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::windows::core::RawPtr, numberformat: PhoneNumberFormat, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct IPhoneNumberFormatterVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::windows::core::RawPtr, numberformat: PhoneNumberFormat, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNumberFormatterStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneNumberFormatterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberFormatterStatics {
-    type Vtable = IPhoneNumberFormatterStatics_abi;
+    type Vtable = IPhoneNumberFormatterStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca6f931_84d9_414b_ab4e_a0552c878602);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNumberFormatterStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stripnondigit: bool, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct IPhoneNumberFormatterStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stripnondigit: bool, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNumberInfo(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneNumberInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberInfo {
-    type Vtable = IPhoneNumberInfo_abi;
+    type Vtable = IPhoneNumberInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNumberInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut PredictedPhoneNumberKind) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, othernumber: ::windows::core::RawPtr, result__: *mut PhoneNumberMatchResult) -> ::windows::core::HRESULT,
+pub struct IPhoneNumberInfoVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PredictedPhoneNumberKind) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othernumber: ::windows::core::RawPtr, result__: *mut PhoneNumberMatchResult) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNumberInfoFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneNumberInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberInfoFactory {
-    type Vtable = IPhoneNumberInfoFactory_abi;
+    type Vtable = IPhoneNumberInfoFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNumberInfoFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPhoneNumberInfoFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNumberInfoStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneNumberInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNumberInfoStatics {
-    type Vtable = IPhoneNumberInfoStatics_abi;
+    type Vtable = IPhoneNumberInfoStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNumberInfoStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
+pub struct IPhoneNumberInfoStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
 );
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
-    pub const E164: PhoneNumberFormat = PhoneNumberFormat(0i32);
-    pub const International: PhoneNumberFormat = PhoneNumberFormat(1i32);
-    pub const National: PhoneNumberFormat = PhoneNumberFormat(2i32);
-    pub const Rfc3966: PhoneNumberFormat = PhoneNumberFormat(3i32);
+    pub const E164: Self = Self(0i32);
+    pub const International: Self = Self(1i32);
+    pub const National: Self = Self(2i32);
+    pub const Rfc3966: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for PhoneNumberFormat {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneNumberFormat {}
+impl ::core::clone::Clone for PhoneNumberFormat {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneNumberFormat {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneNumberFormat {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneNumberFormat {}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
 }
@@ -128,8 +134,7 @@ impl ::windows::core::DefaultType for PhoneNumberFormat {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneNumberFormatter(pub ::windows::core::IInspectable);
+pub struct PhoneNumberFormatter(::windows::core::IUnknown);
 impl PhoneNumberFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -199,11 +204,22 @@ impl PhoneNumberFormatter {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for PhoneNumberFormatter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneNumberFormatter {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneNumberFormatter {}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter;{1556b49e-bad4-4b4a-900d-4407adb7c981})");
 }
 unsafe impl ::windows::core::Interface for PhoneNumberFormatter {
-    type Vtable = IPhoneNumberFormatter_abi;
+    type Vtable = IPhoneNumberFormatterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 }
 impl ::windows::core::RuntimeName for PhoneNumberFormatter {
@@ -211,58 +227,47 @@ impl ::windows::core::RuntimeName for PhoneNumberFormatter {
 }
 impl ::core::convert::From<PhoneNumberFormatter> for ::windows::core::IUnknown {
     fn from(value: PhoneNumberFormatter) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneNumberFormatter> for ::windows::core::IUnknown {
     fn from(value: &PhoneNumberFormatter) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNumberFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneNumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneNumberFormatter> for ::windows::core::IInspectable {
     fn from(value: PhoneNumberFormatter) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneNumberFormatter> for ::windows::core::IInspectable {
     fn from(value: &PhoneNumberFormatter) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNumberFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneNumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
-unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneNumberInfo(pub ::windows::core::IInspectable);
+pub struct PhoneNumberInfo(::windows::core::IUnknown);
 impl PhoneNumberInfo {
-    #[cfg(feature = "Foundation")]
-    pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
     pub fn CountryCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -337,6 +342,14 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), input.into_param().abi(), regioncode.into_param().abi(), phonenumber as *mut _ as _, &mut result__).from_abi::<PhoneNumberParseResult>(result__)
         })
     }
+    #[cfg(feature = "Foundation")]
+    pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
     pub fn IPhoneNumberInfoFactory<R, F: FnOnce(&IPhoneNumberInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhoneNumberInfo, IPhoneNumberInfoFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -346,11 +359,22 @@ impl PhoneNumberInfo {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for PhoneNumberInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneNumberInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneNumberInfo {}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo;{1c7ce4dd-c8b4-4ea3-9aef-b342e2c5b417})");
 }
 unsafe impl ::windows::core::Interface for PhoneNumberInfo {
-    type Vtable = IPhoneNumberInfo_abi;
+    type Vtable = IPhoneNumberInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
 }
 impl ::windows::core::RuntimeName for PhoneNumberInfo {
@@ -358,42 +382,42 @@ impl ::windows::core::RuntimeName for PhoneNumberInfo {
 }
 impl ::core::convert::From<PhoneNumberInfo> for ::windows::core::IUnknown {
     fn from(value: PhoneNumberInfo) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneNumberInfo> for ::windows::core::IUnknown {
     fn from(value: &PhoneNumberInfo) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNumberInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNumberInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneNumberInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneNumberInfo> for ::windows::core::IInspectable {
     fn from(value: PhoneNumberInfo) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneNumberInfo> for ::windows::core::IInspectable {
     fn from(value: &PhoneNumberInfo) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNumberInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNumberInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneNumberInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -422,80 +446,96 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-unsafe impl ::core::marker::Send for PhoneNumberInfo {}
-unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
-    pub const NoMatch: PhoneNumberMatchResult = PhoneNumberMatchResult(0i32);
-    pub const ShortNationalSignificantNumberMatch: PhoneNumberMatchResult = PhoneNumberMatchResult(1i32);
-    pub const NationalSignificantNumberMatch: PhoneNumberMatchResult = PhoneNumberMatchResult(2i32);
-    pub const ExactMatch: PhoneNumberMatchResult = PhoneNumberMatchResult(3i32);
+    pub const NoMatch: Self = Self(0i32);
+    pub const ShortNationalSignificantNumberMatch: Self = Self(1i32);
+    pub const NationalSignificantNumberMatch: Self = Self(2i32);
+    pub const ExactMatch: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for PhoneNumberMatchResult {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneNumberMatchResult {}
+impl ::core::clone::Clone for PhoneNumberMatchResult {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneNumberMatchResult {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneNumberMatchResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneNumberMatchResult {}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
 }
 impl ::windows::core::DefaultType for PhoneNumberMatchResult {
     type DefaultType = Self;
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
-    pub const Valid: PhoneNumberParseResult = PhoneNumberParseResult(0i32);
-    pub const NotANumber: PhoneNumberParseResult = PhoneNumberParseResult(1i32);
-    pub const InvalidCountryCode: PhoneNumberParseResult = PhoneNumberParseResult(2i32);
-    pub const TooShort: PhoneNumberParseResult = PhoneNumberParseResult(3i32);
-    pub const TooLong: PhoneNumberParseResult = PhoneNumberParseResult(4i32);
+    pub const Valid: Self = Self(0i32);
+    pub const NotANumber: Self = Self(1i32);
+    pub const InvalidCountryCode: Self = Self(2i32);
+    pub const TooShort: Self = Self(3i32);
+    pub const TooLong: Self = Self(4i32);
 }
-impl ::core::convert::From<i32> for PhoneNumberParseResult {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneNumberParseResult {}
+impl ::core::clone::Clone for PhoneNumberParseResult {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneNumberParseResult {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneNumberParseResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneNumberParseResult {}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
 }
 impl ::windows::core::DefaultType for PhoneNumberParseResult {
     type DefaultType = Self;
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {
-    pub const FixedLine: PredictedPhoneNumberKind = PredictedPhoneNumberKind(0i32);
-    pub const Mobile: PredictedPhoneNumberKind = PredictedPhoneNumberKind(1i32);
-    pub const FixedLineOrMobile: PredictedPhoneNumberKind = PredictedPhoneNumberKind(2i32);
-    pub const TollFree: PredictedPhoneNumberKind = PredictedPhoneNumberKind(3i32);
-    pub const PremiumRate: PredictedPhoneNumberKind = PredictedPhoneNumberKind(4i32);
-    pub const SharedCost: PredictedPhoneNumberKind = PredictedPhoneNumberKind(5i32);
-    pub const Voip: PredictedPhoneNumberKind = PredictedPhoneNumberKind(6i32);
-    pub const PersonalNumber: PredictedPhoneNumberKind = PredictedPhoneNumberKind(7i32);
-    pub const Pager: PredictedPhoneNumberKind = PredictedPhoneNumberKind(8i32);
-    pub const UniversalAccountNumber: PredictedPhoneNumberKind = PredictedPhoneNumberKind(9i32);
-    pub const Voicemail: PredictedPhoneNumberKind = PredictedPhoneNumberKind(10i32);
-    pub const Unknown: PredictedPhoneNumberKind = PredictedPhoneNumberKind(11i32);
+    pub const FixedLine: Self = Self(0i32);
+    pub const Mobile: Self = Self(1i32);
+    pub const FixedLineOrMobile: Self = Self(2i32);
+    pub const TollFree: Self = Self(3i32);
+    pub const PremiumRate: Self = Self(4i32);
+    pub const SharedCost: Self = Self(5i32);
+    pub const Voip: Self = Self(6i32);
+    pub const PersonalNumber: Self = Self(7i32);
+    pub const Pager: Self = Self(8i32);
+    pub const UniversalAccountNumber: Self = Self(9i32);
+    pub const Voicemail: Self = Self(10i32);
+    pub const Unknown: Self = Self(11i32);
 }
-impl ::core::convert::From<i32> for PredictedPhoneNumberKind {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PredictedPhoneNumberKind {}
+impl ::core::clone::Clone for PredictedPhoneNumberKind {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PredictedPhoneNumberKind {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PredictedPhoneNumberKind {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PredictedPhoneNumberKind {}
 unsafe impl ::windows::core::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");
 }

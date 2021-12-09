@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0) -> u32 {
@@ -27,47 +27,35 @@ pub unsafe fn EnableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
-impl HARDWARE_COUNTER_DATA {}
+impl ::core::marker::Copy for HARDWARE_COUNTER_DATA {}
+impl ::core::clone::Clone for HARDWARE_COUNTER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HARDWARE_COUNTER_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWARE_COUNTER_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HARDWARE_COUNTER_DATA {}
 impl ::core::default::Default for HARDWARE_COUNTER_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HARDWARE_COUNTER_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HARDWARE_COUNTER_DATA").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HARDWARE_COUNTER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved == other.Reserved && self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for HARDWARE_COUNTER_DATA {}
-unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HARDWARE_COUNTER_TYPE(pub i32);
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
-impl ::core::convert::From<i32> for HARDWARE_COUNTER_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HARDWARE_COUNTER_TYPE = i32;
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
 #[repr(C)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
@@ -80,25 +68,25 @@ pub struct PERFORMANCE_DATA {
     pub Reserved: u32,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
 }
-impl PERFORMANCE_DATA {}
+impl ::core::marker::Copy for PERFORMANCE_DATA {}
+impl ::core::clone::Clone for PERFORMANCE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PERFORMANCE_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PERFORMANCE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PERFORMANCE_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PERFORMANCE_DATA {}
 impl ::core::default::Default for PERFORMANCE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for PERFORMANCE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERFORMANCE_DATA").field("Size", &self.Size).field("Version", &self.Version).field("HwCountersCount", &self.HwCountersCount).field("ContextSwitchCount", &self.ContextSwitchCount).field("WaitReasonBitMap", &self.WaitReasonBitMap).field("CycleTime", &self.CycleTime).field("RetryCount", &self.RetryCount).field("Reserved", &self.Reserved).field("HwCounters", &self.HwCounters).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PERFORMANCE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.HwCountersCount == other.HwCountersCount && self.ContextSwitchCount == other.ContextSwitchCount && self.WaitReasonBitMap == other.WaitReasonBitMap && self.CycleTime == other.CycleTime && self.RetryCount == other.RetryCount && self.Reserved == other.Reserved && self.HwCounters == other.HwCounters
-    }
-}
-impl ::core::cmp::Eq for PERFORMANCE_DATA {}
-unsafe impl ::windows::core::Abi for PERFORMANCE_DATA {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

@@ -1,7 +1,6 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const DFS_ADD_VOLUME: u32 = 1u32;
 pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
     pub DfsEntryPathLen: u16,
@@ -10,192 +9,185 @@ pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
     pub Level: u32,
     pub Buffer: [u16; 1],
 }
-impl DFS_GET_PKT_ENTRY_STATE_ARG {}
+impl ::core::marker::Copy for DFS_GET_PKT_ENTRY_STATE_ARG {}
+impl ::core::clone::Clone for DFS_GET_PKT_ENTRY_STATE_ARG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_GET_PKT_ENTRY_STATE_ARG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_GET_PKT_ENTRY_STATE_ARG {}
 impl ::core::default::Default for DFS_GET_PKT_ENTRY_STATE_ARG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_GET_PKT_ENTRY_STATE_ARG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_GET_PKT_ENTRY_STATE_ARG").field("DfsEntryPathLen", &self.DfsEntryPathLen).field("ServerNameLen", &self.ServerNameLen).field("ShareNameLen", &self.ShareNameLen).field("Level", &self.Level).field("Buffer", &self.Buffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
-    fn eq(&self, other: &Self) -> bool {
-        self.DfsEntryPathLen == other.DfsEntryPathLen && self.ServerNameLen == other.ServerNameLen && self.ShareNameLen == other.ShareNameLen && self.Level == other.Level && self.Buffer == other.Buffer
-    }
-}
-impl ::core::cmp::Eq for DFS_GET_PKT_ENTRY_STATE_ARG {}
-unsafe impl ::windows::core::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_1 {
     pub EntryPath: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_1 {}
+impl ::core::marker::Copy for DFS_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_1").field("EntryPath", &self.EntryPath).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_100 {
     pub Comment: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_100 {}
+impl ::core::marker::Copy for DFS_INFO_100 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_100 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_100 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_100 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_100>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_100 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_100 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_100").field("Comment", &self.Comment).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_100 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Comment == other.Comment
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_100 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_100 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_101 {
     pub State: u32,
 }
-impl DFS_INFO_101 {}
+impl ::core::marker::Copy for DFS_INFO_101 {}
+impl ::core::clone::Clone for DFS_INFO_101 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_101 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_101 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_101>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_101 {}
 impl ::core::default::Default for DFS_INFO_101 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_101 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_101").field("State", &self.State).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_101 {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_101 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_101 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_102 {
     pub Timeout: u32,
 }
-impl DFS_INFO_102 {}
+impl ::core::marker::Copy for DFS_INFO_102 {}
+impl ::core::clone::Clone for DFS_INFO_102 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_102 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_102 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_102>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_102 {}
 impl ::core::default::Default for DFS_INFO_102 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_102 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_102").field("Timeout", &self.Timeout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_102 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timeout == other.Timeout
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_102 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_102 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_103 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
 }
-impl DFS_INFO_103 {}
+impl ::core::marker::Copy for DFS_INFO_103 {}
+impl ::core::clone::Clone for DFS_INFO_103 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_103 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_103 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_103>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_103 {}
 impl ::core::default::Default for DFS_INFO_103 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_103 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_103").field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_103 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_103 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_103 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_104 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
-impl DFS_INFO_104 {}
+impl ::core::marker::Copy for DFS_INFO_104 {}
+impl ::core::clone::Clone for DFS_INFO_104 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_104 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_104 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_104>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_104 {}
 impl ::core::default::Default for DFS_INFO_104 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_104 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_104").field("TargetPriority", &self.TargetPriority).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_104 {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetPriority == other.TargetPriority
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_104 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_104 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_105 {
@@ -206,58 +198,56 @@ pub struct DFS_INFO_105 {
     pub PropertyFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_105 {}
+impl ::core::marker::Copy for DFS_INFO_105 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_105 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_105 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_105 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_105>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_105 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_105 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_105 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_105").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_105 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_105 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_105 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_106 {
     pub State: u32,
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
-impl DFS_INFO_106 {}
+impl ::core::marker::Copy for DFS_INFO_106 {}
+impl ::core::clone::Clone for DFS_INFO_106 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_106 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_106 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_106>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_106 {}
 impl ::core::default::Default for DFS_INFO_106 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_106 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_106").field("State", &self.State).field("TargetPriority", &self.TargetPriority).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_106 {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.TargetPriority == other.TargetPriority
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_106 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_106 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_107 {
@@ -270,32 +260,31 @@ pub struct DFS_INFO_107 {
     pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl DFS_INFO_107 {}
+impl ::core::marker::Copy for DFS_INFO_107 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for DFS_INFO_107 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for DFS_INFO_107 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for DFS_INFO_107 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_107>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for DFS_INFO_107 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for DFS_INFO_107 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for DFS_INFO_107 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_107").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for DFS_INFO_107 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for DFS_INFO_107 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_107 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_150 {
@@ -303,64 +292,62 @@ pub struct DFS_INFO_150 {
     pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl DFS_INFO_150 {}
+impl ::core::marker::Copy for DFS_INFO_150 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for DFS_INFO_150 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for DFS_INFO_150 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for DFS_INFO_150 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_150>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for DFS_INFO_150 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for DFS_INFO_150 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for DFS_INFO_150 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_150").field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for DFS_INFO_150 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for DFS_INFO_150 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_150 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl DFS_INFO_1_32 {}
+impl ::core::marker::Copy for DFS_INFO_1_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for DFS_INFO_1_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for DFS_INFO_1_32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for DFS_INFO_1_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_1_32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for DFS_INFO_1_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for DFS_INFO_1_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for DFS_INFO_1_32 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_1_32").field("EntryPath", &self.EntryPath).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for DFS_INFO_1_32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for DFS_INFO_1_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for DFS_INFO_1_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_2 {
@@ -370,64 +357,62 @@ pub struct DFS_INFO_2 {
     pub NumberOfStorages: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_2 {}
+impl ::core::marker::Copy for DFS_INFO_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_2").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_200 {
     pub FtDfsName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_200 {}
+impl ::core::marker::Copy for DFS_INFO_200 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_200 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_200 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_200 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_200>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_200 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_200 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_200 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_200").field("FtDfsName", &self.FtDfsName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_200 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FtDfsName == other.FtDfsName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_200 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_200 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_2_32 {
@@ -437,32 +422,31 @@ pub struct DFS_INFO_2_32 {
     pub NumberOfStorages: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl DFS_INFO_2_32 {}
+impl ::core::marker::Copy for DFS_INFO_2_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for DFS_INFO_2_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for DFS_INFO_2_32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for DFS_INFO_2_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_2_32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for DFS_INFO_2_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for DFS_INFO_2_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for DFS_INFO_2_32 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_2_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for DFS_INFO_2_32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for DFS_INFO_2_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for DFS_INFO_2_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_3 {
@@ -473,32 +457,31 @@ pub struct DFS_INFO_3 {
     pub Storage: *mut DFS_STORAGE_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_3 {}
+impl ::core::marker::Copy for DFS_INFO_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_3").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_300 {
@@ -506,32 +489,31 @@ pub struct DFS_INFO_300 {
     pub DfsName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_300 {}
+impl ::core::marker::Copy for DFS_INFO_300 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_300 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_300 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_300 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_300>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_300 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_300 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_300 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_300").field("Flags", &self.Flags).field("DfsName", &self.DfsName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_300 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.DfsName == other.DfsName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_300 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_300 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_3_32 {
@@ -542,32 +524,31 @@ pub struct DFS_INFO_3_32 {
     pub Storage: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl DFS_INFO_3_32 {}
+impl ::core::marker::Copy for DFS_INFO_3_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for DFS_INFO_3_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for DFS_INFO_3_32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for DFS_INFO_3_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_3_32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for DFS_INFO_3_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for DFS_INFO_3_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for DFS_INFO_3_32 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_3_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for DFS_INFO_3_32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for DFS_INFO_3_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for DFS_INFO_3_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_4 {
@@ -580,32 +561,31 @@ pub struct DFS_INFO_4 {
     pub Storage: *mut DFS_STORAGE_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_4 {}
+impl ::core::marker::Copy for DFS_INFO_4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_4").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_4_32 {
@@ -618,32 +598,31 @@ pub struct DFS_INFO_4_32 {
     pub Storage: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl DFS_INFO_4_32 {}
+impl ::core::marker::Copy for DFS_INFO_4_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for DFS_INFO_4_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for DFS_INFO_4_32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for DFS_INFO_4_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_4_32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for DFS_INFO_4_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for DFS_INFO_4_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for DFS_INFO_4_32 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_4_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for DFS_INFO_4_32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for DFS_INFO_4_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for DFS_INFO_4_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_5 {
@@ -657,59 +636,57 @@ pub struct DFS_INFO_5 {
     pub NumberOfStorages: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_5 {}
+impl ::core::marker::Copy for DFS_INFO_5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_5").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.NumberOfStorages == other.NumberOfStorages
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_50 {
     pub NamespaceMajorVersion: u32,
     pub NamespaceMinorVersion: u32,
     pub NamespaceCapabilities: u64,
 }
-impl DFS_INFO_50 {}
+impl ::core::marker::Copy for DFS_INFO_50 {}
+impl ::core::clone::Clone for DFS_INFO_50 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_50 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_50 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_50>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_50 {}
 impl ::core::default::Default for DFS_INFO_50 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_50 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_50").field("NamespaceMajorVersion", &self.NamespaceMajorVersion).field("NamespaceMinorVersion", &self.NamespaceMinorVersion).field("NamespaceCapabilities", &self.NamespaceCapabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_50 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NamespaceMajorVersion == other.NamespaceMajorVersion && self.NamespaceMinorVersion == other.NamespaceMinorVersion && self.NamespaceCapabilities == other.NamespaceCapabilities
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_50 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_50 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_6 {
@@ -724,57 +701,55 @@ pub struct DFS_INFO_6 {
     pub Storage: *mut DFS_STORAGE_INFO_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_INFO_6 {}
+impl ::core::marker::Copy for DFS_INFO_6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_INFO_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_INFO_6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_INFO_6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_INFO_6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_INFO_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_INFO_6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_6").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_INFO_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_INFO_6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_INFO_6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_INFO_7 {
     pub GenerationGuid: ::windows::core::GUID,
 }
-impl DFS_INFO_7 {}
+impl ::core::marker::Copy for DFS_INFO_7 {}
+impl ::core::clone::Clone for DFS_INFO_7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_INFO_7 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_INFO_7 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_7>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_INFO_7 {}
 impl ::core::default::Default for DFS_INFO_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_INFO_7 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_7").field("GenerationGuid", &self.GenerationGuid).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_INFO_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GenerationGuid == other.GenerationGuid
-    }
-}
-impl ::core::cmp::Eq for DFS_INFO_7 {}
-unsafe impl ::windows::core::Abi for DFS_INFO_7 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_8 {
@@ -790,32 +765,31 @@ pub struct DFS_INFO_8 {
     pub NumberOfStorages: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl DFS_INFO_8 {}
+impl ::core::marker::Copy for DFS_INFO_8 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for DFS_INFO_8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for DFS_INFO_8 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for DFS_INFO_8 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_8>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for DFS_INFO_8 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for DFS_INFO_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for DFS_INFO_8 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_8").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for DFS_INFO_8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor && self.NumberOfStorages == other.NumberOfStorages
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for DFS_INFO_8 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_8 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_9 {
@@ -832,46 +806,36 @@ pub struct DFS_INFO_9 {
     pub Storage: *mut DFS_STORAGE_INFO_1,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl DFS_INFO_9 {}
+impl ::core::marker::Copy for DFS_INFO_9 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for DFS_INFO_9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for DFS_INFO_9 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for DFS_INFO_9 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_9>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for DFS_INFO_9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for DFS_INFO_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for DFS_INFO_9 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_9").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for DFS_INFO_9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for DFS_INFO_9 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_9 {
-    type Abi = Self;
-}
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
-impl ::core::convert::From<i32> for DFS_NAMESPACE_VERSION_ORIGIN {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
-    type Abi = Self;
-}
+pub type DFS_NAMESPACE_VERSION_ORIGIN = i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2i32;
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
 pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
 pub const DFS_PROPERTY_FLAG_INSITE_REFERRALS: u32 = 1u32;
@@ -879,7 +843,6 @@ pub const DFS_PROPERTY_FLAG_ROOT_SCALABILITY: u32 = 2u32;
 pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4u32;
 pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8u32;
 pub const DFS_RESTORE_VOLUME: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_SITELIST_INFO {
@@ -887,32 +850,31 @@ pub struct DFS_SITELIST_INFO {
     pub Site: [DFS_SITENAME_INFO; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_SITELIST_INFO {}
+impl ::core::marker::Copy for DFS_SITELIST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_SITELIST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_SITELIST_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_SITELIST_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_SITELIST_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_SITELIST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_SITELIST_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_SITELIST_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_SITELIST_INFO").field("cSites", &self.cSites).field("Site", &self.Site).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_SITELIST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cSites == other.cSites && self.Site == other.Site
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_SITELIST_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_SITELIST_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_SITENAME_INFO {
@@ -920,34 +882,33 @@ pub struct DFS_SITENAME_INFO {
     pub SiteName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_SITENAME_INFO {}
+impl ::core::marker::Copy for DFS_SITENAME_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_SITENAME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_SITENAME_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_SITENAME_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_SITENAME_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_SITENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_SITENAME_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_SITENAME_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_SITENAME_INFO").field("SiteFlags", &self.SiteFlags).field("SiteName", &self.SiteName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_SITENAME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SiteFlags == other.SiteFlags && self.SiteName == other.SiteName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_SITENAME_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_SITENAME_INFO {
-    type Abi = Self;
-}
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_STORAGE_INFO {
@@ -956,32 +917,31 @@ pub struct DFS_STORAGE_INFO {
     pub ShareName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_STORAGE_INFO {}
+impl ::core::marker::Copy for DFS_STORAGE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_STORAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_STORAGE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_STORAGE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_STORAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_STORAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_STORAGE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_STORAGE_INFO").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_STORAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_STORAGE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_STORAGE_INFO_0_32 {
@@ -990,32 +950,31 @@ pub struct DFS_STORAGE_INFO_0_32 {
     pub ShareName: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl DFS_STORAGE_INFO_0_32 {}
+impl ::core::marker::Copy for DFS_STORAGE_INFO_0_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for DFS_STORAGE_INFO_0_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_0_32 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_STORAGE_INFO_0_32>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for DFS_STORAGE_INFO_0_32 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for DFS_STORAGE_INFO_0_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for DFS_STORAGE_INFO_0_32 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_STORAGE_INFO_0_32").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for DFS_STORAGE_INFO_0_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_0_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_STORAGE_INFO_1 {
@@ -1025,36 +984,35 @@ pub struct DFS_STORAGE_INFO_1 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DFS_STORAGE_INFO_1 {}
+impl ::core::marker::Copy for DFS_STORAGE_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DFS_STORAGE_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_STORAGE_INFO_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DFS_STORAGE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DFS_STORAGE_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DFS_STORAGE_INFO_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_STORAGE_INFO_1").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).field("TargetPriority", &self.TargetPriority).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName && self.TargetPriority == other.TargetPriority
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DFS_STORAGE_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_1 {
-    type Abi = Self;
-}
 pub const DFS_STORAGE_STATES: u32 = 15u32;
 pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
 pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1u32;
 pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub DomainDfsMajorVersion: u32,
@@ -1064,70 +1022,59 @@ pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub StandaloneDfsMinorVersion: u32,
     pub StandaloneDfsCapabilities: u64,
 }
-impl DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
+impl ::core::marker::Copy for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
+impl ::core::clone::Clone for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_SUPPORTED_NAMESPACE_VERSION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
 impl ::core::default::Default for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_SUPPORTED_NAMESPACE_VERSION_INFO").field("DomainDfsMajorVersion", &self.DomainDfsMajorVersion).field("DomainDfsMinorVersion", &self.DomainDfsMinorVersion).field("DomainDfsCapabilities", &self.DomainDfsCapabilities).field("StandaloneDfsMajorVersion", &self.StandaloneDfsMajorVersion).field("StandaloneDfsMinorVersion", &self.StandaloneDfsMinorVersion).field("StandaloneDfsCapabilities", &self.StandaloneDfsCapabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DomainDfsMajorVersion == other.DomainDfsMajorVersion && self.DomainDfsMinorVersion == other.DomainDfsMinorVersion && self.DomainDfsCapabilities == other.DomainDfsCapabilities && self.StandaloneDfsMajorVersion == other.StandaloneDfsMajorVersion && self.StandaloneDfsMinorVersion == other.StandaloneDfsMinorVersion && self.StandaloneDfsCapabilities == other.StandaloneDfsCapabilities
-    }
-}
-impl ::core::cmp::Eq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
-unsafe impl ::windows::core::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityClass: DFS_TARGET_PRIORITY_CLASS,
     pub TargetPriorityRank: u16,
     pub Reserved: u16,
 }
-impl DFS_TARGET_PRIORITY {}
+impl ::core::marker::Copy for DFS_TARGET_PRIORITY {}
+impl ::core::clone::Clone for DFS_TARGET_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DFS_TARGET_PRIORITY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_TARGET_PRIORITY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DFS_TARGET_PRIORITY {}
 impl ::core::default::Default for DFS_TARGET_PRIORITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DFS_TARGET_PRIORITY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_TARGET_PRIORITY").field("TargetPriorityClass", &self.TargetPriorityClass).field("TargetPriorityRank", &self.TargetPriorityRank).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DFS_TARGET_PRIORITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetPriorityClass == other.TargetPriorityClass && self.TargetPriorityRank == other.TargetPriorityRank && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for DFS_TARGET_PRIORITY {}
-unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
-pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
-pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
-pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
-pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
-pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
-pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(4i32);
-impl ::core::convert::From<i32> for DFS_TARGET_PRIORITY_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY_CLASS {
-    type Abi = Self;
-}
+pub type DFS_TARGET_PRIORITY_CLASS = i32;
+pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = -1i32;
+pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = 0i32;
+pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 1i32;
+pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 2i32;
+pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 3i32;
+pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 4i32;
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
 pub const DFS_VOLUME_FLAVOR_AD_BLOB: u32 = 512u32;
 pub const DFS_VOLUME_FLAVOR_STANDALONE: u32 = 256u32;

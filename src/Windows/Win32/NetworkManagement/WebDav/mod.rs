@@ -1,18 +1,8 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct AUTHNEXTSTEP(pub i32);
-pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
-pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
-pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
-impl ::core::convert::From<i32> for AUTHNEXTSTEP {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHNEXTSTEP {
-    type Abi = Self;
-}
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type AUTHNEXTSTEP = i32;
+pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
+pub const RetryRequest: AUTHNEXTSTEP = 1i32;
+pub const CancelRequest: AUTHNEXTSTEP = 2i32;
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
 pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;
@@ -20,34 +10,32 @@ pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
 pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
     pub pBuffer: *mut ::core::ffi::c_void,
     pub ulSize: u32,
     pub ulType: u32,
 }
-impl DAV_CALLBACK_AUTH_BLOB {}
+impl ::core::marker::Copy for DAV_CALLBACK_AUTH_BLOB {}
+impl ::core::clone::Clone for DAV_CALLBACK_AUTH_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
 impl ::core::default::Default for DAV_CALLBACK_AUTH_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.ulSize == other.ulSize && self.ulType == other.ulType
-    }
-}
-impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DAV_CALLBACK_AUTH_UNP {
@@ -57,32 +45,31 @@ pub struct DAV_CALLBACK_AUTH_UNP {
     pub ulPasswordLength: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DAV_CALLBACK_AUTH_UNP {}
+impl ::core::marker::Copy for DAV_CALLBACK_AUTH_UNP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DAV_CALLBACK_AUTH_UNP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_UNP {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_UNP>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DAV_CALLBACK_AUTH_UNP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszUserName == other.pszUserName && self.ulUserNameLength == other.ulUserNameLength && self.pszPassword == other.pszPassword && self.ulPasswordLength == other.ulPasswordLength
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_UNP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DAV_CALLBACK_CRED {
@@ -92,30 +79,30 @@ pub struct DAV_CALLBACK_CRED {
     pub bSave: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DAV_CALLBACK_CRED {}
+impl ::core::marker::Copy for DAV_CALLBACK_CRED {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DAV_CALLBACK_CRED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DAV_CALLBACK_CRED {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DAV_CALLBACK_CRED").field("AuthBlob", &self.AuthBlob).field("UNPBlob", &self.UNPBlob).field("bAuthBlobValid", &self.bAuthBlobValid).field("bSave", &self.bSave).finish()
-    }
+unsafe impl ::windows::core::Abi for DAV_CALLBACK_CRED {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {
     fn eq(&self, other: &Self) -> bool {
-        self.AuthBlob == other.AuthBlob && self.UNPBlob == other.UNPBlob && self.bAuthBlobValid == other.bAuthBlobValid && self.bSave == other.bSave
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_CRED>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DAV_CALLBACK_CRED {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DAV_CALLBACK_CRED {
-    type Abi = Self;
+impl ::core::default::Default for DAV_CALLBACK_CRED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -271,5 +258,5 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNDAVAUTHCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut ::windows::core::RawPtr) -> u32>;
+pub type PFNDAVAUTHCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
 pub type PFNDAVAUTHCALLBACK_FREECRED = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32>;

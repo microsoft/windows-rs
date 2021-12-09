@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -27,185 +27,115 @@ pub unsafe fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TBS_COMMAND_LOCALITY(pub u32);
-pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
-pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(1u32);
-pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(2u32);
-pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(3u32);
-pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(4u32);
-impl ::core::convert::From<u32> for TBS_COMMAND_LOCALITY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for TBS_COMMAND_LOCALITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for TBS_COMMAND_LOCALITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TBS_COMMAND_LOCALITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TBS_COMMAND_LOCALITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for TBS_COMMAND_LOCALITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TBS_COMMAND_PRIORITY(pub u32);
-pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
-pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(200u32);
-pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
-pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(300u32);
-pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(2147483648u32);
-impl ::core::convert::From<u32> for TBS_COMMAND_PRIORITY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for TBS_COMMAND_PRIORITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for TBS_COMMAND_PRIORITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TBS_COMMAND_PRIORITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TBS_COMMAND_PRIORITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for TBS_COMMAND_PRIORITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type TBS_COMMAND_LOCALITY = u32;
+pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = 0u32;
+pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u32;
+pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = 2u32;
+pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u32;
+pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u32;
+pub type TBS_COMMAND_PRIORITY = u32;
+pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = 100u32;
+pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u32;
+pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u32;
+pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = 300u32;
+pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u32;
 #[repr(C)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
 }
-impl TBS_CONTEXT_PARAMS {}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS {}
 impl ::core::default::Default for TBS_CONTEXT_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS {}
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
 }
-impl TBS_CONTEXT_PARAMS2 {}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2 {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2 {}
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2 {}
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
 }
-impl TBS_CONTEXT_PARAMS2_0 {}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2_0 {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS2_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0 {}
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0 {}
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
-impl TBS_CONTEXT_PARAMS2_0_0 {}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2_0_0 {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS2_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0_0 {}
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0_0 {}
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
-    type Abi = Self;
 }
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
@@ -222,7 +152,6 @@ pub const TBS_TCGLOG_DRTM_RESUME: u32 = 5u32;
 pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2u32;
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0u32;
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
@@ -230,25 +159,25 @@ pub struct TPM_DEVICE_INFO {
     pub tpmInterfaceType: u32,
     pub tpmImpRevision: u32,
 }
-impl TPM_DEVICE_INFO {}
+impl ::core::marker::Copy for TPM_DEVICE_INFO {}
+impl ::core::clone::Clone for TPM_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TPM_DEVICE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TPM_DEVICE_INFO {}
 impl ::core::default::Default for TPM_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for TPM_DEVICE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.structVersion == other.structVersion && self.tpmVersion == other.tpmVersion && self.tpmInterfaceType == other.tpmInterfaceType && self.tpmImpRevision == other.tpmImpRevision
-    }
-}
-impl ::core::cmp::Eq for TPM_DEVICE_INFO {}
-unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
-    type Abi = Self;
 }
 pub const TPM_IFTYPE_1: u32 = 1u32;
 pub const TPM_IFTYPE_EMULATOR: u32 = 4u32;
@@ -405,29 +334,28 @@ pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, localit
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct tdTPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
 }
-impl tdTPM_WNF_PROVISIONING {}
+impl ::core::marker::Copy for tdTPM_WNF_PROVISIONING {}
+impl ::core::clone::Clone for tdTPM_WNF_PROVISIONING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for tdTPM_WNF_PROVISIONING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for tdTPM_WNF_PROVISIONING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tdTPM_WNF_PROVISIONING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for tdTPM_WNF_PROVISIONING {}
 impl ::core::default::Default for tdTPM_WNF_PROVISIONING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for tdTPM_WNF_PROVISIONING {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("tdTPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
-    }
-}
-impl ::core::cmp::PartialEq for tdTPM_WNF_PROVISIONING {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.message == other.message
-    }
-}
-impl ::core::cmp::Eq for tdTPM_WNF_PROVISIONING {}
-unsafe impl ::windows::core::Abi for tdTPM_WNF_PROVISIONING {
-    type Abi = Self;
 }

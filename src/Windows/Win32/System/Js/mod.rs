@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 #[inline]
 pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode {
@@ -423,74 +423,36 @@ pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct JsErrorCode(pub u32);
-pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
-pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
-pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
-pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
-pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
-pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
-pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
-pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
-pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
-pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
-pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
-pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
-pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
-pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
-pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
-pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
-pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
-pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
-pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
-pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
-pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
-pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
-pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
-pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
-pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
-pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
-pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
-pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
-pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
-impl ::core::convert::From<u32> for JsErrorCode {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for JsErrorCode {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for JsErrorCode {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for JsErrorCode {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for JsErrorCode {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for JsErrorCode {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for JsErrorCode {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type JsErrorCode = u32;
+pub const JsNoError: JsErrorCode = 0u32;
+pub const JsErrorCategoryUsage: JsErrorCode = 65536u32;
+pub const JsErrorInvalidArgument: JsErrorCode = 65537u32;
+pub const JsErrorNullArgument: JsErrorCode = 65538u32;
+pub const JsErrorNoCurrentContext: JsErrorCode = 65539u32;
+pub const JsErrorInExceptionState: JsErrorCode = 65540u32;
+pub const JsErrorNotImplemented: JsErrorCode = 65541u32;
+pub const JsErrorWrongThread: JsErrorCode = 65542u32;
+pub const JsErrorRuntimeInUse: JsErrorCode = 65543u32;
+pub const JsErrorBadSerializedScript: JsErrorCode = 65544u32;
+pub const JsErrorInDisabledState: JsErrorCode = 65545u32;
+pub const JsErrorCannotDisableExecution: JsErrorCode = 65546u32;
+pub const JsErrorHeapEnumInProgress: JsErrorCode = 65547u32;
+pub const JsErrorArgumentNotObject: JsErrorCode = 65548u32;
+pub const JsErrorInProfileCallback: JsErrorCode = 65549u32;
+pub const JsErrorInThreadServiceCallback: JsErrorCode = 65550u32;
+pub const JsErrorCannotSerializeDebugScript: JsErrorCode = 65551u32;
+pub const JsErrorAlreadyDebuggingContext: JsErrorCode = 65552u32;
+pub const JsErrorAlreadyProfilingContext: JsErrorCode = 65553u32;
+pub const JsErrorIdleNotEnabled: JsErrorCode = 65554u32;
+pub const JsErrorCategoryEngine: JsErrorCode = 131072u32;
+pub const JsErrorOutOfMemory: JsErrorCode = 131073u32;
+pub const JsErrorCategoryScript: JsErrorCode = 196608u32;
+pub const JsErrorScriptException: JsErrorCode = 196609u32;
+pub const JsErrorScriptCompile: JsErrorCode = 196610u32;
+pub const JsErrorScriptTerminated: JsErrorCode = 196611u32;
+pub const JsErrorScriptEvalDisabled: JsErrorCode = 196612u32;
+pub const JsErrorCategoryFatal: JsErrorCode = 262144u32;
+pub const JsErrorFatal: JsErrorCode = 262145u32;
 pub type JsFinalizeCallback = ::core::option::Option<unsafe extern "system" fn(data: *const ::core::ffi::c_void)>;
 #[inline]
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
@@ -871,20 +833,10 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct JsMemoryEventType(pub i32);
-pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
-pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
-pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
-impl ::core::convert::From<i32> for JsMemoryEventType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for JsMemoryEventType {
-    type Abi = Self;
-}
+pub type JsMemoryEventType = i32;
+pub const JsMemoryAllocate: JsMemoryEventType = 0i32;
+pub const JsMemoryFree: JsMemoryEventType = 1i32;
+pub const JsMemoryFailure: JsMemoryEventType = 2i32;
 pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[inline]
 pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode {
@@ -995,37 +947,17 @@ pub unsafe fn JsRunSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct JsRuntimeAttributes(pub i32);
-pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
-pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
-pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
-pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
-pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
-pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
-impl ::core::convert::From<i32> for JsRuntimeAttributes {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for JsRuntimeAttributes {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct JsRuntimeVersion(pub i32);
-pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
-pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
-pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
-impl ::core::convert::From<i32> for JsRuntimeVersion {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for JsRuntimeVersion {
-    type Abi = Self;
-}
+pub type JsRuntimeAttributes = i32;
+pub const JsRuntimeAttributeNone: JsRuntimeAttributes = 0i32;
+pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = 1i32;
+pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = 2i32;
+pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = 4i32;
+pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = 8i32;
+pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = 16i32;
+pub type JsRuntimeVersion = i32;
+pub const JsRuntimeVersion10: JsRuntimeVersion = 0i32;
+pub const JsRuntimeVersion11: JsRuntimeVersion = 1i32;
+pub const JsRuntimeVersionEdge: JsRuntimeVersion = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsSerializeScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode {
@@ -1240,7 +1172,7 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: ::windows::core::RawPtr, callbackstate: *const ::core::ffi::c_void) -> bool>;
+pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
@@ -1255,26 +1187,16 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct JsValueType(pub i32);
-pub const JsUndefined: JsValueType = JsValueType(0i32);
-pub const JsNull: JsValueType = JsValueType(1i32);
-pub const JsNumber: JsValueType = JsValueType(2i32);
-pub const JsString: JsValueType = JsValueType(3i32);
-pub const JsBoolean: JsValueType = JsValueType(4i32);
-pub const JsObject: JsValueType = JsValueType(5i32);
-pub const JsFunction: JsValueType = JsValueType(6i32);
-pub const JsError: JsValueType = JsValueType(7i32);
-pub const JsArray: JsValueType = JsValueType(8i32);
-impl ::core::convert::From<i32> for JsValueType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for JsValueType {
-    type Abi = Self;
-}
+pub type JsValueType = i32;
+pub const JsUndefined: JsValueType = 0i32;
+pub const JsNull: JsValueType = 1i32;
+pub const JsNumber: JsValueType = 2i32;
+pub const JsString: JsValueType = 3i32;
+pub const JsBoolean: JsValueType = 4i32;
+pub const JsObject: JsValueType = 5i32;
+pub const JsFunction: JsValueType = 6i32;
+pub const JsError: JsValueType = 7i32;
+pub const JsArray: JsValueType = 8i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {

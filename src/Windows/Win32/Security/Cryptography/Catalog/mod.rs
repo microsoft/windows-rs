@@ -1,31 +1,29 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
 }
-impl CATALOG_INFO {}
+impl ::core::marker::Copy for CATALOG_INFO {}
+impl ::core::clone::Clone for CATALOG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CATALOG_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CATALOG_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATALOG_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CATALOG_INFO {}
 impl ::core::default::Default for CATALOG_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CATALOG_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CATALOG_INFO").field("cbStruct", &self.cbStruct).field("wszCatalogFile", &self.wszCatalogFile).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CATALOG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.wszCatalogFile == other.wszCatalogFile
-    }
-}
-impl ::core::cmp::Eq for CATALOG_INFO {}
-unsafe impl ::windows::core::Abi for CATALOG_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTCATATTRIBUTE {
@@ -37,32 +35,31 @@ pub struct CRYPTCATATTRIBUTE {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CRYPTCATATTRIBUTE {}
+impl ::core::marker::Copy for CRYPTCATATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTCATATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CRYPTCATATTRIBUTE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CRYPTCATATTRIBUTE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATATTRIBUTE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CRYPTCATATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTCATATTRIBUTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTCATATTRIBUTE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATATTRIBUTE").field("cbStruct", &self.cbStruct).field("pwszReferenceTag", &self.pwszReferenceTag).field("dwAttrTypeAndAction", &self.dwAttrTypeAndAction).field("cbValue", &self.cbValue).field("pbValue", &self.pbValue).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CRYPTCATATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.dwAttrTypeAndAction == other.dwAttrTypeAndAction && self.cbValue == other.cbValue && self.pbValue == other.pbValue && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CRYPTCATATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTCATATTRIBUTE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTCATCDF {
@@ -75,32 +72,31 @@ pub struct CRYPTCATCDF {
     pub hCATStore: super::super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CRYPTCATCDF {}
+impl ::core::marker::Copy for CRYPTCATCDF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTCATCDF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CRYPTCATCDF {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CRYPTCATCDF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATCDF>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CRYPTCATCDF {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTCATCDF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTCATCDF {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATCDF").field("cbStruct", &self.cbStruct).field("hFile", &self.hFile).field("dwCurFilePos", &self.dwCurFilePos).field("dwLastMemberOffset", &self.dwLastMemberOffset).field("fEOF", &self.fEOF).field("pwszResultDir", &self.pwszResultDir).field("hCATStore", &self.hCATStore).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CRYPTCATCDF {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.hFile == other.hFile && self.dwCurFilePos == other.dwCurFilePos && self.dwLastMemberOffset == other.dwLastMemberOffset && self.fEOF == other.fEOF && self.pwszResultDir == other.pwszResultDir && self.hCATStore == other.hCATStore
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CRYPTCATCDF {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTCATCDF {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPTCATMEMBER {
@@ -117,44 +113,31 @@ pub struct CRYPTCATMEMBER {
     pub sEncodedMemberInfo: super::CRYPTOAPI_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl CRYPTCATMEMBER {}
+impl ::core::marker::Copy for CRYPTCATMEMBER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::clone::Clone for CRYPTCATMEMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+unsafe impl ::windows::core::Abi for CRYPTCATMEMBER {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::cmp::PartialEq for CRYPTCATMEMBER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATMEMBER>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::cmp::Eq for CRYPTCATMEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for CRYPTCATMEMBER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::fmt::Debug for CRYPTCATMEMBER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATMEMBER")
-            .field("cbStruct", &self.cbStruct)
-            .field("pwszReferenceTag", &self.pwszReferenceTag)
-            .field("pwszFileName", &self.pwszFileName)
-            .field("gSubjectType", &self.gSubjectType)
-            .field("fdwMemberFlags", &self.fdwMemberFlags)
-            .field("pIndirectData", &self.pIndirectData)
-            .field("dwCertVersion", &self.dwCertVersion)
-            .field("dwReserved", &self.dwReserved)
-            .field("hReserved", &self.hReserved)
-            .field("sEncodedIndirectData", &self.sEncodedIndirectData)
-            .field("sEncodedMemberInfo", &self.sEncodedMemberInfo)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for CRYPTCATMEMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.pwszFileName == other.pwszFileName && self.gSubjectType == other.gSubjectType && self.fdwMemberFlags == other.fdwMemberFlags && self.pIndirectData == other.pIndirectData && self.dwCertVersion == other.dwCertVersion && self.dwReserved == other.dwReserved && self.hReserved == other.hReserved && self.sEncodedIndirectData == other.sEncodedIndirectData && self.sEncodedMemberInfo == other.sEncodedMemberInfo
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for CRYPTCATMEMBER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
-unsafe impl ::windows::core::Abi for CRYPTCATMEMBER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTCATSTORE {
@@ -170,30 +153,30 @@ pub struct CRYPTCATSTORE {
     pub hSorted: super::super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CRYPTCATSTORE {}
+impl ::core::marker::Copy for CRYPTCATSTORE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CRYPTCATSTORE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CRYPTCATSTORE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CRYPTCATSTORE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATSTORE").field("cbStruct", &self.cbStruct).field("dwPublicVersion", &self.dwPublicVersion).field("pwszP7File", &self.pwszP7File).field("hProv", &self.hProv).field("dwEncodingType", &self.dwEncodingType).field("fdwStoreFlags", &self.fdwStoreFlags).field("hReserved", &self.hReserved).field("hAttrs", &self.hAttrs).field("hCryptMsg", &self.hCryptMsg).field("hSorted", &self.hSorted).finish()
-    }
+unsafe impl ::windows::core::Abi for CRYPTCATSTORE {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTCATSTORE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.dwPublicVersion == other.dwPublicVersion && self.pwszP7File == other.pwszP7File && self.hProv == other.hProv && self.dwEncodingType == other.dwEncodingType && self.fdwStoreFlags == other.fdwStoreFlags && self.hReserved == other.hReserved && self.hAttrs == other.hAttrs && self.hCryptMsg == other.hCryptMsg && self.hSorted == other.hSorted
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATSTORE>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPTCATSTORE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTCATSTORE {
-    type Abi = Self;
+impl ::core::default::Default for CRYPTCATSTORE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
@@ -219,95 +202,19 @@ pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
 pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
 pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
-pub const CRYPTCAT_OPEN_ALWAYS: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(2u32);
-pub const CRYPTCAT_OPEN_CREATENEW: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1u32);
-pub const CRYPTCAT_OPEN_EXISTING: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4u32);
-pub const CRYPTCAT_OPEN_EXCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(65536u32);
-pub const CRYPTCAT_OPEN_INCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(131072u32);
-pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(268435456u32);
-pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(536870912u32);
-pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1073741824u32);
-pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4294901760u32);
-impl ::core::convert::From<u32> for CRYPTCAT_OPEN_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CRYPTCAT_OPEN_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTCAT_OPEN_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTCAT_OPEN_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTCAT_OPEN_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CRYPTCAT_OPEN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CRYPTCAT_VERSION(pub u32);
-pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = CRYPTCAT_VERSION(256u32);
-pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = CRYPTCAT_VERSION(512u32);
-impl ::core::convert::From<u32> for CRYPTCAT_VERSION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CRYPTCAT_VERSION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CRYPTCAT_VERSION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CRYPTCAT_VERSION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRYPTCAT_VERSION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRYPTCAT_VERSION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CRYPTCAT_VERSION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CRYPTCAT_OPEN_FLAGS = u32;
+pub const CRYPTCAT_OPEN_ALWAYS: CRYPTCAT_OPEN_FLAGS = 2u32;
+pub const CRYPTCAT_OPEN_CREATENEW: CRYPTCAT_OPEN_FLAGS = 1u32;
+pub const CRYPTCAT_OPEN_EXISTING: CRYPTCAT_OPEN_FLAGS = 4u32;
+pub const CRYPTCAT_OPEN_EXCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = 65536u32;
+pub const CRYPTCAT_OPEN_INCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = 131072u32;
+pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = 268435456u32;
+pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = 536870912u32;
+pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = 1073741824u32;
+pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = 4294901760u32;
+pub type CRYPTCAT_VERSION = u32;
+pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = 256u32;
+pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = 512u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, dwflags: u32) -> super::super::super::Foundation::BOOL {

@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const DBG_ATTACH: u32 = 14u32;
 pub const DBG_BREAK: u32 = 6u32;
 pub const DBG_DIVOVERFLOW: u32 = 8u32;
@@ -39,7 +39,6 @@ pub const GD_NAMETABLE: u32 = 15u32;
 pub const GD_RCDATA: u32 = 10u32;
 pub const GD_STRING: u32 = 6u32;
 pub const GD_USERDEFINED: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GLOBALENTRY {
@@ -58,24 +57,30 @@ pub struct GLOBALENTRY {
     pub dwNextAlt: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl GLOBALENTRY {}
+impl ::core::marker::Copy for GLOBALENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GLOBALENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for GLOBALENTRY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GLOBALENTRY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLOBALENTRY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBALENTRY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GLOBALENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLOBALENTRY {
-    type Abi = Self;
+impl ::core::default::Default for GLOBALENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const GLOBAL_ALL: u32 = 0u32;
 pub const GLOBAL_FREE: u32 = 2u32;
@@ -91,7 +96,6 @@ pub const GT_RESOURCE: u32 = 5u32;
 pub const GT_SENTINEL: u32 = 9u32;
 pub const GT_TASK: u32 = 4u32;
 pub const GT_UNKNOWN: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_NOTE {
@@ -101,34 +105,33 @@ pub struct IMAGE_NOTE {
     pub hTask: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IMAGE_NOTE {}
+impl ::core::marker::Copy for IMAGE_NOTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMAGE_NOTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for IMAGE_NOTE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for IMAGE_NOTE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGE_NOTE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for IMAGE_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGE_NOTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMAGE_NOTE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for IMAGE_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for IMAGE_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMAGE_NOTE {
-    type Abi = Self;
-}
 pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY {
@@ -140,7 +143,25 @@ pub struct MODULEENTRY {
     pub wNext: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MODULEENTRY {}
+impl ::core::marker::Copy for MODULEENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MODULEENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MODULEENTRY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MODULEENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODULEENTRY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MODULEENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MODULEENTRY {
     fn default() -> Self {
@@ -148,20 +169,7 @@ impl ::core::default::Default for MODULEENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MODULEENTRY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MODULEENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MODULEENTRY {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
 pub type PROCESSENUMPROC = ::core::option::Option<unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SEGMENT_NOTE {
@@ -174,30 +182,30 @@ pub struct SEGMENT_NOTE {
     pub Length: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SEGMENT_NOTE {}
+impl ::core::marker::Copy for SEGMENT_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SEGMENT_NOTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SEGMENT_NOTE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SEGMENT_NOTE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
-    }
+unsafe impl ::windows::core::Abi for SEGMENT_NOTE {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEGMENT_NOTE>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SEGMENT_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SEGMENT_NOTE {
-    type Abi = Self;
+impl ::core::default::Default for SEGMENT_NOTE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SN_CODE: u32 = 0u32;
 pub const SN_DATA: u32 = 1u32;
@@ -207,7 +215,6 @@ pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
 pub type TASKENUMPROC = ::core::option::Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type TASKENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEMP_BP_NOTE {
@@ -216,30 +223,30 @@ pub struct TEMP_BP_NOTE {
     pub bPM: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TEMP_BP_NOTE {}
+impl ::core::marker::Copy for TEMP_BP_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TEMP_BP_NOTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for TEMP_BP_NOTE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TEMP_BP_NOTE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
-    }
+unsafe impl ::windows::core::Abi for TEMP_BP_NOTE {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        self.Seg == other.Seg && self.Offset == other.Offset && self.bPM == other.bPM
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TEMP_BP_NOTE>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TEMP_BP_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TEMP_BP_NOTE {
-    type Abi = Self;
+impl ::core::default::Default for TEMP_BP_NOTE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
 pub const V86FLAGS_AUXCARRY: u32 = 16u32;
@@ -260,7 +267,6 @@ pub const VDMADDR_PM32: u32 = 16u32;
 pub const VDMADDR_V86: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMBREAKTHREADPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -293,52 +299,24 @@ pub struct VDMCONTEXT {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl VDMCONTEXT {}
+impl ::core::marker::Copy for VDMCONTEXT {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for VDMCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for VDMCONTEXT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for VDMCONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDMCONTEXT")
-            .field("ContextFlags", &self.ContextFlags)
-            .field("Dr0", &self.Dr0)
-            .field("Dr1", &self.Dr1)
-            .field("Dr2", &self.Dr2)
-            .field("Dr3", &self.Dr3)
-            .field("Dr6", &self.Dr6)
-            .field("Dr7", &self.Dr7)
-            .field("FloatSave", &self.FloatSave)
-            .field("SegGs", &self.SegGs)
-            .field("SegFs", &self.SegFs)
-            .field("SegEs", &self.SegEs)
-            .field("SegDs", &self.SegDs)
-            .field("Edi", &self.Edi)
-            .field("Esi", &self.Esi)
-            .field("Ebx", &self.Ebx)
-            .field("Edx", &self.Edx)
-            .field("Ecx", &self.Ecx)
-            .field("Eax", &self.Eax)
-            .field("Ebp", &self.Ebp)
-            .field("Eip", &self.Eip)
-            .field("SegCs", &self.SegCs)
-            .field("EFlags", &self.EFlags)
-            .field("Esp", &self.Esp)
-            .field("SegSs", &self.SegSs)
-            .field("ExtendedRegisters", &self.ExtendedRegisters)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for VDMCONTEXT {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMCONTEXT>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -346,10 +324,11 @@ impl ::core::cmp::PartialEq for VDMCONTEXT {
 impl ::core::cmp::Eq for VDMCONTEXT {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-unsafe impl ::windows::core::Abi for VDMCONTEXT {
-    type Abi = Self;
+impl ::core::default::Default for VDMCONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
@@ -379,55 +358,30 @@ pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub SegSs: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl VDMCONTEXT_WITHOUT_XSAVE {}
+impl ::core::marker::Copy for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for VDMCONTEXT_WITHOUT_XSAVE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for VDMCONTEXT_WITHOUT_XSAVE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDMCONTEXT_WITHOUT_XSAVE")
-            .field("ContextFlags", &self.ContextFlags)
-            .field("Dr0", &self.Dr0)
-            .field("Dr1", &self.Dr1)
-            .field("Dr2", &self.Dr2)
-            .field("Dr3", &self.Dr3)
-            .field("Dr6", &self.Dr6)
-            .field("Dr7", &self.Dr7)
-            .field("FloatSave", &self.FloatSave)
-            .field("SegGs", &self.SegGs)
-            .field("SegFs", &self.SegFs)
-            .field("SegEs", &self.SegEs)
-            .field("SegDs", &self.SegDs)
-            .field("Edi", &self.Edi)
-            .field("Esi", &self.Esi)
-            .field("Ebx", &self.Ebx)
-            .field("Edx", &self.Edx)
-            .field("Ecx", &self.Ecx)
-            .field("Eax", &self.Eax)
-            .field("Ebp", &self.Ebp)
-            .field("Eip", &self.Eip)
-            .field("SegCs", &self.SegCs)
-            .field("EFlags", &self.EFlags)
-            .field("Esp", &self.Esp)
-            .field("SegSs", &self.SegSs)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for VDMCONTEXT_WITHOUT_XSAVE {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
     fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMCONTEXT_WITHOUT_XSAVE>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
-unsafe impl ::windows::core::Abi for VDMCONTEXT_WITHOUT_XSAVE {
-    type Abi = Self;
+impl ::core::default::Default for VDMCONTEXT_WITHOUT_XSAVE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const VDMCONTEXT_i386: u32 = 65536u32;
 pub const VDMCONTEXT_i486: u32 = 65536u32;
@@ -443,11 +397,11 @@ pub const VDMDBG_TRACE_HISTORY: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMDETECTWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMPROCESSWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type VDMENUMPROCESSWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: PROCESSENUMPROC, param1: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMTASKWOWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows::core::RawPtr, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type VDMENUMTASKWOWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROCEX, param2: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMTASKWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows::core::RawPtr, param2: super::super::Foundation::LPARAM) -> i32>;
+pub type VDMENUMTASKWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32>;
 pub const VDMEVENT_ALLFLAGS: u32 = 57344u32;
 pub const VDMEVENT_NEEDS_INTERACTIVE: u32 = 32768u32;
 pub const VDMEVENT_PE: u32 = 8192u32;
@@ -481,14 +435,13 @@ pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "s
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMGLOBALFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::core::RawPtr, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMGLOBALFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMGLOBALNEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::core::RawPtr, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMGLOBALNEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMISMODULELOADEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMKILLWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY {
@@ -497,26 +450,31 @@ pub struct VDMLDT_ENTRY {
     pub HighWord: VDMLDT_ENTRY_0,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl VDMLDT_ENTRY {}
+impl ::core::marker::Copy for VDMLDT_ENTRY {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for VDMLDT_ENTRY {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for VDMLDT_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub union VDMLDT_ENTRY_0 {
@@ -524,58 +482,62 @@ pub union VDMLDT_ENTRY_0 {
     pub Bits: VDMLDT_ENTRY_0_0,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl VDMLDT_ENTRY_0 {}
+impl ::core::marker::Copy for VDMLDT_ENTRY_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for VDMLDT_ENTRY_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl VDMLDT_ENTRY_0_0 {}
+impl ::core::marker::Copy for VDMLDT_ENTRY_0_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_0>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Bits_e__Struct").field("_bitfield", &self._bitfield).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY_0_1 {
@@ -585,35 +547,35 @@ pub struct VDMLDT_ENTRY_0_1 {
     pub BaseHi: u8,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl VDMLDT_ENTRY_0_1 {}
+impl ::core::marker::Copy for VDMLDT_ENTRY_0_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_1>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Bytes_e__Struct").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
-    type Abi = Self;
-}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMMODULEFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::core::RawPtr, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMMODULEFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMMODULENEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::core::RawPtr, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type VDMMODULENEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -630,7 +592,6 @@ pub type VDMSTARTTASKINWOWPROC = ::core::option::Option<unsafe extern "system" f
 pub type VDMTERMINATETASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL>;
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDM_SEGINFO {
@@ -642,28 +603,28 @@ pub struct VDM_SEGINFO {
     pub FileName: [super::super::Foundation::CHAR; 255],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl VDM_SEGINFO {}
+impl ::core::marker::Copy for VDM_SEGINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for VDM_SEGINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for VDM_SEGINFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VDM_SEGINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
-    }
+unsafe impl ::windows::core::Abi for VDM_SEGINFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDM_SEGINFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VDM_SEGINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDM_SEGINFO {
-    type Abi = Self;
+impl ::core::default::Default for VDM_SEGINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }

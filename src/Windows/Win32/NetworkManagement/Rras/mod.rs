@@ -1,7 +1,6 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ALLOW_NO_AUTH: u32 = 1u32;
 pub const ATADDRESSLEN: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTH_VALIDATION_EX {
@@ -13,30 +12,30 @@ pub struct AUTH_VALIDATION_EX {
     pub AuthInfo: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl AUTH_VALIDATION_EX {}
+impl ::core::marker::Copy for AUTH_VALIDATION_EX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUTH_VALIDATION_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for AUTH_VALIDATION_EX {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTH_VALIDATION_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AUTH_VALIDATION_EX").field("Header", &self.Header).field("hRasConnection", &self.hRasConnection).field("wszUserName", &self.wszUserName).field("wszLogonDomain", &self.wszLogonDomain).field("AuthInfoSize", &self.AuthInfoSize).field("AuthInfo", &self.AuthInfo).finish()
-    }
+unsafe impl ::windows::core::Abi for AUTH_VALIDATION_EX {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUTH_VALIDATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.hRasConnection == other.hRasConnection && self.wszUserName == other.wszUserName && self.wszLogonDomain == other.wszLogonDomain && self.AuthInfoSize == other.AuthInfoSize && self.AuthInfo == other.AuthInfo
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTH_VALIDATION_EX>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AUTH_VALIDATION_EX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUTH_VALIDATION_EX {
-    type Abi = Self;
+impl ::core::default::Default for AUTH_VALIDATION_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
 pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
@@ -319,45 +318,32 @@ pub const ET_None: u32 = 0u32;
 pub const ET_Optional: u32 = 3u32;
 pub const ET_Require: u32 = 1u32;
 pub const ET_RequireMax: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl GRE_CONFIG_PARAMS0 {}
+impl ::core::marker::Copy for GRE_CONFIG_PARAMS0 {}
+impl ::core::clone::Clone for GRE_CONFIG_PARAMS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GRE_CONFIG_PARAMS0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GRE_CONFIG_PARAMS0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GRE_CONFIG_PARAMS0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GRE_CONFIG_PARAMS0 {}
 impl ::core::default::Default for GRE_CONFIG_PARAMS0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GRE_CONFIG_PARAMS0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GRE_CONFIG_PARAMS0").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GRE_CONFIG_PARAMS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags
-    }
-}
-impl ::core::cmp::Eq for GRE_CONFIG_PARAMS0 {}
-unsafe impl ::windows::core::Abi for GRE_CONFIG_PARAMS0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HRASCONN(pub isize);
-impl ::core::default::Default for HRASCONN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HRASCONN {}
-unsafe impl ::windows::core::Abi for HRASCONN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HRASCONN = isize;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_CONFIG_PARAMS {
@@ -367,56 +353,45 @@ pub struct IKEV2_CONFIG_PARAMS {
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl IKEV2_CONFIG_PARAMS {}
+impl ::core::marker::Copy for IKEV2_CONFIG_PARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for IKEV2_CONFIG_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for IKEV2_CONFIG_PARAMS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for IKEV2_CONFIG_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEV2_CONFIG_PARAMS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for IKEV2_CONFIG_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for IKEV2_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for IKEV2_CONFIG_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEV2_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("dwTunnelConfigParamFlags", &self.dwTunnelConfigParamFlags).field("TunnelConfigParams", &self.TunnelConfigParams).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for IKEV2_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags && self.dwTunnelConfigParamFlags == other.dwTunnelConfigParamFlags && self.TunnelConfigParams == other.TunnelConfigParams
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for IKEV2_CONFIG_PARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for IKEV2_CONFIG_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(0i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(1i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(2i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(3i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(4i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(5i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(6i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(7i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(8i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(9i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(10i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(11i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(12i32);
-impl ::core::convert::From<i32> for IKEV2_ID_PAYLOAD_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IKEV2_ID_PAYLOAD_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type IKEV2_ID_PAYLOAD_TYPE = i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = 0i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = 1i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = 2i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = 4i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = 5i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = 9i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = 10i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = 11i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = 12i32;
 #[repr(C)]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -435,57 +410,26 @@ pub struct IKEV2_PROJECTION_INFO {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
-impl IKEV2_PROJECTION_INFO {}
+impl ::core::marker::Copy for IKEV2_PROJECTION_INFO {}
+impl ::core::clone::Clone for IKEV2_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IKEV2_PROJECTION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IKEV2_PROJECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEV2_PROJECTION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IKEV2_PROJECTION_INFO {}
 impl ::core::default::Default for IKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IKEV2_PROJECTION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEV2_PROJECTION_INFO")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwEncryptionMethod", &self.dwEncryptionMethod)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for IKEV2_PROJECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwOptions == other.dwOptions
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwEncryptionMethod == other.dwEncryptionMethod
-    }
-}
-impl ::core::cmp::Eq for IKEV2_PROJECTION_INFO {}
-unsafe impl ::windows::core::Abi for IKEV2_PROJECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IKEV2_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
@@ -505,59 +449,26 @@ pub struct IKEV2_PROJECTION_INFO2 {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
-impl IKEV2_PROJECTION_INFO2 {}
+impl ::core::marker::Copy for IKEV2_PROJECTION_INFO2 {}
+impl ::core::clone::Clone for IKEV2_PROJECTION_INFO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IKEV2_PROJECTION_INFO2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IKEV2_PROJECTION_INFO2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEV2_PROJECTION_INFO2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IKEV2_PROJECTION_INFO2 {}
 impl ::core::default::Default for IKEV2_PROJECTION_INFO2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for IKEV2_PROJECTION_INFO2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEV2_PROJECTION_INFO2")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwEmbeddedEAPTypeId", &self.dwEmbeddedEAPTypeId)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwEncryptionMethod", &self.dwEncryptionMethod)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for IKEV2_PROJECTION_INFO2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwOptions == other.dwOptions
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwEmbeddedEAPTypeId == other.dwEmbeddedEAPTypeId
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwEncryptionMethod == other.dwEncryptionMethod
-    }
-}
-impl ::core::cmp::Eq for IKEV2_PROJECTION_INFO2 {}
-unsafe impl ::windows::core::Abi for IKEV2_PROJECTION_INFO2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
@@ -573,43 +484,31 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl IKEV2_TUNNEL_CONFIG_PARAMS2 {}
+impl ::core::marker::Copy for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::clone::Clone for IKEV2_TUNNEL_CONFIG_PARAMS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+unsafe impl ::windows::core::Abi for IKEV2_TUNNEL_CONFIG_PARAMS2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEV2_TUNNEL_CONFIG_PARAMS2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS2")
-            .field("dwIdleTimeout", &self.dwIdleTimeout)
-            .field("dwNetworkBlackoutTime", &self.dwNetworkBlackoutTime)
-            .field("dwSaLifeTime", &self.dwSaLifeTime)
-            .field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation)
-            .field("dwConfigOptions", &self.dwConfigOptions)
-            .field("dwTotalCertificates", &self.dwTotalCertificates)
-            .field("certificateNames", &self.certificateNames)
-            .field("machineCertificateName", &self.machineCertificateName)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("customPolicy", &self.customPolicy)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwNetworkBlackoutTime == other.dwNetworkBlackoutTime && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.dwConfigOptions == other.dwConfigOptions && self.dwTotalCertificates == other.dwTotalCertificates && self.certificateNames == other.certificateNames && self.machineCertificateName == other.machineCertificateName && self.dwEncryptionType == other.dwEncryptionType && self.customPolicy == other.customPolicy
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-unsafe impl ::windows::core::Abi for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
@@ -628,46 +527,31 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl IKEV2_TUNNEL_CONFIG_PARAMS3 {}
+impl ::core::marker::Copy for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for IKEV2_TUNNEL_CONFIG_PARAMS3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for IKEV2_TUNNEL_CONFIG_PARAMS3 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEV2_TUNNEL_CONFIG_PARAMS3>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS3")
-            .field("dwIdleTimeout", &self.dwIdleTimeout)
-            .field("dwNetworkBlackoutTime", &self.dwNetworkBlackoutTime)
-            .field("dwSaLifeTime", &self.dwSaLifeTime)
-            .field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation)
-            .field("dwConfigOptions", &self.dwConfigOptions)
-            .field("dwTotalCertificates", &self.dwTotalCertificates)
-            .field("certificateNames", &self.certificateNames)
-            .field("machineCertificateName", &self.machineCertificateName)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("customPolicy", &self.customPolicy)
-            .field("dwTotalEkus", &self.dwTotalEkus)
-            .field("certificateEKUs", &self.certificateEKUs)
-            .field("machineCertificateHash", &self.machineCertificateHash)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwNetworkBlackoutTime == other.dwNetworkBlackoutTime && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.dwConfigOptions == other.dwConfigOptions && self.dwTotalCertificates == other.dwTotalCertificates && self.certificateNames == other.certificateNames && self.machineCertificateName == other.machineCertificateName && self.dwEncryptionType == other.dwEncryptionType && self.customPolicy == other.customPolicy && self.dwTotalEkus == other.dwTotalEkus && self.certificateEKUs == other.certificateEKUs && self.machineCertificateHash == other.machineCertificateHash
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
@@ -687,76 +571,59 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwMmSaLifeTime: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl IKEV2_TUNNEL_CONFIG_PARAMS4 {}
+impl ::core::marker::Copy for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for IKEV2_TUNNEL_CONFIG_PARAMS4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for IKEV2_TUNNEL_CONFIG_PARAMS4 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEV2_TUNNEL_CONFIG_PARAMS4>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS4")
-            .field("dwIdleTimeout", &self.dwIdleTimeout)
-            .field("dwNetworkBlackoutTime", &self.dwNetworkBlackoutTime)
-            .field("dwSaLifeTime", &self.dwSaLifeTime)
-            .field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation)
-            .field("dwConfigOptions", &self.dwConfigOptions)
-            .field("dwTotalCertificates", &self.dwTotalCertificates)
-            .field("certificateNames", &self.certificateNames)
-            .field("machineCertificateName", &self.machineCertificateName)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("customPolicy", &self.customPolicy)
-            .field("dwTotalEkus", &self.dwTotalEkus)
-            .field("certificateEKUs", &self.certificateEKUs)
-            .field("machineCertificateHash", &self.machineCertificateHash)
-            .field("dwMmSaLifeTime", &self.dwMmSaLifeTime)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwNetworkBlackoutTime == other.dwNetworkBlackoutTime && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.dwConfigOptions == other.dwConfigOptions && self.dwTotalCertificates == other.dwTotalCertificates && self.certificateNames == other.certificateNames && self.machineCertificateName == other.machineCertificateName && self.dwEncryptionType == other.dwEncryptionType && self.customPolicy == other.customPolicy && self.dwTotalEkus == other.dwTotalEkus && self.certificateEKUs == other.certificateEKUs && self.machineCertificateHash == other.machineCertificateHash && self.dwMmSaLifeTime == other.dwMmSaLifeTime
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    type Abi = Self;
-}
 pub const IPADDRESSLEN: u32 = 15u32;
 pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
 pub const IPXADDRESSLEN: u32 = 22u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl L2TP_CONFIG_PARAMS0 {}
+impl ::core::marker::Copy for L2TP_CONFIG_PARAMS0 {}
+impl ::core::clone::Clone for L2TP_CONFIG_PARAMS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for L2TP_CONFIG_PARAMS0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for L2TP_CONFIG_PARAMS0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<L2TP_CONFIG_PARAMS0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for L2TP_CONFIG_PARAMS0 {}
 impl ::core::default::Default for L2TP_CONFIG_PARAMS0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for L2TP_CONFIG_PARAMS0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("L2TP_CONFIG_PARAMS0").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for L2TP_CONFIG_PARAMS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags
-    }
-}
-impl ::core::cmp::Eq for L2TP_CONFIG_PARAMS0 {}
-unsafe impl ::windows::core::Abi for L2TP_CONFIG_PARAMS0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
@@ -764,27 +631,26 @@ pub struct L2TP_CONFIG_PARAMS1 {
     pub dwTunnelConfigParamFlags: u32,
     pub TunnelConfigParams: L2TP_TUNNEL_CONFIG_PARAMS2,
 }
-impl L2TP_CONFIG_PARAMS1 {}
+impl ::core::marker::Copy for L2TP_CONFIG_PARAMS1 {}
+impl ::core::clone::Clone for L2TP_CONFIG_PARAMS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for L2TP_CONFIG_PARAMS1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for L2TP_CONFIG_PARAMS1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<L2TP_CONFIG_PARAMS1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for L2TP_CONFIG_PARAMS1 {}
 impl ::core::default::Default for L2TP_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for L2TP_CONFIG_PARAMS1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("L2TP_CONFIG_PARAMS1").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("dwTunnelConfigParamFlags", &self.dwTunnelConfigParamFlags).field("TunnelConfigParams", &self.TunnelConfigParams).finish()
-    }
-}
-impl ::core::cmp::PartialEq for L2TP_CONFIG_PARAMS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags && self.dwTunnelConfigParamFlags == other.dwTunnelConfigParamFlags && self.TunnelConfigParams == other.TunnelConfigParams
-    }
-}
-impl ::core::cmp::Eq for L2TP_CONFIG_PARAMS1 {}
-unsafe impl ::windows::core::Abi for L2TP_CONFIG_PARAMS1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: u32,
@@ -793,27 +659,26 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-impl L2TP_TUNNEL_CONFIG_PARAMS1 {}
+impl ::core::marker::Copy for L2TP_TUNNEL_CONFIG_PARAMS1 {}
+impl ::core::clone::Clone for L2TP_TUNNEL_CONFIG_PARAMS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for L2TP_TUNNEL_CONFIG_PARAMS1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<L2TP_TUNNEL_CONFIG_PARAMS1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for L2TP_TUNNEL_CONFIG_PARAMS1 {}
 impl ::core::default::Default for L2TP_TUNNEL_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("L2TP_TUNNEL_CONFIG_PARAMS1").field("dwIdleTimeout", &self.dwIdleTimeout).field("dwEncryptionType", &self.dwEncryptionType).field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation).field("customPolicy", &self.customPolicy).finish()
-    }
-}
-impl ::core::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwEncryptionType == other.dwEncryptionType && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.customPolicy == other.customPolicy
-    }
-}
-impl ::core::cmp::Eq for L2TP_TUNNEL_CONFIG_PARAMS1 {}
-unsafe impl ::windows::core::Abi for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
@@ -823,25 +688,25 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwMmSaLifeTime: u32,
 }
-impl L2TP_TUNNEL_CONFIG_PARAMS2 {}
+impl ::core::marker::Copy for L2TP_TUNNEL_CONFIG_PARAMS2 {}
+impl ::core::clone::Clone for L2TP_TUNNEL_CONFIG_PARAMS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for L2TP_TUNNEL_CONFIG_PARAMS2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<L2TP_TUNNEL_CONFIG_PARAMS2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for L2TP_TUNNEL_CONFIG_PARAMS2 {}
 impl ::core::default::Default for L2TP_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("L2TP_TUNNEL_CONFIG_PARAMS2").field("dwIdleTimeout", &self.dwIdleTimeout).field("dwEncryptionType", &self.dwEncryptionType).field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSizeForRenegotiation", &self.dwSaDataSizeForRenegotiation).field("customPolicy", &self.customPolicy).field("dwMmSaLifeTime", &self.dwMmSaLifeTime).finish()
-    }
-}
-impl ::core::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdleTimeout == other.dwIdleTimeout && self.dwEncryptionType == other.dwEncryptionType && self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSizeForRenegotiation == other.dwSaDataSizeForRenegotiation && self.customPolicy == other.customPolicy && self.dwMmSaLifeTime == other.dwMmSaLifeTime
-    }
-}
-impl ::core::cmp::Eq for L2TP_TUNNEL_CONFIG_PARAMS2 {}
-unsafe impl ::windows::core::Abi for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    type Abi = Self;
 }
 pub const MAXIPADRESSLEN: u32 = 64u32;
 pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
@@ -854,21 +719,10 @@ pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
 pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
 pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
 pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MGM_ENUM_TYPES(pub i32);
-pub const ANY_SOURCE: MGM_ENUM_TYPES = MGM_ENUM_TYPES(0i32);
-pub const ALL_SOURCES: MGM_ENUM_TYPES = MGM_ENUM_TYPES(1i32);
-impl ::core::convert::From<i32> for MGM_ENUM_TYPES {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MGM_ENUM_TYPES {
-    type Abi = Self;
-}
+pub type MGM_ENUM_TYPES = i32;
+pub const ANY_SOURCE: MGM_ENUM_TYPES = 0i32;
+pub const ALL_SOURCES: MGM_ENUM_TYPES = 1i32;
 pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MGM_IF_ENTRY {
@@ -878,35 +732,34 @@ pub struct MGM_IF_ENTRY {
     pub bIsEnabled: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MGM_IF_ENTRY {}
+impl ::core::marker::Copy for MGM_IF_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MGM_IF_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MGM_IF_ENTRY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MGM_IF_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MGM_IF_ENTRY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MGM_IF_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MGM_IF_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MGM_IF_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MGM_IF_ENTRY").field("dwIfIndex", &self.dwIfIndex).field("dwIfNextHopAddr", &self.dwIfNextHopAddr).field("bIGMP", &self.bIGMP).field("bIsEnabled", &self.bIsEnabled).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MGM_IF_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex && self.dwIfNextHopAddr == other.dwIfNextHopAddr && self.bIGMP == other.bIGMP && self.bIsEnabled == other.bIsEnabled
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MGM_IF_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MGM_IF_ENTRY {
-    type Abi = Self;
-}
 pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
 pub const MGM_MFE_STATS_0: u32 = 1u32;
 pub const MGM_MFE_STATS_1: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
@@ -925,42 +778,30 @@ pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl MPRAPI_ADMIN_DLL_CALLBACKS {}
+impl ::core::marker::Copy for MPRAPI_ADMIN_DLL_CALLBACKS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::default::Default for MPRAPI_ADMIN_DLL_CALLBACKS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for MPRAPI_ADMIN_DLL_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for MPRAPI_ADMIN_DLL_CALLBACKS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPRAPI_ADMIN_DLL_CALLBACKS").field("revision", &self.revision).finish()
-    }
+unsafe impl ::windows::core::Abi for MPRAPI_ADMIN_DLL_CALLBACKS {
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for MPRAPI_ADMIN_DLL_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.revision == other.revision
-            && self.lpfnMprAdminGetIpAddressForUser.map(|f| f as usize) == other.lpfnMprAdminGetIpAddressForUser.map(|f| f as usize)
-            && self.lpfnMprAdminReleaseIpAddress.map(|f| f as usize) == other.lpfnMprAdminReleaseIpAddress.map(|f| f as usize)
-            && self.lpfnMprAdminGetIpv6AddressForUser.map(|f| f as usize) == other.lpfnMprAdminGetIpv6AddressForUser.map(|f| f as usize)
-            && self.lpfnMprAdminReleaseIpV6AddressForUser.map(|f| f as usize) == other.lpfnMprAdminReleaseIpV6AddressForUser.map(|f| f as usize)
-            && self.lpfnRasAdminAcceptNewLink.map(|f| f as usize) == other.lpfnRasAdminAcceptNewLink.map(|f| f as usize)
-            && self.lpfnRasAdminLinkHangupNotification.map(|f| f as usize) == other.lpfnRasAdminLinkHangupNotification.map(|f| f as usize)
-            && self.lpfnRasAdminTerminateDll.map(|f| f as usize) == other.lpfnRasAdminTerminateDll.map(|f| f as usize)
-            && self.lpfnRasAdminAcceptNewConnectionEx.map(|f| f as usize) == other.lpfnRasAdminAcceptNewConnectionEx.map(|f| f as usize)
-            && self.lpfnRasAdminAcceptEndpointChangeEx.map(|f| f as usize) == other.lpfnRasAdminAcceptEndpointChangeEx.map(|f| f as usize)
-            && self.lpfnRasAdminAcceptReauthenticationEx.map(|f| f as usize) == other.lpfnRasAdminAcceptReauthenticationEx.map(|f| f as usize)
-            && self.lpfnRasAdminConnectionHangupNotificationEx.map(|f| f as usize) == other.lpfnRasAdminConnectionHangupNotificationEx.map(|f| f as usize)
-            && self.lpfnRASValidatePreAuthenticatedConnectionEx.map(|f| f as usize) == other.lpfnRASValidatePreAuthenticatedConnectionEx.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPRAPI_ADMIN_DLL_CALLBACKS>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for MPRAPI_ADMIN_DLL_CALLBACKS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MPRAPI_ADMIN_DLL_CALLBACKS {
-    type Abi = Self;
+impl ::core::default::Default for MPRAPI_ADMIN_DLL_CALLBACKS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
 pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
@@ -983,50 +824,39 @@ pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
     pub size: u16,
 }
-impl MPRAPI_OBJECT_HEADER {}
+impl ::core::marker::Copy for MPRAPI_OBJECT_HEADER {}
+impl ::core::clone::Clone for MPRAPI_OBJECT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPRAPI_OBJECT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPRAPI_OBJECT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPRAPI_OBJECT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPRAPI_OBJECT_HEADER {}
 impl ::core::default::Default for MPRAPI_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MPRAPI_OBJECT_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPRAPI_OBJECT_HEADER").field("revision", &self.revision).field("r#type", &self.r#type).field("size", &self.size).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPRAPI_OBJECT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.revision == other.revision && self.r#type == other.r#type && self.size == other.size
-    }
-}
-impl ::core::cmp::Eq for MPRAPI_OBJECT_HEADER {}
-unsafe impl ::windows::core::Abi for MPRAPI_OBJECT_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MPRAPI_OBJECT_TYPE(pub i32);
-pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(1i32);
-pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(2i32);
-pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(3i32);
-pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(4i32);
-pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(5i32);
-pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(6i32);
-impl ::core::convert::From<i32> for MPRAPI_OBJECT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MPRAPI_OBJECT_TYPE {
-    type Abi = Self;
-}
+pub type MPRAPI_OBJECT_TYPE = i32;
+pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 1i32;
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = 2i32;
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 3i32;
+pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = 4i32;
+pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 5i32;
+pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 6i32;
 pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
 pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
 pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
@@ -1035,7 +865,6 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
@@ -1045,32 +874,31 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
+impl ::core::marker::Copy for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPRAPI_TUNNEL_CONFIG_PARAMS0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPRAPI_TUNNEL_CONFIG_PARAMS0").field("IkeConfigParams", &self.IkeConfigParams).field("PptpConfigParams", &self.PptpConfigParams).field("L2tpConfigParams", &self.L2tpConfigParams).field("SstpConfigParams", &self.SstpConfigParams).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IkeConfigParams == other.IkeConfigParams && self.PptpConfigParams == other.PptpConfigParams && self.L2tpConfigParams == other.L2tpConfigParams && self.SstpConfigParams == other.SstpConfigParams
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
@@ -1081,30 +909,30 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
+impl ::core::marker::Copy for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPRAPI_TUNNEL_CONFIG_PARAMS1").field("IkeConfigParams", &self.IkeConfigParams).field("PptpConfigParams", &self.PptpConfigParams).field("L2tpConfigParams", &self.L2tpConfigParams).field("SstpConfigParams", &self.SstpConfigParams).field("GREConfigParams", &self.GREConfigParams).finish()
-    }
+unsafe impl ::windows::core::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     fn eq(&self, other: &Self) -> bool {
-        self.IkeConfigParams == other.IkeConfigParams && self.PptpConfigParams == other.PptpConfigParams && self.L2tpConfigParams == other.L2tpConfigParams && self.SstpConfigParams == other.SstpConfigParams && self.GREConfigParams == other.GREConfigParams
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPRAPI_TUNNEL_CONFIG_PARAMS1>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    type Abi = Self;
+impl ::core::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const MPRET_Direct: u32 = 3u32;
 pub const MPRET_Phone: u32 = 1u32;
@@ -1137,7 +965,6 @@ pub const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864u32;
 pub const MPRNP_Ip: u32 = 4u32;
 pub const MPRNP_Ipv6: u32 = 8u32;
 pub const MPRNP_Ipx: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_CERT_EKU {
@@ -1146,110 +973,106 @@ pub struct MPR_CERT_EKU {
     pub pwszEKU: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_CERT_EKU {}
+impl ::core::marker::Copy for MPR_CERT_EKU {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_CERT_EKU {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_CERT_EKU {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_CERT_EKU {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_CERT_EKU>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_CERT_EKU {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_CERT_EKU {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_CERT_EKU {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_CERT_EKU").field("dwSize", &self.dwSize).field("IsEKUOID", &self.IsEKUOID).field("pwszEKU", &self.pwszEKU).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_CERT_EKU {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.IsEKUOID == other.IsEKUOID && self.pwszEKU == other.pwszEKU
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_CERT_EKU {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_CERT_EKU {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
-impl MPR_CREDENTIALSEX_0 {}
+impl ::core::marker::Copy for MPR_CREDENTIALSEX_0 {}
+impl ::core::clone::Clone for MPR_CREDENTIALSEX_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_CREDENTIALSEX_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_CREDENTIALSEX_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_CREDENTIALSEX_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_CREDENTIALSEX_0 {}
 impl ::core::default::Default for MPR_CREDENTIALSEX_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MPR_CREDENTIALSEX_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_CREDENTIALSEX_0").field("dwSize", &self.dwSize).field("lpbCredentialsInfo", &self.lpbCredentialsInfo).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPR_CREDENTIALSEX_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpbCredentialsInfo == other.lpbCredentialsInfo
-    }
-}
-impl ::core::cmp::Eq for MPR_CREDENTIALSEX_0 {}
-unsafe impl ::windows::core::Abi for MPR_CREDENTIALSEX_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
-impl MPR_CREDENTIALSEX_1 {}
+impl ::core::marker::Copy for MPR_CREDENTIALSEX_1 {}
+impl ::core::clone::Clone for MPR_CREDENTIALSEX_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_CREDENTIALSEX_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_CREDENTIALSEX_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_CREDENTIALSEX_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_CREDENTIALSEX_1 {}
 impl ::core::default::Default for MPR_CREDENTIALSEX_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MPR_CREDENTIALSEX_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_CREDENTIALSEX_1").field("dwSize", &self.dwSize).field("lpbCredentialsInfo", &self.lpbCredentialsInfo).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPR_CREDENTIALSEX_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpbCredentialsInfo == other.lpbCredentialsInfo
-    }
-}
-impl ::core::cmp::Eq for MPR_CREDENTIALSEX_1 {}
-unsafe impl ::windows::core::Abi for MPR_CREDENTIALSEX_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-impl MPR_DEVICE_0 {}
+impl ::core::marker::Copy for MPR_DEVICE_0 {}
+impl ::core::clone::Clone for MPR_DEVICE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_DEVICE_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_DEVICE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_DEVICE_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_DEVICE_0 {}
 impl ::core::default::Default for MPR_DEVICE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MPR_DEVICE_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_DEVICE_0").field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPR_DEVICE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName
-    }
-}
-impl ::core::cmp::Eq for MPR_DEVICE_0 {}
-unsafe impl ::windows::core::Abi for MPR_DEVICE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_DEVICE_1 {
@@ -1259,109 +1082,69 @@ pub struct MPR_DEVICE_1 {
     pub szAlternates: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_DEVICE_1 {}
+impl ::core::marker::Copy for MPR_DEVICE_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_DEVICE_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_DEVICE_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_DEVICE_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_DEVICE_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_DEVICE_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_DEVICE_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_DEVICE_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_DEVICE_1").field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("szAlternates", &self.szAlternates).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_DEVICE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName && self.szLocalPhoneNumber == other.szLocalPhoneNumber && self.szAlternates == other.szAlternates
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_DEVICE_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_DEVICE_1 {
-    type Abi = Self;
-}
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MPR_ET(pub u32);
-pub const MPR_ET_None: MPR_ET = MPR_ET(0u32);
-pub const MPR_ET_Require: MPR_ET = MPR_ET(1u32);
-pub const MPR_ET_RequireMax: MPR_ET = MPR_ET(2u32);
-pub const MPR_ET_Optional: MPR_ET = MPR_ET(3u32);
-impl ::core::convert::From<u32> for MPR_ET {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MPR_ET {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MPR_ET {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MPR_ET {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MPR_ET {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MPR_ET {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MPR_ET {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MPR_ET = u32;
+pub const MPR_ET_None: MPR_ET = 0u32;
+pub const MPR_ET_Require: MPR_ET = 1u32;
+pub const MPR_ET_RequireMax: MPR_ET = 2u32;
+pub const MPR_ET_Optional: MPR_ET = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_FILTER_0 {
     pub fEnable: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_FILTER_0 {}
+impl ::core::marker::Copy for MPR_FILTER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_FILTER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_FILTER_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_FILTER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_FILTER_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_FILTER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_FILTER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_FILTER_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_FILTER_0").field("fEnable", &self.fEnable).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_FILTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fEnable == other.fEnable
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_FILTER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_FILTER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_IFTRANSPORT_0 {
@@ -1370,32 +1153,31 @@ pub struct MPR_IFTRANSPORT_0 {
     pub wszIfTransportName: [u16; 41],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_IFTRANSPORT_0 {}
+impl ::core::marker::Copy for MPR_IFTRANSPORT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_IFTRANSPORT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_IFTRANSPORT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_IFTRANSPORT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_IFTRANSPORT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_IFTRANSPORT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_IFTRANSPORT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_IFTRANSPORT_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_IFTRANSPORT_0").field("dwTransportId", &self.dwTransportId).field("hIfTransport", &self.hIfTransport).field("wszIfTransportName", &self.wszIfTransportName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_IFTRANSPORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTransportId == other.dwTransportId && self.hIfTransport == other.hIfTransport && self.wszIfTransportName == other.wszIfTransportName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_IFTRANSPORT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_IFTRANSPORT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_IF_CUSTOMINFOEX0 {
@@ -1404,32 +1186,31 @@ pub struct MPR_IF_CUSTOMINFOEX0 {
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl MPR_IF_CUSTOMINFOEX0 {}
+impl ::core::marker::Copy for MPR_IF_CUSTOMINFOEX0 {}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::clone::Clone for MPR_IF_CUSTOMINFOEX0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+unsafe impl ::windows::core::Abi for MPR_IF_CUSTOMINFOEX0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_IF_CUSTOMINFOEX0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::Eq for MPR_IF_CUSTOMINFOEX0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for MPR_IF_CUSTOMINFOEX0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::fmt::Debug for MPR_IF_CUSTOMINFOEX0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_IF_CUSTOMINFOEX0").field("Header", &self.Header).field("dwFlags", &self.dwFlags).field("customIkev2Config", &self.customIkev2Config).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwFlags == other.dwFlags && self.customIkev2Config == other.customIkev2Config
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for MPR_IF_CUSTOMINFOEX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-unsafe impl ::windows::core::Abi for MPR_IF_CUSTOMINFOEX0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_IF_CUSTOMINFOEX1 {
@@ -1438,32 +1219,31 @@ pub struct MPR_IF_CUSTOMINFOEX1 {
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG1,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl MPR_IF_CUSTOMINFOEX1 {}
+impl ::core::marker::Copy for MPR_IF_CUSTOMINFOEX1 {}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::clone::Clone for MPR_IF_CUSTOMINFOEX1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+unsafe impl ::windows::core::Abi for MPR_IF_CUSTOMINFOEX1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_IF_CUSTOMINFOEX1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::Eq for MPR_IF_CUSTOMINFOEX1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for MPR_IF_CUSTOMINFOEX1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::fmt::Debug for MPR_IF_CUSTOMINFOEX1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_IF_CUSTOMINFOEX1").field("Header", &self.Header).field("dwFlags", &self.dwFlags).field("customIkev2Config", &self.customIkev2Config).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwFlags == other.dwFlags && self.customIkev2Config == other.customIkev2Config
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for MPR_IF_CUSTOMINFOEX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-unsafe impl ::windows::core::Abi for MPR_IF_CUSTOMINFOEX1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_IF_CUSTOMINFOEX2 {
@@ -1472,32 +1252,31 @@ pub struct MPR_IF_CUSTOMINFOEX2 {
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG2,
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl MPR_IF_CUSTOMINFOEX2 {}
+impl ::core::marker::Copy for MPR_IF_CUSTOMINFOEX2 {}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for MPR_IF_CUSTOMINFOEX2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for MPR_IF_CUSTOMINFOEX2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_IF_CUSTOMINFOEX2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for MPR_IF_CUSTOMINFOEX2 {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for MPR_IF_CUSTOMINFOEX2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPR_IF_CUSTOMINFOEX2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_IF_CUSTOMINFOEX2").field("Header", &self.Header).field("dwFlags", &self.dwFlags).field("customIkev2Config", &self.customIkev2Config).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for MPR_IF_CUSTOMINFOEX2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwFlags == other.dwFlags && self.customIkev2Config == other.customIkev2Config
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for MPR_IF_CUSTOMINFOEX2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPR_IF_CUSTOMINFOEX2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_INTERFACE_0 {
@@ -1510,32 +1289,31 @@ pub struct MPR_INTERFACE_0 {
     pub dwLastError: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_INTERFACE_0 {}
+impl ::core::marker::Copy for MPR_INTERFACE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_INTERFACE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_INTERFACE_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_INTERFACE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_INTERFACE_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_INTERFACE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_INTERFACE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_INTERFACE_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_INTERFACE_0").field("wszInterfaceName", &self.wszInterfaceName).field("hInterface", &self.hInterface).field("fEnabled", &self.fEnabled).field("dwIfType", &self.dwIfType).field("dwConnectionState", &self.dwConnectionState).field("fUnReachabilityReasons", &self.fUnReachabilityReasons).field("dwLastError", &self.dwLastError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_INTERFACE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszInterfaceName == other.wszInterfaceName && self.hInterface == other.hInterface && self.fEnabled == other.fEnabled && self.dwIfType == other.dwIfType && self.dwConnectionState == other.dwConnectionState && self.fUnReachabilityReasons == other.fUnReachabilityReasons && self.dwLastError == other.dwLastError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_INTERFACE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_INTERFACE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_INTERFACE_1 {
@@ -1549,32 +1327,31 @@ pub struct MPR_INTERFACE_1 {
     pub lpwsDialoutHoursRestriction: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_INTERFACE_1 {}
+impl ::core::marker::Copy for MPR_INTERFACE_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_INTERFACE_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_INTERFACE_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_INTERFACE_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_INTERFACE_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_INTERFACE_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_INTERFACE_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_INTERFACE_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_INTERFACE_1").field("wszInterfaceName", &self.wszInterfaceName).field("hInterface", &self.hInterface).field("fEnabled", &self.fEnabled).field("dwIfType", &self.dwIfType).field("dwConnectionState", &self.dwConnectionState).field("fUnReachabilityReasons", &self.fUnReachabilityReasons).field("dwLastError", &self.dwLastError).field("lpwsDialoutHoursRestriction", &self.lpwsDialoutHoursRestriction).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_INTERFACE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszInterfaceName == other.wszInterfaceName && self.hInterface == other.hInterface && self.fEnabled == other.fEnabled && self.dwIfType == other.dwIfType && self.dwConnectionState == other.dwConnectionState && self.fUnReachabilityReasons == other.fUnReachabilityReasons && self.dwLastError == other.dwLastError && self.lpwsDialoutHoursRestriction == other.lpwsDialoutHoursRestriction
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_INTERFACE_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_INTERFACE_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_INTERFACE_2 {
@@ -1617,106 +1394,31 @@ pub struct MPR_INTERFACE_2 {
     pub dwVpnStrategy: MPR_VS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_INTERFACE_2 {}
+impl ::core::marker::Copy for MPR_INTERFACE_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_INTERFACE_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_INTERFACE_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_INTERFACE_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_INTERFACE_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_INTERFACE_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_INTERFACE_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_INTERFACE_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_INTERFACE_2")
-            .field("wszInterfaceName", &self.wszInterfaceName)
-            .field("hInterface", &self.hInterface)
-            .field("fEnabled", &self.fEnabled)
-            .field("dwIfType", &self.dwIfType)
-            .field("dwConnectionState", &self.dwConnectionState)
-            .field("fUnReachabilityReasons", &self.fUnReachabilityReasons)
-            .field("dwLastError", &self.dwLastError)
-            .field("dwfOptions", &self.dwfOptions)
-            .field("szLocalPhoneNumber", &self.szLocalPhoneNumber)
-            .field("szAlternates", &self.szAlternates)
-            .field("ipaddr", &self.ipaddr)
-            .field("ipaddrDns", &self.ipaddrDns)
-            .field("ipaddrDnsAlt", &self.ipaddrDnsAlt)
-            .field("ipaddrWins", &self.ipaddrWins)
-            .field("ipaddrWinsAlt", &self.ipaddrWinsAlt)
-            .field("dwfNetProtocols", &self.dwfNetProtocols)
-            .field("szDeviceType", &self.szDeviceType)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szX25PadType", &self.szX25PadType)
-            .field("szX25Address", &self.szX25Address)
-            .field("szX25Facilities", &self.szX25Facilities)
-            .field("szX25UserData", &self.szX25UserData)
-            .field("dwChannels", &self.dwChannels)
-            .field("dwSubEntries", &self.dwSubEntries)
-            .field("dwDialMode", &self.dwDialMode)
-            .field("dwDialExtraPercent", &self.dwDialExtraPercent)
-            .field("dwDialExtraSampleSeconds", &self.dwDialExtraSampleSeconds)
-            .field("dwHangUpExtraPercent", &self.dwHangUpExtraPercent)
-            .field("dwHangUpExtraSampleSeconds", &self.dwHangUpExtraSampleSeconds)
-            .field("dwIdleDisconnectSeconds", &self.dwIdleDisconnectSeconds)
-            .field("dwType", &self.dwType)
-            .field("dwEncryptionType", &self.dwEncryptionType)
-            .field("dwCustomAuthKey", &self.dwCustomAuthKey)
-            .field("dwCustomAuthDataSize", &self.dwCustomAuthDataSize)
-            .field("lpbCustomAuthData", &self.lpbCustomAuthData)
-            .field("guidId", &self.guidId)
-            .field("dwVpnStrategy", &self.dwVpnStrategy)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_INTERFACE_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszInterfaceName == other.wszInterfaceName
-            && self.hInterface == other.hInterface
-            && self.fEnabled == other.fEnabled
-            && self.dwIfType == other.dwIfType
-            && self.dwConnectionState == other.dwConnectionState
-            && self.fUnReachabilityReasons == other.fUnReachabilityReasons
-            && self.dwLastError == other.dwLastError
-            && self.dwfOptions == other.dwfOptions
-            && self.szLocalPhoneNumber == other.szLocalPhoneNumber
-            && self.szAlternates == other.szAlternates
-            && self.ipaddr == other.ipaddr
-            && self.ipaddrDns == other.ipaddrDns
-            && self.ipaddrDnsAlt == other.ipaddrDnsAlt
-            && self.ipaddrWins == other.ipaddrWins
-            && self.ipaddrWinsAlt == other.ipaddrWinsAlt
-            && self.dwfNetProtocols == other.dwfNetProtocols
-            && self.szDeviceType == other.szDeviceType
-            && self.szDeviceName == other.szDeviceName
-            && self.szX25PadType == other.szX25PadType
-            && self.szX25Address == other.szX25Address
-            && self.szX25Facilities == other.szX25Facilities
-            && self.szX25UserData == other.szX25UserData
-            && self.dwChannels == other.dwChannels
-            && self.dwSubEntries == other.dwSubEntries
-            && self.dwDialMode == other.dwDialMode
-            && self.dwDialExtraPercent == other.dwDialExtraPercent
-            && self.dwDialExtraSampleSeconds == other.dwDialExtraSampleSeconds
-            && self.dwHangUpExtraPercent == other.dwHangUpExtraPercent
-            && self.dwHangUpExtraSampleSeconds == other.dwHangUpExtraSampleSeconds
-            && self.dwIdleDisconnectSeconds == other.dwIdleDisconnectSeconds
-            && self.dwType == other.dwType
-            && self.dwEncryptionType == other.dwEncryptionType
-            && self.dwCustomAuthKey == other.dwCustomAuthKey
-            && self.dwCustomAuthDataSize == other.dwCustomAuthDataSize
-            && self.lpbCustomAuthData == other.lpbCustomAuthData
-            && self.guidId == other.guidId
-            && self.dwVpnStrategy == other.dwVpnStrategy
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_INTERFACE_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_INTERFACE_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MPR_INTERFACE_3 {
@@ -1763,99 +1465,66 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl MPR_INTERFACE_3 {}
+impl ::core::marker::Copy for MPR_INTERFACE_3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for MPR_INTERFACE_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for MPR_INTERFACE_3 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for MPR_INTERFACE_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_INTERFACE_3>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for MPR_INTERFACE_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MPR_INTERFACE_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for MPR_INTERFACE_3 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for MPR_INTERFACE_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for MPR_INTERFACE_3 {
-    type Abi = Self;
-}
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
 pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
-pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(0u32);
-pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(1u32);
-pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(2u32);
-impl ::core::convert::From<u32> for MPR_INTERFACE_DIAL_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MPR_INTERFACE_DIAL_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MPR_INTERFACE_DIAL_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MPR_INTERFACE_DIAL_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MPR_INTERFACE_DIAL_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MPR_INTERFACE_DIAL_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MPR_INTERFACE_DIAL_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type MPR_INTERFACE_DIAL_MODE = u32;
+pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = 0u32;
+pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = 1u32;
+pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = 2u32;
 pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
 pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
 pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
 pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: ::windows::core::GUID,
 }
-impl MPR_IPINIP_INTERFACE_0 {}
+impl ::core::marker::Copy for MPR_IPINIP_INTERFACE_0 {}
+impl ::core::clone::Clone for MPR_IPINIP_INTERFACE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_IPINIP_INTERFACE_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_IPINIP_INTERFACE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_IPINIP_INTERFACE_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_IPINIP_INTERFACE_0 {}
 impl ::core::default::Default for MPR_IPINIP_INTERFACE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MPR_IPINIP_INTERFACE_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_IPINIP_INTERFACE_0").field("wszFriendlyName", &self.wszFriendlyName).field("Guid", &self.Guid).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPR_IPINIP_INTERFACE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszFriendlyName == other.wszFriendlyName && self.Guid == other.Guid
-    }
-}
-impl ::core::cmp::Eq for MPR_IPINIP_INTERFACE_0 {}
-unsafe impl ::windows::core::Abi for MPR_IPINIP_INTERFACE_0 {
-    type Abi = Self;
 }
 pub const MPR_MaxAreaCode: u32 = 10u32;
 pub const MPR_MaxCallbackNumber: u32 = 128u32;
@@ -1869,7 +1538,6 @@ pub const MPR_MaxPadType: u32 = 32u32;
 pub const MPR_MaxPhoneNumber: u32 = 128u32;
 pub const MPR_MaxUserData: u32 = 200u32;
 pub const MPR_MaxX25Address: u32 = 200u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_SERVER_0 {
@@ -1879,32 +1547,31 @@ pub struct MPR_SERVER_0 {
     pub dwPortsInUse: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_SERVER_0 {}
+impl ::core::marker::Copy for MPR_SERVER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_SERVER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_SERVER_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_SERVER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_SERVER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_SERVER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_SERVER_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_0").field("fLanOnlyMode", &self.fLanOnlyMode).field("dwUpTime", &self.dwUpTime).field("dwTotalPorts", &self.dwTotalPorts).field("dwPortsInUse", &self.dwPortsInUse).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_SERVER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fLanOnlyMode == other.fLanOnlyMode && self.dwUpTime == other.dwUpTime && self.dwTotalPorts == other.dwTotalPorts && self.dwPortsInUse == other.dwPortsInUse
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_SERVER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_SERVER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
@@ -1912,27 +1579,26 @@ pub struct MPR_SERVER_1 {
     pub dwNumL2tpPorts: u32,
     pub dwL2tpPortFlags: u32,
 }
-impl MPR_SERVER_1 {}
+impl ::core::marker::Copy for MPR_SERVER_1 {}
+impl ::core::clone::Clone for MPR_SERVER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_SERVER_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_SERVER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_SERVER_1 {}
 impl ::core::default::Default for MPR_SERVER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MPR_SERVER_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_1").field("dwNumPptpPorts", &self.dwNumPptpPorts).field("dwPptpPortFlags", &self.dwPptpPortFlags).field("dwNumL2tpPorts", &self.dwNumL2tpPorts).field("dwL2tpPortFlags", &self.dwL2tpPortFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPR_SERVER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPptpPorts == other.dwNumPptpPorts && self.dwPptpPortFlags == other.dwPptpPortFlags && self.dwNumL2tpPorts == other.dwNumL2tpPorts && self.dwL2tpPortFlags == other.dwL2tpPortFlags
-    }
-}
-impl ::core::cmp::Eq for MPR_SERVER_1 {}
-unsafe impl ::windows::core::Abi for MPR_SERVER_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
@@ -1942,27 +1608,26 @@ pub struct MPR_SERVER_2 {
     pub dwNumSstpPorts: u32,
     pub dwSstpPortFlags: u32,
 }
-impl MPR_SERVER_2 {}
+impl ::core::marker::Copy for MPR_SERVER_2 {}
+impl ::core::clone::Clone for MPR_SERVER_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MPR_SERVER_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MPR_SERVER_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MPR_SERVER_2 {}
 impl ::core::default::Default for MPR_SERVER_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MPR_SERVER_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_2").field("dwNumPptpPorts", &self.dwNumPptpPorts).field("dwPptpPortFlags", &self.dwPptpPortFlags).field("dwNumL2tpPorts", &self.dwNumL2tpPorts).field("dwL2tpPortFlags", &self.dwL2tpPortFlags).field("dwNumSstpPorts", &self.dwNumSstpPorts).field("dwSstpPortFlags", &self.dwSstpPortFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MPR_SERVER_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPptpPorts == other.dwNumPptpPorts && self.dwPptpPortFlags == other.dwPptpPortFlags && self.dwNumL2tpPorts == other.dwNumL2tpPorts && self.dwL2tpPortFlags == other.dwL2tpPortFlags && self.dwNumSstpPorts == other.dwNumSstpPorts && self.dwSstpPortFlags == other.dwSstpPortFlags
-    }
-}
-impl ::core::cmp::Eq for MPR_SERVER_2 {}
-unsafe impl ::windows::core::Abi for MPR_SERVER_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_EX0 {
@@ -1975,32 +1640,31 @@ pub struct MPR_SERVER_EX0 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl MPR_SERVER_EX0 {}
+impl ::core::marker::Copy for MPR_SERVER_EX0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for MPR_SERVER_EX0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for MPR_SERVER_EX0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for MPR_SERVER_EX0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_EX0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for MPR_SERVER_EX0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for MPR_SERVER_EX0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPR_SERVER_EX0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_EX0").field("Header", &self.Header).field("fLanOnlyMode", &self.fLanOnlyMode).field("dwUpTime", &self.dwUpTime).field("dwTotalPorts", &self.dwTotalPorts).field("dwPortsInUse", &self.dwPortsInUse).field("Reserved", &self.Reserved).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for MPR_SERVER_EX0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.fLanOnlyMode == other.fLanOnlyMode && self.dwUpTime == other.dwUpTime && self.dwTotalPorts == other.dwTotalPorts && self.dwPortsInUse == other.dwPortsInUse && self.Reserved == other.Reserved && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for MPR_SERVER_EX0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPR_SERVER_EX0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_EX1 {
@@ -2013,32 +1677,31 @@ pub struct MPR_SERVER_EX1 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl MPR_SERVER_EX1 {}
+impl ::core::marker::Copy for MPR_SERVER_EX1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for MPR_SERVER_EX1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for MPR_SERVER_EX1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for MPR_SERVER_EX1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_EX1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for MPR_SERVER_EX1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for MPR_SERVER_EX1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPR_SERVER_EX1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_EX1").field("Header", &self.Header).field("fLanOnlyMode", &self.fLanOnlyMode).field("dwUpTime", &self.dwUpTime).field("dwTotalPorts", &self.dwTotalPorts).field("dwPortsInUse", &self.dwPortsInUse).field("Reserved", &self.Reserved).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for MPR_SERVER_EX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.fLanOnlyMode == other.fLanOnlyMode && self.dwUpTime == other.dwUpTime && self.dwTotalPorts == other.dwTotalPorts && self.dwPortsInUse == other.dwPortsInUse && self.Reserved == other.Reserved && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for MPR_SERVER_EX1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPR_SERVER_EX1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
@@ -2047,32 +1710,31 @@ pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl MPR_SERVER_SET_CONFIG_EX0 {}
+impl ::core::marker::Copy for MPR_SERVER_SET_CONFIG_EX0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for MPR_SERVER_SET_CONFIG_EX0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for MPR_SERVER_SET_CONFIG_EX0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_SET_CONFIG_EX0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for MPR_SERVER_SET_CONFIG_EX0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for MPR_SERVER_SET_CONFIG_EX0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPR_SERVER_SET_CONFIG_EX0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_SET_CONFIG_EX0").field("Header", &self.Header).field("setConfigForProtocols", &self.setConfigForProtocols).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.setConfigForProtocols == other.setConfigForProtocols && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for MPR_SERVER_SET_CONFIG_EX0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPR_SERVER_SET_CONFIG_EX0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
@@ -2081,32 +1743,31 @@ pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl MPR_SERVER_SET_CONFIG_EX1 {}
+impl ::core::marker::Copy for MPR_SERVER_SET_CONFIG_EX1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for MPR_SERVER_SET_CONFIG_EX1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for MPR_SERVER_SET_CONFIG_EX1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_SERVER_SET_CONFIG_EX1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for MPR_SERVER_SET_CONFIG_EX1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for MPR_SERVER_SET_CONFIG_EX1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for MPR_SERVER_SET_CONFIG_EX1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_SERVER_SET_CONFIG_EX1").field("Header", &self.Header).field("setConfigForProtocols", &self.setConfigForProtocols).field("ConfigParams", &self.ConfigParams).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.setConfigForProtocols == other.setConfigForProtocols && self.ConfigParams == other.ConfigParams
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for MPR_SERVER_SET_CONFIG_EX1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for MPR_SERVER_SET_CONFIG_EX1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_TRANSPORT_0 {
@@ -2115,32 +1776,31 @@ pub struct MPR_TRANSPORT_0 {
     pub wszTransportName: [u16; 41],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MPR_TRANSPORT_0 {}
+impl ::core::marker::Copy for MPR_TRANSPORT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MPR_TRANSPORT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MPR_TRANSPORT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MPR_TRANSPORT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_TRANSPORT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MPR_TRANSPORT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MPR_TRANSPORT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MPR_TRANSPORT_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_TRANSPORT_0").field("dwTransportId", &self.dwTransportId).field("hTransport", &self.hTransport).field("wszTransportName", &self.wszTransportName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MPR_TRANSPORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTransportId == other.dwTransportId && self.hTransport == other.hTransport && self.wszTransportName == other.wszTransportName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MPR_TRANSPORT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MPR_TRANSPORT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
@@ -2150,88 +1810,40 @@ pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub tsR: *mut _MPR_VPN_SELECTOR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl MPR_VPN_TRAFFIC_SELECTORS {}
+impl ::core::marker::Copy for MPR_VPN_TRAFFIC_SELECTORS {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for MPR_VPN_TRAFFIC_SELECTORS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for MPR_VPN_TRAFFIC_SELECTORS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for MPR_VPN_TRAFFIC_SELECTORS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_VPN_TRAFFIC_SELECTORS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for MPR_VPN_TRAFFIC_SELECTORS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for MPR_VPN_TRAFFIC_SELECTORS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for MPR_VPN_TRAFFIC_SELECTORS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MPR_VPN_TRAFFIC_SELECTORS").field("numTsi", &self.numTsi).field("numTsr", &self.numTsr).field("tsI", &self.tsI).field("tsR", &self.tsR).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for MPR_VPN_TRAFFIC_SELECTORS {
-    fn eq(&self, other: &Self) -> bool {
-        self.numTsi == other.numTsi && self.numTsr == other.numTsr && self.tsI == other.tsI && self.tsR == other.tsR
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for MPR_VPN_TRAFFIC_SELECTORS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for MPR_VPN_TRAFFIC_SELECTORS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MPR_VPN_TS_TYPE(pub i32);
-pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(7i32);
-pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(8i32);
-impl ::core::convert::From<i32> for MPR_VPN_TS_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MPR_VPN_TS_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MPR_VS(pub u32);
-pub const MPR_VS_Default: MPR_VS = MPR_VS(0u32);
-pub const MPR_VS_PptpOnly: MPR_VS = MPR_VS(1u32);
-pub const MPR_VS_PptpFirst: MPR_VS = MPR_VS(2u32);
-pub const MPR_VS_L2tpOnly: MPR_VS = MPR_VS(3u32);
-pub const MPR_VS_L2tpFirst: MPR_VS = MPR_VS(4u32);
-impl ::core::convert::From<u32> for MPR_VS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MPR_VS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MPR_VS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MPR_VS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MPR_VS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MPR_VS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MPR_VS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type MPR_VPN_TS_TYPE = i32;
+pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7i32;
+pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8i32;
+pub type MPR_VS = u32;
+pub const MPR_VS_Default: MPR_VS = 0u32;
+pub const MPR_VS_PptpOnly: MPR_VS = 1u32;
+pub const MPR_VS_PptpFirst: MPR_VS = 2u32;
+pub const MPR_VS_L2tpOnly: MPR_VS = 3u32;
+pub const MPR_VS_L2tpFirst: MPR_VS = 4u32;
 pub const MPR_VS_Ikev2First: u32 = 8u32;
 pub const MPR_VS_Ikev2Only: u32 = 7u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -4059,31 +3671,30 @@ pub type PMPRADMINRELEASEIPADRESS = ::core::option::Option<unsafe extern "system
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR)>;
 pub type PMPRADMINTERMINATEDLL = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
 }
-impl PPP_ATCP_INFO {}
+impl ::core::marker::Copy for PPP_ATCP_INFO {}
+impl ::core::clone::Clone for PPP_ATCP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_ATCP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_ATCP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_ATCP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_ATCP_INFO {}
 impl ::core::default::Default for PPP_ATCP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for PPP_ATCP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_ATCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_ATCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress
-    }
-}
-impl ::core::cmp::Eq for PPP_ATCP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_ATCP_INFO {
-    type Abi = Self;
 }
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
 pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
@@ -4091,7 +3702,6 @@ pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
 pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
 pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
 pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
@@ -4100,27 +3710,26 @@ pub struct PPP_CCP_INFO {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwRemoteOptions: u32,
 }
-impl PPP_CCP_INFO {}
+impl ::core::marker::Copy for PPP_CCP_INFO {}
+impl ::core::clone::Clone for PPP_CCP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_CCP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_CCP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_CCP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_CCP_INFO {}
 impl ::core::default::Default for PPP_CCP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_CCP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_CCP_INFO").field("dwError", &self.dwError).field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm).field("dwOptions", &self.dwOptions).field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm).field("dwRemoteOptions", &self.dwRemoteOptions).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_CCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm && self.dwOptions == other.dwOptions && self.dwRemoteCompressionAlgorithm == other.dwRemoteCompressionAlgorithm && self.dwRemoteOptions == other.dwRemoteOptions
-    }
-}
-impl ::core::cmp::Eq for PPP_CCP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_CCP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
@@ -4128,27 +3737,26 @@ pub struct PPP_INFO {
     pub ipx: PPP_IPXCP_INFO,
     pub at: PPP_ATCP_INFO,
 }
-impl PPP_INFO {}
+impl ::core::marker::Copy for PPP_INFO {}
+impl ::core::clone::Clone for PPP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_INFO {}
 impl ::core::default::Default for PPP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_INFO").field("nbf", &self.nbf).field("ip", &self.ip).field("ipx", &self.ipx).field("at", &self.at).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nbf == other.nbf && self.ip == other.ip && self.ipx == other.ipx && self.at == other.at
-    }
-}
-impl ::core::cmp::Eq for PPP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
@@ -4158,27 +3766,26 @@ pub struct PPP_INFO_2 {
     pub ccp: PPP_CCP_INFO,
     pub lcp: PPP_LCP_INFO,
 }
-impl PPP_INFO_2 {}
+impl ::core::marker::Copy for PPP_INFO_2 {}
+impl ::core::clone::Clone for PPP_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_INFO_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_INFO_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_INFO_2 {}
 impl ::core::default::Default for PPP_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_INFO_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_INFO_2").field("nbf", &self.nbf).field("ip", &self.ip).field("ipx", &self.ipx).field("at", &self.at).field("ccp", &self.ccp).field("lcp", &self.lcp).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.nbf == other.nbf && self.ip == other.ip && self.ipx == other.ipx && self.at == other.at && self.ccp == other.ccp && self.lcp == other.lcp
-    }
-}
-impl ::core::cmp::Eq for PPP_INFO_2 {}
-unsafe impl ::windows::core::Abi for PPP_INFO_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
@@ -4187,54 +3794,52 @@ pub struct PPP_INFO_3 {
     pub ccp: PPP_CCP_INFO,
     pub lcp: PPP_LCP_INFO,
 }
-impl PPP_INFO_3 {}
+impl ::core::marker::Copy for PPP_INFO_3 {}
+impl ::core::clone::Clone for PPP_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_INFO_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_INFO_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_INFO_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_INFO_3 {}
 impl ::core::default::Default for PPP_INFO_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_INFO_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_INFO_3").field("nbf", &self.nbf).field("ip", &self.ip).field("ipv6", &self.ipv6).field("ccp", &self.ccp).field("lcp", &self.lcp).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.nbf == other.nbf && self.ip == other.ip && self.ipv6 == other.ipv6 && self.ccp == other.ccp && self.lcp == other.lcp
-    }
-}
-impl ::core::cmp::Eq for PPP_INFO_3 {}
-unsafe impl ::windows::core::Abi for PPP_INFO_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_IPCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
     pub wszRemoteAddress: [u16; 16],
 }
-impl PPP_IPCP_INFO {}
+impl ::core::marker::Copy for PPP_IPCP_INFO {}
+impl ::core::clone::Clone for PPP_IPCP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_IPCP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_IPCP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_IPCP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_IPCP_INFO {}
 impl ::core::default::Default for PPP_IPCP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_IPCP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_IPCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).field("wszRemoteAddress", &self.wszRemoteAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_IPCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress && self.wszRemoteAddress == other.wszRemoteAddress
-    }
-}
-impl ::core::cmp::Eq for PPP_IPCP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_IPCP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_IPCP_INFO2 {
     pub dwError: u32,
@@ -4243,28 +3848,27 @@ pub struct PPP_IPCP_INFO2 {
     pub dwOptions: u32,
     pub dwRemoteOptions: u32,
 }
-impl PPP_IPCP_INFO2 {}
+impl ::core::marker::Copy for PPP_IPCP_INFO2 {}
+impl ::core::clone::Clone for PPP_IPCP_INFO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_IPCP_INFO2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_IPCP_INFO2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_IPCP_INFO2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_IPCP_INFO2 {}
 impl ::core::default::Default for PPP_IPCP_INFO2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_IPCP_INFO2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_IPCP_INFO2").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).field("wszRemoteAddress", &self.wszRemoteAddress).field("dwOptions", &self.dwOptions).field("dwRemoteOptions", &self.dwRemoteOptions).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_IPCP_INFO2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress && self.wszRemoteAddress == other.wszRemoteAddress && self.dwOptions == other.dwOptions && self.dwRemoteOptions == other.dwRemoteOptions
-    }
-}
-impl ::core::cmp::Eq for PPP_IPCP_INFO2 {}
-unsafe impl ::windows::core::Abi for PPP_IPCP_INFO2 {
-    type Abi = Self;
-}
 pub const PPP_IPCP_VJ: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_IPV6_CP_INFO {
     pub dwVersion: u32,
@@ -4277,95 +3881,56 @@ pub struct PPP_IPV6_CP_INFO {
     pub bPrefix: [u8; 8],
     pub dwPrefixLength: u32,
 }
-impl PPP_IPV6_CP_INFO {}
+impl ::core::marker::Copy for PPP_IPV6_CP_INFO {}
+impl ::core::clone::Clone for PPP_IPV6_CP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_IPV6_CP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_IPV6_CP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_IPV6_CP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_IPV6_CP_INFO {}
 impl ::core::default::Default for PPP_IPV6_CP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_IPV6_CP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_IPV6_CP_INFO").field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("bInterfaceIdentifier", &self.bInterfaceIdentifier).field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier).field("dwOptions", &self.dwOptions).field("dwRemoteOptions", &self.dwRemoteOptions).field("bPrefix", &self.bPrefix).field("dwPrefixLength", &self.dwPrefixLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_IPV6_CP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwSize == other.dwSize && self.dwError == other.dwError && self.bInterfaceIdentifier == other.bInterfaceIdentifier && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier && self.dwOptions == other.dwOptions && self.dwRemoteOptions == other.dwRemoteOptions && self.bPrefix == other.bPrefix && self.dwPrefixLength == other.dwPrefixLength
-    }
-}
-impl ::core::cmp::Eq for PPP_IPV6_CP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_IPV6_CP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
 }
-impl PPP_IPXCP_INFO {}
+impl ::core::marker::Copy for PPP_IPXCP_INFO {}
+impl ::core::clone::Clone for PPP_IPXCP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_IPXCP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_IPXCP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_IPXCP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_IPXCP_INFO {}
 impl ::core::default::Default for PPP_IPXCP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_IPXCP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_IPXCP_INFO").field("dwError", &self.dwError).field("wszAddress", &self.wszAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_IPXCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszAddress == other.wszAddress
-    }
-}
-impl ::core::cmp::Eq for PPP_IPXCP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_IPXCP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PPP_LCP(pub u32);
-pub const PPP_LCP_PAP: PPP_LCP = PPP_LCP(49187u32);
-pub const PPP_LCP_CHAP: PPP_LCP = PPP_LCP(49699u32);
-pub const PPP_LCP_EAP: PPP_LCP = PPP_LCP(49703u32);
-pub const PPP_LCP_SPAP: PPP_LCP = PPP_LCP(49191u32);
-impl ::core::convert::From<u32> for PPP_LCP {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PPP_LCP {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PPP_LCP {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PPP_LCP {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PPP_LCP {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PPP_LCP {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PPP_LCP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type PPP_LCP = u32;
+pub const PPP_LCP_PAP: PPP_LCP = 49187u32;
+pub const PPP_LCP_CHAP: PPP_LCP = 49699u32;
+pub const PPP_LCP_EAP: PPP_LCP = 49703u32;
+pub const PPP_LCP_SPAP: PPP_LCP = 49191u32;
 pub const PPP_LCP_3_DES: u32 = 32u32;
 pub const PPP_LCP_ACFC: u32 = 4u32;
 pub const PPP_LCP_AES_128: u32 = 64u32;
@@ -4375,7 +3940,6 @@ pub const PPP_LCP_DES_56: u32 = 16u32;
 pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
 pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
 pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
@@ -4390,110 +3954,58 @@ pub struct PPP_LCP_INFO {
     pub dwEapTypeId: u32,
     pub dwRemoteEapTypeId: u32,
 }
-impl PPP_LCP_INFO {}
+impl ::core::marker::Copy for PPP_LCP_INFO {}
+impl ::core::clone::Clone for PPP_LCP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_LCP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_LCP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_LCP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_LCP_INFO {}
 impl ::core::default::Default for PPP_LCP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_LCP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_LCP_INFO")
-            .field("dwError", &self.dwError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwRemoteAuthenticationProtocol", &self.dwRemoteAuthenticationProtocol)
-            .field("dwRemoteAuthenticationData", &self.dwRemoteAuthenticationData)
-            .field("dwTerminateReason", &self.dwTerminateReason)
-            .field("dwRemoteTerminateReason", &self.dwRemoteTerminateReason)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwRemoteOptions", &self.dwRemoteOptions)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwRemoteEapTypeId", &self.dwRemoteEapTypeId)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_LCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol && self.dwAuthenticationData == other.dwAuthenticationData && self.dwRemoteAuthenticationProtocol == other.dwRemoteAuthenticationProtocol && self.dwRemoteAuthenticationData == other.dwRemoteAuthenticationData && self.dwTerminateReason == other.dwTerminateReason && self.dwRemoteTerminateReason == other.dwRemoteTerminateReason && self.dwOptions == other.dwOptions && self.dwRemoteOptions == other.dwRemoteOptions && self.dwEapTypeId == other.dwEapTypeId && self.dwRemoteEapTypeId == other.dwRemoteEapTypeId
-    }
-}
-impl ::core::cmp::Eq for PPP_LCP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_LCP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
-pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(5u32);
-pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(128u32);
-pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(129u32);
-impl ::core::convert::From<u32> for PPP_LCP_INFO_AUTH_DATA {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PPP_LCP_INFO_AUTH_DATA {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PPP_LCP_INFO_AUTH_DATA {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PPP_LCP_INFO_AUTH_DATA {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PPP_LCP_INFO_AUTH_DATA {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PPP_LCP_INFO_AUTH_DATA {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PPP_LCP_INFO_AUTH_DATA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type PPP_LCP_INFO_AUTH_DATA = u32;
+pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = 5u32;
+pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = 128u32;
+pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = 129u32;
 pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
 pub const PPP_LCP_PFC: u32 = 2u32;
 pub const PPP_LCP_SSHF: u32 = 8u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
 }
-impl PPP_NBFCP_INFO {}
+impl ::core::marker::Copy for PPP_NBFCP_INFO {}
+impl ::core::clone::Clone for PPP_NBFCP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_NBFCP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_NBFCP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_NBFCP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_NBFCP_INFO {}
 impl ::core::default::Default for PPP_NBFCP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_NBFCP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_NBFCP_INFO").field("dwError", &self.dwError).field("wszWksta", &self.wszWksta).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_NBFCP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwError == other.dwError && self.wszWksta == other.wszWksta
-    }
-}
-impl ::core::cmp::Eq for PPP_NBFCP_INFO {}
-unsafe impl ::windows::core::Abi for PPP_NBFCP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -4525,83 +4037,26 @@ pub struct PPP_PROJECTION_INFO {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
-impl PPP_PROJECTION_INFO {}
+impl ::core::marker::Copy for PPP_PROJECTION_INFO {}
+impl ::core::clone::Clone for PPP_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_PROJECTION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_PROJECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_PROJECTION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_PROJECTION_INFO {}
 impl ::core::default::Default for PPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_PROJECTION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_PROJECTION_INFO")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("dwIPv4Options", &self.dwIPv4Options)
-            .field("dwIPv4RemoteOptions", &self.dwIPv4RemoteOptions)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwLcpError", &self.dwLcpError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwRemoteAuthenticationProtocol", &self.dwRemoteAuthenticationProtocol)
-            .field("dwRemoteAuthenticationData", &self.dwRemoteAuthenticationData)
-            .field("dwLcpTerminateReason", &self.dwLcpTerminateReason)
-            .field("dwLcpRemoteTerminateReason", &self.dwLcpRemoteTerminateReason)
-            .field("dwLcpOptions", &self.dwLcpOptions)
-            .field("dwLcpRemoteOptions", &self.dwLcpRemoteOptions)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwRemoteEapTypeId", &self.dwRemoteEapTypeId)
-            .field("dwCcpError", &self.dwCcpError)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwCcpOptions", &self.dwCcpOptions)
-            .field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm)
-            .field("dwCcpRemoteOptions", &self.dwCcpRemoteOptions)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_PROJECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.dwIPv4Options == other.dwIPv4Options
-            && self.dwIPv4RemoteOptions == other.dwIPv4RemoteOptions
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwLcpError == other.dwLcpError
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwAuthenticationData == other.dwAuthenticationData
-            && self.dwRemoteAuthenticationProtocol == other.dwRemoteAuthenticationProtocol
-            && self.dwRemoteAuthenticationData == other.dwRemoteAuthenticationData
-            && self.dwLcpTerminateReason == other.dwLcpTerminateReason
-            && self.dwLcpRemoteTerminateReason == other.dwLcpRemoteTerminateReason
-            && self.dwLcpOptions == other.dwLcpOptions
-            && self.dwLcpRemoteOptions == other.dwLcpRemoteOptions
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwRemoteEapTypeId == other.dwRemoteEapTypeId
-            && self.dwCcpError == other.dwCcpError
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwCcpOptions == other.dwCcpOptions
-            && self.dwRemoteCompressionAlgorithm == other.dwRemoteCompressionAlgorithm
-            && self.dwCcpRemoteOptions == other.dwCcpRemoteOptions
-    }
-}
-impl ::core::cmp::Eq for PPP_PROJECTION_INFO {}
-unsafe impl ::windows::core::Abi for PPP_PROJECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPP_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
@@ -4634,200 +4089,156 @@ pub struct PPP_PROJECTION_INFO2 {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
-impl PPP_PROJECTION_INFO2 {}
+impl ::core::marker::Copy for PPP_PROJECTION_INFO2 {}
+impl ::core::clone::Clone for PPP_PROJECTION_INFO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPP_PROJECTION_INFO2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPP_PROJECTION_INFO2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_PROJECTION_INFO2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPP_PROJECTION_INFO2 {}
 impl ::core::default::Default for PPP_PROJECTION_INFO2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPP_PROJECTION_INFO2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPP_PROJECTION_INFO2")
-            .field("dwIPv4NegotiationError", &self.dwIPv4NegotiationError)
-            .field("wszAddress", &self.wszAddress)
-            .field("wszRemoteAddress", &self.wszRemoteAddress)
-            .field("dwIPv4Options", &self.dwIPv4Options)
-            .field("dwIPv4RemoteOptions", &self.dwIPv4RemoteOptions)
-            .field("IPv4SubInterfaceIndex", &self.IPv4SubInterfaceIndex)
-            .field("dwIPv6NegotiationError", &self.dwIPv6NegotiationError)
-            .field("bInterfaceIdentifier", &self.bInterfaceIdentifier)
-            .field("bRemoteInterfaceIdentifier", &self.bRemoteInterfaceIdentifier)
-            .field("bPrefix", &self.bPrefix)
-            .field("dwPrefixLength", &self.dwPrefixLength)
-            .field("IPv6SubInterfaceIndex", &self.IPv6SubInterfaceIndex)
-            .field("dwLcpError", &self.dwLcpError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwRemoteAuthenticationProtocol", &self.dwRemoteAuthenticationProtocol)
-            .field("dwRemoteAuthenticationData", &self.dwRemoteAuthenticationData)
-            .field("dwLcpTerminateReason", &self.dwLcpTerminateReason)
-            .field("dwLcpRemoteTerminateReason", &self.dwLcpRemoteTerminateReason)
-            .field("dwLcpOptions", &self.dwLcpOptions)
-            .field("dwLcpRemoteOptions", &self.dwLcpRemoteOptions)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwEmbeddedEAPTypeId", &self.dwEmbeddedEAPTypeId)
-            .field("dwRemoteEapTypeId", &self.dwRemoteEapTypeId)
-            .field("dwCcpError", &self.dwCcpError)
-            .field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm)
-            .field("dwCcpOptions", &self.dwCcpOptions)
-            .field("dwRemoteCompressionAlgorithm", &self.dwRemoteCompressionAlgorithm)
-            .field("dwCcpRemoteOptions", &self.dwCcpRemoteOptions)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPP_PROJECTION_INFO2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIPv4NegotiationError == other.dwIPv4NegotiationError
-            && self.wszAddress == other.wszAddress
-            && self.wszRemoteAddress == other.wszRemoteAddress
-            && self.dwIPv4Options == other.dwIPv4Options
-            && self.dwIPv4RemoteOptions == other.dwIPv4RemoteOptions
-            && self.IPv4SubInterfaceIndex == other.IPv4SubInterfaceIndex
-            && self.dwIPv6NegotiationError == other.dwIPv6NegotiationError
-            && self.bInterfaceIdentifier == other.bInterfaceIdentifier
-            && self.bRemoteInterfaceIdentifier == other.bRemoteInterfaceIdentifier
-            && self.bPrefix == other.bPrefix
-            && self.dwPrefixLength == other.dwPrefixLength
-            && self.IPv6SubInterfaceIndex == other.IPv6SubInterfaceIndex
-            && self.dwLcpError == other.dwLcpError
-            && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol
-            && self.dwAuthenticationData == other.dwAuthenticationData
-            && self.dwRemoteAuthenticationProtocol == other.dwRemoteAuthenticationProtocol
-            && self.dwRemoteAuthenticationData == other.dwRemoteAuthenticationData
-            && self.dwLcpTerminateReason == other.dwLcpTerminateReason
-            && self.dwLcpRemoteTerminateReason == other.dwLcpRemoteTerminateReason
-            && self.dwLcpOptions == other.dwLcpOptions
-            && self.dwLcpRemoteOptions == other.dwLcpRemoteOptions
-            && self.dwEapTypeId == other.dwEapTypeId
-            && self.dwEmbeddedEAPTypeId == other.dwEmbeddedEAPTypeId
-            && self.dwRemoteEapTypeId == other.dwRemoteEapTypeId
-            && self.dwCcpError == other.dwCcpError
-            && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm
-            && self.dwCcpOptions == other.dwCcpOptions
-            && self.dwRemoteCompressionAlgorithm == other.dwRemoteCompressionAlgorithm
-            && self.dwCcpRemoteOptions == other.dwCcpRemoteOptions
-    }
-}
-impl ::core::cmp::Eq for PPP_PROJECTION_INFO2 {}
-unsafe impl ::windows::core::Abi for PPP_PROJECTION_INFO2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl PPTP_CONFIG_PARAMS {}
+impl ::core::marker::Copy for PPTP_CONFIG_PARAMS {}
+impl ::core::clone::Clone for PPTP_CONFIG_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PPTP_CONFIG_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PPTP_CONFIG_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPTP_CONFIG_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PPTP_CONFIG_PARAMS {}
 impl ::core::default::Default for PPTP_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PPTP_CONFIG_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PPTP_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PPTP_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags
-    }
-}
-impl ::core::cmp::Eq for PPTP_CONFIG_PARAMS {}
-unsafe impl ::windows::core::Abi for PPTP_CONFIG_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
 }
-impl PROJECTION_INFO {}
+impl ::core::marker::Copy for PROJECTION_INFO {}
+impl ::core::clone::Clone for PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROJECTION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROJECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROJECTION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROJECTION_INFO {}
 impl ::core::default::Default for PROJECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for PROJECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PROJECTION_INFO {}
-unsafe impl ::windows::core::Abi for PROJECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union PROJECTION_INFO_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
 }
-impl PROJECTION_INFO_0 {}
+impl ::core::marker::Copy for PROJECTION_INFO_0 {}
+impl ::core::clone::Clone for PROJECTION_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROJECTION_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROJECTION_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROJECTION_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROJECTION_INFO_0 {}
 impl ::core::default::Default for PROJECTION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for PROJECTION_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PROJECTION_INFO_0 {}
-unsafe impl ::windows::core::Abi for PROJECTION_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
 }
-impl PROJECTION_INFO2 {}
+impl ::core::marker::Copy for PROJECTION_INFO2 {}
+impl ::core::clone::Clone for PROJECTION_INFO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROJECTION_INFO2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROJECTION_INFO2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROJECTION_INFO2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROJECTION_INFO2 {}
 impl ::core::default::Default for PROJECTION_INFO2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for PROJECTION_INFO2 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PROJECTION_INFO2 {}
-unsafe impl ::windows::core::Abi for PROJECTION_INFO2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
 }
-impl PROJECTION_INFO2_0 {}
+impl ::core::marker::Copy for PROJECTION_INFO2_0 {}
+impl ::core::clone::Clone for PROJECTION_INFO2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROJECTION_INFO2_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROJECTION_INFO2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROJECTION_INFO2_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROJECTION_INFO2_0 {}
 impl ::core::default::Default for PROJECTION_INFO2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for PROJECTION_INFO2_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PROJECTION_INFO2_0 {}
-unsafe impl ::windows::core::Abi for PROJECTION_INFO2_0 {
-    type Abi = Self;
 }
 pub const RASADFLG_PositionDlg: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type RASADFUNCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type RASADFUNCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASADPARAMS {
@@ -4838,31 +4249,36 @@ pub struct RASADPARAMS {
     pub yDlg: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASADPARAMS {}
+impl ::core::marker::Copy for RASADPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASADPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASADPARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASADPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASADPARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASADPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASADPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASADPARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASADPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASADPARAMS {
-    type Abi = Self;
-}
 pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
 pub const RASADP_DisableConnectionQuery: u32 = 0u32;
 pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
 pub const RASADP_LoginSessionDisable: u32 = 1u32;
 pub const RASADP_SavedAddressesLimit: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASAMBA {
@@ -4872,32 +4288,31 @@ pub struct RASAMBA {
     pub bLana: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASAMBA {}
+impl ::core::marker::Copy for RASAMBA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASAMBA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASAMBA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASAMBA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASAMBA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASAMBA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASAMBA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASAMBA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASAMBA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szNetBiosError", &self.szNetBiosError).field("bLana", &self.bLana).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASAMBA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szNetBiosError == other.szNetBiosError && self.bLana == other.bLana
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASAMBA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASAMBA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASAMBW {
     pub dwSize: u32,
@@ -4905,42 +4320,31 @@ pub struct RASAMBW {
     pub szNetBiosError: [u16; 17],
     pub bLana: u8,
 }
-impl RASAMBW {}
+impl ::core::marker::Copy for RASAMBW {}
+impl ::core::clone::Clone for RASAMBW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASAMBW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASAMBW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASAMBW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASAMBW {}
 impl ::core::default::Default for RASAMBW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASAMBW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASAMBW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szNetBiosError", &self.szNetBiosError).field("bLana", &self.bLana).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASAMBW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szNetBiosError == other.szNetBiosError && self.bLana == other.bLana
-    }
-}
-impl ::core::cmp::Eq for RASAMBW {}
-unsafe impl ::windows::core::Abi for RASAMBW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASAPIVERSION(pub i32);
-pub const RASAPIVERSION_500: RASAPIVERSION = RASAPIVERSION(1i32);
-pub const RASAPIVERSION_501: RASAPIVERSION = RASAPIVERSION(2i32);
-pub const RASAPIVERSION_600: RASAPIVERSION = RASAPIVERSION(3i32);
-pub const RASAPIVERSION_601: RASAPIVERSION = RASAPIVERSION(4i32);
-impl ::core::convert::From<i32> for RASAPIVERSION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASAPIVERSION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RASAPIVERSION = i32;
+pub const RASAPIVERSION_500: RASAPIVERSION = 1i32;
+pub const RASAPIVERSION_501: RASAPIVERSION = 2i32;
+pub const RASAPIVERSION_600: RASAPIVERSION = 3i32;
+pub const RASAPIVERSION_601: RASAPIVERSION = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASAUTODIALENTRYA {
@@ -4950,32 +4354,31 @@ pub struct RASAUTODIALENTRYA {
     pub szEntry: [super::super::Foundation::CHAR; 257],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASAUTODIALENTRYA {}
+impl ::core::marker::Copy for RASAUTODIALENTRYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASAUTODIALENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASAUTODIALENTRYA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASAUTODIALENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASAUTODIALENTRYA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASAUTODIALENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASAUTODIALENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASAUTODIALENTRYA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASAUTODIALENTRYA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDialingLocation", &self.dwDialingLocation).field("szEntry", &self.szEntry).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASAUTODIALENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDialingLocation == other.dwDialingLocation && self.szEntry == other.szEntry
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASAUTODIALENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASAUTODIALENTRYA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASAUTODIALENTRYW {
     pub dwSize: u32,
@@ -4983,25 +4386,25 @@ pub struct RASAUTODIALENTRYW {
     pub dwDialingLocation: u32,
     pub szEntry: [u16; 257],
 }
-impl RASAUTODIALENTRYW {}
+impl ::core::marker::Copy for RASAUTODIALENTRYW {}
+impl ::core::clone::Clone for RASAUTODIALENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASAUTODIALENTRYW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASAUTODIALENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASAUTODIALENTRYW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASAUTODIALENTRYW {}
 impl ::core::default::Default for RASAUTODIALENTRYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RASAUTODIALENTRYW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASAUTODIALENTRYW").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDialingLocation", &self.dwDialingLocation).field("szEntry", &self.szEntry).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASAUTODIALENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDialingLocation == other.dwDialingLocation && self.szEntry == other.szEntry
-    }
-}
-impl ::core::cmp::Eq for RASAUTODIALENTRYW {}
-unsafe impl ::windows::core::Abi for RASAUTODIALENTRYW {
-    type Abi = Self;
 }
 pub const RASBASE: u32 = 600u32;
 pub const RASBASEEND: u32 = 877u32;
@@ -5030,7 +4433,6 @@ pub const RASCN_Disconnection: u32 = 2u32;
 pub const RASCN_Dormant: u32 = 16u32;
 pub const RASCN_EPDGPacketArrival: u32 = 64u32;
 pub const RASCN_ReConnection: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASCOMMSETTINGS {
     pub dwSize: u32,
@@ -5039,27 +4441,26 @@ pub struct RASCOMMSETTINGS {
     pub bByteSize: u8,
     pub bAlign: u8,
 }
-impl RASCOMMSETTINGS {}
+impl ::core::marker::Copy for RASCOMMSETTINGS {}
+impl ::core::clone::Clone for RASCOMMSETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASCOMMSETTINGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASCOMMSETTINGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCOMMSETTINGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASCOMMSETTINGS {}
 impl ::core::default::Default for RASCOMMSETTINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASCOMMSETTINGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASCOMMSETTINGS").field("dwSize", &self.dwSize).field("bParity", &self.bParity).field("bStop", &self.bStop).field("bByteSize", &self.bByteSize).field("bAlign", &self.bAlign).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASCOMMSETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.bParity == other.bParity && self.bStop == other.bStop && self.bByteSize == other.bByteSize && self.bAlign == other.bAlign
-    }
-}
-impl ::core::cmp::Eq for RASCOMMSETTINGS {}
-unsafe impl ::windows::core::Abi for RASCOMMSETTINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNA {
@@ -5076,69 +4477,64 @@ pub struct RASCONNA {
     pub guidCorrelationId: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASCONNA {}
+impl ::core::marker::Copy for RASCONNA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASCONNA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASCONNA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASCONNA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCONNA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASCONNA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCONNA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASCONNA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASCONNA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASCONNA {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASCONNSTATE(pub i32);
-pub const RASCS_OpenPort: RASCONNSTATE = RASCONNSTATE(0i32);
-pub const RASCS_PortOpened: RASCONNSTATE = RASCONNSTATE(1i32);
-pub const RASCS_ConnectDevice: RASCONNSTATE = RASCONNSTATE(2i32);
-pub const RASCS_DeviceConnected: RASCONNSTATE = RASCONNSTATE(3i32);
-pub const RASCS_AllDevicesConnected: RASCONNSTATE = RASCONNSTATE(4i32);
-pub const RASCS_Authenticate: RASCONNSTATE = RASCONNSTATE(5i32);
-pub const RASCS_AuthNotify: RASCONNSTATE = RASCONNSTATE(6i32);
-pub const RASCS_AuthRetry: RASCONNSTATE = RASCONNSTATE(7i32);
-pub const RASCS_AuthCallback: RASCONNSTATE = RASCONNSTATE(8i32);
-pub const RASCS_AuthChangePassword: RASCONNSTATE = RASCONNSTATE(9i32);
-pub const RASCS_AuthProject: RASCONNSTATE = RASCONNSTATE(10i32);
-pub const RASCS_AuthLinkSpeed: RASCONNSTATE = RASCONNSTATE(11i32);
-pub const RASCS_AuthAck: RASCONNSTATE = RASCONNSTATE(12i32);
-pub const RASCS_ReAuthenticate: RASCONNSTATE = RASCONNSTATE(13i32);
-pub const RASCS_Authenticated: RASCONNSTATE = RASCONNSTATE(14i32);
-pub const RASCS_PrepareForCallback: RASCONNSTATE = RASCONNSTATE(15i32);
-pub const RASCS_WaitForModemReset: RASCONNSTATE = RASCONNSTATE(16i32);
-pub const RASCS_WaitForCallback: RASCONNSTATE = RASCONNSTATE(17i32);
-pub const RASCS_Projected: RASCONNSTATE = RASCONNSTATE(18i32);
-pub const RASCS_StartAuthentication: RASCONNSTATE = RASCONNSTATE(19i32);
-pub const RASCS_CallbackComplete: RASCONNSTATE = RASCONNSTATE(20i32);
-pub const RASCS_LogonNetwork: RASCONNSTATE = RASCONNSTATE(21i32);
-pub const RASCS_SubEntryConnected: RASCONNSTATE = RASCONNSTATE(22i32);
-pub const RASCS_SubEntryDisconnected: RASCONNSTATE = RASCONNSTATE(23i32);
-pub const RASCS_ApplySettings: RASCONNSTATE = RASCONNSTATE(24i32);
-pub const RASCS_Interactive: RASCONNSTATE = RASCONNSTATE(4096i32);
-pub const RASCS_RetryAuthentication: RASCONNSTATE = RASCONNSTATE(4097i32);
-pub const RASCS_CallbackSetByCaller: RASCONNSTATE = RASCONNSTATE(4098i32);
-pub const RASCS_PasswordExpired: RASCONNSTATE = RASCONNSTATE(4099i32);
-pub const RASCS_InvokeEapUI: RASCONNSTATE = RASCONNSTATE(4100i32);
-pub const RASCS_Connected: RASCONNSTATE = RASCONNSTATE(8192i32);
-pub const RASCS_Disconnected: RASCONNSTATE = RASCONNSTATE(8193i32);
-impl ::core::convert::From<i32> for RASCONNSTATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASCONNSTATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RASCONNSTATE = i32;
+pub const RASCS_OpenPort: RASCONNSTATE = 0i32;
+pub const RASCS_PortOpened: RASCONNSTATE = 1i32;
+pub const RASCS_ConnectDevice: RASCONNSTATE = 2i32;
+pub const RASCS_DeviceConnected: RASCONNSTATE = 3i32;
+pub const RASCS_AllDevicesConnected: RASCONNSTATE = 4i32;
+pub const RASCS_Authenticate: RASCONNSTATE = 5i32;
+pub const RASCS_AuthNotify: RASCONNSTATE = 6i32;
+pub const RASCS_AuthRetry: RASCONNSTATE = 7i32;
+pub const RASCS_AuthCallback: RASCONNSTATE = 8i32;
+pub const RASCS_AuthChangePassword: RASCONNSTATE = 9i32;
+pub const RASCS_AuthProject: RASCONNSTATE = 10i32;
+pub const RASCS_AuthLinkSpeed: RASCONNSTATE = 11i32;
+pub const RASCS_AuthAck: RASCONNSTATE = 12i32;
+pub const RASCS_ReAuthenticate: RASCONNSTATE = 13i32;
+pub const RASCS_Authenticated: RASCONNSTATE = 14i32;
+pub const RASCS_PrepareForCallback: RASCONNSTATE = 15i32;
+pub const RASCS_WaitForModemReset: RASCONNSTATE = 16i32;
+pub const RASCS_WaitForCallback: RASCONNSTATE = 17i32;
+pub const RASCS_Projected: RASCONNSTATE = 18i32;
+pub const RASCS_StartAuthentication: RASCONNSTATE = 19i32;
+pub const RASCS_CallbackComplete: RASCONNSTATE = 20i32;
+pub const RASCS_LogonNetwork: RASCONNSTATE = 21i32;
+pub const RASCS_SubEntryConnected: RASCONNSTATE = 22i32;
+pub const RASCS_SubEntryDisconnected: RASCONNSTATE = 23i32;
+pub const RASCS_ApplySettings: RASCONNSTATE = 24i32;
+pub const RASCS_Interactive: RASCONNSTATE = 4096i32;
+pub const RASCS_RetryAuthentication: RASCONNSTATE = 4097i32;
+pub const RASCS_CallbackSetByCaller: RASCONNSTATE = 4098i32;
+pub const RASCS_PasswordExpired: RASCONNSTATE = 4099i32;
+pub const RASCS_InvokeEapUI: RASCONNSTATE = 4100i32;
+pub const RASCS_Connected: RASCONNSTATE = 8192i32;
+pub const RASCS_Disconnected: RASCONNSTATE = 8193i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASCONNSTATUSA {
@@ -5153,26 +4549,31 @@ pub struct RASCONNSTATUSA {
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl RASCONNSTATUSA {}
+impl ::core::marker::Copy for RASCONNSTATUSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for RASCONNSTATUSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for RASCONNSTATUSA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for RASCONNSTATUSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCONNSTATUSA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for RASCONNSTATUSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASCONNSTATUSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for RASCONNSTATUSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for RASCONNSTATUSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for RASCONNSTATUSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASCONNSTATUSW {
@@ -5187,41 +4588,36 @@ pub struct RASCONNSTATUSW {
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl RASCONNSTATUSW {}
+impl ::core::marker::Copy for RASCONNSTATUSW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASCONNSTATUSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for RASCONNSTATUSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for RASCONNSTATUSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCONNSTATUSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for RASCONNSTATUSW {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASCONNSTATUSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for RASCONNSTATUSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for RASCONNSTATUSW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RASCONNSTATUSW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASCONNSUBSTATE(pub i32);
-pub const RASCSS_None: RASCONNSUBSTATE = RASCONNSUBSTATE(0i32);
-pub const RASCSS_Dormant: RASCONNSUBSTATE = RASCONNSUBSTATE(1i32);
-pub const RASCSS_Reconnecting: RASCONNSUBSTATE = RASCONNSUBSTATE(2i32);
-pub const RASCSS_Reconnected: RASCONNSUBSTATE = RASCONNSUBSTATE(8192i32);
-impl ::core::convert::From<i32> for RASCONNSUBSTATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASCONNSUBSTATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RASCONNSUBSTATE = i32;
+pub const RASCSS_None: RASCONNSUBSTATE = 0i32;
+pub const RASCSS_Dormant: RASCONNSUBSTATE = 1i32;
+pub const RASCSS_Reconnecting: RASCONNSUBSTATE = 2i32;
+pub const RASCSS_Reconnected: RASCONNSUBSTATE = 8192i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNW {
@@ -5238,26 +4634,31 @@ pub struct RASCONNW {
     pub guidCorrelationId: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASCONNW {}
+impl ::core::marker::Copy for RASCONNW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASCONNW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASCONNW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASCONNW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCONNW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASCONNW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCONNW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASCONNW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASCONNW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASCONNW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCREDENTIALSA {
@@ -5268,32 +4669,31 @@ pub struct RASCREDENTIALSA {
     pub szDomain: [super::super::Foundation::CHAR; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASCREDENTIALSA {}
+impl ::core::marker::Copy for RASCREDENTIALSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASCREDENTIALSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASCREDENTIALSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASCREDENTIALSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCREDENTIALSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASCREDENTIALSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCREDENTIALSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASCREDENTIALSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASCREDENTIALSA").field("dwSize", &self.dwSize).field("dwMask", &self.dwMask).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASCREDENTIALSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASCREDENTIALSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASCREDENTIALSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASCREDENTIALSW {
     pub dwSize: u32,
@@ -5302,30 +4702,29 @@ pub struct RASCREDENTIALSW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-impl RASCREDENTIALSW {}
+impl ::core::marker::Copy for RASCREDENTIALSW {}
+impl ::core::clone::Clone for RASCREDENTIALSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASCREDENTIALSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASCREDENTIALSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCREDENTIALSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASCREDENTIALSW {}
 impl ::core::default::Default for RASCREDENTIALSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASCREDENTIALSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASCREDENTIALSW").field("dwSize", &self.dwSize).field("dwMask", &self.dwMask).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASCREDENTIALSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-impl ::core::cmp::Eq for RASCREDENTIALSW {}
-unsafe impl ::windows::core::Abi for RASCREDENTIALSW {
-    type Abi = Self;
-}
 pub const RASCSS_DONE: u32 = 8192u32;
 pub const RASCS_DONE: u32 = 8192u32;
 pub const RASCS_PAUSED: u32 = 4096u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
@@ -5334,27 +4733,26 @@ pub struct RASCTRYINFO {
     pub dwCountryCode: u32,
     pub dwCountryNameOffset: u32,
 }
-impl RASCTRYINFO {}
+impl ::core::marker::Copy for RASCTRYINFO {}
+impl ::core::clone::Clone for RASCTRYINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASCTRYINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASCTRYINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCTRYINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASCTRYINFO {}
 impl ::core::default::Default for RASCTRYINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASCTRYINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASCTRYINFO").field("dwSize", &self.dwSize).field("dwCountryID", &self.dwCountryID).field("dwNextCountryID", &self.dwNextCountryID).field("dwCountryCode", &self.dwCountryCode).field("dwCountryNameOffset", &self.dwCountryNameOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASCTRYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCountryID == other.dwCountryID && self.dwNextCountryID == other.dwNextCountryID && self.dwCountryCode == other.dwCountryCode && self.dwCountryNameOffset == other.dwCountryNameOffset
-    }
-}
-impl ::core::cmp::Eq for RASCTRYINFO {}
-unsafe impl ::windows::core::Abi for RASCTRYINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
@@ -5362,30 +4760,35 @@ pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASCUSTOMSCRIPTEXTENSIONS {}
+impl ::core::marker::Copy for RASCUSTOMSCRIPTEXTENSIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASCUSTOMSCRIPTEXTENSIONS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASCUSTOMSCRIPTEXTENSIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCUSTOMSCRIPTEXTENSIONS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASCUSTOMSCRIPTEXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCUSTOMSCRIPTEXTENSIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASCUSTOMSCRIPTEXTENSIONS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASCUSTOMSCRIPTEXTENSIONS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASCUSTOMSCRIPTEXTENSIONS {
-    type Abi = Self;
-}
 pub const RASDDFLAG_AoacRedial: u32 = 4u32;
 pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
 pub const RASDDFLAG_NoPrompt: u32 = 2u32;
 pub const RASDDFLAG_PositionDlg: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDEVINFOA {
@@ -5394,80 +4797,82 @@ pub struct RASDEVINFOA {
     pub szDeviceName: [super::super::Foundation::CHAR; 129],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASDEVINFOA {}
+impl ::core::marker::Copy for RASDEVINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASDEVINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASDEVINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASDEVINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDEVINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASDEVINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDEVINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASDEVINFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASDEVINFOA").field("dwSize", &self.dwSize).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASDEVINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASDEVINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASDEVINFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-impl RASDEVINFOW {}
+impl ::core::marker::Copy for RASDEVINFOW {}
+impl ::core::clone::Clone for RASDEVINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASDEVINFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASDEVINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDEVINFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASDEVINFOW {}
 impl ::core::default::Default for RASDEVINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASDEVINFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASDEVINFOW").field("dwSize", &self.dwSize).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASDEVINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName
-    }
-}
-impl ::core::cmp::Eq for RASDEVINFOW {}
-unsafe impl ::windows::core::Abi for RASDEVINFOW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
-impl RASDEVSPECIFICINFO {}
+impl ::core::marker::Copy for RASDEVSPECIFICINFO {}
+impl ::core::clone::Clone for RASDEVSPECIFICINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASDEVSPECIFICINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASDEVSPECIFICINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDEVSPECIFICINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASDEVSPECIFICINFO {}
 impl ::core::default::Default for RASDEVSPECIFICINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RASDEVSPECIFICINFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RASDEVSPECIFICINFO {}
-unsafe impl ::windows::core::Abi for RASDEVSPECIFICINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALDLG {
@@ -5482,26 +4887,31 @@ pub struct RASDIALDLG {
     pub reserved2: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASDIALDLG {}
+impl ::core::marker::Copy for RASDIALDLG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASDIALDLG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASDIALDLG {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASDIALDLG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDIALDLG>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASDIALDLG {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDIALDLG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASDIALDLG {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASDIALDLG {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASDIALDLG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALEXTENSIONS {
@@ -5515,29 +4925,34 @@ pub struct RASDIALEXTENSIONS {
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASDIALEXTENSIONS {}
+impl ::core::marker::Copy for RASDIALEXTENSIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASDIALEXTENSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASDIALEXTENSIONS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASDIALEXTENSIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDIALEXTENSIONS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASDIALEXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDIALEXTENSIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASDIALEXTENSIONS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASDIALEXTENSIONS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASDIALEXTENSIONS {
-    type Abi = Self;
-}
 pub type RASDIALFUNC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32)>;
 pub type RASDIALFUNC1 = ::core::option::Option<unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32)>;
 pub type RASDIALFUNC2 = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALPARAMSA {
@@ -5554,26 +4969,31 @@ pub struct RASDIALPARAMSA {
     pub szEncPassword: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASDIALPARAMSA {}
+impl ::core::marker::Copy for RASDIALPARAMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASDIALPARAMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASDIALPARAMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASDIALPARAMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDIALPARAMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASDIALPARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDIALPARAMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASDIALPARAMSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASDIALPARAMSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASDIALPARAMSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALPARAMSW {
@@ -5590,50 +5010,59 @@ pub struct RASDIALPARAMSW {
     pub szEncPassword: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASDIALPARAMSW {}
+impl ::core::marker::Copy for RASDIALPARAMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASDIALPARAMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASDIALPARAMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASDIALPARAMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASDIALPARAMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASDIALPARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASDIALPARAMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASDIALPARAMSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASDIALPARAMSW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASDIALPARAMSW {
-    type Abi = Self;
-}
 pub const RASEAPF_Logon: u32 = 4u32;
 pub const RASEAPF_NonInteractive: u32 = 2u32;
 pub const RASEAPF_Preview: u32 = 8u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
 }
-impl RASEAPINFO {}
+impl ::core::marker::Copy for RASEAPINFO {}
+impl ::core::clone::Clone for RASEAPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASEAPINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASEAPINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASEAPINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASEAPINFO {}
 impl ::core::default::Default for RASEAPINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RASEAPINFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RASEAPINFO {}
-unsafe impl ::windows::core::Abi for RASEAPINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASEAPUSERIDENTITYA {
@@ -5642,57 +5071,56 @@ pub struct RASEAPUSERIDENTITYA {
     pub pbEapInfo: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASEAPUSERIDENTITYA {}
+impl ::core::marker::Copy for RASEAPUSERIDENTITYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASEAPUSERIDENTITYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASEAPUSERIDENTITYA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASEAPUSERIDENTITYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASEAPUSERIDENTITYA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASEAPUSERIDENTITYA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASEAPUSERIDENTITYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASEAPUSERIDENTITYA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASEAPUSERIDENTITYA").field("szUserName", &self.szUserName).field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASEAPUSERIDENTITYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szUserName == other.szUserName && self.dwSizeofEapInfo == other.dwSizeofEapInfo && self.pbEapInfo == other.pbEapInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASEAPUSERIDENTITYA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASEAPUSERIDENTITYA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-impl RASEAPUSERIDENTITYW {}
+impl ::core::marker::Copy for RASEAPUSERIDENTITYW {}
+impl ::core::clone::Clone for RASEAPUSERIDENTITYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASEAPUSERIDENTITYW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASEAPUSERIDENTITYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASEAPUSERIDENTITYW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASEAPUSERIDENTITYW {}
 impl ::core::default::Default for RASEAPUSERIDENTITYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RASEAPUSERIDENTITYW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASEAPUSERIDENTITYW").field("szUserName", &self.szUserName).field("dwSizeofEapInfo", &self.dwSizeofEapInfo).field("pbEapInfo", &self.pbEapInfo).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASEAPUSERIDENTITYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szUserName == other.szUserName && self.dwSizeofEapInfo == other.dwSizeofEapInfo && self.pbEapInfo == other.pbEapInfo
-    }
-}
-impl ::core::cmp::Eq for RASEAPUSERIDENTITYW {}
-unsafe impl ::windows::core::Abi for RASEAPUSERIDENTITYW {
-    type Abi = Self;
 }
 pub const RASEDFLAG_CloneEntry: u32 = 4u32;
 pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
@@ -5706,7 +5134,6 @@ pub const RASEDFLAG_NewTunnelEntry: u32 = 32u32;
 pub const RASEDFLAG_NoRename: u32 = 8u32;
 pub const RASEDFLAG_PositionDlg: u32 = 1u32;
 pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASENTRYA {
@@ -5773,26 +5200,31 @@ pub struct RASENTRYA {
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl RASENTRYA {}
+impl ::core::marker::Copy for RASENTRYA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for RASENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for RASENTRYA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for RASENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASENTRYA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for RASENTRYA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for RASENTRYA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for RASENTRYA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for RASENTRYA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGA {
@@ -5807,26 +5239,31 @@ pub struct RASENTRYDLGA {
     pub reserved2: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASENTRYDLGA {}
+impl ::core::marker::Copy for RASENTRYDLGA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASENTRYDLGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASENTRYDLGA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASENTRYDLGA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASENTRYDLGA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASENTRYDLGA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYDLGA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASENTRYDLGA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASENTRYDLGA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASENTRYDLGA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGW {
@@ -5841,26 +5278,31 @@ pub struct RASENTRYDLGW {
     pub reserved2: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASENTRYDLGW {}
+impl ::core::marker::Copy for RASENTRYDLGW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASENTRYDLGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASENTRYDLGW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASENTRYDLGW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASENTRYDLGW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASENTRYDLGW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYDLGW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASENTRYDLGW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASENTRYDLGW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASENTRYDLGW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYNAMEA {
@@ -5870,32 +5312,31 @@ pub struct RASENTRYNAMEA {
     pub szPhonebookPath: [super::super::Foundation::CHAR; 261],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASENTRYNAMEA {}
+impl ::core::marker::Copy for RASENTRYNAMEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASENTRYNAMEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASENTRYNAMEA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASENTRYNAMEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASENTRYNAMEA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASENTRYNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYNAMEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASENTRYNAMEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASENTRYNAMEA").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("dwFlags", &self.dwFlags).field("szPhonebookPath", &self.szPhonebookPath).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASENTRYNAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szEntryName == other.szEntryName && self.dwFlags == other.dwFlags && self.szPhonebookPath == other.szPhonebookPath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASENTRYNAMEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASENTRYNAMEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASENTRYNAMEW {
     pub dwSize: u32,
@@ -5903,27 +5344,26 @@ pub struct RASENTRYNAMEW {
     pub dwFlags: u32,
     pub szPhonebookPath: [u16; 261],
 }
-impl RASENTRYNAMEW {}
+impl ::core::marker::Copy for RASENTRYNAMEW {}
+impl ::core::clone::Clone for RASENTRYNAMEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASENTRYNAMEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASENTRYNAMEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASENTRYNAMEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASENTRYNAMEW {}
 impl ::core::default::Default for RASENTRYNAMEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASENTRYNAMEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASENTRYNAMEW").field("dwSize", &self.dwSize).field("szEntryName", &self.szEntryName).field("dwFlags", &self.dwFlags).field("szPhonebookPath", &self.szPhonebookPath).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASENTRYNAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.szEntryName == other.szEntryName && self.dwFlags == other.dwFlags && self.szPhonebookPath == other.szPhonebookPath
-    }
-}
-impl ::core::cmp::Eq for RASENTRYNAMEW {}
-unsafe impl ::windows::core::Abi for RASENTRYNAMEW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASENTRYW {
@@ -5990,66 +5430,34 @@ pub struct RASENTRYW {
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl RASENTRYW {}
+impl ::core::marker::Copy for RASENTRYW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for RASENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for RASENTRYW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for RASENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASENTRYW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for RASENTRYW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASENTRYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for RASENTRYW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for RASENTRYW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for RASENTRYW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASENTRY_DIAL_MODE(pub u32);
-pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(1u32);
-pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(2u32);
-impl ::core::convert::From<u32> for RASENTRY_DIAL_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASENTRY_DIAL_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RASENTRY_DIAL_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RASENTRY_DIAL_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASENTRY_DIAL_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASENTRY_DIAL_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RASENTRY_DIAL_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RASENTRY_DIAL_MODE = u32;
+pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = 1u32;
+pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = 2u32;
 pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
 pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
 pub const RASEO2_CacheCredentials: u32 = 33554432u32;
@@ -6123,7 +5531,6 @@ pub const RASFP_Ras: u32 = 4u32;
 pub const RASFP_Slip: u32 = 2u32;
 pub const RASIDS_Disabled: u32 = 4294967295u32;
 pub const RASIDS_UseGlobalValue: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
@@ -6144,71 +5551,38 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl RASIKEV2_PROJECTION_INFO {}
+impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for RASIKEV2_PROJECTION_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for RASIKEV2_PROJECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASIKEV2_PROJECTION_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for RASIKEV2_PROJECTION_INFO {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for RASIKEV2_PROJECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for RASIKEV2_PROJECTION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RASIKEV2_PROJECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
-pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(1u32);
-pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(2u32);
-pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(4u32);
-impl ::core::convert::From<u32> for RASIKEV_PROJECTION_INFO_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASIKEV_PROJECTION_INFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RASIKEV_PROJECTION_INFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RASIKEV_PROJECTION_INFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASIKEV_PROJECTION_INFO_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASIKEV_PROJECTION_INFO_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RASIKEV_PROJECTION_INFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RASIKEV_PROJECTION_INFO_FLAGS = u32;
+pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = 1u32;
+pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 2u32;
+pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 4u32;
 pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
 pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
 pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASIPADDR {
     pub a: u8,
@@ -6216,53 +5590,52 @@ pub struct RASIPADDR {
     pub c: u8,
     pub d: u8,
 }
-impl RASIPADDR {}
+impl ::core::marker::Copy for RASIPADDR {}
+impl ::core::clone::Clone for RASIPADDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASIPADDR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASIPADDR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASIPADDR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASIPADDR {}
 impl ::core::default::Default for RASIPADDR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASIPADDR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASIPADDR").field("a", &self.a).field("b", &self.b).field("c", &self.c).field("d", &self.d).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASIPADDR {
-    fn eq(&self, other: &Self) -> bool {
-        self.a == other.a && self.b == other.b && self.c == other.c && self.d == other.d
-    }
-}
-impl ::core::cmp::Eq for RASIPADDR {}
-unsafe impl ::windows::core::Abi for RASIPADDR {
-    type Abi = Self;
-}
 pub const RASIPO_VJ: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [u16; 22],
 }
-impl RASIPXW {}
+impl ::core::marker::Copy for RASIPXW {}
+impl ::core::clone::Clone for RASIPXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASIPXW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASIPXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASIPXW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASIPXW {}
 impl ::core::default::Default for RASIPXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RASIPXW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASIPXW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpxAddress", &self.szIpxAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASIPXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpxAddress == other.szIpxAddress
-    }
-}
-impl ::core::cmp::Eq for RASIPXW {}
-unsafe impl ::windows::core::Abi for RASIPXW {
-    type Abi = Self;
 }
 pub const RASLCPO_3_DES: u32 = 16u32;
 pub const RASLCPO_ACFC: u32 = 2u32;
@@ -6276,7 +5649,6 @@ pub const RASLCPO_GCM_AES_256: u32 = 1024u32;
 pub const RASLCPO_PFC: u32 = 1u32;
 pub const RASLCPO_SSHF: u32 = 4u32;
 pub const RASNAP_ProbationTime: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASNOUSERA {
@@ -6288,32 +5660,31 @@ pub struct RASNOUSERA {
     pub szDomain: [super::super::Foundation::CHAR; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASNOUSERA {}
+impl ::core::marker::Copy for RASNOUSERA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASNOUSERA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASNOUSERA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASNOUSERA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASNOUSERA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASNOUSERA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASNOUSERA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASNOUSERA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASNOUSERA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwTimeoutMs", &self.dwTimeoutMs).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASNOUSERA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwTimeoutMs == other.dwTimeoutMs && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASNOUSERA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASNOUSERA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASNOUSERW {
     pub dwSize: u32,
@@ -6323,25 +5694,25 @@ pub struct RASNOUSERW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-impl RASNOUSERW {}
+impl ::core::marker::Copy for RASNOUSERW {}
+impl ::core::clone::Clone for RASNOUSERW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASNOUSERW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASNOUSERW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASNOUSERW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASNOUSERW {}
 impl ::core::default::Default for RASNOUSERW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RASNOUSERW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASNOUSERW").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwTimeoutMs", &self.dwTimeoutMs).field("szUserName", &self.szUserName).field("szPassword", &self.szPassword).field("szDomain", &self.szDomain).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASNOUSERW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwTimeoutMs == other.dwTimeoutMs && self.szUserName == other.szUserName && self.szPassword == other.szPassword && self.szDomain == other.szDomain
-    }
-}
-impl ::core::cmp::Eq for RASNOUSERW {}
-unsafe impl ::windows::core::Abi for RASNOUSERW {
-    type Abi = Self;
 }
 pub const RASNOUSER_SmartCard: u32 = 1u32;
 pub const RASNP_Ip: u32 = 4u32;
@@ -6359,7 +5730,6 @@ pub const RASPBDFLAG_ForceCloseOnDial: u32 = 2u32;
 pub const RASPBDFLAG_NoUser: u32 = 16u32;
 pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGA {
@@ -6375,7 +5745,25 @@ pub struct RASPBDLGA {
     pub reserved2: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPBDLGA {}
+impl ::core::marker::Copy for RASPBDLGA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPBDLGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPBDLGA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPBDLGA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPBDLGA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPBDLGA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPBDLGA {
     fn default() -> Self {
@@ -6383,22 +5771,9 @@ impl ::core::default::Default for RASPBDLGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPBDLGA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPBDLGA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPBDLGA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGW {
@@ -6414,26 +5789,31 @@ pub struct RASPBDLGW {
     pub reserved2: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPBDLGW {}
+impl ::core::marker::Copy for RASPBDLGW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPBDLGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPBDLGW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPBDLGW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPBDLGW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPBDLGW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPBDLGW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPBDLGW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPBDLGW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPBDLGW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASPPPCCP {
     pub dwSize: u32,
@@ -6443,27 +5823,26 @@ pub struct RASPPPCCP {
     pub dwServerCompressionAlgorithm: u32,
     pub dwServerOptions: u32,
 }
-impl RASPPPCCP {}
+impl ::core::marker::Copy for RASPPPCCP {}
+impl ::core::clone::Clone for RASPPPCCP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASPPPCCP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASPPPCCP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPCCP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASPPPCCP {}
 impl ::core::default::Default for RASPPPCCP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASPPPCCP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPCCP").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwCompressionAlgorithm", &self.dwCompressionAlgorithm).field("dwOptions", &self.dwOptions).field("dwServerCompressionAlgorithm", &self.dwServerCompressionAlgorithm).field("dwServerOptions", &self.dwServerOptions).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASPPPCCP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.dwCompressionAlgorithm == other.dwCompressionAlgorithm && self.dwOptions == other.dwOptions && self.dwServerCompressionAlgorithm == other.dwServerCompressionAlgorithm && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl ::core::cmp::Eq for RASPPPCCP {}
-unsafe impl ::windows::core::Abi for RASPPPCCP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPIPA {
@@ -6475,32 +5854,31 @@ pub struct RASPPPIPA {
     pub dwServerOptions: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPPPIPA {}
+impl ::core::marker::Copy for RASPPPIPA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPPPIPA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPPPIPA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPPPIPA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPIPA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPPPIPA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPPPIPA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPPPIPA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPIPA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpAddress", &self.szIpAddress).field("szServerIpAddress", &self.szServerIpAddress).field("dwOptions", &self.dwOptions).field("dwServerOptions", &self.dwServerOptions).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPPPIPA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpAddress == other.szIpAddress && self.szServerIpAddress == other.szServerIpAddress && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPPPIPA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPPPIPA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASPPPIPV6 {
     pub dwSize: u32,
@@ -6510,27 +5888,26 @@ pub struct RASPPPIPV6 {
     pub bLocalCompressionProtocol: [u8; 2],
     pub bPeerCompressionProtocol: [u8; 2],
 }
-impl RASPPPIPV6 {}
+impl ::core::marker::Copy for RASPPPIPV6 {}
+impl ::core::clone::Clone for RASPPPIPV6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASPPPIPV6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASPPPIPV6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPIPV6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASPPPIPV6 {}
 impl ::core::default::Default for RASPPPIPV6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASPPPIPV6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPIPV6").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("bLocalInterfaceIdentifier", &self.bLocalInterfaceIdentifier).field("bPeerInterfaceIdentifier", &self.bPeerInterfaceIdentifier).field("bLocalCompressionProtocol", &self.bLocalCompressionProtocol).field("bPeerCompressionProtocol", &self.bPeerCompressionProtocol).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASPPPIPV6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.bLocalInterfaceIdentifier == other.bLocalInterfaceIdentifier && self.bPeerInterfaceIdentifier == other.bPeerInterfaceIdentifier && self.bLocalCompressionProtocol == other.bLocalCompressionProtocol && self.bPeerCompressionProtocol == other.bPeerCompressionProtocol
-    }
-}
-impl ::core::cmp::Eq for RASPPPIPV6 {}
-unsafe impl ::windows::core::Abi for RASPPPIPV6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASPPPIPW {
     pub dwSize: u32,
@@ -6540,27 +5917,26 @@ pub struct RASPPPIPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl RASPPPIPW {}
+impl ::core::marker::Copy for RASPPPIPW {}
+impl ::core::clone::Clone for RASPPPIPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASPPPIPW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASPPPIPW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPIPW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASPPPIPW {}
 impl ::core::default::Default for RASPPPIPW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASPPPIPW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPIPW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpAddress", &self.szIpAddress).field("szServerIpAddress", &self.szServerIpAddress).field("dwOptions", &self.dwOptions).field("dwServerOptions", &self.dwServerOptions).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASPPPIPW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpAddress == other.szIpAddress && self.szServerIpAddress == other.szServerIpAddress && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-impl ::core::cmp::Eq for RASPPPIPW {}
-unsafe impl ::windows::core::Abi for RASPPPIPW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPIPXA {
@@ -6569,32 +5945,31 @@ pub struct RASPPPIPXA {
     pub szIpxAddress: [super::super::Foundation::CHAR; 22],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPPPIPXA {}
+impl ::core::marker::Copy for RASPPPIPXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPPPIPXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPPPIPXA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPPPIPXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPIPXA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPPPIPXA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPPPIPXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPPPIPXA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPIPXA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("szIpxAddress", &self.szIpxAddress).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPPPIPXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.szIpxAddress == other.szIpxAddress
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPPPIPXA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPPPIPXA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPLCPA {
@@ -6615,48 +5990,31 @@ pub struct RASPPPLCPA {
     pub dwServerOptions: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPPPLCPA {}
+impl ::core::marker::Copy for RASPPPLCPA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPPPLCPA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPPPLCPA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPPPLCPA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPLCPA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPPPLCPA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPPPLCPA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPPPLCPA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPLCPA")
-            .field("dwSize", &self.dwSize)
-            .field("fBundled", &self.fBundled)
-            .field("dwError", &self.dwError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwServerAuthenticationProtocol", &self.dwServerAuthenticationProtocol)
-            .field("dwServerAuthenticationData", &self.dwServerAuthenticationData)
-            .field("dwServerEapTypeId", &self.dwServerEapTypeId)
-            .field("fMultilink", &self.fMultilink)
-            .field("dwTerminateReason", &self.dwTerminateReason)
-            .field("dwServerTerminateReason", &self.dwServerTerminateReason)
-            .field("szReplyMessage", &self.szReplyMessage)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwServerOptions", &self.dwServerOptions)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPPPLCPA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fBundled == other.fBundled && self.dwError == other.dwError && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol && self.dwAuthenticationData == other.dwAuthenticationData && self.dwEapTypeId == other.dwEapTypeId && self.dwServerAuthenticationProtocol == other.dwServerAuthenticationProtocol && self.dwServerAuthenticationData == other.dwServerAuthenticationData && self.dwServerEapTypeId == other.dwServerEapTypeId && self.fMultilink == other.fMultilink && self.dwTerminateReason == other.dwTerminateReason && self.dwServerTerminateReason == other.dwServerTerminateReason && self.szReplyMessage == other.szReplyMessage && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPPPLCPA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPPPLCPA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPLCPW {
@@ -6677,48 +6035,31 @@ pub struct RASPPPLCPW {
     pub dwServerOptions: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPPPLCPW {}
+impl ::core::marker::Copy for RASPPPLCPW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPPPLCPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPPPLCPW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPPPLCPW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPLCPW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPPPLCPW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPPPLCPW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPPPLCPW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPLCPW")
-            .field("dwSize", &self.dwSize)
-            .field("fBundled", &self.fBundled)
-            .field("dwError", &self.dwError)
-            .field("dwAuthenticationProtocol", &self.dwAuthenticationProtocol)
-            .field("dwAuthenticationData", &self.dwAuthenticationData)
-            .field("dwEapTypeId", &self.dwEapTypeId)
-            .field("dwServerAuthenticationProtocol", &self.dwServerAuthenticationProtocol)
-            .field("dwServerAuthenticationData", &self.dwServerAuthenticationData)
-            .field("dwServerEapTypeId", &self.dwServerEapTypeId)
-            .field("fMultilink", &self.fMultilink)
-            .field("dwTerminateReason", &self.dwTerminateReason)
-            .field("dwServerTerminateReason", &self.dwServerTerminateReason)
-            .field("szReplyMessage", &self.szReplyMessage)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwServerOptions", &self.dwServerOptions)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPPPLCPW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fBundled == other.fBundled && self.dwError == other.dwError && self.dwAuthenticationProtocol == other.dwAuthenticationProtocol && self.dwAuthenticationData == other.dwAuthenticationData && self.dwEapTypeId == other.dwEapTypeId && self.dwServerAuthenticationProtocol == other.dwServerAuthenticationProtocol && self.dwServerAuthenticationData == other.dwServerAuthenticationData && self.dwServerEapTypeId == other.dwServerEapTypeId && self.fMultilink == other.fMultilink && self.dwTerminateReason == other.dwTerminateReason && self.dwServerTerminateReason == other.dwServerTerminateReason && self.szReplyMessage == other.szReplyMessage && self.dwOptions == other.dwOptions && self.dwServerOptions == other.dwServerOptions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPPPLCPW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPPPLCPW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPNBFA {
@@ -6730,32 +6071,31 @@ pub struct RASPPPNBFA {
     pub bLana: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASPPPNBFA {}
+impl ::core::marker::Copy for RASPPPNBFA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPPPNBFA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASPPPNBFA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASPPPNBFA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPNBFA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASPPPNBFA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPPPNBFA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASPPPNBFA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPNBFA").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwNetBiosError", &self.dwNetBiosError).field("szNetBiosError", &self.szNetBiosError).field("szWorkstationName", &self.szWorkstationName).field("bLana", &self.bLana).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASPPPNBFA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.dwNetBiosError == other.dwNetBiosError && self.szNetBiosError == other.szNetBiosError && self.szWorkstationName == other.szWorkstationName && self.bLana == other.bLana
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASPPPNBFA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASPPPNBFA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASPPPNBFW {
     pub dwSize: u32,
@@ -6765,27 +6105,26 @@ pub struct RASPPPNBFW {
     pub szWorkstationName: [u16; 17],
     pub bLana: u8,
 }
-impl RASPPPNBFW {}
+impl ::core::marker::Copy for RASPPPNBFW {}
+impl ::core::clone::Clone for RASPPPNBFW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASPPPNBFW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASPPPNBFW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPPNBFW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASPPPNBFW {}
 impl ::core::default::Default for RASPPPNBFW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASPPPNBFW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASPPPNBFW").field("dwSize", &self.dwSize).field("dwError", &self.dwError).field("dwNetBiosError", &self.dwNetBiosError).field("szNetBiosError", &self.szNetBiosError).field("szWorkstationName", &self.szWorkstationName).field("bLana", &self.bLana).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASPPPNBFW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwError == other.dwError && self.dwNetBiosError == other.dwNetBiosError && self.szNetBiosError == other.szNetBiosError && self.szWorkstationName == other.szWorkstationName && self.bLana == other.bLana
-    }
-}
-impl ::core::cmp::Eq for RASPPPNBFW {}
-unsafe impl ::windows::core::Abi for RASPPPNBFW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASPPP_PROJECTION_INFO {
@@ -6814,148 +6153,57 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpServerOptions: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl RASPPP_PROJECTION_INFO {}
+impl ::core::marker::Copy for RASPPP_PROJECTION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for RASPPP_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for RASPPP_PROJECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASPPP_PROJECTION_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for RASPPP_PROJECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RASPPP_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for RASPPP_PROJECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for RASPPP_PROJECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
-pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(5u32);
-pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(128u32);
-pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(129u32);
-impl ::core::convert::From<u32> for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
-pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49187u32);
-pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49191u32);
-pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49699u32);
-pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49703u32);
-impl ::core::convert::From<u32> for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = u32;
+pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 5u32;
+pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 128u32;
+pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 129u32;
+pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = u32;
+pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49187u32;
+pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49191u32;
+pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49699u32;
+pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49703u32;
 pub const RASPRIV2_DialinPolicy: u32 = 1u32;
 pub const RASPRIV_AdminSetCallback: u32 = 2u32;
 pub const RASPRIV_CallerSetCallback: u32 = 4u32;
 pub const RASPRIV_DialinPrivilege: u32 = 8u32;
 pub const RASPRIV_NoCallback: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASPROJECTION(pub i32);
-pub const RASP_Amb: RASPROJECTION = RASPROJECTION(65536i32);
-pub const RASP_PppNbf: RASPROJECTION = RASPROJECTION(32831i32);
-pub const RASP_PppIpx: RASPROJECTION = RASPROJECTION(32811i32);
-pub const RASP_PppIp: RASPROJECTION = RASPROJECTION(32801i32);
-pub const RASP_PppCcp: RASPROJECTION = RASPROJECTION(33021i32);
-pub const RASP_PppLcp: RASPROJECTION = RASPROJECTION(49185i32);
-pub const RASP_PppIpv6: RASPROJECTION = RASPROJECTION(32855i32);
-impl ::core::convert::From<i32> for RASPROJECTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASPROJECTION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RASPROJECTION_INFO_TYPE(pub i32);
-pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(1i32);
-pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(2i32);
-impl ::core::convert::From<i32> for RASPROJECTION_INFO_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RASPROJECTION_INFO_TYPE {
-    type Abi = Self;
-}
+pub type RASPROJECTION = i32;
+pub const RASP_Amb: RASPROJECTION = 65536i32;
+pub const RASP_PppNbf: RASPROJECTION = 32831i32;
+pub const RASP_PppIpx: RASPROJECTION = 32811i32;
+pub const RASP_PppIp: RASPROJECTION = 32801i32;
+pub const RASP_PppCcp: RASPROJECTION = 33021i32;
+pub const RASP_PppLcp: RASPROJECTION = 49185i32;
+pub const RASP_PppIpv6: RASPROJECTION = 32855i32;
+pub type RASPROJECTION_INFO_TYPE = i32;
+pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1i32;
+pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2i32;
 pub type RASSECURITYPROC = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASSUBENTRYA {
@@ -6967,32 +6215,31 @@ pub struct RASSUBENTRYA {
     pub dwAlternateOffset: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RASSUBENTRYA {}
+impl ::core::marker::Copy for RASSUBENTRYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASSUBENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RASSUBENTRYA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RASSUBENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASSUBENTRYA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RASSUBENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASSUBENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RASSUBENTRYA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASSUBENTRYA").field("dwSize", &self.dwSize).field("dwfFlags", &self.dwfFlags).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("dwAlternateOffset", &self.dwAlternateOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RASSUBENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwfFlags == other.dwfFlags && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName && self.szLocalPhoneNumber == other.szLocalPhoneNumber && self.dwAlternateOffset == other.dwAlternateOffset
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RASSUBENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASSUBENTRYA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RASSUBENTRYW {
     pub dwSize: u32,
@@ -7002,27 +6249,26 @@ pub struct RASSUBENTRYW {
     pub szLocalPhoneNumber: [u16; 129],
     pub dwAlternateOffset: u32,
 }
-impl RASSUBENTRYW {}
+impl ::core::marker::Copy for RASSUBENTRYW {}
+impl ::core::clone::Clone for RASSUBENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RASSUBENTRYW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RASSUBENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASSUBENTRYW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RASSUBENTRYW {}
 impl ::core::default::Default for RASSUBENTRYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RASSUBENTRYW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RASSUBENTRYW").field("dwSize", &self.dwSize).field("dwfFlags", &self.dwfFlags).field("szDeviceType", &self.szDeviceType).field("szDeviceName", &self.szDeviceName).field("szLocalPhoneNumber", &self.szLocalPhoneNumber).field("dwAlternateOffset", &self.dwAlternateOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RASSUBENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwfFlags == other.dwfFlags && self.szDeviceType == other.szDeviceType && self.szDeviceName == other.szDeviceName && self.szLocalPhoneNumber == other.szLocalPhoneNumber && self.dwAlternateOffset == other.dwAlternateOffset
-    }
-}
-impl ::core::cmp::Eq for RASSUBENTRYW {}
-unsafe impl ::windows::core::Abi for RASSUBENTRYW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASTUNNELENDPOINT {
@@ -7030,26 +6276,31 @@ pub struct RASTUNNELENDPOINT {
     pub Anonymous: RASTUNNELENDPOINT_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl RASTUNNELENDPOINT {}
+impl ::core::marker::Copy for RASTUNNELENDPOINT {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASTUNNELENDPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for RASTUNNELENDPOINT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for RASTUNNELENDPOINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASTUNNELENDPOINT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for RASTUNNELENDPOINT {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASTUNNELENDPOINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for RASTUNNELENDPOINT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for RASTUNNELENDPOINT {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RASTUNNELENDPOINT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RASTUNNELENDPOINT_0 {
@@ -7057,29 +6308,34 @@ pub union RASTUNNELENDPOINT_0 {
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl RASTUNNELENDPOINT_0 {}
+impl ::core::marker::Copy for RASTUNNELENDPOINT_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASTUNNELENDPOINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for RASTUNNELENDPOINT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for RASTUNNELENDPOINT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASTUNNELENDPOINT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for RASTUNNELENDPOINT_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASTUNNELENDPOINT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for RASTUNNELENDPOINT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for RASTUNNELENDPOINT_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RASTUNNELENDPOINT_0 {
-    type Abi = Self;
-}
 pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
 pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
 pub const RASTUNNELENDPOINT_UNKNOWN: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASUPDATECONN {
@@ -7091,26 +6347,31 @@ pub struct RASUPDATECONN {
     pub remoteEndPoint: RASTUNNELENDPOINT,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl RASUPDATECONN {}
+impl ::core::marker::Copy for RASUPDATECONN {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASUPDATECONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for RASUPDATECONN {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for RASUPDATECONN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASUPDATECONN>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for RASUPDATECONN {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASUPDATECONN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for RASUPDATECONN {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for RASUPDATECONN {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for RASUPDATECONN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_CONNECTION_0 {
@@ -7125,32 +6386,31 @@ pub struct RAS_CONNECTION_0 {
     pub wszRemoteComputer: [u16; 17],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_CONNECTION_0 {}
+impl ::core::marker::Copy for RAS_CONNECTION_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_CONNECTION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_CONNECTION_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_CONNECTION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_CONNECTION_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_CONNECTION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_CONNECTION_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_CONNECTION_0").field("hConnection", &self.hConnection).field("hInterface", &self.hInterface).field("dwConnectDuration", &self.dwConnectDuration).field("dwInterfaceType", &self.dwInterfaceType).field("dwConnectionFlags", &self.dwConnectionFlags).field("wszInterfaceName", &self.wszInterfaceName).field("wszUserName", &self.wszUserName).field("wszLogonDomain", &self.wszLogonDomain).field("wszRemoteComputer", &self.wszRemoteComputer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_CONNECTION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hConnection == other.hConnection && self.hInterface == other.hInterface && self.dwConnectDuration == other.dwConnectDuration && self.dwInterfaceType == other.dwInterfaceType && self.dwConnectionFlags == other.dwConnectionFlags && self.wszInterfaceName == other.wszInterfaceName && self.wszUserName == other.wszUserName && self.wszLogonDomain == other.wszLogonDomain && self.wszRemoteComputer == other.wszRemoteComputer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_CONNECTION_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_CONNECTION_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_CONNECTION_1 {
@@ -7171,48 +6431,31 @@ pub struct RAS_CONNECTION_1 {
     pub dwCompressionRatioOut: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_CONNECTION_1 {}
+impl ::core::marker::Copy for RAS_CONNECTION_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_CONNECTION_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_CONNECTION_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_CONNECTION_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_CONNECTION_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_CONNECTION_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_CONNECTION_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_CONNECTION_1")
-            .field("hConnection", &self.hConnection)
-            .field("hInterface", &self.hInterface)
-            .field("PppInfo", &self.PppInfo)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_CONNECTION_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hConnection == other.hConnection && self.hInterface == other.hInterface && self.PppInfo == other.PppInfo && self.dwBytesXmited == other.dwBytesXmited && self.dwBytesRcved == other.dwBytesRcved && self.dwFramesXmited == other.dwFramesXmited && self.dwFramesRcved == other.dwFramesRcved && self.dwCrcErr == other.dwCrcErr && self.dwTimeoutErr == other.dwTimeoutErr && self.dwAlignmentErr == other.dwAlignmentErr && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr && self.dwFramingErr == other.dwFramingErr && self.dwBufferOverrunErr == other.dwBufferOverrunErr && self.dwCompressionRatioIn == other.dwCompressionRatioIn && self.dwCompressionRatioOut == other.dwCompressionRatioOut
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_CONNECTION_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_CONNECTION_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_CONNECTION_2 {
@@ -7223,32 +6466,31 @@ pub struct RAS_CONNECTION_2 {
     pub PppInfo2: PPP_INFO_2,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_CONNECTION_2 {}
+impl ::core::marker::Copy for RAS_CONNECTION_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_CONNECTION_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_CONNECTION_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_CONNECTION_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_CONNECTION_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_CONNECTION_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_CONNECTION_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_CONNECTION_2").field("hConnection", &self.hConnection).field("wszUserName", &self.wszUserName).field("dwInterfaceType", &self.dwInterfaceType).field("guid", &self.guid).field("PppInfo2", &self.PppInfo2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_CONNECTION_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hConnection == other.hConnection && self.wszUserName == other.wszUserName && self.dwInterfaceType == other.dwInterfaceType && self.guid == other.guid && self.PppInfo2 == other.PppInfo2
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_CONNECTION_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_CONNECTION_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_CONNECTION_3 {
@@ -7263,32 +6505,31 @@ pub struct RAS_CONNECTION_3 {
     pub timer: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_CONNECTION_3 {}
+impl ::core::marker::Copy for RAS_CONNECTION_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_CONNECTION_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_CONNECTION_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_CONNECTION_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_CONNECTION_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_CONNECTION_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_CONNECTION_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_CONNECTION_3").field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("hConnection", &self.hConnection).field("wszUserName", &self.wszUserName).field("dwInterfaceType", &self.dwInterfaceType).field("guid", &self.guid).field("PppInfo3", &self.PppInfo3).field("rasQuarState", &self.rasQuarState).field("timer", &self.timer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_CONNECTION_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwSize == other.dwSize && self.hConnection == other.hConnection && self.wszUserName == other.wszUserName && self.dwInterfaceType == other.dwInterfaceType && self.guid == other.guid && self.PppInfo3 == other.PppInfo3 && self.rasQuarState == other.rasQuarState && self.timer == other.timer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_CONNECTION_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_CONNECTION_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_CONNECTION_4 {
@@ -7324,26 +6565,31 @@ pub struct RAS_CONNECTION_4 {
     pub dwDeviceType: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_CONNECTION_4 {}
+impl ::core::marker::Copy for RAS_CONNECTION_4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_CONNECTION_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_CONNECTION_4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_CONNECTION_4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_CONNECTION_4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_CONNECTION_4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_CONNECTION_4 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_CONNECTION_4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_CONNECTION_4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_CONNECTION_EX {
@@ -7378,84 +6624,42 @@ pub struct RAS_CONNECTION_EX {
     pub hInterface: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_CONNECTION_EX {}
+impl ::core::marker::Copy for RAS_CONNECTION_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_CONNECTION_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_CONNECTION_EX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_CONNECTION_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_CONNECTION_EX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_CONNECTION_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_CONNECTION_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_CONNECTION_EX {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_CONNECTION_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_CONNECTION_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RAS_FLAGS(pub u32);
-pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = RAS_FLAGS(1u32);
-pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = RAS_FLAGS(2u32);
-pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = RAS_FLAGS(8u32);
-pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = RAS_FLAGS(16u32);
-pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = RAS_FLAGS(16u32);
-pub const RAS_FLAGS_DORMANT: RAS_FLAGS = RAS_FLAGS(32u32);
-impl ::core::convert::From<u32> for RAS_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RAS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RAS_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RAS_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RAS_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RAS_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RAS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RAS_FLAGS = u32;
+pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = 1u32;
+pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = 2u32;
+pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = 8u32;
+pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = 16u32;
+pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = 16u32;
+pub const RAS_FLAGS_DORMANT: RAS_FLAGS = 32u32;
 pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RAS_HARDWARE_CONDITION(pub i32);
-pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(0i32);
-pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(1i32);
-impl ::core::convert::From<i32> for RAS_HARDWARE_CONDITION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RAS_HARDWARE_CONDITION {
-    type Abi = Self;
-}
+pub type RAS_HARDWARE_CONDITION = i32;
+pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0i32;
+pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1i32;
 pub const RAS_MaxAreaCode: u32 = 10u32;
 pub const RAS_MaxCallbackNumber: u32 = 128u32;
 pub const RAS_MaxDeviceName: u32 = 128u32;
@@ -7471,7 +6675,6 @@ pub const RAS_MaxPhoneNumber: u32 = 128u32;
 pub const RAS_MaxReplyMessage: u32 = 1024u32;
 pub const RAS_MaxUserData: u32 = 200u32;
 pub const RAS_MaxX25Address: u32 = 200u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_PORT_0 {
@@ -7486,32 +6689,31 @@ pub struct RAS_PORT_0 {
     pub wszDeviceType: [u16; 17],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_PORT_0 {}
+impl ::core::marker::Copy for RAS_PORT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_PORT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_PORT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_PORT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_PORT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_PORT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_PORT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_PORT_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_PORT_0").field("hPort", &self.hPort).field("hConnection", &self.hConnection).field("dwPortCondition", &self.dwPortCondition).field("dwTotalNumberOfCalls", &self.dwTotalNumberOfCalls).field("dwConnectDuration", &self.dwConnectDuration).field("wszPortName", &self.wszPortName).field("wszMediaName", &self.wszMediaName).field("wszDeviceName", &self.wszDeviceName).field("wszDeviceType", &self.wszDeviceType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_PORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hPort == other.hPort && self.hConnection == other.hConnection && self.dwPortCondition == other.dwPortCondition && self.dwTotalNumberOfCalls == other.dwTotalNumberOfCalls && self.dwConnectDuration == other.dwConnectDuration && self.wszPortName == other.wszPortName && self.wszMediaName == other.wszMediaName && self.wszDeviceName == other.wszDeviceName && self.wszDeviceType == other.wszDeviceType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_PORT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_PORT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_PORT_1 {
@@ -7533,49 +6735,31 @@ pub struct RAS_PORT_1 {
     pub dwCompressionRatioOut: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_PORT_1 {}
+impl ::core::marker::Copy for RAS_PORT_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_PORT_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_PORT_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_PORT_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_PORT_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_PORT_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_PORT_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_PORT_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_PORT_1")
-            .field("hPort", &self.hPort)
-            .field("hConnection", &self.hConnection)
-            .field("dwHardwareCondition", &self.dwHardwareCondition)
-            .field("dwLineSpeed", &self.dwLineSpeed)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_PORT_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hPort == other.hPort && self.hConnection == other.hConnection && self.dwHardwareCondition == other.dwHardwareCondition && self.dwLineSpeed == other.dwLineSpeed && self.dwBytesXmited == other.dwBytesXmited && self.dwBytesRcved == other.dwBytesRcved && self.dwFramesXmited == other.dwFramesXmited && self.dwFramesRcved == other.dwFramesRcved && self.dwCrcErr == other.dwCrcErr && self.dwTimeoutErr == other.dwTimeoutErr && self.dwAlignmentErr == other.dwAlignmentErr && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr && self.dwFramingErr == other.dwFramingErr && self.dwBufferOverrunErr == other.dwBufferOverrunErr && self.dwCompressionRatioIn == other.dwCompressionRatioIn && self.dwCompressionRatioOut == other.dwCompressionRatioOut
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_PORT_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_PORT_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_PORT_2 {
@@ -7608,104 +6792,39 @@ pub struct RAS_PORT_2 {
     pub ullBytesRcvCompressed: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_PORT_2 {}
+impl ::core::marker::Copy for RAS_PORT_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_PORT_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_PORT_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_PORT_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_PORT_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_PORT_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_PORT_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_PORT_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_PORT_2")
-            .field("hPort", &self.hPort)
-            .field("hConnection", &self.hConnection)
-            .field("dwConn_State", &self.dwConn_State)
-            .field("wszPortName", &self.wszPortName)
-            .field("wszMediaName", &self.wszMediaName)
-            .field("wszDeviceName", &self.wszDeviceName)
-            .field("wszDeviceType", &self.wszDeviceType)
-            .field("dwHardwareCondition", &self.dwHardwareCondition)
-            .field("dwLineSpeed", &self.dwLineSpeed)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwSerialOverRunErrs", &self.dwSerialOverRunErrs)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .field("dwTotalErrors", &self.dwTotalErrors)
-            .field("ullBytesXmited", &self.ullBytesXmited)
-            .field("ullBytesRcved", &self.ullBytesRcved)
-            .field("ullFramesXmited", &self.ullFramesXmited)
-            .field("ullFramesRcved", &self.ullFramesRcved)
-            .field("ullBytesTxUncompressed", &self.ullBytesTxUncompressed)
-            .field("ullBytesTxCompressed", &self.ullBytesTxCompressed)
-            .field("ullBytesRcvUncompressed", &self.ullBytesRcvUncompressed)
-            .field("ullBytesRcvCompressed", &self.ullBytesRcvCompressed)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_PORT_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hPort == other.hPort
-            && self.hConnection == other.hConnection
-            && self.dwConn_State == other.dwConn_State
-            && self.wszPortName == other.wszPortName
-            && self.wszMediaName == other.wszMediaName
-            && self.wszDeviceName == other.wszDeviceName
-            && self.wszDeviceType == other.wszDeviceType
-            && self.dwHardwareCondition == other.dwHardwareCondition
-            && self.dwLineSpeed == other.dwLineSpeed
-            && self.dwCrcErr == other.dwCrcErr
-            && self.dwSerialOverRunErrs == other.dwSerialOverRunErrs
-            && self.dwTimeoutErr == other.dwTimeoutErr
-            && self.dwAlignmentErr == other.dwAlignmentErr
-            && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr
-            && self.dwFramingErr == other.dwFramingErr
-            && self.dwBufferOverrunErr == other.dwBufferOverrunErr
-            && self.dwCompressionRatioIn == other.dwCompressionRatioIn
-            && self.dwCompressionRatioOut == other.dwCompressionRatioOut
-            && self.dwTotalErrors == other.dwTotalErrors
-            && self.ullBytesXmited == other.ullBytesXmited
-            && self.ullBytesRcved == other.ullBytesRcved
-            && self.ullFramesXmited == other.ullFramesXmited
-            && self.ullFramesRcved == other.ullFramesRcved
-            && self.ullBytesTxUncompressed == other.ullBytesTxUncompressed
-            && self.ullBytesTxCompressed == other.ullBytesTxCompressed
-            && self.ullBytesRcvUncompressed == other.ullBytesRcvUncompressed
-            && self.ullBytesRcvCompressed == other.ullBytesRcvCompressed
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_PORT_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_PORT_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RAS_PORT_CONDITION(pub i32);
-pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = RAS_PORT_CONDITION(0i32);
-pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(1i32);
-pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = RAS_PORT_CONDITION(2i32);
-pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(3i32);
-pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(4i32);
-pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(5i32);
-pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(6i32);
-impl ::core::convert::From<i32> for RAS_PORT_CONDITION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RAS_PORT_CONDITION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RAS_PORT_CONDITION = i32;
+pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = 0i32;
+pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = 1i32;
+pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = 2i32;
+pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = 3i32;
+pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = 4i32;
+pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = 5i32;
+pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = 6i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RAS_PROJECTION_INFO {
@@ -7714,26 +6833,31 @@ pub struct RAS_PROJECTION_INFO {
     pub Anonymous: RAS_PROJECTION_INFO_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl RAS_PROJECTION_INFO {}
+impl ::core::marker::Copy for RAS_PROJECTION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for RAS_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for RAS_PROJECTION_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for RAS_PROJECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_PROJECTION_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for RAS_PROJECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RAS_PROJECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for RAS_PROJECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for RAS_PROJECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for RAS_PROJECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union RAS_PROJECTION_INFO_0 {
@@ -7741,41 +6865,36 @@ pub union RAS_PROJECTION_INFO_0 {
     pub ikev2: RASIKEV2_PROJECTION_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl RAS_PROJECTION_INFO_0 {}
+impl ::core::marker::Copy for RAS_PROJECTION_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for RAS_PROJECTION_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for RAS_PROJECTION_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for RAS_PROJECTION_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_PROJECTION_INFO_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for RAS_PROJECTION_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for RAS_PROJECTION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for RAS_PROJECTION_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for RAS_PROJECTION_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for RAS_PROJECTION_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RAS_QUARANTINE_STATE(pub i32);
-pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(0i32);
-pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(1i32);
-pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(2i32);
-pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(3i32);
-impl ::core::convert::From<i32> for RAS_QUARANTINE_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RAS_QUARANTINE_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RAS_QUARANTINE_STATE = i32;
+pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = 0i32;
+pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1i32;
+pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = 2i32;
+pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_SECURITY_INFO {
@@ -7784,32 +6903,31 @@ pub struct RAS_SECURITY_INFO {
     pub DeviceName: [super::super::Foundation::CHAR; 129],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RAS_SECURITY_INFO {}
+impl ::core::marker::Copy for RAS_SECURITY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAS_SECURITY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RAS_SECURITY_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RAS_SECURITY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_SECURITY_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RAS_SECURITY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAS_SECURITY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAS_SECURITY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_SECURITY_INFO").field("LastError", &self.LastError).field("BytesReceived", &self.BytesReceived).field("DeviceName", &self.DeviceName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAS_SECURITY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastError == other.LastError && self.BytesReceived == other.BytesReceived && self.DeviceName == other.DeviceName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAS_SECURITY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAS_SECURITY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RAS_STATS {
     pub dwSize: u32,
@@ -7828,43 +6946,26 @@ pub struct RAS_STATS {
     pub dwBps: u32,
     pub dwConnectDuration: u32,
 }
-impl RAS_STATS {}
+impl ::core::marker::Copy for RAS_STATS {}
+impl ::core::clone::Clone for RAS_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RAS_STATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RAS_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_STATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RAS_STATS {}
 impl ::core::default::Default for RAS_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RAS_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_STATS")
-            .field("dwSize", &self.dwSize)
-            .field("dwBytesXmited", &self.dwBytesXmited)
-            .field("dwBytesRcved", &self.dwBytesRcved)
-            .field("dwFramesXmited", &self.dwFramesXmited)
-            .field("dwFramesRcved", &self.dwFramesRcved)
-            .field("dwCrcErr", &self.dwCrcErr)
-            .field("dwTimeoutErr", &self.dwTimeoutErr)
-            .field("dwAlignmentErr", &self.dwAlignmentErr)
-            .field("dwHardwareOverrunErr", &self.dwHardwareOverrunErr)
-            .field("dwFramingErr", &self.dwFramingErr)
-            .field("dwBufferOverrunErr", &self.dwBufferOverrunErr)
-            .field("dwCompressionRatioIn", &self.dwCompressionRatioIn)
-            .field("dwCompressionRatioOut", &self.dwCompressionRatioOut)
-            .field("dwBps", &self.dwBps)
-            .field("dwConnectDuration", &self.dwConnectDuration)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for RAS_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwBytesXmited == other.dwBytesXmited && self.dwBytesRcved == other.dwBytesRcved && self.dwFramesXmited == other.dwFramesXmited && self.dwFramesRcved == other.dwFramesRcved && self.dwCrcErr == other.dwCrcErr && self.dwTimeoutErr == other.dwTimeoutErr && self.dwAlignmentErr == other.dwAlignmentErr && self.dwHardwareOverrunErr == other.dwHardwareOverrunErr && self.dwFramingErr == other.dwFramingErr && self.dwBufferOverrunErr == other.dwBufferOverrunErr && self.dwCompressionRatioIn == other.dwCompressionRatioIn && self.dwCompressionRatioOut == other.dwCompressionRatioOut && self.dwBps == other.dwBps && self.dwConnectDuration == other.dwConnectDuration
-    }
-}
-impl ::core::cmp::Eq for RAS_STATS {}
-unsafe impl ::windows::core::Abi for RAS_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RAS_UPDATE_CONNECTION {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -7872,78 +6973,76 @@ pub struct RAS_UPDATE_CONNECTION {
     pub wszLocalEndpointAddress: [u16; 65],
     pub wszRemoteEndpointAddress: [u16; 65],
 }
-impl RAS_UPDATE_CONNECTION {}
+impl ::core::marker::Copy for RAS_UPDATE_CONNECTION {}
+impl ::core::clone::Clone for RAS_UPDATE_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RAS_UPDATE_CONNECTION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RAS_UPDATE_CONNECTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_UPDATE_CONNECTION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RAS_UPDATE_CONNECTION {}
 impl ::core::default::Default for RAS_UPDATE_CONNECTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RAS_UPDATE_CONNECTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_UPDATE_CONNECTION").field("Header", &self.Header).field("dwIfIndex", &self.dwIfIndex).field("wszLocalEndpointAddress", &self.wszLocalEndpointAddress).field("wszRemoteEndpointAddress", &self.wszRemoteEndpointAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RAS_UPDATE_CONNECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.dwIfIndex == other.dwIfIndex && self.wszLocalEndpointAddress == other.wszLocalEndpointAddress && self.wszRemoteEndpointAddress == other.wszRemoteEndpointAddress
-    }
-}
-impl ::core::cmp::Eq for RAS_UPDATE_CONNECTION {}
-unsafe impl ::windows::core::Abi for RAS_UPDATE_CONNECTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
 }
-impl RAS_USER_0 {}
+impl ::core::marker::Copy for RAS_USER_0 {}
+impl ::core::clone::Clone for RAS_USER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RAS_USER_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RAS_USER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_USER_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RAS_USER_0 {}
 impl ::core::default::Default for RAS_USER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RAS_USER_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_USER_0").field("bfPrivilege", &self.bfPrivilege).field("wszPhoneNumber", &self.wszPhoneNumber).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RAS_USER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bfPrivilege == other.bfPrivilege && self.wszPhoneNumber == other.wszPhoneNumber
-    }
-}
-impl ::core::cmp::Eq for RAS_USER_0 {}
-unsafe impl ::windows::core::Abi for RAS_USER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
     pub bfPrivilege2: u8,
 }
-impl RAS_USER_1 {}
+impl ::core::marker::Copy for RAS_USER_1 {}
+impl ::core::clone::Clone for RAS_USER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RAS_USER_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RAS_USER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_USER_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RAS_USER_1 {}
 impl ::core::default::Default for RAS_USER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RAS_USER_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RAS_USER_1").field("bfPrivilege", &self.bfPrivilege).field("wszPhoneNumber", &self.wszPhoneNumber).field("bfPrivilege2", &self.bfPrivilege2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RAS_USER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bfPrivilege == other.bfPrivilege && self.wszPhoneNumber == other.wszPhoneNumber && self.bfPrivilege2 == other.bfPrivilege2
-    }
-}
-impl ::core::cmp::Eq for RAS_USER_1 {}
-unsafe impl ::windows::core::Abi for RAS_USER_1 {
-    type Abi = Self;
 }
 pub const RCD_AllUsers: u32 = 1u32;
 pub const RCD_Eap: u32 = 2u32;
@@ -7967,22 +7066,11 @@ pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
 pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
 pub const REN_AllUsers: u32 = 1u32;
 pub const REN_User: u32 = 0u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ROUTER_CONNECTION_STATE(pub i32);
-pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(0i32);
-pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(1i32);
-pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(2i32);
-pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(3i32);
-impl ::core::convert::From<i32> for ROUTER_CONNECTION_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ROUTER_CONNECTION_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type ROUTER_CONNECTION_STATE = i32;
+pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = 0i32;
+pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = 1i32;
+pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = 2i32;
+pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = 3i32;
 #[repr(C)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
@@ -7992,27 +7080,26 @@ pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwPfsGroup: u32,
     pub dwDhGroup: u32,
 }
-impl ROUTER_CUSTOM_IKEv2_POLICY0 {}
+impl ::core::marker::Copy for ROUTER_CUSTOM_IKEv2_POLICY0 {}
+impl ::core::clone::Clone for ROUTER_CUSTOM_IKEv2_POLICY0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ROUTER_CUSTOM_IKEv2_POLICY0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ROUTER_CUSTOM_IKEv2_POLICY0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROUTER_CUSTOM_IKEv2_POLICY0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ROUTER_CUSTOM_IKEv2_POLICY0 {}
 impl ::core::default::Default for ROUTER_CUSTOM_IKEv2_POLICY0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ROUTER_CUSTOM_IKEv2_POLICY0").field("dwIntegrityMethod", &self.dwIntegrityMethod).field("dwEncryptionMethod", &self.dwEncryptionMethod).field("dwCipherTransformConstant", &self.dwCipherTransformConstant).field("dwAuthTransformConstant", &self.dwAuthTransformConstant).field("dwPfsGroup", &self.dwPfsGroup).field("dwDhGroup", &self.dwDhGroup).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIntegrityMethod == other.dwIntegrityMethod && self.dwEncryptionMethod == other.dwEncryptionMethod && self.dwCipherTransformConstant == other.dwCipherTransformConstant && self.dwAuthTransformConstant == other.dwAuthTransformConstant && self.dwPfsGroup == other.dwPfsGroup && self.dwDhGroup == other.dwDhGroup
-    }
-}
-impl ::core::cmp::Eq for ROUTER_CUSTOM_IKEv2_POLICY0 {}
-unsafe impl ::windows::core::Abi for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
@@ -8022,32 +7109,31 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
+impl ::core::marker::Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::clone::Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+unsafe impl ::windows::core::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROUTER_IKEv2_IF_CUSTOM_CONFIG0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG0").field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSize", &self.dwSaDataSize).field("certificateName", &self.certificateName).field("customPolicy", &self.customPolicy).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSize == other.dwSaDataSize && self.certificateName == other.certificateName && self.customPolicy == other.customPolicy
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-unsafe impl ::windows::core::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
@@ -8058,32 +7144,31 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub certificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
+impl ::core::marker::Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::clone::Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+unsafe impl ::windows::core::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROUTER_IKEv2_IF_CUSTOM_CONFIG1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl ::core::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG1").field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSize", &self.dwSaDataSize).field("certificateName", &self.certificateName).field("customPolicy", &self.customPolicy).field("certificateHash", &self.certificateHash).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSize == other.dwSaDataSize && self.certificateName == other.certificateName && self.customPolicy == other.customPolicy && self.certificateHash == other.certificateHash
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-unsafe impl ::windows::core::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
@@ -8096,52 +7181,41 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
+impl ::core::marker::Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROUTER_IKEv2_IF_CUSTOM_CONFIG2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG2").field("dwSaLifeTime", &self.dwSaLifeTime).field("dwSaDataSize", &self.dwSaDataSize).field("certificateName", &self.certificateName).field("customPolicy", &self.customPolicy).field("certificateHash", &self.certificateHash).field("dwMmSaLifeTime", &self.dwMmSaLifeTime).field("vpnTrafficSelectors", &self.vpnTrafficSelectors).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSaLifeTime == other.dwSaLifeTime && self.dwSaDataSize == other.dwSaDataSize && self.certificateName == other.certificateName && self.customPolicy == other.customPolicy && self.certificateHash == other.certificateHash && self.dwMmSaLifeTime == other.dwMmSaLifeTime && self.vpnTrafficSelectors == other.vpnTrafficSelectors
-    }
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ROUTER_INTERFACE_TYPE(pub i32);
-pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(0i32);
-pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(1i32);
-pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(2i32);
-pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(3i32);
-pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(4i32);
-pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(5i32);
-pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(6i32);
-pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(7i32);
-pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(8i32);
-impl ::core::convert::From<i32> for ROUTER_INTERFACE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ROUTER_INTERFACE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type ROUTER_INTERFACE_TYPE = i32;
+pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = 0i32;
+pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = 1i32;
+pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = 2i32;
+pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = 3i32;
+pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = 4i32;
+pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = 5i32;
+pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6i32;
+pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = 7i32;
+pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ROUTING_PROTOCOL_CONFIG {
@@ -8157,39 +7231,30 @@ pub struct ROUTING_PROTOCOL_CONFIG {
     pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ROUTING_PROTOCOL_CONFIG {}
+impl ::core::marker::Copy for ROUTING_PROTOCOL_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ROUTING_PROTOCOL_CONFIG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for ROUTING_PROTOCOL_CONFIG {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ROUTING_PROTOCOL_CONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ROUTING_PROTOCOL_CONFIG").field("dwCallbackFlags", &self.dwCallbackFlags).finish()
-    }
+unsafe impl ::windows::core::Abi for ROUTING_PROTOCOL_CONFIG {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ROUTING_PROTOCOL_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        self.dwCallbackFlags == other.dwCallbackFlags
-            && self.pfnRpfCallback.map(|f| f as usize) == other.pfnRpfCallback.map(|f| f as usize)
-            && self.pfnCreationAlertCallback.map(|f| f as usize) == other.pfnCreationAlertCallback.map(|f| f as usize)
-            && self.pfnPruneAlertCallback.map(|f| f as usize) == other.pfnPruneAlertCallback.map(|f| f as usize)
-            && self.pfnJoinAlertCallback.map(|f| f as usize) == other.pfnJoinAlertCallback.map(|f| f as usize)
-            && self.pfnWrongIfCallback.map(|f| f as usize) == other.pfnWrongIfCallback.map(|f| f as usize)
-            && self.pfnLocalJoinCallback.map(|f| f as usize) == other.pfnLocalJoinCallback.map(|f| f as usize)
-            && self.pfnLocalLeaveCallback.map(|f| f as usize) == other.pfnLocalLeaveCallback.map(|f| f as usize)
-            && self.pfnDisableIgmpCallback.map(|f| f as usize) == other.pfnDisableIgmpCallback.map(|f| f as usize)
-            && self.pfnEnableIgmpCallback.map(|f| f as usize) == other.pfnEnableIgmpCallback.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROUTING_PROTOCOL_CONFIG>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ROUTING_PROTOCOL_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ROUTING_PROTOCOL_CONFIG {
-    type Abi = Self;
+impl ::core::default::Default for ROUTING_PROTOCOL_CONFIG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
 pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
@@ -8198,7 +7263,6 @@ pub const RTM_CHANGE_TYPE_FORWARDING: u32 = 4u32;
 pub const RTM_DEST_FLAG_DONT_FORWARD: u32 = 4u32;
 pub const RTM_DEST_FLAG_FWD_ENGIN_ADD: u32 = 2u32;
 pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RTM_DEST_INFO {
@@ -8210,32 +7274,31 @@ pub struct RTM_DEST_INFO {
     pub ViewInfo: [RTM_DEST_INFO_0; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RTM_DEST_INFO {}
+impl ::core::marker::Copy for RTM_DEST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RTM_DEST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RTM_DEST_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RTM_DEST_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_DEST_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RTM_DEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RTM_DEST_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RTM_DEST_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_DEST_INFO").field("DestHandle", &self.DestHandle).field("DestAddress", &self.DestAddress).field("LastChanged", &self.LastChanged).field("BelongsToViews", &self.BelongsToViews).field("NumberOfViews", &self.NumberOfViews).field("ViewInfo", &self.ViewInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RTM_DEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DestHandle == other.DestHandle && self.DestAddress == other.DestAddress && self.LastChanged == other.LastChanged && self.BelongsToViews == other.BelongsToViews && self.NumberOfViews == other.NumberOfViews && self.ViewInfo == other.ViewInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RTM_DEST_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RTM_DEST_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RTM_DEST_INFO_0 {
@@ -8247,175 +7310,183 @@ pub struct RTM_DEST_INFO_0 {
     pub HoldRoute: isize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RTM_DEST_INFO_0 {}
+impl ::core::marker::Copy for RTM_DEST_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RTM_DEST_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RTM_DEST_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RTM_DEST_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_DEST_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RTM_DEST_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RTM_DEST_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RTM_DEST_INFO_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("ViewId", &self.ViewId).field("NumRoutes", &self.NumRoutes).field("Route", &self.Route).field("Owner", &self.Owner).field("DestFlags", &self.DestFlags).field("HoldRoute", &self.HoldRoute).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RTM_DEST_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ViewId == other.ViewId && self.NumRoutes == other.NumRoutes && self.Route == other.Route && self.Owner == other.Owner && self.DestFlags == other.DestFlags && self.HoldRoute == other.HoldRoute
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RTM_DEST_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RTM_DEST_INFO_0 {
-    type Abi = Self;
-}
 pub type RTM_ENTITY_EXPORT_METHOD = ::core::option::Option<unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
     pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
 }
-impl RTM_ENTITY_EXPORT_METHODS {}
+impl ::core::marker::Copy for RTM_ENTITY_EXPORT_METHODS {}
+impl ::core::clone::Clone for RTM_ENTITY_EXPORT_METHODS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_EXPORT_METHODS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_EXPORT_METHODS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_EXPORT_METHODS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_EXPORT_METHODS {}
 impl ::core::default::Default for RTM_ENTITY_EXPORT_METHODS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_ENTITY_EXPORT_METHODS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_ENTITY_EXPORT_METHODS").field("NumMethods", &self.NumMethods).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_ENTITY_EXPORT_METHODS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumMethods == other.NumMethods && self.Methods == other.Methods
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_EXPORT_METHODS {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_EXPORT_METHODS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
 }
-impl RTM_ENTITY_ID {}
+impl ::core::marker::Copy for RTM_ENTITY_ID {}
+impl ::core::clone::Clone for RTM_ENTITY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_ID {}
 impl ::core::default::Default for RTM_ENTITY_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RTM_ENTITY_ID {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_ID {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union RTM_ENTITY_ID_0 {
     pub Anonymous: RTM_ENTITY_ID_0_0,
     pub EntityId: u64,
 }
-impl RTM_ENTITY_ID_0 {}
+impl ::core::marker::Copy for RTM_ENTITY_ID_0 {}
+impl ::core::clone::Clone for RTM_ENTITY_ID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_ID_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_ID_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_ID_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_ID_0 {}
 impl ::core::default::Default for RTM_ENTITY_ID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RTM_ENTITY_ID_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_ID_0 {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_ID_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_ID_0_0 {
     pub EntityProtocolId: u32,
     pub EntityInstanceId: u32,
 }
-impl RTM_ENTITY_ID_0_0 {}
+impl ::core::marker::Copy for RTM_ENTITY_ID_0_0 {}
+impl ::core::clone::Clone for RTM_ENTITY_ID_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_ID_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_ID_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_ID_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_ID_0_0 {}
 impl ::core::default::Default for RTM_ENTITY_ID_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_ENTITY_ID_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("EntityProtocolId", &self.EntityProtocolId).field("EntityInstanceId", &self.EntityInstanceId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_ENTITY_ID_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EntityProtocolId == other.EntityProtocolId && self.EntityInstanceId == other.EntityInstanceId
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_ID_0_0 {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_ID_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_INFO {
     pub RtmInstanceId: u16,
     pub AddressFamily: u16,
     pub EntityId: RTM_ENTITY_ID,
 }
-impl RTM_ENTITY_INFO {}
+impl ::core::marker::Copy for RTM_ENTITY_INFO {}
+impl ::core::clone::Clone for RTM_ENTITY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_INFO {}
 impl ::core::default::Default for RTM_ENTITY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RTM_ENTITY_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_INFO {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_METHOD_INPUT {
     pub MethodType: u32,
     pub InputSize: u32,
     pub InputData: [u8; 1],
 }
-impl RTM_ENTITY_METHOD_INPUT {}
+impl ::core::marker::Copy for RTM_ENTITY_METHOD_INPUT {}
+impl ::core::clone::Clone for RTM_ENTITY_METHOD_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_METHOD_INPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_METHOD_INPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_METHOD_INPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_METHOD_INPUT {}
 impl ::core::default::Default for RTM_ENTITY_METHOD_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_ENTITY_METHOD_INPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_ENTITY_METHOD_INPUT").field("MethodType", &self.MethodType).field("InputSize", &self.InputSize).field("InputData", &self.InputData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_ENTITY_METHOD_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MethodType == other.MethodType && self.InputSize == other.InputSize && self.InputData == other.InputData
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_METHOD_INPUT {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_METHOD_INPUT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub MethodType: u32,
@@ -8423,25 +7494,25 @@ pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub OutputSize: u32,
     pub OutputData: [u8; 1],
 }
-impl RTM_ENTITY_METHOD_OUTPUT {}
+impl ::core::marker::Copy for RTM_ENTITY_METHOD_OUTPUT {}
+impl ::core::clone::Clone for RTM_ENTITY_METHOD_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ENTITY_METHOD_OUTPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ENTITY_METHOD_OUTPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ENTITY_METHOD_OUTPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ENTITY_METHOD_OUTPUT {}
 impl ::core::default::Default for RTM_ENTITY_METHOD_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RTM_ENTITY_METHOD_OUTPUT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_ENTITY_METHOD_OUTPUT").field("MethodType", &self.MethodType).field("MethodStatus", &self.MethodStatus).field("OutputSize", &self.OutputSize).field("OutputData", &self.OutputData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_ENTITY_METHOD_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MethodType == other.MethodType && self.MethodStatus == other.MethodStatus && self.OutputSize == other.OutputSize && self.OutputData == other.OutputData
-    }
-}
-impl ::core::cmp::Eq for RTM_ENTITY_METHOD_OUTPUT {}
-unsafe impl ::windows::core::Abi for RTM_ENTITY_METHOD_OUTPUT {
-    type Abi = Self;
 }
 pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
 pub const RTM_ENUM_ALL_ROUTES: u32 = 0u32;
@@ -8451,21 +7522,11 @@ pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
 pub const RTM_ENUM_RANGE: u32 = 2u32;
 pub const RTM_ENUM_START: u32 = 0u32;
 pub type RTM_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::core::ffi::c_void, context2: *mut ::core::ffi::c_void) -> u32>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RTM_EVENT_TYPE(pub i32);
-pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(0i32);
-pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(1i32);
-pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(2i32);
-pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = RTM_EVENT_TYPE(3i32);
-impl ::core::convert::From<i32> for RTM_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RTM_EVENT_TYPE {
-    type Abi = Self;
-}
+pub type RTM_EVENT_TYPE = i32;
+pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = 0i32;
+pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = 1i32;
+pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = 2i32;
+pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = 3i32;
 pub const RTM_MATCH_FULL: u32 = 65535u32;
 pub const RTM_MATCH_INTERFACE: u32 = 16u32;
 pub const RTM_MATCH_NEIGHBOUR: u32 = 2u32;
@@ -8475,37 +7536,35 @@ pub const RTM_MATCH_OWNER: u32 = 1u32;
 pub const RTM_MATCH_PREF: u32 = 4u32;
 pub const RTM_MAX_ADDRESS_SIZE: u32 = 16u32;
 pub const RTM_MAX_VIEWS: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_NET_ADDRESS {
     pub AddressFamily: u16,
     pub NumBits: u16,
     pub AddrBits: [u8; 16],
 }
-impl RTM_NET_ADDRESS {}
+impl ::core::marker::Copy for RTM_NET_ADDRESS {}
+impl ::core::clone::Clone for RTM_NET_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_NET_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_NET_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_NET_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_NET_ADDRESS {}
 impl ::core::default::Default for RTM_NET_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_NET_ADDRESS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_NET_ADDRESS").field("AddressFamily", &self.AddressFamily).field("NumBits", &self.NumBits).field("AddrBits", &self.AddrBits).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_NET_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.NumBits == other.NumBits && self.AddrBits == other.AddrBits
-    }
-}
-impl ::core::cmp::Eq for RTM_NET_ADDRESS {}
-unsafe impl ::windows::core::Abi for RTM_NET_ADDRESS {
-    type Abi = Self;
-}
 pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
 pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
 pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_NEXTHOP_INFO {
     pub NextHopAddress: RTM_NET_ADDRESS,
@@ -8516,83 +7575,80 @@ pub struct RTM_NEXTHOP_INFO {
     pub EntitySpecificInfo: *mut ::core::ffi::c_void,
     pub RemoteNextHop: isize,
 }
-impl RTM_NEXTHOP_INFO {}
+impl ::core::marker::Copy for RTM_NEXTHOP_INFO {}
+impl ::core::clone::Clone for RTM_NEXTHOP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_NEXTHOP_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_NEXTHOP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_NEXTHOP_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_NEXTHOP_INFO {}
 impl ::core::default::Default for RTM_NEXTHOP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_NEXTHOP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_NEXTHOP_INFO").field("NextHopAddress", &self.NextHopAddress).field("NextHopOwner", &self.NextHopOwner).field("InterfaceIndex", &self.InterfaceIndex).field("State", &self.State).field("Flags", &self.Flags).field("EntitySpecificInfo", &self.EntitySpecificInfo).field("RemoteNextHop", &self.RemoteNextHop).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_NEXTHOP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextHopAddress == other.NextHopAddress && self.NextHopOwner == other.NextHopOwner && self.InterfaceIndex == other.InterfaceIndex && self.State == other.State && self.Flags == other.Flags && self.EntitySpecificInfo == other.EntitySpecificInfo && self.RemoteNextHop == other.RemoteNextHop
-    }
-}
-impl ::core::cmp::Eq for RTM_NEXTHOP_INFO {}
-unsafe impl ::windows::core::Abi for RTM_NEXTHOP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
 }
-impl RTM_NEXTHOP_LIST {}
+impl ::core::marker::Copy for RTM_NEXTHOP_LIST {}
+impl ::core::clone::Clone for RTM_NEXTHOP_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_NEXTHOP_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_NEXTHOP_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_NEXTHOP_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_NEXTHOP_LIST {}
 impl ::core::default::Default for RTM_NEXTHOP_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_NEXTHOP_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_NEXTHOP_LIST").field("NumNextHops", &self.NumNextHops).field("NextHops", &self.NextHops).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_NEXTHOP_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumNextHops == other.NumNextHops && self.NextHops == other.NextHops
-    }
-}
-impl ::core::cmp::Eq for RTM_NEXTHOP_LIST {}
-unsafe impl ::windows::core::Abi for RTM_NEXTHOP_LIST {
-    type Abi = Self;
-}
 pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
 pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
 pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
 pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_PREF_INFO {
     pub Metric: u32,
     pub Preference: u32,
 }
-impl RTM_PREF_INFO {}
+impl ::core::marker::Copy for RTM_PREF_INFO {}
+impl ::core::clone::Clone for RTM_PREF_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_PREF_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_PREF_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_PREF_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_PREF_INFO {}
 impl ::core::default::Default for RTM_PREF_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTM_PREF_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_PREF_INFO").field("Metric", &self.Metric).field("Preference", &self.Preference).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_PREF_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Metric == other.Metric && self.Preference == other.Preference
-    }
-}
-impl ::core::cmp::Eq for RTM_PREF_INFO {}
-unsafe impl ::windows::core::Abi for RTM_PREF_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_REGN_PROFILE {
     pub MaxNextHopsInRoute: u32,
@@ -8600,25 +7656,25 @@ pub struct RTM_REGN_PROFILE {
     pub ViewsSupported: u32,
     pub NumberOfViews: u32,
 }
-impl RTM_REGN_PROFILE {}
+impl ::core::marker::Copy for RTM_REGN_PROFILE {}
+impl ::core::clone::Clone for RTM_REGN_PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_REGN_PROFILE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_REGN_PROFILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_REGN_PROFILE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_REGN_PROFILE {}
 impl ::core::default::Default for RTM_REGN_PROFILE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RTM_REGN_PROFILE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_REGN_PROFILE").field("MaxNextHopsInRoute", &self.MaxNextHopsInRoute).field("MaxHandlesInEnum", &self.MaxHandlesInEnum).field("ViewsSupported", &self.ViewsSupported).field("NumberOfViews", &self.NumberOfViews).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_REGN_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxNextHopsInRoute == other.MaxNextHopsInRoute && self.MaxHandlesInEnum == other.MaxHandlesInEnum && self.ViewsSupported == other.ViewsSupported && self.NumberOfViews == other.NumberOfViews
-    }
-}
-impl ::core::cmp::Eq for RTM_REGN_PROFILE {}
-unsafe impl ::windows::core::Abi for RTM_REGN_PROFILE {
-    type Abi = Self;
 }
 pub const RTM_RESUME_METHODS: u32 = 0u32;
 pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
@@ -8639,7 +7695,6 @@ pub const RTM_ROUTE_FLAGS_ONES_SUBNETBC: u32 = 32768u32;
 pub const RTM_ROUTE_FLAGS_REMOTE: u32 = 32u32;
 pub const RTM_ROUTE_FLAGS_ZEROS_NETBC: u32 = 4096u32;
 pub const RTM_ROUTE_FLAGS_ZEROS_SUBNETBC: u32 = 8192u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTM_ROUTE_INFO {
     pub DestHandle: isize,
@@ -8653,25 +7708,25 @@ pub struct RTM_ROUTE_INFO {
     pub EntitySpecificInfo: *mut ::core::ffi::c_void,
     pub NextHopsList: RTM_NEXTHOP_LIST,
 }
-impl RTM_ROUTE_INFO {}
+impl ::core::marker::Copy for RTM_ROUTE_INFO {}
+impl ::core::clone::Clone for RTM_ROUTE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTM_ROUTE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTM_ROUTE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_ROUTE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTM_ROUTE_INFO {}
 impl ::core::default::Default for RTM_ROUTE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RTM_ROUTE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTM_ROUTE_INFO").field("DestHandle", &self.DestHandle).field("RouteOwner", &self.RouteOwner).field("Neighbour", &self.Neighbour).field("State", &self.State).field("Flags1", &self.Flags1).field("Flags", &self.Flags).field("PrefInfo", &self.PrefInfo).field("BelongsToViews", &self.BelongsToViews).field("EntitySpecificInfo", &self.EntitySpecificInfo).field("NextHopsList", &self.NextHopsList).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTM_ROUTE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DestHandle == other.DestHandle && self.RouteOwner == other.RouteOwner && self.Neighbour == other.Neighbour && self.State == other.State && self.Flags1 == other.Flags1 && self.Flags == other.Flags && self.PrefInfo == other.PrefInfo && self.BelongsToViews == other.BelongsToViews && self.EntitySpecificInfo == other.EntitySpecificInfo && self.NextHopsList == other.NextHopsList
-    }
-}
-impl ::core::cmp::Eq for RTM_ROUTE_INFO {}
-unsafe impl ::windows::core::Abi for RTM_ROUTE_INFO {
-    type Abi = Self;
 }
 pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
 pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
@@ -8776,7 +7831,7 @@ pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hins
 pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
 pub type RasCustomHangUpFn = ::core::option::Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: super::super::Foundation::PWSTR, lpszentryname: super::super::Foundation::PWSTR, pfnrasgetbuffer: ::windows::core::RawPtr, pfnrasfreebuffer: ::windows::core::RawPtr, pfnrassendbuffer: ::windows::core::RawPtr, pfnrasreceivebuffer: ::windows::core::RawPtr, pfnrasretrievebuffer: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: super::super::Foundation::PWSTR, lpszentryname: super::super::Foundation::PWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
@@ -10722,7 +9777,6 @@ pub unsafe fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, t
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_MESSAGE {
@@ -10733,74 +9787,35 @@ pub struct SECURITY_MESSAGE {
     pub Domain: [super::super::Foundation::CHAR; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SECURITY_MESSAGE {}
+impl ::core::marker::Copy for SECURITY_MESSAGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECURITY_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SECURITY_MESSAGE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SECURITY_MESSAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECURITY_MESSAGE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SECURITY_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECURITY_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SECURITY_MESSAGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SECURITY_MESSAGE").field("dwMsgId", &self.dwMsgId).field("hPort", &self.hPort).field("dwError", &self.dwError).field("UserName", &self.UserName).field("Domain", &self.Domain).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SECURITY_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMsgId == other.dwMsgId && self.hPort == other.hPort && self.dwError == other.dwError && self.UserName == other.UserName && self.Domain == other.Domain
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SECURITY_MESSAGE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECURITY_MESSAGE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
-pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(1u32);
-pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(2u32);
-pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(3u32);
-impl ::core::convert::From<u32> for SECURITY_MESSAGE_MSG_ID {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SECURITY_MESSAGE_MSG_ID {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SECURITY_MESSAGE_MSG_ID {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SECURITY_MESSAGE_MSG_ID {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SECURITY_MESSAGE_MSG_ID {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SECURITY_MESSAGE_MSG_ID {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SECURITY_MESSAGE_MSG_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SECURITY_MESSAGE_MSG_ID = u32;
+pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = 1u32;
+pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = 2u32;
+pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = 3u32;
 #[repr(C)]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,
@@ -10808,27 +9823,26 @@ pub struct SOURCE_GROUP_ENTRY {
     pub dwGroupAddr: u32,
     pub dwGroupMask: u32,
 }
-impl SOURCE_GROUP_ENTRY {}
+impl ::core::marker::Copy for SOURCE_GROUP_ENTRY {}
+impl ::core::clone::Clone for SOURCE_GROUP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SOURCE_GROUP_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOURCE_GROUP_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOURCE_GROUP_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOURCE_GROUP_ENTRY {}
 impl ::core::default::Default for SOURCE_GROUP_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SOURCE_GROUP_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SOURCE_GROUP_ENTRY").field("dwSourceAddr", &self.dwSourceAddr).field("dwSourceMask", &self.dwSourceMask).field("dwGroupAddr", &self.dwGroupAddr).field("dwGroupMask", &self.dwGroupMask).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SOURCE_GROUP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSourceAddr == other.dwSourceAddr && self.dwSourceMask == other.dwSourceMask && self.dwGroupAddr == other.dwGroupAddr && self.dwGroupMask == other.dwGroupMask
-    }
-}
-impl ::core::cmp::Eq for SOURCE_GROUP_ENTRY {}
-unsafe impl ::windows::core::Abi for SOURCE_GROUP_ENTRY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SSTP_CERT_INFO {
@@ -10836,32 +9850,31 @@ pub struct SSTP_CERT_INFO {
     pub certBlob: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl SSTP_CERT_INFO {}
+impl ::core::marker::Copy for SSTP_CERT_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for SSTP_CERT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for SSTP_CERT_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for SSTP_CERT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSTP_CERT_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for SSTP_CERT_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for SSTP_CERT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for SSTP_CERT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SSTP_CERT_INFO").field("isDefault", &self.isDefault).field("certBlob", &self.certBlob).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for SSTP_CERT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.isDefault == other.isDefault && self.certBlob == other.certBlob
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for SSTP_CERT_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for SSTP_CERT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SSTP_CONFIG_PARAMS {
@@ -10872,32 +9885,31 @@ pub struct SSTP_CONFIG_PARAMS {
     pub sstpCertDetails: SSTP_CERT_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl SSTP_CONFIG_PARAMS {}
+impl ::core::marker::Copy for SSTP_CONFIG_PARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for SSTP_CONFIG_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for SSTP_CONFIG_PARAMS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for SSTP_CONFIG_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSTP_CONFIG_PARAMS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for SSTP_CONFIG_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for SSTP_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for SSTP_CONFIG_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SSTP_CONFIG_PARAMS").field("dwNumPorts", &self.dwNumPorts).field("dwPortFlags", &self.dwPortFlags).field("isUseHttps", &self.isUseHttps).field("certAlgorithm", &self.certAlgorithm).field("sstpCertDetails", &self.sstpCertDetails).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for SSTP_CONFIG_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPorts == other.dwNumPorts && self.dwPortFlags == other.dwPortFlags && self.isUseHttps == other.isUseHttps && self.certAlgorithm == other.certAlgorithm && self.sstpCertDetails == other.sstpCertDetails
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for SSTP_CONFIG_PARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for SSTP_CONFIG_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct VPN_TS_IP_ADDRESS {
@@ -10905,26 +9917,31 @@ pub struct VPN_TS_IP_ADDRESS {
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl VPN_TS_IP_ADDRESS {}
+impl ::core::marker::Copy for VPN_TS_IP_ADDRESS {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for VPN_TS_IP_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for VPN_TS_IP_ADDRESS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for VPN_TS_IP_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VPN_TS_IP_ADDRESS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for VPN_TS_IP_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for VPN_TS_IP_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for VPN_TS_IP_ADDRESS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for VPN_TS_IP_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for VPN_TS_IP_ADDRESS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union VPN_TS_IP_ADDRESS_0 {
@@ -10932,24 +9949,30 @@ pub union VPN_TS_IP_ADDRESS_0 {
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl VPN_TS_IP_ADDRESS_0 {}
+impl ::core::marker::Copy for VPN_TS_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for VPN_TS_IP_ADDRESS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for VPN_TS_IP_ADDRESS_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for VPN_TS_IP_ADDRESS_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for VPN_TS_IP_ADDRESS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VPN_TS_IP_ADDRESS_0>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for VPN_TS_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for VPN_TS_IP_ADDRESS_0 {
-    type Abi = Self;
+impl ::core::default::Default for VPN_TS_IP_ADDRESS_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const VS_Default: u32 = 0u32;
 pub const VS_GREOnly: u32 = 9u32;
@@ -10967,7 +9990,6 @@ pub const VS_SstpFirst: u32 = 6u32;
 pub const VS_SstpOnly: u32 = 5u32;
 pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
 pub const WM_RASDIALEVENT: u32 = 52429u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct _MPR_VPN_SELECTOR {
@@ -10980,22 +10002,28 @@ pub struct _MPR_VPN_SELECTOR {
     pub addrEnd: VPN_TS_IP_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl _MPR_VPN_SELECTOR {}
+impl ::core::marker::Copy for _MPR_VPN_SELECTOR {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for _MPR_VPN_SELECTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for _MPR_VPN_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for _MPR_VPN_SELECTOR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for _MPR_VPN_SELECTOR {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_MPR_VPN_SELECTOR>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for _MPR_VPN_SELECTOR {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for _MPR_VPN_SELECTOR {
-    type Abi = Self;
+impl ::core::default::Default for _MPR_VPN_SELECTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }

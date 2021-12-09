@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const AGP_FLAG_NO_1X_RATE: i32 = 1i32;
 pub const AGP_FLAG_NO_2X_RATE: i32 = 2i32;
 pub const AGP_FLAG_NO_4X_RATE: i32 = 4i32;
@@ -52,7 +52,6 @@ pub const DOSOPTGF_DEFCLEAN: i32 = 1i32;
 pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
 pub const DRIVERSIGN_NONE: u32 = 0u32;
 pub const DRIVERSIGN_WARNING: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
@@ -65,25 +64,25 @@ pub struct DSKTLSYSTEMTIME {
     pub wMilliseconds: u16,
     pub wResult: u16,
 }
-impl DSKTLSYSTEMTIME {}
+impl ::core::marker::Copy for DSKTLSYSTEMTIME {}
+impl ::core::clone::Clone for DSKTLSYSTEMTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DSKTLSYSTEMTIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSKTLSYSTEMTIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSKTLSYSTEMTIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSKTLSYSTEMTIME {}
 impl ::core::default::Default for DSKTLSYSTEMTIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DSKTLSYSTEMTIME {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSKTLSYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).field("wResult", &self.wResult).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DSKTLSYSTEMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds && self.wResult == other.wResult
-    }
-}
-impl ::core::cmp::Eq for DSKTLSYSTEMTIME {}
-unsafe impl ::windows::core::Abi for DSKTLSYSTEMTIME {
-    type Abi = Self;
 }
 pub const DTRESULTFIX: u32 = 1u32;
 pub const DTRESULTOK: u32 = 0u32;
@@ -106,28 +105,17 @@ pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HKEY(pub isize);
-impl ::core::default::Default for HKEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HKEY {}
-unsafe impl ::windows::core::Abi for HKEY {
-    type Abi = Self;
-}
-pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
-pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
-pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);
-pub const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = HKEY(-2147483641i32 as _);
-pub const HKEY_DYN_DATA: HKEY = HKEY(-2147483642i32 as _);
-pub const HKEY_LOCAL_MACHINE: HKEY = HKEY(-2147483646i32 as _);
-pub const HKEY_PERFORMANCE_DATA: HKEY = HKEY(-2147483644i32 as _);
-pub const HKEY_PERFORMANCE_NLSTEXT: HKEY = HKEY(-2147483552i32 as _);
-pub const HKEY_PERFORMANCE_TEXT: HKEY = HKEY(-2147483568i32 as _);
-pub const HKEY_USERS: HKEY = HKEY(-2147483645i32 as _);
+pub type HKEY = isize;
+pub const HKEY_CLASSES_ROOT: HKEY = -2147483648i32 as _;
+pub const HKEY_CURRENT_CONFIG: HKEY = -2147483643i32 as _;
+pub const HKEY_CURRENT_USER: HKEY = -2147483647i32 as _;
+pub const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = -2147483641i32 as _;
+pub const HKEY_DYN_DATA: HKEY = -2147483642i32 as _;
+pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646i32 as _;
+pub const HKEY_PERFORMANCE_DATA: HKEY = -2147483644i32 as _;
+pub const HKEY_PERFORMANCE_NLSTEXT: HKEY = -2147483552i32 as _;
+pub const HKEY_PERFORMANCE_TEXT: HKEY = -2147483568i32 as _;
+pub const HKEY_USERS: HKEY = -2147483645i32 as _;
 pub const IT_COMPACT: u32 = 0u32;
 pub const IT_CUSTOM: u32 = 3u32;
 pub const IT_PORTABLE: u32 = 2u32;
@@ -197,351 +185,75 @@ pub const REGDF_NOTDETMEM: u32 = 2u32;
 pub const REGDF_NOTVERIFIED: u32 = 2147483648u32;
 pub const REGSTR_MAX_VALUE_LENGTH: u32 = 256u32;
 pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
-pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
-pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(2u32);
-impl ::core::convert::From<u32> for REG_CREATE_KEY_DISPOSITION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_CREATE_KEY_DISPOSITION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REG_CREATE_KEY_DISPOSITION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_CREATE_KEY_DISPOSITION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_CREATE_KEY_DISPOSITION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_CREATE_KEY_DISPOSITION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REG_CREATE_KEY_DISPOSITION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type REG_CREATE_KEY_DISPOSITION = u32;
+pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = 1u32;
+pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = 2u32;
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_NOTIFY_FILTER(pub u32);
-pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(1u32);
-pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(2u32);
-pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(4u32);
-pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(8u32);
-pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(268435456u32);
-impl ::core::convert::From<u32> for REG_NOTIFY_FILTER {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_NOTIFY_FILTER {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REG_NOTIFY_FILTER {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_NOTIFY_FILTER {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_NOTIFY_FILTER {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_NOTIFY_FILTER {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REG_NOTIFY_FILTER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
-pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
-pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
-pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(1u32);
-pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(2u32);
-pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(4u32);
-pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(8u32);
-pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(16u32);
-impl ::core::convert::From<u32> for REG_OPEN_CREATE_OPTIONS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_OPEN_CREATE_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REG_OPEN_CREATE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_OPEN_CREATE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_OPEN_CREATE_OPTIONS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_OPEN_CREATE_OPTIONS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REG_OPEN_CREATE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type REG_NOTIFY_FILTER = u32;
+pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = 1u32;
+pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = 2u32;
+pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = 4u32;
+pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = 8u32;
+pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = 268435456u32;
+pub type REG_OPEN_CREATE_OPTIONS = u32;
+pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = 0u32;
+pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = 0u32;
+pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = 1u32;
+pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = 2u32;
+pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = 4u32;
+pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = 8u32;
+pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = 16u32;
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_RESTORE_KEY_FLAGS(pub i32);
-pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(8i32);
-pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(1i32);
-impl ::core::convert::From<i32> for REG_RESTORE_KEY_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_RESTORE_KEY_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_SAM_FLAGS(pub u32);
-pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1u32);
-pub const KEY_SET_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(2u32);
-pub const KEY_CREATE_SUB_KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(4u32);
-pub const KEY_ENUMERATE_SUB_KEYS: REG_SAM_FLAGS = REG_SAM_FLAGS(8u32);
-pub const KEY_NOTIFY: REG_SAM_FLAGS = REG_SAM_FLAGS(16u32);
-pub const KEY_CREATE_LINK: REG_SAM_FLAGS = REG_SAM_FLAGS(32u32);
-pub const KEY_WOW64_32KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(512u32);
-pub const KEY_WOW64_64KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(256u32);
-pub const KEY_WOW64_RES: REG_SAM_FLAGS = REG_SAM_FLAGS(768u32);
-pub const KEY_READ: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
-pub const KEY_WRITE: REG_SAM_FLAGS = REG_SAM_FLAGS(131078u32);
-pub const KEY_EXECUTE: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
-pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = REG_SAM_FLAGS(983103u32);
-impl ::core::convert::From<u32> for REG_SAM_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_SAM_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REG_SAM_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_SAM_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_SAM_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_SAM_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REG_SAM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_SAVE_FORMAT(pub u32);
-pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1u32);
-pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(2u32);
-pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = REG_SAVE_FORMAT(4u32);
-impl ::core::convert::From<u32> for REG_SAVE_FORMAT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_SAVE_FORMAT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REG_SAVE_FORMAT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_SAVE_FORMAT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_SAVE_FORMAT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_SAVE_FORMAT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REG_SAVE_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type REG_RESTORE_KEY_FLAGS = i32;
+pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = 8i32;
+pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = 1i32;
+pub type REG_SAM_FLAGS = u32;
+pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = 1u32;
+pub const KEY_SET_VALUE: REG_SAM_FLAGS = 2u32;
+pub const KEY_CREATE_SUB_KEY: REG_SAM_FLAGS = 4u32;
+pub const KEY_ENUMERATE_SUB_KEYS: REG_SAM_FLAGS = 8u32;
+pub const KEY_NOTIFY: REG_SAM_FLAGS = 16u32;
+pub const KEY_CREATE_LINK: REG_SAM_FLAGS = 32u32;
+pub const KEY_WOW64_32KEY: REG_SAM_FLAGS = 512u32;
+pub const KEY_WOW64_64KEY: REG_SAM_FLAGS = 256u32;
+pub const KEY_WOW64_RES: REG_SAM_FLAGS = 768u32;
+pub const KEY_READ: REG_SAM_FLAGS = 131097u32;
+pub const KEY_WRITE: REG_SAM_FLAGS = 131078u32;
+pub const KEY_EXECUTE: REG_SAM_FLAGS = 131097u32;
+pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = 983103u32;
+pub type REG_SAVE_FORMAT = u32;
+pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = 1u32;
+pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = 2u32;
+pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = 4u32;
 pub const REG_SECURE_CONNECTION: u32 = 1u32;
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REG_VALUE_TYPE(pub u32);
-pub const REG_NONE: REG_VALUE_TYPE = REG_VALUE_TYPE(0u32);
-pub const REG_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(1u32);
-pub const REG_EXPAND_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(2u32);
-pub const REG_BINARY: REG_VALUE_TYPE = REG_VALUE_TYPE(3u32);
-pub const REG_DWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
-pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
-pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(5u32);
-pub const REG_LINK: REG_VALUE_TYPE = REG_VALUE_TYPE(6u32);
-pub const REG_MULTI_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(7u32);
-pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(8u32);
-pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = REG_VALUE_TYPE(9u32);
-pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(10u32);
-pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
-pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
-impl ::core::convert::From<u32> for REG_VALUE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REG_VALUE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for REG_VALUE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for REG_VALUE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for REG_VALUE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for REG_VALUE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for REG_VALUE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type REG_VALUE_TYPE = u32;
+pub const REG_NONE: REG_VALUE_TYPE = 0u32;
+pub const REG_SZ: REG_VALUE_TYPE = 1u32;
+pub const REG_EXPAND_SZ: REG_VALUE_TYPE = 2u32;
+pub const REG_BINARY: REG_VALUE_TYPE = 3u32;
+pub const REG_DWORD: REG_VALUE_TYPE = 4u32;
+pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = 4u32;
+pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = 5u32;
+pub const REG_LINK: REG_VALUE_TYPE = 6u32;
+pub const REG_MULTI_SZ: REG_VALUE_TYPE = 7u32;
+pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = 8u32;
+pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = 9u32;
+pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = 10u32;
+pub const REG_QWORD: REG_VALUE_TYPE = 11u32;
+pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = 11u32;
 pub const RRF_NOEXPAND: u32 = 268435456u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RRF_RT(pub u32);
-pub const RRF_RT_ANY: RRF_RT = RRF_RT(65535u32);
-pub const RRF_RT_DWORD: RRF_RT = RRF_RT(24u32);
-pub const RRF_RT_QWORD: RRF_RT = RRF_RT(72u32);
-pub const RRF_RT_REG_BINARY: RRF_RT = RRF_RT(8u32);
-pub const RRF_RT_REG_DWORD: RRF_RT = RRF_RT(16u32);
-pub const RRF_RT_REG_EXPAND_SZ: RRF_RT = RRF_RT(4u32);
-pub const RRF_RT_REG_MULTI_SZ: RRF_RT = RRF_RT(32u32);
-pub const RRF_RT_REG_NONE: RRF_RT = RRF_RT(1u32);
-pub const RRF_RT_REG_QWORD: RRF_RT = RRF_RT(64u32);
-pub const RRF_RT_REG_SZ: RRF_RT = RRF_RT(2u32);
-impl ::core::convert::From<u32> for RRF_RT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RRF_RT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for RRF_RT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for RRF_RT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RRF_RT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RRF_RT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for RRF_RT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type RRF_RT = u32;
+pub const RRF_RT_ANY: RRF_RT = 65535u32;
+pub const RRF_RT_DWORD: RRF_RT = 24u32;
+pub const RRF_RT_QWORD: RRF_RT = 72u32;
+pub const RRF_RT_REG_BINARY: RRF_RT = 8u32;
+pub const RRF_RT_REG_DWORD: RRF_RT = 16u32;
+pub const RRF_RT_REG_EXPAND_SZ: RRF_RT = 4u32;
+pub const RRF_RT_REG_MULTI_SZ: RRF_RT = 32u32;
+pub const RRF_RT_REG_NONE: RRF_RT = 1u32;
+pub const RRF_RT_REG_QWORD: RRF_RT = 64u32;
+pub const RRF_RT_REG_SZ: RRF_RT = 2u32;
 pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072u32;
 pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
 pub const RRF_WOW64_MASK: u32 = 196608u32;
@@ -1701,7 +1413,6 @@ pub const SUF_NETHDBOOT: i32 = 64i32;
 pub const SUF_NETRPLBOOT: i32 = 128i32;
 pub const SUF_NETSETUP: i32 = 32i32;
 pub const SUF_SBSCOPYOK: i32 = 256i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VALENTA {
@@ -1711,32 +1422,31 @@ pub struct VALENTA {
     pub ve_type: REG_VALUE_TYPE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl VALENTA {}
+impl ::core::marker::Copy for VALENTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VALENTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for VALENTA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for VALENTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VALENTA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for VALENTA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VALENTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VALENTA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VALENTA").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VALENTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ve_valuename == other.ve_valuename && self.ve_valuelen == other.ve_valuelen && self.ve_valueptr == other.ve_valueptr && self.ve_type == other.ve_type
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VALENTA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VALENTA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VALENTW {
@@ -1746,30 +1456,30 @@ pub struct VALENTW {
     pub ve_type: REG_VALUE_TYPE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl VALENTW {}
+impl ::core::marker::Copy for VALENTW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for VALENTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for VALENTW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VALENTW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VALENTW").field("ve_valuename", &self.ve_valuename).field("ve_valuelen", &self.ve_valuelen).field("ve_valueptr", &self.ve_valueptr).field("ve_type", &self.ve_type).finish()
-    }
+unsafe impl ::windows::core::Abi for VALENTW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VALENTW {
     fn eq(&self, other: &Self) -> bool {
-        self.ve_valuename == other.ve_valuename && self.ve_valuelen == other.ve_valuelen && self.ve_valueptr == other.ve_valueptr && self.ve_type == other.ve_type
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VALENTW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VALENTW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VALENTW {
-    type Abi = Self;
+impl ::core::default::Default for VALENTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
@@ -1777,7 +1487,6 @@ pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
 pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct provider_info {
     pub pi_R0_1val: PQUERYHANDLER,
@@ -1787,27 +1496,26 @@ pub struct provider_info {
     pub pi_flags: u32,
     pub pi_key_context: *mut ::core::ffi::c_void,
 }
-impl provider_info {}
+impl ::core::marker::Copy for provider_info {}
+impl ::core::clone::Clone for provider_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for provider_info {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for provider_info {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<provider_info>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for provider_info {}
 impl ::core::default::Default for provider_info {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for provider_info {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("provider_info").field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
-    }
-}
-impl ::core::cmp::PartialEq for provider_info {
-    fn eq(&self, other: &Self) -> bool {
-        self.pi_R0_1val.map(|f| f as usize) == other.pi_R0_1val.map(|f| f as usize) && self.pi_R0_allvals.map(|f| f as usize) == other.pi_R0_allvals.map(|f| f as usize) && self.pi_R3_1val.map(|f| f as usize) == other.pi_R3_1val.map(|f| f as usize) && self.pi_R3_allvals.map(|f| f as usize) == other.pi_R3_allvals.map(|f| f as usize) && self.pi_flags == other.pi_flags && self.pi_key_context == other.pi_key_context
-    }
-}
-impl ::core::cmp::Eq for provider_info {}
-unsafe impl ::windows::core::Abi for provider_info {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct pvalueA {
@@ -1817,32 +1525,31 @@ pub struct pvalueA {
     pub pv_type: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl pvalueA {}
+impl ::core::marker::Copy for pvalueA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for pvalueA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for pvalueA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for pvalueA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pvalueA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for pvalueA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for pvalueA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for pvalueA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("pvalueA").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for pvalueA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pv_valuename == other.pv_valuename && self.pv_valuelen == other.pv_valuelen && self.pv_value_context == other.pv_value_context && self.pv_type == other.pv_type
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for pvalueA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for pvalueA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct pvalueW {
@@ -1852,55 +1559,54 @@ pub struct pvalueW {
     pub pv_type: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl pvalueW {}
+impl ::core::marker::Copy for pvalueW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for pvalueW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for pvalueW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for pvalueW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pvalueW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for pvalueW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for pvalueW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for pvalueW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("pvalueW").field("pv_valuename", &self.pv_valuename).field("pv_valuelen", &self.pv_valuelen).field("pv_value_context", &self.pv_value_context).field("pv_type", &self.pv_type).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for pvalueW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pv_valuename == other.pv_valuename && self.pv_valuelen == other.pv_valuelen && self.pv_value_context == other.pv_value_context && self.pv_type == other.pv_type
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for pvalueW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for pvalueW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut ::core::ffi::c_void,
     pub val_buff_ptr: *mut ::core::ffi::c_void,
 }
-impl val_context {}
+impl ::core::marker::Copy for val_context {}
+impl ::core::clone::Clone for val_context {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for val_context {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for val_context {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<val_context>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for val_context {}
 impl ::core::default::Default for val_context {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for val_context {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("val_context").field("valuelen", &self.valuelen).field("value_context", &self.value_context).field("val_buff_ptr", &self.val_buff_ptr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for val_context {
-    fn eq(&self, other: &Self) -> bool {
-        self.valuelen == other.valuelen && self.value_context == other.value_context && self.val_buff_ptr == other.val_buff_ptr
-    }
-}
-impl ::core::cmp::Eq for val_context {}
-unsafe impl ::windows::core::Abi for val_context {
-    type Abi = Self;
 }

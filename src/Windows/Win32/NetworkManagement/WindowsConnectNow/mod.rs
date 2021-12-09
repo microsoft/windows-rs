@@ -1,7 +1,6 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWCNConnectNotify(pub ::windows::core::IUnknown);
+pub struct IWCNConnectNotify(::windows::core::IUnknown);
 impl IWCNConnectNotify {
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
@@ -10,42 +9,52 @@ impl IWCNConnectNotify {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrfailure)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IWCNConnectNotify {
-    type Vtable = IWCNConnectNotify_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
-}
 impl ::core::convert::From<IWCNConnectNotify> for ::windows::core::IUnknown {
     fn from(value: IWCNConnectNotify) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWCNConnectNotify> for ::windows::core::IUnknown {
     fn from(value: &IWCNConnectNotify) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWCNConnectNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWCNConnectNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWCNConnectNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IWCNConnectNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IWCNConnectNotify {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IWCNConnectNotify {}
+unsafe impl ::windows::core::Interface for IWCNConnectNotify {
+    type Vtable = IWCNConnectNotifyVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWCNConnectNotify_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrfailure: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+pub struct IWCNConnectNotifyVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrfailure: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IWCNDevice(pub ::windows::core::IUnknown);
+pub struct IWCNDevice(::windows::core::IUnknown);
 impl IWCNDevice {
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwpasswordlength), ::core::mem::transmute(pbpassword)).ok()
@@ -85,50 +94,61 @@ impl IWCNDevice {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwoobpasswordid), ::core::mem::transmute(dwpasswordlength), ::core::mem::transmute(pbpassword), ::core::mem::transmute(dwremotepublickeyhashlength), ::core::mem::transmute(pbremotepublickeyhash), ::core::mem::transmute(dwdhkeybloblength), ::core::mem::transmute(pbdhkeyblob)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IWCNDevice {
-    type Vtable = IWCNDevice_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
-}
 impl ::core::convert::From<IWCNDevice> for ::windows::core::IUnknown {
     fn from(value: IWCNDevice) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWCNDevice> for ::windows::core::IUnknown {
     fn from(value: &IWCNDevice) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWCNDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWCNDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWCNDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IWCNDevice {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IWCNDevice {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IWCNDevice {}
+unsafe impl ::windows::core::Interface for IWCNDevice {
+    type Vtable = IWCNDeviceVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWCNDevice_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, attributetype: WCN_ATTRIBUTE_TYPE, puinteger: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+pub struct IWCNDeviceVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, puinteger: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cchmaxstringlength: u32, wszprofile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchmaxstringlength: u32, wszprofile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszprofilexml: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprofilexml: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::HRESULT,
 );
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81), pid: 16u32 };
@@ -141,158 +161,128 @@ pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
 pub const SID_WcnProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
 pub const WCNDeviceObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_ATTRIBUTE_TYPE(pub i32);
-pub const WCN_TYPE_AP_CHANNEL: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(0i32);
-pub const WCN_TYPE_ASSOCIATION_STATE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(1i32);
-pub const WCN_TYPE_AUTHENTICATION_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(2i32);
-pub const WCN_TYPE_AUTHENTICATION_TYPE_FLAGS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(3i32);
-pub const WCN_TYPE_AUTHENTICATOR: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(4i32);
-pub const WCN_TYPE_CONFIG_METHODS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(5i32);
-pub const WCN_TYPE_CONFIGURATION_ERROR: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(6i32);
-pub const WCN_TYPE_CONFIRMATION_URL4: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(7i32);
-pub const WCN_TYPE_CONFIRMATION_URL6: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(8i32);
-pub const WCN_TYPE_CONNECTION_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(9i32);
-pub const WCN_TYPE_CONNECTION_TYPE_FLAGS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(10i32);
-pub const WCN_TYPE_CREDENTIAL: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(11i32);
-pub const WCN_TYPE_DEVICE_NAME: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(12i32);
-pub const WCN_TYPE_DEVICE_PASSWORD_ID: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(13i32);
-pub const WCN_TYPE_E_HASH1: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(14i32);
-pub const WCN_TYPE_E_HASH2: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(15i32);
-pub const WCN_TYPE_E_SNONCE1: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(16i32);
-pub const WCN_TYPE_E_SNONCE2: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(17i32);
-pub const WCN_TYPE_ENCRYPTED_SETTINGS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(18i32);
-pub const WCN_TYPE_ENCRYPTION_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(19i32);
-pub const WCN_TYPE_ENCRYPTION_TYPE_FLAGS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(20i32);
-pub const WCN_TYPE_ENROLLEE_NONCE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(21i32);
-pub const WCN_TYPE_FEATURE_ID: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(22i32);
-pub const WCN_TYPE_IDENTITY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(23i32);
-pub const WCN_TYPE_IDENTITY_PROOF: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(24i32);
-pub const WCN_TYPE_KEY_WRAP_AUTHENTICATOR: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(25i32);
-pub const WCN_TYPE_KEY_IDENTIFIER: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(26i32);
-pub const WCN_TYPE_MAC_ADDRESS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(27i32);
-pub const WCN_TYPE_MANUFACTURER: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(28i32);
-pub const WCN_TYPE_MESSAGE_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(29i32);
-pub const WCN_TYPE_MODEL_NAME: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(30i32);
-pub const WCN_TYPE_MODEL_NUMBER: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(31i32);
-pub const WCN_TYPE_NETWORK_INDEX: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(32i32);
-pub const WCN_TYPE_NETWORK_KEY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(33i32);
-pub const WCN_TYPE_NETWORK_KEY_INDEX: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(34i32);
-pub const WCN_TYPE_NEW_DEVICE_NAME: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(35i32);
-pub const WCN_TYPE_NEW_PASSWORD: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(36i32);
-pub const WCN_TYPE_OOB_DEVICE_PASSWORD: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(37i32);
-pub const WCN_TYPE_OS_VERSION: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(38i32);
-pub const WCN_TYPE_POWER_LEVEL: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(39i32);
-pub const WCN_TYPE_PSK_CURRENT: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(40i32);
-pub const WCN_TYPE_PSK_MAX: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(41i32);
-pub const WCN_TYPE_PUBLIC_KEY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(42i32);
-pub const WCN_TYPE_RADIO_ENABLED: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(43i32);
-pub const WCN_TYPE_REBOOT: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(44i32);
-pub const WCN_TYPE_REGISTRAR_CURRENT: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(45i32);
-pub const WCN_TYPE_REGISTRAR_ESTABLISHED: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(46i32);
-pub const WCN_TYPE_REGISTRAR_LIST: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(47i32);
-pub const WCN_TYPE_REGISTRAR_MAX: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(48i32);
-pub const WCN_TYPE_REGISTRAR_NONCE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(49i32);
-pub const WCN_TYPE_REQUEST_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(50i32);
-pub const WCN_TYPE_RESPONSE_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(51i32);
-pub const WCN_TYPE_RF_BANDS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(52i32);
-pub const WCN_TYPE_R_HASH1: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(53i32);
-pub const WCN_TYPE_R_HASH2: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(54i32);
-pub const WCN_TYPE_R_SNONCE1: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(55i32);
-pub const WCN_TYPE_R_SNONCE2: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(56i32);
-pub const WCN_TYPE_SELECTED_REGISTRAR: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(57i32);
-pub const WCN_TYPE_SERIAL_NUMBER: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(58i32);
-pub const WCN_TYPE_WI_FI_PROTECTED_SETUP_STATE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(59i32);
-pub const WCN_TYPE_SSID: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(60i32);
-pub const WCN_TYPE_TOTAL_NETWORKS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(61i32);
-pub const WCN_TYPE_UUID_E: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(62i32);
-pub const WCN_TYPE_UUID_R: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(63i32);
-pub const WCN_TYPE_VENDOR_EXTENSION: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(64i32);
-pub const WCN_TYPE_VERSION: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(65i32);
-pub const WCN_TYPE_X_509_CERTIFICATE_REQUEST: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(66i32);
-pub const WCN_TYPE_X_509_CERTIFICATE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(67i32);
-pub const WCN_TYPE_EAP_IDENTITY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(68i32);
-pub const WCN_TYPE_MESSAGE_COUNTER: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(69i32);
-pub const WCN_TYPE_PUBLIC_KEY_HASH: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(70i32);
-pub const WCN_TYPE_REKEY_KEY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(71i32);
-pub const WCN_TYPE_KEY_LIFETIME: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(72i32);
-pub const WCN_TYPE_PERMITTED_CONFIG_METHODS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(73i32);
-pub const WCN_TYPE_SELECTED_REGISTRAR_CONFIG_METHODS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(74i32);
-pub const WCN_TYPE_PRIMARY_DEVICE_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(75i32);
-pub const WCN_TYPE_SECONDARY_DEVICE_TYPE_LIST: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(76i32);
-pub const WCN_TYPE_PORTABLE_DEVICE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(77i32);
-pub const WCN_TYPE_AP_SETUP_LOCKED: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(78i32);
-pub const WCN_TYPE_APPLICATION_EXTENSION: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(79i32);
-pub const WCN_TYPE_EAP_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(80i32);
-pub const WCN_TYPE_INITIALIZATION_VECTOR: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(81i32);
-pub const WCN_TYPE_KEY_PROVIDED_AUTOMATICALLY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(82i32);
-pub const WCN_TYPE_802_1X_ENABLED: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(83i32);
-pub const WCN_TYPE_APPSESSIONKEY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(84i32);
-pub const WCN_TYPE_WEPTRANSMITKEY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(85i32);
-pub const WCN_TYPE_UUID: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(86i32);
-pub const WCN_TYPE_PRIMARY_DEVICE_TYPE_CATEGORY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(87i32);
-pub const WCN_TYPE_PRIMARY_DEVICE_TYPE_SUBCATEGORY_OUI: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(88i32);
-pub const WCN_TYPE_PRIMARY_DEVICE_TYPE_SUBCATEGORY: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(89i32);
-pub const WCN_TYPE_CURRENT_SSID: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(90i32);
-pub const WCN_TYPE_BSSID: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(91i32);
-pub const WCN_TYPE_DOT11_MAC_ADDRESS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(92i32);
-pub const WCN_TYPE_AUTHORIZED_MACS: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(93i32);
-pub const WCN_TYPE_NETWORK_KEY_SHAREABLE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(94i32);
-pub const WCN_TYPE_REQUEST_TO_ENROLL: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(95i32);
-pub const WCN_TYPE_REQUESTED_DEVICE_TYPE: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(96i32);
-pub const WCN_TYPE_SETTINGS_DELAY_TIME: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(97i32);
-pub const WCN_TYPE_VERSION2: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(98i32);
-pub const WCN_TYPE_VENDOR_EXTENSION_WFA: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(99i32);
-pub const WCN_NUM_ATTRIBUTE_TYPES: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(100i32);
-impl ::core::convert::From<i32> for WCN_ATTRIBUTE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_ATTRIBUTE_TYPE {
-    type Abi = Self;
-}
-pub const WCN_E_AUTHENTICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206142i32 as _);
-pub const WCN_E_CONNECTION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206141i32 as _);
-pub const WCN_E_PEER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206143i32 as _);
-pub const WCN_E_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206139i32 as _);
-pub const WCN_E_SESSION_TIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206140i32 as _);
+pub type WCN_ATTRIBUTE_TYPE = i32;
+pub const WCN_TYPE_AP_CHANNEL: WCN_ATTRIBUTE_TYPE = 0i32;
+pub const WCN_TYPE_ASSOCIATION_STATE: WCN_ATTRIBUTE_TYPE = 1i32;
+pub const WCN_TYPE_AUTHENTICATION_TYPE: WCN_ATTRIBUTE_TYPE = 2i32;
+pub const WCN_TYPE_AUTHENTICATION_TYPE_FLAGS: WCN_ATTRIBUTE_TYPE = 3i32;
+pub const WCN_TYPE_AUTHENTICATOR: WCN_ATTRIBUTE_TYPE = 4i32;
+pub const WCN_TYPE_CONFIG_METHODS: WCN_ATTRIBUTE_TYPE = 5i32;
+pub const WCN_TYPE_CONFIGURATION_ERROR: WCN_ATTRIBUTE_TYPE = 6i32;
+pub const WCN_TYPE_CONFIRMATION_URL4: WCN_ATTRIBUTE_TYPE = 7i32;
+pub const WCN_TYPE_CONFIRMATION_URL6: WCN_ATTRIBUTE_TYPE = 8i32;
+pub const WCN_TYPE_CONNECTION_TYPE: WCN_ATTRIBUTE_TYPE = 9i32;
+pub const WCN_TYPE_CONNECTION_TYPE_FLAGS: WCN_ATTRIBUTE_TYPE = 10i32;
+pub const WCN_TYPE_CREDENTIAL: WCN_ATTRIBUTE_TYPE = 11i32;
+pub const WCN_TYPE_DEVICE_NAME: WCN_ATTRIBUTE_TYPE = 12i32;
+pub const WCN_TYPE_DEVICE_PASSWORD_ID: WCN_ATTRIBUTE_TYPE = 13i32;
+pub const WCN_TYPE_E_HASH1: WCN_ATTRIBUTE_TYPE = 14i32;
+pub const WCN_TYPE_E_HASH2: WCN_ATTRIBUTE_TYPE = 15i32;
+pub const WCN_TYPE_E_SNONCE1: WCN_ATTRIBUTE_TYPE = 16i32;
+pub const WCN_TYPE_E_SNONCE2: WCN_ATTRIBUTE_TYPE = 17i32;
+pub const WCN_TYPE_ENCRYPTED_SETTINGS: WCN_ATTRIBUTE_TYPE = 18i32;
+pub const WCN_TYPE_ENCRYPTION_TYPE: WCN_ATTRIBUTE_TYPE = 19i32;
+pub const WCN_TYPE_ENCRYPTION_TYPE_FLAGS: WCN_ATTRIBUTE_TYPE = 20i32;
+pub const WCN_TYPE_ENROLLEE_NONCE: WCN_ATTRIBUTE_TYPE = 21i32;
+pub const WCN_TYPE_FEATURE_ID: WCN_ATTRIBUTE_TYPE = 22i32;
+pub const WCN_TYPE_IDENTITY: WCN_ATTRIBUTE_TYPE = 23i32;
+pub const WCN_TYPE_IDENTITY_PROOF: WCN_ATTRIBUTE_TYPE = 24i32;
+pub const WCN_TYPE_KEY_WRAP_AUTHENTICATOR: WCN_ATTRIBUTE_TYPE = 25i32;
+pub const WCN_TYPE_KEY_IDENTIFIER: WCN_ATTRIBUTE_TYPE = 26i32;
+pub const WCN_TYPE_MAC_ADDRESS: WCN_ATTRIBUTE_TYPE = 27i32;
+pub const WCN_TYPE_MANUFACTURER: WCN_ATTRIBUTE_TYPE = 28i32;
+pub const WCN_TYPE_MESSAGE_TYPE: WCN_ATTRIBUTE_TYPE = 29i32;
+pub const WCN_TYPE_MODEL_NAME: WCN_ATTRIBUTE_TYPE = 30i32;
+pub const WCN_TYPE_MODEL_NUMBER: WCN_ATTRIBUTE_TYPE = 31i32;
+pub const WCN_TYPE_NETWORK_INDEX: WCN_ATTRIBUTE_TYPE = 32i32;
+pub const WCN_TYPE_NETWORK_KEY: WCN_ATTRIBUTE_TYPE = 33i32;
+pub const WCN_TYPE_NETWORK_KEY_INDEX: WCN_ATTRIBUTE_TYPE = 34i32;
+pub const WCN_TYPE_NEW_DEVICE_NAME: WCN_ATTRIBUTE_TYPE = 35i32;
+pub const WCN_TYPE_NEW_PASSWORD: WCN_ATTRIBUTE_TYPE = 36i32;
+pub const WCN_TYPE_OOB_DEVICE_PASSWORD: WCN_ATTRIBUTE_TYPE = 37i32;
+pub const WCN_TYPE_OS_VERSION: WCN_ATTRIBUTE_TYPE = 38i32;
+pub const WCN_TYPE_POWER_LEVEL: WCN_ATTRIBUTE_TYPE = 39i32;
+pub const WCN_TYPE_PSK_CURRENT: WCN_ATTRIBUTE_TYPE = 40i32;
+pub const WCN_TYPE_PSK_MAX: WCN_ATTRIBUTE_TYPE = 41i32;
+pub const WCN_TYPE_PUBLIC_KEY: WCN_ATTRIBUTE_TYPE = 42i32;
+pub const WCN_TYPE_RADIO_ENABLED: WCN_ATTRIBUTE_TYPE = 43i32;
+pub const WCN_TYPE_REBOOT: WCN_ATTRIBUTE_TYPE = 44i32;
+pub const WCN_TYPE_REGISTRAR_CURRENT: WCN_ATTRIBUTE_TYPE = 45i32;
+pub const WCN_TYPE_REGISTRAR_ESTABLISHED: WCN_ATTRIBUTE_TYPE = 46i32;
+pub const WCN_TYPE_REGISTRAR_LIST: WCN_ATTRIBUTE_TYPE = 47i32;
+pub const WCN_TYPE_REGISTRAR_MAX: WCN_ATTRIBUTE_TYPE = 48i32;
+pub const WCN_TYPE_REGISTRAR_NONCE: WCN_ATTRIBUTE_TYPE = 49i32;
+pub const WCN_TYPE_REQUEST_TYPE: WCN_ATTRIBUTE_TYPE = 50i32;
+pub const WCN_TYPE_RESPONSE_TYPE: WCN_ATTRIBUTE_TYPE = 51i32;
+pub const WCN_TYPE_RF_BANDS: WCN_ATTRIBUTE_TYPE = 52i32;
+pub const WCN_TYPE_R_HASH1: WCN_ATTRIBUTE_TYPE = 53i32;
+pub const WCN_TYPE_R_HASH2: WCN_ATTRIBUTE_TYPE = 54i32;
+pub const WCN_TYPE_R_SNONCE1: WCN_ATTRIBUTE_TYPE = 55i32;
+pub const WCN_TYPE_R_SNONCE2: WCN_ATTRIBUTE_TYPE = 56i32;
+pub const WCN_TYPE_SELECTED_REGISTRAR: WCN_ATTRIBUTE_TYPE = 57i32;
+pub const WCN_TYPE_SERIAL_NUMBER: WCN_ATTRIBUTE_TYPE = 58i32;
+pub const WCN_TYPE_WI_FI_PROTECTED_SETUP_STATE: WCN_ATTRIBUTE_TYPE = 59i32;
+pub const WCN_TYPE_SSID: WCN_ATTRIBUTE_TYPE = 60i32;
+pub const WCN_TYPE_TOTAL_NETWORKS: WCN_ATTRIBUTE_TYPE = 61i32;
+pub const WCN_TYPE_UUID_E: WCN_ATTRIBUTE_TYPE = 62i32;
+pub const WCN_TYPE_UUID_R: WCN_ATTRIBUTE_TYPE = 63i32;
+pub const WCN_TYPE_VENDOR_EXTENSION: WCN_ATTRIBUTE_TYPE = 64i32;
+pub const WCN_TYPE_VERSION: WCN_ATTRIBUTE_TYPE = 65i32;
+pub const WCN_TYPE_X_509_CERTIFICATE_REQUEST: WCN_ATTRIBUTE_TYPE = 66i32;
+pub const WCN_TYPE_X_509_CERTIFICATE: WCN_ATTRIBUTE_TYPE = 67i32;
+pub const WCN_TYPE_EAP_IDENTITY: WCN_ATTRIBUTE_TYPE = 68i32;
+pub const WCN_TYPE_MESSAGE_COUNTER: WCN_ATTRIBUTE_TYPE = 69i32;
+pub const WCN_TYPE_PUBLIC_KEY_HASH: WCN_ATTRIBUTE_TYPE = 70i32;
+pub const WCN_TYPE_REKEY_KEY: WCN_ATTRIBUTE_TYPE = 71i32;
+pub const WCN_TYPE_KEY_LIFETIME: WCN_ATTRIBUTE_TYPE = 72i32;
+pub const WCN_TYPE_PERMITTED_CONFIG_METHODS: WCN_ATTRIBUTE_TYPE = 73i32;
+pub const WCN_TYPE_SELECTED_REGISTRAR_CONFIG_METHODS: WCN_ATTRIBUTE_TYPE = 74i32;
+pub const WCN_TYPE_PRIMARY_DEVICE_TYPE: WCN_ATTRIBUTE_TYPE = 75i32;
+pub const WCN_TYPE_SECONDARY_DEVICE_TYPE_LIST: WCN_ATTRIBUTE_TYPE = 76i32;
+pub const WCN_TYPE_PORTABLE_DEVICE: WCN_ATTRIBUTE_TYPE = 77i32;
+pub const WCN_TYPE_AP_SETUP_LOCKED: WCN_ATTRIBUTE_TYPE = 78i32;
+pub const WCN_TYPE_APPLICATION_EXTENSION: WCN_ATTRIBUTE_TYPE = 79i32;
+pub const WCN_TYPE_EAP_TYPE: WCN_ATTRIBUTE_TYPE = 80i32;
+pub const WCN_TYPE_INITIALIZATION_VECTOR: WCN_ATTRIBUTE_TYPE = 81i32;
+pub const WCN_TYPE_KEY_PROVIDED_AUTOMATICALLY: WCN_ATTRIBUTE_TYPE = 82i32;
+pub const WCN_TYPE_802_1X_ENABLED: WCN_ATTRIBUTE_TYPE = 83i32;
+pub const WCN_TYPE_APPSESSIONKEY: WCN_ATTRIBUTE_TYPE = 84i32;
+pub const WCN_TYPE_WEPTRANSMITKEY: WCN_ATTRIBUTE_TYPE = 85i32;
+pub const WCN_TYPE_UUID: WCN_ATTRIBUTE_TYPE = 86i32;
+pub const WCN_TYPE_PRIMARY_DEVICE_TYPE_CATEGORY: WCN_ATTRIBUTE_TYPE = 87i32;
+pub const WCN_TYPE_PRIMARY_DEVICE_TYPE_SUBCATEGORY_OUI: WCN_ATTRIBUTE_TYPE = 88i32;
+pub const WCN_TYPE_PRIMARY_DEVICE_TYPE_SUBCATEGORY: WCN_ATTRIBUTE_TYPE = 89i32;
+pub const WCN_TYPE_CURRENT_SSID: WCN_ATTRIBUTE_TYPE = 90i32;
+pub const WCN_TYPE_BSSID: WCN_ATTRIBUTE_TYPE = 91i32;
+pub const WCN_TYPE_DOT11_MAC_ADDRESS: WCN_ATTRIBUTE_TYPE = 92i32;
+pub const WCN_TYPE_AUTHORIZED_MACS: WCN_ATTRIBUTE_TYPE = 93i32;
+pub const WCN_TYPE_NETWORK_KEY_SHAREABLE: WCN_ATTRIBUTE_TYPE = 94i32;
+pub const WCN_TYPE_REQUEST_TO_ENROLL: WCN_ATTRIBUTE_TYPE = 95i32;
+pub const WCN_TYPE_REQUESTED_DEVICE_TYPE: WCN_ATTRIBUTE_TYPE = 96i32;
+pub const WCN_TYPE_SETTINGS_DELAY_TIME: WCN_ATTRIBUTE_TYPE = 97i32;
+pub const WCN_TYPE_VERSION2: WCN_ATTRIBUTE_TYPE = 98i32;
+pub const WCN_TYPE_VENDOR_EXTENSION_WFA: WCN_ATTRIBUTE_TYPE = 99i32;
+pub const WCN_NUM_ATTRIBUTE_TYPES: WCN_ATTRIBUTE_TYPE = 100i32;
+pub const WCN_E_AUTHENTICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206142i32);
+pub const WCN_E_CONNECTION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206141i32);
+pub const WCN_E_PEER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206143i32);
+pub const WCN_E_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206139i32);
+pub const WCN_E_SESSION_TIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206140i32);
 pub const WCN_FLAG_AUTHENTICATED_VE: u32 = 2u32;
 pub const WCN_FLAG_DISCOVERY_VE: u32 = 1u32;
 pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;
 pub const WCN_MICROSOFT_VENDOR_ID: u32 = 311u32;
 pub const WCN_NO_SUBTYPE: u32 = 4294967294u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_PASSWORD_TYPE(pub i32);
-pub const WCN_PASSWORD_TYPE_PUSH_BUTTON: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(0i32);
-pub const WCN_PASSWORD_TYPE_PIN: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(1i32);
-pub const WCN_PASSWORD_TYPE_PIN_REGISTRAR_SPECIFIED: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(2i32);
-pub const WCN_PASSWORD_TYPE_OOB_SPECIFIED: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(3i32);
-pub const WCN_PASSWORD_TYPE_WFDS: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(4i32);
-impl ::core::convert::From<i32> for WCN_PASSWORD_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_PASSWORD_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_SESSION_STATUS(pub i32);
-pub const WCN_SESSION_STATUS_SUCCESS: WCN_SESSION_STATUS = WCN_SESSION_STATUS(0i32);
-pub const WCN_SESSION_STATUS_FAILURE_GENERIC: WCN_SESSION_STATUS = WCN_SESSION_STATUS(1i32);
-pub const WCN_SESSION_STATUS_FAILURE_TIMEOUT: WCN_SESSION_STATUS = WCN_SESSION_STATUS(2i32);
-impl ::core::convert::From<i32> for WCN_SESSION_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_SESSION_STATUS {
-    type Abi = Self;
-}
+pub type WCN_PASSWORD_TYPE = i32;
+pub const WCN_PASSWORD_TYPE_PUSH_BUTTON: WCN_PASSWORD_TYPE = 0i32;
+pub const WCN_PASSWORD_TYPE_PIN: WCN_PASSWORD_TYPE = 1i32;
+pub const WCN_PASSWORD_TYPE_PIN_REGISTRAR_SPECIFIED: WCN_PASSWORD_TYPE = 2i32;
+pub const WCN_PASSWORD_TYPE_OOB_SPECIFIED: WCN_PASSWORD_TYPE = 3i32;
+pub const WCN_PASSWORD_TYPE_WFDS: WCN_PASSWORD_TYPE = 4i32;
+pub type WCN_SESSION_STATUS = i32;
+pub const WCN_SESSION_STATUS_SUCCESS: WCN_SESSION_STATUS = 0i32;
+pub const WCN_SESSION_STATUS_FAILURE_GENERIC: WCN_SESSION_STATUS = 1i32;
+pub const WCN_SESSION_STATUS_FAILURE_TIMEOUT: WCN_SESSION_STATUS = 2i32;
 pub const WCN_VALUE_DT_CATEGORY_AUDIO_DEVICE: u32 = 11u32;
 pub const WCN_VALUE_DT_CATEGORY_CAMERA: u32 = 4u32;
 pub const WCN_VALUE_DT_CATEGORY_COMPUTER: u32 = 1u32;
@@ -365,276 +355,139 @@ pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_DUALMODE: u32 = 5u32;
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_SINGLEMODE: u32 = 4u32;
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__WINDOWS_MOBILE: u32 = 1u32;
 pub const WCN_VALUE_DT_SUBTYPE_WIFI_OUI: u32 = 5304836u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
-pub const WCN_VALUE_AS_NOT_ASSOCIATED: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(0i32);
-pub const WCN_VALUE_AS_CONNECTION_SUCCESS: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(1i32);
-pub const WCN_VALUE_AS_CONFIGURATION_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(2i32);
-pub const WCN_VALUE_AS_ASSOCIATION_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(3i32);
-pub const WCN_VALUE_AS_IP_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(4i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
-pub const WCN_VALUE_AT_OPEN: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(1i32);
-pub const WCN_VALUE_AT_WPAPSK: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(2i32);
-pub const WCN_VALUE_AT_SHARED: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(4i32);
-pub const WCN_VALUE_AT_WPA: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(8i32);
-pub const WCN_VALUE_AT_WPA2: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(16i32);
-pub const WCN_VALUE_AT_WPA2PSK: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(32i32);
-pub const WCN_VALUE_AT_WPAWPA2PSK_MIXED: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(34i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
-pub const WCN_VALUE_FALSE: WCN_VALUE_TYPE_BOOLEAN = WCN_VALUE_TYPE_BOOLEAN(0i32);
-pub const WCN_VALUE_TRUE: WCN_VALUE_TYPE_BOOLEAN = WCN_VALUE_TYPE_BOOLEAN(1i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_BOOLEAN {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_BOOLEAN {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
-pub const WCN_VALUE_CE_NO_ERROR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(0i32);
-pub const WCN_VALUE_CE_OOB_INTERFACE_READ_ERROR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(1i32);
-pub const WCN_VALUE_CE_DECRYPTION_CRC_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(2i32);
-pub const WCN_VALUE_CE_2_4_CHANNEL_NOT_SUPPORTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(3i32);
-pub const WCN_VALUE_CE_5_0_CHANNEL_NOT_SUPPORTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(4i32);
-pub const WCN_VALUE_CE_SIGNAL_TOO_WEAK: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(5i32);
-pub const WCN_VALUE_CE_NETWORK_AUTHENTICATION_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(6i32);
-pub const WCN_VALUE_CE_NETWORK_ASSOCIATION_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(7i32);
-pub const WCN_VALUE_CE_NO_DHCP_RESPONSE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(8i32);
-pub const WCN_VALUE_CE_FAILED_DHCP_CONFIG: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(9i32);
-pub const WCN_VALUE_CE_IP_ADDRESS_CONFLICT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(10i32);
-pub const WCN_VALUE_CE_COULD_NOT_CONNECT_TO_REGISTRAR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(11i32);
-pub const WCN_VALUE_CE_MULTIPLE_PBC_SESSIONS_DETECTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(12i32);
-pub const WCN_VALUE_CE_ROGUE_ACTIVITY_SUSPECTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(13i32);
-pub const WCN_VALUE_CE_DEVICE_BUSY: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(14i32);
-pub const WCN_VALUE_CE_SETUP_LOCKED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(15i32);
-pub const WCN_VALUE_CE_MESSAGE_TIMEOUT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(16i32);
-pub const WCN_VALUE_CE_REGISTRATION_SESSION_TIMEOUT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(17i32);
-pub const WCN_VALUE_CE_DEVICE_PASSWORD_AUTH_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(18i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
-pub const WCN_VALUE_CM_USBA: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(1i32);
-pub const WCN_VALUE_CM_ETHERNET: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(2i32);
-pub const WCN_VALUE_CM_LABEL: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(4i32);
-pub const WCN_VALUE_CM_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(8i32);
-pub const WCN_VALUE_CM_EXTERNAL_NFC: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(16i32);
-pub const WCN_VALUE_CM_INTEGRATED_NFC: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(32i32);
-pub const WCN_VALUE_CM_NFC_INTERFACE: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(64i32);
-pub const WCN_VALUE_CM_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(128i32);
-pub const WCN_VALUE_CM_KEYPAD: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(256i32);
-pub const WCN_VALUE_CM_VIRT_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(640i32);
-pub const WCN_VALUE_CM_PHYS_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(1152i32);
-pub const WCN_VALUE_CM_VIRT_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(8200i32);
-pub const WCN_VALUE_CM_PHYS_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(16392i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONFIG_METHODS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
-pub const WCN_VALUE_CT_ESS: WCN_VALUE_TYPE_CONNECTION_TYPE = WCN_VALUE_TYPE_CONNECTION_TYPE(1i32);
-pub const WCN_VALUE_CT_IBSS: WCN_VALUE_TYPE_CONNECTION_TYPE = WCN_VALUE_TYPE_CONNECTION_TYPE(2i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
-pub const WCN_VALUE_DP_DEFAULT: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(0i32);
-pub const WCN_VALUE_DP_USER_SPECIFIED: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(1i32);
-pub const WCN_VALUE_DP_MACHINE_SPECIFIED: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(2i32);
-pub const WCN_VALUE_DP_REKEY: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(3i32);
-pub const WCN_VALUE_DP_PUSHBUTTON: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(4i32);
-pub const WCN_VALUE_DP_REGISTRAR_SPECIFIED: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(5i32);
-pub const WCN_VALUE_DP_NFC_CONNECTION_HANDOVER: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(7i32);
-pub const WCN_VALUE_DP_WFD_SERVICES: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(8i32);
-pub const WCN_VALUE_DP_OUTOFBAND_MIN: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(16i32);
-pub const WCN_VALUE_DP_OUTOFBAND_MAX: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(65535i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
-pub const WCN_VALUE_ET_NONE: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(1i32);
-pub const WCN_VALUE_ET_WEP: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(2i32);
-pub const WCN_VALUE_ET_TKIP: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(4i32);
-pub const WCN_VALUE_ET_AES: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(8i32);
-pub const WCN_VALUE_ET_TKIP_AES_MIXED: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(12i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
-pub const WCN_VALUE_MT_BEACON: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(1i32);
-pub const WCN_VALUE_MT_PROBE_REQUEST: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(2i32);
-pub const WCN_VALUE_MT_PROBE_RESPONSE: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(3i32);
-pub const WCN_VALUE_MT_M1: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(4i32);
-pub const WCN_VALUE_MT_M2: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(5i32);
-pub const WCN_VALUE_MT_M2D: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(6i32);
-pub const WCN_VALUE_MT_M3: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(7i32);
-pub const WCN_VALUE_MT_M4: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(8i32);
-pub const WCN_VALUE_MT_M5: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(9i32);
-pub const WCN_VALUE_MT_M6: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(10i32);
-pub const WCN_VALUE_MT_M7: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(11i32);
-pub const WCN_VALUE_MT_M8: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(12i32);
-pub const WCN_VALUE_MT_ACK: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(13i32);
-pub const WCN_VALUE_MT_NACK: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(14i32);
-pub const WCN_VALUE_MT_DONE: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(15i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WCN_VALUE_TYPE_ASSOCIATION_STATE = i32;
+pub const WCN_VALUE_AS_NOT_ASSOCIATED: WCN_VALUE_TYPE_ASSOCIATION_STATE = 0i32;
+pub const WCN_VALUE_AS_CONNECTION_SUCCESS: WCN_VALUE_TYPE_ASSOCIATION_STATE = 1i32;
+pub const WCN_VALUE_AS_CONFIGURATION_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = 2i32;
+pub const WCN_VALUE_AS_ASSOCIATION_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = 3i32;
+pub const WCN_VALUE_AS_IP_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = 4i32;
+pub type WCN_VALUE_TYPE_AUTHENTICATION_TYPE = i32;
+pub const WCN_VALUE_AT_OPEN: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 1i32;
+pub const WCN_VALUE_AT_WPAPSK: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 2i32;
+pub const WCN_VALUE_AT_SHARED: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 4i32;
+pub const WCN_VALUE_AT_WPA: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 8i32;
+pub const WCN_VALUE_AT_WPA2: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 16i32;
+pub const WCN_VALUE_AT_WPA2PSK: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 32i32;
+pub const WCN_VALUE_AT_WPAWPA2PSK_MIXED: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = 34i32;
+pub type WCN_VALUE_TYPE_BOOLEAN = i32;
+pub const WCN_VALUE_FALSE: WCN_VALUE_TYPE_BOOLEAN = 0i32;
+pub const WCN_VALUE_TRUE: WCN_VALUE_TYPE_BOOLEAN = 1i32;
+pub type WCN_VALUE_TYPE_CONFIGURATION_ERROR = i32;
+pub const WCN_VALUE_CE_NO_ERROR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 0i32;
+pub const WCN_VALUE_CE_OOB_INTERFACE_READ_ERROR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 1i32;
+pub const WCN_VALUE_CE_DECRYPTION_CRC_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 2i32;
+pub const WCN_VALUE_CE_2_4_CHANNEL_NOT_SUPPORTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 3i32;
+pub const WCN_VALUE_CE_5_0_CHANNEL_NOT_SUPPORTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 4i32;
+pub const WCN_VALUE_CE_SIGNAL_TOO_WEAK: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 5i32;
+pub const WCN_VALUE_CE_NETWORK_AUTHENTICATION_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 6i32;
+pub const WCN_VALUE_CE_NETWORK_ASSOCIATION_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 7i32;
+pub const WCN_VALUE_CE_NO_DHCP_RESPONSE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 8i32;
+pub const WCN_VALUE_CE_FAILED_DHCP_CONFIG: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 9i32;
+pub const WCN_VALUE_CE_IP_ADDRESS_CONFLICT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 10i32;
+pub const WCN_VALUE_CE_COULD_NOT_CONNECT_TO_REGISTRAR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 11i32;
+pub const WCN_VALUE_CE_MULTIPLE_PBC_SESSIONS_DETECTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 12i32;
+pub const WCN_VALUE_CE_ROGUE_ACTIVITY_SUSPECTED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 13i32;
+pub const WCN_VALUE_CE_DEVICE_BUSY: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 14i32;
+pub const WCN_VALUE_CE_SETUP_LOCKED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 15i32;
+pub const WCN_VALUE_CE_MESSAGE_TIMEOUT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 16i32;
+pub const WCN_VALUE_CE_REGISTRATION_SESSION_TIMEOUT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 17i32;
+pub const WCN_VALUE_CE_DEVICE_PASSWORD_AUTH_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = 18i32;
+pub type WCN_VALUE_TYPE_CONFIG_METHODS = i32;
+pub const WCN_VALUE_CM_USBA: WCN_VALUE_TYPE_CONFIG_METHODS = 1i32;
+pub const WCN_VALUE_CM_ETHERNET: WCN_VALUE_TYPE_CONFIG_METHODS = 2i32;
+pub const WCN_VALUE_CM_LABEL: WCN_VALUE_TYPE_CONFIG_METHODS = 4i32;
+pub const WCN_VALUE_CM_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = 8i32;
+pub const WCN_VALUE_CM_EXTERNAL_NFC: WCN_VALUE_TYPE_CONFIG_METHODS = 16i32;
+pub const WCN_VALUE_CM_INTEGRATED_NFC: WCN_VALUE_TYPE_CONFIG_METHODS = 32i32;
+pub const WCN_VALUE_CM_NFC_INTERFACE: WCN_VALUE_TYPE_CONFIG_METHODS = 64i32;
+pub const WCN_VALUE_CM_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = 128i32;
+pub const WCN_VALUE_CM_KEYPAD: WCN_VALUE_TYPE_CONFIG_METHODS = 256i32;
+pub const WCN_VALUE_CM_VIRT_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = 640i32;
+pub const WCN_VALUE_CM_PHYS_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = 1152i32;
+pub const WCN_VALUE_CM_VIRT_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = 8200i32;
+pub const WCN_VALUE_CM_PHYS_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = 16392i32;
+pub type WCN_VALUE_TYPE_CONNECTION_TYPE = i32;
+pub const WCN_VALUE_CT_ESS: WCN_VALUE_TYPE_CONNECTION_TYPE = 1i32;
+pub const WCN_VALUE_CT_IBSS: WCN_VALUE_TYPE_CONNECTION_TYPE = 2i32;
+pub type WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = i32;
+pub const WCN_VALUE_DP_DEFAULT: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 0i32;
+pub const WCN_VALUE_DP_USER_SPECIFIED: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 1i32;
+pub const WCN_VALUE_DP_MACHINE_SPECIFIED: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 2i32;
+pub const WCN_VALUE_DP_REKEY: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 3i32;
+pub const WCN_VALUE_DP_PUSHBUTTON: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 4i32;
+pub const WCN_VALUE_DP_REGISTRAR_SPECIFIED: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 5i32;
+pub const WCN_VALUE_DP_NFC_CONNECTION_HANDOVER: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 7i32;
+pub const WCN_VALUE_DP_WFD_SERVICES: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 8i32;
+pub const WCN_VALUE_DP_OUTOFBAND_MIN: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 16i32;
+pub const WCN_VALUE_DP_OUTOFBAND_MAX: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = 65535i32;
+pub type WCN_VALUE_TYPE_ENCRYPTION_TYPE = i32;
+pub const WCN_VALUE_ET_NONE: WCN_VALUE_TYPE_ENCRYPTION_TYPE = 1i32;
+pub const WCN_VALUE_ET_WEP: WCN_VALUE_TYPE_ENCRYPTION_TYPE = 2i32;
+pub const WCN_VALUE_ET_TKIP: WCN_VALUE_TYPE_ENCRYPTION_TYPE = 4i32;
+pub const WCN_VALUE_ET_AES: WCN_VALUE_TYPE_ENCRYPTION_TYPE = 8i32;
+pub const WCN_VALUE_ET_TKIP_AES_MIXED: WCN_VALUE_TYPE_ENCRYPTION_TYPE = 12i32;
+pub type WCN_VALUE_TYPE_MESSAGE_TYPE = i32;
+pub const WCN_VALUE_MT_BEACON: WCN_VALUE_TYPE_MESSAGE_TYPE = 1i32;
+pub const WCN_VALUE_MT_PROBE_REQUEST: WCN_VALUE_TYPE_MESSAGE_TYPE = 2i32;
+pub const WCN_VALUE_MT_PROBE_RESPONSE: WCN_VALUE_TYPE_MESSAGE_TYPE = 3i32;
+pub const WCN_VALUE_MT_M1: WCN_VALUE_TYPE_MESSAGE_TYPE = 4i32;
+pub const WCN_VALUE_MT_M2: WCN_VALUE_TYPE_MESSAGE_TYPE = 5i32;
+pub const WCN_VALUE_MT_M2D: WCN_VALUE_TYPE_MESSAGE_TYPE = 6i32;
+pub const WCN_VALUE_MT_M3: WCN_VALUE_TYPE_MESSAGE_TYPE = 7i32;
+pub const WCN_VALUE_MT_M4: WCN_VALUE_TYPE_MESSAGE_TYPE = 8i32;
+pub const WCN_VALUE_MT_M5: WCN_VALUE_TYPE_MESSAGE_TYPE = 9i32;
+pub const WCN_VALUE_MT_M6: WCN_VALUE_TYPE_MESSAGE_TYPE = 10i32;
+pub const WCN_VALUE_MT_M7: WCN_VALUE_TYPE_MESSAGE_TYPE = 11i32;
+pub const WCN_VALUE_MT_M8: WCN_VALUE_TYPE_MESSAGE_TYPE = 12i32;
+pub const WCN_VALUE_MT_ACK: WCN_VALUE_TYPE_MESSAGE_TYPE = 13i32;
+pub const WCN_VALUE_MT_NACK: WCN_VALUE_TYPE_MESSAGE_TYPE = 14i32;
+pub const WCN_VALUE_MT_DONE: WCN_VALUE_TYPE_MESSAGE_TYPE = 15i32;
 #[repr(C, packed(1))]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub Category: u16,
     pub SubCategoryOUI: u32,
     pub SubCategory: u16,
 }
-impl WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
+impl ::core::marker::Copy for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
+impl ::core::clone::Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
 impl ::core::default::Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
-pub const WCN_VALUE_ReqT_ENROLLEE_INFO: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(0i32);
-pub const WCN_VALUE_ReqT_ENROLLEE_OPEN_1X: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(1i32);
-pub const WCN_VALUE_ReqT_REGISTRAR: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(2i32);
-pub const WCN_VALUE_ReqT_MANAGER_REGISTRAR: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(3i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_REQUEST_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
-pub const WCN_VALUE_RspT_ENROLLEE_INFO: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(0i32);
-pub const WCN_VALUE_RspT_ENROLLEE_OPEN_1X: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(1i32);
-pub const WCN_VALUE_RspT_REGISTRAR: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(2i32);
-pub const WCN_VALUE_RspT_AP: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(3i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
-pub const WCN_VALUE_RB_24GHZ: WCN_VALUE_TYPE_RF_BANDS = WCN_VALUE_TYPE_RF_BANDS(1i32);
-pub const WCN_VALUE_RB_50GHZ: WCN_VALUE_TYPE_RF_BANDS = WCN_VALUE_TYPE_RF_BANDS(2i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_RF_BANDS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RF_BANDS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_VERSION(pub i32);
-pub const WCN_VALUE_VERSION_1_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(16i32);
-pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(32i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_VERSION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_VERSION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
-pub const WCN_VALUE_SS_RESERVED00: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(0i32);
-pub const WCN_VALUE_SS_NOT_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(1i32);
-pub const WCN_VALUE_SS_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(2i32);
-impl ::core::convert::From<i32> for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WCN_VALUE_TYPE_REQUEST_TYPE = i32;
+pub const WCN_VALUE_ReqT_ENROLLEE_INFO: WCN_VALUE_TYPE_REQUEST_TYPE = 0i32;
+pub const WCN_VALUE_ReqT_ENROLLEE_OPEN_1X: WCN_VALUE_TYPE_REQUEST_TYPE = 1i32;
+pub const WCN_VALUE_ReqT_REGISTRAR: WCN_VALUE_TYPE_REQUEST_TYPE = 2i32;
+pub const WCN_VALUE_ReqT_MANAGER_REGISTRAR: WCN_VALUE_TYPE_REQUEST_TYPE = 3i32;
+pub type WCN_VALUE_TYPE_RESPONSE_TYPE = i32;
+pub const WCN_VALUE_RspT_ENROLLEE_INFO: WCN_VALUE_TYPE_RESPONSE_TYPE = 0i32;
+pub const WCN_VALUE_RspT_ENROLLEE_OPEN_1X: WCN_VALUE_TYPE_RESPONSE_TYPE = 1i32;
+pub const WCN_VALUE_RspT_REGISTRAR: WCN_VALUE_TYPE_RESPONSE_TYPE = 2i32;
+pub const WCN_VALUE_RspT_AP: WCN_VALUE_TYPE_RESPONSE_TYPE = 3i32;
+pub type WCN_VALUE_TYPE_RF_BANDS = i32;
+pub const WCN_VALUE_RB_24GHZ: WCN_VALUE_TYPE_RF_BANDS = 1i32;
+pub const WCN_VALUE_RB_50GHZ: WCN_VALUE_TYPE_RF_BANDS = 2i32;
+pub type WCN_VALUE_TYPE_VERSION = i32;
+pub const WCN_VALUE_VERSION_1_0: WCN_VALUE_TYPE_VERSION = 16i32;
+pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = 32i32;
+pub type WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = i32;
+pub const WCN_VALUE_SS_RESERVED00: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = 0i32;
+pub const WCN_VALUE_SS_NOT_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = 1i32;
+pub const WCN_VALUE_SS_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = 2i32;
 #[repr(C)]
 pub struct WCN_VENDOR_EXTENSION_SPEC {
     pub VendorId: u32,
@@ -642,23 +495,23 @@ pub struct WCN_VENDOR_EXTENSION_SPEC {
     pub Index: u32,
     pub Flags: u32,
 }
-impl WCN_VENDOR_EXTENSION_SPEC {}
+impl ::core::marker::Copy for WCN_VENDOR_EXTENSION_SPEC {}
+impl ::core::clone::Clone for WCN_VENDOR_EXTENSION_SPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCN_VENDOR_EXTENSION_SPEC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}
 impl ::core::default::Default for WCN_VENDOR_EXTENSION_SPEC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
-    fn eq(&self, other: &Self) -> bool {
-        self.VendorId == other.VendorId && self.SubType == other.SubType && self.Index == other.Index && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}
-unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {
-    type Abi = Self;
 }

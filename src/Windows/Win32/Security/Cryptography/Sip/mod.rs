@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation::BOOL {
@@ -170,7 +170,6 @@ pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pin
 pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144u32;
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536u32;
 pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
@@ -179,27 +178,26 @@ pub struct MS_ADDINFO_BLOB {
     pub cbMemSignedMsg: u32,
     pub pbMemSignedMsg: *mut u8,
 }
-impl MS_ADDINFO_BLOB {}
+impl ::core::marker::Copy for MS_ADDINFO_BLOB {}
+impl ::core::clone::Clone for MS_ADDINFO_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MS_ADDINFO_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MS_ADDINFO_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MS_ADDINFO_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MS_ADDINFO_BLOB {}
 impl ::core::default::Default for MS_ADDINFO_BLOB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MS_ADDINFO_BLOB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MS_ADDINFO_BLOB").field("cbStruct", &self.cbStruct).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MS_ADDINFO_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.cbMemObject == other.cbMemObject && self.pbMemObject == other.pbMemObject && self.cbMemSignedMsg == other.cbMemSignedMsg && self.pbMemSignedMsg == other.pbMemSignedMsg
-    }
-}
-impl ::core::cmp::Eq for MS_ADDINFO_BLOB {}
-unsafe impl ::windows::core::Abi for MS_ADDINFO_BLOB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct MS_ADDINFO_CATALOGMEMBER {
@@ -208,32 +206,31 @@ pub struct MS_ADDINFO_CATALOGMEMBER {
     pub pMember: *mut super::Catalog::CRYPTCATMEMBER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl MS_ADDINFO_CATALOGMEMBER {}
+impl ::core::marker::Copy for MS_ADDINFO_CATALOGMEMBER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::clone::Clone for MS_ADDINFO_CATALOGMEMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+unsafe impl ::windows::core::Abi for MS_ADDINFO_CATALOGMEMBER {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::cmp::PartialEq for MS_ADDINFO_CATALOGMEMBER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MS_ADDINFO_CATALOGMEMBER>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::cmp::Eq for MS_ADDINFO_CATALOGMEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::default::Default for MS_ADDINFO_CATALOGMEMBER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::fmt::Debug for MS_ADDINFO_CATALOGMEMBER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MS_ADDINFO_CATALOGMEMBER").field("cbStruct", &self.cbStruct).field("pStore", &self.pStore).field("pMember", &self.pMember).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::cmp::PartialEq for MS_ADDINFO_CATALOGMEMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pStore == other.pStore && self.pMember == other.pMember
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::cmp::Eq for MS_ADDINFO_CATALOGMEMBER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-unsafe impl ::windows::core::Abi for MS_ADDINFO_CATALOGMEMBER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MS_ADDINFO_FLAT {
@@ -241,32 +238,31 @@ pub struct MS_ADDINFO_FLAT {
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MS_ADDINFO_FLAT {}
+impl ::core::marker::Copy for MS_ADDINFO_FLAT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MS_ADDINFO_FLAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MS_ADDINFO_FLAT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MS_ADDINFO_FLAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MS_ADDINFO_FLAT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MS_ADDINFO_FLAT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MS_ADDINFO_FLAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MS_ADDINFO_FLAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MS_ADDINFO_FLAT").field("cbStruct", &self.cbStruct).field("pIndirectData", &self.pIndirectData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MS_ADDINFO_FLAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pIndirectData == other.pIndirectData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MS_ADDINFO_FLAT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MS_ADDINFO_FLAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SIP_ADD_NEWPROVIDER {
@@ -284,47 +280,33 @@ pub struct SIP_ADD_NEWPROVIDER {
     pub pwszGetCapFuncName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SIP_ADD_NEWPROVIDER {}
+impl ::core::marker::Copy for SIP_ADD_NEWPROVIDER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIP_ADD_NEWPROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SIP_ADD_NEWPROVIDER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SIP_ADD_NEWPROVIDER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_ADD_NEWPROVIDER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SIP_ADD_NEWPROVIDER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SIP_ADD_NEWPROVIDER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SIP_ADD_NEWPROVIDER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SIP_ADD_NEWPROVIDER")
-            .field("cbStruct", &self.cbStruct)
-            .field("pgSubject", &self.pgSubject)
-            .field("pwszDLLFileName", &self.pwszDLLFileName)
-            .field("pwszMagicNumber", &self.pwszMagicNumber)
-            .field("pwszIsFunctionName", &self.pwszIsFunctionName)
-            .field("pwszGetFuncName", &self.pwszGetFuncName)
-            .field("pwszPutFuncName", &self.pwszPutFuncName)
-            .field("pwszCreateFuncName", &self.pwszCreateFuncName)
-            .field("pwszVerifyFuncName", &self.pwszVerifyFuncName)
-            .field("pwszRemoveFuncName", &self.pwszRemoveFuncName)
-            .field("pwszIsFunctionNameFmt2", &self.pwszIsFunctionNameFmt2)
-            .field("pwszGetCapFuncName", &self.pwszGetCapFuncName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SIP_ADD_NEWPROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pgSubject == other.pgSubject && self.pwszDLLFileName == other.pwszDLLFileName && self.pwszMagicNumber == other.pwszMagicNumber && self.pwszIsFunctionName == other.pwszIsFunctionName && self.pwszGetFuncName == other.pwszGetFuncName && self.pwszPutFuncName == other.pwszPutFuncName && self.pwszCreateFuncName == other.pwszCreateFuncName && self.pwszVerifyFuncName == other.pwszVerifyFuncName && self.pwszRemoveFuncName == other.pwszRemoveFuncName && self.pwszIsFunctionNameFmt2 == other.pwszIsFunctionNameFmt2 && self.pwszGetCapFuncName == other.pwszGetCapFuncName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SIP_ADD_NEWPROVIDER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SIP_ADD_NEWPROVIDER {
-    type Abi = Self;
-}
 pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
 pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SIP_CAP_SET_V2 {
@@ -334,32 +316,31 @@ pub struct SIP_CAP_SET_V2 {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SIP_CAP_SET_V2 {}
+impl ::core::marker::Copy for SIP_CAP_SET_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIP_CAP_SET_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SIP_CAP_SET_V2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SIP_CAP_SET_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_CAP_SET_V2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SIP_CAP_SET_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SIP_CAP_SET_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SIP_CAP_SET_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SIP_CAP_SET_V2").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SIP_CAP_SET_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.isMultiSign == other.isMultiSign && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SIP_CAP_SET_V2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SIP_CAP_SET_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SIP_CAP_SET_V3 {
@@ -369,26 +350,31 @@ pub struct SIP_CAP_SET_V3 {
     pub Anonymous: SIP_CAP_SET_V3_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SIP_CAP_SET_V3 {}
+impl ::core::marker::Copy for SIP_CAP_SET_V3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIP_CAP_SET_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SIP_CAP_SET_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_CAP_SET_V3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SIP_CAP_SET_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SIP_CAP_SET_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SIP_CAP_SET_V3 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SIP_CAP_SET_V3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union SIP_CAP_SET_V3_0 {
@@ -396,28 +382,33 @@ pub union SIP_CAP_SET_V3_0 {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SIP_CAP_SET_V3_0 {}
+impl ::core::marker::Copy for SIP_CAP_SET_V3_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIP_CAP_SET_V3_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SIP_CAP_SET_V3_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_CAP_SET_V3_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SIP_CAP_SET_V3_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SIP_CAP_SET_V3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SIP_CAP_SET_V3_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SIP_CAP_SET_V3_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3_0 {
-    type Abi = Self;
-}
 pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct SIP_DISPATCH_INFO {
@@ -430,32 +421,31 @@ pub struct SIP_DISPATCH_INFO {
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl SIP_DISPATCH_INFO {}
+impl ::core::marker::Copy for SIP_DISPATCH_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::clone::Clone for SIP_DISPATCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+unsafe impl ::windows::core::Abi for SIP_DISPATCH_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::cmp::PartialEq for SIP_DISPATCH_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_DISPATCH_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::cmp::Eq for SIP_DISPATCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::default::Default for SIP_DISPATCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::fmt::Debug for SIP_DISPATCH_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::cmp::PartialEq for SIP_DISPATCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hSIP == other.hSIP && self.pfGet.map(|f| f as usize) == other.pfGet.map(|f| f as usize) && self.pfPut.map(|f| f as usize) == other.pfPut.map(|f| f as usize) && self.pfCreate.map(|f| f as usize) == other.pfCreate.map(|f| f as usize) && self.pfVerify.map(|f| f as usize) == other.pfVerify.map(|f| f as usize) && self.pfRemove.map(|f| f as usize) == other.pfRemove.map(|f| f as usize)
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::cmp::Eq for SIP_DISPATCH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-unsafe impl ::windows::core::Abi for SIP_DISPATCH_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SIP_INDIRECT_DATA {
@@ -464,33 +454,32 @@ pub struct SIP_INDIRECT_DATA {
     pub Digest: super::CRYPTOAPI_BLOB,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SIP_INDIRECT_DATA {}
+impl ::core::marker::Copy for SIP_INDIRECT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIP_INDIRECT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SIP_INDIRECT_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SIP_INDIRECT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_INDIRECT_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SIP_INDIRECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SIP_INDIRECT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SIP_INDIRECT_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SIP_INDIRECT_DATA").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SIP_INDIRECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data && self.DigestAlgorithm == other.DigestAlgorithm && self.Digest == other.Digest
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SIP_INDIRECT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SIP_INDIRECT_DATA {
-    type Abi = Self;
-}
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct SIP_SUBJECTINFO {
@@ -514,26 +503,31 @@ pub struct SIP_SUBJECTINFO {
     pub pClientData: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl SIP_SUBJECTINFO {}
+impl ::core::marker::Copy for SIP_SUBJECTINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::clone::Clone for SIP_SUBJECTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+unsafe impl ::windows::core::Abi for SIP_SUBJECTINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::cmp::PartialEq for SIP_SUBJECTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_SUBJECTINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+impl ::core::cmp::Eq for SIP_SUBJECTINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::default::Default for SIP_SUBJECTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::cmp::PartialEq for SIP_SUBJECTINFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::cmp::Eq for SIP_SUBJECTINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-unsafe impl ::windows::core::Abi for SIP_SUBJECTINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub union SIP_SUBJECTINFO_0 {
@@ -542,24 +536,30 @@ pub union SIP_SUBJECTINFO_0 {
     pub psBlob: *mut MS_ADDINFO_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl SIP_SUBJECTINFO_0 {}
+impl ::core::marker::Copy for SIP_SUBJECTINFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::default::Default for SIP_SUBJECTINFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SIP_SUBJECTINFO_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+unsafe impl ::windows::core::Abi for SIP_SUBJECTINFO_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::cmp::PartialEq for SIP_SUBJECTINFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_SUBJECTINFO_0>()) == 0 }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::cmp::Eq for SIP_SUBJECTINFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-unsafe impl ::windows::core::Abi for SIP_SUBJECTINFO_0 {
-    type Abi = Self;
+impl ::core::default::Default for SIP_SUBJECTINFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SPC_DIGEST_GENERATE_FLAG: u32 = 512u32;
 pub const SPC_DIGEST_SIGN_EX_FLAG: u32 = 16384u32;

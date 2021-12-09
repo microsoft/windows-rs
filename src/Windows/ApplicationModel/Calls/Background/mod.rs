@@ -1,142 +1,148 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[repr(transparent)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc(hidden)]
-pub struct IPhoneCallBlockedTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneCallBlockedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallBlockedTriggerDetails {
-    type Vtable = IPhoneCallBlockedTriggerDetails_abi;
+    type Vtable = IPhoneCallBlockedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallBlockedTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut PhoneCallBlockedReason) -> ::windows::core::HRESULT,
+pub struct IPhoneCallBlockedTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallBlockedReason) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginDataRequestTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneCallOriginDataRequestTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOriginDataRequestTriggerDetails {
-    type Vtable = IPhoneCallOriginDataRequestTriggerDetails_abi;
+    type Vtable = IPhoneCallOriginDataRequestTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginDataRequestTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct IPhoneCallOriginDataRequestTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallDismissedTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneIncomingCallDismissedTriggerDetails {
-    type Vtable = IPhoneIncomingCallDismissedTriggerDetails_abi;
+    type Vtable = IPhoneIncomingCallDismissedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallDismissedTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+pub struct IPhoneIncomingCallDismissedTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut PhoneIncomingCallDismissedReason) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneIncomingCallDismissedReason) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallNotificationTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneIncomingCallNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneIncomingCallNotificationTriggerDetails {
-    type Vtable = IPhoneIncomingCallNotificationTriggerDetails_abi;
+    type Vtable = IPhoneIncomingCallNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallNotificationTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct IPhoneIncomingCallNotificationTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneLineChangedTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineChangedTriggerDetails {
-    type Vtable = IPhoneLineChangedTriggerDetails_abi;
+    type Vtable = IPhoneLineChangedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineChangedTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut PhoneLineChangeKind) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows::core::HRESULT,
+pub struct IPhoneLineChangedTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineChangeKind) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPhoneNewVoicemailMessageTriggerDetails(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNewVoicemailMessageTriggerDetails {
-    type Vtable = IPhoneNewVoicemailMessageTriggerDetails_abi;
+    type Vtable = IPhoneNewVoicemailMessageTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNewVoicemailMessageTriggerDetails_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+pub struct IPhoneNewVoicemailMessageTriggerDetailsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
-    pub const InCallBlockingList: PhoneCallBlockedReason = PhoneCallBlockedReason(0i32);
-    pub const PrivateNumber: PhoneCallBlockedReason = PhoneCallBlockedReason(1i32);
-    pub const UnknownNumber: PhoneCallBlockedReason = PhoneCallBlockedReason(2i32);
+    pub const InCallBlockingList: Self = Self(0i32);
+    pub const PrivateNumber: Self = Self(1i32);
+    pub const UnknownNumber: Self = Self(2i32);
 }
-impl ::core::convert::From<i32> for PhoneCallBlockedReason {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneCallBlockedReason {}
+impl ::core::clone::Clone for PhoneCallBlockedReason {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneCallBlockedReason {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneCallBlockedReason {}
 unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
 }
@@ -144,8 +150,7 @@ impl ::windows::core::DefaultType for PhoneCallBlockedReason {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneCallBlockedTriggerDetails(pub ::windows::core::IInspectable);
+pub struct PhoneCallBlockedTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallBlockedTriggerDetails {
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -169,11 +174,22 @@ impl PhoneCallBlockedTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for PhoneCallBlockedTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneCallBlockedTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails;{a4a690a2-e4c1-427f-864e-e470477ddb67})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallBlockedTriggerDetails {
-    type Vtable = IPhoneCallBlockedTriggerDetails_abi;
+    type Vtable = IPhoneCallBlockedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 }
 impl ::windows::core::RuntimeName for PhoneCallBlockedTriggerDetails {
@@ -181,49 +197,46 @@ impl ::windows::core::RuntimeName for PhoneCallBlockedTriggerDetails {
 }
 impl ::core::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: PhoneCallBlockedTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneCallBlockedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneCallBlockedTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneCallBlockedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: PhoneCallBlockedTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneCallBlockedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneCallBlockedTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneCallBlockedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
-unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneCallOriginDataRequestTriggerDetails(pub ::windows::core::IInspectable);
+pub struct PhoneCallOriginDataRequestTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallOriginDataRequestTriggerDetails {
     pub fn RequestId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -240,11 +253,22 @@ impl PhoneCallOriginDataRequestTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for PhoneCallOriginDataRequestTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneCallOriginDataRequestTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for PhoneCallOriginDataRequestTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails;{6e9b5b3f-c54b-4e82-4cc9-e329a4184592})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallOriginDataRequestTriggerDetails {
-    type Vtable = IPhoneCallOriginDataRequestTriggerDetails_abi;
+    type Vtable = IPhoneCallOriginDataRequestTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 }
 impl ::windows::core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
@@ -252,63 +276,67 @@ impl ::windows::core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
 }
 impl ::core::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneCallOriginDataRequestTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneCallOriginDataRequestTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneCallOriginDataRequestTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneCallOriginDataRequestTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneCallOriginDataRequestTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneCallOriginDataRequestTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
-unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
-    pub const Unknown: PhoneIncomingCallDismissedReason = PhoneIncomingCallDismissedReason(0i32);
-    pub const CallRejected: PhoneIncomingCallDismissedReason = PhoneIncomingCallDismissedReason(1i32);
-    pub const TextReply: PhoneIncomingCallDismissedReason = PhoneIncomingCallDismissedReason(2i32);
-    pub const ConnectionLost: PhoneIncomingCallDismissedReason = PhoneIncomingCallDismissedReason(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const CallRejected: Self = Self(1i32);
+    pub const TextReply: Self = Self(2i32);
+    pub const ConnectionLost: Self = Self(3i32);
 }
-impl ::core::convert::From<i32> for PhoneIncomingCallDismissedReason {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
+impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneIncomingCallDismissedReason {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneIncomingCallDismissedReason {}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
 }
@@ -316,8 +344,7 @@ impl ::windows::core::DefaultType for PhoneIncomingCallDismissedReason {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneIncomingCallDismissedTriggerDetails(pub ::windows::core::IInspectable);
+pub struct PhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -363,11 +390,22 @@ impl PhoneIncomingCallDismissedTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for PhoneIncomingCallDismissedTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneIncomingCallDismissedTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneIncomingCallDismissedTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails;{bad30276-83b6-5732-9c38-0c206546196a})");
 }
 unsafe impl ::windows::core::Interface for PhoneIncomingCallDismissedTriggerDetails {
-    type Vtable = IPhoneIncomingCallDismissedTriggerDetails_abi;
+    type Vtable = IPhoneIncomingCallDismissedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
 }
 impl ::windows::core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
@@ -375,49 +413,46 @@ impl ::windows::core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
 }
 impl ::core::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneIncomingCallDismissedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneIncomingCallDismissedTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneIncomingCallDismissedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneIncomingCallDismissedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneIncomingCallDismissedTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneIncomingCallDismissedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
-unsafe impl ::core::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneIncomingCallNotificationTriggerDetails(pub ::windows::core::IInspectable);
+pub struct PhoneIncomingCallNotificationTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallNotificationTriggerDetails {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -434,11 +469,22 @@ impl PhoneIncomingCallNotificationTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for PhoneIncomingCallNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneIncomingCallNotificationTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails;{2b0e6044-9b32-5d42-8222-d2812e39fb21})");
 }
 unsafe impl ::windows::core::Interface for PhoneIncomingCallNotificationTriggerDetails {
-    type Vtable = IPhoneIncomingCallNotificationTriggerDetails_abi;
+    type Vtable = IPhoneIncomingCallNotificationTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 }
 impl ::windows::core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
@@ -446,62 +492,66 @@ impl ::windows::core::RuntimeName for PhoneIncomingCallNotificationTriggerDetail
 }
 impl ::core::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneIncomingCallNotificationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneIncomingCallNotificationTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneIncomingCallNotificationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneIncomingCallNotificationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneIncomingCallNotificationTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneIncomingCallNotificationTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
-unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
-    pub const Added: PhoneLineChangeKind = PhoneLineChangeKind(0i32);
-    pub const Removed: PhoneLineChangeKind = PhoneLineChangeKind(1i32);
-    pub const PropertiesChanged: PhoneLineChangeKind = PhoneLineChangeKind(2i32);
+    pub const Added: Self = Self(0i32);
+    pub const Removed: Self = Self(1i32);
+    pub const PropertiesChanged: Self = Self(2i32);
 }
-impl ::core::convert::From<i32> for PhoneLineChangeKind {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneLineChangeKind {}
+impl ::core::clone::Clone for PhoneLineChangeKind {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneLineChangeKind {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneLineChangeKind {}
 unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
 }
@@ -509,8 +559,7 @@ impl ::windows::core::DefaultType for PhoneLineChangeKind {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneLineChangedTriggerDetails(pub ::windows::core::IInspectable);
+pub struct PhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 impl PhoneLineChangedTriggerDetails {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -534,11 +583,22 @@ impl PhoneLineChangedTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for PhoneLineChangedTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneLineChangedTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneLineChangedTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for PhoneLineChangedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails;{c6d321e7-d11d-40d8-b2b7-e40a01d66249})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineChangedTriggerDetails {
-    type Vtable = IPhoneLineChangedTriggerDetails_abi;
+    type Vtable = IPhoneLineChangedTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
 }
 impl ::windows::core::RuntimeName for PhoneLineChangedTriggerDetails {
@@ -546,106 +606,81 @@ impl ::windows::core::RuntimeName for PhoneLineChangedTriggerDetails {
 }
 impl ::core::convert::From<PhoneLineChangedTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: PhoneLineChangedTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneLineChangedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneLineChangedTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneLineChangedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneLineChangedTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: PhoneLineChangedTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneLineChangedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneLineChangedTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneLineChangedTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
-unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
-    pub const None: PhoneLineProperties = PhoneLineProperties(0u32);
-    pub const BrandingOptions: PhoneLineProperties = PhoneLineProperties(1u32);
-    pub const CanDial: PhoneLineProperties = PhoneLineProperties(2u32);
-    pub const CellularDetails: PhoneLineProperties = PhoneLineProperties(4u32);
-    pub const DisplayColor: PhoneLineProperties = PhoneLineProperties(8u32);
-    pub const DisplayName: PhoneLineProperties = PhoneLineProperties(16u32);
-    pub const NetworkName: PhoneLineProperties = PhoneLineProperties(32u32);
-    pub const NetworkState: PhoneLineProperties = PhoneLineProperties(64u32);
-    pub const Transport: PhoneLineProperties = PhoneLineProperties(128u32);
-    pub const Voicemail: PhoneLineProperties = PhoneLineProperties(256u32);
+    pub const None: Self = Self(0u32);
+    pub const BrandingOptions: Self = Self(1u32);
+    pub const CanDial: Self = Self(2u32);
+    pub const CellularDetails: Self = Self(4u32);
+    pub const DisplayColor: Self = Self(8u32);
+    pub const DisplayName: Self = Self(16u32);
+    pub const NetworkName: Self = Self(32u32);
+    pub const NetworkState: Self = Self(64u32);
+    pub const Transport: Self = Self(128u32);
+    pub const Voicemail: Self = Self(256u32);
 }
-impl ::core::convert::From<u32> for PhoneLineProperties {
-    fn from(value: u32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneLineProperties {}
+impl ::core::clone::Clone for PhoneLineProperties {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneLineProperties {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneLineProperties {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneLineProperties {}
 unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
 }
 impl ::windows::core::DefaultType for PhoneLineProperties {
     type DefaultType = Self;
 }
-impl ::core::ops::BitOr for PhoneLineProperties {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PhoneLineProperties {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PhoneLineProperties {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PhoneLineProperties {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PhoneLineProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct PhoneNewVoicemailMessageTriggerDetails(pub ::windows::core::IInspectable);
+pub struct PhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 impl PhoneNewVoicemailMessageTriggerDetails {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
@@ -669,11 +704,22 @@ impl PhoneNewVoicemailMessageTriggerDetails {
         }
     }
 }
+impl ::core::clone::Clone for PhoneNewVoicemailMessageTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PhoneNewVoicemailMessageTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::windows::core::RuntimeType for PhoneNewVoicemailMessageTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails;{13a8c01b-b831-48d3-8ba9-8d22a6580dcf})");
 }
 unsafe impl ::windows::core::Interface for PhoneNewVoicemailMessageTriggerDetails {
-    type Vtable = IPhoneNewVoicemailMessageTriggerDetails_abi;
+    type Vtable = IPhoneNewVoicemailMessageTriggerDetailsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
 }
 impl ::windows::core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
@@ -681,67 +727,71 @@ impl ::windows::core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
 }
 impl ::core::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNewVoicemailMessageTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNewVoicemailMessageTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhoneNewVoicemailMessageTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNewVoicemailMessageTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNewVoicemailMessageTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhoneNewVoicemailMessageTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
-unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {
-    pub const NewVoicemailMessage: PhoneTriggerType = PhoneTriggerType(0i32);
-    pub const CallHistoryChanged: PhoneTriggerType = PhoneTriggerType(1i32);
-    pub const LineChanged: PhoneTriggerType = PhoneTriggerType(2i32);
-    pub const AirplaneModeDisabledForEmergencyCall: PhoneTriggerType = PhoneTriggerType(3i32);
-    pub const CallOriginDataRequest: PhoneTriggerType = PhoneTriggerType(4i32);
-    pub const CallBlocked: PhoneTriggerType = PhoneTriggerType(5i32);
-    pub const IncomingCallDismissed: PhoneTriggerType = PhoneTriggerType(6i32);
-    pub const IncomingCallNotification: PhoneTriggerType = PhoneTriggerType(7i32);
+    pub const NewVoicemailMessage: Self = Self(0i32);
+    pub const CallHistoryChanged: Self = Self(1i32);
+    pub const LineChanged: Self = Self(2i32);
+    pub const AirplaneModeDisabledForEmergencyCall: Self = Self(3i32);
+    pub const CallOriginDataRequest: Self = Self(4i32);
+    pub const CallBlocked: Self = Self(5i32);
+    pub const IncomingCallDismissed: Self = Self(6i32);
+    pub const IncomingCallNotification: Self = Self(7i32);
 }
-impl ::core::convert::From<i32> for PhoneTriggerType {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for PhoneTriggerType {}
+impl ::core::clone::Clone for PhoneTriggerType {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for PhoneTriggerType {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for PhoneTriggerType {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PhoneTriggerType {}
 unsafe impl ::windows::core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
 }

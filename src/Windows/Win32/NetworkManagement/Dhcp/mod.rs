@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
 pub const ADDRESS_TYPE_IATA: u32 = 1u32;
 pub const CHANGESTATE: u32 = 4u32;
@@ -7,33 +7,31 @@ pub const CLIENT_TYPE_DHCP: u32 = 1u32;
 pub const CLIENT_TYPE_NONE: u32 = 100u32;
 pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
 pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DATE_TIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl DATE_TIME {}
+impl ::core::marker::Copy for DATE_TIME {}
+impl ::core::clone::Clone for DATE_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DATE_TIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DATE_TIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATE_TIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DATE_TIME {}
 impl ::core::default::Default for DATE_TIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DATE_TIME {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DATE_TIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DATE_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
-    }
-}
-impl ::core::cmp::Eq for DATE_TIME {}
-unsafe impl ::windows::core::Abi for DATE_TIME {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPAPI_PARAMS {
@@ -44,60 +42,58 @@ pub struct DHCPAPI_PARAMS {
     pub nBytesData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPAPI_PARAMS {}
+impl ::core::marker::Copy for DHCPAPI_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPAPI_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPAPI_PARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPAPI_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPAPI_PARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPAPI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPAPI_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPAPI_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPAPI_PARAMS").field("Flags", &self.Flags).field("OptionId", &self.OptionId).field("IsVendor", &self.IsVendor).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPAPI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.OptionId == other.OptionId && self.IsVendor == other.IsVendor && self.Data == other.Data && self.nBytesData == other.nBytesData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPAPI_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPAPI_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCPCAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
-impl DHCPCAPI_CLASSID {}
+impl ::core::marker::Copy for DHCPCAPI_CLASSID {}
+impl ::core::clone::Clone for DHCPCAPI_CLASSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPCAPI_CLASSID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPCAPI_CLASSID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPCAPI_CLASSID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPCAPI_CLASSID {}
 impl ::core::default::Default for DHCPCAPI_CLASSID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCPCAPI_CLASSID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPCAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPCAPI_CLASSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Data == other.Data && self.nBytesData == other.nBytesData
-    }
-}
-impl ::core::cmp::Eq for DHCPCAPI_CLASSID {}
-unsafe impl ::windows::core::Abi for DHCPCAPI_CLASSID {
-    type Abi = Self;
-}
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPCAPI_PARAMS_ARRAY {
@@ -105,30 +101,30 @@ pub struct DHCPCAPI_PARAMS_ARRAY {
     pub Params: *mut DHCPAPI_PARAMS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPCAPI_PARAMS_ARRAY {}
+impl ::core::marker::Copy for DHCPCAPI_PARAMS_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DHCPCAPI_PARAMS_ARRAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DHCPCAPI_PARAMS_ARRAY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPCAPI_PARAMS_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPCAPI_PARAMS_ARRAY").field("nParams", &self.nParams).field("Params", &self.Params).finish()
-    }
+unsafe impl ::windows::core::Abi for DHCPCAPI_PARAMS_ARRAY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPCAPI_PARAMS_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        self.nParams == other.nParams && self.Params == other.Params
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPCAPI_PARAMS_ARRAY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DHCPCAPI_PARAMS_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPCAPI_PARAMS_ARRAY {
-    type Abi = Self;
+impl ::core::default::Default for DHCPCAPI_PARAMS_ARRAY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
@@ -136,7 +132,6 @@ pub const DHCPCAPI_REQUEST_CANCEL: u32 = 8u32;
 pub const DHCPCAPI_REQUEST_MASK: u32 = 15u32;
 pub const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPDS_SERVER {
@@ -149,32 +144,31 @@ pub struct DHCPDS_SERVER {
     pub DsLocType: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPDS_SERVER {}
+impl ::core::marker::Copy for DHCPDS_SERVER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPDS_SERVER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPDS_SERVER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPDS_SERVER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPDS_SERVER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPDS_SERVER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPDS_SERVER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPDS_SERVER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPDS_SERVER").field("Version", &self.Version).field("ServerName", &self.ServerName).field("ServerAddress", &self.ServerAddress).field("Flags", &self.Flags).field("State", &self.State).field("DsLocation", &self.DsLocation).field("DsLocType", &self.DsLocType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPDS_SERVER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ServerName == other.ServerName && self.ServerAddress == other.ServerAddress && self.Flags == other.Flags && self.State == other.State && self.DsLocation == other.DsLocation && self.DsLocType == other.DsLocType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPDS_SERVER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPDS_SERVER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPDS_SERVERS {
@@ -183,32 +177,31 @@ pub struct DHCPDS_SERVERS {
     pub Servers: *mut DHCPDS_SERVER,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPDS_SERVERS {}
+impl ::core::marker::Copy for DHCPDS_SERVERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPDS_SERVERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPDS_SERVERS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPDS_SERVERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPDS_SERVERS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPDS_SERVERS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPDS_SERVERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPDS_SERVERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPDS_SERVERS").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Servers", &self.Servers).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPDS_SERVERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Servers == other.Servers
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPDS_SERVERS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPDS_SERVERS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO {
@@ -235,74 +228,31 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub Flags: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV4_FAILOVER_CLIENT_INFO {}
+impl ::core::marker::Copy for DHCPV4_FAILOVER_CLIENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV4_FAILOVER_CLIENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV4_FAILOVER_CLIENT_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV4_FAILOVER_CLIENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .field("Status", &self.Status)
-            .field("ProbationEnds", &self.ProbationEnds)
-            .field("QuarantineCapable", &self.QuarantineCapable)
-            .field("SentPotExpTime", &self.SentPotExpTime)
-            .field("AckPotExpTime", &self.AckPotExpTime)
-            .field("RecvPotExpTime", &self.RecvPotExpTime)
-            .field("StartTime", &self.StartTime)
-            .field("CltLastTransTime", &self.CltLastTransTime)
-            .field("LastBndUpdTime", &self.LastBndUpdTime)
-            .field("BndMsgStatus", &self.BndMsgStatus)
-            .field("PolicyName", &self.PolicyName)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
-            && self.Status == other.Status
-            && self.ProbationEnds == other.ProbationEnds
-            && self.QuarantineCapable == other.QuarantineCapable
-            && self.SentPotExpTime == other.SentPotExpTime
-            && self.AckPotExpTime == other.AckPotExpTime
-            && self.RecvPotExpTime == other.RecvPotExpTime
-            && self.StartTime == other.StartTime
-            && self.CltLastTransTime == other.CltLastTransTime
-            && self.LastBndUpdTime == other.LastBndUpdTime
-            && self.BndMsgStatus == other.BndMsgStatus
-            && self.PolicyName == other.PolicyName
-            && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
@@ -310,32 +260,31 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     pub Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
+impl ::core::marker::Copy for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV4_FAILOVER_CLIENT_INFO_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
@@ -363,103 +312,57 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub AddressStateEx: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV4_FAILOVER_CLIENT_INFO_EX {}
+impl ::core::marker::Copy for DHCPV4_FAILOVER_CLIENT_INFO_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV4_FAILOVER_CLIENT_INFO_EX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO_EX")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .field("Status", &self.Status)
-            .field("ProbationEnds", &self.ProbationEnds)
-            .field("QuarantineCapable", &self.QuarantineCapable)
-            .field("SentPotExpTime", &self.SentPotExpTime)
-            .field("AckPotExpTime", &self.AckPotExpTime)
-            .field("RecvPotExpTime", &self.RecvPotExpTime)
-            .field("StartTime", &self.StartTime)
-            .field("CltLastTransTime", &self.CltLastTransTime)
-            .field("LastBndUpdTime", &self.LastBndUpdTime)
-            .field("BndMsgStatus", &self.BndMsgStatus)
-            .field("PolicyName", &self.PolicyName)
-            .field("Flags", &self.Flags)
-            .field("AddressStateEx", &self.AddressStateEx)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
-            && self.Status == other.Status
-            && self.ProbationEnds == other.ProbationEnds
-            && self.QuarantineCapable == other.QuarantineCapable
-            && self.SentPotExpTime == other.SentPotExpTime
-            && self.AckPotExpTime == other.AckPotExpTime
-            && self.RecvPotExpTime == other.RecvPotExpTime
-            && self.StartTime == other.StartTime
-            && self.CltLastTransTime == other.CltLastTransTime
-            && self.LastBndUpdTime == other.LastBndUpdTime
-            && self.BndMsgStatus == other.BndMsgStatus
-            && self.PolicyName == other.PolicyName
-            && self.Flags == other.Flags
-            && self.AddressStateEx == other.AddressStateEx
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCPV6CAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
-impl DHCPV6CAPI_CLASSID {}
+impl ::core::marker::Copy for DHCPV6CAPI_CLASSID {}
+impl ::core::clone::Clone for DHCPV6CAPI_CLASSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPV6CAPI_CLASSID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPV6CAPI_CLASSID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6CAPI_CLASSID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPV6CAPI_CLASSID {}
 impl ::core::default::Default for DHCPV6CAPI_CLASSID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCPV6CAPI_CLASSID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6CAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPV6CAPI_CLASSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Data == other.Data && self.nBytesData == other.nBytesData
-    }
-}
-impl ::core::cmp::Eq for DHCPV6CAPI_CLASSID {}
-unsafe impl ::windows::core::Abi for DHCPV6CAPI_CLASSID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV6CAPI_PARAMS {
@@ -470,32 +373,31 @@ pub struct DHCPV6CAPI_PARAMS {
     pub nBytesData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV6CAPI_PARAMS {}
+impl ::core::marker::Copy for DHCPV6CAPI_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV6CAPI_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6CAPI_PARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV6CAPI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV6CAPI_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV6CAPI_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6CAPI_PARAMS").field("Flags", &self.Flags).field("OptionId", &self.OptionId).field("IsVendor", &self.IsVendor).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.OptionId == other.OptionId && self.IsVendor == other.IsVendor && self.Data == other.Data && self.nBytesData == other.nBytesData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV6CAPI_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV6CAPI_PARAMS_ARRAY {
@@ -503,32 +405,31 @@ pub struct DHCPV6CAPI_PARAMS_ARRAY {
     pub Params: *mut DHCPV6CAPI_PARAMS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV6CAPI_PARAMS_ARRAY {}
+impl ::core::marker::Copy for DHCPV6CAPI_PARAMS_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV6CAPI_PARAMS_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6CAPI_PARAMS_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV6CAPI_PARAMS_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV6CAPI_PARAMS_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV6CAPI_PARAMS_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6CAPI_PARAMS_ARRAY").field("nParams", &self.nParams).field("Params", &self.Params).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.nParams == other.nParams && self.Params == other.Params
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV6CAPI_PARAMS_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCPV6Prefix {
     pub prefix: [u8; 16],
@@ -537,27 +438,26 @@ pub struct DHCPV6Prefix {
     pub validLifeTime: u32,
     pub status: StatusCode,
 }
-impl DHCPV6Prefix {}
+impl ::core::marker::Copy for DHCPV6Prefix {}
+impl ::core::clone::Clone for DHCPV6Prefix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPV6Prefix {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPV6Prefix {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6Prefix>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPV6Prefix {}
 impl ::core::default::Default for DHCPV6Prefix {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCPV6Prefix {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6Prefix").field("prefix", &self.prefix).field("prefixLength", &self.prefixLength).field("preferredLifeTime", &self.preferredLifeTime).field("validLifeTime", &self.validLifeTime).field("status", &self.status).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPV6Prefix {
-    fn eq(&self, other: &Self) -> bool {
-        self.prefix == other.prefix && self.prefixLength == other.prefixLength && self.preferredLifeTime == other.preferredLifeTime && self.validLifeTime == other.validLifeTime && self.status == other.status
-    }
-}
-impl ::core::cmp::Eq for DHCPV6Prefix {}
-unsafe impl ::windows::core::Abi for DHCPV6Prefix {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCPV6PrefixLeaseInformation {
     pub nPrefixes: u32,
@@ -571,27 +471,26 @@ pub struct DHCPV6PrefixLeaseInformation {
     pub ServerId: *mut u8,
     pub ServerIdLen: u32,
 }
-impl DHCPV6PrefixLeaseInformation {}
+impl ::core::marker::Copy for DHCPV6PrefixLeaseInformation {}
+impl ::core::clone::Clone for DHCPV6PrefixLeaseInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPV6PrefixLeaseInformation {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6PrefixLeaseInformation>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPV6PrefixLeaseInformation {}
 impl ::core::default::Default for DHCPV6PrefixLeaseInformation {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCPV6PrefixLeaseInformation {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6PrefixLeaseInformation").field("nPrefixes", &self.nPrefixes).field("prefixArray", &self.prefixArray).field("iaid", &self.iaid).field("T1", &self.T1).field("T2", &self.T2).field("MaxLeaseExpirationTime", &self.MaxLeaseExpirationTime).field("LastRenewalTime", &self.LastRenewalTime).field("status", &self.status).field("ServerId", &self.ServerId).field("ServerIdLen", &self.ServerIdLen).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.nPrefixes == other.nPrefixes && self.prefixArray == other.prefixArray && self.iaid == other.iaid && self.T1 == other.T1 && self.T2 == other.T2 && self.MaxLeaseExpirationTime == other.MaxLeaseExpirationTime && self.LastRenewalTime == other.LastRenewalTime && self.status == other.status && self.ServerId == other.ServerId && self.ServerIdLen == other.ServerIdLen
-    }
-}
-impl ::core::cmp::Eq for DHCPV6PrefixLeaseInformation {}
-unsafe impl ::windows::core::Abi for DHCPV6PrefixLeaseInformation {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV6_BIND_ELEMENT {
@@ -605,32 +504,31 @@ pub struct DHCPV6_BIND_ELEMENT {
     pub IfId: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV6_BIND_ELEMENT {}
+impl ::core::marker::Copy for DHCPV6_BIND_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV6_BIND_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_BIND_ELEMENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV6_BIND_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV6_BIND_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_BIND_ELEMENT").field("Flags", &self.Flags).field("fBoundToDHCPServer", &self.fBoundToDHCPServer).field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress).field("AdapterSubnetAddress", &self.AdapterSubnetAddress).field("IfDescription", &self.IfDescription).field("IpV6IfIndex", &self.IpV6IfIndex).field("IfIdSize", &self.IfIdSize).field("IfId", &self.IfId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.fBoundToDHCPServer == other.fBoundToDHCPServer && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress && self.AdapterSubnetAddress == other.AdapterSubnetAddress && self.IfDescription == other.IfDescription && self.IpV6IfIndex == other.IpV6IfIndex && self.IfIdSize == other.IfIdSize && self.IfId == other.IfId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV6_BIND_ELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
@@ -638,56 +536,55 @@ pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub Elements: *mut DHCPV6_BIND_ELEMENT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV6_BIND_ELEMENT_ARRAY {}
+impl ::core::marker::Copy for DHCPV6_BIND_ELEMENT_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV6_BIND_ELEMENT_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_BIND_ELEMENT_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV6_BIND_ELEMENT_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV6_BIND_ELEMENT_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV6_BIND_ELEMENT_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_BIND_ELEMENT_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV6_BIND_ELEMENT_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCPV6_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IPV6_ADDRESS,
 }
-impl DHCPV6_IP_ARRAY {}
+impl ::core::marker::Copy for DHCPV6_IP_ARRAY {}
+impl ::core::clone::Clone for DHCPV6_IP_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPV6_IP_ARRAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPV6_IP_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_IP_ARRAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPV6_IP_ARRAY {}
 impl ::core::default::Default for DHCPV6_IP_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DHCPV6_IP_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPV6_IP_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-impl ::core::cmp::Eq for DHCPV6_IP_ARRAY {}
-unsafe impl ::windows::core::Abi for DHCPV6_IP_ARRAY {
-    type Abi = Self;
 }
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
 pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
@@ -710,7 +607,6 @@ pub const DHCPV6_OPTION_UNICAST: u32 = 12u32;
 pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
 pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
 pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCPV6_STATELESS_PARAMS {
@@ -718,98 +614,85 @@ pub struct DHCPV6_STATELESS_PARAMS {
     pub PurgeInterval: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCPV6_STATELESS_PARAMS {}
+impl ::core::marker::Copy for DHCPV6_STATELESS_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCPV6_STATELESS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCPV6_STATELESS_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_STATELESS_PARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCPV6_STATELESS_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCPV6_STATELESS_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCPV6_STATELESS_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_STATELESS_PARAMS").field("Status", &self.Status).field("PurgeInterval", &self.PurgeInterval).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCPV6_STATELESS_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.PurgeInterval == other.PurgeInterval
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCPV6_STATELESS_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
-pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(1i32);
-pub const DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(2i32);
-impl ::core::convert::From<i32> for DHCPV6_STATELESS_PARAM_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAM_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCPV6_STATELESS_PARAM_TYPE = i32;
+pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = 1i32;
+pub const DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = 2i32;
 #[repr(C)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub NumStatelessClientsAdded: u64,
     pub NumStatelessClientsRemoved: u64,
 }
-impl DHCPV6_STATELESS_SCOPE_STATS {}
+impl ::core::marker::Copy for DHCPV6_STATELESS_SCOPE_STATS {}
+impl ::core::clone::Clone for DHCPV6_STATELESS_SCOPE_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_SCOPE_STATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPV6_STATELESS_SCOPE_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_STATELESS_SCOPE_STATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPV6_STATELESS_SCOPE_STATS {}
 impl ::core::default::Default for DHCPV6_STATELESS_SCOPE_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCPV6_STATELESS_SCOPE_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_STATELESS_SCOPE_STATS").field("SubnetAddress", &self.SubnetAddress).field("NumStatelessClientsAdded", &self.NumStatelessClientsAdded).field("NumStatelessClientsRemoved", &self.NumStatelessClientsRemoved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPV6_STATELESS_SCOPE_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress && self.NumStatelessClientsAdded == other.NumStatelessClientsAdded && self.NumStatelessClientsRemoved == other.NumStatelessClientsRemoved
-    }
-}
-impl ::core::cmp::Eq for DHCPV6_STATELESS_SCOPE_STATS {}
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_SCOPE_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCPV6_STATELESS_STATS {
     pub NumScopes: u32,
     pub ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
 }
-impl DHCPV6_STATELESS_STATS {}
+impl ::core::marker::Copy for DHCPV6_STATELESS_STATS {}
+impl ::core::clone::Clone for DHCPV6_STATELESS_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_STATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCPV6_STATELESS_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_STATELESS_STATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCPV6_STATELESS_STATS {}
 impl ::core::default::Default for DHCPV6_STATELESS_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCPV6_STATELESS_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCPV6_STATELESS_STATS").field("NumScopes", &self.NumScopes).field("ScopeStats", &self.ScopeStats).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCPV6_STATELESS_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumScopes == other.NumScopes && self.ScopeStats == other.ScopeStats
-    }
-}
-impl ::core::cmp::Eq for DHCPV6_STATELESS_STATS {}
-unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ADDR_PATTERN {
@@ -820,32 +703,31 @@ pub struct DHCP_ADDR_PATTERN {
     pub Pattern: [u8; 255],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ADDR_PATTERN {}
+impl ::core::marker::Copy for DHCP_ADDR_PATTERN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ADDR_PATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ADDR_PATTERN {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ADDR_PATTERN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ADDR_PATTERN>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ADDR_PATTERN {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ADDR_PATTERN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ADDR_PATTERN {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_ADDR_PATTERN").field("MatchHWType", &self.MatchHWType).field("HWType", &self.HWType).field("IsWildcard", &self.IsWildcard).field("Length", &self.Length).field("Pattern", &self.Pattern).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ADDR_PATTERN {
-    fn eq(&self, other: &Self) -> bool {
-        self.MatchHWType == other.MatchHWType && self.HWType == other.HWType && self.IsWildcard == other.IsWildcard && self.Length == other.Length && self.Pattern == other.Pattern
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ADDR_PATTERN {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ADDR_PATTERN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ALL_OPTIONS {
@@ -855,32 +737,31 @@ pub struct DHCP_ALL_OPTIONS {
     pub VendorOptions: *mut DHCP_ALL_OPTIONS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ALL_OPTIONS {}
+impl ::core::marker::Copy for DHCP_ALL_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ALL_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTIONS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ALL_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ALL_OPTIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ALL_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_ALL_OPTIONS").field("Flags", &self.Flags).field("NonVendorOptions", &self.NonVendorOptions).field("NumVendorOptions", &self.NumVendorOptions).field("VendorOptions", &self.VendorOptions).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.NonVendorOptions == other.NonVendorOptions && self.NumVendorOptions == other.NumVendorOptions && self.VendorOptions == other.VendorOptions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ALL_OPTIONS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ALL_OPTIONS_0 {
@@ -889,32 +770,31 @@ pub struct DHCP_ALL_OPTIONS_0 {
     pub ClassName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ALL_OPTIONS_0 {}
+impl ::core::marker::Copy for DHCP_ALL_OPTIONS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ALL_OPTIONS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTIONS_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ALL_OPTIONS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ALL_OPTIONS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ALL_OPTIONS_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("Option", &self.Option).field("VendorName", &self.VendorName).field("ClassName", &self.ClassName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Option == other.Option && self.VendorName == other.VendorName && self.ClassName == other.ClassName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ALL_OPTIONS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ALL_OPTION_VALUES {
@@ -923,32 +803,31 @@ pub struct DHCP_ALL_OPTION_VALUES {
     pub Options: *mut DHCP_ALL_OPTION_VALUES_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ALL_OPTION_VALUES {}
+impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ALL_OPTION_VALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_ALL_OPTION_VALUES").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Options == other.Options
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ALL_OPTION_VALUES_0 {
@@ -958,32 +837,31 @@ pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ALL_OPTION_VALUES_0 {}
+impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ALL_OPTION_VALUES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("ClassName", &self.ClassName).field("VendorName", &self.VendorName).field("IsVendor", &self.IsVendor).field("OptionsArray", &self.OptionsArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassName == other.ClassName && self.VendorName == other.VendorName && self.IsVendor == other.IsVendor && self.OptionsArray == other.OptionsArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
@@ -992,32 +870,31 @@ pub struct DHCP_ALL_OPTION_VALUES_PB {
     pub Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ALL_OPTION_VALUES_PB {}
+impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES_PB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES_PB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES_PB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES_PB {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ALL_OPTION_VALUES_PB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_ALL_OPTION_VALUES_PB").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Options == other.Options
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES_PB {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
@@ -1027,32 +904,31 @@ pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ALL_OPTION_VALUES_PB_0 {}
+impl ::core::marker::Copy for DHCP_ALL_OPTION_VALUES_PB_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ALL_OPTION_VALUES_PB_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES_PB_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES_PB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ALL_OPTION_VALUES_PB_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("PolicyName", &self.PolicyName).field("VendorName", &self.VendorName).field("IsVendor", &self.IsVendor).field("OptionsArray", &self.OptionsArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PolicyName == other.PolicyName && self.VendorName == other.VendorName && self.IsVendor == other.IsVendor && self.OptionsArray == other.OptionsArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ALL_OPTION_VALUES_PB_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ATTRIB {
@@ -1061,26 +937,31 @@ pub struct DHCP_ATTRIB {
     pub Anonymous: DHCP_ATTRIB_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ATTRIB {}
+impl ::core::marker::Copy for DHCP_ATTRIB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ATTRIB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ATTRIB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ATTRIB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ATTRIB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ATTRIB {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ATTRIB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ATTRIB {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ATTRIB {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ATTRIB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_ATTRIB_0 {
@@ -1088,26 +969,31 @@ pub union DHCP_ATTRIB_0 {
     pub DhcpAttribUlong: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ATTRIB_0 {}
+impl ::core::marker::Copy for DHCP_ATTRIB_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_ATTRIB_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_ATTRIB_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_ATTRIB_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ATTRIB_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_ATTRIB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ATTRIB_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ATTRIB_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ATTRIB_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ATTRIB_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_ATTRIB_ARRAY {
@@ -1115,30 +1001,30 @@ pub struct DHCP_ATTRIB_ARRAY {
     pub DhcpAttribs: *mut DHCP_ATTRIB,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_ATTRIB_ARRAY {}
+impl ::core::marker::Copy for DHCP_ATTRIB_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DHCP_ATTRIB_ARRAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DHCP_ATTRIB_ARRAY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_ATTRIB_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_ATTRIB_ARRAY").field("NumElements", &self.NumElements).field("DhcpAttribs", &self.DhcpAttribs).finish()
-    }
+unsafe impl ::windows::core::Abi for DHCP_ATTRIB_ARRAY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ATTRIB_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.DhcpAttribs == other.DhcpAttribs
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ATTRIB_ARRAY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DHCP_ATTRIB_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_ATTRIB_ARRAY {
-    type Abi = Self;
+impl ::core::default::Default for DHCP_ATTRIB_ARRAY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
@@ -1148,33 +1034,31 @@ pub const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1u32;
 pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1u32;
 pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2u32;
 pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_BINARY_DATA {
     pub DataLength: u32,
     pub Data: *mut u8,
 }
-impl DHCP_BINARY_DATA {}
+impl ::core::marker::Copy for DHCP_BINARY_DATA {}
+impl ::core::clone::Clone for DHCP_BINARY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_BINARY_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_BINARY_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BINARY_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_BINARY_DATA {}
 impl ::core::default::Default for DHCP_BINARY_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_BINARY_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_BINARY_DATA").field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_BINARY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataLength == other.DataLength && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for DHCP_BINARY_DATA {}
-unsafe impl ::windows::core::Abi for DHCP_BINARY_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_BIND_ELEMENT {
@@ -1187,32 +1071,31 @@ pub struct DHCP_BIND_ELEMENT {
     pub IfId: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_BIND_ELEMENT {}
+impl ::core::marker::Copy for DHCP_BIND_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_BIND_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BIND_ELEMENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_BIND_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_BIND_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_BIND_ELEMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_BIND_ELEMENT").field("Flags", &self.Flags).field("fBoundToDHCPServer", &self.fBoundToDHCPServer).field("AdapterPrimaryAddress", &self.AdapterPrimaryAddress).field("AdapterSubnetAddress", &self.AdapterSubnetAddress).field("IfDescription", &self.IfDescription).field("IfIdSize", &self.IfIdSize).field("IfId", &self.IfId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.fBoundToDHCPServer == other.fBoundToDHCPServer && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress && self.AdapterSubnetAddress == other.AdapterSubnetAddress && self.IfDescription == other.IfDescription && self.IfIdSize == other.IfIdSize && self.IfId == other.IfId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_BIND_ELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
@@ -1220,32 +1103,31 @@ pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub Elements: *mut DHCP_BIND_ELEMENT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_BIND_ELEMENT_ARRAY {}
+impl ::core::marker::Copy for DHCP_BIND_ELEMENT_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_BIND_ELEMENT_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BIND_ELEMENT_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_BIND_ELEMENT_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_BIND_ELEMENT_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_BIND_ELEMENT_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_BIND_ELEMENT_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_BIND_ELEMENT_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_BOOTP_IP_RANGE {
     pub StartAddress: u32,
@@ -1253,27 +1135,26 @@ pub struct DHCP_BOOTP_IP_RANGE {
     pub BootpAllocated: u32,
     pub MaxBootpAllowed: u32,
 }
-impl DHCP_BOOTP_IP_RANGE {}
+impl ::core::marker::Copy for DHCP_BOOTP_IP_RANGE {}
+impl ::core::clone::Clone for DHCP_BOOTP_IP_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_BOOTP_IP_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BOOTP_IP_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
 impl ::core::default::Default for DHCP_BOOTP_IP_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_BOOTP_IP_RANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_BOOTP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).field("BootpAllocated", &self.BootpAllocated).field("MaxBootpAllowed", &self.MaxBootpAllowed).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_BOOTP_IP_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress && self.BootpAllocated == other.BootpAllocated && self.MaxBootpAllowed == other.MaxBootpAllowed
-    }
-}
-impl ::core::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
-unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CALLOUT_TABLE {
@@ -1289,41 +1170,31 @@ pub struct DHCP_CALLOUT_TABLE {
     pub DhcpReservedHook: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CALLOUT_TABLE {}
+impl ::core::marker::Copy for DHCP_CALLOUT_TABLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CALLOUT_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CALLOUT_TABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CALLOUT_TABLE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CALLOUT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CALLOUT_TABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CALLOUT_TABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CALLOUT_TABLE").field("DhcpExtensionHook", &self.DhcpExtensionHook).field("DhcpReservedHook", &self.DhcpReservedHook).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CALLOUT_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DhcpControlHook.map(|f| f as usize) == other.DhcpControlHook.map(|f| f as usize)
-            && self.DhcpNewPktHook.map(|f| f as usize) == other.DhcpNewPktHook.map(|f| f as usize)
-            && self.DhcpPktDropHook.map(|f| f as usize) == other.DhcpPktDropHook.map(|f| f as usize)
-            && self.DhcpPktSendHook.map(|f| f as usize) == other.DhcpPktSendHook.map(|f| f as usize)
-            && self.DhcpAddressDelHook.map(|f| f as usize) == other.DhcpAddressDelHook.map(|f| f as usize)
-            && self.DhcpAddressOfferHook.map(|f| f as usize) == other.DhcpAddressOfferHook.map(|f| f as usize)
-            && self.DhcpHandleOptionsHook.map(|f| f as usize) == other.DhcpHandleOptionsHook.map(|f| f as usize)
-            && self.DhcpDeleteClientHook.map(|f| f as usize) == other.DhcpDeleteClientHook.map(|f| f as usize)
-            && self.DhcpExtensionHook == other.DhcpExtensionHook
-            && self.DhcpReservedHook == other.DhcpReservedHook
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CALLOUT_TABLE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLASS_INFO {
@@ -1335,32 +1206,31 @@ pub struct DHCP_CLASS_INFO {
     pub ClassData: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLASS_INFO {}
+impl ::core::marker::Copy for DHCP_CLASS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLASS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLASS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLASS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLASS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLASS_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO").field("ClassName", &self.ClassName).field("ClassComment", &self.ClassComment).field("ClassDataLength", &self.ClassDataLength).field("IsVendor", &self.IsVendor).field("Flags", &self.Flags).field("ClassData", &self.ClassData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLASS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassName == other.ClassName && self.ClassComment == other.ClassComment && self.ClassDataLength == other.ClassDataLength && self.IsVendor == other.IsVendor && self.Flags == other.Flags && self.ClassData == other.ClassData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLASS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLASS_INFO_ARRAY {
@@ -1368,32 +1238,31 @@ pub struct DHCP_CLASS_INFO_ARRAY {
     pub Classes: *mut DHCP_CLASS_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLASS_INFO_ARRAY {}
+impl ::core::marker::Copy for DHCP_CLASS_INFO_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLASS_INFO_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLASS_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLASS_INFO_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLASS_INFO_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO_ARRAY").field("NumElements", &self.NumElements).field("Classes", &self.Classes).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Classes == other.Classes
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLASS_INFO_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
@@ -1401,32 +1270,31 @@ pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub Classes: *mut DHCP_CLASS_INFO_V6,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLASS_INFO_ARRAY_V6 {}
+impl ::core::marker::Copy for DHCP_CLASS_INFO_ARRAY_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLASS_INFO_ARRAY_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO_ARRAY_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLASS_INFO_ARRAY_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLASS_INFO_ARRAY_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLASS_INFO_ARRAY_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Classes", &self.Classes).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Classes == other.Classes
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLASS_INFO_ARRAY_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLASS_INFO_V6 {
@@ -1439,34 +1307,33 @@ pub struct DHCP_CLASS_INFO_V6 {
     pub ClassData: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLASS_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_CLASS_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLASS_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLASS_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLASS_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLASS_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO_V6").field("ClassName", &self.ClassName).field("ClassComment", &self.ClassComment).field("ClassDataLength", &self.ClassDataLength).field("IsVendor", &self.IsVendor).field("EnterpriseNumber", &self.EnterpriseNumber).field("Flags", &self.Flags).field("ClassData", &self.ClassData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassName == other.ClassName && self.ClassComment == other.ClassComment && self.ClassDataLength == other.ClassDataLength && self.IsVendor == other.IsVendor && self.EnterpriseNumber == other.EnterpriseNumber && self.Flags == other.Flags && self.ClassData == other.ClassData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLASS_INFO_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_V6 {
-    type Abi = Self;
-}
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
 pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
@@ -1485,46 +1352,31 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub FilterStatus: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_FILTER_STATUS_INFO {}
+impl ::core::marker::Copy for DHCP_CLIENT_FILTER_STATUS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_FILTER_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_FILTER_STATUS_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_FILTER_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_FILTER_STATUS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_FILTER_STATUS_INFO")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .field("Status", &self.Status)
-            .field("ProbationEnds", &self.ProbationEnds)
-            .field("QuarantineCapable", &self.QuarantineCapable)
-            .field("FilterStatus", &self.FilterStatus)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_FILTER_STATUS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
@@ -1532,32 +1384,31 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     pub Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
+impl ::core::marker::Copy for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO {
@@ -1570,32 +1421,31 @@ pub struct DHCP_CLIENT_INFO {
     pub OwnerHost: DHCP_HOST_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_ARRAY {
@@ -1603,32 +1453,31 @@ pub struct DHCP_CLIENT_INFO_ARRAY {
     pub Clients: *mut *mut DHCP_CLIENT_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_ARRAY {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
@@ -1636,32 +1485,31 @@ pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V4,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_ARRAY_V4 {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY_V4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_V4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_ARRAY_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
@@ -1669,32 +1517,31 @@ pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V5,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_ARRAY_V5 {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY_V5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_V5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_ARRAY_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
@@ -1702,32 +1549,31 @@ pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V6,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_ARRAY_V6 {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_ARRAY_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
@@ -1735,32 +1581,31 @@ pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
     pub Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_ARRAY_VQ {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_ARRAY_VQ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_ARRAY_VQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_VQ {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_VQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_VQ>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_ARRAY_VQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_VQ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_VQ").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_VQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_VQ {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_VQ {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_EX {
@@ -1781,48 +1626,31 @@ pub struct DHCP_CLIENT_INFO_EX {
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_EX {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_EX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_EX")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .field("Status", &self.Status)
-            .field("ProbationEnds", &self.ProbationEnds)
-            .field("QuarantineCapable", &self.QuarantineCapable)
-            .field("FilterStatus", &self.FilterStatus)
-            .field("PolicyName", &self.PolicyName)
-            .field("Properties", &self.Properties)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus && self.PolicyName == other.PolicyName && self.Properties == other.Properties
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
@@ -1830,32 +1658,31 @@ pub struct DHCP_CLIENT_INFO_EX_ARRAY {
     pub Clients: *mut *mut DHCP_CLIENT_INFO_EX,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_EX_ARRAY {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_EX_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_EX_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_EX_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_EX_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_EX_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_EX_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_EX_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_EX_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_PB {
@@ -1875,47 +1702,31 @@ pub struct DHCP_CLIENT_INFO_PB {
     pub PolicyName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_PB {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_PB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_PB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_PB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_PB {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_PB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_PB")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .field("Status", &self.Status)
-            .field("ProbationEnds", &self.ProbationEnds)
-            .field("QuarantineCapable", &self.QuarantineCapable)
-            .field("FilterStatus", &self.FilterStatus)
-            .field("PolicyName", &self.PolicyName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus && self.PolicyName == other.PolicyName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_PB {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
@@ -1923,32 +1734,31 @@ pub struct DHCP_CLIENT_INFO_PB_ARRAY {
     pub Clients: *mut *mut DHCP_CLIENT_INFO_PB,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_PB_ARRAY {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_PB_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_PB_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_PB_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_PB_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_PB_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_PB_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_PB_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Clients == other.Clients
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_PB_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_V4 {
@@ -1962,32 +1772,31 @@ pub struct DHCP_CLIENT_INFO_V4 {
     pub bClientType: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_V4 {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_V4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_V4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_V4").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_V5 {
@@ -2002,32 +1811,31 @@ pub struct DHCP_CLIENT_INFO_V5 {
     pub AddressState: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_V5 {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_V5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_V5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_V5").field("ClientIpAddress", &self.ClientIpAddress).field("SubnetMask", &self.SubnetMask).field("ClientHardwareAddress", &self.ClientHardwareAddress).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientLeaseExpires", &self.ClientLeaseExpires).field("OwnerHost", &self.OwnerHost).field("bClientType", &self.bClientType).field("AddressState", &self.AddressState).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_V6 {
@@ -2042,32 +1850,31 @@ pub struct DHCP_CLIENT_INFO_V6 {
     pub OwnerHost: DHCP_HOST_INFO_V6,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_V6").field("ClientIpAddress", &self.ClientIpAddress).field("ClientDUID", &self.ClientDUID).field("AddressType", &self.AddressType).field("IAID", &self.IAID).field("ClientName", &self.ClientName).field("ClientComment", &self.ClientComment).field("ClientValidLeaseExpires", &self.ClientValidLeaseExpires).field("ClientPrefLeaseExpires", &self.ClientPrefLeaseExpires).field("OwnerHost", &self.OwnerHost).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.ClientDUID == other.ClientDUID && self.AddressType == other.AddressType && self.IAID == other.IAID && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientValidLeaseExpires == other.ClientValidLeaseExpires && self.ClientPrefLeaseExpires == other.ClientPrefLeaseExpires && self.OwnerHost == other.OwnerHost
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CLIENT_INFO_VQ {
@@ -2085,46 +1892,32 @@ pub struct DHCP_CLIENT_INFO_VQ {
     pub QuarantineCapable: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_CLIENT_INFO_VQ {}
+impl ::core::marker::Copy for DHCP_CLIENT_INFO_VQ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_CLIENT_INFO_VQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_VQ {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_VQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_VQ>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_CLIENT_INFO_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CLIENT_INFO_VQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_CLIENT_INFO_VQ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_VQ")
-            .field("ClientIpAddress", &self.ClientIpAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClientName", &self.ClientName)
-            .field("ClientComment", &self.ClientComment)
-            .field("ClientLeaseExpires", &self.ClientLeaseExpires)
-            .field("OwnerHost", &self.OwnerHost)
-            .field("bClientType", &self.bClientType)
-            .field("AddressState", &self.AddressState)
-            .field("Status", &self.Status)
-            .field("ProbationEnds", &self.ProbationEnds)
-            .field("QuarantineCapable", &self.QuarantineCapable)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_VQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CLIENT_INFO_VQ {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_VQ {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DHCP_CLIENT_SEARCH_UNION(pub u8);
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
@@ -2146,20 +1939,9 @@ pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
 pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
 pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_FAILOVER_MODE(pub i32);
-pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
-pub const HotStandby: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(1i32);
-impl ::core::convert::From<i32> for DHCP_FAILOVER_MODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_MODE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_FAILOVER_MODE = i32;
+pub const LoadBalance: DHCP_FAILOVER_MODE = 0i32;
+pub const HotStandby: DHCP_FAILOVER_MODE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
@@ -2179,47 +1961,31 @@ pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub SharedSecret: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_FAILOVER_RELATIONSHIP {}
+impl ::core::marker::Copy for DHCP_FAILOVER_RELATIONSHIP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_FAILOVER_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FAILOVER_RELATIONSHIP>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_FAILOVER_RELATIONSHIP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FAILOVER_RELATIONSHIP")
-            .field("PrimaryServer", &self.PrimaryServer)
-            .field("SecondaryServer", &self.SecondaryServer)
-            .field("Mode", &self.Mode)
-            .field("ServerType", &self.ServerType)
-            .field("State", &self.State)
-            .field("PrevState", &self.PrevState)
-            .field("Mclt", &self.Mclt)
-            .field("SafePeriod", &self.SafePeriod)
-            .field("RelationshipName", &self.RelationshipName)
-            .field("PrimaryServerName", &self.PrimaryServerName)
-            .field("SecondaryServerName", &self.SecondaryServerName)
-            .field("pScopes", &self.pScopes)
-            .field("Percentage", &self.Percentage)
-            .field("SharedSecret", &self.SharedSecret)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrimaryServer == other.PrimaryServer && self.SecondaryServer == other.SecondaryServer && self.Mode == other.Mode && self.ServerType == other.ServerType && self.State == other.State && self.PrevState == other.PrevState && self.Mclt == other.Mclt && self.SafePeriod == other.SafePeriod && self.RelationshipName == other.RelationshipName && self.PrimaryServerName == other.PrimaryServerName && self.SecondaryServerName == other.SecondaryServerName && self.pScopes == other.pScopes && self.Percentage == other.Percentage && self.SharedSecret == other.SharedSecret
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
@@ -2227,45 +1993,34 @@ pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     pub pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
+impl ::core::marker::Copy for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FAILOVER_RELATIONSHIP_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FAILOVER_RELATIONSHIP_ARRAY").field("NumElements", &self.NumElements).field("pRelationships", &self.pRelationships).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.pRelationships == other.pRelationships
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_FAILOVER_SERVER(pub i32);
-pub const PrimaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(0i32);
-pub const SecondaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(1i32);
-impl ::core::convert::From<i32> for DHCP_FAILOVER_SERVER {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_SERVER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_FAILOVER_SERVER = i32;
+pub const PrimaryServer: DHCP_FAILOVER_SERVER = 0i32;
+pub const SecondaryServer: DHCP_FAILOVER_SERVER = 1i32;
 #[repr(C)]
 pub struct DHCP_FAILOVER_STATISTICS {
     pub NumAddr: u32,
@@ -2276,27 +2031,26 @@ pub struct DHCP_FAILOVER_STATISTICS {
     pub PartnerAddrInUse: u32,
     pub ThisAddrInUse: u32,
 }
-impl DHCP_FAILOVER_STATISTICS {}
+impl ::core::marker::Copy for DHCP_FAILOVER_STATISTICS {}
+impl ::core::clone::Clone for DHCP_FAILOVER_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_FAILOVER_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FAILOVER_STATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_FAILOVER_STATISTICS {}
 impl ::core::default::Default for DHCP_FAILOVER_STATISTICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_FAILOVER_STATISTICS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FAILOVER_STATISTICS").field("NumAddr", &self.NumAddr).field("AddrFree", &self.AddrFree).field("AddrInUse", &self.AddrInUse).field("PartnerAddrFree", &self.PartnerAddrFree).field("ThisAddrFree", &self.ThisAddrFree).field("PartnerAddrInUse", &self.PartnerAddrInUse).field("ThisAddrInUse", &self.ThisAddrInUse).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumAddr == other.NumAddr && self.AddrFree == other.AddrFree && self.AddrInUse == other.AddrInUse && self.PartnerAddrFree == other.PartnerAddrFree && self.ThisAddrFree == other.ThisAddrFree && self.PartnerAddrInUse == other.PartnerAddrInUse && self.ThisAddrInUse == other.ThisAddrInUse
-    }
-}
-impl ::core::cmp::Eq for DHCP_FAILOVER_STATISTICS {}
-unsafe impl ::windows::core::Abi for DHCP_FAILOVER_STATISTICS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FILTER_ADD_INFO {
@@ -2305,32 +2059,31 @@ pub struct DHCP_FILTER_ADD_INFO {
     pub ListType: DHCP_FILTER_LIST_TYPE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_FILTER_ADD_INFO {}
+impl ::core::marker::Copy for DHCP_FILTER_ADD_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_FILTER_ADD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_FILTER_ADD_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_FILTER_ADD_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_ADD_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_FILTER_ADD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_FILTER_ADD_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_FILTER_ADD_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_ADD_INFO").field("AddrPatt", &self.AddrPatt).field("Comment", &self.Comment).field("ListType", &self.ListType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_FILTER_ADD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddrPatt == other.AddrPatt && self.Comment == other.Comment && self.ListType == other.ListType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_FILTER_ADD_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_ADD_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FILTER_ENUM_INFO {
@@ -2338,32 +2091,31 @@ pub struct DHCP_FILTER_ENUM_INFO {
     pub pEnumRecords: *mut DHCP_FILTER_RECORD,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_FILTER_ENUM_INFO {}
+impl ::core::marker::Copy for DHCP_FILTER_ENUM_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_FILTER_ENUM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_FILTER_ENUM_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_FILTER_ENUM_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_ENUM_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_FILTER_ENUM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_FILTER_ENUM_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_FILTER_ENUM_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_ENUM_INFO").field("NumElements", &self.NumElements).field("pEnumRecords", &self.pEnumRecords).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_FILTER_ENUM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.pEnumRecords == other.pEnumRecords
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_FILTER_ENUM_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_ENUM_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FILTER_GLOBAL_INFO {
@@ -2371,45 +2123,34 @@ pub struct DHCP_FILTER_GLOBAL_INFO {
     pub EnforceDenyList: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_FILTER_GLOBAL_INFO {}
+impl ::core::marker::Copy for DHCP_FILTER_GLOBAL_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_FILTER_GLOBAL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_FILTER_GLOBAL_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_FILTER_GLOBAL_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_GLOBAL_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_FILTER_GLOBAL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_FILTER_GLOBAL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_FILTER_GLOBAL_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_GLOBAL_INFO").field("EnforceAllowList", &self.EnforceAllowList).field("EnforceDenyList", &self.EnforceDenyList).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_FILTER_GLOBAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnforceAllowList == other.EnforceAllowList && self.EnforceDenyList == other.EnforceDenyList
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_FILTER_GLOBAL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_GLOBAL_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_FILTER_LIST_TYPE(pub i32);
-pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
-pub const Allow: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(1i32);
-impl ::core::convert::From<i32> for DHCP_FILTER_LIST_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_FILTER_LIST_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_FILTER_LIST_TYPE = i32;
+pub const Deny: DHCP_FILTER_LIST_TYPE = 0i32;
+pub const Allow: DHCP_FILTER_LIST_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FILTER_RECORD {
@@ -2417,51 +2158,40 @@ pub struct DHCP_FILTER_RECORD {
     pub Comment: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_FILTER_RECORD {}
+impl ::core::marker::Copy for DHCP_FILTER_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_FILTER_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_FILTER_RECORD {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_FILTER_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_RECORD>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_FILTER_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_FILTER_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_FILTER_RECORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_RECORD").field("AddrPatt", &self.AddrPatt).field("Comment", &self.Comment).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_FILTER_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddrPatt == other.AddrPatt && self.Comment == other.Comment
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_FILTER_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_FILTER_RECORD {
-    type Abi = Self;
-}
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_FORCE_FLAG(pub i32);
-pub const DhcpFullForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(0i32);
-pub const DhcpNoForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(1i32);
-pub const DhcpFailoverForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(2i32);
-impl ::core::convert::From<i32> for DHCP_FORCE_FLAG {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_FORCE_FLAG {
-    type Abi = Self;
-}
+pub type DHCP_FORCE_FLAG = i32;
+pub const DhcpFullForce: DHCP_FORCE_FLAG = 0i32;
+pub const DhcpNoForce: DHCP_FORCE_FLAG = 1i32;
+pub const DhcpFailoverForce: DHCP_FORCE_FLAG = 2i32;
 pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
 pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_HOST_INFO {
@@ -2470,32 +2200,31 @@ pub struct DHCP_HOST_INFO {
     pub HostName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_HOST_INFO {}
+impl ::core::marker::Copy for DHCP_HOST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_HOST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_HOST_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_HOST_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_HOST_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_HOST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_HOST_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_HOST_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_HOST_INFO").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_HOST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress && self.NetBiosName == other.NetBiosName && self.HostName == other.HostName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_HOST_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_HOST_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_HOST_INFO_V6 {
@@ -2504,214 +2233,206 @@ pub struct DHCP_HOST_INFO_V6 {
     pub HostName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_HOST_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_HOST_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_HOST_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_HOST_INFO_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_HOST_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_HOST_INFO_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_HOST_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_HOST_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_HOST_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_HOST_INFO_V6").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_HOST_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress && self.NetBiosName == other.NetBiosName && self.HostName == other.HostName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_HOST_INFO_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_HOST_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IPV6_ADDRESS {
     pub HighOrderBits: u64,
     pub LowOrderBits: u64,
 }
-impl DHCP_IPV6_ADDRESS {}
+impl ::core::marker::Copy for DHCP_IPV6_ADDRESS {}
+impl ::core::clone::Clone for DHCP_IPV6_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IPV6_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IPV6_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IPV6_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IPV6_ADDRESS {}
 impl ::core::default::Default for DHCP_IPV6_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IPV6_ADDRESS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IPV6_ADDRESS").field("HighOrderBits", &self.HighOrderBits).field("LowOrderBits", &self.LowOrderBits).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IPV6_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.HighOrderBits == other.HighOrderBits && self.LowOrderBits == other.LowOrderBits
-    }
-}
-impl ::core::cmp::Eq for DHCP_IPV6_ADDRESS {}
-unsafe impl ::windows::core::Abi for DHCP_IPV6_ADDRESS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut u32,
 }
-impl DHCP_IP_ARRAY {}
+impl ::core::marker::Copy for DHCP_IP_ARRAY {}
+impl ::core::clone::Clone for DHCP_IP_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_ARRAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_ARRAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_ARRAY {}
 impl ::core::default::Default for DHCP_IP_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_ARRAY {}
-unsafe impl ::windows::core::Abi for DHCP_IP_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_CLUSTER {
     pub ClusterAddress: u32,
     pub ClusterMask: u32,
 }
-impl DHCP_IP_CLUSTER {}
+impl ::core::marker::Copy for DHCP_IP_CLUSTER {}
+impl ::core::clone::Clone for DHCP_IP_CLUSTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_CLUSTER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_CLUSTER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_CLUSTER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_CLUSTER {}
 impl ::core::default::Default for DHCP_IP_CLUSTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_CLUSTER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_CLUSTER").field("ClusterAddress", &self.ClusterAddress).field("ClusterMask", &self.ClusterMask).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_CLUSTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClusterAddress == other.ClusterAddress && self.ClusterMask == other.ClusterMask
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_CLUSTER {}
-unsafe impl ::windows::core::Abi for DHCP_IP_CLUSTER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
 }
-impl DHCP_IP_RANGE {}
+impl ::core::marker::Copy for DHCP_IP_RANGE {}
+impl ::core::clone::Clone for DHCP_IP_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_RANGE {}
 impl ::core::default::Default for DHCP_IP_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_RANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_RANGE {}
-unsafe impl ::windows::core::Abi for DHCP_IP_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_RANGE_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IP_RANGE,
 }
-impl DHCP_IP_RANGE_ARRAY {}
+impl ::core::marker::Copy for DHCP_IP_RANGE_ARRAY {}
+impl ::core::clone::Clone for DHCP_IP_RANGE_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_ARRAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_RANGE_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RANGE_ARRAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_RANGE_ARRAY {}
 impl ::core::default::Default for DHCP_IP_RANGE_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_RANGE_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RANGE_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_RANGE_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_RANGE_ARRAY {}
-unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_RANGE_V6 {
     pub StartAddress: DHCP_IPV6_ADDRESS,
     pub EndAddress: DHCP_IPV6_ADDRESS,
 }
-impl DHCP_IP_RANGE_V6 {}
+impl ::core::marker::Copy for DHCP_IP_RANGE_V6 {}
+impl ::core::clone::Clone for DHCP_IP_RANGE_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_V6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_RANGE_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RANGE_V6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_RANGE_V6 {}
 impl ::core::default::Default for DHCP_IP_RANGE_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_RANGE_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RANGE_V6").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_RANGE_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_RANGE_V6 {}
-unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_RESERVATION {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
 }
-impl DHCP_IP_RESERVATION {}
+impl ::core::marker::Copy for DHCP_IP_RESERVATION {}
+impl ::core::clone::Clone for DHCP_IP_RESERVATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_RESERVATION {}
 impl ::core::default::Default for DHCP_IP_RESERVATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_RESERVATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_RESERVATION {}
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_IP_RESERVATION_INFO {
@@ -2723,87 +2444,84 @@ pub struct DHCP_IP_RESERVATION_INFO {
     pub fOptionsPresent: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_IP_RESERVATION_INFO {}
+impl ::core::marker::Copy for DHCP_IP_RESERVATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_IP_RESERVATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_IP_RESERVATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_IP_RESERVATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_IP_RESERVATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION_INFO").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("ReservedClientName", &self.ReservedClientName).field("ReservedClientDesc", &self.ReservedClientDesc).field("bAllowedClientTypes", &self.bAllowedClientTypes).field("fOptionsPresent", &self.fOptionsPresent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.ReservedClientName == other.ReservedClientName && self.ReservedClientDesc == other.ReservedClientDesc && self.bAllowedClientTypes == other.bAllowedClientTypes && self.fOptionsPresent == other.fOptionsPresent
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_IP_RESERVATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_RESERVATION_V4 {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
     pub bAllowedClientTypes: u8,
 }
-impl DHCP_IP_RESERVATION_V4 {}
+impl ::core::marker::Copy for DHCP_IP_RESERVATION_V4 {}
+impl ::core::clone::Clone for DHCP_IP_RESERVATION_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V4 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION_V4>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_RESERVATION_V4 {}
 impl ::core::default::Default for DHCP_IP_RESERVATION_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_RESERVATION_V4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION_V4").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("bAllowedClientTypes", &self.bAllowedClientTypes).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.bAllowedClientTypes == other.bAllowedClientTypes
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_RESERVATION_V4 {}
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_IP_RESERVATION_V6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
     pub InterfaceId: u32,
 }
-impl DHCP_IP_RESERVATION_V6 {}
+impl ::core::marker::Copy for DHCP_IP_RESERVATION_V6 {}
+impl ::core::clone::Clone for DHCP_IP_RESERVATION_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION_V6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_IP_RESERVATION_V6 {}
 impl ::core::default::Default for DHCP_IP_RESERVATION_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_IP_RESERVATION_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION_V6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("InterfaceId", &self.InterfaceId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.InterfaceId == other.InterfaceId
-    }
-}
-impl ::core::cmp::Eq for DHCP_IP_RESERVATION_V6 {}
-unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V6 {
-    type Abi = Self;
-}
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_MIB_INFO {
     pub Discovers: u32,
@@ -2817,27 +2535,26 @@ pub struct DHCP_MIB_INFO {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO,
 }
-impl DHCP_MIB_INFO {}
+impl ::core::marker::Copy for DHCP_MIB_INFO {}
+impl ::core::clone::Clone for DHCP_MIB_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_MIB_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_MIB_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_MIB_INFO {}
 impl ::core::default::Default for DHCP_MIB_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_MIB_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_MIB_INFO").field("Discovers", &self.Discovers).field("Offers", &self.Offers).field("Requests", &self.Requests).field("Acks", &self.Acks).field("Naks", &self.Naks).field("Declines", &self.Declines).field("Releases", &self.Releases).field("ServerStartTime", &self.ServerStartTime).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_MIB_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
-    }
-}
-impl ::core::cmp::Eq for DHCP_MIB_INFO {}
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_MIB_INFO_V5 {
     pub Discovers: u32,
@@ -2860,47 +2577,26 @@ pub struct DHCP_MIB_INFO_V5 {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_V5,
 }
-impl DHCP_MIB_INFO_V5 {}
+impl ::core::marker::Copy for DHCP_MIB_INFO_V5 {}
+impl ::core::clone::Clone for DHCP_MIB_INFO_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO_V5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_MIB_INFO_V5 {}
 impl ::core::default::Default for DHCP_MIB_INFO_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_MIB_INFO_V5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_MIB_INFO_V5")
-            .field("Discovers", &self.Discovers)
-            .field("Offers", &self.Offers)
-            .field("Requests", &self.Requests)
-            .field("Acks", &self.Acks)
-            .field("Naks", &self.Naks)
-            .field("Declines", &self.Declines)
-            .field("Releases", &self.Releases)
-            .field("ServerStartTime", &self.ServerStartTime)
-            .field("QtnNumLeases", &self.QtnNumLeases)
-            .field("QtnPctQtnLeases", &self.QtnPctQtnLeases)
-            .field("QtnProbationLeases", &self.QtnProbationLeases)
-            .field("QtnNonQtnLeases", &self.QtnNonQtnLeases)
-            .field("QtnExemptLeases", &self.QtnExemptLeases)
-            .field("QtnCapableClients", &self.QtnCapableClients)
-            .field("QtnIASErrors", &self.QtnIASErrors)
-            .field("DelayedOffers", &self.DelayedOffers)
-            .field("ScopesWithDelayedOffers", &self.ScopesWithDelayedOffers)
-            .field("Scopes", &self.Scopes)
-            .field("ScopeInfo", &self.ScopeInfo)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients && self.QtnIASErrors == other.QtnIASErrors && self.DelayedOffers == other.DelayedOffers && self.ScopesWithDelayedOffers == other.ScopesWithDelayedOffers && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
-    }
-}
-impl ::core::cmp::Eq for DHCP_MIB_INFO_V5 {}
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_MIB_INFO_V6 {
     pub Solicits: u32,
@@ -2917,41 +2613,26 @@ pub struct DHCP_MIB_INFO_V6 {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_V6,
 }
-impl DHCP_MIB_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_MIB_INFO_V6 {}
+impl ::core::clone::Clone for DHCP_MIB_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO_V6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_MIB_INFO_V6 {}
 impl ::core::default::Default for DHCP_MIB_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_MIB_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_MIB_INFO_V6")
-            .field("Solicits", &self.Solicits)
-            .field("Advertises", &self.Advertises)
-            .field("Requests", &self.Requests)
-            .field("Renews", &self.Renews)
-            .field("Rebinds", &self.Rebinds)
-            .field("Replies", &self.Replies)
-            .field("Confirms", &self.Confirms)
-            .field("Declines", &self.Declines)
-            .field("Releases", &self.Releases)
-            .field("Informs", &self.Informs)
-            .field("ServerStartTime", &self.ServerStartTime)
-            .field("Scopes", &self.Scopes)
-            .field("ScopeInfo", &self.ScopeInfo)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Solicits == other.Solicits && self.Advertises == other.Advertises && self.Requests == other.Requests && self.Renews == other.Renews && self.Rebinds == other.Rebinds && self.Replies == other.Replies && self.Confirms == other.Confirms && self.Declines == other.Declines && self.Releases == other.Releases && self.Informs == other.Informs && self.ServerStartTime == other.ServerStartTime && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
-    }
-}
-impl ::core::cmp::Eq for DHCP_MIB_INFO_V6 {}
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_MIB_INFO_VQ {
     pub Discovers: u32,
@@ -2972,46 +2653,27 @@ pub struct DHCP_MIB_INFO_VQ {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_VQ,
 }
-impl DHCP_MIB_INFO_VQ {}
+impl ::core::marker::Copy for DHCP_MIB_INFO_VQ {}
+impl ::core::clone::Clone for DHCP_MIB_INFO_VQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_VQ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_MIB_INFO_VQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO_VQ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_MIB_INFO_VQ {}
 impl ::core::default::Default for DHCP_MIB_INFO_VQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_MIB_INFO_VQ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_MIB_INFO_VQ")
-            .field("Discovers", &self.Discovers)
-            .field("Offers", &self.Offers)
-            .field("Requests", &self.Requests)
-            .field("Acks", &self.Acks)
-            .field("Naks", &self.Naks)
-            .field("Declines", &self.Declines)
-            .field("Releases", &self.Releases)
-            .field("ServerStartTime", &self.ServerStartTime)
-            .field("QtnNumLeases", &self.QtnNumLeases)
-            .field("QtnPctQtnLeases", &self.QtnPctQtnLeases)
-            .field("QtnProbationLeases", &self.QtnProbationLeases)
-            .field("QtnNonQtnLeases", &self.QtnNonQtnLeases)
-            .field("QtnExemptLeases", &self.QtnExemptLeases)
-            .field("QtnCapableClients", &self.QtnCapableClients)
-            .field("QtnIASErrors", &self.QtnIASErrors)
-            .field("Scopes", &self.Scopes)
-            .field("ScopeInfo", &self.ScopeInfo)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_MIB_INFO_VQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients && self.QtnIASErrors == other.QtnIASErrors && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
-    }
-}
-impl ::core::cmp::Eq for DHCP_MIB_INFO_VQ {}
-unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_VQ {
-    type Abi = Self;
-}
 pub const DHCP_MIN_DELAY: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION {
@@ -3022,32 +2684,31 @@ pub struct DHCP_OPTION {
     pub OptionType: DHCP_OPTION_TYPE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION {}
+impl ::core::marker::Copy for DHCP_OPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION").field("OptionID", &self.OptionID).field("OptionName", &self.OptionName).field("OptionComment", &self.OptionComment).field("DefaultValue", &self.DefaultValue).field("OptionType", &self.OptionType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.OptionID == other.OptionID && self.OptionName == other.OptionName && self.OptionComment == other.OptionComment && self.DefaultValue == other.DefaultValue && self.OptionType == other.OptionType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_ARRAY {
@@ -3055,32 +2716,31 @@ pub struct DHCP_OPTION_ARRAY {
     pub Options: *mut DHCP_OPTION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_ARRAY {}
+impl ::core::marker::Copy for DHCP_OPTION_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_ARRAY").field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Options == other.Options
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_DATA {
@@ -3088,32 +2748,31 @@ pub struct DHCP_OPTION_DATA {
     pub Elements: *mut DHCP_OPTION_DATA_ELEMENT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_DATA {}
+impl ::core::marker::Copy for DHCP_OPTION_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_DATA").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_DATA_ELEMENT {
@@ -3121,26 +2780,31 @@ pub struct DHCP_OPTION_DATA_ELEMENT {
     pub Element: DHCP_OPTION_DATA_ELEMENT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_DATA_ELEMENT {}
+impl ::core::marker::Copy for DHCP_OPTION_DATA_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_DATA_ELEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_DATA_ELEMENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_DATA_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_DATA_ELEMENT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_DATA_ELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_OPTION_DATA_ELEMENT_0 {
@@ -3155,49 +2819,43 @@ pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub Ipv6AddressDataOption: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_DATA_ELEMENT_0 {}
+impl ::core::marker::Copy for DHCP_OPTION_DATA_ELEMENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_DATA_ELEMENT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_DATA_ELEMENT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_DATA_ELEMENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_DATA_ELEMENT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_DATA_ELEMENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_OPTION_DATA_TYPE(pub i32);
-pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(0i32);
-pub const DhcpWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(1i32);
-pub const DhcpDWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(2i32);
-pub const DhcpDWordDWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(3i32);
-pub const DhcpIpAddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(4i32);
-pub const DhcpStringDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(5i32);
-pub const DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(6i32);
-pub const DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(7i32);
-pub const DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(8i32);
-impl ::core::convert::From<i32> for DHCP_OPTION_DATA_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_TYPE {
-    type Abi = Self;
-}
+pub type DHCP_OPTION_DATA_TYPE = i32;
+pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = 0i32;
+pub const DhcpWordOption: DHCP_OPTION_DATA_TYPE = 1i32;
+pub const DhcpDWordOption: DHCP_OPTION_DATA_TYPE = 2i32;
+pub const DhcpDWordDWordOption: DHCP_OPTION_DATA_TYPE = 3i32;
+pub const DhcpIpAddressOption: DHCP_OPTION_DATA_TYPE = 4i32;
+pub const DhcpStringDataOption: DHCP_OPTION_DATA_TYPE = 5i32;
+pub const DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = 6i32;
+pub const DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = 7i32;
+pub const DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = 8i32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DHCP_OPTION_ELEMENT_UNION(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_LIST {
@@ -3205,32 +2863,31 @@ pub struct DHCP_OPTION_LIST {
     pub Options: *mut DHCP_OPTION_VALUE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_LIST {}
+impl ::core::marker::Copy for DHCP_OPTION_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_LIST {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_LIST>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_LIST").field("NumOptions", &self.NumOptions).field("Options", &self.Options).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumOptions == other.NumOptions && self.Options == other.Options
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_LIST {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_LIST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_SCOPE_INFO {
@@ -3238,26 +2895,31 @@ pub struct DHCP_OPTION_SCOPE_INFO {
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_SCOPE_INFO {}
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_OPTION_SCOPE_INFO_0 {
@@ -3268,116 +2930,98 @@ pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub MScopeInfo: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_SCOPE_INFO_0 {}
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_OPTION_SCOPE_INFO6 {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
 }
-impl DHCP_OPTION_SCOPE_INFO6 {}
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO6 {}
+impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO6 {}
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO6 {}
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union DHCP_OPTION_SCOPE_INFO6_0 {
     pub DefaultScopeInfo: *mut ::core::ffi::c_void,
     pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
 }
-impl DHCP_OPTION_SCOPE_INFO6_0 {}
+impl ::core::marker::Copy for DHCP_OPTION_SCOPE_INFO6_0 {}
+impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO6_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO6_0 {}
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO6_0 {}
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
-pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(0i32);
-pub const DhcpGlobalOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(1i32);
-pub const DhcpSubnetOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(2i32);
-pub const DhcpReservedOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(3i32);
-pub const DhcpMScopeOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(4i32);
-impl ::core::convert::From<i32> for DHCP_OPTION_SCOPE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
-pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(0i32);
-pub const DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(1i32);
-pub const DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(2i32);
-pub const DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(3i32);
-impl ::core::convert::From<i32> for DHCP_OPTION_SCOPE_TYPE6 {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_TYPE6 {
-    type Abi = Self;
-}
+pub type DHCP_OPTION_SCOPE_TYPE = i32;
+pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = 0i32;
+pub const DhcpGlobalOptions: DHCP_OPTION_SCOPE_TYPE = 1i32;
+pub const DhcpSubnetOptions: DHCP_OPTION_SCOPE_TYPE = 2i32;
+pub const DhcpReservedOptions: DHCP_OPTION_SCOPE_TYPE = 3i32;
+pub const DhcpMScopeOptions: DHCP_OPTION_SCOPE_TYPE = 4i32;
+pub type DHCP_OPTION_SCOPE_TYPE6 = i32;
+pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = 0i32;
+pub const DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = 1i32;
+pub const DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = 2i32;
+pub const DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = 3i32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DHCP_OPTION_SCOPE_UNION6(pub u8);
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_OPTION_TYPE(pub i32);
-pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(0i32);
-pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(1i32);
-impl ::core::convert::From<i32> for DHCP_OPTION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_OPTION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_OPTION_TYPE = i32;
+pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = 0i32;
+pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_VALUE {
@@ -3385,32 +3029,31 @@ pub struct DHCP_OPTION_VALUE {
     pub Value: DHCP_OPTION_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_VALUE {}
+impl ::core::marker::Copy for DHCP_OPTION_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_VALUE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_VALUE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_VALUE").field("OptionID", &self.OptionID).field("Value", &self.Value).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.OptionID == other.OptionID && self.Value == other.Value
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_VALUE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_VALUE_ARRAY {
@@ -3418,34 +3061,33 @@ pub struct DHCP_OPTION_VALUE_ARRAY {
     pub Values: *mut DHCP_OPTION_VALUE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_OPTION_VALUE_ARRAY {}
+impl ::core::marker::Copy for DHCP_OPTION_VALUE_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_OPTION_VALUE_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_VALUE_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_OPTION_VALUE_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_OPTION_VALUE_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_OPTION_VALUE_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_VALUE_ARRAY").field("NumElements", &self.NumElements).field("Values", &self.Values).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Values == other.Values
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_OPTION_VALUE_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE_ARRAY {
-    type Abi = Self;
-}
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_PERF_STATS {
     pub dwNumPacketsReceived: u32,
@@ -3468,65 +3110,26 @@ pub struct DHCP_PERF_STATS {
     pub dwNumPacketsInQuarReadyQueue: u32,
     pub dwNumPacketsInQuarDecisionQueue: u32,
 }
-impl DHCP_PERF_STATS {}
+impl ::core::marker::Copy for DHCP_PERF_STATS {}
+impl ::core::clone::Clone for DHCP_PERF_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_PERF_STATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_PERF_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PERF_STATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_PERF_STATS {}
 impl ::core::default::Default for DHCP_PERF_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_PERF_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_PERF_STATS")
-            .field("dwNumPacketsReceived", &self.dwNumPacketsReceived)
-            .field("dwNumPacketsDuplicate", &self.dwNumPacketsDuplicate)
-            .field("dwNumPacketsExpired", &self.dwNumPacketsExpired)
-            .field("dwNumMilliSecondsProcessed", &self.dwNumMilliSecondsProcessed)
-            .field("dwNumPacketsInActiveQueue", &self.dwNumPacketsInActiveQueue)
-            .field("dwNumPacketsInPingQueue", &self.dwNumPacketsInPingQueue)
-            .field("dwNumDiscoversReceived", &self.dwNumDiscoversReceived)
-            .field("dwNumOffersSent", &self.dwNumOffersSent)
-            .field("dwNumRequestsReceived", &self.dwNumRequestsReceived)
-            .field("dwNumInformsReceived", &self.dwNumInformsReceived)
-            .field("dwNumAcksSent", &self.dwNumAcksSent)
-            .field("dwNumNacksSent", &self.dwNumNacksSent)
-            .field("dwNumDeclinesReceived", &self.dwNumDeclinesReceived)
-            .field("dwNumReleasesReceived", &self.dwNumReleasesReceived)
-            .field("dwNumDelayedOfferInQueue", &self.dwNumDelayedOfferInQueue)
-            .field("dwNumPacketsProcessed", &self.dwNumPacketsProcessed)
-            .field("dwNumPacketsInQuarWaitingQueue", &self.dwNumPacketsInQuarWaitingQueue)
-            .field("dwNumPacketsInQuarReadyQueue", &self.dwNumPacketsInQuarReadyQueue)
-            .field("dwNumPacketsInQuarDecisionQueue", &self.dwNumPacketsInQuarDecisionQueue)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_PERF_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPacketsReceived == other.dwNumPacketsReceived
-            && self.dwNumPacketsDuplicate == other.dwNumPacketsDuplicate
-            && self.dwNumPacketsExpired == other.dwNumPacketsExpired
-            && self.dwNumMilliSecondsProcessed == other.dwNumMilliSecondsProcessed
-            && self.dwNumPacketsInActiveQueue == other.dwNumPacketsInActiveQueue
-            && self.dwNumPacketsInPingQueue == other.dwNumPacketsInPingQueue
-            && self.dwNumDiscoversReceived == other.dwNumDiscoversReceived
-            && self.dwNumOffersSent == other.dwNumOffersSent
-            && self.dwNumRequestsReceived == other.dwNumRequestsReceived
-            && self.dwNumInformsReceived == other.dwNumInformsReceived
-            && self.dwNumAcksSent == other.dwNumAcksSent
-            && self.dwNumNacksSent == other.dwNumNacksSent
-            && self.dwNumDeclinesReceived == other.dwNumDeclinesReceived
-            && self.dwNumReleasesReceived == other.dwNumReleasesReceived
-            && self.dwNumDelayedOfferInQueue == other.dwNumDelayedOfferInQueue
-            && self.dwNumPacketsProcessed == other.dwNumPacketsProcessed
-            && self.dwNumPacketsInQuarWaitingQueue == other.dwNumPacketsInQuarWaitingQueue
-            && self.dwNumPacketsInQuarReadyQueue == other.dwNumPacketsInQuarReadyQueue
-            && self.dwNumPacketsInQuarDecisionQueue == other.dwNumPacketsInQuarDecisionQueue
-    }
-}
-impl ::core::cmp::Eq for DHCP_PERF_STATS {}
-unsafe impl ::windows::core::Abi for DHCP_PERF_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POLICY {
@@ -3541,32 +3144,31 @@ pub struct DHCP_POLICY {
     pub Enabled: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_POLICY {}
+impl ::core::marker::Copy for DHCP_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_POLICY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY").field("PolicyName", &self.PolicyName).field("IsGlobalPolicy", &self.IsGlobalPolicy).field("Subnet", &self.Subnet).field("ProcessingOrder", &self.ProcessingOrder).field("Conditions", &self.Conditions).field("Expressions", &self.Expressions).field("Ranges", &self.Ranges).field("Description", &self.Description).field("Enabled", &self.Enabled).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.PolicyName == other.PolicyName && self.IsGlobalPolicy == other.IsGlobalPolicy && self.Subnet == other.Subnet && self.ProcessingOrder == other.ProcessingOrder && self.Conditions == other.Conditions && self.Expressions == other.Expressions && self.Ranges == other.Ranges && self.Description == other.Description && self.Enabled == other.Enabled
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POLICY_ARRAY {
@@ -3574,32 +3176,31 @@ pub struct DHCP_POLICY_ARRAY {
     pub Elements: *mut DHCP_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_POLICY_ARRAY {}
+impl ::core::marker::Copy for DHCP_POLICY_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_POLICY_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_POLICY_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_POLICY_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_POLICY_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_POLICY_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_POLICY_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_POLICY_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_POLICY_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POLICY_EX {
@@ -3615,32 +3216,31 @@ pub struct DHCP_POLICY_EX {
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_POLICY_EX {}
+impl ::core::marker::Copy for DHCP_POLICY_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_POLICY_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_POLICY_EX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_POLICY_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY_EX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_POLICY_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_POLICY_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_POLICY_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY_EX").field("PolicyName", &self.PolicyName).field("IsGlobalPolicy", &self.IsGlobalPolicy).field("Subnet", &self.Subnet).field("ProcessingOrder", &self.ProcessingOrder).field("Conditions", &self.Conditions).field("Expressions", &self.Expressions).field("Ranges", &self.Ranges).field("Description", &self.Description).field("Enabled", &self.Enabled).field("Properties", &self.Properties).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_POLICY_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.PolicyName == other.PolicyName && self.IsGlobalPolicy == other.IsGlobalPolicy && self.Subnet == other.Subnet && self.ProcessingOrder == other.ProcessingOrder && self.Conditions == other.Conditions && self.Expressions == other.Expressions && self.Ranges == other.Ranges && self.Description == other.Description && self.Enabled == other.Enabled && self.Properties == other.Properties
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_POLICY_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POLICY_EX_ARRAY {
@@ -3648,83 +3248,52 @@ pub struct DHCP_POLICY_EX_ARRAY {
     pub Elements: *mut DHCP_POLICY_EX,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_POLICY_EX_ARRAY {}
+impl ::core::marker::Copy for DHCP_POLICY_EX_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_POLICY_EX_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_POLICY_EX_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_POLICY_EX_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY_EX_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_POLICY_EX_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_POLICY_EX_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_POLICY_EX_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY_EX_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_POLICY_EX_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_POLICY_EX_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POLICY_EX_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
-pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(1i32);
-pub const DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(2i32);
-pub const DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(4i32);
-pub const DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(8i32);
-pub const DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(16i32);
-pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(32i32);
-pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(64i32);
-impl ::core::convert::From<i32> for DHCP_POLICY_FIELDS_TO_UPDATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_POLICY_FIELDS_TO_UPDATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_POL_ATTR_TYPE(pub i32);
-pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(0i32);
-pub const DhcpAttrOption: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(1i32);
-pub const DhcpAttrSubOption: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(2i32);
-pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(3i32);
-pub const DhcpAttrFqdnSingleLabel: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(4i32);
-impl ::core::convert::From<i32> for DHCP_POL_ATTR_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_POL_ATTR_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_POL_COMPARATOR(pub i32);
-pub const DhcpCompEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(0i32);
-pub const DhcpCompNotEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(1i32);
-pub const DhcpCompBeginsWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(2i32);
-pub const DhcpCompNotBeginWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(3i32);
-pub const DhcpCompEndsWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(4i32);
-pub const DhcpCompNotEndWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(5i32);
-impl ::core::convert::From<i32> for DHCP_POL_COMPARATOR {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_POL_COMPARATOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
+pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = 1i32;
+pub const DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = 2i32;
+pub const DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = 4i32;
+pub const DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = 8i32;
+pub const DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = 16i32;
+pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = 32i32;
+pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = 64i32;
+pub type DHCP_POL_ATTR_TYPE = i32;
+pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = 0i32;
+pub const DhcpAttrOption: DHCP_POL_ATTR_TYPE = 1i32;
+pub const DhcpAttrSubOption: DHCP_POL_ATTR_TYPE = 2i32;
+pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = 3i32;
+pub const DhcpAttrFqdnSingleLabel: DHCP_POL_ATTR_TYPE = 4i32;
+pub type DHCP_POL_COMPARATOR = i32;
+pub const DhcpCompEqual: DHCP_POL_COMPARATOR = 0i32;
+pub const DhcpCompNotEqual: DHCP_POL_COMPARATOR = 1i32;
+pub const DhcpCompBeginsWith: DHCP_POL_COMPARATOR = 2i32;
+pub const DhcpCompNotBeginWith: DHCP_POL_COMPARATOR = 3i32;
+pub const DhcpCompEndsWith: DHCP_POL_COMPARATOR = 4i32;
+pub const DhcpCompNotEndWith: DHCP_POL_COMPARATOR = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POL_COND {
@@ -3738,32 +3307,31 @@ pub struct DHCP_POL_COND {
     pub ValueLength: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_POL_COND {}
+impl ::core::marker::Copy for DHCP_POL_COND {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_POL_COND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_POL_COND {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_POL_COND {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_COND>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_POL_COND {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_POL_COND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_POL_COND {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POL_COND").field("ParentExpr", &self.ParentExpr).field("Type", &self.Type).field("OptionID", &self.OptionID).field("SubOptionID", &self.SubOptionID).field("VendorName", &self.VendorName).field("Operator", &self.Operator).field("Value", &self.Value).field("ValueLength", &self.ValueLength).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_POL_COND {
-    fn eq(&self, other: &Self) -> bool {
-        self.ParentExpr == other.ParentExpr && self.Type == other.Type && self.OptionID == other.OptionID && self.SubOptionID == other.SubOptionID && self.VendorName == other.VendorName && self.Operator == other.Operator && self.Value == other.Value && self.ValueLength == other.ValueLength
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_POL_COND {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POL_COND {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POL_COND_ARRAY {
@@ -3771,101 +3339,88 @@ pub struct DHCP_POL_COND_ARRAY {
     pub Elements: *mut DHCP_POL_COND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_POL_COND_ARRAY {}
+impl ::core::marker::Copy for DHCP_POL_COND_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_POL_COND_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_POL_COND_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_POL_COND_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_COND_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_POL_COND_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_POL_COND_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_POL_COND_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POL_COND_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_POL_COND_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_POL_COND_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_POL_COND_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_POL_EXPR {
     pub ParentExpr: u32,
     pub Operator: DHCP_POL_LOGIC_OPER,
 }
-impl DHCP_POL_EXPR {}
+impl ::core::marker::Copy for DHCP_POL_EXPR {}
+impl ::core::clone::Clone for DHCP_POL_EXPR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_POL_EXPR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_POL_EXPR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_EXPR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_POL_EXPR {}
 impl ::core::default::Default for DHCP_POL_EXPR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_POL_EXPR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POL_EXPR").field("ParentExpr", &self.ParentExpr).field("Operator", &self.Operator).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_POL_EXPR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ParentExpr == other.ParentExpr && self.Operator == other.Operator
-    }
-}
-impl ::core::cmp::Eq for DHCP_POL_EXPR {}
-unsafe impl ::windows::core::Abi for DHCP_POL_EXPR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_POL_EXPR_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_EXPR,
 }
-impl DHCP_POL_EXPR_ARRAY {}
+impl ::core::marker::Copy for DHCP_POL_EXPR_ARRAY {}
+impl ::core::clone::Clone for DHCP_POL_EXPR_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_POL_EXPR_ARRAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_POL_EXPR_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_EXPR_ARRAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_POL_EXPR_ARRAY {}
 impl ::core::default::Default for DHCP_POL_EXPR_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_POL_EXPR_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_POL_EXPR_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_POL_EXPR_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-impl ::core::cmp::Eq for DHCP_POL_EXPR_ARRAY {}
-unsafe impl ::windows::core::Abi for DHCP_POL_EXPR_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_POL_LOGIC_OPER(pub i32);
-pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(0i32);
-pub const DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(1i32);
-impl ::core::convert::From<i32> for DHCP_POL_LOGIC_OPER {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_POL_LOGIC_OPER {
-    type Abi = Self;
-}
+pub type DHCP_POL_LOGIC_OPER = i32;
+pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = 0i32;
+pub const DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = 1i32;
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
 pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
 pub const DHCP_PROB_NACKED: u32 = 536870916u32;
 pub const DHCP_PROB_RELEASE: u32 = 536870915u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_PROPERTY {
@@ -3874,26 +3429,31 @@ pub struct DHCP_PROPERTY {
     pub Value: DHCP_PROPERTY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_PROPERTY {}
+impl ::core::marker::Copy for DHCP_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_PROPERTY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_PROPERTY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PROPERTY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_PROPERTY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_PROPERTY_0 {
@@ -3904,26 +3464,31 @@ pub union DHCP_PROPERTY_0 {
     pub BinaryValue: DHCP_BINARY_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_PROPERTY_0 {}
+impl ::core::marker::Copy for DHCP_PROPERTY_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_PROPERTY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_PROPERTY_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_PROPERTY_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PROPERTY_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_PROPERTY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_PROPERTY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_PROPERTY_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_PROPERTY_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_PROPERTY_ARRAY {
@@ -3931,61 +3496,40 @@ pub struct DHCP_PROPERTY_ARRAY {
     pub Elements: *mut DHCP_PROPERTY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_PROPERTY_ARRAY {}
+impl ::core::marker::Copy for DHCP_PROPERTY_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_PROPERTY_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_PROPERTY_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PROPERTY_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_PROPERTY_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_PROPERTY_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_PROPERTY_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_PROPERTY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_PROPERTY_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_PROPERTY_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_PROPERTY_ID(pub i32);
-pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(0i32);
-pub const DhcpPropIdClientAddressStateEx: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(1i32);
-impl ::core::convert::From<i32> for DHCP_PROPERTY_ID {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_PROPERTY_TYPE(pub i32);
-pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(0i32);
-pub const DhcpPropTypeWord: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(1i32);
-pub const DhcpPropTypeDword: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(2i32);
-pub const DhcpPropTypeString: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(3i32);
-pub const DhcpPropTypeBinary: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(4i32);
-impl ::core::convert::From<i32> for DHCP_PROPERTY_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_PROPERTY_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_PROPERTY_ID = i32;
+pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = 0i32;
+pub const DhcpPropIdClientAddressStateEx: DHCP_PROPERTY_ID = 1i32;
+pub type DHCP_PROPERTY_TYPE = i32;
+pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = 0i32;
+pub const DhcpPropTypeWord: DHCP_PROPERTY_TYPE = 1i32;
+pub const DhcpPropTypeDword: DHCP_PROPERTY_TYPE = 2i32;
+pub const DhcpPropTypeString: DHCP_PROPERTY_TYPE = 3i32;
+pub const DhcpPropTypeBinary: DHCP_PROPERTY_TYPE = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
@@ -3993,149 +3537,134 @@ pub struct DHCP_RESERVATION_INFO_ARRAY {
     pub Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_RESERVATION_INFO_ARRAY {}
+impl ::core::marker::Copy for DHCP_RESERVATION_INFO_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_RESERVATION_INFO_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_RESERVATION_INFO_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_RESERVATION_INFO_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_RESERVATION_INFO_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_RESERVATION_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_RESERVATION_INFO_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_RESERVATION_INFO_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_RESERVATION_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_RESERVATION_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_RESERVATION_INFO_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_RESERVATION_INFO_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_RESERVED_SCOPE {
     pub ReservedIpAddress: u32,
     pub ReservedIpSubnetAddress: u32,
 }
-impl DHCP_RESERVED_SCOPE {}
+impl ::core::marker::Copy for DHCP_RESERVED_SCOPE {}
+impl ::core::clone::Clone for DHCP_RESERVED_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_RESERVED_SCOPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_RESERVED_SCOPE {}
 impl ::core::default::Default for DHCP_RESERVED_SCOPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_RESERVED_SCOPE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_RESERVED_SCOPE").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
-    }
-}
-impl ::core::cmp::Eq for DHCP_RESERVED_SCOPE {}
-unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_RESERVED_SCOPE6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
 }
-impl DHCP_RESERVED_SCOPE6 {}
+impl ::core::marker::Copy for DHCP_RESERVED_SCOPE6 {}
+impl ::core::clone::Clone for DHCP_RESERVED_SCOPE6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_RESERVED_SCOPE6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_RESERVED_SCOPE6 {}
 impl ::core::default::Default for DHCP_RESERVED_SCOPE6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_RESERVED_SCOPE6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_RESERVED_SCOPE6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
-    }
-}
-impl ::core::cmp::Eq for DHCP_RESERVED_SCOPE6 {}
-unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE6 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_SCAN_FLAG(pub i32);
-pub const DhcpRegistryFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(0i32);
-pub const DhcpDatabaseFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(1i32);
-impl ::core::convert::From<i32> for DHCP_SCAN_FLAG {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_SCAN_FLAG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_SCAN_FLAG = i32;
+pub const DhcpRegistryFix: DHCP_SCAN_FLAG = 0i32;
+pub const DhcpDatabaseFix: DHCP_SCAN_FLAG = 1i32;
 #[repr(C)]
 pub struct DHCP_SCAN_ITEM {
     pub IpAddress: u32,
     pub ScanFlag: DHCP_SCAN_FLAG,
 }
-impl DHCP_SCAN_ITEM {}
+impl ::core::marker::Copy for DHCP_SCAN_ITEM {}
+impl ::core::clone::Clone for DHCP_SCAN_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_SCAN_ITEM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_SCAN_ITEM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SCAN_ITEM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_SCAN_ITEM {}
 impl ::core::default::Default for DHCP_SCAN_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_SCAN_ITEM {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SCAN_ITEM").field("IpAddress", &self.IpAddress).field("ScanFlag", &self.ScanFlag).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_SCAN_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress && self.ScanFlag == other.ScanFlag
-    }
-}
-impl ::core::cmp::Eq for DHCP_SCAN_ITEM {}
-unsafe impl ::windows::core::Abi for DHCP_SCAN_ITEM {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_SCAN_LIST {
     pub NumScanItems: u32,
     pub ScanItems: *mut DHCP_SCAN_ITEM,
 }
-impl DHCP_SCAN_LIST {}
+impl ::core::marker::Copy for DHCP_SCAN_LIST {}
+impl ::core::clone::Clone for DHCP_SCAN_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_SCAN_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_SCAN_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SCAN_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_SCAN_LIST {}
 impl ::core::default::Default for DHCP_SCAN_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_SCAN_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SCAN_LIST").field("NumScanItems", &self.NumScanItems).field("ScanItems", &self.ScanItems).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_SCAN_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumScanItems == other.NumScanItems && self.ScanItems == other.ScanItems
-    }
-}
-impl ::core::cmp::Eq for DHCP_SCAN_LIST {}
-unsafe impl ::windows::core::Abi for DHCP_SCAN_LIST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SEARCH_INFO {
@@ -4143,26 +3672,31 @@ pub struct DHCP_SEARCH_INFO {
     pub SearchInfo: DHCP_SEARCH_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SEARCH_INFO {}
+impl ::core::marker::Copy for DHCP_SEARCH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SEARCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SEARCH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SEARCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_SEARCH_INFO_0 {
@@ -4171,54 +3705,39 @@ pub union DHCP_SEARCH_INFO_0 {
     pub ClientName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SEARCH_INFO_0 {}
+impl ::core::marker::Copy for DHCP_SEARCH_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SEARCH_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SEARCH_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SEARCH_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
-pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(0i32);
-pub const DhcpClientHardwareAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(1i32);
-pub const DhcpClientName: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(2i32);
-impl ::core::convert::From<i32> for DHCP_SEARCH_INFO_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
-pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(0i32);
-pub const Dhcpv6ClientDUID: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(1i32);
-pub const Dhcpv6ClientName: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(2i32);
-impl ::core::convert::From<i32> for DHCP_SEARCH_INFO_TYPE_V6 {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_TYPE_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_SEARCH_INFO_TYPE = i32;
+pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = 0i32;
+pub const DhcpClientHardwareAddress: DHCP_SEARCH_INFO_TYPE = 1i32;
+pub const DhcpClientName: DHCP_SEARCH_INFO_TYPE = 2i32;
+pub type DHCP_SEARCH_INFO_TYPE_V6 = i32;
+pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = 0i32;
+pub const Dhcpv6ClientDUID: DHCP_SEARCH_INFO_TYPE_V6 = 1i32;
+pub const Dhcpv6ClientName: DHCP_SEARCH_INFO_TYPE_V6 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SEARCH_INFO_V6 {
@@ -4226,26 +3745,31 @@ pub struct DHCP_SEARCH_INFO_V6 {
     pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SEARCH_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_SEARCH_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SEARCH_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SEARCH_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_V6 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_SEARCH_INFO_V6_0 {
@@ -4254,27 +3778,32 @@ pub union DHCP_SEARCH_INFO_V6_0 {
     pub ClientName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SEARCH_INFO_V6_0 {}
+impl ::core::marker::Copy for DHCP_SEARCH_INFO_V6_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_V6_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO_V6_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SEARCH_INFO_V6_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SEARCH_INFO_V6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_V6_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO_V6_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6_0 {
-    type Abi = Self;
-}
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_CONFIG_INFO {
@@ -4289,32 +3818,31 @@ pub struct DHCP_SERVER_CONFIG_INFO {
     pub DebugFlag: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_CONFIG_INFO {}
+impl ::core::marker::Copy for DHCP_SERVER_CONFIG_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO").field("APIProtocolSupport", &self.APIProtocolSupport).field("DatabaseName", &self.DatabaseName).field("DatabasePath", &self.DatabasePath).field("BackupPath", &self.BackupPath).field("BackupInterval", &self.BackupInterval).field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag).field("RestoreFlag", &self.RestoreFlag).field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval).field("DebugFlag", &self.DebugFlag).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_CONFIG_INFO_V4 {
@@ -4333,46 +3861,31 @@ pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub fAuditLog: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_CONFIG_INFO_V4 {}
+impl ::core::marker::Copy for DHCP_SERVER_CONFIG_INFO_V4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO_V4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO_V4")
-            .field("APIProtocolSupport", &self.APIProtocolSupport)
-            .field("DatabaseName", &self.DatabaseName)
-            .field("DatabasePath", &self.DatabasePath)
-            .field("BackupPath", &self.BackupPath)
-            .field("BackupInterval", &self.BackupInterval)
-            .field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag)
-            .field("RestoreFlag", &self.RestoreFlag)
-            .field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval)
-            .field("DebugFlag", &self.DebugFlag)
-            .field("dwPingRetries", &self.dwPingRetries)
-            .field("cbBootTableString", &self.cbBootTableString)
-            .field("wszBootTableString", &self.wszBootTableString)
-            .field("fAuditLog", &self.fAuditLog)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag && self.dwPingRetries == other.dwPingRetries && self.cbBootTableString == other.cbBootTableString && self.wszBootTableString == other.wszBootTableString && self.fAuditLog == other.fAuditLog
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO_V4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
@@ -4387,32 +3900,31 @@ pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub fAuditLog: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_CONFIG_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_SERVER_CONFIG_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO_V6").field("UnicastFlag", &self.UnicastFlag).field("RapidCommitFlag", &self.RapidCommitFlag).field("PreferredLifetime", &self.PreferredLifetime).field("ValidLifetime", &self.ValidLifetime).field("T1", &self.T1).field("T2", &self.T2).field("PreferredLifetimeIATA", &self.PreferredLifetimeIATA).field("ValidLifetimeIATA", &self.ValidLifetimeIATA).field("fAuditLog", &self.fAuditLog).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnicastFlag == other.UnicastFlag && self.RapidCommitFlag == other.RapidCommitFlag && self.PreferredLifetime == other.PreferredLifetime && self.ValidLifetime == other.ValidLifetime && self.T1 == other.T1 && self.T2 == other.T2 && self.PreferredLifetimeIATA == other.PreferredLifetimeIATA && self.ValidLifetimeIATA == other.ValidLifetimeIATA && self.fAuditLog == other.fAuditLog
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_CONFIG_INFO_VQ {
@@ -4434,49 +3946,31 @@ pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub QuarRuntimeStatus: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_CONFIG_INFO_VQ {}
+impl ::core::marker::Copy for DHCP_SERVER_CONFIG_INFO_VQ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SERVER_CONFIG_INFO_VQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_VQ {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_VQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO_VQ>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO_VQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_CONFIG_INFO_VQ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_CONFIG_INFO_VQ")
-            .field("APIProtocolSupport", &self.APIProtocolSupport)
-            .field("DatabaseName", &self.DatabaseName)
-            .field("DatabasePath", &self.DatabasePath)
-            .field("BackupPath", &self.BackupPath)
-            .field("BackupInterval", &self.BackupInterval)
-            .field("DatabaseLoggingFlag", &self.DatabaseLoggingFlag)
-            .field("RestoreFlag", &self.RestoreFlag)
-            .field("DatabaseCleanupInterval", &self.DatabaseCleanupInterval)
-            .field("DebugFlag", &self.DebugFlag)
-            .field("dwPingRetries", &self.dwPingRetries)
-            .field("cbBootTableString", &self.cbBootTableString)
-            .field("wszBootTableString", &self.wszBootTableString)
-            .field("fAuditLog", &self.fAuditLog)
-            .field("QuarantineOn", &self.QuarantineOn)
-            .field("QuarDefFail", &self.QuarDefFail)
-            .field("QuarRuntimeStatus", &self.QuarRuntimeStatus)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_VQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag && self.dwPingRetries == other.dwPingRetries && self.cbBootTableString == other.cbBootTableString && self.wszBootTableString == other.wszBootTableString && self.fAuditLog == other.fAuditLog && self.QuarantineOn == other.QuarantineOn && self.QuarDefFail == other.QuarDefFail && self.QuarRuntimeStatus == other.QuarRuntimeStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO_VQ {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_VQ {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4509,76 +4003,24 @@ pub struct DHCP_SERVER_OPTIONS {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_OPTIONS {}
+impl ::core::marker::Copy for DHCP_SERVER_OPTIONS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DHCP_SERVER_OPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DHCP_SERVER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_OPTIONS")
-            .field("MessageType", &self.MessageType)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("RequestedAddress", &self.RequestedAddress)
-            .field("RequestLeaseTime", &self.RequestLeaseTime)
-            .field("OverlayFields", &self.OverlayFields)
-            .field("RouterAddress", &self.RouterAddress)
-            .field("Server", &self.Server)
-            .field("ParameterRequestList", &self.ParameterRequestList)
-            .field("ParameterRequestListLength", &self.ParameterRequestListLength)
-            .field("MachineName", &self.MachineName)
-            .field("MachineNameLength", &self.MachineNameLength)
-            .field("ClientHardwareAddressType", &self.ClientHardwareAddressType)
-            .field("ClientHardwareAddressLength", &self.ClientHardwareAddressLength)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClassIdentifier", &self.ClassIdentifier)
-            .field("ClassIdentifierLength", &self.ClassIdentifierLength)
-            .field("VendorClass", &self.VendorClass)
-            .field("VendorClassLength", &self.VendorClassLength)
-            .field("DNSFlags", &self.DNSFlags)
-            .field("DNSNameLength", &self.DNSNameLength)
-            .field("DNSName", &self.DNSName)
-            .field("DSDomainNameRequested", &self.DSDomainNameRequested)
-            .field("DSDomainName", &self.DSDomainName)
-            .field("DSDomainNameLen", &self.DSDomainNameLen)
-            .field("ScopeId", &self.ScopeId)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.MessageType == other.MessageType
-            && self.SubnetMask == other.SubnetMask
-            && self.RequestedAddress == other.RequestedAddress
-            && self.RequestLeaseTime == other.RequestLeaseTime
-            && self.OverlayFields == other.OverlayFields
-            && self.RouterAddress == other.RouterAddress
-            && self.Server == other.Server
-            && self.ParameterRequestList == other.ParameterRequestList
-            && self.ParameterRequestListLength == other.ParameterRequestListLength
-            && self.MachineName == other.MachineName
-            && self.MachineNameLength == other.MachineNameLength
-            && self.ClientHardwareAddressType == other.ClientHardwareAddressType
-            && self.ClientHardwareAddressLength == other.ClientHardwareAddressLength
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClassIdentifier == other.ClassIdentifier
-            && self.ClassIdentifierLength == other.ClassIdentifierLength
-            && self.VendorClass == other.VendorClass
-            && self.VendorClassLength == other.VendorClassLength
-            && self.DNSFlags == other.DNSFlags
-            && self.DNSNameLength == other.DNSNameLength
-            && self.DNSName == other.DNSName
-            && self.DSDomainNameRequested == other.DSDomainNameRequested
-            && self.DSDomainName == other.DSDomainName
-            && self.DSDomainNameLen == other.DSDomainNameLen
-            && self.ScopeId == other.ScopeId
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_OPTIONS>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4586,10 +4028,11 @@ impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
 impl ::core::cmp::Eq for DHCP_SERVER_OPTIONS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
-    type Abi = Self;
+impl ::core::default::Default for DHCP_SERVER_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4622,76 +4065,24 @@ pub struct DHCP_SERVER_OPTIONS {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_OPTIONS {}
+impl ::core::marker::Copy for DHCP_SERVER_OPTIONS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DHCP_SERVER_OPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DHCP_SERVER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_OPTIONS")
-            .field("MessageType", &self.MessageType)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("RequestedAddress", &self.RequestedAddress)
-            .field("RequestLeaseTime", &self.RequestLeaseTime)
-            .field("OverlayFields", &self.OverlayFields)
-            .field("RouterAddress", &self.RouterAddress)
-            .field("Server", &self.Server)
-            .field("ParameterRequestList", &self.ParameterRequestList)
-            .field("ParameterRequestListLength", &self.ParameterRequestListLength)
-            .field("MachineName", &self.MachineName)
-            .field("MachineNameLength", &self.MachineNameLength)
-            .field("ClientHardwareAddressType", &self.ClientHardwareAddressType)
-            .field("ClientHardwareAddressLength", &self.ClientHardwareAddressLength)
-            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
-            .field("ClassIdentifier", &self.ClassIdentifier)
-            .field("ClassIdentifierLength", &self.ClassIdentifierLength)
-            .field("VendorClass", &self.VendorClass)
-            .field("VendorClassLength", &self.VendorClassLength)
-            .field("DNSFlags", &self.DNSFlags)
-            .field("DNSNameLength", &self.DNSNameLength)
-            .field("DNSName", &self.DNSName)
-            .field("DSDomainNameRequested", &self.DSDomainNameRequested)
-            .field("DSDomainName", &self.DSDomainName)
-            .field("DSDomainNameLen", &self.DSDomainNameLen)
-            .field("ScopeId", &self.ScopeId)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.MessageType == other.MessageType
-            && self.SubnetMask == other.SubnetMask
-            && self.RequestedAddress == other.RequestedAddress
-            && self.RequestLeaseTime == other.RequestLeaseTime
-            && self.OverlayFields == other.OverlayFields
-            && self.RouterAddress == other.RouterAddress
-            && self.Server == other.Server
-            && self.ParameterRequestList == other.ParameterRequestList
-            && self.ParameterRequestListLength == other.ParameterRequestListLength
-            && self.MachineName == other.MachineName
-            && self.MachineNameLength == other.MachineNameLength
-            && self.ClientHardwareAddressType == other.ClientHardwareAddressType
-            && self.ClientHardwareAddressLength == other.ClientHardwareAddressLength
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClassIdentifier == other.ClassIdentifier
-            && self.ClassIdentifierLength == other.ClassIdentifierLength
-            && self.VendorClass == other.VendorClass
-            && self.VendorClassLength == other.VendorClassLength
-            && self.DNSFlags == other.DNSFlags
-            && self.DNSNameLength == other.DNSNameLength
-            && self.DNSName == other.DNSName
-            && self.DSDomainNameRequested == other.DSDomainNameRequested
-            && self.DSDomainName == other.DSDomainName
-            && self.DSDomainNameLen == other.DSDomainNameLen
-            && self.ScopeId == other.ScopeId
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_OPTIONS>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -4699,10 +4090,11 @@ impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
 impl ::core::cmp::Eq for DHCP_SERVER_OPTIONS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
-    type Abi = Self;
+impl ::core::default::Default for DHCP_SERVER_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
@@ -4710,32 +4102,31 @@ pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultUserClassName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SERVER_SPECIFIC_STRINGS {}
+impl ::core::marker::Copy for DHCP_SERVER_SPECIFIC_STRINGS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SERVER_SPECIFIC_STRINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SERVER_SPECIFIC_STRINGS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SERVER_SPECIFIC_STRINGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_SPECIFIC_STRINGS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SERVER_SPECIFIC_STRINGS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_SPECIFIC_STRINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SERVER_SPECIFIC_STRINGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_SPECIFIC_STRINGS").field("DefaultVendorClassName", &self.DefaultVendorClassName).field("DefaultUserClassName", &self.DefaultUserClassName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SERVER_SPECIFIC_STRINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DefaultVendorClassName == other.DefaultVendorClassName && self.DefaultUserClassName == other.DefaultUserClassName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SERVER_SPECIFIC_STRINGS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SERVER_SPECIFIC_STRINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_ELEMENT_DATA {
@@ -4743,26 +4134,31 @@ pub struct DHCP_SUBNET_ELEMENT_DATA {
     pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_DATA {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_SUBNET_ELEMENT_DATA_0 {
@@ -4773,26 +4169,31 @@ pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_DATA_0 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
@@ -4800,26 +4201,31 @@ pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_DATA_V4 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
@@ -4830,26 +4236,31 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V4_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
@@ -4857,26 +4268,31 @@ pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_DATA_V5 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
@@ -4887,69 +4303,82 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V5_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
 }
-impl DHCP_SUBNET_ELEMENT_DATA_V6 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V6 {}
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6 {}
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     pub IpRange: *mut DHCP_IP_RANGE_V6,
     pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
     pub ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
 }
-impl DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V6_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
@@ -4957,32 +4386,31 @@ pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
@@ -4990,32 +4418,31 @@ pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
@@ -5023,100 +4450,75 @@ pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
 }
-impl DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
+impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
+impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumElements == other.NumElements && self.Elements == other.Elements
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
-pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(0i32);
-pub const DhcpSecondaryHosts: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(1i32);
-pub const DhcpReservedIps: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(2i32);
-pub const DhcpExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(3i32);
-pub const DhcpIpUsedClusters: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(4i32);
-pub const DhcpIpRangesDhcpOnly: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(5i32);
-pub const DhcpIpRangesDhcpBootp: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(6i32);
-pub const DhcpIpRangesBootpOnly: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(7i32);
-impl ::core::convert::From<i32> for DHCP_SUBNET_ELEMENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
-pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(0i32);
-pub const Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(1i32);
-pub const Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(2i32);
-impl ::core::convert::From<i32> for DHCP_SUBNET_ELEMENT_TYPE_V6 {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_TYPE_V6 {
-    type Abi = Self;
-}
+pub type DHCP_SUBNET_ELEMENT_TYPE = i32;
+pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = 0i32;
+pub const DhcpSecondaryHosts: DHCP_SUBNET_ELEMENT_TYPE = 1i32;
+pub const DhcpReservedIps: DHCP_SUBNET_ELEMENT_TYPE = 2i32;
+pub const DhcpExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE = 3i32;
+pub const DhcpIpUsedClusters: DHCP_SUBNET_ELEMENT_TYPE = 4i32;
+pub const DhcpIpRangesDhcpOnly: DHCP_SUBNET_ELEMENT_TYPE = 5i32;
+pub const DhcpIpRangesDhcpBootp: DHCP_SUBNET_ELEMENT_TYPE = 6i32;
+pub const DhcpIpRangesBootpOnly: DHCP_SUBNET_ELEMENT_TYPE = 7i32;
+pub type DHCP_SUBNET_ELEMENT_TYPE_V6 = i32;
+pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = 0i32;
+pub const Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = 1i32;
+pub const Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = 2i32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DHCP_SUBNET_ELEMENT_UNION(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V4(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V6(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_INFO {
@@ -5128,32 +4530,31 @@ pub struct DHCP_SUBNET_INFO {
     pub SubnetState: DHCP_SUBNET_STATE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_INFO {}
+impl ::core::marker::Copy for DHCP_SUBNET_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_INFO").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress && self.SubnetMask == other.SubnetMask && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.PrimaryHost == other.PrimaryHost && self.SubnetState == other.SubnetState
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_INFO_V6 {
@@ -5166,32 +4567,31 @@ pub struct DHCP_SUBNET_INFO_V6 {
     pub ScopeId: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_INFO_V6 {}
+impl ::core::marker::Copy for DHCP_SUBNET_INFO_V6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_V6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_INFO_V6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_INFO_V6").field("SubnetAddress", &self.SubnetAddress).field("Prefix", &self.Prefix).field("Preference", &self.Preference).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("State", &self.State).field("ScopeId", &self.ScopeId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress && self.Prefix == other.Prefix && self.Preference == other.Preference && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.State == other.State && self.ScopeId == other.ScopeId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_INFO_V6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUBNET_INFO_VQ {
@@ -5208,49 +4608,38 @@ pub struct DHCP_SUBNET_INFO_VQ {
     pub Reserved4: i64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUBNET_INFO_VQ {}
+impl ::core::marker::Copy for DHCP_SUBNET_INFO_VQ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUBNET_INFO_VQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_VQ {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_VQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_INFO_VQ>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUBNET_INFO_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUBNET_INFO_VQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUBNET_INFO_VQ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_INFO_VQ").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).field("QuarantineOn", &self.QuarantineOn).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_VQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress && self.SubnetMask == other.SubnetMask && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.PrimaryHost == other.PrimaryHost && self.SubnetState == other.SubnetState && self.QuarantineOn == other.QuarantineOn && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUBNET_INFO_VQ {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_VQ {
-    type Abi = Self;
-}
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DHCP_SUBNET_STATE(pub i32);
-pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(0i32);
-pub const DhcpSubnetDisabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(1i32);
-pub const DhcpSubnetEnabledSwitched: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(2i32);
-pub const DhcpSubnetDisabledSwitched: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(3i32);
-pub const DhcpSubnetInvalidState: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(4i32);
-impl ::core::convert::From<i32> for DHCP_SUBNET_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DHCP_SUBNET_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DHCP_SUBNET_STATE = i32;
+pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = 0i32;
+pub const DhcpSubnetDisabled: DHCP_SUBNET_STATE = 1i32;
+pub const DhcpSubnetEnabledSwitched: DHCP_SUBNET_STATE = 2i32;
+pub const DhcpSubnetDisabledSwitched: DHCP_SUBNET_STATE = 3i32;
+pub const DhcpSubnetInvalidState: DHCP_SUBNET_STATE = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUPER_SCOPE_TABLE {
@@ -5258,32 +4647,31 @@ pub struct DHCP_SUPER_SCOPE_TABLE {
     pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUPER_SCOPE_TABLE {}
+impl ::core::marker::Copy for DHCP_SUPER_SCOPE_TABLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DHCP_SUPER_SCOPE_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUPER_SCOPE_TABLE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DHCP_SUPER_SCOPE_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SUPER_SCOPE_TABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUPER_SCOPE_TABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUPER_SCOPE_TABLE").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pEntries == other.pEntries
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_SUPER_SCOPE_TABLE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
@@ -5293,30 +4681,30 @@ pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
     pub SuperScopeName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DHCP_SUPER_SCOPE_TABLE_ENTRY {}
+impl ::core::marker::Copy for DHCP_SUPER_SCOPE_TABLE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DHCP_SUPER_SCOPE_TABLE_ENTRY").field("SubnetAddress", &self.SubnetAddress).field("SuperScopeNumber", &self.SuperScopeNumber).field("NextInSuperScope", &self.NextInSuperScope).field("SuperScopeName", &self.SuperScopeName).finish()
-    }
+unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress && self.SuperScopeNumber == other.SuperScopeNumber && self.NextInSuperScope == other.NextInSuperScope && self.SuperScopeName == other.SuperScopeName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUPER_SCOPE_TABLE_ENTRY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DHCP_SUPER_SCOPE_TABLE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    type Abi = Self;
+impl ::core::default::Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
@@ -5325,31 +4713,30 @@ pub const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128u32;
 pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
 pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DWORD_DWORD {
     pub DWord1: u32,
     pub DWord2: u32,
 }
-impl DWORD_DWORD {}
+impl ::core::marker::Copy for DWORD_DWORD {}
+impl ::core::clone::Clone for DWORD_DWORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DWORD_DWORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DWORD_DWORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWORD_DWORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DWORD_DWORD {}
 impl ::core::default::Default for DWORD_DWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DWORD_DWORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWORD_DWORD").field("DWord1", &self.DWord1).field("DWord2", &self.DWord2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DWORD_DWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.DWord1 == other.DWord1 && self.DWord2 == other.DWord2
-    }
-}
-impl ::core::cmp::Eq for DWORD_DWORD {}
-unsafe impl ::windows::core::Abi for DWORD_DWORD {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8403,31 +7790,21 @@ pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
 pub const FILTER_STATUS_NONE: u32 = 1u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FSM_STATE(pub i32);
-pub const NO_STATE: FSM_STATE = FSM_STATE(0i32);
-pub const INIT: FSM_STATE = FSM_STATE(1i32);
-pub const STARTUP: FSM_STATE = FSM_STATE(2i32);
-pub const NORMAL: FSM_STATE = FSM_STATE(3i32);
-pub const COMMUNICATION_INT: FSM_STATE = FSM_STATE(4i32);
-pub const PARTNER_DOWN: FSM_STATE = FSM_STATE(5i32);
-pub const POTENTIAL_CONFLICT: FSM_STATE = FSM_STATE(6i32);
-pub const CONFLICT_DONE: FSM_STATE = FSM_STATE(7i32);
-pub const RESOLUTION_INT: FSM_STATE = FSM_STATE(8i32);
-pub const RECOVER: FSM_STATE = FSM_STATE(9i32);
-pub const RECOVER_WAIT: FSM_STATE = FSM_STATE(10i32);
-pub const RECOVER_DONE: FSM_STATE = FSM_STATE(11i32);
-pub const PAUSED: FSM_STATE = FSM_STATE(12i32);
-pub const SHUTDOWN: FSM_STATE = FSM_STATE(13i32);
-impl ::core::convert::From<i32> for FSM_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FSM_STATE {
-    type Abi = Self;
-}
+pub type FSM_STATE = i32;
+pub const NO_STATE: FSM_STATE = 0i32;
+pub const INIT: FSM_STATE = 1i32;
+pub const STARTUP: FSM_STATE = 2i32;
+pub const NORMAL: FSM_STATE = 3i32;
+pub const COMMUNICATION_INT: FSM_STATE = 4i32;
+pub const PARTNER_DOWN: FSM_STATE = 5i32;
+pub const POTENTIAL_CONFLICT: FSM_STATE = 6i32;
+pub const CONFLICT_DONE: FSM_STATE = 7i32;
+pub const RESOLUTION_INT: FSM_STATE = 8i32;
+pub const RECOVER: FSM_STATE = 9i32;
+pub const RECOVER_WAIT: FSM_STATE = 10i32;
+pub const RECOVER_DONE: FSM_STATE = 11i32;
+pub const PAUSED: FSM_STATE = 12i32;
+pub const SHUTDOWN: FSM_STATE = 13i32;
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 pub type LPDHCP_CONTROL = ::core::option::Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32>;
 pub type LPDHCP_DELETE_CLIENT = ::core::option::Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
@@ -8514,26 +7891,15 @@ pub const PREVSTATE: u32 = 32u32;
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct QuarantineStatus(pub i32);
-pub const NOQUARANTINE: QuarantineStatus = QuarantineStatus(0i32);
-pub const RESTRICTEDACCESS: QuarantineStatus = QuarantineStatus(1i32);
-pub const DROPPACKET: QuarantineStatus = QuarantineStatus(2i32);
-pub const PROBATION: QuarantineStatus = QuarantineStatus(3i32);
-pub const EXEMPT: QuarantineStatus = QuarantineStatus(4i32);
-pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
-pub const NOQUARINFO: QuarantineStatus = QuarantineStatus(6i32);
-impl ::core::convert::From<i32> for QuarantineStatus {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for QuarantineStatus {
-    type Abi = Self;
-}
+pub type QuarantineStatus = i32;
+pub const NOQUARANTINE: QuarantineStatus = 0i32;
+pub const RESTRICTEDACCESS: QuarantineStatus = 1i32;
+pub const DROPPACKET: QuarantineStatus = 2i32;
+pub const PROBATION: QuarantineStatus = 3i32;
+pub const EXEMPT: QuarantineStatus = 4i32;
+pub const DEFAULTQUARSETTING: QuarantineStatus = 5i32;
+pub const NOQUARINFO: QuarantineStatus = 6i32;
 pub const SAFEPERIOD: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SCOPE_MIB_INFO {
     pub Subnet: u32,
@@ -8541,27 +7907,26 @@ pub struct SCOPE_MIB_INFO {
     pub NumAddressesFree: u32,
     pub NumPendingOffers: u32,
 }
-impl SCOPE_MIB_INFO {}
+impl ::core::marker::Copy for SCOPE_MIB_INFO {}
+impl ::core::clone::Clone for SCOPE_MIB_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCOPE_MIB_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCOPE_MIB_INFO {}
 impl ::core::default::Default for SCOPE_MIB_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SCOPE_MIB_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SCOPE_MIB_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers
-    }
-}
-impl ::core::cmp::Eq for SCOPE_MIB_INFO {}
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SCOPE_MIB_INFO_V5 {
     pub Subnet: u32,
@@ -8569,27 +7934,26 @@ pub struct SCOPE_MIB_INFO_V5 {
     pub NumAddressesFree: u32,
     pub NumPendingOffers: u32,
 }
-impl SCOPE_MIB_INFO_V5 {}
+impl ::core::marker::Copy for SCOPE_MIB_INFO_V5 {}
+impl ::core::clone::Clone for SCOPE_MIB_INFO_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO_V5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCOPE_MIB_INFO_V5 {}
 impl ::core::default::Default for SCOPE_MIB_INFO_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SCOPE_MIB_INFO_V5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO_V5").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers
-    }
-}
-impl ::core::cmp::Eq for SCOPE_MIB_INFO_V5 {}
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SCOPE_MIB_INFO_V6 {
     pub Subnet: DHCP_IPV6_ADDRESS,
@@ -8597,27 +7961,26 @@ pub struct SCOPE_MIB_INFO_V6 {
     pub NumAddressesFree: u64,
     pub NumPendingAdvertises: u64,
 }
-impl SCOPE_MIB_INFO_V6 {}
+impl ::core::marker::Copy for SCOPE_MIB_INFO_V6 {}
+impl ::core::clone::Clone for SCOPE_MIB_INFO_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO_V6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCOPE_MIB_INFO_V6 {}
 impl ::core::default::Default for SCOPE_MIB_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SCOPE_MIB_INFO_V6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO_V6").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingAdvertises", &self.NumPendingAdvertises).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingAdvertises == other.NumPendingAdvertises
-    }
-}
-impl ::core::cmp::Eq for SCOPE_MIB_INFO_V6 {}
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SCOPE_MIB_INFO_VQ {
     pub Subnet: u32,
@@ -8631,36 +7994,25 @@ pub struct SCOPE_MIB_INFO_VQ {
     pub QtnExemptLeases: u32,
     pub QtnCapableClients: u32,
 }
-impl SCOPE_MIB_INFO_VQ {}
+impl ::core::marker::Copy for SCOPE_MIB_INFO_VQ {}
+impl ::core::clone::Clone for SCOPE_MIB_INFO_VQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_VQ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_VQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO_VQ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCOPE_MIB_INFO_VQ {}
 impl ::core::default::Default for SCOPE_MIB_INFO_VQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SCOPE_MIB_INFO_VQ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO_VQ")
-            .field("Subnet", &self.Subnet)
-            .field("NumAddressesInuse", &self.NumAddressesInuse)
-            .field("NumAddressesFree", &self.NumAddressesFree)
-            .field("NumPendingOffers", &self.NumPendingOffers)
-            .field("QtnNumLeases", &self.QtnNumLeases)
-            .field("QtnPctQtnLeases", &self.QtnPctQtnLeases)
-            .field("QtnProbationLeases", &self.QtnProbationLeases)
-            .field("QtnNonQtnLeases", &self.QtnNonQtnLeases)
-            .field("QtnExemptLeases", &self.QtnExemptLeases)
-            .field("QtnCapableClients", &self.QtnCapableClients)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_VQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients
-    }
-}
-impl ::core::cmp::Eq for SCOPE_MIB_INFO_VQ {}
-unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_VQ {
-    type Abi = Self;
 }
 pub const SHAREDSECRET: u32 = 64u32;
 pub const Set_APIProtocolSupport: u32 = 1u32;
@@ -8685,21 +8037,11 @@ pub const Set_T2: u32 = 32u32;
 pub const Set_UnicastFlag: u32 = 1u32;
 pub const Set_ValidLifetime: u32 = 8u32;
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct StatusCode(pub i32);
-pub const STATUS_NO_ERROR: StatusCode = StatusCode(0i32);
-pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = StatusCode(1i32);
-pub const STATUS_NO_BINDING: StatusCode = StatusCode(3i32);
-pub const STATUS_NOPREFIX_AVAIL: StatusCode = StatusCode(6i32);
-impl ::core::convert::From<i32> for StatusCode {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for StatusCode {
-    type Abi = Self;
-}
+pub type StatusCode = i32;
+pub const STATUS_NO_ERROR: StatusCode = 0i32;
+pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = 1i32;
+pub const STATUS_NO_BINDING: StatusCode = 3i32;
+pub const STATUS_NOPREFIX_AVAIL: StatusCode = 6i32;
 pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
 pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;
 pub const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64u32;

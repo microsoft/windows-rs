@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
 pub const API_QUERY_DATA_AVAILABLE: u32 = 2u32;
 pub const API_READ_DATA: u32 = 3u32;
@@ -103,31 +103,30 @@ pub const HTTP_STATUS_URI_TOO_LONG: u32 = 414u32;
 pub const HTTP_STATUS_USE_PROXY: u32 = 305u32;
 pub const HTTP_STATUS_VERSION_NOT_SUP: u32 = 505u32;
 pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HTTP_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
 }
-impl HTTP_VERSION_INFO {}
+impl ::core::marker::Copy for HTTP_VERSION_INFO {}
+impl ::core::clone::Clone for HTTP_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_VERSION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HTTP_VERSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_VERSION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HTTP_VERSION_INFO {}
 impl ::core::default::Default for HTTP_VERSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for HTTP_VERSION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_VERSION_INFO").field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HTTP_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion
-    }
-}
-impl ::core::cmp::Eq for HTTP_VERSION_INFO {}
-unsafe impl ::windows::core::Abi for HTTP_VERSION_INFO {
-    type Abi = Self;
 }
 pub const ICU_BROWSER_MODE: u32 = 33554432u32;
 pub const ICU_ENCODE_PERCENT: u32 = 4096u32;
@@ -135,48 +134,10 @@ pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
 pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 pub const ICU_NO_META: u32 = 134217728u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct INTERNET_PORT(pub u32);
-pub const INTERNET_DEFAULT_HTTP_PORT: INTERNET_PORT = INTERNET_PORT(80u32);
-pub const INTERNET_DEFAULT_HTTPS_PORT: INTERNET_PORT = INTERNET_PORT(443u32);
-pub const INTERNET_DEFAULT_PORT: INTERNET_PORT = INTERNET_PORT(0u32);
-impl ::core::convert::From<u32> for INTERNET_PORT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for INTERNET_PORT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for INTERNET_PORT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for INTERNET_PORT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for INTERNET_PORT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for INTERNET_PORT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for INTERNET_PORT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type INTERNET_PORT = u32;
+pub const INTERNET_DEFAULT_HTTP_PORT: INTERNET_PORT = 80u32;
+pub const INTERNET_DEFAULT_HTTPS_PORT: INTERNET_PORT = 443u32;
+pub const INTERNET_DEFAULT_PORT: INTERNET_PORT = 0u32;
 pub type LPWINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
@@ -187,7 +148,6 @@ pub const SECURITY_FLAG_SECURE: u32 = 1u32;
 pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
 pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
 pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct URL_COMPONENTS {
@@ -208,90 +168,36 @@ pub struct URL_COMPONENTS {
     pub dwExtraInfoLength: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl URL_COMPONENTS {}
+impl ::core::marker::Copy for URL_COMPONENTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for URL_COMPONENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for URL_COMPONENTS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for URL_COMPONENTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<URL_COMPONENTS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for URL_COMPONENTS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for URL_COMPONENTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for URL_COMPONENTS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("URL_COMPONENTS")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpszScheme", &self.lpszScheme)
-            .field("dwSchemeLength", &self.dwSchemeLength)
-            .field("nScheme", &self.nScheme)
-            .field("lpszHostName", &self.lpszHostName)
-            .field("dwHostNameLength", &self.dwHostNameLength)
-            .field("nPort", &self.nPort)
-            .field("lpszUserName", &self.lpszUserName)
-            .field("dwUserNameLength", &self.dwUserNameLength)
-            .field("lpszPassword", &self.lpszPassword)
-            .field("dwPasswordLength", &self.dwPasswordLength)
-            .field("lpszUrlPath", &self.lpszUrlPath)
-            .field("dwUrlPathLength", &self.dwUrlPathLength)
-            .field("lpszExtraInfo", &self.lpszExtraInfo)
-            .field("dwExtraInfoLength", &self.dwExtraInfoLength)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for URL_COMPONENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize && self.lpszScheme == other.lpszScheme && self.dwSchemeLength == other.dwSchemeLength && self.nScheme == other.nScheme && self.lpszHostName == other.lpszHostName && self.dwHostNameLength == other.dwHostNameLength && self.nPort == other.nPort && self.lpszUserName == other.lpszUserName && self.dwUserNameLength == other.dwUserNameLength && self.lpszPassword == other.lpszPassword && self.dwPasswordLength == other.dwPasswordLength && self.lpszUrlPath == other.lpszUrlPath && self.dwUrlPathLength == other.dwUrlPathLength && self.lpszExtraInfo == other.lpszExtraInfo && self.dwExtraInfoLength == other.dwExtraInfoLength
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for URL_COMPONENTS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for URL_COMPONENTS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_ACCESS_TYPE(pub u32);
-pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(1u32);
-pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(0u32);
-pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(3u32);
-pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(4u32);
-impl ::core::convert::From<u32> for WINHTTP_ACCESS_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_ACCESS_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINHTTP_ACCESS_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_ACCESS_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_ACCESS_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_ACCESS_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_ACCESS_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WINHTTP_ACCESS_TYPE = u32;
+pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = 1u32;
+pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = 0u32;
+pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = 3u32;
+pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = 4u32;
 pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 pub const WINHTTP_ADDREQ_FLAG_ADD: u32 = 536870912u32;
 pub const WINHTTP_ADDREQ_FLAG_ADD_IF_NEW: u32 = 268435456u32;
@@ -300,31 +206,30 @@ pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: u32 = 1073741824u32;
 pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: u32 = 16777216u32;
 pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
 pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINHTTP_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
 }
-impl WINHTTP_ASYNC_RESULT {}
+impl ::core::marker::Copy for WINHTTP_ASYNC_RESULT {}
+impl ::core::clone::Clone for WINHTTP_ASYNC_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_ASYNC_RESULT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_ASYNC_RESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_ASYNC_RESULT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_ASYNC_RESULT {}
 impl ::core::default::Default for WINHTTP_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WINHTTP_ASYNC_RESULT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_ASYNC_RESULT").field("dwResult", &self.dwResult).field("dwError", &self.dwError).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINHTTP_ASYNC_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResult == other.dwResult && self.dwError == other.dwError
-    }
-}
-impl ::core::cmp::Eq for WINHTTP_ASYNC_RESULT {}
-unsafe impl ::windows::core::Abi for WINHTTP_ASYNC_RESULT {
-    type Abi = Self;
 }
 pub const WINHTTP_AUTH_SCHEME_DIGEST: u32 = 8u32;
 pub const WINHTTP_AUTH_SCHEME_PASSPORT: u32 = 4u32;
@@ -344,7 +249,6 @@ pub const WINHTTP_AUTOPROXY_HOST_LOWERCASE: u32 = 8u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: u32 = 524288u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_SVC: u32 = 1048576u32;
 pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: u32 = 262144u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_AUTOPROXY_OPTIONS {
@@ -356,30 +260,30 @@ pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub fAutoLogonIfChallenged: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_AUTOPROXY_OPTIONS {}
+impl ::core::marker::Copy for WINHTTP_AUTOPROXY_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WINHTTP_AUTOPROXY_OPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for WINHTTP_AUTOPROXY_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_AUTOPROXY_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_AUTOPROXY_OPTIONS").field("dwFlags", &self.dwFlags).field("dwAutoDetectFlags", &self.dwAutoDetectFlags).field("lpszAutoConfigUrl", &self.lpszAutoConfigUrl).field("lpvReserved", &self.lpvReserved).field("dwReserved", &self.dwReserved).field("fAutoLogonIfChallenged", &self.fAutoLogonIfChallenged).finish()
-    }
+unsafe impl ::windows::core::Abi for WINHTTP_AUTOPROXY_OPTIONS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINHTTP_AUTOPROXY_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwAutoDetectFlags == other.dwAutoDetectFlags && self.lpszAutoConfigUrl == other.lpszAutoConfigUrl && self.lpvReserved == other.lpvReserved && self.dwReserved == other.dwReserved && self.fAutoLogonIfChallenged == other.fAutoLogonIfChallenged
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_AUTOPROXY_OPTIONS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINHTTP_AUTOPROXY_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_AUTOPROXY_OPTIONS {
-    type Abi = Self;
+impl ::core::default::Default for WINHTTP_AUTOPROXY_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: u32 = 65536u32;
 pub const WINHTTP_AUTOPROXY_RUN_OUTPROCESS_ONLY: u32 = 131072u32;
@@ -433,7 +337,6 @@ pub const WINHTTP_CALLBACK_STATUS_SETTINGS_READ_COMPLETE: u32 = 536870912u32;
 pub const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: u32 = 268435456u32;
 pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: u32 = 67108864u32;
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: u32 = 1048576u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CERTIFICATE_INFO {
@@ -447,58 +350,56 @@ pub struct WINHTTP_CERTIFICATE_INFO {
     pub dwKeySize: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_CERTIFICATE_INFO {}
+impl ::core::marker::Copy for WINHTTP_CERTIFICATE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_CERTIFICATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_CERTIFICATE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_CERTIFICATE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CERTIFICATE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_CERTIFICATE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_CERTIFICATE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_CERTIFICATE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CERTIFICATE_INFO").field("ftExpiry", &self.ftExpiry).field("ftStart", &self.ftStart).field("lpszSubjectInfo", &self.lpszSubjectInfo).field("lpszIssuerInfo", &self.lpszIssuerInfo).field("lpszProtocolName", &self.lpszProtocolName).field("lpszSignatureAlgName", &self.lpszSignatureAlgName).field("lpszEncryptionAlgName", &self.lpszEncryptionAlgName).field("dwKeySize", &self.dwKeySize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_CERTIFICATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ftExpiry == other.ftExpiry && self.ftStart == other.ftStart && self.lpszSubjectInfo == other.lpszSubjectInfo && self.lpszIssuerInfo == other.lpszIssuerInfo && self.lpszProtocolName == other.lpszProtocolName && self.lpszSignatureAlgName == other.lpszSignatureAlgName && self.lpszEncryptionAlgName == other.lpszEncryptionAlgName && self.dwKeySize == other.dwKeySize
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_CERTIFICATE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_CERTIFICATE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINHTTP_CONNECTION_GROUP {
     pub cConnections: u32,
     pub guidGroup: ::windows::core::GUID,
 }
-impl WINHTTP_CONNECTION_GROUP {}
+impl ::core::marker::Copy for WINHTTP_CONNECTION_GROUP {}
+impl ::core::clone::Clone for WINHTTP_CONNECTION_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_GROUP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_GROUP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CONNECTION_GROUP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_CONNECTION_GROUP {}
 impl ::core::default::Default for WINHTTP_CONNECTION_GROUP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINHTTP_CONNECTION_GROUP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CONNECTION_GROUP").field("cConnections", &self.cConnections).field("guidGroup", &self.guidGroup).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_GROUP {
-    fn eq(&self, other: &Self) -> bool {
-        self.cConnections == other.cConnections && self.guidGroup == other.guidGroup
-    }
-}
-impl ::core::cmp::Eq for WINHTTP_CONNECTION_GROUP {}
-unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_GROUP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -509,26 +410,24 @@ pub struct WINHTTP_CONNECTION_INFO {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl WINHTTP_CONNECTION_INFO {}
+impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for WINHTTP_CONNECTION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CONNECTION_INFO").field("cbSize", &self.cbSize).field("LocalAddress", &self.LocalAddress).field("RemoteAddress", &self.RemoteAddress).finish()
-    }
+unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_INFO {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.LocalAddress == other.LocalAddress && self.RemoteAddress == other.RemoteAddress
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CONNECTION_INFO>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -536,10 +435,11 @@ impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
 impl ::core::cmp::Eq for WINHTTP_CONNECTION_INFO {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_INFO {
-    type Abi = Self;
+impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -550,19 +450,24 @@ pub struct WINHTTP_CONNECTION_INFO {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl WINHTTP_CONNECTION_INFO {}
+impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_INFO {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CONNECTION_INFO>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -570,14 +475,15 @@ impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
 impl ::core::cmp::Eq for WINHTTP_CONNECTION_INFO {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_INFO {
-    type Abi = Self;
+impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: u32 = 2u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: u32 = 4u32;
 pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CREDS {
@@ -589,74 +495,35 @@ pub struct WINHTTP_CREDS {
     pub dwPort: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_CREDS {}
+impl ::core::marker::Copy for WINHTTP_CREDS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_CREDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_CREDS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_CREDS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CREDS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_CREDS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_CREDS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_CREDS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CREDS").field("lpszUserName", &self.lpszUserName).field("lpszPassword", &self.lpszPassword).field("lpszRealm", &self.lpszRealm).field("dwAuthScheme", &self.dwAuthScheme).field("lpszHostName", &self.lpszHostName).field("dwPort", &self.dwPort).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_CREDS {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpszUserName == other.lpszUserName && self.lpszPassword == other.lpszPassword && self.lpszRealm == other.lpszRealm && self.dwAuthScheme == other.dwAuthScheme && self.lpszHostName == other.lpszHostName && self.dwPort == other.dwPort
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_CREDS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_CREDS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
-pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(1u32);
-pub const WINHTTP_AUTH_SCHEME_NTLM: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(2u32);
-pub const WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(16u32);
-impl ::core::convert::From<u32> for WINHTTP_CREDS_AUTHSCHEME {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_CREDS_AUTHSCHEME {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINHTTP_CREDS_AUTHSCHEME {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_CREDS_AUTHSCHEME {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_CREDS_AUTHSCHEME {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_CREDS_AUTHSCHEME {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_CREDS_AUTHSCHEME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINHTTP_CREDS_AUTHSCHEME = u32;
+pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = 1u32;
+pub const WINHTTP_AUTH_SCHEME_NTLM: WINHTTP_CREDS_AUTHSCHEME = 2u32;
+pub const WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CREDS_EX {
@@ -669,32 +536,31 @@ pub struct WINHTTP_CREDS_EX {
     pub lpszUrl: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_CREDS_EX {}
+impl ::core::marker::Copy for WINHTTP_CREDS_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_CREDS_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_CREDS_EX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_CREDS_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CREDS_EX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_CREDS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_CREDS_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_CREDS_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CREDS_EX").field("lpszUserName", &self.lpszUserName).field("lpszPassword", &self.lpszPassword).field("lpszRealm", &self.lpszRealm).field("dwAuthScheme", &self.dwAuthScheme).field("lpszHostName", &self.lpszHostName).field("dwPort", &self.dwPort).field("lpszUrl", &self.lpszUrl).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_CREDS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpszUserName == other.lpszUserName && self.lpszPassword == other.lpszPassword && self.lpszRealm == other.lpszRealm && self.dwAuthScheme == other.dwAuthScheme && self.lpszHostName == other.lpszHostName && self.dwPort == other.dwPort && self.lpszUrl == other.lpszUrl
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_CREDS_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_CREDS_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
@@ -704,30 +570,30 @@ pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     pub lpszProxyBypass: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {}
+impl ::core::marker::Copy for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_CURRENT_USER_IE_PROXY_CONFIG").field("fAutoDetect", &self.fAutoDetect).field("lpszAutoConfigUrl", &self.lpszAutoConfigUrl).field("lpszProxy", &self.lpszProxy).field("lpszProxyBypass", &self.lpszProxyBypass).finish()
-    }
+unsafe impl ::windows::core::Abi for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        self.fAutoDetect == other.fAutoDetect && self.lpszAutoConfigUrl == other.lpszAutoConfigUrl && self.lpszProxy == other.lpszProxy && self.lpszProxyBypass == other.lpszProxyBypass
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CURRENT_USER_IE_PROXY_CONFIG>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    type Abi = Self;
+impl ::core::default::Default for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: u32 = 2u32;
 pub const WINHTTP_DECOMPRESSION_FLAG_GZIP: u32 = 1u32;
@@ -745,7 +611,6 @@ pub const WINHTTP_ENABLE_SSL_REVERT_IMPERSONATION: u32 = 2u32;
 pub const WINHTTP_ENABLE_SSL_REVOCATION: u32 = 1u32;
 pub const WINHTTP_ERROR_BASE: u32 = 12000u32;
 pub const WINHTTP_ERROR_LAST: u32 = 12192u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_EXTENDED_HEADER {
@@ -753,26 +618,31 @@ pub struct WINHTTP_EXTENDED_HEADER {
     pub Anonymous2: WINHTTP_EXTENDED_HEADER_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_EXTENDED_HEADER {}
+impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_EXTENDED_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_EXTENDED_HEADER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_EXTENDED_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_EXTENDED_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_EXTENDED_HEADER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_EXTENDED_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINHTTP_EXTENDED_HEADER_0 {
@@ -780,26 +650,31 @@ pub union WINHTTP_EXTENDED_HEADER_0 {
     pub pszName: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_EXTENDED_HEADER_0 {}
+impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_EXTENDED_HEADER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_EXTENDED_HEADER_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_EXTENDED_HEADER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_EXTENDED_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_EXTENDED_HEADER_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_EXTENDED_HEADER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINHTTP_EXTENDED_HEADER_1 {
@@ -807,51 +682,56 @@ pub union WINHTTP_EXTENDED_HEADER_1 {
     pub pszValue: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_EXTENDED_HEADER_1 {}
+impl ::core::marker::Copy for WINHTTP_EXTENDED_HEADER_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_EXTENDED_HEADER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_EXTENDED_HEADER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_EXTENDED_HEADER_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_EXTENDED_HEADER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_EXTENDED_HEADER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_EXTENDED_HEADER_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_EXTENDED_HEADER_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_EXTENDED_HEADER_1 {
-    type Abi = Self;
-}
 pub const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINHTTP_FAILED_CONNECTION_RETRIES {
     pub dwMaxRetries: u32,
     pub dwAllowedRetryConditions: u32,
 }
-impl WINHTTP_FAILED_CONNECTION_RETRIES {}
+impl ::core::marker::Copy for WINHTTP_FAILED_CONNECTION_RETRIES {}
+impl ::core::clone::Clone for WINHTTP_FAILED_CONNECTION_RETRIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_FAILED_CONNECTION_RETRIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_FAILED_CONNECTION_RETRIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_FAILED_CONNECTION_RETRIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_FAILED_CONNECTION_RETRIES {}
 impl ::core::default::Default for WINHTTP_FAILED_CONNECTION_RETRIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WINHTTP_FAILED_CONNECTION_RETRIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_FAILED_CONNECTION_RETRIES").field("dwMaxRetries", &self.dwMaxRetries).field("dwAllowedRetryConditions", &self.dwAllowedRetryConditions).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINHTTP_FAILED_CONNECTION_RETRIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMaxRetries == other.dwMaxRetries && self.dwAllowedRetryConditions == other.dwAllowedRetryConditions
-    }
-}
-impl ::core::cmp::Eq for WINHTTP_FAILED_CONNECTION_RETRIES {}
-unsafe impl ::windows::core::Abi for WINHTTP_FAILED_CONNECTION_RETRIES {
-    type Abi = Self;
 }
 pub const WINHTTP_FLAG_ASYNC: u32 = 268435456u32;
 pub const WINHTTP_FLAG_SECURE_DEFAULTS: u32 = 805306368u32;
@@ -864,7 +744,6 @@ pub const WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_3: u32 = 8192u32;
 pub const WINHTTP_HANDLE_TYPE_CONNECT: u32 = 2u32;
 pub const WINHTTP_HANDLE_TYPE_REQUEST: u32 = 3u32;
 pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINHTTP_HEADER_NAME {
@@ -872,26 +751,31 @@ pub union WINHTTP_HEADER_NAME {
     pub pszName: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_HEADER_NAME {}
+impl ::core::marker::Copy for WINHTTP_HEADER_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_HEADER_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_HEADER_NAME {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_HEADER_NAME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_HEADER_NAME>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_HEADER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_HEADER_NAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_HEADER_NAME {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_HEADER_NAME {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_HEADER_NAME {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_HOST_CONNECTION_GROUP {
@@ -900,103 +784,63 @@ pub struct WINHTTP_HOST_CONNECTION_GROUP {
     pub pConnectionGroups: *mut WINHTTP_CONNECTION_GROUP,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_HOST_CONNECTION_GROUP {}
+impl ::core::marker::Copy for WINHTTP_HOST_CONNECTION_GROUP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_HOST_CONNECTION_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_HOST_CONNECTION_GROUP {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_HOST_CONNECTION_GROUP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_HOST_CONNECTION_GROUP>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_HOST_CONNECTION_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_HOST_CONNECTION_GROUP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_HOST_CONNECTION_GROUP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_HOST_CONNECTION_GROUP").field("pwszHost", &self.pwszHost).field("cConnectionGroups", &self.cConnectionGroups).field("pConnectionGroups", &self.pConnectionGroups).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_HOST_CONNECTION_GROUP {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszHost == other.pwszHost && self.cConnectionGroups == other.cConnectionGroups && self.pConnectionGroups == other.pConnectionGroups
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_HOST_CONNECTION_GROUP {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_HOST_CONNECTION_GROUP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINHTTP_HTTP2_RECEIVE_WINDOW {
     pub ulStreamWindow: u32,
     pub ulStreamWindowUpdateDelta: u32,
 }
-impl WINHTTP_HTTP2_RECEIVE_WINDOW {}
+impl ::core::marker::Copy for WINHTTP_HTTP2_RECEIVE_WINDOW {}
+impl ::core::clone::Clone for WINHTTP_HTTP2_RECEIVE_WINDOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_HTTP2_RECEIVE_WINDOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_HTTP2_RECEIVE_WINDOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_HTTP2_RECEIVE_WINDOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_HTTP2_RECEIVE_WINDOW {}
 impl ::core::default::Default for WINHTTP_HTTP2_RECEIVE_WINDOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINHTTP_HTTP2_RECEIVE_WINDOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_HTTP2_RECEIVE_WINDOW").field("ulStreamWindow", &self.ulStreamWindow).field("ulStreamWindowUpdateDelta", &self.ulStreamWindowUpdateDelta).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINHTTP_HTTP2_RECEIVE_WINDOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulStreamWindow == other.ulStreamWindow && self.ulStreamWindowUpdateDelta == other.ulStreamWindowUpdateDelta
-    }
-}
-impl ::core::cmp::Eq for WINHTTP_HTTP2_RECEIVE_WINDOW {}
-unsafe impl ::windows::core::Abi for WINHTTP_HTTP2_RECEIVE_WINDOW {
-    type Abi = Self;
-}
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_INTERNET_SCHEME(pub u32);
-pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(1u32);
-pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(2u32);
-pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(3u32);
-pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(4u32);
-impl ::core::convert::From<u32> for WINHTTP_INTERNET_SCHEME {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_INTERNET_SCHEME {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINHTTP_INTERNET_SCHEME {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_INTERNET_SCHEME {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_INTERNET_SCHEME {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_INTERNET_SCHEME {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_INTERNET_SCHEME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WINHTTP_INTERNET_SCHEME = u32;
+pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = 1u32;
+pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = 2u32;
+pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = 3u32;
+pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = 4u32;
 pub const WINHTTP_LAST_OPTION: u32 = 183u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
@@ -1004,32 +848,31 @@ pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ullFlags: u64,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl WINHTTP_MATCH_CONNECTION_GUID {}
+impl ::core::marker::Copy for WINHTTP_MATCH_CONNECTION_GUID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_MATCH_CONNECTION_GUID>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for WINHTTP_MATCH_CONNECTION_GUID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_MATCH_CONNECTION_GUID").field("ConnectionGuid", &self.ConnectionGuid).field("ullFlags", &self.ullFlags).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConnectionGuid == other.ConnectionGuid && self.ullFlags == other.ullFlags
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
@@ -1037,73 +880,41 @@ pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ullFlags: u64,
 }
 #[cfg(any(target_arch = "x86",))]
-impl WINHTTP_MATCH_CONNECTION_GUID {}
+impl ::core::marker::Copy for WINHTTP_MATCH_CONNECTION_GUID {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_MATCH_CONNECTION_GUID>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
-    type Abi = Self;
-}
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAG_REQUIRE_MARKED_CONNECTION: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
-pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
-pub const WINHTTP_FLAG_ESCAPE_DISABLE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(64u32);
-pub const WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(128u32);
-pub const WINHTTP_FLAG_ESCAPE_PERCENT: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(4u32);
-pub const WINHTTP_FLAG_NULL_CODEPAGE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(8u32);
-pub const WINHTTP_FLAG_REFRESH: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
-pub const WINHTTP_FLAG_SECURE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(8388608u32);
-impl ::core::convert::From<u32> for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WINHTTP_OPEN_REQUEST_FLAGS = u32;
+pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = 256u32;
+pub const WINHTTP_FLAG_ESCAPE_DISABLE: WINHTTP_OPEN_REQUEST_FLAGS = 64u32;
+pub const WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WINHTTP_OPEN_REQUEST_FLAGS = 128u32;
+pub const WINHTTP_FLAG_ESCAPE_PERCENT: WINHTTP_OPEN_REQUEST_FLAGS = 4u32;
+pub const WINHTTP_FLAG_NULL_CODEPAGE: WINHTTP_OPEN_REQUEST_FLAGS = 8u32;
+pub const WINHTTP_FLAG_REFRESH: WINHTTP_OPEN_REQUEST_FLAGS = 256u32;
+pub const WINHTTP_FLAG_SECURE: WINHTTP_OPEN_REQUEST_FLAGS = 8388608u32;
 pub const WINHTTP_OPTION_AGGREGATE_PROXY_CONFIG: u32 = 181u32;
 pub const WINHTTP_OPTION_ASSURED_NON_BLOCKING_CALLBACKS: u32 = 111u32;
 pub const WINHTTP_OPTION_AUTOLOGON_POLICY: u32 = 77u32;
@@ -1230,7 +1041,6 @@ pub const WINHTTP_OPTION_WORKER_THREAD_COUNT: u32 = 80u32;
 pub const WINHTTP_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP2: u32 = 1u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP3: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_INFO {
@@ -1239,32 +1049,31 @@ pub struct WINHTTP_PROXY_INFO {
     pub lpszProxyBypass: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_PROXY_INFO {}
+impl ::core::marker::Copy for WINHTTP_PROXY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_PROXY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_PROXY_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_PROXY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_PROXY_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_PROXY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_PROXY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_PROXY_INFO").field("dwAccessType", &self.dwAccessType).field("lpszProxy", &self.lpszProxy).field("lpszProxyBypass", &self.lpszProxyBypass).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_PROXY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAccessType == other.dwAccessType && self.lpszProxy == other.lpszProxy && self.lpszProxyBypass == other.lpszProxyBypass
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_PROXY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_PROXY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT {
@@ -1272,32 +1081,31 @@ pub struct WINHTTP_PROXY_RESULT {
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_PROXY_RESULT {}
+impl ::core::marker::Copy for WINHTTP_PROXY_RESULT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_PROXY_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_PROXY_RESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_PROXY_RESULT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_PROXY_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_PROXY_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_PROXY_RESULT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_PROXY_RESULT").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_PROXY_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pEntries == other.pEntries
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_PROXY_RESULT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT_ENTRY {
@@ -1308,32 +1116,31 @@ pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub ProxyPort: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_PROXY_RESULT_ENTRY {}
+impl ::core::marker::Copy for WINHTTP_PROXY_RESULT_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_PROXY_RESULT_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT_ENTRY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_PROXY_RESULT_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_PROXY_RESULT_ENTRY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_PROXY_RESULT_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_PROXY_RESULT_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_PROXY_RESULT_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_PROXY_RESULT_ENTRY").field("fProxy", &self.fProxy).field("fBypass", &self.fBypass).field("ProxyScheme", &self.ProxyScheme).field("pwszProxy", &self.pwszProxy).field("ProxyPort", &self.ProxyPort).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_PROXY_RESULT_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.fProxy == other.fProxy && self.fBypass == other.fBypass && self.ProxyScheme == other.ProxyScheme && self.pwszProxy == other.pwszProxy && self.ProxyPort == other.ProxyPort
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_PROXY_RESULT_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT_ENTRY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT_EX {
@@ -1343,32 +1150,31 @@ pub struct WINHTTP_PROXY_RESULT_EX {
     pub dwProxyInterfaceAffinity: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_PROXY_RESULT_EX {}
+impl ::core::marker::Copy for WINHTTP_PROXY_RESULT_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINHTTP_PROXY_RESULT_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT_EX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINHTTP_PROXY_RESULT_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_PROXY_RESULT_EX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINHTTP_PROXY_RESULT_EX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINHTTP_PROXY_RESULT_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_PROXY_RESULT_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_PROXY_RESULT_EX").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).field("hProxyDetectionHandle", &self.hProxyDetectionHandle).field("dwProxyInterfaceAffinity", &self.dwProxyInterfaceAffinity).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINHTTP_PROXY_RESULT_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEntries == other.cEntries && self.pEntries == other.pEntries && self.hProxyDetectionHandle == other.hProxyDetectionHandle && self.dwProxyInterfaceAffinity == other.dwProxyInterfaceAffinity
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINHTTP_PROXY_RESULT_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_PROXY_RESULT_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_SETTINGS {
@@ -1390,62 +1196,30 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub pNetworkKeys: *mut _WinHttpProxyNetworkKey,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_PROXY_SETTINGS {}
+impl ::core::marker::Copy for WINHTTP_PROXY_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WINHTTP_PROXY_SETTINGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for WINHTTP_PROXY_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_PROXY_SETTINGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_PROXY_SETTINGS")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCurrentSettingsVersion", &self.dwCurrentSettingsVersion)
-            .field("pwszConnectionName", &self.pwszConnectionName)
-            .field("pwszProxy", &self.pwszProxy)
-            .field("pwszProxyBypass", &self.pwszProxyBypass)
-            .field("pwszAutoconfigUrl", &self.pwszAutoconfigUrl)
-            .field("pwszAutoconfigSecondaryUrl", &self.pwszAutoconfigSecondaryUrl)
-            .field("dwAutoDiscoveryFlags", &self.dwAutoDiscoveryFlags)
-            .field("pwszLastKnownGoodAutoConfigUrl", &self.pwszLastKnownGoodAutoConfigUrl)
-            .field("dwAutoconfigReloadDelayMins", &self.dwAutoconfigReloadDelayMins)
-            .field("ftLastKnownDetectTime", &self.ftLastKnownDetectTime)
-            .field("dwDetectedInterfaceIpCount", &self.dwDetectedInterfaceIpCount)
-            .field("pdwDetectedInterfaceIp", &self.pdwDetectedInterfaceIp)
-            .field("cNetworkKeys", &self.cNetworkKeys)
-            .field("pNetworkKeys", &self.pNetworkKeys)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for WINHTTP_PROXY_SETTINGS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINHTTP_PROXY_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.dwFlags == other.dwFlags
-            && self.dwCurrentSettingsVersion == other.dwCurrentSettingsVersion
-            && self.pwszConnectionName == other.pwszConnectionName
-            && self.pwszProxy == other.pwszProxy
-            && self.pwszProxyBypass == other.pwszProxyBypass
-            && self.pwszAutoconfigUrl == other.pwszAutoconfigUrl
-            && self.pwszAutoconfigSecondaryUrl == other.pwszAutoconfigSecondaryUrl
-            && self.dwAutoDiscoveryFlags == other.dwAutoDiscoveryFlags
-            && self.pwszLastKnownGoodAutoConfigUrl == other.pwszLastKnownGoodAutoConfigUrl
-            && self.dwAutoconfigReloadDelayMins == other.dwAutoconfigReloadDelayMins
-            && self.ftLastKnownDetectTime == other.ftLastKnownDetectTime
-            && self.dwDetectedInterfaceIpCount == other.dwDetectedInterfaceIpCount
-            && self.pdwDetectedInterfaceIp == other.pdwDetectedInterfaceIp
-            && self.cNetworkKeys == other.cNetworkKeys
-            && self.pNetworkKeys == other.pNetworkKeys
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_PROXY_SETTINGS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINHTTP_PROXY_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_PROXY_SETTINGS {
-    type Abi = Self;
+impl ::core::default::Default for WINHTTP_PROXY_SETTINGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 pub const WINHTTP_PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
@@ -1462,7 +1236,6 @@ pub const WINHTTP_QUERY_AUTHENTICATION_INFO: u32 = 76u32;
 pub const WINHTTP_QUERY_AUTHORIZATION: u32 = 28u32;
 pub const WINHTTP_QUERY_CACHE_CONTROL: u32 = 49u32;
 pub const WINHTTP_QUERY_CONNECTION: u32 = 23u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
@@ -1470,30 +1243,30 @@ pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     pub pHostConnectionGroups: *mut WINHTTP_HOST_CONNECTION_GROUP,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINHTTP_QUERY_CONNECTION_GROUP_RESULT {}
+impl ::core::marker::Copy for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_QUERY_CONNECTION_GROUP_RESULT").field("cHosts", &self.cHosts).field("pHostConnectionGroups", &self.pHostConnectionGroups).finish()
-    }
+unsafe impl ::windows::core::Abi for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        self.cHosts == other.cHosts && self.pHostConnectionGroups == other.pHostConnectionGroups
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_QUERY_CONNECTION_GROUP_RESULT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    type Abi = Self;
+impl ::core::default::Default for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const WINHTTP_QUERY_CONTENT_BASE: u32 = 50u32;
 pub const WINHTTP_QUERY_CONTENT_DESCRIPTION: u32 = 4u32;
@@ -1568,7 +1341,6 @@ pub const WINHTTP_QUERY_VERSION: u32 = 18u32;
 pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct WINHTTP_REQUEST_STATS {
@@ -1578,32 +1350,31 @@ pub struct WINHTTP_REQUEST_STATS {
     pub rgullStats: [u64; 32],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl WINHTTP_REQUEST_STATS {}
+impl ::core::marker::Copy for WINHTTP_REQUEST_STATS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for WINHTTP_REQUEST_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_STATS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for WINHTTP_REQUEST_STATS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for WINHTTP_REQUEST_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for WINHTTP_REQUEST_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_REQUEST_STATS").field("ullFlags", &self.ullFlags).field("ulIndex", &self.ulIndex).field("cStats", &self.cStats).field("rgullStats", &self.rgullStats).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for WINHTTP_REQUEST_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullFlags == other.ullFlags && self.ulIndex == other.ulIndex && self.cStats == other.cStats && self.rgullStats == other.rgullStats
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 pub struct WINHTTP_REQUEST_STATS {
@@ -1613,61 +1384,56 @@ pub struct WINHTTP_REQUEST_STATS {
     pub rgullStats: [u64; 32],
 }
 #[cfg(any(target_arch = "x86",))]
-impl WINHTTP_REQUEST_STATS {}
+impl ::core::marker::Copy for WINHTTP_REQUEST_STATS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for WINHTTP_REQUEST_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_STATS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for WINHTTP_REQUEST_STATS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for WINHTTP_REQUEST_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for WINHTTP_REQUEST_STATS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
-pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(0i32);
-pub const WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(1i32);
-pub const WinHttpTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(2i32);
-pub const WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(3i32);
-pub const WinHttpTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(4i32);
-pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(5i32);
-pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(6i32);
-pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(7i32);
-pub const WinHttpResponseHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(8i32);
-pub const WinHttpResponseHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(9i32);
-pub const WinHttpResponseBodySize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(10i32);
-pub const WinHttpResponseBodyCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(11i32);
-pub const WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(12i32);
-pub const WinHttpProxyTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(13i32);
-pub const WinHttpProxyTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(14i32);
-pub const WinHttpProxyTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(15i32);
-pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(16i32);
-pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(32i32);
-impl ::core::convert::From<i32> for WINHTTP_REQUEST_STAT_ENTRY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STAT_ENTRY {
-    type Abi = Self;
-}
+pub type WINHTTP_REQUEST_STAT_ENTRY = i32;
+pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = 0i32;
+pub const WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = 1i32;
+pub const WinHttpTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 2i32;
+pub const WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 3i32;
+pub const WinHttpTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 4i32;
+pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 5i32;
+pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = 6i32;
+pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 7i32;
+pub const WinHttpResponseHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = 8i32;
+pub const WinHttpResponseHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 9i32;
+pub const WinHttpResponseBodySize: WINHTTP_REQUEST_STAT_ENTRY = 10i32;
+pub const WinHttpResponseBodyCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 11i32;
+pub const WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 12i32;
+pub const WinHttpProxyTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 13i32;
+pub const WinHttpProxyTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 14i32;
+pub const WinHttpProxyTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 15i32;
+pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = 16i32;
+pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = 32i32;
 pub const WINHTTP_REQUEST_STAT_FLAG_FIRST_REQUEST: u32 = 32u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_FALSE_START: u32 = 16u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_SESSION_RESUMPTION: u32 = 8u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct WINHTTP_REQUEST_TIMES {
@@ -1675,32 +1441,31 @@ pub struct WINHTTP_REQUEST_TIMES {
     pub rgullTimes: [u64; 64],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl WINHTTP_REQUEST_TIMES {}
+impl ::core::marker::Copy for WINHTTP_REQUEST_TIMES {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_TIMES>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for WINHTTP_REQUEST_TIMES {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for WINHTTP_REQUEST_TIMES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_REQUEST_TIMES").field("cTimes", &self.cTimes).field("rgullTimes", &self.rgullTimes).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cTimes == other.cTimes && self.rgullTimes == other.rgullTimes
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 pub struct WINHTTP_REQUEST_TIMES {
@@ -1708,74 +1473,70 @@ pub struct WINHTTP_REQUEST_TIMES {
     pub rgullTimes: [u64; 64],
 }
 #[cfg(any(target_arch = "x86",))]
-impl WINHTTP_REQUEST_TIMES {}
+impl ::core::marker::Copy for WINHTTP_REQUEST_TIMES {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_TIMES>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for WINHTTP_REQUEST_TIMES {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
-pub const WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(0i32);
-pub const WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(1i32);
-pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(2i32);
-pub const WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(3i32);
-pub const WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(4i32);
-pub const WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(5i32);
-pub const WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(6i32);
-pub const WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(7i32);
-pub const WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(8i32);
-pub const WinHttpTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(9i32);
-pub const WinHttpTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(10i32);
-pub const WinHttpTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(11i32);
-pub const WinHttpTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(12i32);
-pub const WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(13i32);
-pub const WinHttpTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(14i32);
-pub const WinHttpStreamWaitStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(15i32);
-pub const WinHttpStreamWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(16i32);
-pub const WinHttpSendRequestStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(17i32);
-pub const WinHttpSendRequestHeadersCompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(18i32);
-pub const WinHttpSendRequestHeadersCompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(19i32);
-pub const WinHttpSendRequestHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(20i32);
-pub const WinHttpSendRequestEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(21i32);
-pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(22i32);
-pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(23i32);
-pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(24i32);
-pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(25i32);
-pub const WinHttpReceiveResponseBodyDecompressionDelta: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(26i32);
-pub const WinHttpReceiveResponseEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(27i32);
-pub const WinHttpProxyTunnelStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(28i32);
-pub const WinHttpProxyTunnelEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(29i32);
-pub const WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(30i32);
-pub const WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(31i32);
-pub const WinHttpProxyTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(32i32);
-pub const WinHttpProxyTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(33i32);
-pub const WinHttpProxyTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(34i32);
-pub const WinHttpProxyTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(35i32);
-pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(36i32);
-pub const WinHttpRequestTimeMax: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(64i32);
-impl ::core::convert::From<i32> for WINHTTP_REQUEST_TIME_ENTRY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIME_ENTRY {
-    type Abi = Self;
-}
+pub type WINHTTP_REQUEST_TIME_ENTRY = i32;
+pub const WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = 0i32;
+pub const WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = 1i32;
+pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = 2i32;
+pub const WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = 3i32;
+pub const WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = 4i32;
+pub const WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = 5i32;
+pub const WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = 6i32;
+pub const WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = 7i32;
+pub const WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = 8i32;
+pub const WinHttpTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = 9i32;
+pub const WinHttpTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = 10i32;
+pub const WinHttpTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = 11i32;
+pub const WinHttpTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = 12i32;
+pub const WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = 13i32;
+pub const WinHttpTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = 14i32;
+pub const WinHttpStreamWaitStart: WINHTTP_REQUEST_TIME_ENTRY = 15i32;
+pub const WinHttpStreamWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = 16i32;
+pub const WinHttpSendRequestStart: WINHTTP_REQUEST_TIME_ENTRY = 17i32;
+pub const WinHttpSendRequestHeadersCompressionStart: WINHTTP_REQUEST_TIME_ENTRY = 18i32;
+pub const WinHttpSendRequestHeadersCompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = 19i32;
+pub const WinHttpSendRequestHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 20i32;
+pub const WinHttpSendRequestEnd: WINHTTP_REQUEST_TIME_ENTRY = 21i32;
+pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = 22i32;
+pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = 23i32;
+pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = 24i32;
+pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 25i32;
+pub const WinHttpReceiveResponseBodyDecompressionDelta: WINHTTP_REQUEST_TIME_ENTRY = 26i32;
+pub const WinHttpReceiveResponseEnd: WINHTTP_REQUEST_TIME_ENTRY = 27i32;
+pub const WinHttpProxyTunnelStart: WINHTTP_REQUEST_TIME_ENTRY = 28i32;
+pub const WinHttpProxyTunnelEnd: WINHTTP_REQUEST_TIME_ENTRY = 29i32;
+pub const WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = 30i32;
+pub const WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = 31i32;
+pub const WinHttpProxyTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = 32i32;
+pub const WinHttpProxyTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = 33i32;
+pub const WinHttpProxyTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = 34i32;
+pub const WinHttpProxyTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = 35i32;
+pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = 36i32;
+pub const WinHttpRequestTimeMax: WINHTTP_REQUEST_TIME_ENTRY = 64i32;
 pub const WINHTTP_RESET_ALL: u32 = 65535u32;
 pub const WINHTTP_RESET_DISCARD_RESOLVERS: u32 = 262144u32;
 pub const WINHTTP_RESET_NOTIFY_NETWORK_CHANGED: u32 = 65536u32;
@@ -1784,7 +1545,6 @@ pub const WINHTTP_RESET_SCRIPT_CACHE: u32 = 8u32;
 pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
@@ -1796,32 +1556,31 @@ pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ullFlags: u64,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl WINHTTP_RESOLVER_CACHE_CONFIG {}
+impl ::core::marker::Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_RESOLVER_CACHE_CONFIG>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_RESOLVER_CACHE_CONFIG").field("ulMaxResolverCacheEntries", &self.ulMaxResolverCacheEntries).field("ulMaxCacheEntryAge", &self.ulMaxCacheEntryAge).field("ulMinCacheEntryTtl", &self.ulMinCacheEntryTtl).field("SecureDnsSetting", &self.SecureDnsSetting).field("ullConnResolutionWaitTime", &self.ullConnResolutionWaitTime).field("ullFlags", &self.ullFlags).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulMaxResolverCacheEntries == other.ulMaxResolverCacheEntries && self.ulMaxCacheEntryAge == other.ulMaxCacheEntryAge && self.ulMinCacheEntryTtl == other.ulMinCacheEntryTtl && self.SecureDnsSetting == other.SecureDnsSetting && self.ullConnResolutionWaitTime == other.ullConnResolutionWaitTime && self.ullFlags == other.ullFlags
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
@@ -1833,197 +1592,123 @@ pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ullFlags: u64,
 }
 #[cfg(any(target_arch = "x86",))]
-impl WINHTTP_RESOLVER_CACHE_CONFIG {}
+impl ::core::marker::Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_RESOLVER_CACHE_CONFIG>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
-    type Abi = Self;
-}
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE: u32 = 2u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_CONN_USE_TTL: u32 = 8u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT: u32 = 1u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
-pub const WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(0i32);
-pub const WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(1i32);
-pub const WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(2i32);
-pub const WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(3i32);
-pub const WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(4i32);
-impl ::core::convert::From<i32> for WINHTTP_SECURE_DNS_SETTING {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_SECURE_DNS_SETTING {
-    type Abi = Self;
-}
+pub type WINHTTP_SECURE_DNS_SETTING = i32;
+pub const WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = 0i32;
+pub const WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = 1i32;
+pub const WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = 2i32;
+pub const WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = 3i32;
+pub const WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = 4i32;
 pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: WINHTTP_ASYNC_RESULT,
     pub Operation: WINHTTP_WEB_SOCKET_OPERATION,
 }
-impl WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
+impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
+impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_WEB_SOCKET_ASYNC_RESULT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
 impl ::core::default::Default for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_WEB_SOCKET_ASYNC_RESULT").field("AsyncResult", &self.AsyncResult).field("Operation", &self.Operation).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.AsyncResult == other.AsyncResult && self.Operation == other.Operation
-    }
-}
-impl ::core::cmp::Eq for WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
-unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
-pub const WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
-pub const WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
-pub const WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
-pub const WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
-impl ::core::convert::From<i32> for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
-pub const WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
-pub const WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
-pub const WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
-pub const WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
-pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
-pub const WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
-pub const WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
-pub const WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
-pub const WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
-pub const WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
-pub const WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
-impl ::core::convert::From<i32> for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
-    type Abi = Self;
-}
+pub type WINHTTP_WEB_SOCKET_BUFFER_TYPE = i32;
+pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 0i32;
+pub const WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 1i32;
+pub const WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 2i32;
+pub const WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 3i32;
+pub const WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 4i32;
+pub type WINHTTP_WEB_SOCKET_CLOSE_STATUS = i32;
+pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1000i32;
+pub const WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1001i32;
+pub const WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1002i32;
+pub const WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1003i32;
+pub const WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1005i32;
+pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1006i32;
+pub const WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1007i32;
+pub const WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1008i32;
+pub const WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1009i32;
+pub const WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1010i32;
+pub const WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1011i32;
+pub const WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1015i32;
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
-pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(0i32);
-pub const WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(1i32);
-pub const WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(2i32);
-pub const WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(3i32);
-impl ::core::convert::From<i32> for WINHTTP_WEB_SOCKET_OPERATION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_OPERATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINHTTP_WEB_SOCKET_OPERATION = i32;
+pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 0i32;
+pub const WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 1i32;
+pub const WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 2i32;
+pub const WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 3i32;
 #[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_STATUS {
     pub dwBytesTransferred: u32,
     pub eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
 }
-impl WINHTTP_WEB_SOCKET_STATUS {}
+impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_STATUS {}
+impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINHTTP_WEB_SOCKET_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_WEB_SOCKET_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINHTTP_WEB_SOCKET_STATUS {}
 impl ::core::default::Default for WINHTTP_WEB_SOCKET_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINHTTP_WEB_SOCKET_STATUS").field("dwBytesTransferred", &self.dwBytesTransferred).field("eBufferType", &self.eBufferType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINHTTP_WEB_SOCKET_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBytesTransferred == other.dwBytesTransferred && self.eBufferType == other.eBufferType
-    }
-}
-impl ::core::cmp::Eq for WINHTTP_WEB_SOCKET_STATUS {}
-unsafe impl ::windows::core::Abi for WINHTTP_WEB_SOCKET_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
-pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);
-pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(16384u32);
-pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(268435456u32);
-impl ::core::convert::From<u32> for WIN_HTTP_CREATE_URL_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WIN_HTTP_CREATE_URL_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WIN_HTTP_CREATE_URL_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WIN_HTTP_CREATE_URL_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WIN_HTTP_CREATE_URL_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WIN_HTTP_CREATE_URL_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WIN_HTTP_CREATE_URL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WIN_HTTP_CREATE_URL_FLAGS = u32;
+pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = 2147483648u32;
+pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = 16384u32;
+pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpAddRequestHeaders<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *mut ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, dwmodifiers: u32) -> super::super::Foundation::BOOL {
@@ -2727,28 +2412,27 @@ pub unsafe fn WinHttpWriteProxySettings<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct _WinHttpProxyNetworkKey {
     pub pbBuffer: [u8; 128],
 }
-impl _WinHttpProxyNetworkKey {}
+impl ::core::marker::Copy for _WinHttpProxyNetworkKey {}
+impl ::core::clone::Clone for _WinHttpProxyNetworkKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _WinHttpProxyNetworkKey {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for _WinHttpProxyNetworkKey {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_WinHttpProxyNetworkKey>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for _WinHttpProxyNetworkKey {}
 impl ::core::default::Default for _WinHttpProxyNetworkKey {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for _WinHttpProxyNetworkKey {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_WinHttpProxyNetworkKey").field("pbBuffer", &self.pbBuffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for _WinHttpProxyNetworkKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbBuffer == other.pbBuffer
-    }
-}
-impl ::core::cmp::Eq for _WinHttpProxyNetworkKey {}
-unsafe impl ::windows::core::Abi for _WinHttpProxyNetworkKey {
-    type Abi = Self;
 }

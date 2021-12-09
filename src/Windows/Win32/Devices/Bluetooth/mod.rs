@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const A2DP_SINK_SUPPORTED_FEATURES_AMPLIFIER: u32 = 8u32;
 pub const A2DP_SINK_SUPPORTED_FEATURES_HEADPHONE: u32 = 1u32;
 pub const A2DP_SINK_SUPPORTED_FEATURES_RECORDER: u32 = 4u32;
@@ -9,24 +9,14 @@ pub const A2DP_SOURCE_SUPPORTED_FEATURES_PLAYER: u32 = 1u32;
 pub const A2DP_SOURCE_SUPPORTED_FEATURES_TUNER: u32 = 4u32;
 pub const AF_BTH: u16 = 32u16;
 pub const ATT_PROTOCOL_UUID16: u32 = 7u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct AUTHENTICATION_REQUIREMENTS(pub i32);
-pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(0i32);
-pub const MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(1i32);
-pub const MITMProtectionNotRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(2i32);
-pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(3i32);
-pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(4i32);
-pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(5i32);
-pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(255i32);
-impl ::core::convert::From<i32> for AUTHENTICATION_REQUIREMENTS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHENTICATION_REQUIREMENTS {
-    type Abi = Self;
-}
+pub type AUTHENTICATION_REQUIREMENTS = i32;
+pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = 0i32;
+pub const MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = 1i32;
+pub const MITMProtectionNotRequiredBonding: AUTHENTICATION_REQUIREMENTS = 2i32;
+pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = 3i32;
+pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 4i32;
+pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 5i32;
+pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = 255i32;
 pub const AVCTP_PROTOCOL_UUID16: u32 = 23u32;
 pub const AVDTP_PROTOCOL_UUID16: u32 = 25u32;
 pub const AVRCP_SUPPORTED_FEATURES_CATEGORY_1: u32 = 1u32;
@@ -83,48 +73,55 @@ pub const BDIF_SSP_PAIRED: u32 = 512u32;
 pub const BDIF_SSP_SUPPORTED: u32 = 256u32;
 pub const BDIF_TX_POWER: u32 = 2147483648u32;
 pub const BDIF_VISIBLE: u32 = 128u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
 }
-impl BLUETOOTH_ADDRESS {}
+impl ::core::marker::Copy for BLUETOOTH_ADDRESS {}
+impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_ADDRESS {}
 impl ::core::default::Default for BLUETOOTH_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_ADDRESS {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union BLUETOOTH_ADDRESS_0 {
     pub ullLong: u64,
     pub rgBytes: [u8; 6],
 }
-impl BLUETOOTH_ADDRESS_0 {}
+impl ::core::marker::Copy for BLUETOOTH_ADDRESS_0 {}
+impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_ADDRESS_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_ADDRESS_0 {}
 impl ::core::default::Default for BLUETOOTH_ADDRESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_ADDRESS_0 {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub bthAddressRemote: BLUETOOTH_ADDRESS,
@@ -132,22 +129,26 @@ pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
 }
-impl BLUETOOTH_AUTHENTICATE_RESPONSE {}
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATE_RESPONSE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE {}
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub pinInfo: BLUETOOTH_PIN_INFO,
@@ -155,22 +156,26 @@ pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
     pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
 }
-impl BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATE_RESPONSE_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
@@ -181,26 +186,31 @@ pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
@@ -208,60 +218,45 @@ pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     pub Passkey: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
-pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(1i32);
-pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(2i32);
-pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(3i32);
-pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(4i32);
-pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(5i32);
-impl ::core::convert::From<i32> for BLUETOOTH_AUTHENTICATION_METHOD {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_METHOD {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
-pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(0i32);
-pub const BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(1i32);
-pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(2i32);
-pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(3i32);
-pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(4i32);
-pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(5i32);
-pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(255i32);
-impl ::core::convert::From<i32> for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type BLUETOOTH_AUTHENTICATION_METHOD = i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = 1i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD = 2i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = 3i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = 4i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = 5i32;
+pub type BLUETOOTH_AUTHENTICATION_REQUIREMENTS = i32;
+pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 0i32;
+pub const BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 1i32;
+pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 2i32;
+pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 3i32;
+pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 4i32;
+pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 5i32;
+pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 255i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_COD_PAIRS {
@@ -269,32 +264,31 @@ pub struct BLUETOOTH_COD_PAIRS {
     pub pcszDescription: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_COD_PAIRS {}
+impl ::core::marker::Copy for BLUETOOTH_COD_PAIRS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_COD_PAIRS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BLUETOOTH_COD_PAIRS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BLUETOOTH_COD_PAIRS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_COD_PAIRS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BLUETOOTH_COD_PAIRS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_COD_PAIRS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BLUETOOTH_COD_PAIRS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_COD_PAIRS").field("ulCODMask", &self.ulCODMask).field("pcszDescription", &self.pcszDescription).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_COD_PAIRS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCODMask == other.ulCODMask && self.pcszDescription == other.pcszDescription
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_COD_PAIRS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_COD_PAIRS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_DEVICE_INFO {
@@ -309,27 +303,32 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub szName: [u16; 248],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_DEVICE_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_DEVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_DEVICE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BLUETOOTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_INFO {
-    type Abi = Self;
-}
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
@@ -343,55 +342,54 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub hRadio: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_DEVICE_SEARCH_PARAMS {}
+impl ::core::marker::Copy for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_DEVICE_SEARCH_PARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_DEVICE_SEARCH_PARAMS").field("dwSize", &self.dwSize).field("fReturnAuthenticated", &self.fReturnAuthenticated).field("fReturnRemembered", &self.fReturnRemembered).field("fReturnUnknown", &self.fReturnUnknown).field("fReturnConnected", &self.fReturnConnected).field("fIssueInquiry", &self.fIssueInquiry).field("cTimeoutMultiplier", &self.cTimeoutMultiplier).field("hRadio", &self.hRadio).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fReturnAuthenticated == other.fReturnAuthenticated && self.fReturnRemembered == other.fReturnRemembered && self.fReturnUnknown == other.fReturnUnknown && self.fReturnConnected == other.fReturnConnected && self.fIssueInquiry == other.fIssueInquiry && self.cTimeoutMultiplier == other.cTimeoutMultiplier && self.hRadio == other.hRadio
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
 }
-impl BLUETOOTH_FIND_RADIO_PARAMS {}
+impl ::core::marker::Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
+impl ::core::clone::Clone for BLUETOOTH_FIND_RADIO_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_FIND_RADIO_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
 impl ::core::default::Default for BLUETOOTH_FIND_RADIO_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_FIND_RADIO_PARAMS").field("dwSize", &self.dwSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
-    type Abi = Self;
 }
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2u32;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: u32 = 1u32;
@@ -401,23 +399,12 @@ pub const BLUETOOTH_GATT_FLAG_NONE: u32 = 0u32;
 pub const BLUETOOTH_GATT_FLAG_RETURN_ALL: u32 = 64u32;
 pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BLUETOOTH_IO_CAPABILITY(pub i32);
-pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(0i32);
-pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(1i32);
-pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(2i32);
-pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(3i32);
-pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(255i32);
-impl ::core::convert::From<i32> for BLUETOOTH_IO_CAPABILITY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BLUETOOTH_IO_CAPABILITY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type BLUETOOTH_IO_CAPABILITY = i32;
+pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = 0i32;
+pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = 1i32;
+pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = 2i32;
+pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = 3i32;
+pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = 255i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
@@ -427,132 +414,133 @@ pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
     pub szDeviceString: [u16; 256],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_LOCAL_SERVICE_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BLUETOOTH_LOCAL_SERVICE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BLUETOOTH_LOCAL_SERVICE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_LOCAL_SERVICE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BLUETOOTH_LOCAL_SERVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_LOCAL_SERVICE_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_LOCAL_SERVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_LOCAL_SERVICE_INFO {
-    type Abi = Self;
-}
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
 pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
 pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
 }
-impl BLUETOOTH_NUMERIC_COMPARISON_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_NUMERIC_COMPARISON_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
 impl ::core::default::Default for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_NUMERIC_COMPARISON_INFO").field("NumericValue", &self.NumericValue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumericValue == other.NumericValue
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_OOB_DATA_INFO {
     pub C: [u8; 16],
     pub R: [u8; 16],
 }
-impl BLUETOOTH_OOB_DATA_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_OOB_DATA_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_OOB_DATA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_OOB_DATA_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_OOB_DATA_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_OOB_DATA_INFO {}
 impl ::core::default::Default for BLUETOOTH_OOB_DATA_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BLUETOOTH_OOB_DATA_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_OOB_DATA_INFO").field("C", &self.C).field("R", &self.R).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.C == other.C && self.R == other.R
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_OOB_DATA_INFO {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_OOB_DATA_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
 }
-impl BLUETOOTH_PASSKEY_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_PASSKEY_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_PASSKEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_PASSKEY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_PASSKEY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_PASSKEY_INFO {}
 impl ::core::default::Default for BLUETOOTH_PASSKEY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BLUETOOTH_PASSKEY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_PASSKEY_INFO").field("passkey", &self.passkey).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.passkey == other.passkey
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_PASSKEY_INFO {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_PASSKEY_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_PIN_INFO {
     pub pin: [u8; 16],
     pub pinLength: u8,
 }
-impl BLUETOOTH_PIN_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_PIN_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_PIN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_PIN_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_PIN_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_PIN_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_PIN_INFO {}
 impl ::core::default::Default for BLUETOOTH_PIN_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BLUETOOTH_PIN_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_PIN_INFO").field("pin", &self.pin).field("pinLength", &self.pinLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BLUETOOTH_PIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pin == other.pin && self.pinLength == other.pinLength
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_PIN_INFO {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_PIN_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BLUETOOTH_RADIO_INFO {
     pub dwSize: u32,
@@ -562,22 +550,26 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub lmpSubversion: u16,
     pub manufacturer: u16,
 }
-impl BLUETOOTH_RADIO_INFO {}
+impl ::core::marker::Copy for BLUETOOTH_RADIO_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BLUETOOTH_RADIO_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLUETOOTH_RADIO_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_RADIO_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLUETOOTH_RADIO_INFO {}
 impl ::core::default::Default for BLUETOOTH_RADIO_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_RADIO_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_RADIO_INFO {}
-unsafe impl ::windows::core::Abi for BLUETOOTH_RADIO_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
@@ -598,45 +590,30 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BLUETOOTH_SELECT_DEVICE_PARAMS {}
+impl ::core::marker::Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_SELECT_DEVICE_PARAMS")
-            .field("dwSize", &self.dwSize)
-            .field("cNumOfClasses", &self.cNumOfClasses)
-            .field("prgClassOfDevices", &self.prgClassOfDevices)
-            .field("pszInfo", &self.pszInfo)
-            .field("hwndParent", &self.hwndParent)
-            .field("fForceAuthentication", &self.fForceAuthentication)
-            .field("fShowAuthenticated", &self.fShowAuthenticated)
-            .field("fShowRemembered", &self.fShowRemembered)
-            .field("fShowUnknown", &self.fShowUnknown)
-            .field("fAddNewDeviceWizard", &self.fAddNewDeviceWizard)
-            .field("fSkipServicesPage", &self.fSkipServicesPage)
-            .field("pvParam", &self.pvParam)
-            .field("cNumDevices", &self.cNumDevices)
-            .field("pDevices", &self.pDevices)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.cNumOfClasses == other.cNumOfClasses && self.prgClassOfDevices == other.prgClassOfDevices && self.pszInfo == other.pszInfo && self.hwndParent == other.hwndParent && self.fForceAuthentication == other.fForceAuthentication && self.fShowAuthenticated == other.fShowAuthenticated && self.fShowRemembered == other.fShowRemembered && self.fShowUnknown == other.fShowUnknown && self.fAddNewDeviceWizard == other.fAddNewDeviceWizard && self.fSkipServicesPage == other.fSkipServicesPage && self.pfnDeviceCallback.map(|f| f as usize) == other.pfnDeviceCallback.map(|f| f as usize) && self.pvParam == other.pvParam && self.cNumDevices == other.cNumDevices && self.pDevices == other.pDevices
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_SELECT_DEVICE_PARAMS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BLUETOOTH_SELECT_DEVICE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    type Abi = Self;
+impl ::core::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
 pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1u32;
@@ -655,7 +632,6 @@ pub const BTH_ADDR_IAC_FIRST: u32 = 10390272u32;
 pub const BTH_ADDR_IAC_LAST: u32 = 10390335u32;
 pub const BTH_ADDR_LIAC: u32 = 10390272u32;
 pub const BTH_ADDR_STRING_SIZE: u32 = 12u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BTH_DEVICE_INFO {
@@ -665,30 +641,30 @@ pub struct BTH_DEVICE_INFO {
     pub name: [super::super::Foundation::CHAR; 248],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BTH_DEVICE_INFO {}
+impl ::core::marker::Copy for BTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BTH_DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for BTH_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BTH_DEVICE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BTH_DEVICE_INFO").field("flags", &self.flags).field("address", &self.address).field("classOfDevice", &self.classOfDevice).field("name", &self.name).finish()
-    }
+unsafe impl ::windows::core::Abi for BTH_DEVICE_INFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.address == other.address && self.classOfDevice == other.classOfDevice && self.name == other.name
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_DEVICE_INFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_DEVICE_INFO {
-    type Abi = Self;
+impl ::core::default::Default for BTH_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
 pub const BTH_EIR_128_UUIDS_PARTIAL_ID: u32 = 6u32;
@@ -775,104 +751,114 @@ pub const BTH_ERROR_UNSPECIFIED_ERROR: u32 = 31u32;
 pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: u32 = 17u32;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: u32 = 32u32;
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: u32 = 26u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BTH_HCI_EVENT_INFO {
     pub bthAddress: u64,
     pub connectionType: u8,
     pub connected: u8,
 }
-impl BTH_HCI_EVENT_INFO {}
+impl ::core::marker::Copy for BTH_HCI_EVENT_INFO {}
+impl ::core::clone::Clone for BTH_HCI_EVENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_HCI_EVENT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_HCI_EVENT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_HCI_EVENT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_HCI_EVENT_INFO {}
 impl ::core::default::Default for BTH_HCI_EVENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for BTH_HCI_EVENT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BTH_HCI_EVENT_INFO").field("bthAddress", &self.bthAddress).field("connectionType", &self.connectionType).field("connected", &self.connected).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BTH_HCI_EVENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bthAddress == other.bthAddress && self.connectionType == other.connectionType && self.connected == other.connected
-    }
-}
-impl ::core::cmp::Eq for BTH_HCI_EVENT_INFO {}
-unsafe impl ::windows::core::Abi for BTH_HCI_EVENT_INFO {
-    type Abi = Self;
 }
 pub const BTH_HOST_FEATURE_ENHANCED_RETRANSMISSION_MODE: u64 = 1u64;
 pub const BTH_HOST_FEATURE_LOW_ENERGY: u64 = 4u64;
 pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BTH_INFO_REQ {
     pub btAddr: u64,
     pub infoType: u16,
 }
-impl BTH_INFO_REQ {}
+impl ::core::marker::Copy for BTH_INFO_REQ {}
+impl ::core::clone::Clone for BTH_INFO_REQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_INFO_REQ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_INFO_REQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_INFO_REQ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_INFO_REQ {}
 impl ::core::default::Default for BTH_INFO_REQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BTH_INFO_REQ {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BTH_INFO_REQ {}
-unsafe impl ::windows::core::Abi for BTH_INFO_REQ {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BTH_INFO_RSP {
     pub result: u16,
     pub dataLen: u8,
     pub Anonymous: BTH_INFO_RSP_0,
 }
-impl BTH_INFO_RSP {}
+impl ::core::marker::Copy for BTH_INFO_RSP {}
+impl ::core::clone::Clone for BTH_INFO_RSP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_INFO_RSP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_INFO_RSP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_INFO_RSP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_INFO_RSP {}
 impl ::core::default::Default for BTH_INFO_RSP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BTH_INFO_RSP {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BTH_INFO_RSP {}
-unsafe impl ::windows::core::Abi for BTH_INFO_RSP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub union BTH_INFO_RSP_0 {
     pub connectionlessMTU: u16,
     pub data: [u8; 44],
 }
-impl BTH_INFO_RSP_0 {}
+impl ::core::marker::Copy for BTH_INFO_RSP_0 {}
+impl ::core::clone::Clone for BTH_INFO_RSP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_INFO_RSP_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_INFO_RSP_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_INFO_RSP_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_INFO_RSP_0 {}
 impl ::core::default::Default for BTH_INFO_RSP_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BTH_INFO_RSP_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BTH_INFO_RSP_0 {}
-unsafe impl ::windows::core::Abi for BTH_INFO_RSP_0 {
-    type Abi = Self;
-}
 pub const BTH_IOCTL_BASE: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BTH_L2CAP_EVENT_INFO {
     pub bthAddress: u64,
@@ -880,25 +866,25 @@ pub struct BTH_L2CAP_EVENT_INFO {
     pub connected: u8,
     pub initiated: u8,
 }
-impl BTH_L2CAP_EVENT_INFO {}
+impl ::core::marker::Copy for BTH_L2CAP_EVENT_INFO {}
+impl ::core::clone::Clone for BTH_L2CAP_EVENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_L2CAP_EVENT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_L2CAP_EVENT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
 impl ::core::default::Default for BTH_L2CAP_EVENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for BTH_L2CAP_EVENT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BTH_L2CAP_EVENT_INFO").field("bthAddress", &self.bthAddress).field("psm", &self.psm).field("connected", &self.connected).field("initiated", &self.initiated).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bthAddress == other.bthAddress && self.psm == other.psm && self.connected == other.connected && self.initiated == other.initiated
-    }
-}
-impl ::core::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
-unsafe impl ::windows::core::Abi for BTH_L2CAP_EVENT_INFO {
-    type Abi = Self;
 }
 pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_1000_8000_00805f9b34fb);
 pub const BTH_LE_ATT_CID: u32 = 4u32;
@@ -1050,76 +1036,82 @@ pub const BTH_MFG_WAVEPLUS_TECHNOLOGY_CO: u32 = 35u32;
 pub const BTH_MFG_WIDCOMM: u32 = 17u32;
 pub const BTH_MFG_ZEEVO: u32 = 18u32;
 pub const BTH_MINORVERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BTH_PING_REQ {
     pub btAddr: u64,
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl BTH_PING_REQ {}
+impl ::core::marker::Copy for BTH_PING_REQ {}
+impl ::core::clone::Clone for BTH_PING_REQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_PING_REQ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_PING_REQ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_PING_REQ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_PING_REQ {}
 impl ::core::default::Default for BTH_PING_REQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BTH_PING_REQ {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BTH_PING_REQ {}
-unsafe impl ::windows::core::Abi for BTH_PING_REQ {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BTH_PING_RSP {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl BTH_PING_RSP {}
+impl ::core::marker::Copy for BTH_PING_RSP {}
+impl ::core::clone::Clone for BTH_PING_RSP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_PING_RSP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_PING_RSP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_PING_RSP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_PING_RSP {}
 impl ::core::default::Default for BTH_PING_RSP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BTH_PING_RSP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BTH_PING_RSP").field("dataLen", &self.dataLen).field("data", &self.data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BTH_PING_RSP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dataLen == other.dataLen && self.data == other.data
-    }
-}
-impl ::core::cmp::Eq for BTH_PING_RSP {}
-unsafe impl ::windows::core::Abi for BTH_PING_RSP {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BTH_QUERY_DEVICE {
     pub LAP: u32,
     pub length: u8,
 }
-impl BTH_QUERY_DEVICE {}
+impl ::core::marker::Copy for BTH_QUERY_DEVICE {}
+impl ::core::clone::Clone for BTH_QUERY_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_QUERY_DEVICE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_QUERY_DEVICE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_QUERY_DEVICE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_QUERY_DEVICE {}
 impl ::core::default::Default for BTH_QUERY_DEVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BTH_QUERY_DEVICE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BTH_QUERY_DEVICE {}
-unsafe impl ::windows::core::Abi for BTH_QUERY_DEVICE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BTH_QUERY_SERVICE {
     pub r#type: u32,
@@ -1128,22 +1120,26 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [SdpAttributeRange; 1],
 }
-impl BTH_QUERY_SERVICE {}
+impl ::core::marker::Copy for BTH_QUERY_SERVICE {}
+impl ::core::clone::Clone for BTH_QUERY_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BTH_QUERY_SERVICE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BTH_QUERY_SERVICE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_QUERY_SERVICE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BTH_QUERY_SERVICE {}
 impl ::core::default::Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BTH_QUERY_SERVICE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BTH_QUERY_SERVICE {}
-unsafe impl ::windows::core::Abi for BTH_QUERY_SERVICE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BTH_RADIO_IN_RANGE {
@@ -1151,33 +1147,32 @@ pub struct BTH_RADIO_IN_RANGE {
     pub previousDeviceFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BTH_RADIO_IN_RANGE {}
+impl ::core::marker::Copy for BTH_RADIO_IN_RANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_RADIO_IN_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BTH_RADIO_IN_RANGE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BTH_RADIO_IN_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_RADIO_IN_RANGE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BTH_RADIO_IN_RANGE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_RADIO_IN_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BTH_RADIO_IN_RANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BTH_RADIO_IN_RANGE").field("deviceInfo", &self.deviceInfo).field("previousDeviceFlags", &self.previousDeviceFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_RADIO_IN_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.deviceInfo == other.deviceInfo && self.previousDeviceFlags == other.previousDeviceFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_RADIO_IN_RANGE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_RADIO_IN_RANGE {
-    type Abi = Self;
-}
 pub const BTH_SDP_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BTH_SET_SERVICE {
@@ -1189,24 +1184,30 @@ pub struct BTH_SET_SERVICE {
     pub pRecord: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BTH_SET_SERVICE {}
+impl ::core::marker::Copy for BTH_SET_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BTH_SET_SERVICE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for BTH_SET_SERVICE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BTH_SET_SERVICE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_SET_SERVICE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_SET_SERVICE>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BTH_SET_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_SET_SERVICE {
-    type Abi = Self;
+impl ::core::default::Default for BTH_SET_SERVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
 pub const BT_PORT_DYN_FIRST: u32 = 4097u32;
@@ -1834,18 +1835,7 @@ pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HANDLE_SDP_TYPE(pub u64);
-impl ::core::default::Default for HANDLE_SDP_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HANDLE_SDP_TYPE {}
-unsafe impl ::windows::core::Abi for HANDLE_SDP_TYPE {
-    type Abi = Self;
-}
+pub type HANDLE_SDP_TYPE = u64;
 pub const HCCC_PROTOCOL_UUID16: u32 = 18u32;
 pub const HCDC_PROTOCOL_UUID16: u32 = 20u32;
 pub const HCI_CONNECTION_TYPE_ACL: u32 = 1u32;
@@ -1869,22 +1859,12 @@ pub const HealthDeviceProfileID_UUID16: u32 = 5120u32;
 pub const HealthDeviceProfileSinkServiceClassID_UUID16: u32 = 5122u32;
 pub const HealthDeviceProfileSourceServiceClassID_UUID16: u32 = 5121u32;
 pub const HumanInterfaceDeviceServiceClassID_UUID16: u32 = 4388u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IO_CAPABILITY(pub i32);
-pub const IoCaps_DisplayOnly: IO_CAPABILITY = IO_CAPABILITY(0i32);
-pub const IoCaps_DisplayYesNo: IO_CAPABILITY = IO_CAPABILITY(1i32);
-pub const IoCaps_KeyboardOnly: IO_CAPABILITY = IO_CAPABILITY(2i32);
-pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = IO_CAPABILITY(3i32);
-pub const IoCaps_Undefined: IO_CAPABILITY = IO_CAPABILITY(255i32);
-impl ::core::convert::From<i32> for IO_CAPABILITY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IO_CAPABILITY {
-    type Abi = Self;
-}
+pub type IO_CAPABILITY = i32;
+pub const IoCaps_DisplayOnly: IO_CAPABILITY = 0i32;
+pub const IoCaps_DisplayYesNo: IO_CAPABILITY = 1i32;
+pub const IoCaps_KeyboardOnly: IO_CAPABILITY = 2i32;
+pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = 3i32;
+pub const IoCaps_Undefined: IO_CAPABILITY = 255i32;
 pub const IP_PROTOCOL_UUID16: u32 = 9u32;
 pub const ImagingAutomaticArchiveServiceClassID_UUID16: u32 = 4380u32;
 pub const ImagingReferenceObjectsServiceClassID_UUID16: u32 = 4381u32;
@@ -1916,19 +1896,9 @@ pub const MessageAccessServerServiceClassID_UUID16: u32 = 4402u32;
 pub const MessageNotificationServerServiceClassID_UUID16: u32 = 4403u32;
 pub const NAPServiceClassID_UUID16: u32 = 4374u32;
 pub const NS_BTH: u32 = 16u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NodeContainerType(pub i32);
-pub const NodeContainerTypeSequence: NodeContainerType = NodeContainerType(0i32);
-pub const NodeContainerTypeAlternative: NodeContainerType = NodeContainerType(1i32);
-impl ::core::convert::From<i32> for NodeContainerType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NodeContainerType {
-    type Abi = Self;
-}
+pub type NodeContainerType = i32;
+pub const NodeContainerTypeSequence: NodeContainerType = 0i32;
+pub const NodeContainerTypeAlternative: NodeContainerType = 1i32;
 pub const OBEXFileTransferServiceClassID_UUID16: u32 = 4358u32;
 pub const OBEXObjectPushServiceClassID_UUID16: u32 = 4357u32;
 pub const OBEX_PROTOCOL_UUID16: u32 = 8u32;
@@ -1976,104 +1946,109 @@ pub const RFCOMM_CMD_RLS: u32 = 2u32;
 pub const RFCOMM_CMD_RPN: u32 = 3u32;
 pub const RFCOMM_CMD_RPN_REQUEST: u32 = 4u32;
 pub const RFCOMM_CMD_RPN_RESPONSE: u32 = 5u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
     pub Data: RFCOMM_COMMAND_0,
 }
-impl RFCOMM_COMMAND {}
+impl ::core::marker::Copy for RFCOMM_COMMAND {}
+impl ::core::clone::Clone for RFCOMM_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFCOMM_COMMAND {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFCOMM_COMMAND {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_COMMAND>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFCOMM_COMMAND {}
 impl ::core::default::Default for RFCOMM_COMMAND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RFCOMM_COMMAND {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_COMMAND {}
-unsafe impl ::windows::core::Abi for RFCOMM_COMMAND {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union RFCOMM_COMMAND_0 {
     pub MSC: RFCOMM_MSC_DATA,
     pub RLS: RFCOMM_RLS_DATA,
     pub RPN: RFCOMM_RPN_DATA,
 }
-impl RFCOMM_COMMAND_0 {}
+impl ::core::marker::Copy for RFCOMM_COMMAND_0 {}
+impl ::core::clone::Clone for RFCOMM_COMMAND_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFCOMM_COMMAND_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFCOMM_COMMAND_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_COMMAND_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFCOMM_COMMAND_0 {}
 impl ::core::default::Default for RFCOMM_COMMAND_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RFCOMM_COMMAND_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_COMMAND_0 {}
-unsafe impl ::windows::core::Abi for RFCOMM_COMMAND_0 {
-    type Abi = Self;
-}
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
 pub const RFCOMM_MIN_MTU: u32 = 23u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RFCOMM_MSC_DATA {
     pub Signals: u8,
     pub Break: u8,
 }
-impl RFCOMM_MSC_DATA {}
+impl ::core::marker::Copy for RFCOMM_MSC_DATA {}
+impl ::core::clone::Clone for RFCOMM_MSC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFCOMM_MSC_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFCOMM_MSC_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_MSC_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFCOMM_MSC_DATA {}
 impl ::core::default::Default for RFCOMM_MSC_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RFCOMM_MSC_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RFCOMM_MSC_DATA").field("Signals", &self.Signals).field("Break", &self.Break).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RFCOMM_MSC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signals == other.Signals && self.Break == other.Break
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_MSC_DATA {}
-unsafe impl ::windows::core::Abi for RFCOMM_MSC_DATA {
-    type Abi = Self;
-}
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
 }
-impl RFCOMM_RLS_DATA {}
+impl ::core::marker::Copy for RFCOMM_RLS_DATA {}
+impl ::core::clone::Clone for RFCOMM_RLS_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFCOMM_RLS_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFCOMM_RLS_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_RLS_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFCOMM_RLS_DATA {}
 impl ::core::default::Default for RFCOMM_RLS_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RFCOMM_RLS_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RFCOMM_RLS_DATA").field("LineStatus", &self.LineStatus).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RFCOMM_RLS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.LineStatus == other.LineStatus
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_RLS_DATA {}
-unsafe impl ::windows::core::Abi for RFCOMM_RLS_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RFCOMM_RPN_DATA {
     pub Baud: u8,
@@ -2084,25 +2059,25 @@ pub struct RFCOMM_RPN_DATA {
     pub ParameterMask1: u8,
     pub ParameterMask2: u8,
 }
-impl RFCOMM_RPN_DATA {}
+impl ::core::marker::Copy for RFCOMM_RPN_DATA {}
+impl ::core::clone::Clone for RFCOMM_RPN_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFCOMM_RPN_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFCOMM_RPN_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_RPN_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFCOMM_RPN_DATA {}
 impl ::core::default::Default for RFCOMM_RPN_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RFCOMM_RPN_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RFCOMM_RPN_DATA").field("Baud", &self.Baud).field("Data", &self.Data).field("FlowControl", &self.FlowControl).field("XonChar", &self.XonChar).field("XoffChar", &self.XoffChar).field("ParameterMask1", &self.ParameterMask1).field("ParameterMask2", &self.ParameterMask2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RFCOMM_RPN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Baud == other.Baud && self.Data == other.Data && self.FlowControl == other.FlowControl && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ParameterMask1 == other.ParameterMask1 && self.ParameterMask2 == other.ParameterMask2
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_RPN_DATA {}
-unsafe impl ::windows::core::Abi for RFCOMM_RPN_DATA {
-    type Abi = Self;
 }
 pub const RLS_ERROR: u32 = 1u32;
 pub const RLS_FRAMING: u32 = 8u32;
@@ -2219,7 +2194,6 @@ pub const SDP_CONNECT_ALLOW_PIN: u32 = 2u32;
 pub const SDP_CONNECT_CACHE: u32 = 1u32;
 pub const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255u32;
 pub const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA {
@@ -2228,26 +2202,31 @@ pub struct SDP_ELEMENT_DATA {
     pub data: SDP_ELEMENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SDP_ELEMENT_DATA {}
+impl ::core::marker::Copy for SDP_ELEMENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union SDP_ELEMENT_DATA_0 {
@@ -2271,26 +2250,31 @@ pub union SDP_ELEMENT_DATA_0 {
     pub alternative: SDP_ELEMENT_DATA_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SDP_ELEMENT_DATA_0 {}
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_0 {
@@ -2298,32 +2282,31 @@ pub struct SDP_ELEMENT_DATA_0_0 {
     pub length: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SDP_ELEMENT_DATA_0_0 {}
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_alternative_e__Struct").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_1 {
@@ -2331,32 +2314,31 @@ pub struct SDP_ELEMENT_DATA_0_1 {
     pub length: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SDP_ELEMENT_DATA_0_1 {}
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_sequence_e__Struct").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_2 {
@@ -2364,32 +2346,31 @@ pub struct SDP_ELEMENT_DATA_0_2 {
     pub length: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SDP_ELEMENT_DATA_0_2 {}
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_string_e__Struct").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_3 {
@@ -2397,30 +2378,30 @@ pub struct SDP_ELEMENT_DATA_0_3 {
     pub length: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SDP_ELEMENT_DATA_0_3 {}
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SDP_ELEMENT_DATA_0_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_3 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_url_e__Struct").field("value", &self.value).field("length", &self.length).finish()
-    }
+unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_3 {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_3>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_3 {
-    type Abi = Self;
+impl ::core::default::Default for SDP_ELEMENT_DATA_0_3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;
 pub const SDP_ERROR_INVALID_CONTINUATION_STATE: u32 = 5u32;
@@ -2428,31 +2409,30 @@ pub const SDP_ERROR_INVALID_PDU_SIZE: u32 = 4u32;
 pub const SDP_ERROR_INVALID_RECORD_HANDLE: u32 = 2u32;
 pub const SDP_ERROR_INVALID_REQUEST_SYNTAX: u32 = 3u32;
 pub const SDP_ERROR_INVALID_SDP_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SDP_LARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl SDP_LARGE_INTEGER_16 {}
+impl ::core::marker::Copy for SDP_LARGE_INTEGER_16 {}
+impl ::core::clone::Clone for SDP_LARGE_INTEGER_16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SDP_LARGE_INTEGER_16 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_LARGE_INTEGER_16>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SDP_LARGE_INTEGER_16 {}
 impl ::core::default::Default for SDP_LARGE_INTEGER_16 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SDP_LARGE_INTEGER_16 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SDP_LARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::core::cmp::Eq for SDP_LARGE_INTEGER_16 {}
-unsafe impl ::windows::core::Abi for SDP_LARGE_INTEGER_16 {
-    type Abi = Self;
 }
 pub const SDP_MAX_INQUIRY_SECONDS: u32 = 60u32;
 pub const SDP_PROTOCOL_UUID16: u32 = 1u32;
@@ -2464,104 +2444,82 @@ pub const SDP_SEARCH_NO_PARSE_CHECK: u32 = 1u32;
 pub const SDP_SERVICE_ATTRIBUTE_REQUEST: u32 = 2u32;
 pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SDP_SPECIFICTYPE(pub i32);
-pub const SDP_ST_NONE: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(0i32);
-pub const SDP_ST_UINT8: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(16i32);
-pub const SDP_ST_UINT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(272i32);
-pub const SDP_ST_UINT32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(528i32);
-pub const SDP_ST_UINT64: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(784i32);
-pub const SDP_ST_UINT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1040i32);
-pub const SDP_ST_INT8: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(32i32);
-pub const SDP_ST_INT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(288i32);
-pub const SDP_ST_INT32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
-pub const SDP_ST_INT64: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(800i32);
-pub const SDP_ST_INT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1056i32);
-pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(304i32);
-pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
-pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1072i32);
-impl ::core::convert::From<i32> for SDP_SPECIFICTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SDP_SPECIFICTYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SDP_SPECIFICTYPE = i32;
+pub const SDP_ST_NONE: SDP_SPECIFICTYPE = 0i32;
+pub const SDP_ST_UINT8: SDP_SPECIFICTYPE = 16i32;
+pub const SDP_ST_UINT16: SDP_SPECIFICTYPE = 272i32;
+pub const SDP_ST_UINT32: SDP_SPECIFICTYPE = 528i32;
+pub const SDP_ST_UINT64: SDP_SPECIFICTYPE = 784i32;
+pub const SDP_ST_UINT128: SDP_SPECIFICTYPE = 1040i32;
+pub const SDP_ST_INT8: SDP_SPECIFICTYPE = 32i32;
+pub const SDP_ST_INT16: SDP_SPECIFICTYPE = 288i32;
+pub const SDP_ST_INT32: SDP_SPECIFICTYPE = 544i32;
+pub const SDP_ST_INT64: SDP_SPECIFICTYPE = 800i32;
+pub const SDP_ST_INT128: SDP_SPECIFICTYPE = 1056i32;
+pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = 304i32;
+pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = 544i32;
+pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = 1072i32;
 #[repr(C)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
     pub mibeNum: u16,
     pub attributeId: u16,
 }
-impl SDP_STRING_TYPE_DATA {}
+impl ::core::marker::Copy for SDP_STRING_TYPE_DATA {}
+impl ::core::clone::Clone for SDP_STRING_TYPE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SDP_STRING_TYPE_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SDP_STRING_TYPE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_STRING_TYPE_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SDP_STRING_TYPE_DATA {}
 impl ::core::default::Default for SDP_STRING_TYPE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SDP_STRING_TYPE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SDP_STRING_TYPE_DATA").field("encoding", &self.encoding).field("mibeNum", &self.mibeNum).field("attributeId", &self.attributeId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SDP_STRING_TYPE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.encoding == other.encoding && self.mibeNum == other.mibeNum && self.attributeId == other.attributeId
-    }
-}
-impl ::core::cmp::Eq for SDP_STRING_TYPE_DATA {}
-unsafe impl ::windows::core::Abi for SDP_STRING_TYPE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SDP_TYPE(pub i32);
-pub const SDP_TYPE_NIL: SDP_TYPE = SDP_TYPE(0i32);
-pub const SDP_TYPE_UINT: SDP_TYPE = SDP_TYPE(1i32);
-pub const SDP_TYPE_INT: SDP_TYPE = SDP_TYPE(2i32);
-pub const SDP_TYPE_UUID: SDP_TYPE = SDP_TYPE(3i32);
-pub const SDP_TYPE_STRING: SDP_TYPE = SDP_TYPE(4i32);
-pub const SDP_TYPE_BOOLEAN: SDP_TYPE = SDP_TYPE(5i32);
-pub const SDP_TYPE_SEQUENCE: SDP_TYPE = SDP_TYPE(6i32);
-pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = SDP_TYPE(7i32);
-pub const SDP_TYPE_URL: SDP_TYPE = SDP_TYPE(8i32);
-pub const SDP_TYPE_CONTAINER: SDP_TYPE = SDP_TYPE(32i32);
-impl ::core::convert::From<i32> for SDP_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SDP_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SDP_TYPE = i32;
+pub const SDP_TYPE_NIL: SDP_TYPE = 0i32;
+pub const SDP_TYPE_UINT: SDP_TYPE = 1i32;
+pub const SDP_TYPE_INT: SDP_TYPE = 2i32;
+pub const SDP_TYPE_UUID: SDP_TYPE = 3i32;
+pub const SDP_TYPE_STRING: SDP_TYPE = 4i32;
+pub const SDP_TYPE_BOOLEAN: SDP_TYPE = 5i32;
+pub const SDP_TYPE_SEQUENCE: SDP_TYPE = 6i32;
+pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = 7i32;
+pub const SDP_TYPE_URL: SDP_TYPE = 8i32;
+pub const SDP_TYPE_CONTAINER: SDP_TYPE = 32i32;
 #[repr(C)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: u64,
 }
-impl SDP_ULARGE_INTEGER_16 {}
+impl ::core::marker::Copy for SDP_ULARGE_INTEGER_16 {}
+impl ::core::clone::Clone for SDP_ULARGE_INTEGER_16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SDP_ULARGE_INTEGER_16 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ULARGE_INTEGER_16>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SDP_ULARGE_INTEGER_16 {}
 impl ::core::default::Default for SDP_ULARGE_INTEGER_16 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SDP_ULARGE_INTEGER_16 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SDP_ULARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::core::cmp::Eq for SDP_ULARGE_INTEGER_16 {}
-unsafe impl ::windows::core::Abi for SDP_ULARGE_INTEGER_16 {
-    type Abi = Self;
 }
 pub const SERVICE_OPTION_DO_NOT_PUBLISH: u32 = 2u32;
 pub const SERVICE_OPTION_DO_NOT_PUBLISH_EIR: u32 = 8u32;
@@ -2574,7 +2532,6 @@ pub const SERVICE_SECURITY_ENCRYPT_REQUIRED: u32 = 16u32;
 pub const SERVICE_SECURITY_NONE: u32 = 1u32;
 pub const SERVICE_SECURITY_NO_ASK: u32 = 536870912u32;
 pub const SERVICE_SECURITY_USE_DEFAULTS: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
@@ -2582,20 +2539,25 @@ pub struct SOCKADDR_BTH {
     pub serviceClassId: ::windows::core::GUID,
     pub port: u32,
 }
-impl SOCKADDR_BTH {}
+impl ::core::marker::Copy for SOCKADDR_BTH {}
+impl ::core::clone::Clone for SOCKADDR_BTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SOCKADDR_BTH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOCKADDR_BTH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOCKADDR_BTH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOCKADDR_BTH {}
 impl ::core::default::Default for SOCKADDR_BTH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for SOCKADDR_BTH {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for SOCKADDR_BTH {}
-unsafe impl ::windows::core::Abi for SOCKADDR_BTH {
-    type Abi = Self;
 }
 pub const SOL_L2CAP: u32 = 256u32;
 pub const SOL_RFCOMM: u32 = 3u32;
@@ -2613,74 +2575,81 @@ pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;
 pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;
 pub const SYNCH_DATA_STORE_PHONEBOOK: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SdpAttributeRange {
     pub minAttribute: u16,
     pub maxAttribute: u16,
 }
-impl SdpAttributeRange {}
+impl ::core::marker::Copy for SdpAttributeRange {}
+impl ::core::clone::Clone for SdpAttributeRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SdpAttributeRange {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SdpAttributeRange {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SdpAttributeRange>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SdpAttributeRange {}
 impl ::core::default::Default for SdpAttributeRange {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SdpAttributeRange {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SdpAttributeRange").field("minAttribute", &self.minAttribute).field("maxAttribute", &self.maxAttribute).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SdpAttributeRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.minAttribute == other.minAttribute && self.maxAttribute == other.maxAttribute
-    }
-}
-impl ::core::cmp::Eq for SdpAttributeRange {}
-unsafe impl ::windows::core::Abi for SdpAttributeRange {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
     pub uuidType: u16,
 }
-impl SdpQueryUuid {}
+impl ::core::marker::Copy for SdpQueryUuid {}
+impl ::core::clone::Clone for SdpQueryUuid {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SdpQueryUuid {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SdpQueryUuid {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SdpQueryUuid>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SdpQueryUuid {}
 impl ::core::default::Default for SdpQueryUuid {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for SdpQueryUuid {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for SdpQueryUuid {}
-unsafe impl ::windows::core::Abi for SdpQueryUuid {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union SdpQueryUuidUnion {
     pub uuid128: ::windows::core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
 }
-impl SdpQueryUuidUnion {}
+impl ::core::marker::Copy for SdpQueryUuidUnion {}
+impl ::core::clone::Clone for SdpQueryUuidUnion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SdpQueryUuidUnion {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SdpQueryUuidUnion {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SdpQueryUuidUnion>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SdpQueryUuidUnion {}
 impl ::core::default::Default for SdpQueryUuidUnion {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for SdpQueryUuidUnion {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for SdpQueryUuidUnion {}
-unsafe impl ::windows::core::Abi for SdpQueryUuidUnion {
-    type Abi = Self;
 }
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;
 pub const ServiceDiscoveryServerServiceClassID_UUID16: u32 = 4096u32;

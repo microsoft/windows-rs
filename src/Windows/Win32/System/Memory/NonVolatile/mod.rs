@@ -1,29 +1,28 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub Length: usize,
 }
-impl NV_MEMORY_RANGE {}
+impl ::core::marker::Copy for NV_MEMORY_RANGE {}
+impl ::core::clone::Clone for NV_MEMORY_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NV_MEMORY_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NV_MEMORY_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NV_MEMORY_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NV_MEMORY_RANGE {}
 impl ::core::default::Default for NV_MEMORY_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for NV_MEMORY_RANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NV_MEMORY_RANGE").field("BaseAddress", &self.BaseAddress).field("Length", &self.Length).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NV_MEMORY_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.Length == other.Length
-    }
-}
-impl ::core::cmp::Eq for NV_MEMORY_RANGE {}
-unsafe impl ::windows::core::Abi for NV_MEMORY_RANGE {
-    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]

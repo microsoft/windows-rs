@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS {
@@ -9,51 +8,40 @@ pub struct DRT_ADDRESS {
     pub latency: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_ADDRESS {}
+impl ::core::marker::Copy for DRT_ADDRESS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_ADDRESS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_ADDRESS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_ADDRESS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for DRT_ADDRESS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_ADDRESS").field("socketAddress", &self.socketAddress).field("flags", &self.flags).field("nearness", &self.nearness).field("latency", &self.latency).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.socketAddress == other.socketAddress && self.flags == other.flags && self.nearness == other.nearness && self.latency == other.latency
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_ADDRESS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_ADDRESS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_ADDRESS_FLAGS(pub i32);
-pub const DRT_ADDRESS_FLAG_ACCEPTED: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(1i32);
-pub const DRT_ADDRESS_FLAG_REJECTED: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(2i32);
-pub const DRT_ADDRESS_FLAG_UNREACHABLE: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(4i32);
-pub const DRT_ADDRESS_FLAG_LOOP: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(8i32);
-pub const DRT_ADDRESS_FLAG_TOO_BUSY: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(16i32);
-pub const DRT_ADDRESS_FLAG_BAD_VALIDATE_ID: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(32i32);
-pub const DRT_ADDRESS_FLAG_SUSPECT_UNREGISTERED_ID: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(64i32);
-pub const DRT_ADDRESS_FLAG_INQUIRE: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(128i32);
-impl ::core::convert::From<i32> for DRT_ADDRESS_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_ADDRESS_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DRT_ADDRESS_FLAGS = i32;
+pub const DRT_ADDRESS_FLAG_ACCEPTED: DRT_ADDRESS_FLAGS = 1i32;
+pub const DRT_ADDRESS_FLAG_REJECTED: DRT_ADDRESS_FLAGS = 2i32;
+pub const DRT_ADDRESS_FLAG_UNREACHABLE: DRT_ADDRESS_FLAGS = 4i32;
+pub const DRT_ADDRESS_FLAG_LOOP: DRT_ADDRESS_FLAGS = 8i32;
+pub const DRT_ADDRESS_FLAG_TOO_BUSY: DRT_ADDRESS_FLAGS = 16i32;
+pub const DRT_ADDRESS_FLAG_BAD_VALIDATE_ID: DRT_ADDRESS_FLAGS = 32i32;
+pub const DRT_ADDRESS_FLAG_SUSPECT_UNREGISTERED_ID: DRT_ADDRESS_FLAGS = 64i32;
+pub const DRT_ADDRESS_FLAG_INQUIRE: DRT_ADDRESS_FLAGS = 128i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS_LIST {
@@ -61,32 +49,31 @@ pub struct DRT_ADDRESS_LIST {
     pub AddressList: [DRT_ADDRESS; 1],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_ADDRESS_LIST {}
+impl ::core::marker::Copy for DRT_ADDRESS_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_ADDRESS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_ADDRESS_LIST {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_ADDRESS_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_ADDRESS_LIST>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_ADDRESS_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for DRT_ADDRESS_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressList", &self.AddressList).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressCount == other.AddressCount && self.AddressList == other.AddressList
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_ADDRESS_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_ADDRESS_LIST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRT_BOOTSTRAP_PROVIDER {
     pub pvContext: *mut ::core::ffi::c_void,
@@ -98,55 +85,53 @@ pub struct DRT_BOOTSTRAP_PROVIDER {
     pub Register: isize,
     pub Unregister: isize,
 }
-impl DRT_BOOTSTRAP_PROVIDER {}
+impl ::core::marker::Copy for DRT_BOOTSTRAP_PROVIDER {}
+impl ::core::clone::Clone for DRT_BOOTSTRAP_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_BOOTSTRAP_PROVIDER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRT_BOOTSTRAP_PROVIDER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_BOOTSTRAP_PROVIDER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRT_BOOTSTRAP_PROVIDER {}
 impl ::core::default::Default for DRT_BOOTSTRAP_PROVIDER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DRT_BOOTSTRAP_PROVIDER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_BOOTSTRAP_PROVIDER").field("pvContext", &self.pvContext).field("Attach", &self.Attach).field("Detach", &self.Detach).field("InitResolve", &self.InitResolve).field("IssueResolve", &self.IssueResolve).field("EndResolve", &self.EndResolve).field("Register", &self.Register).field("Unregister", &self.Unregister).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DRT_BOOTSTRAP_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pvContext == other.pvContext && self.Attach == other.Attach && self.Detach == other.Detach && self.InitResolve == other.InitResolve && self.IssueResolve == other.IssueResolve && self.EndResolve == other.EndResolve && self.Register == other.Register && self.Unregister == other.Unregister
-    }
-}
-impl ::core::cmp::Eq for DRT_BOOTSTRAP_PROVIDER {}
-unsafe impl ::windows::core::Abi for DRT_BOOTSTRAP_PROVIDER {
-    type Abi = Self;
-}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hr: ::windows::core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRT_DATA {
     pub cb: u32,
     pub pb: *mut u8,
 }
-impl DRT_DATA {}
+impl ::core::marker::Copy for DRT_DATA {}
+impl ::core::clone::Clone for DRT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRT_DATA {}
 impl ::core::default::Default for DRT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DRT_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_DATA").field("cb", &self.cb).field("pb", &self.pb).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DRT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.pb == other.pb
-    }
-}
-impl ::core::cmp::Eq for DRT_DATA {}
-unsafe impl ::windows::core::Abi for DRT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA {
@@ -156,26 +141,31 @@ pub struct DRT_EVENT_DATA {
     pub Anonymous: DRT_EVENT_DATA_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_EVENT_DATA {}
+impl ::core::marker::Copy for DRT_EVENT_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_EVENT_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_EVENT_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_EVENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union DRT_EVENT_DATA_0 {
@@ -184,26 +174,31 @@ pub union DRT_EVENT_DATA_0 {
     pub statusChange: DRT_EVENT_DATA_0_2,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_EVENT_DATA_0 {}
+impl ::core::marker::Copy for DRT_EVENT_DATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_EVENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_0 {
@@ -212,32 +207,31 @@ pub struct DRT_EVENT_DATA_0_0 {
     pub remoteKey: DRT_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_EVENT_DATA_0_0 {}
+impl ::core::marker::Copy for DRT_EVENT_DATA_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_EVENT_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_EVENT_DATA_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for DRT_EVENT_DATA_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_leafsetKeyChange_e__Struct").field("change", &self.change).field("localKey", &self.localKey).field("remoteKey", &self.remoteKey).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.change == other.change && self.localKey == other.localKey && self.remoteKey == other.remoteKey
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_1 {
@@ -245,32 +239,31 @@ pub struct DRT_EVENT_DATA_0_1 {
     pub localKey: DRT_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_EVENT_DATA_0_1 {}
+impl ::core::marker::Copy for DRT_EVENT_DATA_0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_EVENT_DATA_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_EVENT_DATA_0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for DRT_EVENT_DATA_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_registrationStateChange_e__Struct").field("state", &self.state).field("localKey", &self.localKey).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.state == other.state && self.localKey == other.localKey
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_2 {
@@ -278,32 +271,31 @@ pub struct DRT_EVENT_DATA_0_2 {
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_EVENT_DATA_0_2 {}
+impl ::core::marker::Copy for DRT_EVENT_DATA_0_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_EVENT_DATA_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_EVENT_DATA_0_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for DRT_EVENT_DATA_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_statusChange_e__Struct").field("status", &self.status).field("bootstrapAddresses", &self.bootstrapAddresses).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.bootstrapAddresses == other.bootstrapAddresses
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_2_0 {
@@ -311,172 +303,120 @@ pub struct DRT_EVENT_DATA_0_2_0 {
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl DRT_EVENT_DATA_0_2_0 {}
+impl ::core::marker::Copy for DRT_EVENT_DATA_0_2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for DRT_EVENT_DATA_0_2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_2_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for DRT_EVENT_DATA_0_2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA_0_2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for DRT_EVENT_DATA_0_2_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_bootstrapAddresses_e__Struct").field("cntAddress", &self.cntAddress).field("pAddresses", &self.pAddresses).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cntAddress == other.cntAddress && self.pAddresses == other.pAddresses
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA_0_2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_EVENT_TYPE(pub i32);
-pub const DRT_EVENT_STATUS_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(0i32);
-pub const DRT_EVENT_LEAFSET_KEY_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(1i32);
-pub const DRT_EVENT_REGISTRATION_STATE_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(2i32);
-impl ::core::convert::From<i32> for DRT_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_EVENT_TYPE {
-    type Abi = Self;
-}
-pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052914i32 as _);
-pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052913i32 as _);
-pub const DRT_E_CAPABILITY_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052657i32 as _);
-pub const DRT_E_DUPLICATE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052919i32 as _);
-pub const DRT_E_FAULTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052662i32 as _);
-pub const DRT_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052660i32 as _);
-pub const DRT_E_INVALID_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052923i32 as _);
-pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052924i32 as _);
-pub const DRT_E_INVALID_CERT_CHAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057020i32 as _);
-pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052659i32 as _);
-pub const DRT_E_INVALID_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057015i32 as _);
-pub const DRT_E_INVALID_KEY_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057022i32 as _);
-pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057017i32 as _);
-pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057007i32 as _);
-pub const DRT_E_INVALID_MESSAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057019i32 as _);
-pub const DRT_E_INVALID_PORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052928i32 as _);
-pub const DRT_E_INVALID_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052922i32 as _);
-pub const DRT_E_INVALID_SEARCH_INFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052663i32 as _);
-pub const DRT_E_INVALID_SEARCH_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057006i32 as _);
-pub const DRT_E_INVALID_SECURITY_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052658i32 as _);
-pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052926i32 as _);
-pub const DRT_E_INVALID_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052664i32 as _);
-pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052927i32 as _);
-pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052920i32 as _);
-pub const DRT_E_NO_MORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057018i32 as _);
-pub const DRT_E_SEARCH_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057016i32 as _);
-pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052916i32 as _);
-pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052915i32 as _);
-pub const DRT_E_STILL_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052925i32 as _);
-pub const DRT_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057023i32 as _);
-pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052918i32 as _);
-pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052917i32 as _);
-pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052671i32 as _);
-pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052665i32 as _);
-pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052666i32 as _);
-pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052668i32 as _);
-pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052670i32 as _);
-pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052667i32 as _);
-pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052921i32 as _);
-pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052661i32 as _);
-pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052669i32 as _);
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
-pub const DRT_LEAFSET_KEY_ADDED: DRT_LEAFSET_KEY_CHANGE_TYPE = DRT_LEAFSET_KEY_CHANGE_TYPE(0i32);
-pub const DRT_LEAFSET_KEY_DELETED: DRT_LEAFSET_KEY_CHANGE_TYPE = DRT_LEAFSET_KEY_CHANGE_TYPE(1i32);
-impl ::core::convert::From<i32> for DRT_LEAFSET_KEY_CHANGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_LEAFSET_KEY_CHANGE_TYPE {
-    type Abi = Self;
-}
+pub type DRT_EVENT_TYPE = i32;
+pub const DRT_EVENT_STATUS_CHANGED: DRT_EVENT_TYPE = 0i32;
+pub const DRT_EVENT_LEAFSET_KEY_CHANGED: DRT_EVENT_TYPE = 1i32;
+pub const DRT_EVENT_REGISTRATION_STATE_CHANGED: DRT_EVENT_TYPE = 2i32;
+pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052914i32);
+pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052913i32);
+pub const DRT_E_CAPABILITY_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052657i32);
+pub const DRT_E_DUPLICATE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052919i32);
+pub const DRT_E_FAULTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052662i32);
+pub const DRT_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052660i32);
+pub const DRT_E_INVALID_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052923i32);
+pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052924i32);
+pub const DRT_E_INVALID_CERT_CHAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057020i32);
+pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052659i32);
+pub const DRT_E_INVALID_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057015i32);
+pub const DRT_E_INVALID_KEY_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057022i32);
+pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057017i32);
+pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057007i32);
+pub const DRT_E_INVALID_MESSAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057019i32);
+pub const DRT_E_INVALID_PORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052928i32);
+pub const DRT_E_INVALID_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052922i32);
+pub const DRT_E_INVALID_SEARCH_INFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052663i32);
+pub const DRT_E_INVALID_SEARCH_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057006i32);
+pub const DRT_E_INVALID_SECURITY_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052658i32);
+pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052926i32);
+pub const DRT_E_INVALID_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052664i32);
+pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052927i32);
+pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052920i32);
+pub const DRT_E_NO_MORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057018i32);
+pub const DRT_E_SEARCH_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057016i32);
+pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052916i32);
+pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052915i32);
+pub const DRT_E_STILL_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052925i32);
+pub const DRT_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141057023i32);
+pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052918i32);
+pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052917i32);
+pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052671i32);
+pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052665i32);
+pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052666i32);
+pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052668i32);
+pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052670i32);
+pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052667i32);
+pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052921i32);
+pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052661i32);
+pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052669i32);
+pub type DRT_LEAFSET_KEY_CHANGE_TYPE = i32;
+pub const DRT_LEAFSET_KEY_ADDED: DRT_LEAFSET_KEY_CHANGE_TYPE = 0i32;
+pub const DRT_LEAFSET_KEY_DELETED: DRT_LEAFSET_KEY_CHANGE_TYPE = 1i32;
 pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_MATCH_TYPE(pub i32);
-pub const DRT_MATCH_EXACT: DRT_MATCH_TYPE = DRT_MATCH_TYPE(0i32);
-pub const DRT_MATCH_NEAR: DRT_MATCH_TYPE = DRT_MATCH_TYPE(1i32);
-pub const DRT_MATCH_INTERMEDIATE: DRT_MATCH_TYPE = DRT_MATCH_TYPE(2i32);
-impl ::core::convert::From<i32> for DRT_MATCH_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_MATCH_TYPE {
-    type Abi = Self;
-}
+pub type DRT_MATCH_TYPE = i32;
+pub const DRT_MATCH_EXACT: DRT_MATCH_TYPE = 0i32;
+pub const DRT_MATCH_NEAR: DRT_MATCH_TYPE = 1i32;
+pub const DRT_MATCH_INTERMEDIATE: DRT_MATCH_TYPE = 2i32;
 pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
 pub const DRT_MAX_PAYLOAD_SIZE: u32 = 5120u32;
 pub const DRT_MAX_ROUTING_ADDRESSES: u32 = 20u32;
 pub const DRT_MIN_ROUTING_ADDRESSES: u32 = 1u32;
 pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRT_REGISTRATION {
     pub key: DRT_DATA,
     pub appData: DRT_DATA,
 }
-impl DRT_REGISTRATION {}
+impl ::core::marker::Copy for DRT_REGISTRATION {}
+impl ::core::clone::Clone for DRT_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_REGISTRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRT_REGISTRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_REGISTRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRT_REGISTRATION {}
 impl ::core::default::Default for DRT_REGISTRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DRT_REGISTRATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_REGISTRATION").field("key", &self.key).field("appData", &self.appData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DRT_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.key == other.key && self.appData == other.appData
-    }
-}
-impl ::core::cmp::Eq for DRT_REGISTRATION {}
-unsafe impl ::windows::core::Abi for DRT_REGISTRATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_REGISTRATION_STATE(pub i32);
-pub const DRT_REGISTRATION_STATE_UNRESOLVEABLE: DRT_REGISTRATION_STATE = DRT_REGISTRATION_STATE(1i32);
-impl ::core::convert::From<i32> for DRT_REGISTRATION_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_REGISTRATION_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_SCOPE(pub i32);
-pub const DRT_GLOBAL_SCOPE: DRT_SCOPE = DRT_SCOPE(1i32);
-pub const DRT_SITE_LOCAL_SCOPE: DRT_SCOPE = DRT_SCOPE(2i32);
-pub const DRT_LINK_LOCAL_SCOPE: DRT_SCOPE = DRT_SCOPE(3i32);
-impl ::core::convert::From<i32> for DRT_SCOPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_SCOPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DRT_REGISTRATION_STATE = i32;
+pub const DRT_REGISTRATION_STATE_UNRESOLVEABLE: DRT_REGISTRATION_STATE = 1i32;
+pub type DRT_SCOPE = i32;
+pub const DRT_GLOBAL_SCOPE: DRT_SCOPE = 1i32;
+pub const DRT_SITE_LOCAL_SCOPE: DRT_SCOPE = 2i32;
+pub const DRT_LINK_LOCAL_SCOPE: DRT_SCOPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRT_SEARCH_INFO {
@@ -489,32 +429,31 @@ pub struct DRT_SEARCH_INFO {
     pub pMinimumKey: *mut DRT_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DRT_SEARCH_INFO {}
+impl ::core::marker::Copy for DRT_SEARCH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRT_SEARCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DRT_SEARCH_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DRT_SEARCH_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SEARCH_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DRT_SEARCH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRT_SEARCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRT_SEARCH_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_SEARCH_INFO").field("dwSize", &self.dwSize).field("fIterative", &self.fIterative).field("fAllowCurrentInstanceMatch", &self.fAllowCurrentInstanceMatch).field("fAnyMatchInRange", &self.fAnyMatchInRange).field("cMaxEndpoints", &self.cMaxEndpoints).field("pMaximumKey", &self.pMaximumKey).field("pMinimumKey", &self.pMinimumKey).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DRT_SEARCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fIterative == other.fIterative && self.fAllowCurrentInstanceMatch == other.fAllowCurrentInstanceMatch && self.fAnyMatchInRange == other.fAnyMatchInRange && self.cMaxEndpoints == other.cMaxEndpoints && self.pMaximumKey == other.pMaximumKey && self.pMinimumKey == other.pMinimumKey
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DRT_SEARCH_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRT_SEARCH_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRT_SEARCH_RESULT {
     pub dwSize: u32,
@@ -522,41 +461,30 @@ pub struct DRT_SEARCH_RESULT {
     pub pvContext: *mut ::core::ffi::c_void,
     pub registration: DRT_REGISTRATION,
 }
-impl DRT_SEARCH_RESULT {}
+impl ::core::marker::Copy for DRT_SEARCH_RESULT {}
+impl ::core::clone::Clone for DRT_SEARCH_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_SEARCH_RESULT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRT_SEARCH_RESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SEARCH_RESULT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRT_SEARCH_RESULT {}
 impl ::core::default::Default for DRT_SEARCH_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DRT_SEARCH_RESULT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_SEARCH_RESULT").field("dwSize", &self.dwSize).field("r#type", &self.r#type).field("pvContext", &self.pvContext).field("registration", &self.registration).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DRT_SEARCH_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.r#type == other.r#type && self.pvContext == other.pvContext && self.registration == other.registration
-    }
-}
-impl ::core::cmp::Eq for DRT_SEARCH_RESULT {}
-unsafe impl ::windows::core::Abi for DRT_SEARCH_RESULT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_SECURITY_MODE(pub i32);
-pub const DRT_SECURE_RESOLVE: DRT_SECURITY_MODE = DRT_SECURITY_MODE(0i32);
-pub const DRT_SECURE_MEMBERSHIP: DRT_SECURITY_MODE = DRT_SECURITY_MODE(1i32);
-pub const DRT_SECURE_CONFIDENTIALPAYLOAD: DRT_SECURITY_MODE = DRT_SECURITY_MODE(2i32);
-impl ::core::convert::From<i32> for DRT_SECURITY_MODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_SECURITY_MODE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DRT_SECURITY_MODE = i32;
+pub const DRT_SECURE_RESOLVE: DRT_SECURITY_MODE = 0i32;
+pub const DRT_SECURE_MEMBERSHIP: DRT_SECURITY_MODE = 1i32;
+pub const DRT_SECURE_CONFIDENTIALPAYLOAD: DRT_SECURITY_MODE = 2i32;
 #[repr(C)]
 pub struct DRT_SECURITY_PROVIDER {
     pub pvContext: *mut ::core::ffi::c_void,
@@ -574,42 +502,26 @@ pub struct DRT_SECURITY_PROVIDER {
     pub SignData: isize,
     pub VerifyData: isize,
 }
-impl DRT_SECURITY_PROVIDER {}
+impl ::core::marker::Copy for DRT_SECURITY_PROVIDER {}
+impl ::core::clone::Clone for DRT_SECURITY_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRT_SECURITY_PROVIDER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRT_SECURITY_PROVIDER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SECURITY_PROVIDER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRT_SECURITY_PROVIDER {}
 impl ::core::default::Default for DRT_SECURITY_PROVIDER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DRT_SECURITY_PROVIDER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_SECURITY_PROVIDER")
-            .field("pvContext", &self.pvContext)
-            .field("Attach", &self.Attach)
-            .field("Detach", &self.Detach)
-            .field("RegisterKey", &self.RegisterKey)
-            .field("UnregisterKey", &self.UnregisterKey)
-            .field("ValidateAndUnpackPayload", &self.ValidateAndUnpackPayload)
-            .field("SecureAndPackPayload", &self.SecureAndPackPayload)
-            .field("FreeData", &self.FreeData)
-            .field("EncryptData", &self.EncryptData)
-            .field("DecryptData", &self.DecryptData)
-            .field("GetSerializedCredential", &self.GetSerializedCredential)
-            .field("ValidateRemoteCredential", &self.ValidateRemoteCredential)
-            .field("SignData", &self.SignData)
-            .field("VerifyData", &self.VerifyData)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DRT_SECURITY_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pvContext == other.pvContext && self.Attach == other.Attach && self.Detach == other.Detach && self.RegisterKey == other.RegisterKey && self.UnregisterKey == other.UnregisterKey && self.ValidateAndUnpackPayload == other.ValidateAndUnpackPayload && self.SecureAndPackPayload == other.SecureAndPackPayload && self.FreeData == other.FreeData && self.EncryptData == other.EncryptData && self.DecryptData == other.DecryptData && self.GetSerializedCredential == other.GetSerializedCredential && self.ValidateRemoteCredential == other.ValidateRemoteCredential && self.SignData == other.SignData && self.VerifyData == other.VerifyData
-    }
-}
-impl ::core::cmp::Eq for DRT_SECURITY_PROVIDER {}
-unsafe impl ::windows::core::Abi for DRT_SECURITY_PROVIDER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRT_SETTINGS {
@@ -625,58 +537,37 @@ pub struct DRT_SETTINGS {
     pub eSecurityMode: DRT_SECURITY_MODE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DRT_SETTINGS {}
+impl ::core::marker::Copy for DRT_SETTINGS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRT_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DRT_SETTINGS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DRT_SETTINGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SETTINGS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DRT_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRT_SETTINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRT_SETTINGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRT_SETTINGS")
-            .field("dwSize", &self.dwSize)
-            .field("cbKey", &self.cbKey)
-            .field("bProtocolMajorVersion", &self.bProtocolMajorVersion)
-            .field("bProtocolMinorVersion", &self.bProtocolMinorVersion)
-            .field("ulMaxRoutingAddresses", &self.ulMaxRoutingAddresses)
-            .field("pwzDrtInstancePrefix", &self.pwzDrtInstancePrefix)
-            .field("hTransport", &self.hTransport)
-            .field("pSecurityProvider", &self.pSecurityProvider)
-            .field("pBootstrapProvider", &self.pBootstrapProvider)
-            .field("eSecurityMode", &self.eSecurityMode)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DRT_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.cbKey == other.cbKey && self.bProtocolMajorVersion == other.bProtocolMajorVersion && self.bProtocolMinorVersion == other.bProtocolMinorVersion && self.ulMaxRoutingAddresses == other.ulMaxRoutingAddresses && self.pwzDrtInstancePrefix == other.pwzDrtInstancePrefix && self.hTransport == other.hTransport && self.pSecurityProvider == other.pSecurityProvider && self.pBootstrapProvider == other.pBootstrapProvider && self.eSecurityMode == other.eSecurityMode
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DRT_SETTINGS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRT_SETTINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRT_STATUS(pub i32);
-pub const DRT_ACTIVE: DRT_STATUS = DRT_STATUS(0i32);
-pub const DRT_ALONE: DRT_STATUS = DRT_STATUS(1i32);
-pub const DRT_NO_NETWORK: DRT_STATUS = DRT_STATUS(10i32);
-pub const DRT_FAULTED: DRT_STATUS = DRT_STATUS(20i32);
-impl ::core::convert::From<i32> for DRT_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRT_STATUS {
-    type Abi = Self;
-}
-pub const DRT_S_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(6426640i32 as _);
+pub type DRT_STATUS = i32;
+pub const DRT_ACTIVE: DRT_STATUS = 0i32;
+pub const DRT_ALONE: DRT_STATUS = 1i32;
+pub const DRT_NO_NETWORK: DRT_STATUS = 10i32;
+pub const DRT_FAULTED: DRT_STATUS = 20i32;
+pub const DRT_S_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(6426640i32);
 #[inline]
 pub unsafe fn DrtClose(hdrt: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -1052,108 +943,94 @@ pub const NS_PNRPCLOUD: u32 = 39u32;
 pub const NS_PNRPNAME: u32 = 38u32;
 pub const NS_PROVIDER_PNRPCLOUD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03fe89ce_766d_4976_b9c1_bb9bc42c7b4d);
 pub const NS_PROVIDER_PNRPNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03fe89cd_766d_4976_b9c1_bb9bc42c7b4d);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
     pub fFlashCrowd: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEERDIST_CLIENT_BASIC_INFO {}
+impl ::core::marker::Copy for PEERDIST_CLIENT_BASIC_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEERDIST_CLIENT_BASIC_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_BASIC_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEERDIST_CLIENT_BASIC_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_CLIENT_BASIC_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEERDIST_CLIENT_BASIC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEERDIST_CLIENT_BASIC_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEERDIST_CLIENT_BASIC_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEERDIST_CLIENT_BASIC_INFO").field("fFlashCrowd", &self.fFlashCrowd).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEERDIST_CLIENT_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fFlashCrowd == other.fFlashCrowd
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEERDIST_CLIENT_BASIC_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_BASIC_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(pub i32);
-pub const PeerDistClientBasicInfo: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(0i32);
-pub const MaximumPeerDistClientInfoByHandlesClass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(1i32);
-impl ::core::convert::From<i32> for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = i32;
+pub const PeerDistClientBasicInfo: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = 0i32;
+pub const MaximumPeerDistClientInfoByHandlesClass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = 1i32;
 #[repr(C)]
 pub struct PEERDIST_CONTENT_TAG {
     pub Data: [u8; 16],
 }
-impl PEERDIST_CONTENT_TAG {}
+impl ::core::marker::Copy for PEERDIST_CONTENT_TAG {}
+impl ::core::clone::Clone for PEERDIST_CONTENT_TAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_CONTENT_TAG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEERDIST_CONTENT_TAG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_CONTENT_TAG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEERDIST_CONTENT_TAG {}
 impl ::core::default::Default for PEERDIST_CONTENT_TAG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEERDIST_CONTENT_TAG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEERDIST_CONTENT_TAG").field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEERDIST_CONTENT_TAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for PEERDIST_CONTENT_TAG {}
-unsafe impl ::windows::core::Abi for PEERDIST_CONTENT_TAG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEERDIST_PUBLICATION_OPTIONS {
     pub dwVersion: u32,
     pub dwFlags: u32,
 }
-impl PEERDIST_PUBLICATION_OPTIONS {}
+impl ::core::marker::Copy for PEERDIST_PUBLICATION_OPTIONS {}
+impl ::core::clone::Clone for PEERDIST_PUBLICATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_PUBLICATION_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEERDIST_PUBLICATION_OPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_PUBLICATION_OPTIONS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEERDIST_PUBLICATION_OPTIONS {}
 impl ::core::default::Default for PEERDIST_PUBLICATION_OPTIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for PEERDIST_PUBLICATION_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEERDIST_PUBLICATION_OPTIONS").field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEERDIST_PUBLICATION_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for PEERDIST_PUBLICATION_OPTIONS {}
-unsafe impl ::windows::core::Abi for PEERDIST_PUBLICATION_OPTIONS {
-    type Abi = Self;
 }
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION: i32 = 2i32;
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_1: i32 = 1i32;
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_2: i32 = 2i32;
 pub const PEERDIST_READ_TIMEOUT_DEFAULT: u32 = 4294967294u32;
 pub const PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS {
     pub cbSize: u32,
@@ -1161,83 +1038,34 @@ pub struct PEERDIST_RETRIEVAL_OPTIONS {
     pub dwContentInfoMaxVersion: u32,
     pub dwReserved: u32,
 }
-impl PEERDIST_RETRIEVAL_OPTIONS {}
+impl ::core::marker::Copy for PEERDIST_RETRIEVAL_OPTIONS {}
+impl ::core::clone::Clone for PEERDIST_RETRIEVAL_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEERDIST_RETRIEVAL_OPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_RETRIEVAL_OPTIONS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEERDIST_RETRIEVAL_OPTIONS {}
 impl ::core::default::Default for PEERDIST_RETRIEVAL_OPTIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEERDIST_RETRIEVAL_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEERDIST_RETRIEVAL_OPTIONS").field("cbSize", &self.cbSize).field("dwContentInfoMinVersion", &self.dwContentInfoMinVersion).field("dwContentInfoMaxVersion", &self.dwContentInfoMaxVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEERDIST_RETRIEVAL_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwContentInfoMinVersion == other.dwContentInfoMinVersion && self.dwContentInfoMaxVersion == other.dwContentInfoMaxVersion && self.dwReserved == other.dwReserved
-    }
-}
-impl ::core::cmp::Eq for PEERDIST_RETRIEVAL_OPTIONS {}
-unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(pub u32);
-pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_1: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(1u32);
-pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_2: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(2u32);
-pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(2u32);
-impl ::core::convert::From<u32> for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEERDIST_STATUS(pub i32);
-pub const PEERDIST_STATUS_DISABLED: PEERDIST_STATUS = PEERDIST_STATUS(0i32);
-pub const PEERDIST_STATUS_UNAVAILABLE: PEERDIST_STATUS = PEERDIST_STATUS(1i32);
-pub const PEERDIST_STATUS_AVAILABLE: PEERDIST_STATUS = PEERDIST_STATUS(2i32);
-impl ::core::convert::From<i32> for PEERDIST_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEERDIST_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = u32;
+pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_1: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 1u32;
+pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_2: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 2u32;
+pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 2u32;
+pub type PEERDIST_STATUS = i32;
+pub const PEERDIST_STATUS_DISABLED: PEERDIST_STATUS = 0i32;
+pub const PEERDIST_STATUS_UNAVAILABLE: PEERDIST_STATUS = 1i32;
+pub const PEERDIST_STATUS_AVAILABLE: PEERDIST_STATUS = 2i32;
 #[repr(C)]
 pub struct PEERDIST_STATUS_INFO {
     pub cbSize: u32,
@@ -1245,27 +1073,26 @@ pub struct PEERDIST_STATUS_INFO {
     pub dwMinVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE,
     pub dwMaxVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE,
 }
-impl PEERDIST_STATUS_INFO {}
+impl ::core::marker::Copy for PEERDIST_STATUS_INFO {}
+impl ::core::clone::Clone for PEERDIST_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEERDIST_STATUS_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEERDIST_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_STATUS_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEERDIST_STATUS_INFO {}
 impl ::core::default::Default for PEERDIST_STATUS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEERDIST_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEERDIST_STATUS_INFO").field("cbSize", &self.cbSize).field("status", &self.status).field("dwMinVer", &self.dwMinVer).field("dwMaxVer", &self.dwMaxVer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEERDIST_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.status == other.status && self.dwMinVer == other.dwMinVer && self.dwMaxVer == other.dwMaxVer
-    }
-}
-impl ::core::cmp::Eq for PEERDIST_STATUS_INFO {}
-unsafe impl ::windows::core::Abi for PEERDIST_STATUS_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_ADDRESS {
@@ -1273,26 +1100,31 @@ pub struct PEER_ADDRESS {
     pub sin6: super::super::Networking::WinSock::SOCKADDR_IN6,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl PEER_ADDRESS {}
+impl ::core::marker::Copy for PEER_ADDRESS {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for PEER_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+unsafe impl ::windows::core::Abi for PEER_ADDRESS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for PEER_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_ADDRESS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for PEER_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for PEER_ADDRESS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for PEER_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for PEER_ADDRESS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_APPLICATION {
@@ -1301,32 +1133,31 @@ pub struct PEER_APPLICATION {
     pub pwzDescription: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_APPLICATION {}
+impl ::core::marker::Copy for PEER_APPLICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_APPLICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_APPLICATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_APPLICATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_APPLICATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_APPLICATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_APPLICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_APPLICATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_APPLICATION").field("id", &self.id).field("data", &self.data).field("pwzDescription", &self.pwzDescription).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_APPLICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.data == other.data && self.pwzDescription == other.pwzDescription
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_APPLICATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_APPLICATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_APPLICATION_REGISTRATION_INFO {
@@ -1336,45 +1167,34 @@ pub struct PEER_APPLICATION_REGISTRATION_INFO {
     pub dwPublicationScope: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_APPLICATION_REGISTRATION_INFO {}
+impl ::core::marker::Copy for PEER_APPLICATION_REGISTRATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_APPLICATION_REGISTRATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_APPLICATION_REGISTRATION_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_APPLICATION_REGISTRATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_APPLICATION_REGISTRATION_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_APPLICATION_REGISTRATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_APPLICATION_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_APPLICATION_REGISTRATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_APPLICATION_REGISTRATION_INFO").field("application", &self.application).field("pwzApplicationToLaunch", &self.pwzApplicationToLaunch).field("pwzApplicationArguments", &self.pwzApplicationArguments).field("dwPublicationScope", &self.dwPublicationScope).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_APPLICATION_REGISTRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.application == other.application && self.pwzApplicationToLaunch == other.pwzApplicationToLaunch && self.pwzApplicationArguments == other.pwzApplicationArguments && self.dwPublicationScope == other.dwPublicationScope
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_APPLICATION_REGISTRATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_APPLICATION_REGISTRATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_APPLICATION_REGISTRATION_TYPE(pub i32);
-pub const PEER_APPLICATION_CURRENT_USER: PEER_APPLICATION_REGISTRATION_TYPE = PEER_APPLICATION_REGISTRATION_TYPE(0i32);
-pub const PEER_APPLICATION_ALL_USERS: PEER_APPLICATION_REGISTRATION_TYPE = PEER_APPLICATION_REGISTRATION_TYPE(1i32);
-impl ::core::convert::From<i32> for PEER_APPLICATION_REGISTRATION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_APPLICATION_REGISTRATION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_APPLICATION_REGISTRATION_TYPE = i32;
+pub const PEER_APPLICATION_CURRENT_USER: PEER_APPLICATION_REGISTRATION_TYPE = 0i32;
+pub const PEER_APPLICATION_ALL_USERS: PEER_APPLICATION_REGISTRATION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_APP_LAUNCH_INFO {
@@ -1383,46 +1203,35 @@ pub struct PEER_APP_LAUNCH_INFO {
     pub pInvitation: *mut PEER_INVITATION,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_APP_LAUNCH_INFO {}
+impl ::core::marker::Copy for PEER_APP_LAUNCH_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_APP_LAUNCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_APP_LAUNCH_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_APP_LAUNCH_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_APP_LAUNCH_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_APP_LAUNCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_APP_LAUNCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_APP_LAUNCH_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_APP_LAUNCH_INFO").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("pInvitation", &self.pInvitation).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_APP_LAUNCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.pInvitation == other.pInvitation
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_APP_LAUNCH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_APP_LAUNCH_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_CHANGE_TYPE(pub i32);
-pub const PEER_CHANGE_ADDED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(0i32);
-pub const PEER_CHANGE_DELETED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(1i32);
-pub const PEER_CHANGE_UPDATED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(2i32);
-impl ::core::convert::From<i32> for PEER_CHANGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_CHANGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_CHANGE_TYPE = i32;
+pub const PEER_CHANGE_ADDED: PEER_CHANGE_TYPE = 0i32;
+pub const PEER_CHANGE_DELETED: PEER_CHANGE_TYPE = 1i32;
+pub const PEER_CHANGE_UPDATED: PEER_CHANGE_TYPE = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_COLLAB_EVENT_DATA {
@@ -1430,26 +1239,31 @@ pub struct PEER_COLLAB_EVENT_DATA {
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_COLLAB_EVENT_DATA {}
+impl ::core::marker::Copy for PEER_COLLAB_EVENT_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_COLLAB_EVENT_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_COLLAB_EVENT_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_COLLAB_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_COLLAB_EVENT_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union PEER_COLLAB_EVENT_DATA_0 {
@@ -1462,88 +1276,72 @@ pub union PEER_COLLAB_EVENT_DATA_0 {
     pub requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_COLLAB_EVENT_DATA_0 {}
+impl ::core::marker::Copy for PEER_COLLAB_EVENT_DATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_COLLAB_EVENT_DATA_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_COLLAB_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_COLLAB_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_COLLAB_EVENT_DATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_COLLAB_EVENT_REGISTRATION {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub pInstance: *mut ::windows::core::GUID,
 }
-impl PEER_COLLAB_EVENT_REGISTRATION {}
+impl ::core::marker::Copy for PEER_COLLAB_EVENT_REGISTRATION {}
+impl ::core::clone::Clone for PEER_COLLAB_EVENT_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_REGISTRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_REGISTRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_COLLAB_EVENT_REGISTRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_COLLAB_EVENT_REGISTRATION {}
 impl ::core::default::Default for PEER_COLLAB_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_COLLAB_EVENT_REGISTRATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_COLLAB_EVENT_REGISTRATION").field("eventType", &self.eventType).field("pInstance", &self.pInstance).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.eventType == other.eventType && self.pInstance == other.pInstance
-    }
-}
-impl ::core::cmp::Eq for PEER_COLLAB_EVENT_REGISTRATION {}
-unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_REGISTRATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_COLLAB_EVENT_TYPE(pub i32);
-pub const PEER_EVENT_WATCHLIST_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(1i32);
-pub const PEER_EVENT_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(2i32);
-pub const PEER_EVENT_ENDPOINT_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(3i32);
-pub const PEER_EVENT_ENDPOINT_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(4i32);
-pub const PEER_EVENT_ENDPOINT_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(5i32);
-pub const PEER_EVENT_MY_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(6i32);
-pub const PEER_EVENT_MY_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(7i32);
-pub const PEER_EVENT_MY_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(8i32);
-pub const PEER_EVENT_MY_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(9i32);
-pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(10i32);
-pub const PEER_EVENT_REQUEST_STATUS_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(11i32);
-impl ::core::convert::From<i32> for PEER_COLLAB_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_TYPE {
-    type Abi = Self;
-}
+pub type PEER_COLLAB_EVENT_TYPE = i32;
+pub const PEER_EVENT_WATCHLIST_CHANGED: PEER_COLLAB_EVENT_TYPE = 1i32;
+pub const PEER_EVENT_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = 2i32;
+pub const PEER_EVENT_ENDPOINT_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = 3i32;
+pub const PEER_EVENT_ENDPOINT_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = 4i32;
+pub const PEER_EVENT_ENDPOINT_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = 5i32;
+pub const PEER_EVENT_MY_ENDPOINT_CHANGED: PEER_COLLAB_EVENT_TYPE = 6i32;
+pub const PEER_EVENT_MY_PRESENCE_CHANGED: PEER_COLLAB_EVENT_TYPE = 7i32;
+pub const PEER_EVENT_MY_APPLICATION_CHANGED: PEER_COLLAB_EVENT_TYPE = 8i32;
+pub const PEER_EVENT_MY_OBJECT_CHANGED: PEER_COLLAB_EVENT_TYPE = 9i32;
+pub const PEER_EVENT_PEOPLE_NEAR_ME_CHANGED: PEER_COLLAB_EVENT_TYPE = 10i32;
+pub const PEER_EVENT_REQUEST_STATUS_CHANGED: PEER_COLLAB_EVENT_TYPE = 11i32;
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d);
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_CONNECTION_FLAGS(pub i32);
-pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = PEER_CONNECTION_FLAGS(1i32);
-pub const PEER_CONNECTION_DIRECT: PEER_CONNECTION_FLAGS = PEER_CONNECTION_FLAGS(2i32);
-impl ::core::convert::From<i32> for PEER_CONNECTION_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_CONNECTION_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_CONNECTION_FLAGS = i32;
+pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = 1i32;
+pub const PEER_CONNECTION_DIRECT: PEER_CONNECTION_FLAGS = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_CONNECTION_INFO {
@@ -1555,40 +1353,35 @@ pub struct PEER_CONNECTION_INFO {
     pub address: PEER_ADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_CONNECTION_INFO {}
+impl ::core::marker::Copy for PEER_CONNECTION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_CONNECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_CONNECTION_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_CONNECTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_CONNECTION_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_CONNECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_CONNECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_CONNECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_CONNECTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_CONNECTION_STATUS(pub i32);
-pub const PEER_CONNECTED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(1i32);
-pub const PEER_DISCONNECTED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(2i32);
-pub const PEER_CONNECTION_FAILED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(3i32);
-impl ::core::convert::From<i32> for PEER_CONNECTION_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_CONNECTION_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_CONNECTION_STATUS = i32;
+pub const PEER_CONNECTED: PEER_CONNECTION_STATUS = 1i32;
+pub const PEER_DISCONNECTED: PEER_CONNECTION_STATUS = 2i32;
+pub const PEER_CONNECTION_FAILED: PEER_CONNECTION_STATUS = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_CONTACT {
@@ -1601,32 +1394,31 @@ pub struct PEER_CONTACT {
     pub credentials: PEER_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_CONTACT {}
+impl ::core::marker::Copy for PEER_CONTACT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_CONTACT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_CONTACT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_CONTACT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_CONTACT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_CONTACT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_CONTACT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_CONTACT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_CONTACT").field("pwzPeerName", &self.pwzPeerName).field("pwzNickName", &self.pwzNickName).field("pwzDisplayName", &self.pwzDisplayName).field("pwzEmailAddress", &self.pwzEmailAddress).field("fWatch", &self.fWatch).field("WatcherPermissions", &self.WatcherPermissions).field("credentials", &self.credentials).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_CONTACT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwzPeerName == other.pwzPeerName && self.pwzNickName == other.pwzNickName && self.pwzDisplayName == other.pwzDisplayName && self.pwzEmailAddress == other.pwzEmailAddress && self.fWatch == other.fWatch && self.WatcherPermissions == other.WatcherPermissions && self.credentials == other.credentials
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_CONTACT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_CONTACT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_CREDENTIAL_INFO {
@@ -1642,58 +1434,56 @@ pub struct PEER_CREDENTIAL_INFO {
     pub pRoles: *mut ::windows::core::GUID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl PEER_CREDENTIAL_INFO {}
+impl ::core::marker::Copy for PEER_CREDENTIAL_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for PEER_CREDENTIAL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for PEER_CREDENTIAL_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for PEER_CREDENTIAL_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_CREDENTIAL_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for PEER_CREDENTIAL_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for PEER_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for PEER_CREDENTIAL_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_CREDENTIAL_INFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzFriendlyName", &self.pwzFriendlyName).field("pPublicKey", &self.pPublicKey).field("pwzIssuerPeerName", &self.pwzIssuerPeerName).field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName).field("ftValidityStart", &self.ftValidityStart).field("ftValidityEnd", &self.ftValidityEnd).field("cRoles", &self.cRoles).field("pRoles", &self.pRoles).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for PEER_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzFriendlyName == other.pwzFriendlyName && self.pPublicKey == other.pPublicKey && self.pwzIssuerPeerName == other.pwzIssuerPeerName && self.pwzIssuerFriendlyName == other.pwzIssuerFriendlyName && self.ftValidityStart == other.ftValidityStart && self.ftValidityEnd == other.ftValidityEnd && self.cRoles == other.cRoles && self.pRoles == other.pRoles
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for PEER_CREDENTIAL_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for PEER_CREDENTIAL_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_DATA {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl PEER_DATA {}
+impl ::core::marker::Copy for PEER_DATA {}
+impl ::core::clone::Clone for PEER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_DATA {}
 impl ::core::default::Default for PEER_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_DATA").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl ::core::cmp::Eq for PEER_DATA {}
-unsafe impl ::windows::core::Abi for PEER_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_ENDPOINT {
@@ -1701,26 +1491,31 @@ pub struct PEER_ENDPOINT {
     pub pwzEndpointName: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_ENDPOINT {}
+impl ::core::marker::Copy for PEER_ENDPOINT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_ENDPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_ENDPOINT {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_ENDPOINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_ENDPOINT>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_ENDPOINT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_ENDPOINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_ENDPOINT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_ENDPOINT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_ENDPOINT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
@@ -1730,32 +1525,31 @@ pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub pApplication: *mut PEER_APPLICATION,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_EVENT_APPLICATION_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_APPLICATION_CHANGED_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_EVENT_APPLICATION_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_EVENT_APPLICATION_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_EVENT_APPLICATION_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_APPLICATION_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_EVENT_APPLICATION_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_EVENT_APPLICATION_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_APPLICATION_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pApplication", &self.pApplication).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_EVENT_APPLICATION_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pApplication == other.pApplication
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_EVENT_APPLICATION_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_EVENT_APPLICATION_CHANGED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub dwSize: u32,
@@ -1765,27 +1559,26 @@ pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub ullNextConnectionId: u64,
     pub hrConnectionFailedReason: ::windows::core::HRESULT,
 }
-impl PEER_EVENT_CONNECTION_CHANGE_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_CONNECTION_CHANGE_DATA {}
+impl ::core::clone::Clone for PEER_EVENT_CONNECTION_CHANGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_EVENT_CONNECTION_CHANGE_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_EVENT_CONNECTION_CHANGE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_CONNECTION_CHANGE_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_EVENT_CONNECTION_CHANGE_DATA {}
 impl ::core::default::Default for PEER_EVENT_CONNECTION_CHANGE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_EVENT_CONNECTION_CHANGE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_CONNECTION_CHANGE_DATA").field("dwSize", &self.dwSize).field("status", &self.status).field("ullConnectionId", &self.ullConnectionId).field("ullNodeId", &self.ullNodeId).field("ullNextConnectionId", &self.ullNextConnectionId).field("hrConnectionFailedReason", &self.hrConnectionFailedReason).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_EVENT_CONNECTION_CHANGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.status == other.status && self.ullConnectionId == other.ullConnectionId && self.ullNodeId == other.ullNodeId && self.ullNextConnectionId == other.ullNextConnectionId && self.hrConnectionFailedReason == other.hrConnectionFailedReason
-    }
-}
-impl ::core::cmp::Eq for PEER_EVENT_CONNECTION_CHANGE_DATA {}
-unsafe impl ::windows::core::Abi for PEER_EVENT_CONNECTION_CHANGE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
@@ -1793,32 +1586,31 @@ pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
     pub pEndpoint: *mut PEER_ENDPOINT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_EVENT_ENDPOINT_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_EVENT_ENDPOINT_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_EVENT_ENDPOINT_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_EVENT_ENDPOINT_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_ENDPOINT_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_EVENT_ENDPOINT_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_ENDPOINT_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_EVENT_ENDPOINT_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_EVENT_ENDPOINT_CHANGED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_EVENT_INCOMING_DATA {
     pub dwSize: u32,
@@ -1826,27 +1618,26 @@ pub struct PEER_EVENT_INCOMING_DATA {
     pub r#type: ::windows::core::GUID,
     pub data: PEER_DATA,
 }
-impl PEER_EVENT_INCOMING_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_INCOMING_DATA {}
+impl ::core::clone::Clone for PEER_EVENT_INCOMING_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_EVENT_INCOMING_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_EVENT_INCOMING_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_INCOMING_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_EVENT_INCOMING_DATA {}
 impl ::core::default::Default for PEER_EVENT_INCOMING_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_EVENT_INCOMING_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_INCOMING_DATA").field("dwSize", &self.dwSize).field("ullConnectionId", &self.ullConnectionId).field("r#type", &self.r#type).field("data", &self.data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_EVENT_INCOMING_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.ullConnectionId == other.ullConnectionId && self.r#type == other.r#type && self.data == other.data
-    }
-}
-impl ::core::cmp::Eq for PEER_EVENT_INCOMING_DATA {}
-unsafe impl ::windows::core::Abi for PEER_EVENT_INCOMING_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
@@ -1855,32 +1646,31 @@ pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
     pub pwzIdentity: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_EVENT_MEMBER_CHANGE_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_MEMBER_CHANGE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_EVENT_MEMBER_CHANGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_EVENT_MEMBER_CHANGE_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_EVENT_MEMBER_CHANGE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_MEMBER_CHANGE_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_EVENT_MEMBER_CHANGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_EVENT_MEMBER_CHANGE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_EVENT_MEMBER_CHANGE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_MEMBER_CHANGE_DATA").field("dwSize", &self.dwSize).field("changeType", &self.changeType).field("pwzIdentity", &self.pwzIdentity).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_EVENT_MEMBER_CHANGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.changeType == other.changeType && self.pwzIdentity == other.pwzIdentity
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_EVENT_MEMBER_CHANGE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_EVENT_MEMBER_CHANGE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_NODE_CHANGE_DATA {
@@ -1890,32 +1680,31 @@ pub struct PEER_EVENT_NODE_CHANGE_DATA {
     pub pwzPeerId: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_EVENT_NODE_CHANGE_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_NODE_CHANGE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_EVENT_NODE_CHANGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_EVENT_NODE_CHANGE_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_EVENT_NODE_CHANGE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_NODE_CHANGE_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_EVENT_NODE_CHANGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_EVENT_NODE_CHANGE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_EVENT_NODE_CHANGE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_NODE_CHANGE_DATA").field("dwSize", &self.dwSize).field("changeType", &self.changeType).field("ullNodeId", &self.ullNodeId).field("pwzPeerId", &self.pwzPeerId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_EVENT_NODE_CHANGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.changeType == other.changeType && self.ullNodeId == other.ullNodeId && self.pwzPeerId == other.pwzPeerId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_EVENT_NODE_CHANGE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_EVENT_NODE_CHANGE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
@@ -1925,32 +1714,31 @@ pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub pObject: *mut PEER_OBJECT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_EVENT_OBJECT_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_OBJECT_CHANGED_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_EVENT_OBJECT_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_EVENT_OBJECT_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_EVENT_OBJECT_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_OBJECT_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_EVENT_OBJECT_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_EVENT_OBJECT_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_OBJECT_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pObject", &self.pObject).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_EVENT_OBJECT_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pObject == other.pObject
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_EVENT_OBJECT_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_EVENT_OBJECT_CHANGED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
@@ -1958,32 +1746,31 @@ pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     pub pPeopleNearMe: *mut PEER_PEOPLE_NEAR_ME,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA").field("changeType", &self.changeType).field("pPeopleNearMe", &self.pPeopleNearMe).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.changeType == other.changeType && self.pPeopleNearMe == other.pPeopleNearMe
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
@@ -1993,32 +1780,31 @@ pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub pPresenceInfo: *mut PEER_PRESENCE_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_EVENT_PRESENCE_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_PRESENCE_CHANGED_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_EVENT_PRESENCE_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_EVENT_PRESENCE_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_EVENT_PRESENCE_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_PRESENCE_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_EVENT_PRESENCE_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_EVENT_PRESENCE_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_PRESENCE_CHANGED_DATA").field("pContact", &self.pContact).field("pEndpoint", &self.pEndpoint).field("changeType", &self.changeType).field("pPresenceInfo", &self.pPresenceInfo).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_EVENT_PRESENCE_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pPresenceInfo == other.pPresenceInfo
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_EVENT_PRESENCE_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_EVENT_PRESENCE_CHANGED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_EVENT_RECORD_CHANGE_DATA {
     pub dwSize: u32,
@@ -2026,27 +1812,26 @@ pub struct PEER_EVENT_RECORD_CHANGE_DATA {
     pub recordId: ::windows::core::GUID,
     pub recordType: ::windows::core::GUID,
 }
-impl PEER_EVENT_RECORD_CHANGE_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_RECORD_CHANGE_DATA {}
+impl ::core::clone::Clone for PEER_EVENT_RECORD_CHANGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_EVENT_RECORD_CHANGE_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_EVENT_RECORD_CHANGE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_RECORD_CHANGE_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_EVENT_RECORD_CHANGE_DATA {}
 impl ::core::default::Default for PEER_EVENT_RECORD_CHANGE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_EVENT_RECORD_CHANGE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_RECORD_CHANGE_DATA").field("dwSize", &self.dwSize).field("changeType", &self.changeType).field("recordId", &self.recordId).field("recordType", &self.recordType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_EVENT_RECORD_CHANGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.changeType == other.changeType && self.recordId == other.recordId && self.recordType == other.recordType
-    }
-}
-impl ::core::cmp::Eq for PEER_EVENT_RECORD_CHANGE_DATA {}
-unsafe impl ::windows::core::Abi for PEER_EVENT_RECORD_CHANGE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
@@ -2054,58 +1839,56 @@ pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     pub hrChange: ::windows::core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_REQUEST_STATUS_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_REQUEST_STATUS_CHANGED_DATA").field("pEndpoint", &self.pEndpoint).field("hrChange", &self.hrChange).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pEndpoint == other.pEndpoint && self.hrChange == other.hrChange
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_EVENT_SYNCHRONIZED_DATA {
     pub dwSize: u32,
     pub recordType: ::windows::core::GUID,
 }
-impl PEER_EVENT_SYNCHRONIZED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_SYNCHRONIZED_DATA {}
+impl ::core::clone::Clone for PEER_EVENT_SYNCHRONIZED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_EVENT_SYNCHRONIZED_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_EVENT_SYNCHRONIZED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_SYNCHRONIZED_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_EVENT_SYNCHRONIZED_DATA {}
 impl ::core::default::Default for PEER_EVENT_SYNCHRONIZED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_EVENT_SYNCHRONIZED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_SYNCHRONIZED_DATA").field("dwSize", &self.dwSize).field("recordType", &self.recordType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_EVENT_SYNCHRONIZED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.recordType == other.recordType
-    }
-}
-impl ::core::cmp::Eq for PEER_EVENT_SYNCHRONIZED_DATA {}
-unsafe impl ::windows::core::Abi for PEER_EVENT_SYNCHRONIZED_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
@@ -2113,43 +1896,42 @@ pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_EVENT_WATCHLIST_CHANGED_DATA {}
+impl ::core::marker::Copy for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_EVENT_WATCHLIST_CHANGED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_EVENT_WATCHLIST_CHANGED_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_EVENT_WATCHLIST_CHANGED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_WATCHLIST_CHANGED_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_EVENT_WATCHLIST_CHANGED_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_EVENT_WATCHLIST_CHANGED_DATA").field("pContact", &self.pContact).field("changeType", &self.changeType).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_EVENT_WATCHLIST_CHANGED_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContact == other.pContact && self.changeType == other.changeType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_EVENT_WATCHLIST_CHANGED_DATA {
-    type Abi = Self;
-}
-pub const PEER_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024713i32 as _);
-pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013390i32 as _);
-pub const PEER_E_CLOUD_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013394i32 as _);
-pub const PEER_E_CLOUD_IS_DEAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013387i32 as _);
-pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013391i32 as _);
-pub const PEER_E_CLOUD_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013395i32 as _);
-pub const PEER_E_DISK_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024784i32 as _);
-pub const PEER_E_DUPLICATE_PEER_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013388i32 as _);
-pub const PEER_E_INVALID_IDENTITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013393i32 as _);
-pub const PEER_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023728i32 as _);
-pub const PEER_E_TOO_MUCH_LOAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013392i32 as _);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub const PEER_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024713i32);
+pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013390i32);
+pub const PEER_E_CLOUD_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013394i32);
+pub const PEER_E_CLOUD_IS_DEAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013387i32);
+pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013391i32);
+pub const PEER_E_CLOUD_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013395i32);
+pub const PEER_E_DISK_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024784i32);
+pub const PEER_E_DUPLICATE_PEER_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013388i32);
+pub const PEER_E_INVALID_IDENTITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013393i32);
+pub const PEER_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023728i32);
+pub const PEER_E_TOO_MUCH_LOAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147013392i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GRAPH_EVENT_DATA {
@@ -2157,26 +1939,31 @@ pub struct PEER_GRAPH_EVENT_DATA {
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_GRAPH_EVENT_DATA {}
+impl ::core::marker::Copy for PEER_GRAPH_EVENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_EVENT_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_GRAPH_EVENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_GRAPH_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_GRAPH_EVENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union PEER_GRAPH_EVENT_DATA_0 {
@@ -2188,72 +1975,66 @@ pub union PEER_GRAPH_EVENT_DATA_0 {
     pub synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_GRAPH_EVENT_DATA_0 {}
+impl ::core::marker::Copy for PEER_GRAPH_EVENT_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_EVENT_DATA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_GRAPH_EVENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_GRAPH_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_GRAPH_EVENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_GRAPH_EVENT_REGISTRATION {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub pType: *mut ::windows::core::GUID,
 }
-impl PEER_GRAPH_EVENT_REGISTRATION {}
+impl ::core::marker::Copy for PEER_GRAPH_EVENT_REGISTRATION {}
+impl ::core::clone::Clone for PEER_GRAPH_EVENT_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_REGISTRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_REGISTRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_EVENT_REGISTRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_GRAPH_EVENT_REGISTRATION {}
 impl ::core::default::Default for PEER_GRAPH_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_GRAPH_EVENT_REGISTRATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_GRAPH_EVENT_REGISTRATION").field("eventType", &self.eventType).field("pType", &self.pType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.eventType == other.eventType && self.pType == other.pType
-    }
-}
-impl ::core::cmp::Eq for PEER_GRAPH_EVENT_REGISTRATION {}
-unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_REGISTRATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GRAPH_EVENT_TYPE(pub i32);
-pub const PEER_GRAPH_EVENT_STATUS_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(1i32);
-pub const PEER_GRAPH_EVENT_PROPERTY_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(2i32);
-pub const PEER_GRAPH_EVENT_RECORD_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(3i32);
-pub const PEER_GRAPH_EVENT_DIRECT_CONNECTION: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(4i32);
-pub const PEER_GRAPH_EVENT_NEIGHBOR_CONNECTION: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(5i32);
-pub const PEER_GRAPH_EVENT_INCOMING_DATA: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(6i32);
-pub const PEER_GRAPH_EVENT_CONNECTION_REQUIRED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(7i32);
-pub const PEER_GRAPH_EVENT_NODE_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(8i32);
-pub const PEER_GRAPH_EVENT_SYNCHRONIZED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(9i32);
-impl ::core::convert::From<i32> for PEER_GRAPH_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_GRAPH_EVENT_TYPE = i32;
+pub const PEER_GRAPH_EVENT_STATUS_CHANGED: PEER_GRAPH_EVENT_TYPE = 1i32;
+pub const PEER_GRAPH_EVENT_PROPERTY_CHANGED: PEER_GRAPH_EVENT_TYPE = 2i32;
+pub const PEER_GRAPH_EVENT_RECORD_CHANGED: PEER_GRAPH_EVENT_TYPE = 3i32;
+pub const PEER_GRAPH_EVENT_DIRECT_CONNECTION: PEER_GRAPH_EVENT_TYPE = 4i32;
+pub const PEER_GRAPH_EVENT_NEIGHBOR_CONNECTION: PEER_GRAPH_EVENT_TYPE = 5i32;
+pub const PEER_GRAPH_EVENT_INCOMING_DATA: PEER_GRAPH_EVENT_TYPE = 6i32;
+pub const PEER_GRAPH_EVENT_CONNECTION_REQUIRED: PEER_GRAPH_EVENT_TYPE = 7i32;
+pub const PEER_GRAPH_EVENT_NODE_CHANGED: PEER_GRAPH_EVENT_TYPE = 8i32;
+pub const PEER_GRAPH_EVENT_SYNCHRONIZED: PEER_GRAPH_EVENT_TYPE = 9i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GRAPH_PROPERTIES {
@@ -2269,88 +2050,47 @@ pub struct PEER_GRAPH_PROPERTIES {
     pub cPresenceMax: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_GRAPH_PROPERTIES {}
+impl ::core::marker::Copy for PEER_GRAPH_PROPERTIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_GRAPH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_GRAPH_PROPERTIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_GRAPH_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_PROPERTIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_GRAPH_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_GRAPH_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_GRAPH_PROPERTIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_GRAPH_PROPERTIES").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwScope", &self.dwScope).field("dwMaxRecordSize", &self.dwMaxRecordSize).field("pwzGraphId", &self.pwzGraphId).field("pwzCreatorId", &self.pwzCreatorId).field("pwzFriendlyName", &self.pwzFriendlyName).field("pwzComment", &self.pwzComment).field("ulPresenceLifetime", &self.ulPresenceLifetime).field("cPresenceMax", &self.cPresenceMax).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_GRAPH_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwScope == other.dwScope && self.dwMaxRecordSize == other.dwMaxRecordSize && self.pwzGraphId == other.pwzGraphId && self.pwzCreatorId == other.pwzCreatorId && self.pwzFriendlyName == other.pwzFriendlyName && self.pwzComment == other.pwzComment && self.ulPresenceLifetime == other.ulPresenceLifetime && self.cPresenceMax == other.cPresenceMax
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_GRAPH_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_GRAPH_PROPERTIES {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GRAPH_PROPERTY_FLAGS(pub i32);
-pub const PEER_GRAPH_PROPERTY_HEARTBEATS: PEER_GRAPH_PROPERTY_FLAGS = PEER_GRAPH_PROPERTY_FLAGS(1i32);
-pub const PEER_GRAPH_PROPERTY_DEFER_EXPIRATION: PEER_GRAPH_PROPERTY_FLAGS = PEER_GRAPH_PROPERTY_FLAGS(2i32);
-impl ::core::convert::From<i32> for PEER_GRAPH_PROPERTY_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GRAPH_PROPERTY_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GRAPH_SCOPE(pub i32);
-pub const PEER_GRAPH_SCOPE_ANY: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(0i32);
-pub const PEER_GRAPH_SCOPE_GLOBAL: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(1i32);
-pub const PEER_GRAPH_SCOPE_SITELOCAL: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(2i32);
-pub const PEER_GRAPH_SCOPE_LINKLOCAL: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(3i32);
-pub const PEER_GRAPH_SCOPE_LOOPBACK: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(4i32);
-impl ::core::convert::From<i32> for PEER_GRAPH_SCOPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GRAPH_SCOPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GRAPH_STATUS_FLAGS(pub i32);
-pub const PEER_GRAPH_STATUS_LISTENING: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(1i32);
-pub const PEER_GRAPH_STATUS_HAS_CONNECTIONS: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(2i32);
-pub const PEER_GRAPH_STATUS_SYNCHRONIZED: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(4i32);
-impl ::core::convert::From<i32> for PEER_GRAPH_STATUS_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GRAPH_STATUS_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GROUP_AUTHENTICATION_SCHEME(pub i32);
-pub const PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = PEER_GROUP_AUTHENTICATION_SCHEME(1i32);
-pub const PEER_GROUP_PASSWORD_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = PEER_GROUP_AUTHENTICATION_SCHEME(2i32);
-impl ::core::convert::From<i32> for PEER_GROUP_AUTHENTICATION_SCHEME {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GROUP_AUTHENTICATION_SCHEME {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_GRAPH_PROPERTY_FLAGS = i32;
+pub const PEER_GRAPH_PROPERTY_HEARTBEATS: PEER_GRAPH_PROPERTY_FLAGS = 1i32;
+pub const PEER_GRAPH_PROPERTY_DEFER_EXPIRATION: PEER_GRAPH_PROPERTY_FLAGS = 2i32;
+pub type PEER_GRAPH_SCOPE = i32;
+pub const PEER_GRAPH_SCOPE_ANY: PEER_GRAPH_SCOPE = 0i32;
+pub const PEER_GRAPH_SCOPE_GLOBAL: PEER_GRAPH_SCOPE = 1i32;
+pub const PEER_GRAPH_SCOPE_SITELOCAL: PEER_GRAPH_SCOPE = 2i32;
+pub const PEER_GRAPH_SCOPE_LINKLOCAL: PEER_GRAPH_SCOPE = 3i32;
+pub const PEER_GRAPH_SCOPE_LOOPBACK: PEER_GRAPH_SCOPE = 4i32;
+pub type PEER_GRAPH_STATUS_FLAGS = i32;
+pub const PEER_GRAPH_STATUS_LISTENING: PEER_GRAPH_STATUS_FLAGS = 1i32;
+pub const PEER_GRAPH_STATUS_HAS_CONNECTIONS: PEER_GRAPH_STATUS_FLAGS = 2i32;
+pub const PEER_GRAPH_STATUS_SYNCHRONIZED: PEER_GRAPH_STATUS_FLAGS = 4i32;
+pub type PEER_GROUP_AUTHENTICATION_SCHEME = i32;
+pub const PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 1i32;
+pub const PEER_GROUP_PASSWORD_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GROUP_EVENT_DATA {
@@ -2358,26 +2098,31 @@ pub struct PEER_GROUP_EVENT_DATA {
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_GROUP_EVENT_DATA {}
+impl ::core::marker::Copy for PEER_GROUP_EVENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_EVENT_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_GROUP_EVENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_GROUP_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_GROUP_EVENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union PEER_GROUP_EVENT_DATA_0 {
@@ -2389,84 +2134,68 @@ pub union PEER_GROUP_EVENT_DATA_0 {
     pub hrConnectionFailedReason: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_GROUP_EVENT_DATA_0 {}
+impl ::core::marker::Copy for PEER_GROUP_EVENT_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_EVENT_DATA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_GROUP_EVENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_GROUP_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_GROUP_EVENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_GROUP_EVENT_REGISTRATION {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub pType: *mut ::windows::core::GUID,
 }
-impl PEER_GROUP_EVENT_REGISTRATION {}
+impl ::core::marker::Copy for PEER_GROUP_EVENT_REGISTRATION {}
+impl ::core::clone::Clone for PEER_GROUP_EVENT_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_REGISTRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_REGISTRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_EVENT_REGISTRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_GROUP_EVENT_REGISTRATION {}
 impl ::core::default::Default for PEER_GROUP_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_GROUP_EVENT_REGISTRATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_GROUP_EVENT_REGISTRATION").field("eventType", &self.eventType).field("pType", &self.pType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.eventType == other.eventType && self.pType == other.pType
-    }
-}
-impl ::core::cmp::Eq for PEER_GROUP_EVENT_REGISTRATION {}
-unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_REGISTRATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GROUP_EVENT_TYPE(pub i32);
-pub const PEER_GROUP_EVENT_STATUS_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(1i32);
-pub const PEER_GROUP_EVENT_PROPERTY_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(2i32);
-pub const PEER_GROUP_EVENT_RECORD_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(3i32);
-pub const PEER_GROUP_EVENT_DIRECT_CONNECTION: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(4i32);
-pub const PEER_GROUP_EVENT_NEIGHBOR_CONNECTION: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(5i32);
-pub const PEER_GROUP_EVENT_INCOMING_DATA: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(6i32);
-pub const PEER_GROUP_EVENT_MEMBER_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(8i32);
-pub const PEER_GROUP_EVENT_CONNECTION_FAILED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(10i32);
-pub const PEER_GROUP_EVENT_AUTHENTICATION_FAILED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(11i32);
-impl ::core::convert::From<i32> for PEER_GROUP_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(pub i32);
-pub const PEER_GROUP_STORE_CREDENTIALS: PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(1i32);
-impl ::core::convert::From<i32> for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_GROUP_EVENT_TYPE = i32;
+pub const PEER_GROUP_EVENT_STATUS_CHANGED: PEER_GROUP_EVENT_TYPE = 1i32;
+pub const PEER_GROUP_EVENT_PROPERTY_CHANGED: PEER_GROUP_EVENT_TYPE = 2i32;
+pub const PEER_GROUP_EVENT_RECORD_CHANGED: PEER_GROUP_EVENT_TYPE = 3i32;
+pub const PEER_GROUP_EVENT_DIRECT_CONNECTION: PEER_GROUP_EVENT_TYPE = 4i32;
+pub const PEER_GROUP_EVENT_NEIGHBOR_CONNECTION: PEER_GROUP_EVENT_TYPE = 5i32;
+pub const PEER_GROUP_EVENT_INCOMING_DATA: PEER_GROUP_EVENT_TYPE = 6i32;
+pub const PEER_GROUP_EVENT_MEMBER_CHANGED: PEER_GROUP_EVENT_TYPE = 8i32;
+pub const PEER_GROUP_EVENT_CONNECTION_FAILED: PEER_GROUP_EVENT_TYPE = 10i32;
+pub const PEER_GROUP_EVENT_AUTHENTICATION_FAILED: PEER_GROUP_EVENT_TYPE = 11i32;
+pub type PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = i32;
+pub const PEER_GROUP_STORE_CREDENTIALS: PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GROUP_PROPERTIES {
@@ -2485,76 +2214,41 @@ pub struct PEER_GROUP_PROPERTIES {
     pub groupPasswordRole: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_GROUP_PROPERTIES {}
+impl ::core::marker::Copy for PEER_GROUP_PROPERTIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_GROUP_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_GROUP_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_PROPERTIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_GROUP_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_GROUP_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_GROUP_PROPERTIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_GROUP_PROPERTIES")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("pwzCloud", &self.pwzCloud)
-            .field("pwzClassifier", &self.pwzClassifier)
-            .field("pwzGroupPeerName", &self.pwzGroupPeerName)
-            .field("pwzCreatorPeerName", &self.pwzCreatorPeerName)
-            .field("pwzFriendlyName", &self.pwzFriendlyName)
-            .field("pwzComment", &self.pwzComment)
-            .field("ulMemberDataLifetime", &self.ulMemberDataLifetime)
-            .field("ulPresenceLifetime", &self.ulPresenceLifetime)
-            .field("dwAuthenticationSchemes", &self.dwAuthenticationSchemes)
-            .field("pwzGroupPassword", &self.pwzGroupPassword)
-            .field("groupPasswordRole", &self.groupPasswordRole)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_GROUP_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzCloud == other.pwzCloud && self.pwzClassifier == other.pwzClassifier && self.pwzGroupPeerName == other.pwzGroupPeerName && self.pwzCreatorPeerName == other.pwzCreatorPeerName && self.pwzFriendlyName == other.pwzFriendlyName && self.pwzComment == other.pwzComment && self.ulMemberDataLifetime == other.ulMemberDataLifetime && self.ulPresenceLifetime == other.ulPresenceLifetime && self.dwAuthenticationSchemes == other.dwAuthenticationSchemes && self.pwzGroupPassword == other.pwzGroupPassword && self.groupPasswordRole == other.groupPasswordRole
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_GROUP_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTIES {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GROUP_PROPERTY_FLAGS(pub i32);
-pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(1i32);
-pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(2i32);
-pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(4i32);
-impl ::core::convert::From<i32> for PEER_GROUP_PROPERTY_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTY_FLAGS {
-    type Abi = Self;
-}
+pub type PEER_GROUP_PROPERTY_FLAGS = i32;
+pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = 1i32;
+pub const PEER_DISABLE_PRESENCE: PEER_GROUP_PROPERTY_FLAGS = 2i32;
+pub const PEER_DEFER_EXPIRATION: PEER_GROUP_PROPERTY_FLAGS = 4i32;
 pub const PEER_GROUP_ROLE_ADMIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04387127_aa56_450a_8ce5_4f565c6790f4);
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905);
 pub const PEER_GROUP_ROLE_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2);
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_GROUP_STATUS(pub i32);
-pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = PEER_GROUP_STATUS(1i32);
-pub const PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = PEER_GROUP_STATUS(2i32);
-impl ::core::convert::From<i32> for PEER_GROUP_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_GROUP_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_GROUP_STATUS = i32;
+pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = 1i32;
+pub const PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_INVITATION {
@@ -2563,32 +2257,31 @@ pub struct PEER_INVITATION {
     pub pwzMessage: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_INVITATION {}
+impl ::core::marker::Copy for PEER_INVITATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_INVITATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_INVITATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_INVITATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_INVITATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_INVITATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_INVITATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_INVITATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_INVITATION").field("applicationId", &self.applicationId).field("applicationData", &self.applicationData).field("pwzMessage", &self.pwzMessage).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_INVITATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.applicationId == other.applicationId && self.applicationData == other.applicationData && self.pwzMessage == other.pwzMessage
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_INVITATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_INVITATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_INVITATION_INFO {
@@ -2613,70 +2306,31 @@ pub struct PEER_INVITATION_INFO {
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl PEER_INVITATION_INFO {}
+impl ::core::marker::Copy for PEER_INVITATION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for PEER_INVITATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for PEER_INVITATION_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for PEER_INVITATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_INVITATION_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for PEER_INVITATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for PEER_INVITATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for PEER_INVITATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_INVITATION_INFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("pwzCloudName", &self.pwzCloudName)
-            .field("dwScope", &self.dwScope)
-            .field("dwCloudFlags", &self.dwCloudFlags)
-            .field("pwzGroupPeerName", &self.pwzGroupPeerName)
-            .field("pwzIssuerPeerName", &self.pwzIssuerPeerName)
-            .field("pwzSubjectPeerName", &self.pwzSubjectPeerName)
-            .field("pwzGroupFriendlyName", &self.pwzGroupFriendlyName)
-            .field("pwzIssuerFriendlyName", &self.pwzIssuerFriendlyName)
-            .field("pwzSubjectFriendlyName", &self.pwzSubjectFriendlyName)
-            .field("ftValidityStart", &self.ftValidityStart)
-            .field("ftValidityEnd", &self.ftValidityEnd)
-            .field("cRoles", &self.cRoles)
-            .field("pRoles", &self.pRoles)
-            .field("cClassifiers", &self.cClassifiers)
-            .field("ppwzClassifiers", &self.ppwzClassifiers)
-            .field("pSubjectPublicKey", &self.pSubjectPublicKey)
-            .field("authScheme", &self.authScheme)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for PEER_INVITATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.pwzCloudName == other.pwzCloudName
-            && self.dwScope == other.dwScope
-            && self.dwCloudFlags == other.dwCloudFlags
-            && self.pwzGroupPeerName == other.pwzGroupPeerName
-            && self.pwzIssuerPeerName == other.pwzIssuerPeerName
-            && self.pwzSubjectPeerName == other.pwzSubjectPeerName
-            && self.pwzGroupFriendlyName == other.pwzGroupFriendlyName
-            && self.pwzIssuerFriendlyName == other.pwzIssuerFriendlyName
-            && self.pwzSubjectFriendlyName == other.pwzSubjectFriendlyName
-            && self.ftValidityStart == other.ftValidityStart
-            && self.ftValidityEnd == other.ftValidityEnd
-            && self.cRoles == other.cRoles
-            && self.pRoles == other.pRoles
-            && self.cClassifiers == other.cClassifiers
-            && self.ppwzClassifiers == other.ppwzClassifiers
-            && self.pSubjectPublicKey == other.pSubjectPublicKey
-            && self.authScheme == other.authScheme
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for PEER_INVITATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for PEER_INVITATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_INVITATION_RESPONSE {
@@ -2685,47 +2339,36 @@ pub struct PEER_INVITATION_RESPONSE {
     pub hrExtendedInfo: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_INVITATION_RESPONSE {}
+impl ::core::marker::Copy for PEER_INVITATION_RESPONSE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_INVITATION_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_INVITATION_RESPONSE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_INVITATION_RESPONSE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_INVITATION_RESPONSE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_INVITATION_RESPONSE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_INVITATION_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_INVITATION_RESPONSE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_INVITATION_RESPONSE").field("action", &self.action).field("pwzMessage", &self.pwzMessage).field("hrExtendedInfo", &self.hrExtendedInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_INVITATION_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.action == other.action && self.pwzMessage == other.pwzMessage && self.hrExtendedInfo == other.hrExtendedInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_INVITATION_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_INVITATION_RESPONSE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_INVITATION_RESPONSE_TYPE(pub i32);
-pub const PEER_INVITATION_RESPONSE_DECLINED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(0i32);
-pub const PEER_INVITATION_RESPONSE_ACCEPTED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(1i32);
-pub const PEER_INVITATION_RESPONSE_EXPIRED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(2i32);
-pub const PEER_INVITATION_RESPONSE_ERROR: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(3i32);
-impl ::core::convert::From<i32> for PEER_INVITATION_RESPONSE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_INVITATION_RESPONSE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_INVITATION_RESPONSE_TYPE = i32;
+pub const PEER_INVITATION_RESPONSE_DECLINED: PEER_INVITATION_RESPONSE_TYPE = 0i32;
+pub const PEER_INVITATION_RESPONSE_ACCEPTED: PEER_INVITATION_RESPONSE_TYPE = 1i32;
+pub const PEER_INVITATION_RESPONSE_EXPIRED: PEER_INVITATION_RESPONSE_TYPE = 2i32;
+pub const PEER_INVITATION_RESPONSE_ERROR: PEER_INVITATION_RESPONSE_TYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_MEMBER {
@@ -2739,60 +2382,39 @@ pub struct PEER_MEMBER {
     pub pCredentialInfo: *mut PEER_CREDENTIAL_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl PEER_MEMBER {}
+impl ::core::marker::Copy for PEER_MEMBER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for PEER_MEMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+unsafe impl ::windows::core::Abi for PEER_MEMBER {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::PartialEq for PEER_MEMBER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_MEMBER>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl ::core::cmp::Eq for PEER_MEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for PEER_MEMBER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::fmt::Debug for PEER_MEMBER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_MEMBER").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("pwzIdentity", &self.pwzIdentity).field("pwzAttributes", &self.pwzAttributes).field("ullNodeId", &self.ullNodeId).field("cAddresses", &self.cAddresses).field("pAddresses", &self.pAddresses).field("pCredentialInfo", &self.pCredentialInfo).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for PEER_MEMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzIdentity == other.pwzIdentity && self.pwzAttributes == other.pwzAttributes && self.ullNodeId == other.ullNodeId && self.cAddresses == other.cAddresses && self.pAddresses == other.pAddresses && self.pCredentialInfo == other.pCredentialInfo
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for PEER_MEMBER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for PEER_MEMBER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_MEMBER_CHANGE_TYPE(pub i32);
-pub const PEER_MEMBER_CONNECTED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(1i32);
-pub const PEER_MEMBER_DISCONNECTED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(2i32);
-pub const PEER_MEMBER_UPDATED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(3i32);
-pub const PEER_MEMBER_JOINED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(4i32);
-pub const PEER_MEMBER_LEFT: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(5i32);
-impl ::core::convert::From<i32> for PEER_MEMBER_CHANGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_MEMBER_CHANGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_MEMBER_FLAGS(pub i32);
-pub const PEER_MEMBER_PRESENT: PEER_MEMBER_FLAGS = PEER_MEMBER_FLAGS(1i32);
-impl ::core::convert::From<i32> for PEER_MEMBER_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_MEMBER_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_MEMBER_CHANGE_TYPE = i32;
+pub const PEER_MEMBER_CONNECTED: PEER_MEMBER_CHANGE_TYPE = 1i32;
+pub const PEER_MEMBER_DISCONNECTED: PEER_MEMBER_CHANGE_TYPE = 2i32;
+pub const PEER_MEMBER_UPDATED: PEER_MEMBER_CHANGE_TYPE = 3i32;
+pub const PEER_MEMBER_JOINED: PEER_MEMBER_CHANGE_TYPE = 4i32;
+pub const PEER_MEMBER_LEFT: PEER_MEMBER_CHANGE_TYPE = 5i32;
+pub type PEER_MEMBER_FLAGS = i32;
+pub const PEER_MEMBER_PRESENT: PEER_MEMBER_FLAGS = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_NAME_PAIR {
@@ -2801,46 +2423,35 @@ pub struct PEER_NAME_PAIR {
     pub pwzFriendlyName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_NAME_PAIR {}
+impl ::core::marker::Copy for PEER_NAME_PAIR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_NAME_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_NAME_PAIR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_NAME_PAIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_NAME_PAIR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_NAME_PAIR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_NAME_PAIR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_NAME_PAIR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_NAME_PAIR").field("dwSize", &self.dwSize).field("pwzPeerName", &self.pwzPeerName).field("pwzFriendlyName", &self.pwzFriendlyName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_NAME_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.pwzPeerName == other.pwzPeerName && self.pwzFriendlyName == other.pwzFriendlyName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_NAME_PAIR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_NAME_PAIR {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_NODE_CHANGE_TYPE(pub i32);
-pub const PEER_NODE_CHANGE_CONNECTED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(1i32);
-pub const PEER_NODE_CHANGE_DISCONNECTED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(2i32);
-pub const PEER_NODE_CHANGE_UPDATED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(3i32);
-impl ::core::convert::From<i32> for PEER_NODE_CHANGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_NODE_CHANGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_NODE_CHANGE_TYPE = i32;
+pub const PEER_NODE_CHANGE_CONNECTED: PEER_NODE_CHANGE_TYPE = 1i32;
+pub const PEER_NODE_CHANGE_DISCONNECTED: PEER_NODE_CHANGE_TYPE = 2i32;
+pub const PEER_NODE_CHANGE_UPDATED: PEER_NODE_CHANGE_TYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_NODE_INFO {
@@ -2852,59 +2463,57 @@ pub struct PEER_NODE_INFO {
     pub pwzAttributes: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_NODE_INFO {}
+impl ::core::marker::Copy for PEER_NODE_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_NODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_NODE_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_NODE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_NODE_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_NODE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_NODE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_NODE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_NODE_INFO").field("dwSize", &self.dwSize).field("ullNodeId", &self.ullNodeId).field("pwzPeerId", &self.pwzPeerId).field("cAddresses", &self.cAddresses).field("pAddresses", &self.pAddresses).field("pwzAttributes", &self.pwzAttributes).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_NODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.ullNodeId == other.ullNodeId && self.pwzPeerId == other.pwzPeerId && self.cAddresses == other.cAddresses && self.pAddresses == other.pAddresses && self.pwzAttributes == other.pwzAttributes
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_NODE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_NODE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PEER_OBJECT {
     pub id: ::windows::core::GUID,
     pub data: PEER_DATA,
     pub dwPublicationScope: u32,
 }
-impl PEER_OBJECT {}
+impl ::core::marker::Copy for PEER_OBJECT {}
+impl ::core::clone::Clone for PEER_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_OBJECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_OBJECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_OBJECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_OBJECT {}
 impl ::core::default::Default for PEER_OBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_OBJECT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_OBJECT").field("id", &self.id).field("data", &self.data).field("dwPublicationScope", &self.dwPublicationScope).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.data == other.data && self.dwPublicationScope == other.dwPublicationScope
-    }
-}
-impl ::core::cmp::Eq for PEER_OBJECT {}
-unsafe impl ::windows::core::Abi for PEER_OBJECT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PEOPLE_NEAR_ME {
@@ -2913,26 +2522,31 @@ pub struct PEER_PEOPLE_NEAR_ME {
     pub id: ::windows::core::GUID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_PEOPLE_NEAR_ME {}
+impl ::core::marker::Copy for PEER_PEOPLE_NEAR_ME {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_PEOPLE_NEAR_ME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_PEOPLE_NEAR_ME {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_PEOPLE_NEAR_ME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PEOPLE_NEAR_ME>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_PEOPLE_NEAR_ME {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_PEOPLE_NEAR_ME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_PEOPLE_NEAR_ME {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_PEOPLE_NEAR_ME {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_PEOPLE_NEAR_ME {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_PNRP_CLOUD_INFO {
@@ -2941,32 +2555,31 @@ pub struct PEER_PNRP_CLOUD_INFO {
     pub dwScopeId: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_PNRP_CLOUD_INFO {}
+impl ::core::marker::Copy for PEER_PNRP_CLOUD_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_PNRP_CLOUD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_PNRP_CLOUD_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_PNRP_CLOUD_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PNRP_CLOUD_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_PNRP_CLOUD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_PNRP_CLOUD_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_PNRP_CLOUD_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_PNRP_CLOUD_INFO").field("pwzCloudName", &self.pwzCloudName).field("dwScope", &self.dwScope).field("dwScopeId", &self.dwScopeId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_PNRP_CLOUD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwzCloudName == other.pwzCloudName && self.dwScope == other.dwScope && self.dwScopeId == other.dwScopeId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_PNRP_CLOUD_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_PNRP_CLOUD_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_ENDPOINT_INFO {
@@ -2977,32 +2590,31 @@ pub struct PEER_PNRP_ENDPOINT_INFO {
     pub payload: PEER_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_PNRP_ENDPOINT_INFO {}
+impl ::core::marker::Copy for PEER_PNRP_ENDPOINT_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_PNRP_ENDPOINT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_PNRP_ENDPOINT_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_PNRP_ENDPOINT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PNRP_ENDPOINT_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_PNRP_ENDPOINT_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_PNRP_ENDPOINT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_PNRP_ENDPOINT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_PNRP_ENDPOINT_INFO").field("pwzPeerName", &self.pwzPeerName).field("cAddresses", &self.cAddresses).field("ppAddresses", &self.ppAddresses).field("pwzComment", &self.pwzComment).field("payload", &self.payload).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_PNRP_ENDPOINT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwzPeerName == other.pwzPeerName && self.cAddresses == other.cAddresses && self.ppAddresses == other.ppAddresses && self.pwzComment == other.pwzComment && self.payload == other.payload
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_PNRP_ENDPOINT_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_PNRP_ENDPOINT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_REGISTRATION_INFO {
@@ -3015,32 +2627,31 @@ pub struct PEER_PNRP_REGISTRATION_INFO {
     pub payload: PEER_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PEER_PNRP_REGISTRATION_INFO {}
+impl ::core::marker::Copy for PEER_PNRP_REGISTRATION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PEER_PNRP_REGISTRATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PEER_PNRP_REGISTRATION_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PEER_PNRP_REGISTRATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PNRP_REGISTRATION_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PEER_PNRP_REGISTRATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_PNRP_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PEER_PNRP_REGISTRATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_PNRP_REGISTRATION_INFO").field("pwzCloudName", &self.pwzCloudName).field("pwzPublishingIdentity", &self.pwzPublishingIdentity).field("cAddresses", &self.cAddresses).field("ppAddresses", &self.ppAddresses).field("wPort", &self.wPort).field("pwzComment", &self.pwzComment).field("payload", &self.payload).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_PNRP_REGISTRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwzCloudName == other.pwzCloudName && self.pwzPublishingIdentity == other.pwzPublishingIdentity && self.cAddresses == other.cAddresses && self.ppAddresses == other.ppAddresses && self.wPort == other.wPort && self.pwzComment == other.pwzComment && self.payload == other.payload
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_PNRP_REGISTRATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PEER_PNRP_REGISTRATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_PRESENCE_INFO {
@@ -3048,66 +2659,45 @@ pub struct PEER_PRESENCE_INFO {
     pub pwzDescriptiveText: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_PRESENCE_INFO {}
+impl ::core::marker::Copy for PEER_PRESENCE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_PRESENCE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_PRESENCE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_PRESENCE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PRESENCE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_PRESENCE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_PRESENCE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_PRESENCE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_PRESENCE_INFO").field("status", &self.status).field("pwzDescriptiveText", &self.pwzDescriptiveText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_PRESENCE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.pwzDescriptiveText == other.pwzDescriptiveText
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_PRESENCE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_PRESENCE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_PRESENCE_STATUS(pub i32);
-pub const PEER_PRESENCE_OFFLINE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(0i32);
-pub const PEER_PRESENCE_OUT_TO_LUNCH: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(1i32);
-pub const PEER_PRESENCE_AWAY: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(2i32);
-pub const PEER_PRESENCE_BE_RIGHT_BACK: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(3i32);
-pub const PEER_PRESENCE_IDLE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(4i32);
-pub const PEER_PRESENCE_BUSY: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(5i32);
-pub const PEER_PRESENCE_ON_THE_PHONE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(6i32);
-pub const PEER_PRESENCE_ONLINE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(7i32);
-impl ::core::convert::From<i32> for PEER_PRESENCE_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_PRESENCE_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_PUBLICATION_SCOPE(pub i32);
-pub const PEER_PUBLICATION_SCOPE_NONE: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(0i32);
-pub const PEER_PUBLICATION_SCOPE_NEAR_ME: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(1i32);
-pub const PEER_PUBLICATION_SCOPE_INTERNET: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(2i32);
-pub const PEER_PUBLICATION_SCOPE_ALL: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(3i32);
-impl ::core::convert::From<i32> for PEER_PUBLICATION_SCOPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_PUBLICATION_SCOPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_PRESENCE_STATUS = i32;
+pub const PEER_PRESENCE_OFFLINE: PEER_PRESENCE_STATUS = 0i32;
+pub const PEER_PRESENCE_OUT_TO_LUNCH: PEER_PRESENCE_STATUS = 1i32;
+pub const PEER_PRESENCE_AWAY: PEER_PRESENCE_STATUS = 2i32;
+pub const PEER_PRESENCE_BE_RIGHT_BACK: PEER_PRESENCE_STATUS = 3i32;
+pub const PEER_PRESENCE_IDLE: PEER_PRESENCE_STATUS = 4i32;
+pub const PEER_PRESENCE_BUSY: PEER_PRESENCE_STATUS = 5i32;
+pub const PEER_PRESENCE_ON_THE_PHONE: PEER_PRESENCE_STATUS = 6i32;
+pub const PEER_PRESENCE_ONLINE: PEER_PRESENCE_STATUS = 7i32;
+pub type PEER_PUBLICATION_SCOPE = i32;
+pub const PEER_PUBLICATION_SCOPE_NONE: PEER_PUBLICATION_SCOPE = 0i32;
+pub const PEER_PUBLICATION_SCOPE_NEAR_ME: PEER_PUBLICATION_SCOPE = 1i32;
+pub const PEER_PUBLICATION_SCOPE_INTERNET: PEER_PUBLICATION_SCOPE = 2i32;
+pub const PEER_PUBLICATION_SCOPE_ALL: PEER_PUBLICATION_SCOPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_RECORD {
@@ -3126,74 +2716,39 @@ pub struct PEER_RECORD {
     pub data: PEER_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_RECORD {}
+impl ::core::marker::Copy for PEER_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_RECORD {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_RECORD>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_RECORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_RECORD")
-            .field("dwSize", &self.dwSize)
-            .field("r#type", &self.r#type)
-            .field("id", &self.id)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("pwzCreatorId", &self.pwzCreatorId)
-            .field("pwzModifiedById", &self.pwzModifiedById)
-            .field("pwzAttributes", &self.pwzAttributes)
-            .field("ftCreation", &self.ftCreation)
-            .field("ftExpiration", &self.ftExpiration)
-            .field("ftLastModified", &self.ftLastModified)
-            .field("securityData", &self.securityData)
-            .field("data", &self.data)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.r#type == other.r#type && self.id == other.id && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.pwzCreatorId == other.pwzCreatorId && self.pwzModifiedById == other.pwzModifiedById && self.pwzAttributes == other.pwzAttributes && self.ftCreation == other.ftCreation && self.ftExpiration == other.ftExpiration && self.ftLastModified == other.ftLastModified && self.securityData == other.securityData && self.data == other.data
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_RECORD {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_RECORD_CHANGE_TYPE(pub i32);
-pub const PEER_RECORD_ADDED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(1i32);
-pub const PEER_RECORD_UPDATED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(2i32);
-pub const PEER_RECORD_DELETED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(3i32);
-pub const PEER_RECORD_EXPIRED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(4i32);
-impl ::core::convert::From<i32> for PEER_RECORD_CHANGE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_RECORD_CHANGE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_RECORD_FLAGS(pub i32);
-pub const PEER_RECORD_FLAG_AUTOREFRESH: PEER_RECORD_FLAGS = PEER_RECORD_FLAGS(1i32);
-pub const PEER_RECORD_FLAG_DELETED: PEER_RECORD_FLAGS = PEER_RECORD_FLAGS(2i32);
-impl ::core::convert::From<i32> for PEER_RECORD_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_RECORD_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_RECORD_CHANGE_TYPE = i32;
+pub const PEER_RECORD_ADDED: PEER_RECORD_CHANGE_TYPE = 1i32;
+pub const PEER_RECORD_UPDATED: PEER_RECORD_CHANGE_TYPE = 2i32;
+pub const PEER_RECORD_DELETED: PEER_RECORD_CHANGE_TYPE = 3i32;
+pub const PEER_RECORD_EXPIRED: PEER_RECORD_CHANGE_TYPE = 4i32;
+pub type PEER_RECORD_FLAGS = i32;
+pub const PEER_RECORD_FLAG_AUTOREFRESH: PEER_RECORD_FLAGS = 1i32;
+pub const PEER_RECORD_FLAG_DELETED: PEER_RECORD_FLAGS = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_SECURITY_INTERFACE {
@@ -3209,92 +2764,70 @@ pub struct PEER_SECURITY_INTERFACE {
     pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PEER_SECURITY_INTERFACE {}
+impl ::core::marker::Copy for PEER_SECURITY_INTERFACE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PEER_SECURITY_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PEER_SECURITY_INTERFACE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PEER_SECURITY_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_SECURITY_INTERFACE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PEER_SECURITY_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_SECURITY_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PEER_SECURITY_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_SECURITY_INTERFACE").field("dwSize", &self.dwSize).field("pwzSspFilename", &self.pwzSspFilename).field("pwzPackageName", &self.pwzPackageName).field("cbSecurityInfo", &self.cbSecurityInfo).field("pbSecurityInfo", &self.pbSecurityInfo).field("pvContext", &self.pvContext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_SECURITY_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.pwzSspFilename == other.pwzSspFilename && self.pwzPackageName == other.pwzPackageName && self.cbSecurityInfo == other.cbSecurityInfo && self.pbSecurityInfo == other.pbSecurityInfo && self.pvContext == other.pvContext && self.pfnValidateRecord.map(|f| f as usize) == other.pfnValidateRecord.map(|f| f as usize) && self.pfnSecureRecord.map(|f| f as usize) == other.pfnSecureRecord.map(|f| f as usize) && self.pfnFreeSecurityData.map(|f| f as usize) == other.pfnFreeSecurityData.map(|f| f as usize) && self.pfnAuthFailed.map(|f| f as usize) == other.pfnAuthFailed.map(|f| f as usize)
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_SECURITY_INTERFACE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PEER_SECURITY_INTERFACE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_SIGNIN_FLAGS(pub i32);
-pub const PEER_SIGNIN_NONE: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(0i32);
-pub const PEER_SIGNIN_NEAR_ME: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(1i32);
-pub const PEER_SIGNIN_INTERNET: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(2i32);
-pub const PEER_SIGNIN_ALL: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(3i32);
-impl ::core::convert::From<i32> for PEER_SIGNIN_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_SIGNIN_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PEER_SIGNIN_FLAGS = i32;
+pub const PEER_SIGNIN_NONE: PEER_SIGNIN_FLAGS = 0i32;
+pub const PEER_SIGNIN_NEAR_ME: PEER_SIGNIN_FLAGS = 1i32;
+pub const PEER_SIGNIN_INTERNET: PEER_SIGNIN_FLAGS = 2i32;
+pub const PEER_SIGNIN_ALL: PEER_SIGNIN_FLAGS = 3i32;
 #[repr(C)]
 pub struct PEER_VERSION_DATA {
     pub wVersion: u16,
     pub wHighestVersion: u16,
 }
-impl PEER_VERSION_DATA {}
+impl ::core::marker::Copy for PEER_VERSION_DATA {}
+impl ::core::clone::Clone for PEER_VERSION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEER_VERSION_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PEER_VERSION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_VERSION_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PEER_VERSION_DATA {}
 impl ::core::default::Default for PEER_VERSION_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PEER_VERSION_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEER_VERSION_DATA").field("wVersion", &self.wVersion).field("wHighestVersion", &self.wHighestVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PEER_VERSION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wVersion == other.wVersion && self.wHighestVersion == other.wHighestVersion
-    }
-}
-impl ::core::cmp::Eq for PEER_VERSION_DATA {}
-unsafe impl ::windows::core::Abi for PEER_VERSION_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEER_WATCH_PERMISSION(pub i32);
-pub const PEER_WATCH_BLOCKED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(0i32);
-pub const PEER_WATCH_ALLOWED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(1i32);
-impl ::core::convert::From<i32> for PEER_WATCH_PERMISSION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEER_WATCH_PERMISSION {
-    type Abi = Self;
-}
+pub type PEER_WATCH_PERMISSION = i32;
+pub const PEER_WATCH_BLOCKED: PEER_WATCH_PERMISSION = 0i32;
+pub const PEER_WATCH_ALLOWED: PEER_WATCH_PERMISSION = 1i32;
 pub type PFNPEER_FREE_SECURITY_DATA = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows::core::HRESULT>;
 pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_SECURE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_VALIDATE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows::core::HRESULT>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PNRPCLOUDINFO {
     pub dwSize: u32,
@@ -3302,28 +2835,27 @@ pub struct PNRPCLOUDINFO {
     pub enCloudState: PNRP_CLOUD_STATE,
     pub enCloudFlags: PNRP_CLOUD_FLAGS,
 }
-impl PNRPCLOUDINFO {}
+impl ::core::marker::Copy for PNRPCLOUDINFO {}
+impl ::core::clone::Clone for PNRPCLOUDINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PNRPCLOUDINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PNRPCLOUDINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPCLOUDINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PNRPCLOUDINFO {}
 impl ::core::default::Default for PNRPCLOUDINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PNRPCLOUDINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PNRPCLOUDINFO").field("dwSize", &self.dwSize).field("Cloud", &self.Cloud).field("enCloudState", &self.enCloudState).field("enCloudFlags", &self.enCloudFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PNRPCLOUDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.Cloud == other.Cloud && self.enCloudState == other.enCloudState && self.enCloudFlags == other.enCloudFlags
-    }
-}
-impl ::core::cmp::Eq for PNRPCLOUDINFO {}
-unsafe impl ::windows::core::Abi for PNRPCLOUDINFO {
-    type Abi = Self;
-}
 pub const PNRPINFO_HINT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PNRPINFO_V1 {
@@ -3338,32 +2870,31 @@ pub struct PNRPINFO_V1 {
     pub enNameState: PNRP_REGISTERED_ID_STATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl PNRPINFO_V1 {}
+impl ::core::marker::Copy for PNRPINFO_V1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for PNRPINFO_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::core::Abi for PNRPINFO_V1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::PartialEq for PNRPINFO_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPINFO_V1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::cmp::Eq for PNRPINFO_V1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PNRPINFO_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::fmt::Debug for PNRPINFO_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PNRPINFO_V1").field("dwSize", &self.dwSize).field("lpwszIdentity", &self.lpwszIdentity).field("nMaxResolve", &self.nMaxResolve).field("dwTimeout", &self.dwTimeout).field("dwLifetime", &self.dwLifetime).field("enResolveCriteria", &self.enResolveCriteria).field("dwFlags", &self.dwFlags).field("saHint", &self.saHint).field("enNameState", &self.enNameState).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PNRPINFO_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.lpwszIdentity == other.lpwszIdentity && self.nMaxResolve == other.nMaxResolve && self.dwTimeout == other.dwTimeout && self.dwLifetime == other.dwLifetime && self.enResolveCriteria == other.enResolveCriteria && self.dwFlags == other.dwFlags && self.saHint == other.saHint && self.enNameState == other.enNameState
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PNRPINFO_V1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for PNRPINFO_V1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 pub struct PNRPINFO_V2 {
@@ -3380,26 +2911,31 @@ pub struct PNRPINFO_V2 {
     pub Anonymous: PNRPINFO_V2_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl PNRPINFO_V2 {}
+impl ::core::marker::Copy for PNRPINFO_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for PNRPINFO_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+unsafe impl ::windows::core::Abi for PNRPINFO_V2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::cmp::PartialEq for PNRPINFO_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPINFO_V2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::cmp::Eq for PNRPINFO_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::default::Default for PNRPINFO_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for PNRPINFO_V2 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for PNRPINFO_V2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for PNRPINFO_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 pub union PNRPINFO_V2_0 {
@@ -3407,147 +2943,92 @@ pub union PNRPINFO_V2_0 {
     pub pwszPayload: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl PNRPINFO_V2_0 {}
+impl ::core::marker::Copy for PNRPINFO_V2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for PNRPINFO_V2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+unsafe impl ::windows::core::Abi for PNRPINFO_V2_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::cmp::PartialEq for PNRPINFO_V2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPINFO_V2_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl ::core::cmp::Eq for PNRPINFO_V2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::default::Default for PNRPINFO_V2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for PNRPINFO_V2_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for PNRPINFO_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-unsafe impl ::windows::core::Abi for PNRPINFO_V2_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNRP_CLOUD_FLAGS(pub i32);
-pub const PNRP_CLOUD_NO_FLAGS: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(0i32);
-pub const PNRP_CLOUD_NAME_LOCAL: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(1i32);
-pub const PNRP_CLOUD_RESOLVE_ONLY: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(2i32);
-pub const PNRP_CLOUD_FULL_PARTICIPANT: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(4i32);
-impl ::core::convert::From<i32> for PNRP_CLOUD_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNRP_CLOUD_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PNRP_CLOUD_FLAGS = i32;
+pub const PNRP_CLOUD_NO_FLAGS: PNRP_CLOUD_FLAGS = 0i32;
+pub const PNRP_CLOUD_NAME_LOCAL: PNRP_CLOUD_FLAGS = 1i32;
+pub const PNRP_CLOUD_RESOLVE_ONLY: PNRP_CLOUD_FLAGS = 2i32;
+pub const PNRP_CLOUD_FULL_PARTICIPANT: PNRP_CLOUD_FLAGS = 4i32;
 #[repr(C)]
 pub struct PNRP_CLOUD_ID {
     pub AddressFamily: i32,
     pub Scope: PNRP_SCOPE,
     pub ScopeId: u32,
 }
-impl PNRP_CLOUD_ID {}
+impl ::core::marker::Copy for PNRP_CLOUD_ID {}
+impl ::core::clone::Clone for PNRP_CLOUD_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PNRP_CLOUD_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PNRP_CLOUD_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRP_CLOUD_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PNRP_CLOUD_ID {}
 impl ::core::default::Default for PNRP_CLOUD_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PNRP_CLOUD_ID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PNRP_CLOUD_ID").field("AddressFamily", &self.AddressFamily).field("Scope", &self.Scope).field("ScopeId", &self.ScopeId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PNRP_CLOUD_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.Scope == other.Scope && self.ScopeId == other.ScopeId
-    }
-}
-impl ::core::cmp::Eq for PNRP_CLOUD_ID {}
-unsafe impl ::windows::core::Abi for PNRP_CLOUD_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNRP_CLOUD_STATE(pub i32);
-pub const PNRP_CLOUD_STATE_VIRTUAL: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(0i32);
-pub const PNRP_CLOUD_STATE_SYNCHRONISING: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(1i32);
-pub const PNRP_CLOUD_STATE_ACTIVE: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(2i32);
-pub const PNRP_CLOUD_STATE_DEAD: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(3i32);
-pub const PNRP_CLOUD_STATE_DISABLED: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(4i32);
-pub const PNRP_CLOUD_STATE_NO_NET: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(5i32);
-pub const PNRP_CLOUD_STATE_ALONE: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(6i32);
-impl ::core::convert::From<i32> for PNRP_CLOUD_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNRP_CLOUD_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNRP_EXTENDED_PAYLOAD_TYPE(pub i32);
-pub const PNRP_EXTENDED_PAYLOAD_TYPE_NONE: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(0i32);
-pub const PNRP_EXTENDED_PAYLOAD_TYPE_BINARY: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(1i32);
-pub const PNRP_EXTENDED_PAYLOAD_TYPE_STRING: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(2i32);
-impl ::core::convert::From<i32> for PNRP_EXTENDED_PAYLOAD_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNRP_EXTENDED_PAYLOAD_TYPE {
-    type Abi = Self;
-}
+pub type PNRP_CLOUD_STATE = i32;
+pub const PNRP_CLOUD_STATE_VIRTUAL: PNRP_CLOUD_STATE = 0i32;
+pub const PNRP_CLOUD_STATE_SYNCHRONISING: PNRP_CLOUD_STATE = 1i32;
+pub const PNRP_CLOUD_STATE_ACTIVE: PNRP_CLOUD_STATE = 2i32;
+pub const PNRP_CLOUD_STATE_DEAD: PNRP_CLOUD_STATE = 3i32;
+pub const PNRP_CLOUD_STATE_DISABLED: PNRP_CLOUD_STATE = 4i32;
+pub const PNRP_CLOUD_STATE_NO_NET: PNRP_CLOUD_STATE = 5i32;
+pub const PNRP_CLOUD_STATE_ALONE: PNRP_CLOUD_STATE = 6i32;
+pub type PNRP_EXTENDED_PAYLOAD_TYPE = i32;
+pub const PNRP_EXTENDED_PAYLOAD_TYPE_NONE: PNRP_EXTENDED_PAYLOAD_TYPE = 0i32;
+pub const PNRP_EXTENDED_PAYLOAD_TYPE_BINARY: PNRP_EXTENDED_PAYLOAD_TYPE = 1i32;
+pub const PNRP_EXTENDED_PAYLOAD_TYPE_STRING: PNRP_EXTENDED_PAYLOAD_TYPE = 2i32;
 pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
 pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNRP_REGISTERED_ID_STATE(pub i32);
-pub const PNRP_REGISTERED_ID_STATE_OK: PNRP_REGISTERED_ID_STATE = PNRP_REGISTERED_ID_STATE(1i32);
-pub const PNRP_REGISTERED_ID_STATE_PROBLEM: PNRP_REGISTERED_ID_STATE = PNRP_REGISTERED_ID_STATE(2i32);
-impl ::core::convert::From<i32> for PNRP_REGISTERED_ID_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNRP_REGISTERED_ID_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNRP_RESOLVE_CRITERIA(pub i32);
-pub const PNRP_RESOLVE_CRITERIA_DEFAULT: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(0i32);
-pub const PNRP_RESOLVE_CRITERIA_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(1i32);
-pub const PNRP_RESOLVE_CRITERIA_NEAREST_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(2i32);
-pub const PNRP_RESOLVE_CRITERIA_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(3i32);
-pub const PNRP_RESOLVE_CRITERIA_NEAREST_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(4i32);
-pub const PNRP_RESOLVE_CRITERIA_ANY_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(5i32);
-pub const PNRP_RESOLVE_CRITERIA_NEAREST_PEER_NAME: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(6i32);
-impl ::core::convert::From<i32> for PNRP_RESOLVE_CRITERIA {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNRP_RESOLVE_CRITERIA {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNRP_SCOPE(pub i32);
-pub const PNRP_SCOPE_ANY: PNRP_SCOPE = PNRP_SCOPE(0i32);
-pub const PNRP_GLOBAL_SCOPE: PNRP_SCOPE = PNRP_SCOPE(1i32);
-pub const PNRP_SITE_LOCAL_SCOPE: PNRP_SCOPE = PNRP_SCOPE(2i32);
-pub const PNRP_LINK_LOCAL_SCOPE: PNRP_SCOPE = PNRP_SCOPE(3i32);
-impl ::core::convert::From<i32> for PNRP_SCOPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNRP_SCOPE {
-    type Abi = Self;
-}
+pub type PNRP_REGISTERED_ID_STATE = i32;
+pub const PNRP_REGISTERED_ID_STATE_OK: PNRP_REGISTERED_ID_STATE = 1i32;
+pub const PNRP_REGISTERED_ID_STATE_PROBLEM: PNRP_REGISTERED_ID_STATE = 2i32;
+pub type PNRP_RESOLVE_CRITERIA = i32;
+pub const PNRP_RESOLVE_CRITERIA_DEFAULT: PNRP_RESOLVE_CRITERIA = 0i32;
+pub const PNRP_RESOLVE_CRITERIA_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = 1i32;
+pub const PNRP_RESOLVE_CRITERIA_NEAREST_REMOTE_PEER_NAME: PNRP_RESOLVE_CRITERIA = 2i32;
+pub const PNRP_RESOLVE_CRITERIA_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = 3i32;
+pub const PNRP_RESOLVE_CRITERIA_NEAREST_NON_CURRENT_PROCESS_PEER_NAME: PNRP_RESOLVE_CRITERIA = 4i32;
+pub const PNRP_RESOLVE_CRITERIA_ANY_PEER_NAME: PNRP_RESOLVE_CRITERIA = 5i32;
+pub const PNRP_RESOLVE_CRITERIA_NEAREST_PEER_NAME: PNRP_RESOLVE_CRITERIA = 6i32;
+pub type PNRP_SCOPE = i32;
+pub const PNRP_SCOPE_ANY: PNRP_SCOPE = 0i32;
+pub const PNRP_GLOBAL_SCOPE: PNRP_SCOPE = 1i32;
+pub const PNRP_SITE_LOCAL_SCOPE: PNRP_SCOPE = 2i32;
+pub const PNRP_LINK_LOCAL_SCOPE: PNRP_SCOPE = 3i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeerCollabAddContact<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcontactdata: Param0) -> ::windows::core::Result<*mut PEER_CONTACT> {

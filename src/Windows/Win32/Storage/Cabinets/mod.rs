@@ -1,10 +1,9 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;
 pub const CB_MAX_CAB_PATH: u32 = 256u32;
 pub const CB_MAX_DISK: i32 = 2147483647i32;
 pub const CB_MAX_DISK_NAME: u32 = 256u32;
 pub const CB_MAX_FILENAME: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CCAB {
@@ -22,45 +21,31 @@ pub struct CCAB {
     pub szCabPath: [super::super::Foundation::CHAR; 256],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CCAB {}
+impl ::core::marker::Copy for CCAB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CCAB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CCAB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CCAB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCAB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CCAB {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CCAB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CCAB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CCAB")
-            .field("cb", &self.cb)
-            .field("cbFolderThresh", &self.cbFolderThresh)
-            .field("cbReserveCFHeader", &self.cbReserveCFHeader)
-            .field("cbReserveCFFolder", &self.cbReserveCFFolder)
-            .field("cbReserveCFData", &self.cbReserveCFData)
-            .field("iCab", &self.iCab)
-            .field("iDisk", &self.iDisk)
-            .field("fFailOnIncompressible", &self.fFailOnIncompressible)
-            .field("setID", &self.setID)
-            .field("szDisk", &self.szDisk)
-            .field("szCab", &self.szCab)
-            .field("szCabPath", &self.szCabPath)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CCAB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.cbFolderThresh == other.cbFolderThresh && self.cbReserveCFHeader == other.cbReserveCFHeader && self.cbReserveCFFolder == other.cbReserveCFFolder && self.cbReserveCFData == other.cbReserveCFData && self.iCab == other.iCab && self.iDisk == other.iDisk && self.fFailOnIncompressible == other.fFailOnIncompressible && self.setID == other.setID && self.szDisk == other.szDisk && self.szCab == other.szCab && self.szCabPath == other.szCabPath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CCAB {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CCAB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ERF {
@@ -69,30 +54,30 @@ pub struct ERF {
     pub fError: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ERF {}
+impl ::core::marker::Copy for ERF {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ERF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for ERF {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ERF {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ERF").field("erfOper", &self.erfOper).field("erfType", &self.erfType).field("fError", &self.fError).finish()
-    }
+unsafe impl ::windows::core::Abi for ERF {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ERF {
     fn eq(&self, other: &Self) -> bool {
-        self.erfOper == other.erfOper && self.erfType == other.erfType && self.fError == other.fError
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERF>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ERF {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ERF {
-    type Abi = Self;
+impl ::core::default::Default for ERF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -136,27 +121,17 @@ pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FCIERROR(pub i32);
-pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
-pub const FCIERR_OPEN_SRC: FCIERROR = FCIERROR(1i32);
-pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2i32);
-pub const FCIERR_ALLOC_FAIL: FCIERROR = FCIERROR(3i32);
-pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4i32);
-pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = FCIERROR(5i32);
-pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
-pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
-pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
-pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
-impl ::core::convert::From<i32> for FCIERROR {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FCIERROR {
-    type Abi = Self;
-}
+pub type FCIERROR = i32;
+pub const FCIERR_NONE: FCIERROR = 0i32;
+pub const FCIERR_OPEN_SRC: FCIERROR = 1i32;
+pub const FCIERR_READ_SRC: FCIERROR = 2i32;
+pub const FCIERR_ALLOC_FAIL: FCIERROR = 3i32;
+pub const FCIERR_TEMP_FILE: FCIERROR = 4i32;
+pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = 5i32;
+pub const FCIERR_CAB_FILE: FCIERROR = 6i32;
+pub const FCIERR_USER_ABORT: FCIERROR = 7i32;
+pub const FCIERR_MCI_FAIL: FCIERROR = 8i32;
+pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = 9i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
@@ -185,7 +160,6 @@ pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: PFNFCI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDICABINETINFO {
@@ -199,72 +173,34 @@ pub struct FDICABINETINFO {
     pub hasnext: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDICABINETINFO {}
+impl ::core::marker::Copy for FDICABINETINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDICABINETINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDICABINETINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDICABINETINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDICABINETINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDICABINETINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDICABINETINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDICABINETINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FDICABINETINFO").field("cbCabinet", &self.cbCabinet).field("cFolders", &self.cFolders).field("cFiles", &self.cFiles).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("fReserve", &self.fReserve).field("hasprev", &self.hasprev).field("hasnext", &self.hasnext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDICABINETINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbCabinet == other.cbCabinet && self.cFolders == other.cFolders && self.cFiles == other.cFiles && self.setID == other.setID && self.iCabinet == other.iCabinet && self.fReserve == other.fReserve && self.hasprev == other.hasprev && self.hasnext == other.hasnext
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDICABINETINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDICABINETINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FDICREATE_CPU_TYPE(pub u32);
-pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0u32);
-pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1u32);
-impl ::core::convert::From<u32> for FDICREATE_CPU_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FDICREATE_CPU_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FDICREATE_CPU_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FDICREATE_CPU_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FDICREATE_CPU_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FDICREATE_CPU_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FDICREATE_CPU_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type FDICREATE_CPU_TYPE = u32;
+pub const cpu80286: FDICREATE_CPU_TYPE = 0u32;
+pub const cpu80386: FDICREATE_CPU_TYPE = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -293,7 +229,6 @@ pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT {
@@ -302,26 +237,31 @@ pub struct FDIDECRYPT {
     pub Anonymous: FDIDECRYPT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDIDECRYPT {}
+impl ::core::marker::Copy for FDIDECRYPT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDIDECRYPT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDIDECRYPT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDIDECRYPT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union FDIDECRYPT_0 {
@@ -330,26 +270,31 @@ pub union FDIDECRYPT_0 {
     pub decrypt: FDIDECRYPT_0_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDIDECRYPT_0 {}
+impl ::core::marker::Copy for FDIDECRYPT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDIDECRYPT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDIDECRYPT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_0 {
@@ -359,32 +304,31 @@ pub struct FDIDECRYPT_0_0 {
     pub iCabinet: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDIDECRYPT_0_0 {}
+impl ::core::marker::Copy for FDIDECRYPT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDIDECRYPT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_cabinet_e__Struct").field("pHeaderReserve", &self.pHeaderReserve).field("cbHeaderReserve", &self.cbHeaderReserve).field("setID", &self.setID).field("iCabinet", &self.iCabinet).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pHeaderReserve == other.pHeaderReserve && self.cbHeaderReserve == other.cbHeaderReserve && self.setID == other.setID && self.iCabinet == other.iCabinet
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_1 {
@@ -396,32 +340,31 @@ pub struct FDIDECRYPT_0_1 {
     pub cbPartial: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDIDECRYPT_0_1 {}
+impl ::core::marker::Copy for FDIDECRYPT_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDIDECRYPT_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_decrypt_e__Struct").field("pDataReserve", &self.pDataReserve).field("cbDataReserve", &self.cbDataReserve).field("pbData", &self.pbData).field("cbData", &self.cbData).field("fSplit", &self.fSplit).field("cbPartial", &self.cbPartial).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDataReserve == other.pDataReserve && self.cbDataReserve == other.cbDataReserve && self.pbData == other.pbData && self.cbData == other.cbData && self.fSplit == other.fSplit && self.cbPartial == other.cbPartial
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_2 {
@@ -430,45 +373,35 @@ pub struct FDIDECRYPT_0_2 {
     pub iFolder: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDIDECRYPT_0_2 {}
+impl ::core::marker::Copy for FDIDECRYPT_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_folder_e__Struct").field("pFolderReserve", &self.pFolderReserve).field("cbFolderReserve", &self.cbFolderReserve).field("iFolder", &self.iFolder).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pFolderReserve == other.pFolderReserve && self.cbFolderReserve == other.cbFolderReserve && self.iFolder == other.iFolder
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FDIDECRYPTTYPE(pub i32);
-pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
-pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1i32);
-pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2i32);
-impl ::core::convert::From<i32> for FDIDECRYPTTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FDIDECRYPTTYPE {
-    type Abi = Self;
-}
+pub type FDIDECRYPTTYPE = i32;
+pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = 0i32;
+pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = 1i32;
+pub const fdidtDECRYPT: FDIDECRYPTTYPE = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -483,30 +416,20 @@ pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FDIERROR(pub i32);
-pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
-pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = FDIERROR(1i32);
-pub const FDIERROR_NOT_A_CABINET: FDIERROR = FDIERROR(2i32);
-pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = FDIERROR(3i32);
-pub const FDIERROR_CORRUPT_CABINET: FDIERROR = FDIERROR(4i32);
-pub const FDIERROR_ALLOC_FAIL: FDIERROR = FDIERROR(5i32);
-pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = FDIERROR(6i32);
-pub const FDIERROR_MDI_FAIL: FDIERROR = FDIERROR(7i32);
-pub const FDIERROR_TARGET_FILE: FDIERROR = FDIERROR(8i32);
-pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
-pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
-pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
-pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
-impl ::core::convert::From<i32> for FDIERROR {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FDIERROR {
-    type Abi = Self;
-}
+pub type FDIERROR = i32;
+pub const FDIERROR_NONE: FDIERROR = 0i32;
+pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = 1i32;
+pub const FDIERROR_NOT_A_CABINET: FDIERROR = 2i32;
+pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = 3i32;
+pub const FDIERROR_CORRUPT_CABINET: FDIERROR = 4i32;
+pub const FDIERROR_ALLOC_FAIL: FDIERROR = 5i32;
+pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = 6i32;
+pub const FDIERROR_MDI_FAIL: FDIERROR = 7i32;
+pub const FDIERROR_TARGET_FILE: FDIERROR = 8i32;
+pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = 9i32;
+pub const FDIERROR_WRONG_CABINET: FDIERROR = 10i32;
+pub const FDIERROR_USER_ABORT: FDIERROR = 11i32;
+pub const FDIERROR_EOF: FDIERROR = 12i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: *mut FDICABINETINFO) -> super::super::Foundation::BOOL {
@@ -521,7 +444,6 @@ pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDINOTIFICATION {
@@ -540,49 +462,38 @@ pub struct FDINOTIFICATION {
     pub fdie: FDIERROR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FDINOTIFICATION {}
+impl ::core::marker::Copy for FDINOTIFICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDINOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDINOTIFICATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FDINOTIFICATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDINOTIFICATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FDINOTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDINOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDINOTIFICATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FDINOTIFICATION").field("cb", &self.cb).field("psz1", &self.psz1).field("psz2", &self.psz2).field("psz3", &self.psz3).field("pv", &self.pv).field("hf", &self.hf).field("date", &self.date).field("time", &self.time).field("attribs", &self.attribs).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("iFolder", &self.iFolder).field("fdie", &self.fdie).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDINOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.psz1 == other.psz1 && self.psz2 == other.psz2 && self.psz3 == other.psz3 && self.pv == other.pv && self.hf == other.hf && self.date == other.date && self.time == other.time && self.attribs == other.attribs && self.setID == other.setID && self.iCabinet == other.iCabinet && self.iFolder == other.iFolder && self.fdie == other.fdie
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDINOTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDINOTIFICATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FDINOTIFICATIONTYPE(pub i32);
-pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);
-pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(1i32);
-pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
-pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
-pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
-pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
-impl ::core::convert::From<i32> for FDINOTIFICATIONTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FDINOTIFICATIONTYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FDINOTIFICATIONTYPE = i32;
+pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = 0i32;
+pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = 1i32;
+pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = 2i32;
+pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = 3i32;
+pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = 4i32;
+pub const fdintENUMERATE: FDINOTIFICATIONTYPE = 5i32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -592,26 +503,24 @@ pub struct FDISPILLFILE {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FDISPILLFILE {}
+impl ::core::marker::Copy for FDISPILLFILE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDISPILLFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FDISPILLFILE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDISPILLFILE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FDISPILLFILE").field("ach", &self.ach).field("cbFile", &self.cbFile).finish()
-    }
+unsafe impl ::windows::core::Abi for FDISPILLFILE {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDISPILLFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.ach == other.ach && self.cbFile == other.cbFile
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDISPILLFILE>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -619,10 +528,11 @@ impl ::core::cmp::PartialEq for FDISPILLFILE {
 impl ::core::cmp::Eq for FDISPILLFILE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDISPILLFILE {
-    type Abi = Self;
+impl ::core::default::Default for FDISPILLFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -632,19 +542,24 @@ pub struct FDISPILLFILE {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FDISPILLFILE {}
+impl ::core::marker::Copy for FDISPILLFILE {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDISPILLFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FDISPILLFILE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FDISPILLFILE {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDISPILLFILE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDISPILLFILE>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -652,8 +567,10 @@ impl ::core::cmp::PartialEq for FDISPILLFILE {
 impl ::core::cmp::Eq for FDISPILLFILE {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDISPILLFILE {
-    type Abi = Self;
+impl ::core::default::Default for FDISPILLFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

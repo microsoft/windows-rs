@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32 {
@@ -27,7 +27,6 @@ pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct EMRPIXELFORMAT {
@@ -35,30 +34,30 @@ pub struct EMRPIXELFORMAT {
     pub pfd: PIXELFORMATDESCRIPTOR,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl EMRPIXELFORMAT {}
+impl ::core::marker::Copy for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for EMRPIXELFORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for EMRPIXELFORMAT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for EMRPIXELFORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMRPIXELFORMAT").field("emr", &self.emr).field("pfd", &self.pfd).finish()
-    }
+unsafe impl ::windows::core::Abi for EMRPIXELFORMAT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRPIXELFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr && self.pfd == other.pfd
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRPIXELFORMAT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for EMRPIXELFORMAT {
-    type Abi = Self;
+impl ::core::default::Default for EMRPIXELFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
@@ -176,11 +175,9 @@ pub const GLU_VERSION_1_2: u32 = 1u32;
 pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GLUnurbs(pub u8);
 pub type GLUnurbsErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GLUquadric(pub u8);
 pub type GLUquadricErrorProc = ::core::option::Option<unsafe extern "system" fn(param0: u32)>;
 pub type GLUtessBeginDataProc = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void)>;
@@ -196,9 +193,7 @@ pub type GLUtessErrorProc = ::core::option::Option<unsafe extern "system" fn(par
 pub type GLUtessVertexDataProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void)>;
 pub type GLUtessVertexProc = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GLUtesselator(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GLYPHMETRICSFLOAT {
     pub gmfBlackBoxX: f32,
@@ -207,25 +202,25 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-impl GLYPHMETRICSFLOAT {}
+impl ::core::marker::Copy for GLYPHMETRICSFLOAT {}
+impl ::core::clone::Clone for GLYPHMETRICSFLOAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GLYPHMETRICSFLOAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GLYPHMETRICSFLOAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLYPHMETRICSFLOAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GLYPHMETRICSFLOAT {}
 impl ::core::default::Default for GLYPHMETRICSFLOAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for GLYPHMETRICSFLOAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GLYPHMETRICSFLOAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.gmfBlackBoxX == other.gmfBlackBoxX && self.gmfBlackBoxY == other.gmfBlackBoxY && self.gmfptGlyphOrigin == other.gmfptGlyphOrigin && self.gmfCellIncX == other.gmfCellIncX && self.gmfCellIncY == other.gmfCellIncY
-    }
-}
-impl ::core::cmp::Eq for GLYPHMETRICSFLOAT {}
-unsafe impl ::windows::core::Abi for GLYPHMETRICSFLOAT {
-    type Abi = Self;
 }
 pub const GL_2D: u32 = 1536u32;
 pub const GL_2_BYTES: u32 = 5127u32;
@@ -843,19 +838,7 @@ pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HGLRC(pub isize);
-impl ::core::default::Default for HGLRC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HGLRC {}
-unsafe impl ::windows::core::Abi for HGLRC {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HGLRC = isize;
 #[repr(C)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
@@ -883,73 +866,25 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: u32,
 }
-impl LAYERPLANEDESCRIPTOR {}
+impl ::core::marker::Copy for LAYERPLANEDESCRIPTOR {}
+impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LAYERPLANEDESCRIPTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LAYERPLANEDESCRIPTOR {}
 impl ::core::default::Default for LAYERPLANEDESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LAYERPLANEDESCRIPTOR")
-            .field("nSize", &self.nSize)
-            .field("nVersion", &self.nVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("iPixelType", &self.iPixelType)
-            .field("cColorBits", &self.cColorBits)
-            .field("cRedBits", &self.cRedBits)
-            .field("cRedShift", &self.cRedShift)
-            .field("cGreenBits", &self.cGreenBits)
-            .field("cGreenShift", &self.cGreenShift)
-            .field("cBlueBits", &self.cBlueBits)
-            .field("cBlueShift", &self.cBlueShift)
-            .field("cAlphaBits", &self.cAlphaBits)
-            .field("cAlphaShift", &self.cAlphaShift)
-            .field("cAccumBits", &self.cAccumBits)
-            .field("cAccumRedBits", &self.cAccumRedBits)
-            .field("cAccumGreenBits", &self.cAccumGreenBits)
-            .field("cAccumBlueBits", &self.cAccumBlueBits)
-            .field("cAccumAlphaBits", &self.cAccumAlphaBits)
-            .field("cDepthBits", &self.cDepthBits)
-            .field("cStencilBits", &self.cStencilBits)
-            .field("cAuxBuffers", &self.cAuxBuffers)
-            .field("iLayerPlane", &self.iLayerPlane)
-            .field("bReserved", &self.bReserved)
-            .field("crTransparent", &self.crTransparent)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.nSize == other.nSize
-            && self.nVersion == other.nVersion
-            && self.dwFlags == other.dwFlags
-            && self.iPixelType == other.iPixelType
-            && self.cColorBits == other.cColorBits
-            && self.cRedBits == other.cRedBits
-            && self.cRedShift == other.cRedShift
-            && self.cGreenBits == other.cGreenBits
-            && self.cGreenShift == other.cGreenShift
-            && self.cBlueBits == other.cBlueBits
-            && self.cBlueShift == other.cBlueShift
-            && self.cAlphaBits == other.cAlphaBits
-            && self.cAlphaShift == other.cAlphaShift
-            && self.cAccumBits == other.cAccumBits
-            && self.cAccumRedBits == other.cAccumRedBits
-            && self.cAccumGreenBits == other.cAccumGreenBits
-            && self.cAccumBlueBits == other.cAccumBlueBits
-            && self.cAccumAlphaBits == other.cAccumAlphaBits
-            && self.cDepthBits == other.cDepthBits
-            && self.cStencilBits == other.cStencilBits
-            && self.cAuxBuffers == other.cAuxBuffers
-            && self.iLayerPlane == other.iLayerPlane
-            && self.bReserved == other.bReserved
-            && self.crTransparent == other.crTransparent
-    }
-}
-impl ::core::cmp::Eq for LAYERPLANEDESCRIPTOR {}
-unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
-    type Abi = Self;
 }
 pub type PFNGLADDSWAPHINTRECTWINPROC = ::core::option::Option<unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32)>;
 pub type PFNGLARRAYELEMENTARRAYEXTPROC = ::core::option::Option<unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void)>;
@@ -968,7 +903,6 @@ pub type PFNGLINDEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system
 pub type PFNGLNORMALPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
 pub type PFNGLTEXCOORDPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
 pub type PFNGLVERTEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
@@ -998,103 +932,50 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl PIXELFORMATDESCRIPTOR {}
+impl ::core::marker::Copy for PIXELFORMATDESCRIPTOR {}
+impl ::core::clone::Clone for PIXELFORMATDESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PIXELFORMATDESCRIPTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PIXELFORMATDESCRIPTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PIXELFORMATDESCRIPTOR {}
 impl ::core::default::Default for PIXELFORMATDESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PIXELFORMATDESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PIXELFORMATDESCRIPTOR")
-            .field("nSize", &self.nSize)
-            .field("nVersion", &self.nVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("iPixelType", &self.iPixelType)
-            .field("cColorBits", &self.cColorBits)
-            .field("cRedBits", &self.cRedBits)
-            .field("cRedShift", &self.cRedShift)
-            .field("cGreenBits", &self.cGreenBits)
-            .field("cGreenShift", &self.cGreenShift)
-            .field("cBlueBits", &self.cBlueBits)
-            .field("cBlueShift", &self.cBlueShift)
-            .field("cAlphaBits", &self.cAlphaBits)
-            .field("cAlphaShift", &self.cAlphaShift)
-            .field("cAccumBits", &self.cAccumBits)
-            .field("cAccumRedBits", &self.cAccumRedBits)
-            .field("cAccumGreenBits", &self.cAccumGreenBits)
-            .field("cAccumBlueBits", &self.cAccumBlueBits)
-            .field("cAccumAlphaBits", &self.cAccumAlphaBits)
-            .field("cDepthBits", &self.cDepthBits)
-            .field("cStencilBits", &self.cStencilBits)
-            .field("cAuxBuffers", &self.cAuxBuffers)
-            .field("iLayerType", &self.iLayerType)
-            .field("bReserved", &self.bReserved)
-            .field("dwLayerMask", &self.dwLayerMask)
-            .field("dwVisibleMask", &self.dwVisibleMask)
-            .field("dwDamageMask", &self.dwDamageMask)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.nSize == other.nSize
-            && self.nVersion == other.nVersion
-            && self.dwFlags == other.dwFlags
-            && self.iPixelType == other.iPixelType
-            && self.cColorBits == other.cColorBits
-            && self.cRedBits == other.cRedBits
-            && self.cRedShift == other.cRedShift
-            && self.cGreenBits == other.cGreenBits
-            && self.cGreenShift == other.cGreenShift
-            && self.cBlueBits == other.cBlueBits
-            && self.cBlueShift == other.cBlueShift
-            && self.cAlphaBits == other.cAlphaBits
-            && self.cAlphaShift == other.cAlphaShift
-            && self.cAccumBits == other.cAccumBits
-            && self.cAccumRedBits == other.cAccumRedBits
-            && self.cAccumGreenBits == other.cAccumGreenBits
-            && self.cAccumBlueBits == other.cAccumBlueBits
-            && self.cAccumAlphaBits == other.cAccumAlphaBits
-            && self.cDepthBits == other.cDepthBits
-            && self.cStencilBits == other.cStencilBits
-            && self.cAuxBuffers == other.cAuxBuffers
-            && self.iLayerType == other.iLayerType
-            && self.bReserved == other.bReserved
-            && self.dwLayerMask == other.dwLayerMask
-            && self.dwVisibleMask == other.dwVisibleMask
-            && self.dwDamageMask == other.dwDamageMask
-    }
-}
-impl ::core::cmp::Eq for PIXELFORMATDESCRIPTOR {}
-unsafe impl ::windows::core::Abi for PIXELFORMATDESCRIPTOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
 }
-impl POINTFLOAT {}
+impl ::core::marker::Copy for POINTFLOAT {}
+impl ::core::clone::Clone for POINTFLOAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POINTFLOAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POINTFLOAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTFLOAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POINTFLOAT {}
 impl ::core::default::Default for POINTFLOAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for POINTFLOAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
-impl ::core::cmp::PartialEq for POINTFLOAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl ::core::cmp::Eq for POINTFLOAT {}
-unsafe impl ::windows::core::Abi for POINTFLOAT {
-    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]

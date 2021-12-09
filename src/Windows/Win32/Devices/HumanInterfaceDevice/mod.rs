@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const BALLPOINT_I8042_HARDWARE: u32 = 8u32;
 pub const BALLPOINT_SERIAL_HARDWARE: u32 = 16u32;
 pub const BUTTON_BIT_ALLBUTTONSMASK: u32 = 16383u32;
@@ -22,31 +22,30 @@ pub const CLSID_DirectInput: ::windows::core::GUID = ::windows::core::GUID::from
 pub const CLSID_DirectInput8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInputDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e609e1_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInputDevice8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CPOINT {
     pub lP: i32,
     pub dwLog: u32,
 }
-impl CPOINT {}
+impl ::core::marker::Copy for CPOINT {}
+impl ::core::clone::Clone for CPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CPOINT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CPOINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CPOINT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CPOINT {}
 impl ::core::default::Default for CPOINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for CPOINT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CPOINT").field("lP", &self.lP).field("dwLog", &self.dwLog).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lP == other.lP && self.dwLog == other.dwLog
-    }
-}
-impl ::core::cmp::Eq for CPOINT {}
-unsafe impl ::windows::core::Abi for CPOINT {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 8u32 };
@@ -139,7 +138,6 @@ pub const DI8DEVTYPE_MOUSE: u32 = 18u32;
 pub const DI8DEVTYPE_REMOTE: u32 = 27u32;
 pub const DI8DEVTYPE_SCREENPOINTER: u32 = 26u32;
 pub const DI8DEVTYPE_SUPPLEMENTAL: u32 = 28u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONA {
@@ -152,26 +150,31 @@ pub struct DIACTIONA {
     pub dwHow: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIACTIONA {}
+impl ::core::marker::Copy for DIACTIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIACTIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIACTIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIACTIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIACTIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIACTIONA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIACTIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIACTIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DIACTIONA_0 {
@@ -179,26 +182,31 @@ pub union DIACTIONA_0 {
     pub uResIdString: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIACTIONA_0 {}
+impl ::core::marker::Copy for DIACTIONA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIACTIONA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIACTIONA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIACTIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIACTIONA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIACTIONA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIACTIONA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIACTIONA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATA {
@@ -218,47 +226,31 @@ pub struct DIACTIONFORMATA {
     pub tszActionMap: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIACTIONFORMATA {}
+impl ::core::marker::Copy for DIACTIONFORMATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONFORMATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIACTIONFORMATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIACTIONFORMATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONFORMATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIACTIONFORMATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIACTIONFORMATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIACTIONFORMATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIACTIONFORMATA")
-            .field("dwSize", &self.dwSize)
-            .field("dwActionSize", &self.dwActionSize)
-            .field("dwDataSize", &self.dwDataSize)
-            .field("dwNumActions", &self.dwNumActions)
-            .field("rgoAction", &self.rgoAction)
-            .field("guidActionMap", &self.guidActionMap)
-            .field("dwGenre", &self.dwGenre)
-            .field("dwBufferSize", &self.dwBufferSize)
-            .field("lAxisMin", &self.lAxisMin)
-            .field("lAxisMax", &self.lAxisMax)
-            .field("hInstString", &self.hInstString)
-            .field("ftTimeStamp", &self.ftTimeStamp)
-            .field("dwCRC", &self.dwCRC)
-            .field("tszActionMap", &self.tszActionMap)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIACTIONFORMATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwActionSize == other.dwActionSize && self.dwDataSize == other.dwDataSize && self.dwNumActions == other.dwNumActions && self.rgoAction == other.rgoAction && self.guidActionMap == other.guidActionMap && self.dwGenre == other.dwGenre && self.dwBufferSize == other.dwBufferSize && self.lAxisMin == other.lAxisMin && self.lAxisMax == other.lAxisMax && self.hInstString == other.hInstString && self.ftTimeStamp == other.ftTimeStamp && self.dwCRC == other.dwCRC && self.tszActionMap == other.tszActionMap
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIACTIONFORMATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIACTIONFORMATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATW {
@@ -278,47 +270,31 @@ pub struct DIACTIONFORMATW {
     pub tszActionMap: [u16; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIACTIONFORMATW {}
+impl ::core::marker::Copy for DIACTIONFORMATW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONFORMATW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIACTIONFORMATW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIACTIONFORMATW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONFORMATW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIACTIONFORMATW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIACTIONFORMATW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIACTIONFORMATW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIACTIONFORMATW")
-            .field("dwSize", &self.dwSize)
-            .field("dwActionSize", &self.dwActionSize)
-            .field("dwDataSize", &self.dwDataSize)
-            .field("dwNumActions", &self.dwNumActions)
-            .field("rgoAction", &self.rgoAction)
-            .field("guidActionMap", &self.guidActionMap)
-            .field("dwGenre", &self.dwGenre)
-            .field("dwBufferSize", &self.dwBufferSize)
-            .field("lAxisMin", &self.lAxisMin)
-            .field("lAxisMax", &self.lAxisMax)
-            .field("hInstString", &self.hInstString)
-            .field("ftTimeStamp", &self.ftTimeStamp)
-            .field("dwCRC", &self.dwCRC)
-            .field("tszActionMap", &self.tszActionMap)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIACTIONFORMATW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwActionSize == other.dwActionSize && self.dwDataSize == other.dwDataSize && self.dwNumActions == other.dwNumActions && self.rgoAction == other.rgoAction && self.guidActionMap == other.guidActionMap && self.dwGenre == other.dwGenre && self.dwBufferSize == other.dwBufferSize && self.lAxisMin == other.lAxisMin && self.lAxisMax == other.lAxisMax && self.hInstString == other.hInstString && self.ftTimeStamp == other.ftTimeStamp && self.dwCRC == other.dwCRC && self.tszActionMap == other.tszActionMap
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIACTIONFORMATW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIACTIONFORMATW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONW {
@@ -331,26 +307,31 @@ pub struct DIACTIONW {
     pub dwHow: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIACTIONW {}
+impl ::core::marker::Copy for DIACTIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIACTIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIACTIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIACTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIACTIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIACTIONW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIACTIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIACTIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DIACTIONW_0 {
@@ -358,24 +339,30 @@ pub union DIACTIONW_0 {
     pub uResIdString: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIACTIONW_0 {}
+impl ::core::marker::Copy for DIACTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DIACTIONW_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DIACTIONW_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIACTIONW_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIACTIONW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONW_0>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIACTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIACTIONW_0 {
-    type Abi = Self;
+impl ::core::default::Default for DIACTIONW_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295u32;
 pub const DIAFTS_NEWDEVICELOW: u32 = 4294967295u32;
@@ -1220,7 +1207,6 @@ pub const DIBUTTON_TPS_USE: u32 = 167773188u32;
 pub const DIBUTTON_TPS_VIEW: u32 = 167789574u32;
 pub const DICD_DEFAULT: u32 = 0u32;
 pub const DICD_EDIT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DICOLORSET {
     pub dwSize: u32,
@@ -1233,27 +1219,26 @@ pub struct DICOLORSET {
     pub cHighlightFill: u32,
     pub cAreaFill: u32,
 }
-impl DICOLORSET {}
+impl ::core::marker::Copy for DICOLORSET {}
+impl ::core::clone::Clone for DICOLORSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DICOLORSET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DICOLORSET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICOLORSET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DICOLORSET {}
 impl ::core::default::Default for DICOLORSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DICOLORSET {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICOLORSET").field("dwSize", &self.dwSize).field("cTextFore", &self.cTextFore).field("cTextHighlight", &self.cTextHighlight).field("cCalloutLine", &self.cCalloutLine).field("cCalloutHighlight", &self.cCalloutHighlight).field("cBorder", &self.cBorder).field("cControlFill", &self.cControlFill).field("cHighlightFill", &self.cHighlightFill).field("cAreaFill", &self.cAreaFill).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DICOLORSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.cTextFore == other.cTextFore && self.cTextHighlight == other.cTextHighlight && self.cCalloutLine == other.cCalloutLine && self.cCalloutHighlight == other.cCalloutHighlight && self.cBorder == other.cBorder && self.cControlFill == other.cControlFill && self.cHighlightFill == other.cHighlightFill && self.cAreaFill == other.cAreaFill
-    }
-}
-impl ::core::cmp::Eq for DICOLORSET {}
-unsafe impl ::windows::core::Abi for DICOLORSET {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DICONDITION {
     pub lOffset: i32,
@@ -1263,27 +1248,26 @@ pub struct DICONDITION {
     pub dwNegativeSaturation: u32,
     pub lDeadBand: i32,
 }
-impl DICONDITION {}
+impl ::core::marker::Copy for DICONDITION {}
+impl ::core::clone::Clone for DICONDITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DICONDITION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DICONDITION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONDITION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DICONDITION {}
 impl ::core::default::Default for DICONDITION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DICONDITION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONDITION").field("lOffset", &self.lOffset).field("lPositiveCoefficient", &self.lPositiveCoefficient).field("lNegativeCoefficient", &self.lNegativeCoefficient).field("dwPositiveSaturation", &self.dwPositiveSaturation).field("dwNegativeSaturation", &self.dwNegativeSaturation).field("lDeadBand", &self.lDeadBand).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DICONDITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.lOffset == other.lOffset && self.lPositiveCoefficient == other.lPositiveCoefficient && self.lNegativeCoefficient == other.lNegativeCoefficient && self.dwPositiveSaturation == other.dwPositiveSaturation && self.dwNegativeSaturation == other.dwNegativeSaturation && self.lDeadBand == other.lDeadBand
-    }
-}
-impl ::core::cmp::Eq for DICONDITION {}
-unsafe impl ::windows::core::Abi for DICONDITION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSA {
@@ -1297,32 +1281,38 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lpUnkDDSTarget: ::core::option::Option<::windows::core::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DICONFIGUREDEVICESPARAMSA {}
+impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
+    fn clone(&self) -> Self {
+        Self {
+            dwSize: self.dwSize,
+            dwcUsers: self.dwcUsers,
+            lptszUserNames: self.lptszUserNames,
+            dwcFormats: self.dwcFormats,
+            lprgFormats: self.lprgFormats,
+            hwnd: self.hwnd,
+            dics: self.dics,
+            lpUnkDDSTarget: self.lpUnkDDSTarget.clone(),
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSA {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONFIGUREDEVICESPARAMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DICONFIGUREDEVICESPARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DICONFIGUREDEVICESPARAMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONFIGUREDEVICESPARAMSA").field("dwSize", &self.dwSize).field("dwcUsers", &self.dwcUsers).field("lptszUserNames", &self.lptszUserNames).field("dwcFormats", &self.dwcFormats).field("lprgFormats", &self.lprgFormats).field("hwnd", &self.hwnd).field("dics", &self.dics).field("lpUnkDDSTarget", &self.lpUnkDDSTarget).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DICONFIGUREDEVICESPARAMSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSW {
@@ -1336,57 +1326,62 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lpUnkDDSTarget: ::core::option::Option<::windows::core::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DICONFIGUREDEVICESPARAMSW {}
+impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
+    fn clone(&self) -> Self {
+        Self {
+            dwSize: self.dwSize,
+            dwcUsers: self.dwcUsers,
+            lptszUserNames: self.lptszUserNames,
+            dwcFormats: self.dwcFormats,
+            lprgFormats: self.lprgFormats,
+            hwnd: self.hwnd,
+            dics: self.dics,
+            lpUnkDDSTarget: self.lpUnkDDSTarget.clone(),
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSW {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONFIGUREDEVICESPARAMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DICONFIGUREDEVICESPARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DICONFIGUREDEVICESPARAMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONFIGUREDEVICESPARAMSW").field("dwSize", &self.dwSize).field("dwcUsers", &self.dwcUsers).field("lptszUserNames", &self.lptszUserNames).field("dwcFormats", &self.dwcFormats).field("lprgFormats", &self.lprgFormats).field("hwnd", &self.hwnd).field("dics", &self.dics).field("lpUnkDDSTarget", &self.lpUnkDDSTarget).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DICONFIGUREDEVICESPARAMSW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
-impl DICONSTANTFORCE {}
+impl ::core::marker::Copy for DICONSTANTFORCE {}
+impl ::core::clone::Clone for DICONSTANTFORCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DICONSTANTFORCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DICONSTANTFORCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONSTANTFORCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DICONSTANTFORCE {}
 impl ::core::default::Default for DICONSTANTFORCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DICONSTANTFORCE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONSTANTFORCE").field("lMagnitude", &self.lMagnitude).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DICONSTANTFORCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lMagnitude == other.lMagnitude
-    }
-}
-impl ::core::cmp::Eq for DICONSTANTFORCE {}
-unsafe impl ::windows::core::Abi for DICONSTANTFORCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
@@ -1394,25 +1389,25 @@ pub struct DICUSTOMFORCE {
     pub cSamples: u32,
     pub rglForceData: *mut i32,
 }
-impl DICUSTOMFORCE {}
+impl ::core::marker::Copy for DICUSTOMFORCE {}
+impl ::core::clone::Clone for DICUSTOMFORCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DICUSTOMFORCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DICUSTOMFORCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICUSTOMFORCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DICUSTOMFORCE {}
 impl ::core::default::Default for DICUSTOMFORCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DICUSTOMFORCE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICUSTOMFORCE").field("cChannels", &self.cChannels).field("dwSamplePeriod", &self.dwSamplePeriod).field("cSamples", &self.cSamples).field("rglForceData", &self.rglForceData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DICUSTOMFORCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cChannels == other.cChannels && self.dwSamplePeriod == other.dwSamplePeriod && self.cSamples == other.cSamples && self.rglForceData == other.rglForceData
-    }
-}
-impl ::core::cmp::Eq for DICUSTOMFORCE {}
-unsafe impl ::windows::core::Abi for DICUSTOMFORCE {
-    type Abi = Self;
 }
 pub const DIDAL_BOTTOMALIGNED: u32 = 8u32;
 pub const DIDAL_CENTERED: u32 = 0u32;
@@ -1420,7 +1415,6 @@ pub const DIDAL_LEFTALIGNED: u32 = 1u32;
 pub const DIDAL_MIDDLE: u32 = 0u32;
 pub const DIDAL_RIGHTALIGNED: u32 = 2u32;
 pub const DIDAL_TOPALIGNED: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDATAFORMAT {
     pub dwSize: u32,
@@ -1430,25 +1424,25 @@ pub struct DIDATAFORMAT {
     pub dwNumObjs: u32,
     pub rgodf: *mut DIOBJECTDATAFORMAT,
 }
-impl DIDATAFORMAT {}
+impl ::core::marker::Copy for DIDATAFORMAT {}
+impl ::core::clone::Clone for DIDATAFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDATAFORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDATAFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDATAFORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDATAFORMAT {}
 impl ::core::default::Default for DIDATAFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIDATAFORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDATAFORMAT").field("dwSize", &self.dwSize).field("dwObjSize", &self.dwObjSize).field("dwFlags", &self.dwFlags).field("dwDataSize", &self.dwDataSize).field("dwNumObjs", &self.dwNumObjs).field("rgodf", &self.rgodf).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDATAFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwObjSize == other.dwObjSize && self.dwFlags == other.dwFlags && self.dwDataSize == other.dwDataSize && self.dwNumObjs == other.dwNumObjs && self.rgodf == other.rgodf
-    }
-}
-impl ::core::cmp::Eq for DIDATAFORMAT {}
-unsafe impl ::windows::core::Abi for DIDATAFORMAT {
-    type Abi = Self;
 }
 pub const DIDBAM_DEFAULT: u32 = 0u32;
 pub const DIDBAM_HWDEFAULTS: u32 = 4u32;
@@ -1469,7 +1463,6 @@ pub const DIDC_POSNEGCOEFFICIENTS: u32 = 4096u32;
 pub const DIDC_POSNEGSATURATION: u32 = 8192u32;
 pub const DIDC_SATURATION: u32 = 2048u32;
 pub const DIDC_STARTDELAY: u32 = 32768u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVCAPS {
     pub dwSize: u32,
@@ -1484,39 +1477,26 @@ pub struct DIDEVCAPS {
     pub dwHardwareRevision: u32,
     pub dwFFDriverVersion: u32,
 }
-impl DIDEVCAPS {}
+impl ::core::marker::Copy for DIDEVCAPS {}
+impl ::core::clone::Clone for DIDEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVCAPS {}
 impl ::core::default::Default for DIDEVCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVCAPS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwDevType", &self.dwDevType)
-            .field("dwAxes", &self.dwAxes)
-            .field("dwButtons", &self.dwButtons)
-            .field("dwPOVs", &self.dwPOVs)
-            .field("dwFFSamplePeriod", &self.dwFFSamplePeriod)
-            .field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution)
-            .field("dwFirmwareRevision", &self.dwFirmwareRevision)
-            .field("dwHardwareRevision", &self.dwHardwareRevision)
-            .field("dwFFDriverVersion", &self.dwFFDriverVersion)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
-    }
-}
-impl ::core::cmp::Eq for DIDEVCAPS {}
-unsafe impl ::windows::core::Abi for DIDEVCAPS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVCAPS_DX3 {
     pub dwSize: u32,
@@ -1526,27 +1506,26 @@ pub struct DIDEVCAPS_DX3 {
     pub dwButtons: u32,
     pub dwPOVs: u32,
 }
-impl DIDEVCAPS_DX3 {}
+impl ::core::marker::Copy for DIDEVCAPS_DX3 {}
+impl ::core::clone::Clone for DIDEVCAPS_DX3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVCAPS_DX3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVCAPS_DX3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVCAPS_DX3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVCAPS_DX3 {}
 impl ::core::default::Default for DIDEVCAPS_DX3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVCAPS_DX3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVCAPS_DX3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDevType", &self.dwDevType).field("dwAxes", &self.dwAxes).field("dwButtons", &self.dwButtons).field("dwPOVs", &self.dwPOVs).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVCAPS_DX3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs
-    }
-}
-impl ::core::cmp::Eq for DIDEVCAPS_DX3 {}
-unsafe impl ::windows::core::Abi for DIDEVCAPS_DX3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOA {
@@ -1561,32 +1540,31 @@ pub struct DIDEVICEIMAGEINFOA {
     pub dwTextAlign: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEIMAGEINFOA {}
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEIMAGEINFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOA").field("tszImagePath", &self.tszImagePath).field("dwFlags", &self.dwFlags).field("dwViewID", &self.dwViewID).field("rcOverlay", &self.rcOverlay).field("dwObjID", &self.dwObjID).field("dwcValidPts", &self.dwcValidPts).field("rgptCalloutLine", &self.rgptCalloutLine).field("rcCalloutRect", &self.rcCalloutRect).field("dwTextAlign", &self.dwTextAlign).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEIMAGEINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERA {
@@ -1601,32 +1579,31 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEIMAGEINFOHEADERA {}
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOHEADERA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOHEADERA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOHEADERA").field("dwSize", &self.dwSize).field("dwSizeImageInfo", &self.dwSizeImageInfo).field("dwcViews", &self.dwcViews).field("dwcButtons", &self.dwcButtons).field("dwcAxes", &self.dwcAxes).field("dwcPOVs", &self.dwcPOVs).field("dwBufferSize", &self.dwBufferSize).field("dwBufferUsed", &self.dwBufferUsed).field("lprgImageInfoArray", &self.lprgImageInfoArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEIMAGEINFOHEADERA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERW {
@@ -1641,32 +1618,31 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOW,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEIMAGEINFOHEADERW {}
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOHEADERW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOHEADERW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEIMAGEINFOHEADERW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOHEADERW").field("dwSize", &self.dwSize).field("dwSizeImageInfo", &self.dwSizeImageInfo).field("dwcViews", &self.dwcViews).field("dwcButtons", &self.dwcButtons).field("dwcAxes", &self.dwcAxes).field("dwcPOVs", &self.dwcPOVs).field("dwBufferSize", &self.dwBufferSize).field("dwBufferUsed", &self.dwBufferUsed).field("lprgImageInfoArray", &self.lprgImageInfoArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEIMAGEINFOHEADERW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOW {
@@ -1681,32 +1657,31 @@ pub struct DIDEVICEIMAGEINFOW {
     pub dwTextAlign: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEIMAGEINFOW {}
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEIMAGEINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEIMAGEINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEIMAGEINFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOW").field("tszImagePath", &self.tszImagePath).field("dwFlags", &self.dwFlags).field("dwViewID", &self.dwViewID).field("rcOverlay", &self.rcOverlay).field("dwObjID", &self.dwObjID).field("dwcValidPts", &self.dwcValidPts).field("rgptCalloutLine", &self.rgptCalloutLine).field("rcCalloutRect", &self.rcCalloutRect).field("dwTextAlign", &self.dwTextAlign).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEIMAGEINFOW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCEA {
@@ -1721,32 +1696,31 @@ pub struct DIDEVICEINSTANCEA {
     pub wUsage: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEINSTANCEA {}
+impl ::core::marker::Copy for DIDEVICEINSTANCEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEINSTANCEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCEA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEINSTANCEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEINSTANCEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCEA").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEINSTANCEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICEINSTANCEW {
     pub dwSize: u32,
@@ -1759,27 +1733,26 @@ pub struct DIDEVICEINSTANCEW {
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl DIDEVICEINSTANCEW {}
+impl ::core::marker::Copy for DIDEVICEINSTANCEW {}
+impl ::core::clone::Clone for DIDEVICEINSTANCEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICEINSTANCEW {}
 impl ::core::default::Default for DIDEVICEINSTANCEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVICEINSTANCEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCEW").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICEINSTANCEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
-    }
-}
-impl ::core::cmp::Eq for DIDEVICEINSTANCEW {}
-unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCE_DX3A {
@@ -1791,32 +1764,31 @@ pub struct DIDEVICEINSTANCE_DX3A {
     pub tszProductName: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEINSTANCE_DX3A {}
+impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCE_DX3A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICEINSTANCE_DX3W {
     pub dwSize: u32,
@@ -1826,27 +1798,26 @@ pub struct DIDEVICEINSTANCE_DX3W {
     pub tszInstanceName: [u16; 260],
     pub tszProductName: [u16; 260],
 }
-impl DIDEVICEINSTANCE_DX3W {}
+impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3W {}
+impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCE_DX3W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
 impl ::core::default::Default for DIDEVICEINSTANCE_DX3W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVICEINSTANCE_DX3W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
-    }
-}
-impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
-unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICEOBJECTDATA {
     pub dwOfs: u32,
@@ -1855,27 +1826,26 @@ pub struct DIDEVICEOBJECTDATA {
     pub dwSequence: u32,
     pub uAppData: usize,
 }
-impl DIDEVICEOBJECTDATA {}
+impl ::core::marker::Copy for DIDEVICEOBJECTDATA {}
+impl ::core::clone::Clone for DIDEVICEOBJECTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICEOBJECTDATA {}
 impl ::core::default::Default for DIDEVICEOBJECTDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVICEOBJECTDATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTDATA").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).field("uAppData", &self.uAppData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence && self.uAppData == other.uAppData
-    }
-}
-impl ::core::cmp::Eq for DIDEVICEOBJECTDATA {}
-unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwOfs: u32,
@@ -1883,27 +1853,26 @@ pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwTimeStamp: u32,
     pub dwSequence: u32,
 }
-impl DIDEVICEOBJECTDATA_DX3 {}
+impl ::core::marker::Copy for DIDEVICEOBJECTDATA_DX3 {}
+impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA_DX3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTDATA_DX3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
 impl ::core::default::Default for DIDEVICEOBJECTDATA_DX3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVICEOBJECTDATA_DX3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTDATA_DX3").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence
-    }
-}
-impl ::core::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
-unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA_DX3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCEA {
@@ -1924,48 +1893,31 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub wReportId: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEOBJECTINSTANCEA {}
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCEA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEOBJECTINSTANCEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTINSTANCEA")
-            .field("dwSize", &self.dwSize)
-            .field("guidType", &self.guidType)
-            .field("dwOfs", &self.dwOfs)
-            .field("dwType", &self.dwType)
-            .field("dwFlags", &self.dwFlags)
-            .field("tszName", &self.tszName)
-            .field("dwFFMaxForce", &self.dwFFMaxForce)
-            .field("dwFFForceResolution", &self.dwFFForceResolution)
-            .field("wCollectionNumber", &self.wCollectionNumber)
-            .field("wDesignatorIndex", &self.wDesignatorIndex)
-            .field("wUsagePage", &self.wUsagePage)
-            .field("wUsage", &self.wUsage)
-            .field("dwDimension", &self.dwDimension)
-            .field("wExponent", &self.wExponent)
-            .field("wReportId", &self.wReportId)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCEW {
     pub dwSize: u32,
@@ -1984,43 +1936,26 @@ pub struct DIDEVICEOBJECTINSTANCEW {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-impl DIDEVICEOBJECTINSTANCEW {}
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEW {}
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
 impl ::core::default::Default for DIDEVICEOBJECTINSTANCEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTINSTANCEW")
-            .field("dwSize", &self.dwSize)
-            .field("guidType", &self.guidType)
-            .field("dwOfs", &self.dwOfs)
-            .field("dwType", &self.dwType)
-            .field("dwFlags", &self.dwFlags)
-            .field("tszName", &self.tszName)
-            .field("dwFFMaxForce", &self.dwFFMaxForce)
-            .field("dwFFForceResolution", &self.dwFFForceResolution)
-            .field("wCollectionNumber", &self.wCollectionNumber)
-            .field("wDesignatorIndex", &self.wDesignatorIndex)
-            .field("wUsagePage", &self.wUsagePage)
-            .field("wUsage", &self.wUsage)
-            .field("dwDimension", &self.dwDimension)
-            .field("wExponent", &self.wExponent)
-            .field("wReportId", &self.wReportId)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
-    }
-}
-impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
-unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
@@ -2032,32 +1967,31 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub tszName: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIDEVICEOBJECTINSTANCE_DX3A {}
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCE_DX3A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIDEVICEOBJECTINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwSize: u32,
@@ -2067,52 +2001,51 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwFlags: u32,
     pub tszName: [u16; 260],
 }
-impl DIDEVICEOBJECTINSTANCE_DX3W {}
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3W {}
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCE_DX3W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
 impl ::core::default::Default for DIDEVICEOBJECTINSTANCE_DX3W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
-    }
-}
-impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
-unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDEVICESTATE {
     pub dwSize: u32,
     pub dwState: u32,
     pub dwLoad: u32,
 }
-impl DIDEVICESTATE {}
+impl ::core::marker::Copy for DIDEVICESTATE {}
+impl ::core::clone::Clone for DIDEVICESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDEVICESTATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDEVICESTATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICESTATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDEVICESTATE {}
 impl ::core::default::Default for DIDEVICESTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIDEVICESTATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICESTATE").field("dwSize", &self.dwSize).field("dwState", &self.dwState).field("dwLoad", &self.dwLoad).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDEVICESTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwState == other.dwState && self.dwLoad == other.dwLoad
-    }
-}
-impl ::core::cmp::Eq for DIDEVICESTATE {}
-unsafe impl ::windows::core::Abi for DIDEVICESTATE {
-    type Abi = Self;
 }
 pub const DIDEVTYPEJOYSTICK_FLIGHTSTICK: u32 = 3u32;
 pub const DIDEVTYPEJOYSTICK_GAMEPAD: u32 = 4u32;
@@ -2176,7 +2109,6 @@ pub const DIDOI_FFACTUATOR: u32 = 1u32;
 pub const DIDOI_FFEFFECTTRIGGER: u32 = 2u32;
 pub const DIDOI_GUIDISUSAGE: u32 = 65536u32;
 pub const DIDOI_POLLED: u32 = 32768u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIDRIVERVERSIONS {
     pub dwSize: u32,
@@ -2184,25 +2116,25 @@ pub struct DIDRIVERVERSIONS {
     pub dwHardwareRevision: u32,
     pub dwFFDriverVersion: u32,
 }
-impl DIDRIVERVERSIONS {}
+impl ::core::marker::Copy for DIDRIVERVERSIONS {}
+impl ::core::clone::Clone for DIDRIVERVERSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIDRIVERVERSIONS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIDRIVERVERSIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDRIVERVERSIONS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIDRIVERVERSIONS {}
 impl ::core::default::Default for DIDRIVERVERSIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIDRIVERVERSIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDRIVERVERSIONS").field("dwSize", &self.dwSize).field("dwFirmwareRevision", &self.dwFirmwareRevision).field("dwHardwareRevision", &self.dwHardwareRevision).field("dwFFDriverVersion", &self.dwFFDriverVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIDRIVERVERSIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
-    }
-}
-impl ::core::cmp::Eq for DIDRIVERVERSIONS {}
-unsafe impl ::windows::core::Abi for DIDRIVERVERSIONS {
-    type Abi = Self;
 }
 pub const DIDSAM_DEFAULT: u32 = 0u32;
 pub const DIDSAM_FORCESAVE: u32 = 2u32;
@@ -2225,7 +2157,6 @@ pub const DIEDFL_FORCEFEEDBACK: u32 = 256u32;
 pub const DIEDFL_INCLUDEALIASES: u32 = 65536u32;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144u32;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIEFFECT {
     pub dwSize: u32,
@@ -2243,42 +2174,26 @@ pub struct DIEFFECT {
     pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
     pub dwStartDelay: u32,
 }
-impl DIEFFECT {}
+impl ::core::marker::Copy for DIEFFECT {}
+impl ::core::clone::Clone for DIEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIEFFECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIEFFECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIEFFECT {}
 impl ::core::default::Default for DIEFFECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIEFFECT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIEFFECT")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwDuration", &self.dwDuration)
-            .field("dwSamplePeriod", &self.dwSamplePeriod)
-            .field("dwGain", &self.dwGain)
-            .field("dwTriggerButton", &self.dwTriggerButton)
-            .field("dwTriggerRepeatInterval", &self.dwTriggerRepeatInterval)
-            .field("cAxes", &self.cAxes)
-            .field("rgdwAxes", &self.rgdwAxes)
-            .field("rglDirection", &self.rglDirection)
-            .field("lpEnvelope", &self.lpEnvelope)
-            .field("cbTypeSpecificParams", &self.cbTypeSpecificParams)
-            .field("lpvTypeSpecificParams", &self.lpvTypeSpecificParams)
-            .field("dwStartDelay", &self.dwStartDelay)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIEFFECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDuration == other.dwDuration && self.dwSamplePeriod == other.dwSamplePeriod && self.dwGain == other.dwGain && self.dwTriggerButton == other.dwTriggerButton && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval && self.cAxes == other.cAxes && self.rgdwAxes == other.rgdwAxes && self.rglDirection == other.rglDirection && self.lpEnvelope == other.lpEnvelope && self.cbTypeSpecificParams == other.cbTypeSpecificParams && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams && self.dwStartDelay == other.dwStartDelay
-    }
-}
-impl ::core::cmp::Eq for DIEFFECT {}
-unsafe impl ::windows::core::Abi for DIEFFECT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIEFFECTATTRIBUTES {
     pub dwEffectId: u32,
@@ -2287,27 +2202,26 @@ pub struct DIEFFECTATTRIBUTES {
     pub dwDynamicParams: u32,
     pub dwCoords: u32,
 }
-impl DIEFFECTATTRIBUTES {}
+impl ::core::marker::Copy for DIEFFECTATTRIBUTES {}
+impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIEFFECTATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIEFFECTATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECTATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIEFFECTATTRIBUTES {}
 impl ::core::default::Default for DIEFFECTATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIEFFECTATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIEFFECTATTRIBUTES").field("dwEffectId", &self.dwEffectId).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("dwCoords", &self.dwCoords).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIEFFECTATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwEffectId == other.dwEffectId && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.dwCoords == other.dwCoords
-    }
-}
-impl ::core::cmp::Eq for DIEFFECTATTRIBUTES {}
-unsafe impl ::windows::core::Abi for DIEFFECTATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIEFFECTINFOA {
@@ -2319,32 +2233,31 @@ pub struct DIEFFECTINFOA {
     pub tszName: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIEFFECTINFOA {}
+impl ::core::marker::Copy for DIEFFECTINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIEFFECTINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIEFFECTINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIEFFECTINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECTINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIEFFECTINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIEFFECTINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIEFFECTINFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIEFFECTINFOA").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIEFFECTINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIEFFECTINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIEFFECTINFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIEFFECTINFOW {
     pub dwSize: u32,
@@ -2354,27 +2267,26 @@ pub struct DIEFFECTINFOW {
     pub dwDynamicParams: u32,
     pub tszName: [u16; 260],
 }
-impl DIEFFECTINFOW {}
+impl ::core::marker::Copy for DIEFFECTINFOW {}
+impl ::core::clone::Clone for DIEFFECTINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIEFFECTINFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIEFFECTINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECTINFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIEFFECTINFOW {}
 impl ::core::default::Default for DIEFFECTINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIEFFECTINFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIEFFECTINFOW").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIEFFECTINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
-    }
-}
-impl ::core::cmp::Eq for DIEFFECTINFOW {}
-unsafe impl ::windows::core::Abi for DIEFFECTINFOW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
@@ -2391,41 +2303,26 @@ pub struct DIEFFECT_DX5 {
     pub cbTypeSpecificParams: u32,
     pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
 }
-impl DIEFFECT_DX5 {}
+impl ::core::marker::Copy for DIEFFECT_DX5 {}
+impl ::core::clone::Clone for DIEFFECT_DX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIEFFECT_DX5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIEFFECT_DX5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECT_DX5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIEFFECT_DX5 {}
 impl ::core::default::Default for DIEFFECT_DX5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIEFFECT_DX5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIEFFECT_DX5")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwDuration", &self.dwDuration)
-            .field("dwSamplePeriod", &self.dwSamplePeriod)
-            .field("dwGain", &self.dwGain)
-            .field("dwTriggerButton", &self.dwTriggerButton)
-            .field("dwTriggerRepeatInterval", &self.dwTriggerRepeatInterval)
-            .field("cAxes", &self.cAxes)
-            .field("rgdwAxes", &self.rgdwAxes)
-            .field("rglDirection", &self.rglDirection)
-            .field("lpEnvelope", &self.lpEnvelope)
-            .field("cbTypeSpecificParams", &self.cbTypeSpecificParams)
-            .field("lpvTypeSpecificParams", &self.lpvTypeSpecificParams)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIEFFECT_DX5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDuration == other.dwDuration && self.dwSamplePeriod == other.dwSamplePeriod && self.dwGain == other.dwGain && self.dwTriggerButton == other.dwTriggerButton && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval && self.cAxes == other.cAxes && self.rgdwAxes == other.rgdwAxes && self.rglDirection == other.rglDirection && self.lpEnvelope == other.lpEnvelope && self.cbTypeSpecificParams == other.cbTypeSpecificParams && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams
-    }
-}
-impl ::core::cmp::Eq for DIEFFECT_DX5 {}
-unsafe impl ::windows::core::Abi for DIEFFECT_DX5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
@@ -2435,25 +2332,25 @@ pub struct DIEFFESCAPE {
     pub lpvOutBuffer: *mut ::core::ffi::c_void,
     pub cbOutBuffer: u32,
 }
-impl DIEFFESCAPE {}
+impl ::core::marker::Copy for DIEFFESCAPE {}
+impl ::core::clone::Clone for DIEFFESCAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIEFFESCAPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIEFFESCAPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFESCAPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIEFFESCAPE {}
 impl ::core::default::Default for DIEFFESCAPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIEFFESCAPE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIEFFESCAPE").field("dwSize", &self.dwSize).field("dwCommand", &self.dwCommand).field("lpvInBuffer", &self.lpvInBuffer).field("cbInBuffer", &self.cbInBuffer).field("lpvOutBuffer", &self.lpvOutBuffer).field("cbOutBuffer", &self.cbOutBuffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIEFFESCAPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCommand == other.dwCommand && self.lpvInBuffer == other.lpvInBuffer && self.cbInBuffer == other.cbInBuffer && self.lpvOutBuffer == other.lpvOutBuffer && self.cbOutBuffer == other.cbOutBuffer
-    }
-}
-impl ::core::cmp::Eq for DIEFFESCAPE {}
-unsafe impl ::windows::core::Abi for DIEFFESCAPE {
-    type Abi = Self;
 }
 pub const DIEFF_CARTESIAN: u32 = 16u32;
 pub const DIEFF_OBJECTIDS: u32 = 1u32;
@@ -2478,7 +2375,6 @@ pub const DIEGES_EMULATED: u32 = 2u32;
 pub const DIEGES_PLAYING: u32 = 1u32;
 pub const DIENUM_CONTINUE: u32 = 1u32;
 pub const DIENUM_STOP: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIENVELOPE {
     pub dwSize: u32,
@@ -2487,25 +2383,25 @@ pub struct DIENVELOPE {
     pub dwFadeLevel: u32,
     pub dwFadeTime: u32,
 }
-impl DIENVELOPE {}
+impl ::core::marker::Copy for DIENVELOPE {}
+impl ::core::clone::Clone for DIENVELOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIENVELOPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIENVELOPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIENVELOPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIENVELOPE {}
 impl ::core::default::Default for DIENVELOPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIENVELOPE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIENVELOPE").field("dwSize", &self.dwSize).field("dwAttackLevel", &self.dwAttackLevel).field("dwAttackTime", &self.dwAttackTime).field("dwFadeLevel", &self.dwFadeLevel).field("dwFadeTime", &self.dwFadeTime).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIENVELOPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwAttackLevel == other.dwAttackLevel && self.dwAttackTime == other.dwAttackTime && self.dwFadeLevel == other.dwFadeLevel && self.dwFadeTime == other.dwFadeTime
-    }
-}
-impl ::core::cmp::Eq for DIENVELOPE {}
-unsafe impl ::windows::core::Abi for DIENVELOPE {
-    type Abi = Self;
 }
 pub const DIEP_ALLPARAMS: u32 = 1023u32;
 pub const DIEP_ALLPARAMS_DX5: u32 = 511u32;
@@ -2522,11 +2418,11 @@ pub const DIEP_STARTDELAY: u32 = 512u32;
 pub const DIEP_TRIGGERBUTTON: u32 = 8u32;
 pub const DIEP_TRIGGERREPEATINTERVAL: u32 = 16u32;
 pub const DIEP_TYPESPECIFICPARAMS: u32 = 256u32;
-pub const DIERR_ACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024726i32 as _);
-pub const DIERR_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023649i32 as _);
-pub const DIERR_BADDRIVERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024777i32 as _);
+pub const DIERR_ACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024726i32);
+pub const DIERR_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023649i32);
+pub const DIERR_BADDRIVERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024777i32);
 pub const DIERR_BADINF: i32 = -2147220478i32;
-pub const DIERR_BETADIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023743i32 as _);
+pub const DIERR_BETADIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023743i32);
 pub const DIERR_CANCELLED: i32 = -2147220479i32;
 pub const DIERR_DEVICEFULL: i32 = -2147220991i32;
 pub const DIERR_DEVICENOTREG: i32 = -2147221164i32;
@@ -2537,7 +2433,7 @@ pub const DIERR_GENERIC: i32 = -2147467259i32;
 pub const DIERR_HANDLEEXISTS: i32 = -2147024891i32;
 pub const DIERR_HASEFFECTS: i32 = -2147220988i32;
 pub const DIERR_INCOMPLETEEFFECT: i32 = -2147220986i32;
-pub const DIERR_INPUTLOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024866i32 as _);
+pub const DIERR_INPUTLOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024866i32);
 pub const DIERR_INSUFFICIENTPRIVS: i32 = -2147220992i32;
 pub const DIERR_INVALIDCLASSINSTALLER: i32 = -2147220480i32;
 pub const DIERR_INVALIDPARAM: i32 = -2147024809i32;
@@ -2545,15 +2441,15 @@ pub const DIERR_MAPFILEFAIL: i32 = -2147220981i32;
 pub const DIERR_MOREDATA: i32 = -2147220990i32;
 pub const DIERR_NOAGGREGATION: i32 = -2147221232i32;
 pub const DIERR_NOINTERFACE: i32 = -2147467262i32;
-pub const DIERR_NOMOREITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024637i32 as _);
-pub const DIERR_NOTACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024884i32 as _);
+pub const DIERR_NOMOREITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024637i32);
+pub const DIERR_NOTACQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024884i32);
 pub const DIERR_NOTBUFFERED: i32 = -2147220985i32;
 pub const DIERR_NOTDOWNLOADED: i32 = -2147220989i32;
 pub const DIERR_NOTEXCLUSIVEACQUIRED: i32 = -2147220987i32;
-pub const DIERR_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32 as _);
-pub const DIERR_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024875i32 as _);
-pub const DIERR_OBJECTNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32 as _);
-pub const DIERR_OLDDIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023746i32 as _);
+pub const DIERR_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32);
+pub const DIERR_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024875i32);
+pub const DIERR_OBJECTNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024894i32);
+pub const DIERR_OLDDIRECTINPUTVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147023746i32);
 pub const DIERR_OTHERAPPHASPRIO: i32 = -2147024891i32;
 pub const DIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const DIERR_READONLY: i32 = -2147024891i32;
@@ -2565,60 +2461,57 @@ pub const DIES_SOLO: u32 = 1u32;
 pub const DIFEF_DEFAULT: u32 = 0u32;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1u32;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIFFDEVICEATTRIBUTES {
     pub dwFlags: u32,
     pub dwFFSamplePeriod: u32,
     pub dwFFMinTimeResolution: u32,
 }
-impl DIFFDEVICEATTRIBUTES {}
+impl ::core::marker::Copy for DIFFDEVICEATTRIBUTES {}
+impl ::core::clone::Clone for DIFFDEVICEATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIFFDEVICEATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIFFDEVICEATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIFFDEVICEATTRIBUTES {}
 impl ::core::default::Default for DIFFDEVICEATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIFFDEVICEATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIFFDEVICEATTRIBUTES").field("dwFlags", &self.dwFlags).field("dwFFSamplePeriod", &self.dwFFSamplePeriod).field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution
-    }
-}
-impl ::core::cmp::Eq for DIFFDEVICEATTRIBUTES {}
-unsafe impl ::windows::core::Abi for DIFFDEVICEATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIFFOBJECTATTRIBUTES {
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
 }
-impl DIFFOBJECTATTRIBUTES {}
+impl ::core::marker::Copy for DIFFOBJECTATTRIBUTES {}
+impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIFFOBJECTATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIFFOBJECTATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIFFOBJECTATTRIBUTES {}
 impl ::core::default::Default for DIFFOBJECTATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIFFOBJECTATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIFFOBJECTATTRIBUTES").field("dwFFMaxForce", &self.dwFFMaxForce).field("dwFFForceResolution", &self.dwFFForceResolution).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution
-    }
-}
-impl ::core::cmp::Eq for DIFFOBJECTATTRIBUTES {}
-unsafe impl ::windows::core::Abi for DIFFOBJECTATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIFILEEFFECT {
@@ -2628,30 +2521,30 @@ pub struct DIFILEEFFECT {
     pub szFriendlyName: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIFILEEFFECT {}
+impl ::core::marker::Copy for DIFILEEFFECT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DIFILEEFFECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DIFILEEFFECT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIFILEEFFECT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIFILEEFFECT").field("dwSize", &self.dwSize).field("GuidEffect", &self.GuidEffect).field("lpDiEffect", &self.lpDiEffect).field("szFriendlyName", &self.szFriendlyName).finish()
-    }
+unsafe impl ::windows::core::Abi for DIFILEEFFECT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIFILEEFFECT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.GuidEffect == other.GuidEffect && self.lpDiEffect == other.lpDiEffect && self.szFriendlyName == other.szFriendlyName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIFILEEFFECT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DIFILEEFFECT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIFILEEFFECT {
-    type Abi = Self;
+impl ::core::default::Default for DIFILEEFFECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DIGDD_PEEK: u32 = 1u32;
 pub const DIGFFS_ACTUATORSOFF: u32 = 32u32;
@@ -2697,7 +2590,6 @@ pub const DIHATSWITCH_SOCCERO_GLANCE: u32 = 503334401u32;
 pub const DIHATSWITCH_SPACESIM_GLANCE: u32 = 117458433u32;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: u32 = 184567297u32;
 pub const DIHATSWITCH_TPS_GLANCE: u32 = 167790081u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIHIDFFINITINFO {
@@ -2706,37 +2598,36 @@ pub struct DIHIDFFINITINFO {
     pub GuidInstance: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIHIDFFINITINFO {}
+impl ::core::marker::Copy for DIHIDFFINITINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIHIDFFINITINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIHIDFFINITINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIHIDFFINITINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIHIDFFINITINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIHIDFFINITINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIHIDFFINITINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIHIDFFINITINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIHIDFFINITINFO").field("dwSize", &self.dwSize).field("pwszDeviceInterface", &self.pwszDeviceInterface).field("GuidInstance", &self.GuidInstance).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIHIDFFINITINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.pwszDeviceInterface == other.pwszDeviceInterface && self.GuidInstance == other.GuidInstance
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIHIDFFINITINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIHIDFFINITINFO {
-    type Abi = Self;
-}
 pub const DIJC_CALLOUT: u32 = 8u32;
 pub const DIJC_GAIN: u32 = 4u32;
 pub const DIJC_GUIDINSTANCE: u32 = 1u32;
 pub const DIJC_REGHWCONFIGTYPE: u32 = 2u32;
 pub const DIJC_WDMGAMEPORT: u32 = 16u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYCONFIG {
     pub dwSize: u32,
@@ -2747,27 +2638,26 @@ pub struct DIJOYCONFIG {
     pub wszCallout: [u16; 256],
     pub guidGameport: ::windows::core::GUID,
 }
-impl DIJOYCONFIG {}
+impl ::core::marker::Copy for DIJOYCONFIG {}
+impl ::core::clone::Clone for DIJOYCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYCONFIG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYCONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYCONFIG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYCONFIG {}
 impl ::core::default::Default for DIJOYCONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYCONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYCONFIG").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("hwc", &self.hwc).field("dwGain", &self.dwGain).field("wszType", &self.wszType).field("wszCallout", &self.wszCallout).field("guidGameport", &self.guidGameport).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYCONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.hwc == other.hwc && self.dwGain == other.dwGain && self.wszType == other.wszType && self.wszCallout == other.wszCallout && self.guidGameport == other.guidGameport
-    }
-}
-impl ::core::cmp::Eq for DIJOYCONFIG {}
-unsafe impl ::windows::core::Abi for DIJOYCONFIG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYCONFIG_DX5 {
     pub dwSize: u32,
@@ -2777,27 +2667,26 @@ pub struct DIJOYCONFIG_DX5 {
     pub wszType: [u16; 256],
     pub wszCallout: [u16; 256],
 }
-impl DIJOYCONFIG_DX5 {}
+impl ::core::marker::Copy for DIJOYCONFIG_DX5 {}
+impl ::core::clone::Clone for DIJOYCONFIG_DX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYCONFIG_DX5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYCONFIG_DX5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYCONFIG_DX5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYCONFIG_DX5 {}
 impl ::core::default::Default for DIJOYCONFIG_DX5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYCONFIG_DX5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYCONFIG_DX5").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("hwc", &self.hwc).field("dwGain", &self.dwGain).field("wszType", &self.wszType).field("wszCallout", &self.wszCallout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYCONFIG_DX5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.hwc == other.hwc && self.dwGain == other.dwGain && self.wszType == other.wszType && self.wszCallout == other.wszCallout
-    }
-}
-impl ::core::cmp::Eq for DIJOYCONFIG_DX5 {}
-unsafe impl ::windows::core::Abi for DIJOYCONFIG_DX5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYSTATE {
     pub lX: i32,
@@ -2810,27 +2699,26 @@ pub struct DIJOYSTATE {
     pub rgdwPOV: [u32; 4],
     pub rgbButtons: [u8; 32],
 }
-impl DIJOYSTATE {}
+impl ::core::marker::Copy for DIJOYSTATE {}
+impl ::core::clone::Clone for DIJOYSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYSTATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYSTATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYSTATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYSTATE {}
 impl ::core::default::Default for DIJOYSTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYSTATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYSTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("lRx", &self.lRx).field("lRy", &self.lRy).field("lRz", &self.lRz).field("rglSlider", &self.rglSlider).field("rgdwPOV", &self.rgdwPOV).field("rgbButtons", &self.rgbButtons).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.lRx == other.lRx && self.lRy == other.lRy && self.lRz == other.lRz && self.rglSlider == other.rglSlider && self.rgdwPOV == other.rgdwPOV && self.rgbButtons == other.rgbButtons
-    }
-}
-impl ::core::cmp::Eq for DIJOYSTATE {}
-unsafe impl ::windows::core::Abi for DIJOYSTATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYSTATE2 {
     pub lX: i32,
@@ -2864,87 +2752,26 @@ pub struct DIJOYSTATE2 {
     pub lFRz: i32,
     pub rglFSlider: [i32; 2],
 }
-impl DIJOYSTATE2 {}
+impl ::core::marker::Copy for DIJOYSTATE2 {}
+impl ::core::clone::Clone for DIJOYSTATE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYSTATE2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYSTATE2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYSTATE2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYSTATE2 {}
 impl ::core::default::Default for DIJOYSTATE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYSTATE2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYSTATE2")
-            .field("lX", &self.lX)
-            .field("lY", &self.lY)
-            .field("lZ", &self.lZ)
-            .field("lRx", &self.lRx)
-            .field("lRy", &self.lRy)
-            .field("lRz", &self.lRz)
-            .field("rglSlider", &self.rglSlider)
-            .field("rgdwPOV", &self.rgdwPOV)
-            .field("rgbButtons", &self.rgbButtons)
-            .field("lVX", &self.lVX)
-            .field("lVY", &self.lVY)
-            .field("lVZ", &self.lVZ)
-            .field("lVRx", &self.lVRx)
-            .field("lVRy", &self.lVRy)
-            .field("lVRz", &self.lVRz)
-            .field("rglVSlider", &self.rglVSlider)
-            .field("lAX", &self.lAX)
-            .field("lAY", &self.lAY)
-            .field("lAZ", &self.lAZ)
-            .field("lARx", &self.lARx)
-            .field("lARy", &self.lARy)
-            .field("lARz", &self.lARz)
-            .field("rglASlider", &self.rglASlider)
-            .field("lFX", &self.lFX)
-            .field("lFY", &self.lFY)
-            .field("lFZ", &self.lFZ)
-            .field("lFRx", &self.lFRx)
-            .field("lFRy", &self.lFRy)
-            .field("lFRz", &self.lFRz)
-            .field("rglFSlider", &self.rglFSlider)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYSTATE2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX
-            && self.lY == other.lY
-            && self.lZ == other.lZ
-            && self.lRx == other.lRx
-            && self.lRy == other.lRy
-            && self.lRz == other.lRz
-            && self.rglSlider == other.rglSlider
-            && self.rgdwPOV == other.rgdwPOV
-            && self.rgbButtons == other.rgbButtons
-            && self.lVX == other.lVX
-            && self.lVY == other.lVY
-            && self.lVZ == other.lVZ
-            && self.lVRx == other.lVRx
-            && self.lVRy == other.lVRy
-            && self.lVRz == other.lVRz
-            && self.rglVSlider == other.rglVSlider
-            && self.lAX == other.lAX
-            && self.lAY == other.lAY
-            && self.lAZ == other.lAZ
-            && self.lARx == other.lARx
-            && self.lARy == other.lARy
-            && self.lARz == other.lARz
-            && self.rglASlider == other.rglASlider
-            && self.lFX == other.lFX
-            && self.lFY == other.lFY
-            && self.lFZ == other.lFZ
-            && self.lFRx == other.lFRx
-            && self.lFRy == other.lFRy
-            && self.lFRz == other.lFRz
-            && self.rglFSlider == other.rglFSlider
-    }
-}
-impl ::core::cmp::Eq for DIJOYSTATE2 {}
-unsafe impl ::windows::core::Abi for DIJOYSTATE2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYTYPEINFO {
     pub dwSize: u32,
@@ -2957,27 +2784,26 @@ pub struct DIJOYTYPEINFO {
     pub dwFlags2: u32,
     pub wszMapFile: [u16; 256],
 }
-impl DIJOYTYPEINFO {}
+impl ::core::marker::Copy for DIJOYTYPEINFO {}
+impl ::core::clone::Clone for DIJOYTYPEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYTYPEINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYTYPEINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYTYPEINFO {}
 impl ::core::default::Default for DIJOYTYPEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYTYPEINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYTYPEINFO").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).field("wszHardwareId", &self.wszHardwareId).field("dwFlags1", &self.dwFlags1).field("dwFlags2", &self.dwFlags2).field("wszMapFile", &self.wszMapFile).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout && self.wszHardwareId == other.wszHardwareId && self.dwFlags1 == other.dwFlags1 && self.dwFlags2 == other.dwFlags2 && self.wszMapFile == other.wszMapFile
-    }
-}
-impl ::core::cmp::Eq for DIJOYTYPEINFO {}
-unsafe impl ::windows::core::Abi for DIJOYTYPEINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYTYPEINFO_DX5 {
     pub dwSize: u32,
@@ -2986,27 +2812,26 @@ pub struct DIJOYTYPEINFO_DX5 {
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
 }
-impl DIJOYTYPEINFO_DX5 {}
+impl ::core::marker::Copy for DIJOYTYPEINFO_DX5 {}
+impl ::core::clone::Clone for DIJOYTYPEINFO_DX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX5 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYTYPEINFO_DX5>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYTYPEINFO_DX5 {}
 impl ::core::default::Default for DIJOYTYPEINFO_DX5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYTYPEINFO_DX5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYTYPEINFO_DX5").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout
-    }
-}
-impl ::core::cmp::Eq for DIJOYTYPEINFO_DX5 {}
-unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYTYPEINFO_DX6 {
     pub dwSize: u32,
@@ -3017,27 +2842,26 @@ pub struct DIJOYTYPEINFO_DX6 {
     pub wszHardwareId: [u16; 256],
     pub dwFlags1: u32,
 }
-impl DIJOYTYPEINFO_DX6 {}
+impl ::core::marker::Copy for DIJOYTYPEINFO_DX6 {}
+impl ::core::clone::Clone for DIJOYTYPEINFO_DX6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYTYPEINFO_DX6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYTYPEINFO_DX6 {}
 impl ::core::default::Default for DIJOYTYPEINFO_DX6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIJOYTYPEINFO_DX6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYTYPEINFO_DX6").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).field("wszHardwareId", &self.wszHardwareId).field("dwFlags1", &self.dwFlags1).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout && self.wszHardwareId == other.wszHardwareId && self.dwFlags1 == other.dwFlags1
-    }
-}
-impl ::core::cmp::Eq for DIJOYTYPEINFO_DX6 {}
-unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIJOYUSERVALUES {
     pub dwSize: u32,
@@ -3045,25 +2869,25 @@ pub struct DIJOYUSERVALUES {
     pub wszGlobalDriver: [u16; 256],
     pub wszGameportEmulator: [u16; 256],
 }
-impl DIJOYUSERVALUES {}
+impl ::core::marker::Copy for DIJOYUSERVALUES {}
+impl ::core::clone::Clone for DIJOYUSERVALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIJOYUSERVALUES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIJOYUSERVALUES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYUSERVALUES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIJOYUSERVALUES {}
 impl ::core::default::Default for DIJOYUSERVALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIJOYUSERVALUES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYUSERVALUES").field("dwSize", &self.dwSize).field("ruv", &self.ruv).field("wszGlobalDriver", &self.wszGlobalDriver).field("wszGameportEmulator", &self.wszGameportEmulator).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIJOYUSERVALUES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.ruv == other.ruv && self.wszGlobalDriver == other.wszGlobalDriver && self.wszGameportEmulator == other.wszGameportEmulator
-    }
-}
-impl ::core::cmp::Eq for DIJOYUSERVALUES {}
-unsafe impl ::windows::core::Abi for DIJOYUSERVALUES {
-    type Abi = Self;
 }
 pub const DIJU_GAMEPORTEMULATOR: u32 = 4u32;
 pub const DIJU_GLOBALDRIVER: u32 = 2u32;
@@ -3372,7 +3196,6 @@ pub const DIK_X: u32 = 45u32;
 pub const DIK_Y: u32 = 21u32;
 pub const DIK_YEN: u32 = 125u32;
 pub const DIK_Z: u32 = 44u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIMOUSESTATE {
     pub lX: i32,
@@ -3380,27 +3203,26 @@ pub struct DIMOUSESTATE {
     pub lZ: i32,
     pub rgbButtons: [u8; 4],
 }
-impl DIMOUSESTATE {}
+impl ::core::marker::Copy for DIMOUSESTATE {}
+impl ::core::clone::Clone for DIMOUSESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIMOUSESTATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIMOUSESTATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIMOUSESTATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIMOUSESTATE {}
 impl ::core::default::Default for DIMOUSESTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIMOUSESTATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIMOUSESTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIMOUSESTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
-    }
-}
-impl ::core::cmp::Eq for DIMOUSESTATE {}
-unsafe impl ::windows::core::Abi for DIMOUSESTATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIMOUSESTATE2 {
     pub lX: i32,
@@ -3408,84 +3230,81 @@ pub struct DIMOUSESTATE2 {
     pub lZ: i32,
     pub rgbButtons: [u8; 8],
 }
-impl DIMOUSESTATE2 {}
+impl ::core::marker::Copy for DIMOUSESTATE2 {}
+impl ::core::clone::Clone for DIMOUSESTATE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIMOUSESTATE2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIMOUSESTATE2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIMOUSESTATE2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIMOUSESTATE2 {}
 impl ::core::default::Default for DIMOUSESTATE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIMOUSESTATE2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIMOUSESTATE2").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIMOUSESTATE2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
-    }
-}
-impl ::core::cmp::Eq for DIMOUSESTATE2 {}
-unsafe impl ::windows::core::Abi for DIMOUSESTATE2 {
-    type Abi = Self;
-}
 pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
 pub const DIMSGWP_DX8MAPPERAPPSTART: u32 = 3u32;
 pub const DIMSGWP_NEWAPPSTART: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIOBJECTATTRIBUTES {
     pub dwFlags: u32,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl DIOBJECTATTRIBUTES {}
+impl ::core::marker::Copy for DIOBJECTATTRIBUTES {}
+impl ::core::clone::Clone for DIOBJECTATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIOBJECTATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIOBJECTATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIOBJECTATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIOBJECTATTRIBUTES {}
 impl ::core::default::Default for DIOBJECTATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIOBJECTATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIOBJECTATTRIBUTES").field("dwFlags", &self.dwFlags).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIOBJECTATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
-    }
-}
-impl ::core::cmp::Eq for DIOBJECTATTRIBUTES {}
-unsafe impl ::windows::core::Abi for DIOBJECTATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIOBJECTCALIBRATION {
     pub lMin: i32,
     pub lCenter: i32,
     pub lMax: i32,
 }
-impl DIOBJECTCALIBRATION {}
+impl ::core::marker::Copy for DIOBJECTCALIBRATION {}
+impl ::core::clone::Clone for DIOBJECTCALIBRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIOBJECTCALIBRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIOBJECTCALIBRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIOBJECTCALIBRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIOBJECTCALIBRATION {}
 impl ::core::default::Default for DIOBJECTCALIBRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIOBJECTCALIBRATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIOBJECTCALIBRATION").field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIOBJECTCALIBRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
-    }
-}
-impl ::core::cmp::Eq for DIOBJECTCALIBRATION {}
-unsafe impl ::windows::core::Abi for DIOBJECTCALIBRATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *mut ::windows::core::GUID,
@@ -3493,27 +3312,26 @@ pub struct DIOBJECTDATAFORMAT {
     pub dwType: u32,
     pub dwFlags: u32,
 }
-impl DIOBJECTDATAFORMAT {}
+impl ::core::marker::Copy for DIOBJECTDATAFORMAT {}
+impl ::core::clone::Clone for DIOBJECTDATAFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIOBJECTDATAFORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIOBJECTDATAFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIOBJECTDATAFORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIOBJECTDATAFORMAT {}
 impl ::core::default::Default for DIOBJECTDATAFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIOBJECTDATAFORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIOBJECTDATAFORMAT").field("pguid", &self.pguid).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIOBJECTDATAFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pguid == other.pguid && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for DIOBJECTDATAFORMAT {}
-unsafe impl ::windows::core::Abi for DIOBJECTDATAFORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPERIODIC {
     pub dwMagnitude: u32,
@@ -3521,55 +3339,54 @@ pub struct DIPERIODIC {
     pub dwPhase: u32,
     pub dwPeriod: u32,
 }
-impl DIPERIODIC {}
+impl ::core::marker::Copy for DIPERIODIC {}
+impl ::core::clone::Clone for DIPERIODIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPERIODIC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPERIODIC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPERIODIC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPERIODIC {}
 impl ::core::default::Default for DIPERIODIC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPERIODIC {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPERIODIC").field("dwMagnitude", &self.dwMagnitude).field("lOffset", &self.lOffset).field("dwPhase", &self.dwPhase).field("dwPeriod", &self.dwPeriod).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPERIODIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagnitude == other.dwMagnitude && self.lOffset == other.lOffset && self.dwPhase == other.dwPhase && self.dwPeriod == other.dwPeriod
-    }
-}
-impl ::core::cmp::Eq for DIPERIODIC {}
-unsafe impl ::windows::core::Abi for DIPERIODIC {
-    type Abi = Self;
-}
 pub const DIPH_BYID: u32 = 2u32;
 pub const DIPH_BYOFFSET: u32 = 1u32;
 pub const DIPH_BYUSAGE: u32 = 3u32;
 pub const DIPH_DEVICE: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPOVCALIBRATION {
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
 }
-impl DIPOVCALIBRATION {}
+impl ::core::marker::Copy for DIPOVCALIBRATION {}
+impl ::core::clone::Clone for DIPOVCALIBRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPOVCALIBRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPOVCALIBRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPOVCALIBRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPOVCALIBRATION {}
 impl ::core::default::Default for DIPOVCALIBRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIPOVCALIBRATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPOVCALIBRATION").field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPOVCALIBRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.lMin == other.lMin && self.lMax == other.lMax
-    }
-}
-impl ::core::cmp::Eq for DIPOVCALIBRATION {}
-unsafe impl ::windows::core::Abi for DIPOVCALIBRATION {
-    type Abi = Self;
 }
 pub const DIPOV_ANY_1: u32 = 4278208001u32;
 pub const DIPOV_ANY_2: u32 = 4278208002u32;
@@ -3579,7 +3396,6 @@ pub const DIPROPAUTOCENTER_OFF: u32 = 0u32;
 pub const DIPROPAUTOCENTER_ON: u32 = 1u32;
 pub const DIPROPAXISMODE_ABS: u32 = 0u32;
 pub const DIPROPAXISMODE_REL: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPCAL {
     pub diph: DIPROPHEADER,
@@ -3587,136 +3403,131 @@ pub struct DIPROPCAL {
     pub lCenter: i32,
     pub lMax: i32,
 }
-impl DIPROPCAL {}
+impl ::core::marker::Copy for DIPROPCAL {}
+impl ::core::clone::Clone for DIPROPCAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPCAL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPCAL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPCAL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPCAL {}
 impl ::core::default::Default for DIPROPCAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPCAL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPCAL").field("diph", &self.diph).field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPCAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
-    }
-}
-impl ::core::cmp::Eq for DIPROPCAL {}
-unsafe impl ::windows::core::Abi for DIPROPCAL {
-    type Abi = Self;
-}
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPCALPOV {
     pub diph: DIPROPHEADER,
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
 }
-impl DIPROPCALPOV {}
+impl ::core::marker::Copy for DIPROPCALPOV {}
+impl ::core::clone::Clone for DIPROPCALPOV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPCALPOV {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPCALPOV {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPCALPOV>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPCALPOV {}
 impl ::core::default::Default for DIPROPCALPOV {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPCALPOV {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPCALPOV").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPCALPOV {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.lMin == other.lMin && self.lMax == other.lMax
-    }
-}
-impl ::core::cmp::Eq for DIPROPCALPOV {}
-unsafe impl ::windows::core::Abi for DIPROPCALPOV {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPCPOINTS {
     pub diph: DIPROPHEADER,
     pub dwCPointsNum: u32,
     pub cp: [CPOINT; 8],
 }
-impl DIPROPCPOINTS {}
+impl ::core::marker::Copy for DIPROPCPOINTS {}
+impl ::core::clone::Clone for DIPROPCPOINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPCPOINTS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPCPOINTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPCPOINTS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPCPOINTS {}
 impl ::core::default::Default for DIPROPCPOINTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPCPOINTS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPCPOINTS").field("diph", &self.diph).field("dwCPointsNum", &self.dwCPointsNum).field("cp", &self.cp).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPCPOINTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.dwCPointsNum == other.dwCPointsNum && self.cp == other.cp
-    }
-}
-impl ::core::cmp::Eq for DIPROPCPOINTS {}
-unsafe impl ::windows::core::Abi for DIPROPCPOINTS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPDWORD {
     pub diph: DIPROPHEADER,
     pub dwData: u32,
 }
-impl DIPROPDWORD {}
+impl ::core::marker::Copy for DIPROPDWORD {}
+impl ::core::clone::Clone for DIPROPDWORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPDWORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPDWORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPDWORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPDWORD {}
 impl ::core::default::Default for DIPROPDWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPDWORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPDWORD").field("diph", &self.diph).field("dwData", &self.dwData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPDWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.dwData == other.dwData
-    }
-}
-impl ::core::cmp::Eq for DIPROPDWORD {}
-unsafe impl ::windows::core::Abi for DIPROPDWORD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPGUIDANDPATH {
     pub diph: DIPROPHEADER,
     pub guidClass: ::windows::core::GUID,
     pub wszPath: [u16; 260],
 }
-impl DIPROPGUIDANDPATH {}
+impl ::core::marker::Copy for DIPROPGUIDANDPATH {}
+impl ::core::clone::Clone for DIPROPGUIDANDPATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPGUIDANDPATH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPGUIDANDPATH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPGUIDANDPATH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPGUIDANDPATH {}
 impl ::core::default::Default for DIPROPGUIDANDPATH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPGUIDANDPATH {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPGUIDANDPATH").field("diph", &self.diph).field("guidClass", &self.guidClass).field("wszPath", &self.wszPath).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPGUIDANDPATH {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.guidClass == other.guidClass && self.wszPath == other.wszPath
-    }
-}
-impl ::core::cmp::Eq for DIPROPGUIDANDPATH {}
-unsafe impl ::windows::core::Abi for DIPROPGUIDANDPATH {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPHEADER {
     pub dwSize: u32,
@@ -3724,130 +3535,126 @@ pub struct DIPROPHEADER {
     pub dwObj: u32,
     pub dwHow: u32,
 }
-impl DIPROPHEADER {}
+impl ::core::marker::Copy for DIPROPHEADER {}
+impl ::core::clone::Clone for DIPROPHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPHEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPHEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPHEADER {}
 impl ::core::default::Default for DIPROPHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPHEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPHEADER").field("dwSize", &self.dwSize).field("dwHeaderSize", &self.dwHeaderSize).field("dwObj", &self.dwObj).field("dwHow", &self.dwHow).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwHeaderSize == other.dwHeaderSize && self.dwObj == other.dwObj && self.dwHow == other.dwHow
-    }
-}
-impl ::core::cmp::Eq for DIPROPHEADER {}
-unsafe impl ::windows::core::Abi for DIPROPHEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPPOINTER {
     pub diph: DIPROPHEADER,
     pub uData: usize,
 }
-impl DIPROPPOINTER {}
+impl ::core::marker::Copy for DIPROPPOINTER {}
+impl ::core::clone::Clone for DIPROPPOINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPPOINTER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPPOINTER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPPOINTER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPPOINTER {}
 impl ::core::default::Default for DIPROPPOINTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPPOINTER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPPOINTER").field("diph", &self.diph).field("uData", &self.uData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPPOINTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.uData == other.uData
-    }
-}
-impl ::core::cmp::Eq for DIPROPPOINTER {}
-unsafe impl ::windows::core::Abi for DIPROPPOINTER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPRANGE {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
     pub lMax: i32,
 }
-impl DIPROPRANGE {}
+impl ::core::marker::Copy for DIPROPRANGE {}
+impl ::core::clone::Clone for DIPROPRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPRANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPRANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPRANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPRANGE {}
 impl ::core::default::Default for DIPROPRANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPRANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPRANGE").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.lMin == other.lMin && self.lMax == other.lMax
-    }
-}
-impl ::core::cmp::Eq for DIPROPRANGE {}
-unsafe impl ::windows::core::Abi for DIPROPRANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIPROPSTRING {
     pub diph: DIPROPHEADER,
     pub wsz: [u16; 260],
 }
-impl DIPROPSTRING {}
+impl ::core::marker::Copy for DIPROPSTRING {}
+impl ::core::clone::Clone for DIPROPSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIPROPSTRING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIPROPSTRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPSTRING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIPROPSTRING {}
 impl ::core::default::Default for DIPROPSTRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIPROPSTRING {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIPROPSTRING").field("diph", &self.diph).field("wsz", &self.wsz).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIPROPSTRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph && self.wsz == other.wsz
-    }
-}
-impl ::core::cmp::Eq for DIPROPSTRING {}
-unsafe impl ::windows::core::Abi for DIPROPSTRING {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIRAMPFORCE {
     pub lStart: i32,
     pub lEnd: i32,
 }
-impl DIRAMPFORCE {}
+impl ::core::marker::Copy for DIRAMPFORCE {}
+impl ::core::clone::Clone for DIRAMPFORCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIRAMPFORCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIRAMPFORCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIRAMPFORCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIRAMPFORCE {}
 impl ::core::default::Default for DIRAMPFORCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for DIRAMPFORCE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIRAMPFORCE").field("lStart", &self.lStart).field("lEnd", &self.lEnd).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIRAMPFORCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lStart == other.lStart && self.lEnd == other.lEnd
-    }
-}
-impl ::core::cmp::Eq for DIRAMPFORCE {}
-unsafe impl ::windows::core::Abi for DIRAMPFORCE {
-    type Abi = Self;
 }
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 pub const DIRECTINPUT_VERSION: u32 = 2048u32;
@@ -3928,19 +3735,19 @@ pub const DIVOICE_TRANSMIT: u32 = 2197816333u32;
 pub const DIVOICE_VOICECOMMAND: u32 = 2197816336u32;
 pub const DI_BUFFEROVERFLOW: i32 = 1i32;
 pub const DI_DEGREES: u32 = 100u32;
-pub const DI_DOWNLOADSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(3i32 as _);
-pub const DI_EFFECTRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(4i32 as _);
+pub const DI_DOWNLOADSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(3i32);
+pub const DI_EFFECTRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(4i32);
 pub const DI_FFNOMINALMAX: u32 = 10000u32;
 pub const DI_NOEFFECT: i32 = 1i32;
 pub const DI_NOTATTACHED: i32 = 1i32;
 pub const DI_OK: i32 = 0i32;
-pub const DI_POLLEDDEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32 as _);
+pub const DI_POLLEDDEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
 pub const DI_PROPNOEFFECT: i32 = 1i32;
 pub const DI_SECONDS: u32 = 1000000u32;
-pub const DI_SETTINGSNOTSAVED: ::windows::core::HRESULT = ::windows::core::HRESULT(11i32 as _);
-pub const DI_TRUNCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(8i32 as _);
-pub const DI_TRUNCATEDANDRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(12i32 as _);
-pub const DI_WRITEPROTECT: ::windows::core::HRESULT = ::windows::core::HRESULT(19i32 as _);
+pub const DI_SETTINGSNOTSAVED: ::windows::core::HRESULT = ::windows::core::HRESULT(11i32);
+pub const DI_TRUNCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(8i32);
+pub const DI_TRUNCATEDANDRESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(12i32);
+pub const DI_WRITEPROTECT: ::windows::core::HRESULT = ::windows::core::HRESULT(19i32);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectInput8Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: Param4) -> ::windows::core::Result<()> {
@@ -3948,42 +3755,32 @@ pub unsafe fn DirectInput8Create<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         DirectInput8Create(hinst.into_param().abi(), ::core::mem::transmute(dwversion), ::core::mem::transmute(riidltf), ::core::mem::transmute(ppvout), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
-pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
-pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(1i32);
-pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(2i32);
-pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(3i32);
-pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(4i32);
-pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
-pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(6i32);
-pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(7i32);
-pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(8i32);
-pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(9i32);
-pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(10i32);
-pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(11i32);
-pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(12i32);
-pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(13i32);
-pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(14i32);
-pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
-pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
-pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
-impl ::core::convert::From<i32> for GPIOBUTTONS_BUTTON_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GPIOBUTTONS_BUTTON_TYPE {
-    type Abi = Self;
-}
+pub type GPIOBUTTONS_BUTTON_TYPE = i32;
+pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = 0i32;
+pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = 1i32;
+pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = 2i32;
+pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = 3i32;
+pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = 4i32;
+pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = 6i32;
+pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = 7i32;
+pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = 8i32;
+pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = 9i32;
+pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = 10i32;
+pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = 11i32;
+pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = 12i32;
+pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = 13i32;
+pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = 14i32;
+pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = 15i32;
+pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = 16i32;
 pub const GUID_Button: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d02f0_c9f3_11cf_bfc7_444553540000);
 pub const GUID_ConstantForce: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13541c20_8e33_11d0_9ad0_00a0c9a06e35);
 pub const GUID_CustomForce: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35);
@@ -4023,7 +3820,6 @@ pub const GUID_Unknown: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const GUID_XAxis: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d02e0_c9f3_11cf_bfc7_444553540000);
 pub const GUID_YAxis: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d02e1_c9f3_11cf_bfc7_444553540000);
 pub const GUID_ZAxis: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d02e2_c9f3_11cf_bfc7_444553540000);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HIDD_ATTRIBUTES {
     pub Size: u32,
@@ -4031,49 +3827,52 @@ pub struct HIDD_ATTRIBUTES {
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-impl HIDD_ATTRIBUTES {}
+impl ::core::marker::Copy for HIDD_ATTRIBUTES {}
+impl ::core::clone::Clone for HIDD_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDD_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDD_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDD_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDD_ATTRIBUTES {}
 impl ::core::default::Default for HIDD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HIDD_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HIDD_ATTRIBUTES").field("Size", &self.Size).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HIDD_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
-    }
-}
-impl ::core::cmp::Eq for HIDD_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for HIDD_ATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut ::core::ffi::c_void,
     pub size: u32,
     pub RingBufferSize: u32,
 }
-impl HIDD_CONFIGURATION {}
+impl ::core::marker::Copy for HIDD_CONFIGURATION {}
+impl ::core::clone::Clone for HIDD_CONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDD_CONFIGURATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDD_CONFIGURATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDD_CONFIGURATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDD_CONFIGURATION {}
 impl ::core::default::Default for HIDD_CONFIGURATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for HIDD_CONFIGURATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for HIDD_CONFIGURATION {}
-unsafe impl ::windows::core::Abi for HIDD_CONFIGURATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_ARRAY_DATA {
@@ -4081,32 +3880,31 @@ pub struct HIDP_BUTTON_ARRAY_DATA {
     pub On: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_BUTTON_ARRAY_DATA {}
+impl ::core::marker::Copy for HIDP_BUTTON_ARRAY_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_ARRAY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_BUTTON_ARRAY_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_BUTTON_ARRAY_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_ARRAY_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_BUTTON_ARRAY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_ARRAY_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_BUTTON_ARRAY_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HIDP_BUTTON_ARRAY_DATA").field("ArrayIndex", &self.ArrayIndex).field("On", &self.On).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_ARRAY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ArrayIndex == other.ArrayIndex && self.On == other.On
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_ARRAY_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_BUTTON_ARRAY_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS {
@@ -4127,26 +3925,31 @@ pub struct HIDP_BUTTON_CAPS {
     pub Anonymous: HIDP_BUTTON_CAPS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_BUTTON_CAPS {}
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_BUTTON_CAPS_0 {
@@ -4154,26 +3957,31 @@ pub union HIDP_BUTTON_CAPS_0 {
     pub NotRange: HIDP_BUTTON_CAPS_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_BUTTON_CAPS_0 {}
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_CAPS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_0 {
@@ -4187,32 +3995,31 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub Reserved4: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_BUTTON_CAPS_0_0 {}
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_CAPS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NotRange_e__Struct").field("Usage", &self.Usage).field("Reserved1", &self.Reserved1).field("StringIndex", &self.StringIndex).field("Reserved2", &self.Reserved2).field("DesignatorIndex", &self.DesignatorIndex).field("Reserved3", &self.Reserved3).field("DataIndex", &self.DataIndex).field("Reserved4", &self.Reserved4).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_1 {
@@ -4226,32 +4033,31 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub DataIndexMax: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_BUTTON_CAPS_0_1 {}
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_CAPS_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Range_e__Struct").field("UsageMin", &self.UsageMin).field("UsageMax", &self.UsageMax).field("StringMin", &self.StringMin).field("StringMax", &self.StringMax).field("DesignatorMin", &self.DesignatorMin).field("DesignatorMax", &self.DesignatorMax).field("DataIndexMin", &self.DataIndexMin).field("DataIndexMax", &self.DataIndexMax).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HIDP_CAPS {
     pub Usage: u16,
@@ -4271,59 +4077,26 @@ pub struct HIDP_CAPS {
     pub NumberFeatureValueCaps: u16,
     pub NumberFeatureDataIndices: u16,
 }
-impl HIDP_CAPS {}
+impl ::core::marker::Copy for HIDP_CAPS {}
+impl ::core::clone::Clone for HIDP_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_CAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_CAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_CAPS {}
 impl ::core::default::Default for HIDP_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HIDP_CAPS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HIDP_CAPS")
-            .field("Usage", &self.Usage)
-            .field("UsagePage", &self.UsagePage)
-            .field("InputReportByteLength", &self.InputReportByteLength)
-            .field("OutputReportByteLength", &self.OutputReportByteLength)
-            .field("FeatureReportByteLength", &self.FeatureReportByteLength)
-            .field("Reserved", &self.Reserved)
-            .field("NumberLinkCollectionNodes", &self.NumberLinkCollectionNodes)
-            .field("NumberInputButtonCaps", &self.NumberInputButtonCaps)
-            .field("NumberInputValueCaps", &self.NumberInputValueCaps)
-            .field("NumberInputDataIndices", &self.NumberInputDataIndices)
-            .field("NumberOutputButtonCaps", &self.NumberOutputButtonCaps)
-            .field("NumberOutputValueCaps", &self.NumberOutputValueCaps)
-            .field("NumberOutputDataIndices", &self.NumberOutputDataIndices)
-            .field("NumberFeatureButtonCaps", &self.NumberFeatureButtonCaps)
-            .field("NumberFeatureValueCaps", &self.NumberFeatureValueCaps)
-            .field("NumberFeatureDataIndices", &self.NumberFeatureDataIndices)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for HIDP_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Usage == other.Usage
-            && self.UsagePage == other.UsagePage
-            && self.InputReportByteLength == other.InputReportByteLength
-            && self.OutputReportByteLength == other.OutputReportByteLength
-            && self.FeatureReportByteLength == other.FeatureReportByteLength
-            && self.Reserved == other.Reserved
-            && self.NumberLinkCollectionNodes == other.NumberLinkCollectionNodes
-            && self.NumberInputButtonCaps == other.NumberInputButtonCaps
-            && self.NumberInputValueCaps == other.NumberInputValueCaps
-            && self.NumberInputDataIndices == other.NumberInputDataIndices
-            && self.NumberOutputButtonCaps == other.NumberOutputButtonCaps
-            && self.NumberOutputValueCaps == other.NumberOutputValueCaps
-            && self.NumberOutputDataIndices == other.NumberOutputDataIndices
-            && self.NumberFeatureButtonCaps == other.NumberFeatureButtonCaps
-            && self.NumberFeatureValueCaps == other.NumberFeatureValueCaps
-            && self.NumberFeatureDataIndices == other.NumberFeatureDataIndices
-    }
-}
-impl ::core::cmp::Eq for HIDP_CAPS {}
-unsafe impl ::windows::core::Abi for HIDP_CAPS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_DATA {
@@ -4332,26 +4105,31 @@ pub struct HIDP_DATA {
     pub Anonymous: HIDP_DATA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_DATA {}
+impl ::core::marker::Copy for HIDP_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_DATA_0 {
@@ -4359,26 +4137,31 @@ pub union HIDP_DATA_0 {
     pub On: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_DATA_0 {}
+impl ::core::marker::Copy for HIDP_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_DATA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
@@ -4386,101 +4169,102 @@ pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub GlobalUnknowns: *mut HIDP_UNKNOWN_TOKEN,
     pub Data: [u32; 1],
 }
-impl HIDP_EXTENDED_ATTRIBUTES {}
+impl ::core::marker::Copy for HIDP_EXTENDED_ATTRIBUTES {}
+impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_EXTENDED_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_EXTENDED_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_EXTENDED_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_EXTENDED_ATTRIBUTES {}
 impl ::core::default::Default for HIDP_EXTENDED_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for HIDP_EXTENDED_ATTRIBUTES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for HIDP_EXTENDED_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for HIDP_EXTENDED_ATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
-pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
-pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
-impl ::core::convert::From<i32> for HIDP_KEYBOARD_DIRECTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_DIRECTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HIDP_KEYBOARD_DIRECTION = i32;
+pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = 0i32;
+pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = 1i32;
 #[repr(C)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
 }
-impl HIDP_KEYBOARD_MODIFIER_STATE {}
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_KEYBOARD_MODIFIER_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE {}
 impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE {}
-unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0,
     pub ul: u32,
 }
-impl HIDP_KEYBOARD_MODIFIER_STATE_0 {}
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_KEYBOARD_MODIFIER_STATE_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
 impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
-unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_KEYBOARD_MODIFIER_STATE_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
 impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
-unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,
@@ -4492,63 +4276,56 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub _bitfield: u32,
     pub UserContext: *mut ::core::ffi::c_void,
 }
-impl HIDP_LINK_COLLECTION_NODE {}
+impl ::core::marker::Copy for HIDP_LINK_COLLECTION_NODE {}
+impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_LINK_COLLECTION_NODE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_LINK_COLLECTION_NODE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_LINK_COLLECTION_NODE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_LINK_COLLECTION_NODE {}
 impl ::core::default::Default for HIDP_LINK_COLLECTION_NODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for HIDP_LINK_COLLECTION_NODE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for HIDP_LINK_COLLECTION_NODE {}
-unsafe impl ::windows::core::Abi for HIDP_LINK_COLLECTION_NODE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HIDP_REPORT_TYPE(pub i32);
-pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
-pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
-pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
-impl ::core::convert::From<i32> for HIDP_REPORT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HIDP_REPORT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HIDP_REPORT_TYPE = i32;
+pub const HidP_Input: HIDP_REPORT_TYPE = 0i32;
+pub const HidP_Output: HIDP_REPORT_TYPE = 1i32;
+pub const HidP_Feature: HIDP_REPORT_TYPE = 2i32;
 #[repr(C)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,
     pub Reserved: [u8; 3],
     pub BitField: u32,
 }
-impl HIDP_UNKNOWN_TOKEN {}
+impl ::core::marker::Copy for HIDP_UNKNOWN_TOKEN {}
+impl ::core::clone::Clone for HIDP_UNKNOWN_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_UNKNOWN_TOKEN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_UNKNOWN_TOKEN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
 impl ::core::default::Default for HIDP_UNKNOWN_TOKEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HIDP_UNKNOWN_TOKEN {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HIDP_UNKNOWN_TOKEN").field("Token", &self.Token).field("Reserved", &self.Reserved).field("BitField", &self.BitField).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
-    fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token && self.Reserved == other.Reserved && self.BitField == other.BitField
-    }
-}
-impl ::core::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
-unsafe impl ::windows::core::Abi for HIDP_UNKNOWN_TOKEN {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS {
@@ -4577,26 +4354,31 @@ pub struct HIDP_VALUE_CAPS {
     pub Anonymous: HIDP_VALUE_CAPS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_VALUE_CAPS {}
+impl ::core::marker::Copy for HIDP_VALUE_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_VALUE_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_VALUE_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_VALUE_CAPS_0 {
@@ -4604,26 +4386,31 @@ pub union HIDP_VALUE_CAPS_0 {
     pub NotRange: HIDP_VALUE_CAPS_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_VALUE_CAPS_0 {}
+impl ::core::marker::Copy for HIDP_VALUE_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_VALUE_CAPS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_0 {
@@ -4637,32 +4424,31 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub Reserved4: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_VALUE_CAPS_0_0 {}
+impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_VALUE_CAPS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NotRange_e__Struct").field("Usage", &self.Usage).field("Reserved1", &self.Reserved1).field("StringIndex", &self.StringIndex).field("Reserved2", &self.Reserved2).field("DesignatorIndex", &self.DesignatorIndex).field("Reserved3", &self.Reserved3).field("DataIndex", &self.DataIndex).field("Reserved4", &self.Reserved4).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_1 {
@@ -4676,32 +4462,31 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub DataIndexMax: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HIDP_VALUE_CAPS_0_1 {}
+impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_VALUE_CAPS_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Range_e__Struct").field("UsageMin", &self.UsageMin).field("UsageMax", &self.UsageMax).field("StringMin", &self.StringMin).field("StringMax", &self.StringMax).field("DesignatorMin", &self.DesignatorMin).field("DesignatorMax", &self.DesignatorMax).field("DataIndexMin", &self.DataIndexMin).field("DataIndexMax", &self.DataIndexMax).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HID_COLLECTION_INFORMATION {
@@ -4713,56 +4498,55 @@ pub struct HID_COLLECTION_INFORMATION {
     pub VersionNumber: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HID_COLLECTION_INFORMATION {}
+impl ::core::marker::Copy for HID_COLLECTION_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HID_COLLECTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HID_COLLECTION_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HID_COLLECTION_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HID_COLLECTION_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HID_COLLECTION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HID_COLLECTION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HID_COLLECTION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HID_COLLECTION_INFORMATION").field("DescriptorSize", &self.DescriptorSize).field("Polled", &self.Polled).field("Reserved1", &self.Reserved1).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HID_COLLECTION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.DescriptorSize == other.DescriptorSize && self.Polled == other.Polled && self.Reserved1 == other.Reserved1 && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HID_COLLECTION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HID_COLLECTION_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HID_DRIVER_CONFIG {
     pub Size: u32,
     pub RingBufferSize: u32,
 }
-impl HID_DRIVER_CONFIG {}
+impl ::core::marker::Copy for HID_DRIVER_CONFIG {}
+impl ::core::clone::Clone for HID_DRIVER_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HID_DRIVER_CONFIG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HID_DRIVER_CONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HID_DRIVER_CONFIG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HID_DRIVER_CONFIG {}
 impl ::core::default::Default for HID_DRIVER_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for HID_DRIVER_CONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HID_DRIVER_CONFIG").field("Size", &self.Size).field("RingBufferSize", &self.RingBufferSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HID_DRIVER_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.RingBufferSize == other.RingBufferSize
-    }
-}
-impl ::core::cmp::Eq for HID_DRIVER_CONFIG {}
-unsafe impl ::windows::core::Abi for HID_DRIVER_CONFIG {
-    type Abi = Self;
 }
 pub const HID_REVISION: u32 = 1u32;
 pub const HID_USAGE_ALPHANUMERIC_14_SEGMENT_DIRECT_MAP: u16 = 69u16;
@@ -5377,32 +5161,31 @@ pub const HID_USAGE_VR_HEAD_TRACKER: u16 = 5u16;
 pub const HID_USAGE_VR_OCULOMETER: u16 = 8u16;
 pub const HID_USAGE_VR_STEREO_ENABLE: u16 = 32u16;
 pub const HID_USAGE_VR_VEST: u16 = 9u16;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
     pub reportBufferLen: u32,
     pub reportId: u8,
 }
-impl HID_XFER_PACKET {}
+impl ::core::marker::Copy for HID_XFER_PACKET {}
+impl ::core::clone::Clone for HID_XFER_PACKET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HID_XFER_PACKET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HID_XFER_PACKET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HID_XFER_PACKET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HID_XFER_PACKET {}
 impl ::core::default::Default for HID_XFER_PACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for HID_XFER_PACKET {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HID_XFER_PACKET").field("reportBuffer", &self.reportBuffer).field("reportBufferLen", &self.reportBufferLen).field("reportId", &self.reportId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HID_XFER_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        self.reportBuffer == other.reportBuffer && self.reportBufferLen == other.reportBufferLen && self.reportId == other.reportId
-    }
-}
-impl ::core::cmp::Eq for HID_XFER_PACKET {}
-unsafe impl ::windows::core::Abi for HID_XFER_PACKET {
-    type Abi = Self;
 }
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -6033,8 +5816,7 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInput2A(pub ::windows::core::IUnknown);
+pub struct IDirectInput2A(::windows::core::IUnknown);
 impl IDirectInput2A {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6059,30 +5841,6 @@ impl IDirectInput2A {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInput2A {
-    type Vtable = IDirectInput2A_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
-}
-impl ::core::convert::From<IDirectInput2A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput2A) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInput2A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput2A) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 impl ::core::convert::From<IDirectInput2A> for IDirectInputA {
     fn from(value: IDirectInput2A) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6103,26 +5861,60 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &IDirectInput2A {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInput2A> for ::windows::core::IUnknown {
+    fn from(value: IDirectInput2A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInput2A> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInput2A) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput2A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput2A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInput2A {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInput2A {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInput2A {}
+unsafe impl ::windows::core::Interface for IDirectInput2A {
+    type Vtable = IDirectInput2AVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput2A_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInput2AVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInput2W(pub ::windows::core::IUnknown);
+pub struct IDirectInput2W(::windows::core::IUnknown);
 impl IDirectInput2W {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6147,30 +5939,6 @@ impl IDirectInput2W {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInput2W {
-    type Vtable = IDirectInput2W_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
-}
-impl ::core::convert::From<IDirectInput2W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput2W) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInput2W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput2W) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 impl ::core::convert::From<IDirectInput2W> for IDirectInputW {
     fn from(value: IDirectInput2W) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6191,26 +5959,60 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &IDirectInput2W {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInput2W> for ::windows::core::IUnknown {
+    fn from(value: IDirectInput2W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInput2W> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInput2W) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput2W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput2W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInput2W {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInput2W {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInput2W {}
+unsafe impl ::windows::core::Interface for IDirectInput2W {
+    type Vtable = IDirectInput2WVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput2W_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInput2WVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInput7A(pub ::windows::core::IUnknown);
+pub struct IDirectInput7A(::windows::core::IUnknown);
 impl IDirectInput7A {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6236,30 +6038,6 @@ impl IDirectInput7A {
     }
     pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
-    }
-}
-unsafe impl ::windows::core::Interface for IDirectInput7A {
-    type Vtable = IDirectInput7A_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
-}
-impl ::core::convert::From<IDirectInput7A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput7A) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInput7A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput7A) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IDirectInput7A> for IDirectInput2A {
@@ -6302,27 +6080,61 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &IDirectInput7A {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInput7A> for ::windows::core::IUnknown {
+    fn from(value: IDirectInput7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInput7A> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInput7A) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput7A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput7A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInput7A {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInput7A {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInput7A {}
+unsafe impl ::windows::core::Interface for IDirectInput7A {
+    type Vtable = IDirectInput7AVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput7A_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInput7AVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInput7W(pub ::windows::core::IUnknown);
+pub struct IDirectInput7W(::windows::core::IUnknown);
 impl IDirectInput7W {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6348,30 +6160,6 @@ impl IDirectInput7W {
     }
     pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
-    }
-}
-unsafe impl ::windows::core::Interface for IDirectInput7W {
-    type Vtable = IDirectInput7W_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
-}
-impl ::core::convert::From<IDirectInput7W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput7W) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInput7W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput7W) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
     }
 }
 impl ::core::convert::From<IDirectInput7W> for IDirectInput2W {
@@ -6414,27 +6202,61 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &IDirectInput7W {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInput7W> for ::windows::core::IUnknown {
+    fn from(value: IDirectInput7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInput7W> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInput7W) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput7W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput7W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInput7W {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInput7W {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInput7W {}
+unsafe impl ::windows::core::Interface for IDirectInput7W {
+    type Vtable = IDirectInput7WVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput7W_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInput7WVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInput8A(pub ::windows::core::IUnknown);
+pub struct IDirectInput8A(::windows::core::IUnknown);
 impl IDirectInput8A {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6467,54 +6289,64 @@ impl IDirectInput8A {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInput8A {
-    type Vtable = IDirectInput8A_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
-}
 impl ::core::convert::From<IDirectInput8A> for ::windows::core::IUnknown {
     fn from(value: IDirectInput8A) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInput8A> for ::windows::core::IUnknown {
     fn from(value: &IDirectInput8A) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput8A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput8A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput8A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInput8A {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInput8A {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInput8A {}
+unsafe impl ::windows::core::Interface for IDirectInput8A {
+    type Vtable = IDirectInput8AVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput8A_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInput8AVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInput8W(pub ::windows::core::IUnknown);
+pub struct IDirectInput8W(::windows::core::IUnknown);
 impl IDirectInput8W {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6547,54 +6379,64 @@ impl IDirectInput8W {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInput8W {
-    type Vtable = IDirectInput8W_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
-}
 impl ::core::convert::From<IDirectInput8W> for ::windows::core::IUnknown {
     fn from(value: IDirectInput8W) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInput8W> for ::windows::core::IUnknown {
     fn from(value: &IDirectInput8W) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput8W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput8W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput8W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInput8W {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInput8W {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInput8W {}
+unsafe impl ::windows::core::Interface for IDirectInput8W {
+    type Vtable = IDirectInput8WVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput8W_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInput8WVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputA(pub ::windows::core::IUnknown);
+pub struct IDirectInputA(::windows::core::IUnknown);
 impl IDirectInputA {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -6615,48 +6457,58 @@ impl IDirectInputA {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputA {
-    type Vtable = IDirectInputA_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
-}
 impl ::core::convert::From<IDirectInputA> for ::windows::core::IUnknown {
     fn from(value: IDirectInputA) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputA> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputA) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputA {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputA {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputA {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputA {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputA {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputA {}
+unsafe impl ::windows::core::Interface for IDirectInputA {
+    type Vtable = IDirectInputAVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputA_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputAVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDevice2A(pub ::windows::core::IUnknown);
+pub struct IDirectInputDevice2A(::windows::core::IUnknown);
 impl IDirectInputDevice2A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -6741,30 +6593,6 @@ impl IDirectInputDevice2A {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDevice2A {
-    type Vtable = IDirectInputDevice2A_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
-}
-impl ::core::convert::From<IDirectInputDevice2A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice2A) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice2A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice2A) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 impl ::core::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
     fn from(value: IDirectInputDevice2A) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6785,50 +6613,84 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInputDevice2A> for ::windows::core::IUnknown {
+    fn from(value: IDirectInputDevice2A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInputDevice2A> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInputDevice2A) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice2A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice2A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInputDevice2A {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDevice2A {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDevice2A {}
+unsafe impl ::windows::core::Interface for IDirectInputDevice2A {
+    type Vtable = IDirectInputDevice2AVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice2A_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDevice2AVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDevice2W(pub ::windows::core::IUnknown);
+pub struct IDirectInputDevice2W(::windows::core::IUnknown);
 impl IDirectInputDevice2W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -6910,30 +6772,6 @@ impl IDirectInputDevice2W {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDevice2W {
-    type Vtable = IDirectInputDevice2W_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
-}
-impl ::core::convert::From<IDirectInputDevice2W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice2W) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice2W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice2W) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 impl ::core::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
     fn from(value: IDirectInputDevice2W) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6954,47 +6792,81 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInputDevice2W> for ::windows::core::IUnknown {
+    fn from(value: IDirectInputDevice2W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInputDevice2W> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInputDevice2W) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice2W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice2W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInputDevice2W {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDevice2W {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDevice2W {}
+unsafe impl ::windows::core::Interface for IDirectInputDevice2W {
+    type Vtable = IDirectInputDevice2WVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice2W_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDevice2WVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDevice7A(pub ::windows::core::IUnknown);
+pub struct IDirectInputDevice7A(::windows::core::IUnknown);
 impl IDirectInputDevice7A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -7087,30 +6959,6 @@ impl IDirectInputDevice7A {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDevice7A {
-    type Vtable = IDirectInputDevice7A_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
-}
-impl ::core::convert::From<IDirectInputDevice7A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice7A) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice7A) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
     fn from(value: IDirectInputDevice7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -7151,54 +6999,88 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInputDevice7A> for ::windows::core::IUnknown {
+    fn from(value: IDirectInputDevice7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInputDevice7A> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInputDevice7A) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice7A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice7A {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInputDevice7A {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDevice7A {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDevice7A {}
+unsafe impl ::windows::core::Interface for IDirectInputDevice7A {
+    type Vtable = IDirectInputDevice7AVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice7A_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDevice7AVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDevice7W(pub ::windows::core::IUnknown);
+pub struct IDirectInputDevice7W(::windows::core::IUnknown);
 impl IDirectInputDevice7W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -7288,30 +7170,6 @@ impl IDirectInputDevice7W {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDevice7W {
-    type Vtable = IDirectInputDevice7W_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
-}
-impl ::core::convert::From<IDirectInputDevice7W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice7W) -> Self {
-        value.0
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice7W) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
-    }
-}
 impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
     fn from(value: IDirectInputDevice7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -7352,51 +7210,85 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+impl ::core::convert::From<IDirectInputDevice7W> for ::windows::core::IUnknown {
+    fn from(value: IDirectInputDevice7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectInputDevice7W> for ::windows::core::IUnknown {
+    fn from(value: &IDirectInputDevice7W) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice7W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice7W {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IDirectInputDevice7W {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDevice7W {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDevice7W {}
+unsafe impl ::windows::core::Interface for IDirectInputDevice7W {
+    type Vtable = IDirectInputDevice7WVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
+}
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice7W_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDevice7WVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDevice8A(pub ::windows::core::IUnknown);
+pub struct IDirectInputDevice8A(::windows::core::IUnknown);
 impl IDirectInputDevice8A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -7501,84 +7393,94 @@ impl IDirectInputDevice8A {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDevice8A {
-    type Vtable = IDirectInputDevice8A_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
-}
 impl ::core::convert::From<IDirectInputDevice8A> for ::windows::core::IUnknown {
     fn from(value: IDirectInputDevice8A) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputDevice8A> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDevice8A) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice8A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice8A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice8A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputDevice8A {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDevice8A {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDevice8A {}
+unsafe impl ::windows::core::Interface for IDirectInputDevice8A {
+    type Vtable = IDirectInputDevice8AVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice8A_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDevice8AVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDevice8W(pub ::windows::core::IUnknown);
+pub struct IDirectInputDevice8W(::windows::core::IUnknown);
 impl IDirectInputDevice8W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -7680,81 +7582,91 @@ impl IDirectInputDevice8W {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDevice8W {
-    type Vtable = IDirectInputDevice8W_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
-}
 impl ::core::convert::From<IDirectInputDevice8W> for ::windows::core::IUnknown {
     fn from(value: IDirectInputDevice8W) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputDevice8W> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDevice8W) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice8W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice8W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice8W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputDevice8W {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDevice8W {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDevice8W {}
+unsafe impl ::windows::core::Interface for IDirectInputDevice8W {
+    type Vtable = IDirectInputDevice8WVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice8W_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDevice8WVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDeviceA(pub ::windows::core::IUnknown);
+pub struct IDirectInputDeviceA(::windows::core::IUnknown);
 impl IDirectInputDeviceA {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -7809,62 +7721,72 @@ impl IDirectInputDeviceA {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDeviceA {
-    type Vtable = IDirectInputDeviceA_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
-}
 impl ::core::convert::From<IDirectInputDeviceA> for ::windows::core::IUnknown {
     fn from(value: IDirectInputDeviceA) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputDeviceA> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDeviceA) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDeviceA {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDeviceA {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDeviceA {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputDeviceA {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDeviceA {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDeviceA {}
+unsafe impl ::windows::core::Interface for IDirectInputDeviceA {
+    type Vtable = IDirectInputDeviceAVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDeviceA_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDeviceAVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputDeviceW(pub ::windows::core::IUnknown);
+pub struct IDirectInputDeviceW(::windows::core::IUnknown);
 impl IDirectInputDeviceW {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
@@ -7917,60 +7839,70 @@ impl IDirectInputDeviceW {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputDeviceW {
-    type Vtable = IDirectInputDeviceW_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
-}
 impl ::core::convert::From<IDirectInputDeviceW> for ::windows::core::IUnknown {
     fn from(value: IDirectInputDeviceW) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputDeviceW> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDeviceW) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDeviceW {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDeviceW {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDeviceW {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputDeviceW {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputDeviceW {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputDeviceW {}
+unsafe impl ::windows::core::Interface for IDirectInputDeviceW {
+    type Vtable = IDirectInputDeviceWVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDeviceW_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputDeviceWVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputEffect(pub ::windows::core::IUnknown);
+pub struct IDirectInputEffect(::windows::core::IUnknown);
 impl IDirectInputEffect {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -8004,51 +7936,61 @@ impl IDirectInputEffect {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputEffect {
-    type Vtable = IDirectInputEffect_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
-}
 impl ::core::convert::From<IDirectInputEffect> for ::windows::core::IUnknown {
     fn from(value: IDirectInputEffect) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputEffect> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputEffect) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputEffect {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputEffect {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputEffect {}
+unsafe impl ::windows::core::Interface for IDirectInputEffect {
+    type Vtable = IDirectInputEffectVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputEffect_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+pub struct IDirectInputEffectVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputEffectDriver(pub ::windows::core::IUnknown);
+pub struct IDirectInputEffectDriver(::windows::core::IUnknown);
 impl IDirectInputEffectDriver {
     pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
@@ -8084,51 +8026,61 @@ impl IDirectInputEffectDriver {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputEffectDriver {
-    type Vtable = IDirectInputEffectDriver_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
-}
 impl ::core::convert::From<IDirectInputEffectDriver> for ::windows::core::IUnknown {
     fn from(value: IDirectInputEffectDriver) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputEffectDriver> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputEffectDriver) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputEffectDriver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputEffectDriver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputEffectDriver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputEffectDriver {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputEffectDriver {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputEffectDriver {}
+unsafe impl ::windows::core::Interface for IDirectInputEffectDriver {
+    type Vtable = IDirectInputEffectDriverVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputEffectDriver_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIDRIVERVERSIONS) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputEffectDriverVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDRIVERVERSIONS) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputJoyConfig(pub ::windows::core::IUnknown);
+pub struct IDirectInputJoyConfig(::windows::core::IUnknown);
 impl IDirectInputJoyConfig {
     pub unsafe fn Acquire(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
@@ -8187,64 +8139,74 @@ impl IDirectInputJoyConfig {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputJoyConfig {
-    type Vtable = IDirectInputJoyConfig_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
-}
 impl ::core::convert::From<IDirectInputJoyConfig> for ::windows::core::IUnknown {
     fn from(value: IDirectInputJoyConfig) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputJoyConfig> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputJoyConfig) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputJoyConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputJoyConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputJoyConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputJoyConfig {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputJoyConfig {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputJoyConfig {}
+unsafe impl ::windows::core::Interface for IDirectInputJoyConfig {
+    type Vtable = IDirectInputJoyConfigVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputJoyConfig_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputJoyConfigVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
-    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputJoyConfig8(pub ::windows::core::IUnknown);
+pub struct IDirectInputJoyConfig8(::windows::core::IUnknown);
 impl IDirectInputJoyConfig8 {
     pub unsafe fn Acquire(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
@@ -8303,64 +8265,74 @@ impl IDirectInputJoyConfig8 {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputJoyConfig8 {
-    type Vtable = IDirectInputJoyConfig8_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
-}
 impl ::core::convert::From<IDirectInputJoyConfig8> for ::windows::core::IUnknown {
     fn from(value: IDirectInputJoyConfig8) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputJoyConfig8> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputJoyConfig8) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputJoyConfig8 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputJoyConfig8 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputJoyConfig8 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputJoyConfig8 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputJoyConfig8 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputJoyConfig8 {}
+unsafe impl ::windows::core::Interface for IDirectInputJoyConfig8 {
+    type Vtable = IDirectInputJoyConfig8Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputJoyConfig8_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputJoyConfig8Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
-    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDirectInputW(pub ::windows::core::IUnknown);
+pub struct IDirectInputW(::windows::core::IUnknown);
 impl IDirectInputW {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
@@ -8381,72 +8353,81 @@ impl IDirectInputW {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectInputW {
-    type Vtable = IDirectInputW_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
-}
 impl ::core::convert::From<IDirectInputW> for ::windows::core::IUnknown {
     fn from(value: IDirectInputW) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputW> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputW) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputW {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputW {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputW {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDirectInputW {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDirectInputW {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDirectInputW {}
+unsafe impl ::windows::core::Interface for IDirectInputW {
+    type Vtable = IDirectInputWVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputW_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
+pub struct IDirectInputWVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,
     pub IndicatorFlags: u16,
 }
-impl INDICATOR_LIST {}
+impl ::core::marker::Copy for INDICATOR_LIST {}
+impl ::core::clone::Clone for INDICATOR_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INDICATOR_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INDICATOR_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INDICATOR_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INDICATOR_LIST {}
 impl ::core::default::Default for INDICATOR_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for INDICATOR_LIST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INDICATOR_LIST").field("MakeCode", &self.MakeCode).field("IndicatorFlags", &self.IndicatorFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for INDICATOR_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.MakeCode == other.MakeCode && self.IndicatorFlags == other.IndicatorFlags
-    }
-}
-impl ::core::cmp::Eq for INDICATOR_LIST {}
-unsafe impl ::windows::core::Abi for INDICATOR_LIST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INPUT_BUTTON_ENABLE_INFO {
@@ -8454,30 +8435,30 @@ pub struct INPUT_BUTTON_ENABLE_INFO {
     pub Enabled: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl INPUT_BUTTON_ENABLE_INFO {}
+impl ::core::marker::Copy for INPUT_BUTTON_ENABLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for INPUT_BUTTON_ENABLE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for INPUT_BUTTON_ENABLE_INFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for INPUT_BUTTON_ENABLE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INPUT_BUTTON_ENABLE_INFO").field("ButtonType", &self.ButtonType).field("Enabled", &self.Enabled).finish()
-    }
+unsafe impl ::windows::core::Abi for INPUT_BUTTON_ENABLE_INFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INPUT_BUTTON_ENABLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ButtonType == other.ButtonType && self.Enabled == other.Enabled
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_BUTTON_ENABLE_INFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INPUT_BUTTON_ENABLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INPUT_BUTTON_ENABLE_INFO {
-    type Abi = Self;
+impl ::core::default::Default for INPUT_BUTTON_ENABLE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
 pub const IOCTL_BUTTON_SET_ENABLED_ON_IDLE: u32 = 721576u32;
@@ -8493,7 +8474,6 @@ pub const IOCTL_KEYBOARD_SET_INDICATORS: u32 = 720904u32;
 pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900u32;
 pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044u32;
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYCALIBRATE {
     pub wXbase: u32,
@@ -8503,27 +8483,26 @@ pub struct JOYCALIBRATE {
     pub wZbase: u32,
     pub wZdelta: u32,
 }
-impl JOYCALIBRATE {}
+impl ::core::marker::Copy for JOYCALIBRATE {}
+impl ::core::clone::Clone for JOYCALIBRATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYCALIBRATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYCALIBRATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCALIBRATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYCALIBRATE {}
 impl ::core::default::Default for JOYCALIBRATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JOYCALIBRATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYCALIBRATE").field("wXbase", &self.wXbase).field("wXdelta", &self.wXdelta).field("wYbase", &self.wYbase).field("wYdelta", &self.wYdelta).field("wZbase", &self.wZbase).field("wZdelta", &self.wZdelta).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYCALIBRATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.wXbase == other.wXbase && self.wXdelta == other.wXdelta && self.wYbase == other.wYbase && self.wYdelta == other.wYdelta && self.wZbase == other.wZbase && self.wZdelta == other.wZdelta
-    }
-}
-impl ::core::cmp::Eq for JOYCALIBRATE {}
-unsafe impl ::windows::core::Abi for JOYCALIBRATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYPOS {
     pub dwX: u32,
@@ -8533,54 +8512,52 @@ pub struct JOYPOS {
     pub dwU: u32,
     pub dwV: u32,
 }
-impl JOYPOS {}
+impl ::core::marker::Copy for JOYPOS {}
+impl ::core::clone::Clone for JOYPOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYPOS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYPOS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYPOS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYPOS {}
 impl ::core::default::Default for JOYPOS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JOYPOS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYPOS").field("dwX", &self.dwX).field("dwY", &self.dwY).field("dwZ", &self.dwZ).field("dwR", &self.dwR).field("dwU", &self.dwU).field("dwV", &self.dwV).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYPOS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwX == other.dwX && self.dwY == other.dwY && self.dwZ == other.dwZ && self.dwR == other.dwR && self.dwU == other.dwU && self.dwV == other.dwV
-    }
-}
-impl ::core::cmp::Eq for JOYPOS {}
-unsafe impl ::windows::core::Abi for JOYPOS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYRANGE {
     pub jpMin: JOYPOS,
     pub jpMax: JOYPOS,
     pub jpCenter: JOYPOS,
 }
-impl JOYRANGE {}
+impl ::core::marker::Copy for JOYRANGE {}
+impl ::core::clone::Clone for JOYRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYRANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYRANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYRANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYRANGE {}
 impl ::core::default::Default for JOYRANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JOYRANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYRANGE").field("jpMin", &self.jpMin).field("jpMax", &self.jpMax).field("jpCenter", &self.jpCenter).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.jpMin == other.jpMin && self.jpMax == other.jpMax && self.jpCenter == other.jpCenter
-    }
-}
-impl ::core::cmp::Eq for JOYRANGE {}
-unsafe impl ::windows::core::Abi for JOYRANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYREGHWCONFIG {
     pub hws: JOYREGHWSETTINGS,
@@ -8589,105 +8566,102 @@ pub struct JOYREGHWCONFIG {
     pub dwType: u32,
     pub dwReserved: u32,
 }
-impl JOYREGHWCONFIG {}
+impl ::core::marker::Copy for JOYREGHWCONFIG {}
+impl ::core::clone::Clone for JOYREGHWCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYREGHWCONFIG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYREGHWCONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGHWCONFIG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYREGHWCONFIG {}
 impl ::core::default::Default for JOYREGHWCONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JOYREGHWCONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYREGHWCONFIG").field("hws", &self.hws).field("dwUsageSettings", &self.dwUsageSettings).field("hwv", &self.hwv).field("dwType", &self.dwType).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYREGHWCONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.hws == other.hws && self.dwUsageSettings == other.dwUsageSettings && self.hwv == other.hwv && self.dwType == other.dwType && self.dwReserved == other.dwReserved
-    }
-}
-impl ::core::cmp::Eq for JOYREGHWCONFIG {}
-unsafe impl ::windows::core::Abi for JOYREGHWCONFIG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYREGHWSETTINGS {
     pub dwFlags: u32,
     pub dwNumButtons: u32,
 }
-impl JOYREGHWSETTINGS {}
+impl ::core::marker::Copy for JOYREGHWSETTINGS {}
+impl ::core::clone::Clone for JOYREGHWSETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYREGHWSETTINGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYREGHWSETTINGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGHWSETTINGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYREGHWSETTINGS {}
 impl ::core::default::Default for JOYREGHWSETTINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JOYREGHWSETTINGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYREGHWSETTINGS").field("dwFlags", &self.dwFlags).field("dwNumButtons", &self.dwNumButtons).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYREGHWSETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwNumButtons == other.dwNumButtons
-    }
-}
-impl ::core::cmp::Eq for JOYREGHWSETTINGS {}
-unsafe impl ::windows::core::Abi for JOYREGHWSETTINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYREGHWVALUES {
     pub jrvHardware: JOYRANGE,
     pub dwPOVValues: [u32; 4],
     pub dwCalFlags: u32,
 }
-impl JOYREGHWVALUES {}
+impl ::core::marker::Copy for JOYREGHWVALUES {}
+impl ::core::clone::Clone for JOYREGHWVALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYREGHWVALUES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYREGHWVALUES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGHWVALUES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYREGHWVALUES {}
 impl ::core::default::Default for JOYREGHWVALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JOYREGHWVALUES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYREGHWVALUES").field("jrvHardware", &self.jrvHardware).field("dwPOVValues", &self.dwPOVValues).field("dwCalFlags", &self.dwCalFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYREGHWVALUES {
-    fn eq(&self, other: &Self) -> bool {
-        self.jrvHardware == other.jrvHardware && self.dwPOVValues == other.dwPOVValues && self.dwCalFlags == other.dwCalFlags
-    }
-}
-impl ::core::cmp::Eq for JOYREGHWVALUES {}
-unsafe impl ::windows::core::Abi for JOYREGHWVALUES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JOYREGUSERVALUES {
     pub dwTimeOut: u32,
     pub jrvRanges: JOYRANGE,
     pub jpDeadZone: JOYPOS,
 }
-impl JOYREGUSERVALUES {}
+impl ::core::marker::Copy for JOYREGUSERVALUES {}
+impl ::core::clone::Clone for JOYREGUSERVALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JOYREGUSERVALUES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JOYREGUSERVALUES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGUSERVALUES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JOYREGUSERVALUES {}
 impl ::core::default::Default for JOYREGUSERVALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for JOYREGUSERVALUES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JOYREGUSERVALUES").field("dwTimeOut", &self.dwTimeOut).field("jrvRanges", &self.jrvRanges).field("jpDeadZone", &self.jpDeadZone).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JOYREGUSERVALUES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTimeOut == other.dwTimeOut && self.jrvRanges == other.jrvRanges && self.jpDeadZone == other.jpDeadZone
-    }
-}
-impl ::core::cmp::Eq for JOYREGUSERVALUES {}
-unsafe impl ::windows::core::Abi for JOYREGUSERVALUES {
-    type Abi = Self;
 }
 pub const JOYTYPE_ANALOGCOMPAT: i32 = 8i32;
 pub const JOYTYPE_DEFAULTPROPSHEET: i32 = -2147483648i32;
@@ -8772,7 +8746,6 @@ pub const JOY_US_ISOEM: i32 = 4i32;
 pub const JOY_US_PRESENT: i32 = 2i32;
 pub const JOY_US_RESERVED: i32 = -2147483648i32;
 pub const JOY_US_VOLATILE: i32 = 8i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_ATTRIBUTES {
     pub KeyboardIdentifier: KEYBOARD_ID,
@@ -8784,29 +8757,28 @@ pub struct KEYBOARD_ATTRIBUTES {
     pub KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS,
     pub KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
 }
-impl KEYBOARD_ATTRIBUTES {}
+impl ::core::marker::Copy for KEYBOARD_ATTRIBUTES {}
+impl ::core::clone::Clone for KEYBOARD_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_ATTRIBUTES {}
 impl ::core::default::Default for KEYBOARD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_ATTRIBUTES").field("KeyboardIdentifier", &self.KeyboardIdentifier).field("KeyboardMode", &self.KeyboardMode).field("NumberOfFunctionKeys", &self.NumberOfFunctionKeys).field("NumberOfIndicators", &self.NumberOfIndicators).field("NumberOfKeysTotal", &self.NumberOfKeysTotal).field("InputDataQueueLength", &self.InputDataQueueLength).field("KeyRepeatMinimum", &self.KeyRepeatMinimum).field("KeyRepeatMaximum", &self.KeyRepeatMaximum).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyboardIdentifier == other.KeyboardIdentifier && self.KeyboardMode == other.KeyboardMode && self.NumberOfFunctionKeys == other.NumberOfFunctionKeys && self.NumberOfIndicators == other.NumberOfIndicators && self.NumberOfKeysTotal == other.NumberOfKeysTotal && self.InputDataQueueLength == other.InputDataQueueLength && self.KeyRepeatMinimum == other.KeyRepeatMinimum && self.KeyRepeatMaximum == other.KeyRepeatMaximum
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for KEYBOARD_ATTRIBUTES {
-    type Abi = Self;
-}
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub Version: u8,
@@ -8817,133 +8789,128 @@ pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub IETFLanguageTagIndex: u8,
     pub ImplementedInputAssistControls: u8,
 }
-impl KEYBOARD_EXTENDED_ATTRIBUTES {}
+impl ::core::marker::Copy for KEYBOARD_EXTENDED_ATTRIBUTES {}
+impl ::core::clone::Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_EXTENDED_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_EXTENDED_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
 impl ::core::default::Default for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_EXTENDED_ATTRIBUTES").field("Version", &self.Version).field("FormFactor", &self.FormFactor).field("KeyType", &self.KeyType).field("PhysicalLayout", &self.PhysicalLayout).field("VendorSpecificPhysicalLayout", &self.VendorSpecificPhysicalLayout).field("IETFLanguageTagIndex", &self.IETFLanguageTagIndex).field("ImplementedInputAssistControls", &self.ImplementedInputAssistControls).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.FormFactor == other.FormFactor && self.KeyType == other.KeyType && self.PhysicalLayout == other.PhysicalLayout && self.VendorSpecificPhysicalLayout == other.VendorSpecificPhysicalLayout && self.IETFLanguageTagIndex == other.IETFLanguageTagIndex && self.ImplementedInputAssistControls == other.ImplementedInputAssistControls
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for KEYBOARD_EXTENDED_ATTRIBUTES {
-    type Abi = Self;
-}
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_ID {
     pub Type: u8,
     pub Subtype: u8,
 }
-impl KEYBOARD_ID {}
+impl ::core::marker::Copy for KEYBOARD_ID {}
+impl ::core::clone::Clone for KEYBOARD_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_ID {}
 impl ::core::default::Default for KEYBOARD_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_ID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_ID").field("Type", &self.Type).field("Subtype", &self.Subtype).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Subtype == other.Subtype
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_ID {}
-unsafe impl ::windows::core::Abi for KEYBOARD_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_IME_STATUS {
     pub UnitId: u16,
     pub ImeOpen: u32,
     pub ImeConvMode: u32,
 }
-impl KEYBOARD_IME_STATUS {}
+impl ::core::marker::Copy for KEYBOARD_IME_STATUS {}
+impl ::core::clone::Clone for KEYBOARD_IME_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_IME_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_IME_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_IME_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_IME_STATUS {}
 impl ::core::default::Default for KEYBOARD_IME_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_IME_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_IME_STATUS").field("UnitId", &self.UnitId).field("ImeOpen", &self.ImeOpen).field("ImeConvMode", &self.ImeConvMode).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_IME_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.ImeOpen == other.ImeOpen && self.ImeConvMode == other.ImeConvMode
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_IME_STATUS {}
-unsafe impl ::windows::core::Abi for KEYBOARD_IME_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_INDICATOR_PARAMETERS {
     pub UnitId: u16,
     pub LedFlags: u16,
 }
-impl KEYBOARD_INDICATOR_PARAMETERS {}
+impl ::core::marker::Copy for KEYBOARD_INDICATOR_PARAMETERS {}
+impl ::core::clone::Clone for KEYBOARD_INDICATOR_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_INDICATOR_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_INDICATOR_PARAMETERS {}
 impl ::core::default::Default for KEYBOARD_INDICATOR_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_INDICATOR_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_INDICATOR_PARAMETERS").field("UnitId", &self.UnitId).field("LedFlags", &self.LedFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.LedFlags == other.LedFlags
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_INDICATOR_PARAMETERS {}
-unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_INDICATOR_TRANSLATION {
     pub NumberOfIndicatorKeys: u16,
     pub IndicatorList: [INDICATOR_LIST; 1],
 }
-impl KEYBOARD_INDICATOR_TRANSLATION {}
+impl ::core::marker::Copy for KEYBOARD_INDICATOR_TRANSLATION {}
+impl ::core::clone::Clone for KEYBOARD_INDICATOR_TRANSLATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_TRANSLATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_INDICATOR_TRANSLATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
 impl ::core::default::Default for KEYBOARD_INDICATOR_TRANSLATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_INDICATOR_TRANSLATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_INDICATOR_TRANSLATION").field("NumberOfIndicatorKeys", &self.NumberOfIndicatorKeys).field("IndicatorList", &self.IndicatorList).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfIndicatorKeys == other.NumberOfIndicatorKeys && self.IndicatorList == other.IndicatorList
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
-unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_TRANSLATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_INPUT_DATA {
     pub UnitId: u16,
@@ -8952,25 +8919,25 @@ pub struct KEYBOARD_INPUT_DATA {
     pub Reserved: u16,
     pub ExtraInformation: u32,
 }
-impl KEYBOARD_INPUT_DATA {}
+impl ::core::marker::Copy for KEYBOARD_INPUT_DATA {}
+impl ::core::clone::Clone for KEYBOARD_INPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_INPUT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_INPUT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_INPUT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_INPUT_DATA {}
 impl ::core::default::Default for KEYBOARD_INPUT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for KEYBOARD_INPUT_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_INPUT_DATA").field("UnitId", &self.UnitId).field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ExtraInformation", &self.ExtraInformation).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_INPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.MakeCode == other.MakeCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ExtraInformation == other.ExtraInformation
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_INPUT_DATA {}
-unsafe impl ::windows::core::Abi for KEYBOARD_INPUT_DATA {
-    type Abi = Self;
 }
 pub const KEYBOARD_KANA_LOCK_ON: u32 = 8u32;
 pub const KEYBOARD_LED_INJECTED: u32 = 32768u32;
@@ -8978,57 +8945,55 @@ pub const KEYBOARD_NUM_LOCK_ON: u32 = 2u32;
 pub const KEYBOARD_OVERRUN_MAKE_CODE: u32 = 255u32;
 pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1u32;
 pub const KEYBOARD_SHADOW: u32 = 16384u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
     pub UnitId: u16,
     pub Rate: u16,
     pub Delay: u16,
 }
-impl KEYBOARD_TYPEMATIC_PARAMETERS {}
+impl ::core::marker::Copy for KEYBOARD_TYPEMATIC_PARAMETERS {}
+impl ::core::clone::Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_TYPEMATIC_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_TYPEMATIC_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_TYPEMATIC_PARAMETERS {}
 impl ::core::default::Default for KEYBOARD_TYPEMATIC_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KEYBOARD_TYPEMATIC_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_TYPEMATIC_PARAMETERS").field("UnitId", &self.UnitId).field("Rate", &self.Rate).field("Delay", &self.Delay).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.Rate == other.Rate && self.Delay == other.Delay
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_TYPEMATIC_PARAMETERS {}
-unsafe impl ::windows::core::Abi for KEYBOARD_TYPEMATIC_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-impl KEYBOARD_UNIT_ID_PARAMETER {}
+impl ::core::marker::Copy for KEYBOARD_UNIT_ID_PARAMETER {}
+impl ::core::clone::Clone for KEYBOARD_UNIT_ID_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KEYBOARD_UNIT_ID_PARAMETER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_UNIT_ID_PARAMETER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KEYBOARD_UNIT_ID_PARAMETER {}
 impl ::core::default::Default for KEYBOARD_UNIT_ID_PARAMETER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for KEYBOARD_UNIT_ID_PARAMETER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId
-    }
-}
-impl ::core::cmp::Eq for KEYBOARD_UNIT_ID_PARAMETER {}
-unsafe impl ::windows::core::Abi for KEYBOARD_UNIT_ID_PARAMETER {
-    type Abi = Self;
 }
 pub const KEY_BREAK: u32 = 1u32;
 pub const KEY_E0: u32 = 2u32;
@@ -9042,17 +9007,17 @@ pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<::windows::core::IUnknown>, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectInputEffect>, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::windows::core::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::core::option::Option<IDirectInputDevice8A>, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::windows::core::RawPtr, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::core::option::Option<IDirectInputDevice8W>, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -9070,7 +9035,6 @@ pub type LPFNSHOWJOYCPL = ::core::option::Option<unsafe extern "system" fn(hwnd:
 pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 pub const MAX_JOYSTRING: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MOUSE_ATTRIBUTES {
     pub MouseIdentifier: u16,
@@ -9078,25 +9042,25 @@ pub struct MOUSE_ATTRIBUTES {
     pub SampleRate: u16,
     pub InputDataQueueLength: u32,
 }
-impl MOUSE_ATTRIBUTES {}
+impl ::core::marker::Copy for MOUSE_ATTRIBUTES {}
+impl ::core::clone::Clone for MOUSE_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSE_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSE_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSE_ATTRIBUTES {}
 impl ::core::default::Default for MOUSE_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MOUSE_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MOUSE_ATTRIBUTES").field("MouseIdentifier", &self.MouseIdentifier).field("NumberOfButtons", &self.NumberOfButtons).field("SampleRate", &self.SampleRate).field("InputDataQueueLength", &self.InputDataQueueLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MOUSE_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.MouseIdentifier == other.MouseIdentifier && self.NumberOfButtons == other.NumberOfButtons && self.SampleRate == other.SampleRate && self.InputDataQueueLength == other.InputDataQueueLength
-    }
-}
-impl ::core::cmp::Eq for MOUSE_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for MOUSE_ATTRIBUTES {
-    type Abi = Self;
 }
 pub const MOUSE_ATTRIBUTES_CHANGED: u32 = 4u32;
 pub const MOUSE_BUTTON_1_DOWN: u32 = 1u32;
@@ -9114,7 +9078,6 @@ pub const MOUSE_HID_HARDWARE: u32 = 128u32;
 pub const MOUSE_HWHEEL: u32 = 2048u32;
 pub const MOUSE_I8042_HARDWARE: u32 = 2u32;
 pub const MOUSE_INPORT_HARDWARE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MOUSE_INPUT_DATA {
     pub UnitId: u16,
@@ -9125,67 +9088,75 @@ pub struct MOUSE_INPUT_DATA {
     pub LastY: i32,
     pub ExtraInformation: u32,
 }
-impl MOUSE_INPUT_DATA {}
+impl ::core::marker::Copy for MOUSE_INPUT_DATA {}
+impl ::core::clone::Clone for MOUSE_INPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_INPUT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSE_INPUT_DATA {}
 impl ::core::default::Default for MOUSE_INPUT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MOUSE_INPUT_DATA {}
-unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union MOUSE_INPUT_DATA_0 {
     pub Buttons: u32,
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
 }
-impl MOUSE_INPUT_DATA_0 {}
+impl ::core::marker::Copy for MOUSE_INPUT_DATA_0 {}
+impl ::core::clone::Clone for MOUSE_INPUT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_INPUT_DATA_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0 {}
 impl ::core::default::Default for MOUSE_INPUT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0 {}
-unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MOUSE_INPUT_DATA_0_0 {
     pub ButtonFlags: u16,
     pub ButtonData: u16,
 }
-impl MOUSE_INPUT_DATA_0_0 {}
+impl ::core::marker::Copy for MOUSE_INPUT_DATA_0_0 {}
+impl ::core::clone::Clone for MOUSE_INPUT_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_INPUT_DATA_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0_0 {}
 impl ::core::default::Default for MOUSE_INPUT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MOUSE_INPUT_DATA_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("ButtonFlags", &self.ButtonFlags).field("ButtonData", &self.ButtonData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ButtonFlags == other.ButtonFlags && self.ButtonData == other.ButtonData
-    }
-}
-impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0_0 {}
-unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0_0 {
-    type Abi = Self;
 }
 pub const MOUSE_LEFT_BUTTON_DOWN: u32 = 1u32;
 pub const MOUSE_LEFT_BUTTON_UP: u32 = 2u32;
@@ -9198,30 +9169,29 @@ pub const MOUSE_RIGHT_BUTTON_DOWN: u32 = 4u32;
 pub const MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 pub const MOUSE_SERIAL_HARDWARE: u32 = 4u32;
 pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-impl MOUSE_UNIT_ID_PARAMETER {}
+impl ::core::marker::Copy for MOUSE_UNIT_ID_PARAMETER {}
+impl ::core::clone::Clone for MOUSE_UNIT_ID_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSE_UNIT_ID_PARAMETER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_UNIT_ID_PARAMETER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSE_UNIT_ID_PARAMETER {}
 impl ::core::default::Default for MOUSE_UNIT_ID_PARAMETER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MOUSE_UNIT_ID_PARAMETER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MOUSE_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId
-    }
-}
-impl ::core::cmp::Eq for MOUSE_UNIT_ID_PARAMETER {}
-unsafe impl ::windows::core::Abi for MOUSE_UNIT_ID_PARAMETER {
-    type Abi = Self;
 }
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
@@ -9229,37 +9199,35 @@ pub const MOUSE_WHEEL: u32 = 1024u32;
 pub type PFN_HidP_GetVersionInternal = ::core::option::Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PHIDP_INSERT_SCANCODES = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct USAGE_AND_PAGE {
     pub Usage: u16,
     pub UsagePage: u16,
 }
-impl USAGE_AND_PAGE {}
+impl ::core::marker::Copy for USAGE_AND_PAGE {}
+impl ::core::clone::Clone for USAGE_AND_PAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for USAGE_AND_PAGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for USAGE_AND_PAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USAGE_AND_PAGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for USAGE_AND_PAGE {}
 impl ::core::default::Default for USAGE_AND_PAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for USAGE_AND_PAGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USAGE_AND_PAGE").field("Usage", &self.Usage).field("UsagePage", &self.UsagePage).finish()
-    }
-}
-impl ::core::cmp::PartialEq for USAGE_AND_PAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Usage == other.Usage && self.UsagePage == other.UsagePage
-    }
-}
-impl ::core::cmp::Eq for USAGE_AND_PAGE {}
-unsafe impl ::windows::core::Abi for USAGE_AND_PAGE {
-    type Abi = Self;
-}
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _HIDP_PREPARSED_DATA(pub u8);
 #[inline]
 pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {

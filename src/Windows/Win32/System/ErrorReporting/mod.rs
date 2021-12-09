@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddERExcludedApplicationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szapplication: Param0) -> super::super::Foundation::BOOL {
@@ -27,74 +27,32 @@ pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EFaultRepRetVal(pub i32);
-pub const frrvOk: EFaultRepRetVal = EFaultRepRetVal(0i32);
-pub const frrvOkManifest: EFaultRepRetVal = EFaultRepRetVal(1i32);
-pub const frrvOkQueued: EFaultRepRetVal = EFaultRepRetVal(2i32);
-pub const frrvErr: EFaultRepRetVal = EFaultRepRetVal(3i32);
-pub const frrvErrNoDW: EFaultRepRetVal = EFaultRepRetVal(4i32);
-pub const frrvErrTimeout: EFaultRepRetVal = EFaultRepRetVal(5i32);
-pub const frrvLaunchDebugger: EFaultRepRetVal = EFaultRepRetVal(6i32);
-pub const frrvOkHeadless: EFaultRepRetVal = EFaultRepRetVal(7i32);
-pub const frrvErrAnotherInstance: EFaultRepRetVal = EFaultRepRetVal(8i32);
-pub const frrvErrNoMemory: EFaultRepRetVal = EFaultRepRetVal(9i32);
-pub const frrvErrDoubleFault: EFaultRepRetVal = EFaultRepRetVal(10i32);
-impl ::core::convert::From<i32> for EFaultRepRetVal {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EFaultRepRetVal {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HREPORT(pub isize);
-impl ::core::default::Default for HREPORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HREPORT {}
-unsafe impl ::windows::core::Abi for HREPORT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HREPORTSTORE(pub isize);
-impl ::core::default::Default for HREPORTSTORE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HREPORTSTORE {}
-unsafe impl ::windows::core::Abi for HREPORTSTORE {
-    type Abi = Self;
-}
+pub type EFaultRepRetVal = i32;
+pub const frrvOk: EFaultRepRetVal = 0i32;
+pub const frrvOkManifest: EFaultRepRetVal = 1i32;
+pub const frrvOkQueued: EFaultRepRetVal = 2i32;
+pub const frrvErr: EFaultRepRetVal = 3i32;
+pub const frrvErrNoDW: EFaultRepRetVal = 4i32;
+pub const frrvErrTimeout: EFaultRepRetVal = 5i32;
+pub const frrvLaunchDebugger: EFaultRepRetVal = 6i32;
+pub const frrvOkHeadless: EFaultRepRetVal = 7i32;
+pub const frrvErrAnotherInstance: EFaultRepRetVal = 8i32;
+pub const frrvErrNoMemory: EFaultRepRetVal = 9i32;
+pub const frrvErrDoubleFault: EFaultRepRetVal = 10i32;
+pub type HREPORT = isize;
+pub type HREPORTSTORE = isize;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: super::super::Foundation::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: super::super::Foundation::PWSTR, pchname: *mut u32, pwszvalue: super::super::Foundation::PWSTR, pchvalue: *mut u32) -> ::windows::core::HRESULT>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct REPORT_STORE_TYPES(pub i32);
-pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(0i32);
-pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(1i32);
-pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(2i32);
-pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(3i32);
-pub const E_STORE_INVALID: REPORT_STORE_TYPES = REPORT_STORE_TYPES(4i32);
-impl ::core::convert::From<i32> for REPORT_STORE_TYPES {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for REPORT_STORE_TYPES {
-    type Abi = Self;
-}
+pub type REPORT_STORE_TYPES = i32;
+pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0i32;
+pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1i32;
+pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2i32;
+pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3i32;
+pub const E_STORE_INVALID: REPORT_STORE_TYPES = 4i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
@@ -109,24 +67,13 @@ pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_CONSENT(pub i32);
-pub const WerConsentNotAsked: WER_CONSENT = WER_CONSENT(1i32);
-pub const WerConsentApproved: WER_CONSENT = WER_CONSENT(2i32);
-pub const WerConsentDenied: WER_CONSENT = WER_CONSENT(3i32);
-pub const WerConsentAlwaysPrompt: WER_CONSENT = WER_CONSENT(4i32);
-pub const WerConsentMax: WER_CONSENT = WER_CONSENT(5i32);
-impl ::core::convert::From<i32> for WER_CONSENT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_CONSENT {
-    type Abi = Self;
-}
+pub type WER_CONSENT = i32;
+pub const WerConsentNotAsked: WER_CONSENT = 1i32;
+pub const WerConsentApproved: WER_CONSENT = 2i32;
+pub const WerConsentDenied: WER_CONSENT = 3i32;
+pub const WerConsentAlwaysPrompt: WER_CONSENT = 4i32;
+pub const WerConsentMax: WER_CONSENT = 5i32;
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
@@ -143,44 +90,31 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub wzPreferredModuleList: [u16; 256],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_DUMP_CUSTOM_OPTIONS {}
+impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_DUMP_CUSTOM_OPTIONS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_DUMP_CUSTOM_OPTIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_DUMP_CUSTOM_OPTIONS")
-            .field("dwSize", &self.dwSize)
-            .field("dwMask", &self.dwMask)
-            .field("dwDumpFlags", &self.dwDumpFlags)
-            .field("bOnlyThisThread", &self.bOnlyThisThread)
-            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
-            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
-            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
-            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
-            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
-            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
-            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
@@ -199,46 +133,31 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwOtherModuleResetFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_DUMP_CUSTOM_OPTIONS_V2 {}
+impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_DUMP_CUSTOM_OPTIONS_V2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_DUMP_CUSTOM_OPTIONS_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwMask", &self.dwMask)
-            .field("dwDumpFlags", &self.dwDumpFlags)
-            .field("bOnlyThisThread", &self.bOnlyThisThread)
-            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
-            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
-            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
-            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
-            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
-            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
-            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
-            .field("dwPreferredModuleResetFlags", &self.dwPreferredModuleResetFlags)
-            .field("dwOtherModuleResetFlags", &self.dwOtherModuleResetFlags)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
@@ -260,83 +179,40 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwThreadID: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_DUMP_CUSTOM_OPTIONS_V3 {}
+impl ::core::marker::Copy for WER_DUMP_CUSTOM_OPTIONS_V3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_DUMP_CUSTOM_OPTIONS_V3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_DUMP_CUSTOM_OPTIONS_V3")
-            .field("dwSize", &self.dwSize)
-            .field("dwMask", &self.dwMask)
-            .field("dwDumpFlags", &self.dwDumpFlags)
-            .field("bOnlyThisThread", &self.bOnlyThisThread)
-            .field("dwExceptionThreadFlags", &self.dwExceptionThreadFlags)
-            .field("dwOtherThreadFlags", &self.dwOtherThreadFlags)
-            .field("dwExceptionThreadExFlags", &self.dwExceptionThreadExFlags)
-            .field("dwOtherThreadExFlags", &self.dwOtherThreadExFlags)
-            .field("dwPreferredModuleFlags", &self.dwPreferredModuleFlags)
-            .field("dwOtherModuleFlags", &self.dwOtherModuleFlags)
-            .field("wzPreferredModuleList", &self.wzPreferredModuleList)
-            .field("dwPreferredModuleResetFlags", &self.dwPreferredModuleResetFlags)
-            .field("dwOtherModuleResetFlags", &self.dwOtherModuleResetFlags)
-            .field("pvDumpKey", &self.pvDumpKey)
-            .field("hSnapshot", &self.hSnapshot)
-            .field("dwThreadID", &self.dwThreadID)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwMask == other.dwMask
-            && self.dwDumpFlags == other.dwDumpFlags
-            && self.bOnlyThisThread == other.bOnlyThisThread
-            && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags
-            && self.dwOtherThreadFlags == other.dwOtherThreadFlags
-            && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags
-            && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags
-            && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags
-            && self.dwOtherModuleFlags == other.dwOtherModuleFlags
-            && self.wzPreferredModuleList == other.wzPreferredModuleList
-            && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags
-            && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
-            && self.pvDumpKey == other.pvDumpKey
-            && self.hSnapshot == other.hSnapshot
-            && self.dwThreadID == other.dwThreadID
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    type Abi = Self;
-}
 pub const WER_DUMP_MASK_START: u32 = 1u32;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_DUMP_TYPE(pub i32);
-pub const WerDumpTypeNone: WER_DUMP_TYPE = WER_DUMP_TYPE(0i32);
-pub const WerDumpTypeMicroDump: WER_DUMP_TYPE = WER_DUMP_TYPE(1i32);
-pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = WER_DUMP_TYPE(2i32);
-pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = WER_DUMP_TYPE(3i32);
-pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = WER_DUMP_TYPE(4i32);
-pub const WerDumpTypeMax: WER_DUMP_TYPE = WER_DUMP_TYPE(5i32);
-impl ::core::convert::From<i32> for WER_DUMP_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_DUMP_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WER_DUMP_TYPE = i32;
+pub const WerDumpTypeNone: WER_DUMP_TYPE = 0i32;
+pub const WerDumpTypeMicroDump: WER_DUMP_TYPE = 1i32;
+pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = 2i32;
+pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = 3i32;
+pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = 4i32;
+pub const WerDumpTypeMax: WER_DUMP_TYPE = 5i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_EXCEPTION_INFORMATION {
@@ -344,144 +220,58 @@ pub struct WER_EXCEPTION_INFORMATION {
     pub bClientPointers: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl WER_EXCEPTION_INFORMATION {}
+impl ::core::marker::Copy for WER_EXCEPTION_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for WER_EXCEPTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::core::Abi for WER_EXCEPTION_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for WER_EXCEPTION_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_EXCEPTION_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for WER_EXCEPTION_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for WER_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for WER_EXCEPTION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_EXCEPTION_INFORMATION").field("pExceptionPointers", &self.pExceptionPointers).field("bClientPointers", &self.bClientPointers).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for WER_EXCEPTION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pExceptionPointers == other.pExceptionPointers && self.bClientPointers == other.bClientPointers
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for WER_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for WER_EXCEPTION_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_FAULT_REPORTING(pub u32);
-pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = WER_FAULT_REPORTING(4u32);
-pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = WER_FAULT_REPORTING(1u32);
-pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = WER_FAULT_REPORTING(2u32);
-pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = WER_FAULT_REPORTING(8u32);
-pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = WER_FAULT_REPORTING(16u32);
-impl ::core::convert::From<u32> for WER_FAULT_REPORTING {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_FAULT_REPORTING {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WER_FAULT_REPORTING {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WER_FAULT_REPORTING {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WER_FAULT_REPORTING {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WER_FAULT_REPORTING {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WER_FAULT_REPORTING {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WER_FAULT_REPORTING = u32;
+pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = 4u32;
+pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = 1u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = 2u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = 8u32;
+pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
 pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
 pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
 pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
 pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_FILE(pub u32);
-pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = WER_FILE(2u32);
-pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = WER_FILE(1u32);
-impl ::core::convert::From<u32> for WER_FILE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_FILE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WER_FILE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WER_FILE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WER_FILE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WER_FILE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WER_FILE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WER_FILE = u32;
+pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = 2u32;
+pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = 1u32;
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_FILE_TYPE(pub i32);
-pub const WerFileTypeMicrodump: WER_FILE_TYPE = WER_FILE_TYPE(1i32);
-pub const WerFileTypeMinidump: WER_FILE_TYPE = WER_FILE_TYPE(2i32);
-pub const WerFileTypeHeapdump: WER_FILE_TYPE = WER_FILE_TYPE(3i32);
-pub const WerFileTypeUserDocument: WER_FILE_TYPE = WER_FILE_TYPE(4i32);
-pub const WerFileTypeOther: WER_FILE_TYPE = WER_FILE_TYPE(5i32);
-pub const WerFileTypeTriagedump: WER_FILE_TYPE = WER_FILE_TYPE(6i32);
-pub const WerFileTypeCustomDump: WER_FILE_TYPE = WER_FILE_TYPE(7i32);
-pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = WER_FILE_TYPE(8i32);
-pub const WerFileTypeEtlTrace: WER_FILE_TYPE = WER_FILE_TYPE(9i32);
-pub const WerFileTypeMax: WER_FILE_TYPE = WER_FILE_TYPE(10i32);
-impl ::core::convert::From<i32> for WER_FILE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_FILE_TYPE {
-    type Abi = Self;
-}
+pub type WER_FILE_TYPE = i32;
+pub const WerFileTypeMicrodump: WER_FILE_TYPE = 1i32;
+pub const WerFileTypeMinidump: WER_FILE_TYPE = 2i32;
+pub const WerFileTypeHeapdump: WER_FILE_TYPE = 3i32;
+pub const WerFileTypeUserDocument: WER_FILE_TYPE = 4i32;
+pub const WerFileTypeOther: WER_FILE_TYPE = 5i32;
+pub const WerFileTypeTriagedump: WER_FILE_TYPE = 6i32;
+pub const WerFileTypeCustomDump: WER_FILE_TYPE = 7i32;
+pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = 8i32;
+pub const WerFileTypeEtlTrace: WER_FILE_TYPE = 9i32;
+pub const WerFileTypeMax: WER_FILE_TYPE = 10i32;
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
 pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
 pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
@@ -510,21 +300,10 @@ pub const WER_P6: u32 = 6u32;
 pub const WER_P7: u32 = 7u32;
 pub const WER_P8: u32 = 8u32;
 pub const WER_P9: u32 = 9u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_REGISTER_FILE_TYPE(pub i32);
-pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(1i32);
-pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(2i32);
-pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(3i32);
-impl ::core::convert::From<i32> for WER_REGISTER_FILE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_REGISTER_FILE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WER_REGISTER_FILE_TYPE = i32;
+pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = 1i32;
+pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = 2i32;
+pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION {
@@ -538,32 +317,31 @@ pub struct WER_REPORT_INFORMATION {
     pub hwndParent: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_INFORMATION {}
+impl ::core::marker::Copy for WER_REPORT_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_INFORMATION").field("dwSize", &self.dwSize).field("hProcess", &self.hProcess).field("wzConsentKey", &self.wzConsentKey).field("wzFriendlyEventName", &self.wzFriendlyEventName).field("wzApplicationName", &self.wzApplicationName).field("wzApplicationPath", &self.wzApplicationPath).field("wzDescription", &self.wzDescription).field("hwndParent", &self.hwndParent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION_V3 {
@@ -579,43 +357,31 @@ pub struct WER_REPORT_INFORMATION_V3 {
     pub wzNamespaceGroup: [u16; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_INFORMATION_V3 {}
+impl ::core::marker::Copy for WER_REPORT_INFORMATION_V3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_INFORMATION_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION_V3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_INFORMATION_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_INFORMATION_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_INFORMATION_V3")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .field("wzNamespacePartner", &self.wzNamespacePartner)
-            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_INFORMATION_V3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION_V4 {
@@ -634,46 +400,31 @@ pub struct WER_REPORT_INFORMATION_V4 {
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_INFORMATION_V4 {}
+impl ::core::marker::Copy for WER_REPORT_INFORMATION_V4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_INFORMATION_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION_V4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_INFORMATION_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_INFORMATION_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_INFORMATION_V4")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .field("wzNamespacePartner", &self.wzNamespacePartner)
-            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
-            .field("rgbApplicationIdentity", &self.rgbApplicationIdentity)
-            .field("hSnapshot", &self.hSnapshot)
-            .field("hDeleteFilesImpersonationToken", &self.hDeleteFilesImpersonationToken)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_INFORMATION_V4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION_V5 {
@@ -693,47 +444,31 @@ pub struct WER_REPORT_INFORMATION_V5 {
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_INFORMATION_V5 {}
+impl ::core::marker::Copy for WER_REPORT_INFORMATION_V5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_INFORMATION_V5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION_V5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_INFORMATION_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_INFORMATION_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V5 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_INFORMATION_V5")
-            .field("dwSize", &self.dwSize)
-            .field("hProcess", &self.hProcess)
-            .field("wzConsentKey", &self.wzConsentKey)
-            .field("wzFriendlyEventName", &self.wzFriendlyEventName)
-            .field("wzApplicationName", &self.wzApplicationName)
-            .field("wzApplicationPath", &self.wzApplicationPath)
-            .field("wzDescription", &self.wzDescription)
-            .field("hwndParent", &self.hwndParent)
-            .field("wzNamespacePartner", &self.wzNamespacePartner)
-            .field("wzNamespaceGroup", &self.wzNamespaceGroup)
-            .field("rgbApplicationIdentity", &self.rgbApplicationIdentity)
-            .field("hSnapshot", &self.hSnapshot)
-            .field("hDeleteFilesImpersonationToken", &self.hDeleteFilesImpersonationToken)
-            .field("submitResultMax", &self.submitResultMax)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken && self.submitResultMax == other.submitResultMax
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_INFORMATION_V5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_METADATA_V1 {
@@ -744,32 +479,31 @@ pub struct WER_REPORT_METADATA_V1 {
     pub SizeInBytes: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_METADATA_V1 {}
+impl ::core::marker::Copy for WER_REPORT_METADATA_V1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_METADATA_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_METADATA_V1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_METADATA_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_METADATA_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_METADATA_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_METADATA_V1").field("Signature", &self.Signature).field("BucketId", &self.BucketId).field("ReportId", &self.ReportId).field("CreationTime", &self.CreationTime).field("SizeInBytes", &self.SizeInBytes).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_METADATA_V1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_METADATA_V2 {
@@ -786,44 +520,31 @@ pub struct WER_REPORT_METADATA_V2 {
     pub FileNames: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_METADATA_V2 {}
+impl ::core::marker::Copy for WER_REPORT_METADATA_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_METADATA_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_METADATA_V2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_METADATA_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_METADATA_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_METADATA_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_METADATA_V2")
-            .field("Signature", &self.Signature)
-            .field("BucketId", &self.BucketId)
-            .field("ReportId", &self.ReportId)
-            .field("CreationTime", &self.CreationTime)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .field("CabId", &self.CabId)
-            .field("ReportStatus", &self.ReportStatus)
-            .field("ReportIntegratorId", &self.ReportIntegratorId)
-            .field("NumberOfFiles", &self.NumberOfFiles)
-            .field("SizeOfFileNames", &self.SizeOfFileNames)
-            .field("FileNames", &self.FileNames)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_METADATA_V2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_METADATA_V3 {
@@ -846,141 +567,100 @@ pub struct WER_REPORT_METADATA_V3 {
     pub LegacyBucketId: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WER_REPORT_METADATA_V3 {}
+impl ::core::marker::Copy for WER_REPORT_METADATA_V3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WER_REPORT_METADATA_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_METADATA_V3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WER_REPORT_METADATA_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WER_REPORT_METADATA_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WER_REPORT_METADATA_V3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_METADATA_V3")
-            .field("Signature", &self.Signature)
-            .field("BucketId", &self.BucketId)
-            .field("ReportId", &self.ReportId)
-            .field("CreationTime", &self.CreationTime)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .field("CabId", &self.CabId)
-            .field("ReportStatus", &self.ReportStatus)
-            .field("ReportIntegratorId", &self.ReportIntegratorId)
-            .field("NumberOfFiles", &self.NumberOfFiles)
-            .field("SizeOfFileNames", &self.SizeOfFileNames)
-            .field("FileNames", &self.FileNames)
-            .field("FriendlyEventName", &self.FriendlyEventName)
-            .field("ApplicationName", &self.ApplicationName)
-            .field("ApplicationPath", &self.ApplicationPath)
-            .field("Description", &self.Description)
-            .field("BucketIdString", &self.BucketIdString)
-            .field("LegacyBucketId", &self.LegacyBucketId)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames && self.FriendlyEventName == other.FriendlyEventName && self.ApplicationName == other.ApplicationName && self.ApplicationPath == other.ApplicationPath && self.Description == other.Description && self.BucketIdString == other.BucketIdString && self.LegacyBucketId == other.LegacyBucketId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WER_REPORT_METADATA_V3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WER_REPORT_PARAMETER {
     pub Name: [u16; 129],
     pub Value: [u16; 260],
 }
-impl WER_REPORT_PARAMETER {}
+impl ::core::marker::Copy for WER_REPORT_PARAMETER {}
+impl ::core::clone::Clone for WER_REPORT_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WER_REPORT_PARAMETER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WER_REPORT_PARAMETER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_PARAMETER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WER_REPORT_PARAMETER {}
 impl ::core::default::Default for WER_REPORT_PARAMETER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WER_REPORT_PARAMETER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_PARAMETER").field("Name", &self.Name).field("Value", &self.Value).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WER_REPORT_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for WER_REPORT_PARAMETER {}
-unsafe impl ::windows::core::Abi for WER_REPORT_PARAMETER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WER_REPORT_SIGNATURE {
     pub EventName: [u16; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
 }
-impl WER_REPORT_SIGNATURE {}
+impl ::core::marker::Copy for WER_REPORT_SIGNATURE {}
+impl ::core::clone::Clone for WER_REPORT_SIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WER_REPORT_SIGNATURE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WER_REPORT_SIGNATURE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_SIGNATURE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WER_REPORT_SIGNATURE {}
 impl ::core::default::Default for WER_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WER_REPORT_SIGNATURE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WER_REPORT_SIGNATURE").field("EventName", &self.EventName).field("Parameters", &self.Parameters).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WER_REPORT_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.EventName == other.EventName && self.Parameters == other.Parameters
-    }
-}
-impl ::core::cmp::Eq for WER_REPORT_SIGNATURE {}
-unsafe impl ::windows::core::Abi for WER_REPORT_SIGNATURE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_REPORT_TYPE(pub i32);
-pub const WerReportNonCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(0i32);
-pub const WerReportCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(1i32);
-pub const WerReportApplicationCrash: WER_REPORT_TYPE = WER_REPORT_TYPE(2i32);
-pub const WerReportApplicationHang: WER_REPORT_TYPE = WER_REPORT_TYPE(3i32);
-pub const WerReportKernel: WER_REPORT_TYPE = WER_REPORT_TYPE(4i32);
-pub const WerReportInvalid: WER_REPORT_TYPE = WER_REPORT_TYPE(5i32);
-impl ::core::convert::From<i32> for WER_REPORT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_REPORT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_REPORT_UI(pub i32);
-pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = WER_REPORT_UI(1i32);
-pub const WerUIIconFilePath: WER_REPORT_UI = WER_REPORT_UI(2i32);
-pub const WerUIConsentDlgHeader: WER_REPORT_UI = WER_REPORT_UI(3i32);
-pub const WerUIConsentDlgBody: WER_REPORT_UI = WER_REPORT_UI(4i32);
-pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = WER_REPORT_UI(5i32);
-pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = WER_REPORT_UI(6i32);
-pub const WerUICloseText: WER_REPORT_UI = WER_REPORT_UI(7i32);
-pub const WerUICloseDlgHeader: WER_REPORT_UI = WER_REPORT_UI(8i32);
-pub const WerUICloseDlgBody: WER_REPORT_UI = WER_REPORT_UI(9i32);
-pub const WerUICloseDlgButtonText: WER_REPORT_UI = WER_REPORT_UI(10i32);
-pub const WerUIMax: WER_REPORT_UI = WER_REPORT_UI(11i32);
-impl ::core::convert::From<i32> for WER_REPORT_UI {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_REPORT_UI {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WER_REPORT_TYPE = i32;
+pub const WerReportNonCritical: WER_REPORT_TYPE = 0i32;
+pub const WerReportCritical: WER_REPORT_TYPE = 1i32;
+pub const WerReportApplicationCrash: WER_REPORT_TYPE = 2i32;
+pub const WerReportApplicationHang: WER_REPORT_TYPE = 3i32;
+pub const WerReportKernel: WER_REPORT_TYPE = 4i32;
+pub const WerReportInvalid: WER_REPORT_TYPE = 5i32;
+pub type WER_REPORT_UI = i32;
+pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = 1i32;
+pub const WerUIIconFilePath: WER_REPORT_UI = 2i32;
+pub const WerUIConsentDlgHeader: WER_REPORT_UI = 3i32;
+pub const WerUIConsentDlgBody: WER_REPORT_UI = 4i32;
+pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = 5i32;
+pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = 6i32;
+pub const WerUICloseText: WER_REPORT_UI = 7i32;
+pub const WerUICloseDlgHeader: WER_REPORT_UI = 8i32;
+pub const WerUICloseDlgBody: WER_REPORT_UI = 9i32;
+pub const WerUICloseDlgButtonText: WER_REPORT_UI = 10i32;
+pub const WerUIMax: WER_REPORT_UI = 11i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
@@ -994,104 +674,62 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwReserved: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl WER_RUNTIME_EXCEPTION_INFORMATION {}
+impl ::core::marker::Copy for WER_RUNTIME_EXCEPTION_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::core::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for WER_RUNTIME_EXCEPTION_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_RUNTIME_EXCEPTION_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for WER_RUNTIME_EXCEPTION_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for WER_RUNTIME_EXCEPTION_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for WER_RUNTIME_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
-    type Abi = Self;
-}
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_SUBMIT_FLAGS(pub u32);
-pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(16u32);
-pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(1u32);
-pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2u32);
-pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(256u32);
-pub const WER_SUBMIT_NO_CLOSE_UI: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(64u32);
-pub const WER_SUBMIT_NO_QUEUE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(128u32);
-pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(32u32);
-pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(1024u32);
-pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4u32);
-pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8u32);
-pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(512u32);
-pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2048u32);
-pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4096u32);
-pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8192u32);
-impl ::core::convert::From<u32> for WER_SUBMIT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_SUBMIT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WER_SUBMIT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WER_SUBMIT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WER_SUBMIT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WER_SUBMIT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WER_SUBMIT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WER_SUBMIT_RESULT(pub i32);
-pub const WerReportQueued: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(1i32);
-pub const WerReportUploaded: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(2i32);
-pub const WerReportDebug: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(3i32);
-pub const WerReportFailed: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(4i32);
-pub const WerDisabled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(5i32);
-pub const WerReportCancelled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(6i32);
-pub const WerDisabledQueue: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(7i32);
-pub const WerReportAsync: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(8i32);
-pub const WerCustomAction: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(9i32);
-pub const WerThrottled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(10i32);
-pub const WerReportUploadedCab: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(11i32);
-pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(12i32);
-pub const WerSubmitResultMax: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(13i32);
-impl ::core::convert::From<i32> for WER_SUBMIT_RESULT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WER_SUBMIT_RESULT {
-    type Abi = Self;
-}
+pub type WER_SUBMIT_FLAGS = u32;
+pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = 16u32;
+pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = 1u32;
+pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = 2u32;
+pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = 256u32;
+pub const WER_SUBMIT_NO_CLOSE_UI: WER_SUBMIT_FLAGS = 64u32;
+pub const WER_SUBMIT_NO_QUEUE: WER_SUBMIT_FLAGS = 128u32;
+pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = 32u32;
+pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = 1024u32;
+pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = 4u32;
+pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = 8u32;
+pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = 512u32;
+pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = 2048u32;
+pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = 4096u32;
+pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = 8192u32;
+pub type WER_SUBMIT_RESULT = i32;
+pub const WerReportQueued: WER_SUBMIT_RESULT = 1i32;
+pub const WerReportUploaded: WER_SUBMIT_RESULT = 2i32;
+pub const WerReportDebug: WER_SUBMIT_RESULT = 3i32;
+pub const WerReportFailed: WER_SUBMIT_RESULT = 4i32;
+pub const WerDisabled: WER_SUBMIT_RESULT = 5i32;
+pub const WerReportCancelled: WER_SUBMIT_RESULT = 6i32;
+pub const WerDisabledQueue: WER_SUBMIT_RESULT = 7i32;
+pub const WerReportAsync: WER_SUBMIT_RESULT = 8i32;
+pub const WerCustomAction: WER_SUBMIT_RESULT = 9i32;
+pub const WerThrottled: WER_SUBMIT_RESULT = 10i32;
+pub const WerReportUploadedCab: WER_SUBMIT_RESULT = 11i32;
+pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = 12i32;
+pub const WerSubmitResultMax: WER_SUBMIT_RESULT = 13i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerAddExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {

@@ -1,21 +1,11 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct D3DCOMPILER_STRIP_FLAGS(pub i32);
-pub const D3DCOMPILER_STRIP_REFLECTION_DATA: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(1i32);
-pub const D3DCOMPILER_STRIP_DEBUG_INFO: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(2i32);
-pub const D3DCOMPILER_STRIP_TEST_BLOBS: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(4i32);
-pub const D3DCOMPILER_STRIP_PRIVATE_DATA: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(8i32);
-pub const D3DCOMPILER_STRIP_ROOT_SIGNATURE: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(16i32);
-pub const D3DCOMPILER_STRIP_FORCE_DWORD: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(2147483647i32);
-impl ::core::convert::From<i32> for D3DCOMPILER_STRIP_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for D3DCOMPILER_STRIP_FLAGS {
-    type Abi = Self;
-}
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type D3DCOMPILER_STRIP_FLAGS = i32;
+pub const D3DCOMPILER_STRIP_REFLECTION_DATA: D3DCOMPILER_STRIP_FLAGS = 1i32;
+pub const D3DCOMPILER_STRIP_DEBUG_INFO: D3DCOMPILER_STRIP_FLAGS = 2i32;
+pub const D3DCOMPILER_STRIP_TEST_BLOBS: D3DCOMPILER_STRIP_FLAGS = 4i32;
+pub const D3DCOMPILER_STRIP_PRIVATE_DATA: D3DCOMPILER_STRIP_FLAGS = 8i32;
+pub const D3DCOMPILER_STRIP_ROOT_SIGNATURE: D3DCOMPILER_STRIP_FLAGS = 16i32;
+pub const D3DCOMPILER_STRIP_FORCE_DWORD: D3DCOMPILER_STRIP_FLAGS = 2147483647i32;
 pub const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152u32;
 pub const D3DCOMPILE_AVOID_FLOW_CONTROL: u32 = 512u32;
 pub const D3DCOMPILE_DEBUG: u32 = 1u32;
@@ -417,34 +407,24 @@ pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct D3D_BLOB_PART(pub i32);
-pub const D3D_BLOB_INPUT_SIGNATURE_BLOB: D3D_BLOB_PART = D3D_BLOB_PART(0i32);
-pub const D3D_BLOB_OUTPUT_SIGNATURE_BLOB: D3D_BLOB_PART = D3D_BLOB_PART(1i32);
-pub const D3D_BLOB_INPUT_AND_OUTPUT_SIGNATURE_BLOB: D3D_BLOB_PART = D3D_BLOB_PART(2i32);
-pub const D3D_BLOB_PATCH_CONSTANT_SIGNATURE_BLOB: D3D_BLOB_PART = D3D_BLOB_PART(3i32);
-pub const D3D_BLOB_ALL_SIGNATURE_BLOB: D3D_BLOB_PART = D3D_BLOB_PART(4i32);
-pub const D3D_BLOB_DEBUG_INFO: D3D_BLOB_PART = D3D_BLOB_PART(5i32);
-pub const D3D_BLOB_LEGACY_SHADER: D3D_BLOB_PART = D3D_BLOB_PART(6i32);
-pub const D3D_BLOB_XNA_PREPASS_SHADER: D3D_BLOB_PART = D3D_BLOB_PART(7i32);
-pub const D3D_BLOB_XNA_SHADER: D3D_BLOB_PART = D3D_BLOB_PART(8i32);
-pub const D3D_BLOB_PDB: D3D_BLOB_PART = D3D_BLOB_PART(9i32);
-pub const D3D_BLOB_PRIVATE_DATA: D3D_BLOB_PART = D3D_BLOB_PART(10i32);
-pub const D3D_BLOB_ROOT_SIGNATURE: D3D_BLOB_PART = D3D_BLOB_PART(11i32);
-pub const D3D_BLOB_DEBUG_NAME: D3D_BLOB_PART = D3D_BLOB_PART(12i32);
-pub const D3D_BLOB_TEST_ALTERNATE_SHADER: D3D_BLOB_PART = D3D_BLOB_PART(32768i32);
-pub const D3D_BLOB_TEST_COMPILE_DETAILS: D3D_BLOB_PART = D3D_BLOB_PART(32769i32);
-pub const D3D_BLOB_TEST_COMPILE_PERF: D3D_BLOB_PART = D3D_BLOB_PART(32770i32);
-pub const D3D_BLOB_TEST_COMPILE_REPORT: D3D_BLOB_PART = D3D_BLOB_PART(32771i32);
-impl ::core::convert::From<i32> for D3D_BLOB_PART {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for D3D_BLOB_PART {
-    type Abi = Self;
-}
+pub type D3D_BLOB_PART = i32;
+pub const D3D_BLOB_INPUT_SIGNATURE_BLOB: D3D_BLOB_PART = 0i32;
+pub const D3D_BLOB_OUTPUT_SIGNATURE_BLOB: D3D_BLOB_PART = 1i32;
+pub const D3D_BLOB_INPUT_AND_OUTPUT_SIGNATURE_BLOB: D3D_BLOB_PART = 2i32;
+pub const D3D_BLOB_PATCH_CONSTANT_SIGNATURE_BLOB: D3D_BLOB_PART = 3i32;
+pub const D3D_BLOB_ALL_SIGNATURE_BLOB: D3D_BLOB_PART = 4i32;
+pub const D3D_BLOB_DEBUG_INFO: D3D_BLOB_PART = 5i32;
+pub const D3D_BLOB_LEGACY_SHADER: D3D_BLOB_PART = 6i32;
+pub const D3D_BLOB_XNA_PREPASS_SHADER: D3D_BLOB_PART = 7i32;
+pub const D3D_BLOB_XNA_SHADER: D3D_BLOB_PART = 8i32;
+pub const D3D_BLOB_PDB: D3D_BLOB_PART = 9i32;
+pub const D3D_BLOB_PRIVATE_DATA: D3D_BLOB_PART = 10i32;
+pub const D3D_BLOB_ROOT_SIGNATURE: D3D_BLOB_PART = 11i32;
+pub const D3D_BLOB_DEBUG_NAME: D3D_BLOB_PART = 12i32;
+pub const D3D_BLOB_TEST_ALTERNATE_SHADER: D3D_BLOB_PART = 32768i32;
+pub const D3D_BLOB_TEST_COMPILE_DETAILS: D3D_BLOB_PART = 32769i32;
+pub const D3D_BLOB_TEST_COMPILE_PERF: D3D_BLOB_PART = 32770i32;
+pub const D3D_BLOB_TEST_COMPILE_REPORT: D3D_BLOB_PART = 32771i32;
 pub const D3D_COMPILER_VERSION: u32 = 47u32;
 pub const D3D_COMPRESS_SHADER_KEEP_ALL_PARTS: u32 = 1u32;
 pub const D3D_DISASM_DISABLE_DEBUG_INFO: u32 = 16u32;
@@ -456,35 +436,34 @@ pub const D3D_DISASM_ENABLE_INSTRUCTION_OFFSET: u32 = 32u32;
 pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64u32;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: *mut ::core::ffi::c_void,
     pub BytecodeLength: usize,
 }
-impl D3D_SHADER_DATA {}
+impl ::core::marker::Copy for D3D_SHADER_DATA {}
+impl ::core::clone::Clone for D3D_SHADER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D3D_SHADER_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for D3D_SHADER_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D_SHADER_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for D3D_SHADER_DATA {}
 impl ::core::default::Default for D3D_SHADER_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for D3D_SHADER_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D_SHADER_DATA").field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for D3D_SHADER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBytecode == other.pBytecode && self.BytecodeLength == other.BytecodeLength
-    }
-}
-impl ::core::cmp::Eq for D3D_SHADER_DATA {}
-unsafe impl ::windows::core::Abi for D3D_SHADER_DATA {
-    type Abi = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
-pub type pD3DCompile = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type pD3DCompile = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::core::option::Option<super::ID3DInclude>, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type pD3DDisassemble = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type pD3DDisassemble = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type pD3DPreprocess = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, ppcodetext: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type pD3DPreprocess = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::core::option::Option<super::ID3DInclude>, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::HRESULT>;

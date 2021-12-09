@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -30,59 +30,48 @@ pub unsafe fn AssociateColorProfileWithDeviceW<'a, Param0: ::windows::core::Into
     unimplemented!("Unsupported target OS");
 }
 pub const BEST_MODE: u32 = 3u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BMFORMAT(pub i32);
-pub const BM_x555RGB: BMFORMAT = BMFORMAT(0i32);
-pub const BM_x555XYZ: BMFORMAT = BMFORMAT(257i32);
-pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258i32);
-pub const BM_x555Lab: BMFORMAT = BMFORMAT(259i32);
-pub const BM_x555G3CH: BMFORMAT = BMFORMAT(260i32);
-pub const BM_RGBTRIPLETS: BMFORMAT = BMFORMAT(2i32);
-pub const BM_BGRTRIPLETS: BMFORMAT = BMFORMAT(4i32);
-pub const BM_XYZTRIPLETS: BMFORMAT = BMFORMAT(513i32);
-pub const BM_YxyTRIPLETS: BMFORMAT = BMFORMAT(514i32);
-pub const BM_LabTRIPLETS: BMFORMAT = BMFORMAT(515i32);
-pub const BM_G3CHTRIPLETS: BMFORMAT = BMFORMAT(516i32);
-pub const BM_5CHANNEL: BMFORMAT = BMFORMAT(517i32);
-pub const BM_6CHANNEL: BMFORMAT = BMFORMAT(518i32);
-pub const BM_7CHANNEL: BMFORMAT = BMFORMAT(519i32);
-pub const BM_8CHANNEL: BMFORMAT = BMFORMAT(520i32);
-pub const BM_GRAY: BMFORMAT = BMFORMAT(521i32);
-pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8i32);
-pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16i32);
-pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772i32);
-pub const BM_KYMCQUADS: BMFORMAT = BMFORMAT(773i32);
-pub const BM_CMYKQUADS: BMFORMAT = BMFORMAT(32i32);
-pub const BM_10b_RGB: BMFORMAT = BMFORMAT(9i32);
-pub const BM_10b_XYZ: BMFORMAT = BMFORMAT(1025i32);
-pub const BM_10b_Yxy: BMFORMAT = BMFORMAT(1026i32);
-pub const BM_10b_Lab: BMFORMAT = BMFORMAT(1027i32);
-pub const BM_10b_G3CH: BMFORMAT = BMFORMAT(1028i32);
-pub const BM_NAMED_INDEX: BMFORMAT = BMFORMAT(1029i32);
-pub const BM_16b_RGB: BMFORMAT = BMFORMAT(10i32);
-pub const BM_16b_XYZ: BMFORMAT = BMFORMAT(1281i32);
-pub const BM_16b_Yxy: BMFORMAT = BMFORMAT(1282i32);
-pub const BM_16b_Lab: BMFORMAT = BMFORMAT(1283i32);
-pub const BM_16b_G3CH: BMFORMAT = BMFORMAT(1284i32);
-pub const BM_16b_GRAY: BMFORMAT = BMFORMAT(1285i32);
-pub const BM_565RGB: BMFORMAT = BMFORMAT(1i32);
-pub const BM_32b_scRGB: BMFORMAT = BMFORMAT(1537i32);
-pub const BM_32b_scARGB: BMFORMAT = BMFORMAT(1538i32);
-pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = BMFORMAT(1539i32);
-pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540i32);
-pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793i32);
-pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794i32);
-pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795i32);
-impl ::core::convert::From<i32> for BMFORMAT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BMFORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type BMFORMAT = i32;
+pub const BM_x555RGB: BMFORMAT = 0i32;
+pub const BM_x555XYZ: BMFORMAT = 257i32;
+pub const BM_x555Yxy: BMFORMAT = 258i32;
+pub const BM_x555Lab: BMFORMAT = 259i32;
+pub const BM_x555G3CH: BMFORMAT = 260i32;
+pub const BM_RGBTRIPLETS: BMFORMAT = 2i32;
+pub const BM_BGRTRIPLETS: BMFORMAT = 4i32;
+pub const BM_XYZTRIPLETS: BMFORMAT = 513i32;
+pub const BM_YxyTRIPLETS: BMFORMAT = 514i32;
+pub const BM_LabTRIPLETS: BMFORMAT = 515i32;
+pub const BM_G3CHTRIPLETS: BMFORMAT = 516i32;
+pub const BM_5CHANNEL: BMFORMAT = 517i32;
+pub const BM_6CHANNEL: BMFORMAT = 518i32;
+pub const BM_7CHANNEL: BMFORMAT = 519i32;
+pub const BM_8CHANNEL: BMFORMAT = 520i32;
+pub const BM_GRAY: BMFORMAT = 521i32;
+pub const BM_xRGBQUADS: BMFORMAT = 8i32;
+pub const BM_xBGRQUADS: BMFORMAT = 16i32;
+pub const BM_xG3CHQUADS: BMFORMAT = 772i32;
+pub const BM_KYMCQUADS: BMFORMAT = 773i32;
+pub const BM_CMYKQUADS: BMFORMAT = 32i32;
+pub const BM_10b_RGB: BMFORMAT = 9i32;
+pub const BM_10b_XYZ: BMFORMAT = 1025i32;
+pub const BM_10b_Yxy: BMFORMAT = 1026i32;
+pub const BM_10b_Lab: BMFORMAT = 1027i32;
+pub const BM_10b_G3CH: BMFORMAT = 1028i32;
+pub const BM_NAMED_INDEX: BMFORMAT = 1029i32;
+pub const BM_16b_RGB: BMFORMAT = 10i32;
+pub const BM_16b_XYZ: BMFORMAT = 1281i32;
+pub const BM_16b_Yxy: BMFORMAT = 1282i32;
+pub const BM_16b_Lab: BMFORMAT = 1283i32;
+pub const BM_16b_G3CH: BMFORMAT = 1284i32;
+pub const BM_16b_GRAY: BMFORMAT = 1285i32;
+pub const BM_565RGB: BMFORMAT = 1i32;
+pub const BM_32b_scRGB: BMFORMAT = 1537i32;
+pub const BM_32b_scARGB: BMFORMAT = 1538i32;
+pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = 1539i32;
+pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = 1540i32;
+pub const BM_R10G10B10A2: BMFORMAT = 1793i32;
+pub const BM_R10G10B10A2_XR: BMFORMAT = 1794i32;
+pub const BM_R16G16B16A16_FLOAT: BMFORMAT = 1795i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BlackInformation {
@@ -90,30 +79,30 @@ pub struct BlackInformation {
     pub blackWeight: f32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BlackInformation {}
+impl ::core::marker::Copy for BlackInformation {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BlackInformation {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for BlackInformation {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BlackInformation {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BlackInformation").field("fBlackOnly", &self.fBlackOnly).field("blackWeight", &self.blackWeight).finish()
-    }
+unsafe impl ::windows::core::Abi for BlackInformation {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BlackInformation {
     fn eq(&self, other: &Self) -> bool {
-        self.fBlackOnly == other.fBlackOnly && self.blackWeight == other.blackWeight
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BlackInformation>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BlackInformation {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BlackInformation {
-    type Abi = Self;
+impl ::core::default::Default for BlackInformation {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const CATID_WcsPlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 #[cfg(feature = "Win32_Foundation")]
@@ -433,7 +422,6 @@ pub unsafe fn CMTranslateRGBsExt<'a, Param10: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CMYKCOLOR {
     pub cyan: u16,
@@ -441,27 +429,26 @@ pub struct CMYKCOLOR {
     pub yellow: u16,
     pub black: u16,
 }
-impl CMYKCOLOR {}
+impl ::core::marker::Copy for CMYKCOLOR {}
+impl ::core::clone::Clone for CMYKCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CMYKCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CMYKCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMYKCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CMYKCOLOR {}
 impl ::core::default::Default for CMYKCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CMYKCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CMYKCOLOR").field("cyan", &self.cyan).field("magenta", &self.magenta).field("yellow", &self.yellow).field("black", &self.black).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CMYKCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cyan == other.cyan && self.magenta == other.magenta && self.yellow == other.yellow && self.black == other.black
-    }
-}
-impl ::core::cmp::Eq for CMYKCOLOR {}
-unsafe impl ::windows::core::Abi for CMYKCOLOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union COLOR {
     pub gray: GRAYCOLOR,
@@ -475,66 +462,59 @@ pub union COLOR {
     pub hifi: HiFiCOLOR,
     pub Anonymous: COLOR_0,
 }
-impl COLOR {}
+impl ::core::marker::Copy for COLOR {}
+impl ::core::clone::Clone for COLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COLOR {}
 impl ::core::default::Default for COLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for COLOR {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for COLOR {}
-unsafe impl ::windows::core::Abi for COLOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut ::core::ffi::c_void,
 }
-impl COLOR_0 {}
+impl ::core::marker::Copy for COLOR_0 {}
+impl ::core::clone::Clone for COLOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COLOR_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COLOR_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLOR_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COLOR_0 {}
 impl ::core::default::Default for COLOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for COLOR_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
-    }
-}
-impl ::core::cmp::PartialEq for COLOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
-    }
-}
-impl ::core::cmp::Eq for COLOR_0 {}
-unsafe impl ::windows::core::Abi for COLOR_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COLORDATATYPE(pub i32);
-pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1i32);
-pub const COLOR_WORD: COLORDATATYPE = COLORDATATYPE(2i32);
-pub const COLOR_FLOAT: COLORDATATYPE = COLORDATATYPE(3i32);
-pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4i32);
-pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5i32);
-pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6i32);
-pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7i32);
-impl ::core::convert::From<i32> for COLORDATATYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COLORDATATYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type COLORDATATYPE = i32;
+pub const COLOR_BYTE: COLORDATATYPE = 1i32;
+pub const COLOR_WORD: COLORDATATYPE = 2i32;
+pub const COLOR_FLOAT: COLORDATATYPE = 3i32;
+pub const COLOR_S2DOT13FIXED: COLORDATATYPE = 4i32;
+pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = 5i32;
+pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = 6i32;
+pub const COLOR_FLOAT16: COLORDATATYPE = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct COLORMATCHSETUPA {
@@ -559,68 +539,31 @@ pub struct COLORMATCHSETUPA {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl COLORMATCHSETUPA {}
+impl ::core::marker::Copy for COLORMATCHSETUPA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for COLORMATCHSETUPA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::PartialEq for COLORMATCHSETUPA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORMATCHSETUPA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::Eq for COLORMATCHSETUPA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COLORMATCHSETUPA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for COLORMATCHSETUPA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COLORMATCHSETUPA")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pSourceName", &self.pSourceName)
-            .field("pDisplayName", &self.pDisplayName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("dwRenderIntent", &self.dwRenderIntent)
-            .field("dwProofingIntent", &self.dwProofingIntent)
-            .field("pMonitorProfile", &self.pMonitorProfile)
-            .field("ccMonitorProfile", &self.ccMonitorProfile)
-            .field("pPrinterProfile", &self.pPrinterProfile)
-            .field("ccPrinterProfile", &self.ccPrinterProfile)
-            .field("pTargetProfile", &self.pTargetProfile)
-            .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lParam", &self.lParam)
-            .field("lParamApplyCallback", &self.lParamApplyCallback)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for COLORMATCHSETUPA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFlags == other.dwFlags
-            && self.hwndOwner == other.hwndOwner
-            && self.pSourceName == other.pSourceName
-            && self.pDisplayName == other.pDisplayName
-            && self.pPrinterName == other.pPrinterName
-            && self.dwRenderIntent == other.dwRenderIntent
-            && self.dwProofingIntent == other.dwProofingIntent
-            && self.pMonitorProfile == other.pMonitorProfile
-            && self.ccMonitorProfile == other.ccMonitorProfile
-            && self.pPrinterProfile == other.pPrinterProfile
-            && self.ccPrinterProfile == other.ccPrinterProfile
-            && self.pTargetProfile == other.pTargetProfile
-            && self.ccTargetProfile == other.ccTargetProfile
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lParam == other.lParam
-            && self.lpfnApplyCallback.map(|f| f as usize) == other.lpfnApplyCallback.map(|f| f as usize)
-            && self.lParamApplyCallback == other.lParamApplyCallback
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for COLORMATCHSETUPA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct COLORMATCHSETUPW {
@@ -645,139 +588,63 @@ pub struct COLORMATCHSETUPW {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl COLORMATCHSETUPW {}
+impl ::core::marker::Copy for COLORMATCHSETUPW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for COLORMATCHSETUPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::core::Abi for COLORMATCHSETUPW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::PartialEq for COLORMATCHSETUPW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORMATCHSETUPW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::Eq for COLORMATCHSETUPW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COLORMATCHSETUPW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for COLORMATCHSETUPW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COLORMATCHSETUPW")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pSourceName", &self.pSourceName)
-            .field("pDisplayName", &self.pDisplayName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("dwRenderIntent", &self.dwRenderIntent)
-            .field("dwProofingIntent", &self.dwProofingIntent)
-            .field("pMonitorProfile", &self.pMonitorProfile)
-            .field("ccMonitorProfile", &self.ccMonitorProfile)
-            .field("pPrinterProfile", &self.pPrinterProfile)
-            .field("ccPrinterProfile", &self.ccPrinterProfile)
-            .field("pTargetProfile", &self.pTargetProfile)
-            .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lParam", &self.lParam)
-            .field("lParamApplyCallback", &self.lParamApplyCallback)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for COLORMATCHSETUPW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFlags == other.dwFlags
-            && self.hwndOwner == other.hwndOwner
-            && self.pSourceName == other.pSourceName
-            && self.pDisplayName == other.pDisplayName
-            && self.pPrinterName == other.pPrinterName
-            && self.dwRenderIntent == other.dwRenderIntent
-            && self.dwProofingIntent == other.dwProofingIntent
-            && self.pMonitorProfile == other.pMonitorProfile
-            && self.ccMonitorProfile == other.ccMonitorProfile
-            && self.pPrinterProfile == other.pPrinterProfile
-            && self.ccPrinterProfile == other.ccPrinterProfile
-            && self.pTargetProfile == other.pTargetProfile
-            && self.ccTargetProfile == other.ccTargetProfile
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lParam == other.lParam
-            && self.lpfnApplyCallback.map(|f| f as usize) == other.lpfnApplyCallback.map(|f| f as usize)
-            && self.lParamApplyCallback == other.lParamApplyCallback
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for COLORMATCHSETUPW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for COLORMATCHSETUPW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COLORPROFILESUBTYPE(pub i32);
-pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0i32);
-pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(1i32);
-pub const CPST_SATURATION: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(2i32);
-pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(3i32);
-pub const CPST_NONE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(4i32);
-pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5i32);
-pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6i32);
-pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7i32);
-pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8i32);
-impl ::core::convert::From<i32> for COLORPROFILESUBTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COLORPROFILESUBTYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COLORPROFILETYPE(pub i32);
-pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
-pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1i32);
-pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2i32);
-pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3i32);
-impl ::core::convert::From<i32> for COLORPROFILETYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COLORPROFILETYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COLORTYPE(pub i32);
-pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
-pub const COLOR_RGB: COLORTYPE = COLORTYPE(2i32);
-pub const COLOR_XYZ: COLORTYPE = COLORTYPE(3i32);
-pub const COLOR_Yxy: COLORTYPE = COLORTYPE(4i32);
-pub const COLOR_Lab: COLORTYPE = COLORTYPE(5i32);
-pub const COLOR_3_CHANNEL: COLORTYPE = COLORTYPE(6i32);
-pub const COLOR_CMYK: COLORTYPE = COLORTYPE(7i32);
-pub const COLOR_5_CHANNEL: COLORTYPE = COLORTYPE(8i32);
-pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9i32);
-pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10i32);
-pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11i32);
-pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12i32);
-impl ::core::convert::From<i32> for COLORTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COLORTYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COLOR_MATCH_TO_TARGET_ACTION(pub i32);
-pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1i32);
-pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2i32);
-pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3i32);
-impl ::core::convert::From<i32> for COLOR_MATCH_TO_TARGET_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COLOR_MATCH_TO_TARGET_ACTION {
-    type Abi = Self;
-}
+pub type COLORPROFILESUBTYPE = i32;
+pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = 0i32;
+pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = 1i32;
+pub const CPST_SATURATION: COLORPROFILESUBTYPE = 2i32;
+pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = 3i32;
+pub const CPST_NONE: COLORPROFILESUBTYPE = 4i32;
+pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = 5i32;
+pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = 6i32;
+pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 7i32;
+pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = 8i32;
+pub type COLORPROFILETYPE = i32;
+pub const CPT_ICC: COLORPROFILETYPE = 0i32;
+pub const CPT_DMP: COLORPROFILETYPE = 1i32;
+pub const CPT_CAMP: COLORPROFILETYPE = 2i32;
+pub const CPT_GMMP: COLORPROFILETYPE = 3i32;
+pub type COLORTYPE = i32;
+pub const COLOR_GRAY: COLORTYPE = 1i32;
+pub const COLOR_RGB: COLORTYPE = 2i32;
+pub const COLOR_XYZ: COLORTYPE = 3i32;
+pub const COLOR_Yxy: COLORTYPE = 4i32;
+pub const COLOR_Lab: COLORTYPE = 5i32;
+pub const COLOR_3_CHANNEL: COLORTYPE = 6i32;
+pub const COLOR_CMYK: COLORTYPE = 7i32;
+pub const COLOR_5_CHANNEL: COLORTYPE = 8i32;
+pub const COLOR_6_CHANNEL: COLORTYPE = 9i32;
+pub const COLOR_7_CHANNEL: COLORTYPE = 10i32;
+pub const COLOR_8_CHANNEL: COLORTYPE = 11i32;
+pub const COLOR_NAMED: COLORTYPE = 12i32;
+pub type COLOR_MATCH_TO_TARGET_ACTION = i32;
+pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = 1i32;
+pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = 2i32;
+pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = 3i32;
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
 pub const CSA_A: u32 = 1u32;
 pub const CSA_ABC: u32 = 2u32;
@@ -1153,7 +1020,6 @@ pub unsafe fn DisassociateColorProfileFromDeviceW<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct EMRCREATECOLORSPACE {
@@ -1162,32 +1028,31 @@ pub struct EMRCREATECOLORSPACE {
     pub lcs: LOGCOLORSPACEA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl EMRCREATECOLORSPACE {}
+impl ::core::marker::Copy for EMRCREATECOLORSPACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for EMRCREATECOLORSPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRCREATECOLORSPACE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for EMRCREATECOLORSPACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for EMRCREATECOLORSPACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for EMRCREATECOLORSPACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMRCREATECOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for EMRCREATECOLORSPACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct EMRCREATECOLORSPACEW {
@@ -1199,33 +1064,32 @@ pub struct EMRCREATECOLORSPACEW {
     pub Data: [u8; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl EMRCREATECOLORSPACEW {}
+impl ::core::marker::Copy for EMRCREATECOLORSPACEW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for EMRCREATECOLORSPACEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACEW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for EMRCREATECOLORSPACEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRCREATECOLORSPACEW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for EMRCREATECOLORSPACEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for EMRCREATECOLORSPACEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMRCREATECOLORSPACEW").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).field("dwFlags", &self.dwFlags).field("cbData", &self.cbData).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for EMRCREATECOLORSPACEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs && self.dwFlags == other.dwFlags && self.cbData == other.cbData && self.Data == other.Data
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for EMRCREATECOLORSPACEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACEW {
-    type Abi = Self;
-}
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMTYPEA {
@@ -1251,72 +1115,31 @@ pub struct ENUMTYPEA {
     pub dwDeviceClass: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ENUMTYPEA {}
+impl ::core::marker::Copy for ENUMTYPEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUMTYPEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ENUMTYPEA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ENUMTYPEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMTYPEA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ENUMTYPEA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENUMTYPEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENUMTYPEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUMTYPEA")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFields", &self.dwFields)
-            .field("pDeviceName", &self.pDeviceName)
-            .field("dwMediaType", &self.dwMediaType)
-            .field("dwDitheringMode", &self.dwDitheringMode)
-            .field("dwResolution", &self.dwResolution)
-            .field("dwCMMType", &self.dwCMMType)
-            .field("dwClass", &self.dwClass)
-            .field("dwDataColorSpace", &self.dwDataColorSpace)
-            .field("dwConnectionSpace", &self.dwConnectionSpace)
-            .field("dwSignature", &self.dwSignature)
-            .field("dwPlatform", &self.dwPlatform)
-            .field("dwProfileFlags", &self.dwProfileFlags)
-            .field("dwManufacturer", &self.dwManufacturer)
-            .field("dwModel", &self.dwModel)
-            .field("dwAttributes", &self.dwAttributes)
-            .field("dwRenderingIntent", &self.dwRenderingIntent)
-            .field("dwCreator", &self.dwCreator)
-            .field("dwDeviceClass", &self.dwDeviceClass)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ENUMTYPEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFields == other.dwFields
-            && self.pDeviceName == other.pDeviceName
-            && self.dwMediaType == other.dwMediaType
-            && self.dwDitheringMode == other.dwDitheringMode
-            && self.dwResolution == other.dwResolution
-            && self.dwCMMType == other.dwCMMType
-            && self.dwClass == other.dwClass
-            && self.dwDataColorSpace == other.dwDataColorSpace
-            && self.dwConnectionSpace == other.dwConnectionSpace
-            && self.dwSignature == other.dwSignature
-            && self.dwPlatform == other.dwPlatform
-            && self.dwProfileFlags == other.dwProfileFlags
-            && self.dwManufacturer == other.dwManufacturer
-            && self.dwModel == other.dwModel
-            && self.dwAttributes == other.dwAttributes
-            && self.dwRenderingIntent == other.dwRenderingIntent
-            && self.dwCreator == other.dwCreator
-            && self.dwDeviceClass == other.dwDeviceClass
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ENUMTYPEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUMTYPEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMTYPEW {
@@ -1342,70 +1165,30 @@ pub struct ENUMTYPEW {
     pub dwDeviceClass: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ENUMTYPEW {}
+impl ::core::marker::Copy for ENUMTYPEW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ENUMTYPEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for ENUMTYPEW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENUMTYPEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUMTYPEW")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFields", &self.dwFields)
-            .field("pDeviceName", &self.pDeviceName)
-            .field("dwMediaType", &self.dwMediaType)
-            .field("dwDitheringMode", &self.dwDitheringMode)
-            .field("dwResolution", &self.dwResolution)
-            .field("dwCMMType", &self.dwCMMType)
-            .field("dwClass", &self.dwClass)
-            .field("dwDataColorSpace", &self.dwDataColorSpace)
-            .field("dwConnectionSpace", &self.dwConnectionSpace)
-            .field("dwSignature", &self.dwSignature)
-            .field("dwPlatform", &self.dwPlatform)
-            .field("dwProfileFlags", &self.dwProfileFlags)
-            .field("dwManufacturer", &self.dwManufacturer)
-            .field("dwModel", &self.dwModel)
-            .field("dwAttributes", &self.dwAttributes)
-            .field("dwRenderingIntent", &self.dwRenderingIntent)
-            .field("dwCreator", &self.dwCreator)
-            .field("dwDeviceClass", &self.dwDeviceClass)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for ENUMTYPEW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENUMTYPEW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFields == other.dwFields
-            && self.pDeviceName == other.pDeviceName
-            && self.dwMediaType == other.dwMediaType
-            && self.dwDitheringMode == other.dwDitheringMode
-            && self.dwResolution == other.dwResolution
-            && self.dwCMMType == other.dwCMMType
-            && self.dwClass == other.dwClass
-            && self.dwDataColorSpace == other.dwDataColorSpace
-            && self.dwConnectionSpace == other.dwConnectionSpace
-            && self.dwSignature == other.dwSignature
-            && self.dwPlatform == other.dwPlatform
-            && self.dwProfileFlags == other.dwProfileFlags
-            && self.dwManufacturer == other.dwManufacturer
-            && self.dwModel == other.dwModel
-            && self.dwAttributes == other.dwAttributes
-            && self.dwRenderingIntent == other.dwRenderingIntent
-            && self.dwCreator == other.dwCreator
-            && self.dwDeviceClass == other.dwDeviceClass
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMTYPEW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENUMTYPEW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUMTYPEW {
-    type Abi = Self;
+impl ::core::default::Default for ENUMTYPEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const ENUM_TYPE_VERSION: u32 = 768u32;
 pub const ET_ATTRIBUTES: u32 = 8192u32;
@@ -1487,59 +1270,56 @@ pub const FAST_TRANSLATE: u32 = 262144u32;
 pub const FLAG_DEPENDENTONDATA: u32 = 2u32;
 pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
 pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GENERIC3CHANNEL {
     pub ch1: u16,
     pub ch2: u16,
     pub ch3: u16,
 }
-impl GENERIC3CHANNEL {}
+impl ::core::marker::Copy for GENERIC3CHANNEL {}
+impl ::core::clone::Clone for GENERIC3CHANNEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GENERIC3CHANNEL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GENERIC3CHANNEL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GENERIC3CHANNEL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GENERIC3CHANNEL {}
 impl ::core::default::Default for GENERIC3CHANNEL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GENERIC3CHANNEL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GENERIC3CHANNEL").field("ch1", &self.ch1).field("ch2", &self.ch2).field("ch3", &self.ch3).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GENERIC3CHANNEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.ch1 == other.ch1 && self.ch2 == other.ch2 && self.ch3 == other.ch3
-    }
-}
-impl ::core::cmp::Eq for GENERIC3CHANNEL {}
-unsafe impl ::windows::core::Abi for GENERIC3CHANNEL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
-impl GRAYCOLOR {}
+impl ::core::marker::Copy for GRAYCOLOR {}
+impl ::core::clone::Clone for GRAYCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GRAYCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GRAYCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GRAYCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GRAYCOLOR {}
 impl ::core::default::Default for GRAYCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GRAYCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GRAYCOLOR").field("gray", &self.gray).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GRAYCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.gray == other.gray
-    }
-}
-impl ::core::cmp::Eq for GRAYCOLOR {}
-unsafe impl ::windows::core::Abi for GRAYCOLOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GamutBoundaryDescription {
     pub pPrimaries: *mut PrimaryJabColors,
@@ -1549,27 +1329,26 @@ pub struct GamutBoundaryDescription {
     pub pPlausibleShell: *mut GamutShell,
     pub pPossibleShell: *mut GamutShell,
 }
-impl GamutBoundaryDescription {}
+impl ::core::marker::Copy for GamutBoundaryDescription {}
+impl ::core::clone::Clone for GamutBoundaryDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GamutBoundaryDescription {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GamutBoundaryDescription {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamutBoundaryDescription>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GamutBoundaryDescription {}
 impl ::core::default::Default for GamutBoundaryDescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GamutBoundaryDescription {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GamutBoundaryDescription").field("pPrimaries", &self.pPrimaries).field("cNeutralSamples", &self.cNeutralSamples).field("pNeutralSamples", &self.pNeutralSamples).field("pReferenceShell", &self.pReferenceShell).field("pPlausibleShell", &self.pPlausibleShell).field("pPossibleShell", &self.pPossibleShell).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GamutBoundaryDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrimaries == other.pPrimaries && self.cNeutralSamples == other.cNeutralSamples && self.pNeutralSamples == other.pNeutralSamples && self.pReferenceShell == other.pReferenceShell && self.pPlausibleShell == other.pPlausibleShell && self.pPossibleShell == other.pPossibleShell
-    }
-}
-impl ::core::cmp::Eq for GamutBoundaryDescription {}
-unsafe impl ::windows::core::Abi for GamutBoundaryDescription {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GamutShell {
     pub JMin: f32,
@@ -1579,50 +1358,49 @@ pub struct GamutShell {
     pub pVertices: *mut JabColorF,
     pub pTriangles: *mut GamutShellTriangle,
 }
-impl GamutShell {}
+impl ::core::marker::Copy for GamutShell {}
+impl ::core::clone::Clone for GamutShell {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GamutShell {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GamutShell {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamutShell>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GamutShell {}
 impl ::core::default::Default for GamutShell {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GamutShell {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GamutShell").field("JMin", &self.JMin).field("JMax", &self.JMax).field("cVertices", &self.cVertices).field("cTriangles", &self.cTriangles).field("pVertices", &self.pVertices).field("pTriangles", &self.pTriangles).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GamutShell {
-    fn eq(&self, other: &Self) -> bool {
-        self.JMin == other.JMin && self.JMax == other.JMax && self.cVertices == other.cVertices && self.cTriangles == other.cTriangles && self.pVertices == other.pVertices && self.pTriangles == other.pTriangles
-    }
-}
-impl ::core::cmp::Eq for GamutShell {}
-unsafe impl ::windows::core::Abi for GamutShell {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
 }
-impl GamutShellTriangle {}
+impl ::core::marker::Copy for GamutShellTriangle {}
+impl ::core::clone::Clone for GamutShellTriangle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GamutShellTriangle {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GamutShellTriangle {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamutShellTriangle>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GamutShellTriangle {}
 impl ::core::default::Default for GamutShellTriangle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for GamutShellTriangle {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GamutShellTriangle").field("aVertexIndex", &self.aVertexIndex).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GamutShellTriangle {
-    fn eq(&self, other: &Self) -> bool {
-        self.aVertexIndex == other.aVertexIndex
-    }
-}
-impl ::core::cmp::Eq for GamutShellTriangle {}
-unsafe impl ::windows::core::Abi for GamutShellTriangle {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
@@ -1903,96 +1681,45 @@ pub unsafe fn GetStandardColorSpaceProfileW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCOLORSPACE(pub isize);
-impl ::core::default::Default for HCOLORSPACE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCOLORSPACE {}
-unsafe impl ::windows::core::Abi for HCOLORSPACE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HCOLORSPACE = isize;
 #[repr(C)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
-impl HiFiCOLOR {}
+impl ::core::marker::Copy for HiFiCOLOR {}
+impl ::core::clone::Clone for HiFiCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HiFiCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HiFiCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HiFiCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HiFiCOLOR {}
 impl ::core::default::Default for HiFiCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HiFiCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HiFiCOLOR").field("channel", &self.channel).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HiFiCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.channel == other.channel
-    }
-}
-impl ::core::cmp::Eq for HiFiCOLOR {}
-unsafe impl ::windows::core::Abi for HiFiCOLOR {
-    type Abi = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 pub type ICMENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
 pub type ICMENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+pub type ICM_COMMAND = u32;
+pub const ICM_ADDPROFILE: ICM_COMMAND = 1u32;
+pub const ICM_DELETEPROFILE: ICM_COMMAND = 2u32;
+pub const ICM_QUERYPROFILE: ICM_COMMAND = 3u32;
+pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = 4u32;
+pub const ICM_REGISTERICMATCHER: ICM_COMMAND = 5u32;
+pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = 6u32;
+pub const ICM_QUERYMATCH: ICM_COMMAND = 7u32;
 #[repr(transparent)]
-pub struct ICM_COMMAND(pub u32);
-pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
-pub const ICM_DELETEPROFILE: ICM_COMMAND = ICM_COMMAND(2u32);
-pub const ICM_QUERYPROFILE: ICM_COMMAND = ICM_COMMAND(3u32);
-pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4u32);
-pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5u32);
-pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6u32);
-pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7u32);
-impl ::core::convert::From<u32> for ICM_COMMAND {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ICM_COMMAND {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for ICM_COMMAND {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for ICM_COMMAND {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ICM_COMMAND {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ICM_COMMAND {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for ICM_COMMAND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IDeviceModelPlugIn(pub ::windows::core::IUnknown);
+pub struct IDeviceModelPlugIn(::windows::core::IUnknown);
 impl IDeviceModelPlugIn {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxml: Param0, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()> {
@@ -2035,53 +1762,63 @@ impl IDeviceModelPlugIn {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pxyzcolors)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
-    type Vtable = IDeviceModelPlugIn_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
-}
 impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: IDeviceModelPlugIn) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDeviceModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: &IDeviceModelPlugIn) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceModelPlugIn {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceModelPlugIn {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDeviceModelPlugIn {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IDeviceModelPlugIn {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IDeviceModelPlugIn {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDeviceModelPlugIn {}
+unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
+    type Vtable = IDeviceModelPlugInVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceModelPlugIn_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
+pub struct IDeviceModelPlugInVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnumchannels: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumchannels: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, imodelposition: u32, pidevicemodelother: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pccolors: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imodelposition: u32, pidevicemodelother: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolors: *mut u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct IGamutMapModelPlugIn(pub ::windows::core::IUnknown);
+pub struct IGamutMapModelPlugIn(::windows::core::IUnknown);
 impl IGamutMapModelPlugIn {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>, Param2: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>>(&self, bstrxml: Param0, psrcplugin: Param1, pdestplugin: Param2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()> {
@@ -2091,39 +1828,50 @@ impl IGamutMapModelPlugIn {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pinputcolors), ::core::mem::transmute(poutputcolors)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
-    type Vtable = IGamutMapModelPlugIn_abi;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
-}
 impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: IGamutMapModelPlugIn) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IGamutMapModelPlugIn> for ::windows::core::IUnknown {
     fn from(value: &IGamutMapModelPlugIn) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGamutMapModelPlugIn {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGamutMapModelPlugIn {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGamutMapModelPlugIn {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
+}
+impl ::core::clone::Clone for IGamutMapModelPlugIn {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IGamutMapModelPlugIn {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IGamutMapModelPlugIn {}
+unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
+    type Vtable = IGamutMapModelPlugInVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGamutMapModelPlugIn_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psrcplugin: ::windows::core::RawPtr, pdestplugin: ::windows::core::RawPtr, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
+pub struct IGamutMapModelPlugInVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psrcplugin: ::windows::core::RawPtr, pdestplugin: ::windows::core::RawPtr, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT,
 );
 pub const INDEX_DONT_CARE: u32 = 0u32;
 pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
@@ -2186,61 +1934,58 @@ pub unsafe fn IsColorProfileValid(hprofile: isize, pbvalid: *mut super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JChColorF {
     pub J: f32,
     pub C: f32,
     pub h: f32,
 }
-impl JChColorF {}
+impl ::core::marker::Copy for JChColorF {}
+impl ::core::clone::Clone for JChColorF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JChColorF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JChColorF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JChColorF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JChColorF {}
 impl ::core::default::Default for JChColorF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JChColorF {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JChColorF").field("J", &self.J).field("C", &self.C).field("h", &self.h).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JChColorF {
-    fn eq(&self, other: &Self) -> bool {
-        self.J == other.J && self.C == other.C && self.h == other.h
-    }
-}
-impl ::core::cmp::Eq for JChColorF {}
-unsafe impl ::windows::core::Abi for JChColorF {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct JabColorF {
     pub J: f32,
     pub a: f32,
     pub b: f32,
 }
-impl JabColorF {}
+impl ::core::marker::Copy for JabColorF {}
+impl ::core::clone::Clone for JabColorF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for JabColorF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for JabColorF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JabColorF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for JabColorF {}
 impl ::core::default::Default for JabColorF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for JabColorF {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("JabColorF").field("J", &self.J).field("a", &self.a).field("b", &self.b).finish()
-    }
-}
-impl ::core::cmp::PartialEq for JabColorF {
-    fn eq(&self, other: &Self) -> bool {
-        self.J == other.J && self.a == other.a && self.b == other.b
-    }
-}
-impl ::core::cmp::Eq for JabColorF {}
-unsafe impl ::windows::core::Abi for JabColorF {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LOGCOLORSPACEA {
@@ -2256,32 +2001,31 @@ pub struct LOGCOLORSPACEA {
     pub lcsFilename: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl LOGCOLORSPACEA {}
+impl ::core::marker::Copy for LOGCOLORSPACEA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for LOGCOLORSPACEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for LOGCOLORSPACEA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGCOLORSPACEA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for LOGCOLORSPACEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for LOGCOLORSPACEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for LOGCOLORSPACEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LOGCOLORSPACEA").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for LOGCOLORSPACEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for LOGCOLORSPACEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LOGCOLORSPACEW {
@@ -2297,87 +2041,84 @@ pub struct LOGCOLORSPACEW {
     pub lcsFilename: [u16; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl LOGCOLORSPACEW {}
+impl ::core::marker::Copy for LOGCOLORSPACEW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for LOGCOLORSPACEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for LOGCOLORSPACEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGCOLORSPACEW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for LOGCOLORSPACEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for LOGCOLORSPACEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LOGCOLORSPACEW").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for LOGCOLORSPACEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for LOGCOLORSPACEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
-    type Abi = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 pub type LPBMCALLBACKFN = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct LabCOLOR {
     pub L: u16,
     pub a: u16,
     pub b: u16,
 }
-impl LabCOLOR {}
+impl ::core::marker::Copy for LabCOLOR {}
+impl ::core::clone::Clone for LabCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LabCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LabCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LabCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LabCOLOR {}
 impl ::core::default::Default for LabCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for LabCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LabCOLOR").field("L", &self.L).field("a", &self.a).field("b", &self.b).finish()
-    }
-}
-impl ::core::cmp::PartialEq for LabCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.L == other.L && self.a == other.a && self.b == other.b
-    }
-}
-impl ::core::cmp::Eq for LabCOLOR {}
-unsafe impl ::windows::core::Abi for LabCOLOR {
-    type Abi = Self;
-}
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
 }
-impl NAMEDCOLOR {}
+impl ::core::marker::Copy for NAMEDCOLOR {}
+impl ::core::clone::Clone for NAMEDCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NAMEDCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NAMEDCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NAMEDCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NAMEDCOLOR {}
 impl ::core::default::Default for NAMEDCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NAMEDCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NAMEDCOLOR").field("dwIndex", &self.dwIndex).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NAMEDCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIndex == other.dwIndex
-    }
-}
-impl ::core::cmp::Eq for NAMEDCOLOR {}
-unsafe impl ::windows::core::Abi for NAMEDCOLOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NAMED_PROFILE_INFO {
     pub dwFlags: u32,
@@ -2386,25 +2127,25 @@ pub struct NAMED_PROFILE_INFO {
     pub szPrefix: [i8; 32],
     pub szSuffix: [i8; 32],
 }
-impl NAMED_PROFILE_INFO {}
+impl ::core::marker::Copy for NAMED_PROFILE_INFO {}
+impl ::core::clone::Clone for NAMED_PROFILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NAMED_PROFILE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NAMED_PROFILE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NAMED_PROFILE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NAMED_PROFILE_INFO {}
 impl ::core::default::Default for NAMED_PROFILE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for NAMED_PROFILE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NAMED_PROFILE_INFO").field("dwFlags", &self.dwFlags).field("dwCount", &self.dwCount).field("dwCountDevCoordinates", &self.dwCountDevCoordinates).field("szPrefix", &self.szPrefix).field("szSuffix", &self.szSuffix).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NAMED_PROFILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwCount == other.dwCount && self.dwCountDevCoordinates == other.dwCountDevCoordinates && self.szPrefix == other.szPrefix && self.szSuffix == other.szSuffix
-    }
-}
-impl ::core::cmp::Eq for NAMED_PROFILE_INFO {}
-unsafe impl ::windows::core::Abi for NAMED_PROFILE_INFO {
-    type Abi = Self;
 }
 pub const NORMAL_MODE: u32 = 2u32;
 #[inline]
@@ -2438,34 +2179,32 @@ pub type PCMSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PCMSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub const PRESERVEBLACK: u32 = 1048576u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut ::core::ffi::c_void,
     pub cbDataSize: u32,
 }
-impl PROFILE {}
+impl ::core::marker::Copy for PROFILE {}
+impl ::core::clone::Clone for PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROFILE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROFILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROFILE {}
 impl ::core::default::Default for PROFILE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROFILE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROFILE").field("dwType", &self.dwType).field("pProfileData", &self.pProfileData).field("cbDataSize", &self.cbDataSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.pProfileData == other.pProfileData && self.cbDataSize == other.cbDataSize
-    }
-}
-impl ::core::cmp::Eq for PROFILE {}
-unsafe impl ::windows::core::Abi for PROFILE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PROFILEHEADER {
@@ -2488,55 +2227,36 @@ pub struct PROFILEHEADER {
     pub phReserved: [u8; 44],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl PROFILEHEADER {}
+impl ::core::marker::Copy for PROFILEHEADER {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for PROFILEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for PROFILEHEADER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for PROFILEHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILEHEADER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for PROFILEHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for PROFILEHEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROFILEHEADER")
-            .field("phSize", &self.phSize)
-            .field("phCMMType", &self.phCMMType)
-            .field("phVersion", &self.phVersion)
-            .field("phClass", &self.phClass)
-            .field("phDataColorSpace", &self.phDataColorSpace)
-            .field("phConnectionSpace", &self.phConnectionSpace)
-            .field("phDateTime", &self.phDateTime)
-            .field("phSignature", &self.phSignature)
-            .field("phPlatform", &self.phPlatform)
-            .field("phProfileFlags", &self.phProfileFlags)
-            .field("phManufacturer", &self.phManufacturer)
-            .field("phModel", &self.phModel)
-            .field("phAttributes", &self.phAttributes)
-            .field("phRenderingIntent", &self.phRenderingIntent)
-            .field("phIlluminant", &self.phIlluminant)
-            .field("phCreator", &self.phCreator)
-            .field("phReserved", &self.phReserved)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for PROFILEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.phSize == other.phSize && self.phCMMType == other.phCMMType && self.phVersion == other.phVersion && self.phClass == other.phClass && self.phDataColorSpace == other.phDataColorSpace && self.phConnectionSpace == other.phConnectionSpace && self.phDateTime == other.phDateTime && self.phSignature == other.phSignature && self.phPlatform == other.phPlatform && self.phProfileFlags == other.phProfileFlags && self.phManufacturer == other.phManufacturer && self.phModel == other.phModel && self.phAttributes == other.phAttributes && self.phRenderingIntent == other.phRenderingIntent && self.phIlluminant == other.phIlluminant && self.phCreator == other.phCreator && self.phReserved == other.phReserved
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for PROFILEHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for PROFILEHEADER {
-    type Abi = Self;
-}
 pub const PROFILE_FILENAME: u32 = 1u32;
 pub const PROFILE_MEMBUFFER: u32 = 2u32;
 pub const PROFILE_READ: u32 = 1u32;
 pub const PROFILE_READWRITE: u32 = 2u32;
 pub const PROOF_MODE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PrimaryJabColors {
     pub red: JabColorF,
@@ -2548,27 +2268,26 @@ pub struct PrimaryJabColors {
     pub black: JabColorF,
     pub white: JabColorF,
 }
-impl PrimaryJabColors {}
+impl ::core::marker::Copy for PrimaryJabColors {}
+impl ::core::clone::Clone for PrimaryJabColors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrimaryJabColors {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PrimaryJabColors {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrimaryJabColors>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PrimaryJabColors {}
 impl ::core::default::Default for PrimaryJabColors {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PrimaryJabColors {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PrimaryJabColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PrimaryJabColors {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
-    }
-}
-impl ::core::cmp::Eq for PrimaryJabColors {}
-unsafe impl ::windows::core::Abi for PrimaryJabColors {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PrimaryXYZColors {
     pub red: XYZColorF,
@@ -2580,53 +2299,52 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
-impl PrimaryXYZColors {}
+impl ::core::marker::Copy for PrimaryXYZColors {}
+impl ::core::clone::Clone for PrimaryXYZColors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrimaryXYZColors {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PrimaryXYZColors {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrimaryXYZColors>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PrimaryXYZColors {}
 impl ::core::default::Default for PrimaryXYZColors {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PrimaryXYZColors {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PrimaryXYZColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PrimaryXYZColors {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
-    }
-}
-impl ::core::cmp::Eq for PrimaryXYZColors {}
-unsafe impl ::windows::core::Abi for PrimaryXYZColors {
-    type Abi = Self;
-}
 pub const RESERVED: u32 = 2147483648u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RGBCOLOR {
     pub red: u16,
     pub green: u16,
     pub blue: u16,
 }
-impl RGBCOLOR {}
+impl ::core::marker::Copy for RGBCOLOR {}
+impl ::core::clone::Clone for RGBCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RGBCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RGBCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RGBCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RGBCOLOR {}
 impl ::core::default::Default for RGBCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for RGBCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RGBCOLOR").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RGBCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.green == other.green && self.blue == other.blue
-    }
-}
-impl ::core::cmp::Eq for RGBCOLOR {}
-unsafe impl ::windows::core::Abi for RGBCOLOR {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2968,20 +2686,9 @@ pub unsafe fn UpdateICMRegKeyW<'a, Param1: ::windows::core::IntoParam<'a, super:
 }
 pub const WCS_ALWAYS: u32 = 2097152u32;
 pub const WCS_DEFAULT: i32 = 0i32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
-pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
-pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
-impl ::core::convert::From<i32> for WCS_DEVICE_CAPABILITIES_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCS_DEVICE_CAPABILITIES_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
+pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = 1i32;
+pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
@@ -2992,32 +2699,31 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixColumns: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WCS_DEVICE_MHC2_CAPABILITIES {}
+impl ::core::marker::Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WCS_DEVICE_MHC2_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCS_DEVICE_MHC2_CAPABILITIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WCS_DEVICE_MHC2_CAPABILITIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WCS_DEVICE_MHC2_CAPABILITIES").field("Size", &self.Size).field("SupportsMhc2", &self.SupportsMhc2).field("RegammaLutEntryCount", &self.RegammaLutEntryCount).field("CscXyzMatrixRows", &self.CscXyzMatrixRows).field("CscXyzMatrixColumns", &self.CscXyzMatrixColumns).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SupportsMhc2 == other.SupportsMhc2 && self.RegammaLutEntryCount == other.RegammaLutEntryCount && self.CscXyzMatrixRows == other.CscXyzMatrixRows && self.CscXyzMatrixColumns == other.CscXyzMatrixColumns
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES {
@@ -3025,45 +2731,35 @@ pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub SupportsVcgt: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WCS_DEVICE_VCGT_CAPABILITIES {}
+impl ::core::marker::Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WCS_DEVICE_VCGT_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCS_DEVICE_VCGT_CAPABILITIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WCS_DEVICE_VCGT_CAPABILITIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WCS_DEVICE_VCGT_CAPABILITIES").field("Size", &self.Size).field("SupportsVcgt", &self.SupportsVcgt).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SupportsVcgt == other.SupportsVcgt
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
-    type Abi = Self;
-}
 pub const WCS_ICCONLY: i32 = 65536i32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
-impl ::core::convert::From<i32> for WCS_PROFILE_MANAGEMENT_SCOPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {
-    type Abi = Self;
-}
+pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0i32;
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsAssociateColorProfileWithDevice<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
@@ -3313,84 +3009,81 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct XYZCOLOR {
     pub X: u16,
     pub Y: u16,
     pub Z: u16,
 }
-impl XYZCOLOR {}
+impl ::core::marker::Copy for XYZCOLOR {}
+impl ::core::clone::Clone for XYZCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XYZCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for XYZCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XYZCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for XYZCOLOR {}
 impl ::core::default::Default for XYZCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for XYZCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("XYZCOLOR").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
-impl ::core::cmp::PartialEq for XYZCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl ::core::cmp::Eq for XYZCOLOR {}
-unsafe impl ::windows::core::Abi for XYZCOLOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct XYZColorF {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
 }
-impl XYZColorF {}
+impl ::core::marker::Copy for XYZColorF {}
+impl ::core::clone::Clone for XYZColorF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XYZColorF {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for XYZColorF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XYZColorF>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for XYZColorF {}
 impl ::core::default::Default for XYZColorF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for XYZColorF {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("XYZColorF").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
-impl ::core::cmp::PartialEq for XYZColorF {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl ::core::cmp::Eq for XYZColorF {}
-unsafe impl ::windows::core::Abi for XYZColorF {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct YxyCOLOR {
     pub Y: u16,
     pub x: u16,
     pub y: u16,
 }
-impl YxyCOLOR {}
+impl ::core::marker::Copy for YxyCOLOR {}
+impl ::core::clone::Clone for YxyCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for YxyCOLOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for YxyCOLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<YxyCOLOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for YxyCOLOR {}
 impl ::core::default::Default for YxyCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for YxyCOLOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("YxyCOLOR").field("Y", &self.Y).field("x", &self.x).field("y", &self.y).finish()
-    }
-}
-impl ::core::cmp::PartialEq for YxyCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Y == other.Y && self.x == other.x && self.y == other.y
-    }
-}
-impl ::core::cmp::Eq for YxyCOLOR {}
-unsafe impl ::windows::core::Abi for YxyCOLOR {
-    type Abi = Self;
 }

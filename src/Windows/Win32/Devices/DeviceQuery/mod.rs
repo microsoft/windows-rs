@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct DEVPROP_FILTER_EXPRESSION {
@@ -7,113 +6,74 @@ pub struct DEVPROP_FILTER_EXPRESSION {
     pub Property: super::Properties::DEVPROPERTY,
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl DEVPROP_FILTER_EXPRESSION {}
+impl ::core::marker::Copy for DEVPROP_FILTER_EXPRESSION {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEVPROP_FILTER_EXPRESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+unsafe impl ::windows::core::Abi for DEVPROP_FILTER_EXPRESSION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::PartialEq for DEVPROP_FILTER_EXPRESSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROP_FILTER_EXPRESSION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::Eq for DEVPROP_FILTER_EXPRESSION {}
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl ::core::default::Default for DEVPROP_FILTER_EXPRESSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::fmt::Debug for DEVPROP_FILTER_EXPRESSION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVPROP_FILTER_EXPRESSION").field("Operator", &self.Operator).field("Property", &self.Property).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::PartialEq for DEVPROP_FILTER_EXPRESSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Operator == other.Operator && self.Property == other.Property
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::Eq for DEVPROP_FILTER_EXPRESSION {}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-unsafe impl ::windows::core::Abi for DEVPROP_FILTER_EXPRESSION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEVPROP_OPERATOR(pub u32);
-pub const DEVPROP_OPERATOR_MODIFIER_NOT: DEVPROP_OPERATOR = DEVPROP_OPERATOR(65536u32);
-pub const DEVPROP_OPERATOR_MODIFIER_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(131072u32);
-pub const DEVPROP_OPERATOR_NONE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(0u32);
-pub const DEVPROP_OPERATOR_EXISTS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(1u32);
-pub const DEVPROP_OPERATOR_NOT_EXISTS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(65537u32);
-pub const DEVPROP_OPERATOR_EQUALS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(2u32);
-pub const DEVPROP_OPERATOR_NOT_EQUALS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(65538u32);
-pub const DEVPROP_OPERATOR_GREATER_THAN: DEVPROP_OPERATOR = DEVPROP_OPERATOR(3u32);
-pub const DEVPROP_OPERATOR_LESS_THAN: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4u32);
-pub const DEVPROP_OPERATOR_GREATER_THAN_EQUALS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(5u32);
-pub const DEVPROP_OPERATOR_LESS_THAN_EQUALS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(6u32);
-pub const DEVPROP_OPERATOR_EQUALS_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(131074u32);
-pub const DEVPROP_OPERATOR_NOT_EQUALS_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(196610u32);
-pub const DEVPROP_OPERATOR_BITWISE_AND: DEVPROP_OPERATOR = DEVPROP_OPERATOR(7u32);
-pub const DEVPROP_OPERATOR_BITWISE_OR: DEVPROP_OPERATOR = DEVPROP_OPERATOR(8u32);
-pub const DEVPROP_OPERATOR_BEGINS_WITH: DEVPROP_OPERATOR = DEVPROP_OPERATOR(9u32);
-pub const DEVPROP_OPERATOR_ENDS_WITH: DEVPROP_OPERATOR = DEVPROP_OPERATOR(10u32);
-pub const DEVPROP_OPERATOR_CONTAINS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(11u32);
-pub const DEVPROP_OPERATOR_BEGINS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(131081u32);
-pub const DEVPROP_OPERATOR_ENDS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(131082u32);
-pub const DEVPROP_OPERATOR_CONTAINS_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(131083u32);
-pub const DEVPROP_OPERATOR_LIST_CONTAINS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4096u32);
-pub const DEVPROP_OPERATOR_LIST_ELEMENT_BEGINS_WITH: DEVPROP_OPERATOR = DEVPROP_OPERATOR(8192u32);
-pub const DEVPROP_OPERATOR_LIST_ELEMENT_ENDS_WITH: DEVPROP_OPERATOR = DEVPROP_OPERATOR(12288u32);
-pub const DEVPROP_OPERATOR_LIST_ELEMENT_CONTAINS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(16384u32);
-pub const DEVPROP_OPERATOR_LIST_CONTAINS_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(135168u32);
-pub const DEVPROP_OPERATOR_LIST_ELEMENT_BEGINS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(139264u32);
-pub const DEVPROP_OPERATOR_LIST_ELEMENT_ENDS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(143360u32);
-pub const DEVPROP_OPERATOR_LIST_ELEMENT_CONTAINS_IGNORE_CASE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(147456u32);
-pub const DEVPROP_OPERATOR_AND_OPEN: DEVPROP_OPERATOR = DEVPROP_OPERATOR(1048576u32);
-pub const DEVPROP_OPERATOR_AND_CLOSE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(2097152u32);
-pub const DEVPROP_OPERATOR_OR_OPEN: DEVPROP_OPERATOR = DEVPROP_OPERATOR(3145728u32);
-pub const DEVPROP_OPERATOR_OR_CLOSE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4194304u32);
-pub const DEVPROP_OPERATOR_NOT_OPEN: DEVPROP_OPERATOR = DEVPROP_OPERATOR(5242880u32);
-pub const DEVPROP_OPERATOR_NOT_CLOSE: DEVPROP_OPERATOR = DEVPROP_OPERATOR(6291456u32);
-pub const DEVPROP_OPERATOR_ARRAY_CONTAINS: DEVPROP_OPERATOR = DEVPROP_OPERATOR(268435456u32);
-pub const DEVPROP_OPERATOR_MASK_EVAL: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4095u32);
-pub const DEVPROP_OPERATOR_MASK_LIST: DEVPROP_OPERATOR = DEVPROP_OPERATOR(61440u32);
-pub const DEVPROP_OPERATOR_MASK_MODIFIER: DEVPROP_OPERATOR = DEVPROP_OPERATOR(983040u32);
-pub const DEVPROP_OPERATOR_MASK_NOT_LOGICAL: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4027580415u32);
-pub const DEVPROP_OPERATOR_MASK_LOGICAL: DEVPROP_OPERATOR = DEVPROP_OPERATOR(267386880u32);
-pub const DEVPROP_OPERATOR_MASK_ARRAY: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4026531840u32);
-impl ::core::convert::From<u32> for DEVPROP_OPERATOR {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVPROP_OPERATOR {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DEVPROP_OPERATOR {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DEVPROP_OPERATOR {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DEVPROP_OPERATOR {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DEVPROP_OPERATOR {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DEVPROP_OPERATOR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DEVPROP_OPERATOR = u32;
+pub const DEVPROP_OPERATOR_MODIFIER_NOT: DEVPROP_OPERATOR = 65536u32;
+pub const DEVPROP_OPERATOR_MODIFIER_IGNORE_CASE: DEVPROP_OPERATOR = 131072u32;
+pub const DEVPROP_OPERATOR_NONE: DEVPROP_OPERATOR = 0u32;
+pub const DEVPROP_OPERATOR_EXISTS: DEVPROP_OPERATOR = 1u32;
+pub const DEVPROP_OPERATOR_NOT_EXISTS: DEVPROP_OPERATOR = 65537u32;
+pub const DEVPROP_OPERATOR_EQUALS: DEVPROP_OPERATOR = 2u32;
+pub const DEVPROP_OPERATOR_NOT_EQUALS: DEVPROP_OPERATOR = 65538u32;
+pub const DEVPROP_OPERATOR_GREATER_THAN: DEVPROP_OPERATOR = 3u32;
+pub const DEVPROP_OPERATOR_LESS_THAN: DEVPROP_OPERATOR = 4u32;
+pub const DEVPROP_OPERATOR_GREATER_THAN_EQUALS: DEVPROP_OPERATOR = 5u32;
+pub const DEVPROP_OPERATOR_LESS_THAN_EQUALS: DEVPROP_OPERATOR = 6u32;
+pub const DEVPROP_OPERATOR_EQUALS_IGNORE_CASE: DEVPROP_OPERATOR = 131074u32;
+pub const DEVPROP_OPERATOR_NOT_EQUALS_IGNORE_CASE: DEVPROP_OPERATOR = 196610u32;
+pub const DEVPROP_OPERATOR_BITWISE_AND: DEVPROP_OPERATOR = 7u32;
+pub const DEVPROP_OPERATOR_BITWISE_OR: DEVPROP_OPERATOR = 8u32;
+pub const DEVPROP_OPERATOR_BEGINS_WITH: DEVPROP_OPERATOR = 9u32;
+pub const DEVPROP_OPERATOR_ENDS_WITH: DEVPROP_OPERATOR = 10u32;
+pub const DEVPROP_OPERATOR_CONTAINS: DEVPROP_OPERATOR = 11u32;
+pub const DEVPROP_OPERATOR_BEGINS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = 131081u32;
+pub const DEVPROP_OPERATOR_ENDS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = 131082u32;
+pub const DEVPROP_OPERATOR_CONTAINS_IGNORE_CASE: DEVPROP_OPERATOR = 131083u32;
+pub const DEVPROP_OPERATOR_LIST_CONTAINS: DEVPROP_OPERATOR = 4096u32;
+pub const DEVPROP_OPERATOR_LIST_ELEMENT_BEGINS_WITH: DEVPROP_OPERATOR = 8192u32;
+pub const DEVPROP_OPERATOR_LIST_ELEMENT_ENDS_WITH: DEVPROP_OPERATOR = 12288u32;
+pub const DEVPROP_OPERATOR_LIST_ELEMENT_CONTAINS: DEVPROP_OPERATOR = 16384u32;
+pub const DEVPROP_OPERATOR_LIST_CONTAINS_IGNORE_CASE: DEVPROP_OPERATOR = 135168u32;
+pub const DEVPROP_OPERATOR_LIST_ELEMENT_BEGINS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = 139264u32;
+pub const DEVPROP_OPERATOR_LIST_ELEMENT_ENDS_WITH_IGNORE_CASE: DEVPROP_OPERATOR = 143360u32;
+pub const DEVPROP_OPERATOR_LIST_ELEMENT_CONTAINS_IGNORE_CASE: DEVPROP_OPERATOR = 147456u32;
+pub const DEVPROP_OPERATOR_AND_OPEN: DEVPROP_OPERATOR = 1048576u32;
+pub const DEVPROP_OPERATOR_AND_CLOSE: DEVPROP_OPERATOR = 2097152u32;
+pub const DEVPROP_OPERATOR_OR_OPEN: DEVPROP_OPERATOR = 3145728u32;
+pub const DEVPROP_OPERATOR_OR_CLOSE: DEVPROP_OPERATOR = 4194304u32;
+pub const DEVPROP_OPERATOR_NOT_OPEN: DEVPROP_OPERATOR = 5242880u32;
+pub const DEVPROP_OPERATOR_NOT_CLOSE: DEVPROP_OPERATOR = 6291456u32;
+pub const DEVPROP_OPERATOR_ARRAY_CONTAINS: DEVPROP_OPERATOR = 268435456u32;
+pub const DEVPROP_OPERATOR_MASK_EVAL: DEVPROP_OPERATOR = 4095u32;
+pub const DEVPROP_OPERATOR_MASK_LIST: DEVPROP_OPERATOR = 61440u32;
+pub const DEVPROP_OPERATOR_MASK_MODIFIER: DEVPROP_OPERATOR = 983040u32;
+pub const DEVPROP_OPERATOR_MASK_NOT_LOGICAL: DEVPROP_OPERATOR = 4027580415u32;
+pub const DEVPROP_OPERATOR_MASK_LOGICAL: DEVPROP_OPERATOR = 267386880u32;
+pub const DEVPROP_OPERATOR_MASK_ARRAY: DEVPROP_OPERATOR = 4026531840u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct DEV_OBJECT {
@@ -123,71 +83,50 @@ pub struct DEV_OBJECT {
     pub pProperties: *mut super::Properties::DEVPROPERTY,
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl DEV_OBJECT {}
+impl ::core::marker::Copy for DEV_OBJECT {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEV_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+unsafe impl ::windows::core::Abi for DEV_OBJECT {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::PartialEq for DEV_OBJECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_OBJECT>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::Eq for DEV_OBJECT {}
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl ::core::default::Default for DEV_OBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::fmt::Debug for DEV_OBJECT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEV_OBJECT").field("ObjectType", &self.ObjectType).field("pszObjectId", &self.pszObjectId).field("cPropertyCount", &self.cPropertyCount).field("pProperties", &self.pProperties).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::PartialEq for DEV_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ObjectType == other.ObjectType && self.pszObjectId == other.pszObjectId && self.cPropertyCount == other.cPropertyCount && self.pProperties == other.pProperties
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::Eq for DEV_OBJECT {}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-unsafe impl ::windows::core::Abi for DEV_OBJECT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEV_OBJECT_TYPE(pub i32);
-pub const DevObjectTypeUnknown: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(0i32);
-pub const DevObjectTypeDeviceInterface: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(1i32);
-pub const DevObjectTypeDeviceContainer: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(2i32);
-pub const DevObjectTypeDevice: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(3i32);
-pub const DevObjectTypeDeviceInterfaceClass: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(4i32);
-pub const DevObjectTypeAEP: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(5i32);
-pub const DevObjectTypeAEPContainer: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(6i32);
-pub const DevObjectTypeDeviceInstallerClass: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(7i32);
-pub const DevObjectTypeDeviceInterfaceDisplay: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(8i32);
-pub const DevObjectTypeDeviceContainerDisplay: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(9i32);
-pub const DevObjectTypeAEPService: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(10i32);
-pub const DevObjectTypeDevicePanel: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(11i32);
-impl ::core::convert::From<i32> for DEV_OBJECT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEV_OBJECT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEV_QUERY_FLAGS(pub i32);
-pub const DevQueryFlagNone: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(0i32);
-pub const DevQueryFlagUpdateResults: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(1i32);
-pub const DevQueryFlagAllProperties: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(2i32);
-pub const DevQueryFlagLocalize: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(4i32);
-pub const DevQueryFlagAsyncClose: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(8i32);
-impl ::core::convert::From<i32> for DEV_QUERY_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEV_QUERY_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DEV_OBJECT_TYPE = i32;
+pub const DevObjectTypeUnknown: DEV_OBJECT_TYPE = 0i32;
+pub const DevObjectTypeDeviceInterface: DEV_OBJECT_TYPE = 1i32;
+pub const DevObjectTypeDeviceContainer: DEV_OBJECT_TYPE = 2i32;
+pub const DevObjectTypeDevice: DEV_OBJECT_TYPE = 3i32;
+pub const DevObjectTypeDeviceInterfaceClass: DEV_OBJECT_TYPE = 4i32;
+pub const DevObjectTypeAEP: DEV_OBJECT_TYPE = 5i32;
+pub const DevObjectTypeAEPContainer: DEV_OBJECT_TYPE = 6i32;
+pub const DevObjectTypeDeviceInstallerClass: DEV_OBJECT_TYPE = 7i32;
+pub const DevObjectTypeDeviceInterfaceDisplay: DEV_OBJECT_TYPE = 8i32;
+pub const DevObjectTypeDeviceContainerDisplay: DEV_OBJECT_TYPE = 9i32;
+pub const DevObjectTypeAEPService: DEV_OBJECT_TYPE = 10i32;
+pub const DevObjectTypeDevicePanel: DEV_OBJECT_TYPE = 11i32;
+pub type DEV_QUERY_FLAGS = i32;
+pub const DevQueryFlagNone: DEV_QUERY_FLAGS = 0i32;
+pub const DevQueryFlagUpdateResults: DEV_QUERY_FLAGS = 1i32;
+pub const DevQueryFlagAllProperties: DEV_QUERY_FLAGS = 2i32;
+pub const DevQueryFlagLocalize: DEV_QUERY_FLAGS = 4i32;
+pub const DevQueryFlagAsyncClose: DEV_QUERY_FLAGS = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub struct DEV_QUERY_PARAMETER {
@@ -197,47 +136,36 @@ pub struct DEV_QUERY_PARAMETER {
     pub Buffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Devices_Properties")]
-impl DEV_QUERY_PARAMETER {}
+impl ::core::marker::Copy for DEV_QUERY_PARAMETER {}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl ::core::clone::Clone for DEV_QUERY_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+unsafe impl ::windows::core::Abi for DEV_QUERY_PARAMETER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl ::core::cmp::PartialEq for DEV_QUERY_PARAMETER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_QUERY_PARAMETER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl ::core::cmp::Eq for DEV_QUERY_PARAMETER {}
 #[cfg(feature = "Win32_Devices_Properties")]
 impl ::core::default::Default for DEV_QUERY_PARAMETER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::fmt::Debug for DEV_QUERY_PARAMETER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEV_QUERY_PARAMETER").field("Key", &self.Key).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::cmp::PartialEq for DEV_QUERY_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::cmp::Eq for DEV_QUERY_PARAMETER {}
-#[cfg(feature = "Win32_Devices_Properties")]
-unsafe impl ::windows::core::Abi for DEV_QUERY_PARAMETER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEV_QUERY_RESULT_ACTION(pub i32);
-pub const DevQueryResultStateChange: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(0i32);
-pub const DevQueryResultAdd: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(1i32);
-pub const DevQueryResultUpdate: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(2i32);
-pub const DevQueryResultRemove: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(3i32);
-impl ::core::convert::From<i32> for DEV_QUERY_RESULT_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type DEV_QUERY_RESULT_ACTION = i32;
+pub const DevQueryResultStateChange: DEV_QUERY_RESULT_ACTION = 0i32;
+pub const DevQueryResultAdd: DEV_QUERY_RESULT_ACTION = 1i32;
+pub const DevQueryResultUpdate: DEV_QUERY_RESULT_ACTION = 2i32;
+pub const DevQueryResultRemove: DEV_QUERY_RESULT_ACTION = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct DEV_QUERY_RESULT_ACTION_DATA {
@@ -245,26 +173,31 @@ pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl DEV_QUERY_RESULT_ACTION_DATA {}
+impl ::core::marker::Copy for DEV_QUERY_RESULT_ACTION_DATA {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::PartialEq for DEV_QUERY_RESULT_ACTION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_QUERY_RESULT_ACTION_DATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA {}
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl ::core::default::Default for DEV_QUERY_RESULT_ACTION_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::PartialEq for DEV_QUERY_RESULT_ACTION_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA {}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
@@ -272,40 +205,36 @@ pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub DeviceObject: DEV_OBJECT,
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl DEV_QUERY_RESULT_ACTION_DATA_0 {}
+impl ::core::marker::Copy for DEV_QUERY_RESULT_ACTION_DATA_0 {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::PartialEq for DEV_QUERY_RESULT_ACTION_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_QUERY_RESULT_ACTION_DATA_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA_0 {}
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl ::core::default::Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::PartialEq for DEV_QUERY_RESULT_ACTION_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA_0 {}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEV_QUERY_STATE(pub i32);
-pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);
-pub const DevQueryStateEnumCompleted: DEV_QUERY_STATE = DEV_QUERY_STATE(1i32);
-pub const DevQueryStateAborted: DEV_QUERY_STATE = DEV_QUERY_STATE(2i32);
-pub const DevQueryStateClosed: DEV_QUERY_STATE = DEV_QUERY_STATE(3i32);
-impl ::core::convert::From<i32> for DEV_QUERY_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEV_QUERY_STATE {
-    type Abi = Self;
-}
+pub type DEV_QUERY_STATE = i32;
+pub const DevQueryStateInitialized: DEV_QUERY_STATE = 0i32;
+pub const DevQueryStateEnumCompleted: DEV_QUERY_STATE = 1i32;
+pub const DevQueryStateAborted: DEV_QUERY_STATE = 2i32;
+pub const DevQueryStateClosed: DEV_QUERY_STATE = 3i32;
 #[inline]
 pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     #[cfg(windows)]
@@ -507,30 +436,29 @@ pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, creq
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HDEVQUERY__ {
     pub unused: i32,
 }
-impl HDEVQUERY__ {}
+impl ::core::marker::Copy for HDEVQUERY__ {}
+impl ::core::clone::Clone for HDEVQUERY__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HDEVQUERY__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HDEVQUERY__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDEVQUERY__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HDEVQUERY__ {}
 impl ::core::default::Default for HDEVQUERY__ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for HDEVQUERY__ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HDEVQUERY__").field("unused", &self.unused).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HDEVQUERY__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for HDEVQUERY__ {}
-unsafe impl ::windows::core::Abi for HDEVQUERY__ {
-    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub type PDEV_QUERY_RESULT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevquery: *const HDEVQUERY__, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA)>;

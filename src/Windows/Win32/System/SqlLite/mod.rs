@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const FTS5_TOKENIZE_AUX: u32 = 8u32;
 pub const FTS5_TOKENIZE_DOCUMENT: u32 = 4u32;
 pub const FTS5_TOKENIZE_PREFIX: u32 = 2u32;
@@ -6,9 +6,7 @@ pub const FTS5_TOKENIZE_QUERY: u32 = 1u32;
 pub const FTS5_TOKEN_COLOCATED: u32 = 1u32;
 pub const FULLY_WITHIN: u32 = 2u32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct Fts5Context(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct Fts5ExtensionApi {
     pub iVersion: i32,
@@ -32,94 +30,52 @@ pub struct Fts5ExtensionApi {
     pub xPhraseFirstColumn: isize,
     pub xPhraseNextColumn: isize,
 }
-impl Fts5ExtensionApi {}
+impl ::core::marker::Copy for Fts5ExtensionApi {}
+impl ::core::clone::Clone for Fts5ExtensionApi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Fts5ExtensionApi {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Fts5ExtensionApi {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Fts5ExtensionApi>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Fts5ExtensionApi {}
 impl ::core::default::Default for Fts5ExtensionApi {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for Fts5ExtensionApi {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("Fts5ExtensionApi")
-            .field("iVersion", &self.iVersion)
-            .field("xUserData", &self.xUserData)
-            .field("xColumnCount", &self.xColumnCount)
-            .field("xRowCount", &self.xRowCount)
-            .field("xColumnTotalSize", &self.xColumnTotalSize)
-            .field("xTokenize", &self.xTokenize)
-            .field("xPhraseCount", &self.xPhraseCount)
-            .field("xPhraseSize", &self.xPhraseSize)
-            .field("xInstCount", &self.xInstCount)
-            .field("xInst", &self.xInst)
-            .field("xRowid", &self.xRowid)
-            .field("xColumnText", &self.xColumnText)
-            .field("xColumnSize", &self.xColumnSize)
-            .field("xQueryPhrase", &self.xQueryPhrase)
-            .field("xSetAuxdata", &self.xSetAuxdata)
-            .field("xGetAuxdata", &self.xGetAuxdata)
-            .field("xPhraseFirst", &self.xPhraseFirst)
-            .field("xPhraseNext", &self.xPhraseNext)
-            .field("xPhraseFirstColumn", &self.xPhraseFirstColumn)
-            .field("xPhraseNextColumn", &self.xPhraseNextColumn)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for Fts5ExtensionApi {
-    fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion
-            && self.xUserData == other.xUserData
-            && self.xColumnCount == other.xColumnCount
-            && self.xRowCount == other.xRowCount
-            && self.xColumnTotalSize == other.xColumnTotalSize
-            && self.xTokenize == other.xTokenize
-            && self.xPhraseCount == other.xPhraseCount
-            && self.xPhraseSize == other.xPhraseSize
-            && self.xInstCount == other.xInstCount
-            && self.xInst == other.xInst
-            && self.xRowid == other.xRowid
-            && self.xColumnText == other.xColumnText
-            && self.xColumnSize == other.xColumnSize
-            && self.xQueryPhrase == other.xQueryPhrase
-            && self.xSetAuxdata == other.xSetAuxdata
-            && self.xGetAuxdata == other.xGetAuxdata
-            && self.xPhraseFirst == other.xPhraseFirst
-            && self.xPhraseNext == other.xPhraseNext
-            && self.xPhraseFirstColumn == other.xPhraseFirstColumn
-            && self.xPhraseNextColumn == other.xPhraseNextColumn
-    }
-}
-impl ::core::cmp::Eq for Fts5ExtensionApi {}
-unsafe impl ::windows::core::Abi for Fts5ExtensionApi {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct Fts5PhraseIter {
     pub a: *mut u8,
     pub b: *mut u8,
 }
-impl Fts5PhraseIter {}
+impl ::core::marker::Copy for Fts5PhraseIter {}
+impl ::core::clone::Clone for Fts5PhraseIter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Fts5PhraseIter {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Fts5PhraseIter {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Fts5PhraseIter>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Fts5PhraseIter {}
 impl ::core::default::Default for Fts5PhraseIter {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for Fts5PhraseIter {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("Fts5PhraseIter").field("a", &self.a).field("b", &self.b).finish()
-    }
-}
-impl ::core::cmp::PartialEq for Fts5PhraseIter {
-    fn eq(&self, other: &Self) -> bool {
-        self.a == other.a && self.b == other.b
-    }
-}
-impl ::core::cmp::Eq for Fts5PhraseIter {}
-unsafe impl ::windows::core::Abi for Fts5PhraseIter {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct Fts5Tokenizer(pub u8);
 pub const NOT_WITHIN: u32 = 0u32;
 pub const PARTLY_WITHIN: u32 = 1u32;
@@ -498,7 +454,6 @@ pub const SQLITE_WARNING: u32 = 28u32;
 pub const SQLITE_WIN32_DATA_DIRECTORY_TYPE: u32 = 1u32;
 pub const SQLITE_WIN32_TEMP_DIRECTORY_TYPE: u32 = 2u32;
 pub const __SQLITESESSION_H_: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct fts5_api {
     pub iVersion: i32,
@@ -506,56 +461,54 @@ pub struct fts5_api {
     pub xFindTokenizer: isize,
     pub xCreateFunction: isize,
 }
-impl fts5_api {}
+impl ::core::marker::Copy for fts5_api {}
+impl ::core::clone::Clone for fts5_api {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for fts5_api {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for fts5_api {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<fts5_api>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for fts5_api {}
 impl ::core::default::Default for fts5_api {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for fts5_api {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("fts5_api").field("iVersion", &self.iVersion).field("xCreateTokenizer", &self.xCreateTokenizer).field("xFindTokenizer", &self.xFindTokenizer).field("xCreateFunction", &self.xCreateFunction).finish()
-    }
-}
-impl ::core::cmp::PartialEq for fts5_api {
-    fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion && self.xCreateTokenizer == other.xCreateTokenizer && self.xFindTokenizer == other.xFindTokenizer && self.xCreateFunction == other.xCreateFunction
-    }
-}
-impl ::core::cmp::Eq for fts5_api {}
-unsafe impl ::windows::core::Abi for fts5_api {
-    type Abi = Self;
-}
 pub type fts5_extension_function = ::core::option::Option<unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct fts5_tokenizer {
     pub xCreate: isize,
     pub xDelete: isize,
     pub xTokenize: isize,
 }
-impl fts5_tokenizer {}
+impl ::core::marker::Copy for fts5_tokenizer {}
+impl ::core::clone::Clone for fts5_tokenizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for fts5_tokenizer {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for fts5_tokenizer {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<fts5_tokenizer>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for fts5_tokenizer {}
 impl ::core::default::Default for fts5_tokenizer {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for fts5_tokenizer {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("fts5_tokenizer").field("xCreate", &self.xCreate).field("xDelete", &self.xDelete).field("xTokenize", &self.xTokenize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for fts5_tokenizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.xCreate == other.xCreate && self.xDelete == other.xDelete && self.xTokenize == other.xTokenize
-    }
-}
-impl ::core::cmp::Eq for fts5_tokenizer {}
-unsafe impl ::windows::core::Abi for fts5_tokenizer {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3(pub u8);
 #[inline]
 pub unsafe fn sqlite3_aggregate_context(param0: *mut sqlite3_context, nbytes: i32) -> *mut ::core::ffi::c_void {
@@ -583,7 +536,6 @@ pub unsafe fn sqlite3_aggregate_count(param0: *mut sqlite3_context) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -844,532 +796,24 @@ pub struct sqlite3_api_routines {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_api_routines {}
+impl ::core::marker::Copy for sqlite3_api_routines {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for sqlite3_api_routines {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for sqlite3_api_routines {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_api_routines {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_api_routines")
-            .field("aggregate_context", &self.aggregate_context)
-            .field("aggregate_count", &self.aggregate_count)
-            .field("bind_blob", &self.bind_blob)
-            .field("bind_double", &self.bind_double)
-            .field("bind_int", &self.bind_int)
-            .field("bind_int64", &self.bind_int64)
-            .field("bind_null", &self.bind_null)
-            .field("bind_parameter_count", &self.bind_parameter_count)
-            .field("bind_parameter_index", &self.bind_parameter_index)
-            .field("bind_parameter_name", &self.bind_parameter_name)
-            .field("bind_text", &self.bind_text)
-            .field("bind_text16", &self.bind_text16)
-            .field("bind_value", &self.bind_value)
-            .field("busy_handler", &self.busy_handler)
-            .field("busy_timeout", &self.busy_timeout)
-            .field("changes", &self.changes)
-            .field("close", &self.close)
-            .field("collation_needed", &self.collation_needed)
-            .field("collation_needed16", &self.collation_needed16)
-            .field("column_blob", &self.column_blob)
-            .field("column_bytes", &self.column_bytes)
-            .field("column_bytes16", &self.column_bytes16)
-            .field("column_count", &self.column_count)
-            .field("column_database_name", &self.column_database_name)
-            .field("column_database_name16", &self.column_database_name16)
-            .field("column_decltype", &self.column_decltype)
-            .field("column_decltype16", &self.column_decltype16)
-            .field("column_double", &self.column_double)
-            .field("column_int", &self.column_int)
-            .field("column_int64", &self.column_int64)
-            .field("column_name", &self.column_name)
-            .field("column_name16", &self.column_name16)
-            .field("column_origin_name", &self.column_origin_name)
-            .field("column_origin_name16", &self.column_origin_name16)
-            .field("column_table_name", &self.column_table_name)
-            .field("column_table_name16", &self.column_table_name16)
-            .field("column_text", &self.column_text)
-            .field("column_text16", &self.column_text16)
-            .field("column_type", &self.column_type)
-            .field("column_value", &self.column_value)
-            .field("commit_hook", &self.commit_hook)
-            .field("complete", &self.complete)
-            .field("complete16", &self.complete16)
-            .field("create_collation", &self.create_collation)
-            .field("create_collation16", &self.create_collation16)
-            .field("create_function", &self.create_function)
-            .field("create_function16", &self.create_function16)
-            .field("create_module", &self.create_module)
-            .field("data_count", &self.data_count)
-            .field("db_handle", &self.db_handle)
-            .field("declare_vtab", &self.declare_vtab)
-            .field("enable_shared_cache", &self.enable_shared_cache)
-            .field("errcode", &self.errcode)
-            .field("errmsg", &self.errmsg)
-            .field("errmsg16", &self.errmsg16)
-            .field("exec", &self.exec)
-            .field("expired", &self.expired)
-            .field("finalize", &self.finalize)
-            .field("free", &self.free)
-            .field("free_table", &self.free_table)
-            .field("get_autocommit", &self.get_autocommit)
-            .field("get_auxdata", &self.get_auxdata)
-            .field("get_table", &self.get_table)
-            .field("global_recover", &self.global_recover)
-            .field("interruptx", &self.interruptx)
-            .field("last_insert_rowid", &self.last_insert_rowid)
-            .field("libversion", &self.libversion)
-            .field("libversion_number", &self.libversion_number)
-            .field("malloc", &self.malloc)
-            .field("mprintf", &self.mprintf)
-            .field("open", &self.open)
-            .field("open16", &self.open16)
-            .field("prepare", &self.prepare)
-            .field("prepare16", &self.prepare16)
-            .field("profile", &self.profile)
-            .field("progress_handler", &self.progress_handler)
-            .field("realloc", &self.realloc)
-            .field("reset", &self.reset)
-            .field("result_blob", &self.result_blob)
-            .field("result_double", &self.result_double)
-            .field("result_error", &self.result_error)
-            .field("result_error16", &self.result_error16)
-            .field("result_int", &self.result_int)
-            .field("result_int64", &self.result_int64)
-            .field("result_null", &self.result_null)
-            .field("result_text", &self.result_text)
-            .field("result_text16", &self.result_text16)
-            .field("result_text16be", &self.result_text16be)
-            .field("result_text16le", &self.result_text16le)
-            .field("result_value", &self.result_value)
-            .field("rollback_hook", &self.rollback_hook)
-            .field("set_authorizer", &self.set_authorizer)
-            .field("set_auxdata", &self.set_auxdata)
-            .field("xsnprintf", &self.xsnprintf)
-            .field("step", &self.step)
-            .field("table_column_metadata", &self.table_column_metadata)
-            .field("thread_cleanup", &self.thread_cleanup)
-            .field("total_changes", &self.total_changes)
-            .field("trace", &self.trace)
-            .field("transfer_bindings", &self.transfer_bindings)
-            .field("update_hook", &self.update_hook)
-            .field("user_data", &self.user_data)
-            .field("value_blob", &self.value_blob)
-            .field("value_bytes", &self.value_bytes)
-            .field("value_bytes16", &self.value_bytes16)
-            .field("value_double", &self.value_double)
-            .field("value_int", &self.value_int)
-            .field("value_int64", &self.value_int64)
-            .field("value_numeric_type", &self.value_numeric_type)
-            .field("value_text", &self.value_text)
-            .field("value_text16", &self.value_text16)
-            .field("value_text16be", &self.value_text16be)
-            .field("value_text16le", &self.value_text16le)
-            .field("value_type", &self.value_type)
-            .field("vmprintf", &self.vmprintf)
-            .field("overload_function", &self.overload_function)
-            .field("prepare_v2", &self.prepare_v2)
-            .field("prepare16_v2", &self.prepare16_v2)
-            .field("clear_bindings", &self.clear_bindings)
-            .field("create_module_v2", &self.create_module_v2)
-            .field("bind_zeroblob", &self.bind_zeroblob)
-            .field("blob_bytes", &self.blob_bytes)
-            .field("blob_close", &self.blob_close)
-            .field("blob_open", &self.blob_open)
-            .field("blob_read", &self.blob_read)
-            .field("blob_write", &self.blob_write)
-            .field("create_collation_v2", &self.create_collation_v2)
-            .field("file_control", &self.file_control)
-            .field("memory_highwater", &self.memory_highwater)
-            .field("memory_used", &self.memory_used)
-            .field("mutex_alloc", &self.mutex_alloc)
-            .field("mutex_enter", &self.mutex_enter)
-            .field("mutex_free", &self.mutex_free)
-            .field("mutex_leave", &self.mutex_leave)
-            .field("mutex_try", &self.mutex_try)
-            .field("open_v2", &self.open_v2)
-            .field("release_memory", &self.release_memory)
-            .field("result_error_nomem", &self.result_error_nomem)
-            .field("result_error_toobig", &self.result_error_toobig)
-            .field("sleep", &self.sleep)
-            .field("soft_heap_limit", &self.soft_heap_limit)
-            .field("vfs_find", &self.vfs_find)
-            .field("vfs_register", &self.vfs_register)
-            .field("vfs_unregister", &self.vfs_unregister)
-            .field("xthreadsafe", &self.xthreadsafe)
-            .field("result_zeroblob", &self.result_zeroblob)
-            .field("result_error_code", &self.result_error_code)
-            .field("test_control", &self.test_control)
-            .field("randomness", &self.randomness)
-            .field("context_db_handle", &self.context_db_handle)
-            .field("extended_result_codes", &self.extended_result_codes)
-            .field("limit", &self.limit)
-            .field("next_stmt", &self.next_stmt)
-            .field("sql", &self.sql)
-            .field("status", &self.status)
-            .field("backup_finish", &self.backup_finish)
-            .field("backup_init", &self.backup_init)
-            .field("backup_pagecount", &self.backup_pagecount)
-            .field("backup_remaining", &self.backup_remaining)
-            .field("backup_step", &self.backup_step)
-            .field("compileoption_get", &self.compileoption_get)
-            .field("compileoption_used", &self.compileoption_used)
-            .field("create_function_v2", &self.create_function_v2)
-            .field("db_config", &self.db_config)
-            .field("db_mutex", &self.db_mutex)
-            .field("db_status", &self.db_status)
-            .field("extended_errcode", &self.extended_errcode)
-            .field("log", &self.log)
-            .field("soft_heap_limit64", &self.soft_heap_limit64)
-            .field("sourceid", &self.sourceid)
-            .field("stmt_status", &self.stmt_status)
-            .field("strnicmp", &self.strnicmp)
-            .field("unlock_notify", &self.unlock_notify)
-            .field("wal_autocheckpoint", &self.wal_autocheckpoint)
-            .field("wal_checkpoint", &self.wal_checkpoint)
-            .field("wal_hook", &self.wal_hook)
-            .field("blob_reopen", &self.blob_reopen)
-            .field("vtab_config", &self.vtab_config)
-            .field("vtab_on_conflict", &self.vtab_on_conflict)
-            .field("close_v2", &self.close_v2)
-            .field("db_filename", &self.db_filename)
-            .field("db_readonly", &self.db_readonly)
-            .field("db_release_memory", &self.db_release_memory)
-            .field("errstr", &self.errstr)
-            .field("stmt_busy", &self.stmt_busy)
-            .field("stmt_readonly", &self.stmt_readonly)
-            .field("stricmp", &self.stricmp)
-            .field("uri_boolean", &self.uri_boolean)
-            .field("uri_int64", &self.uri_int64)
-            .field("uri_parameter", &self.uri_parameter)
-            .field("xvsnprintf", &self.xvsnprintf)
-            .field("wal_checkpoint_v2", &self.wal_checkpoint_v2)
-            .field("auto_extension", &self.auto_extension)
-            .field("bind_blob64", &self.bind_blob64)
-            .field("bind_text64", &self.bind_text64)
-            .field("cancel_auto_extension", &self.cancel_auto_extension)
-            .field("load_extension", &self.load_extension)
-            .field("malloc64", &self.malloc64)
-            .field("msize", &self.msize)
-            .field("realloc64", &self.realloc64)
-            .field("reset_auto_extension", &self.reset_auto_extension)
-            .field("result_blob64", &self.result_blob64)
-            .field("result_text64", &self.result_text64)
-            .field("strglob", &self.strglob)
-            .field("value_dup", &self.value_dup)
-            .field("value_free", &self.value_free)
-            .field("result_zeroblob64", &self.result_zeroblob64)
-            .field("bind_zeroblob64", &self.bind_zeroblob64)
-            .field("value_subtype", &self.value_subtype)
-            .field("result_subtype", &self.result_subtype)
-            .field("status64", &self.status64)
-            .field("strlike", &self.strlike)
-            .field("db_cacheflush", &self.db_cacheflush)
-            .field("system_errno", &self.system_errno)
-            .field("trace_v2", &self.trace_v2)
-            .field("expanded_sql", &self.expanded_sql)
-            .field("set_last_insert_rowid", &self.set_last_insert_rowid)
-            .field("prepare_v3", &self.prepare_v3)
-            .field("prepare16_v3", &self.prepare16_v3)
-            .field("bind_pointer", &self.bind_pointer)
-            .field("result_pointer", &self.result_pointer)
-            .field("value_pointer", &self.value_pointer)
-            .field("vtab_nochange", &self.vtab_nochange)
-            .field("value_nochange", &self.value_nochange)
-            .field("vtab_collation", &self.vtab_collation)
-            .field("keyword_count", &self.keyword_count)
-            .field("keyword_name", &self.keyword_name)
-            .field("keyword_check", &self.keyword_check)
-            .field("str_new", &self.str_new)
-            .field("str_finish", &self.str_finish)
-            .field("str_appendf", &self.str_appendf)
-            .field("str_vappendf", &self.str_vappendf)
-            .field("str_append", &self.str_append)
-            .field("str_appendall", &self.str_appendall)
-            .field("str_appendchar", &self.str_appendchar)
-            .field("str_reset", &self.str_reset)
-            .field("str_errcode", &self.str_errcode)
-            .field("str_length", &self.str_length)
-            .field("str_value", &self.str_value)
-            .field("create_window_function", &self.create_window_function)
-            .field("normalized_sql", &self.normalized_sql)
-            .field("stmt_isexplain", &self.stmt_isexplain)
-            .field("value_frombind", &self.value_frombind)
-            .field("drop_modules", &self.drop_modules)
-            .field("hard_heap_limit64", &self.hard_heap_limit64)
-            .field("uri_key", &self.uri_key)
-            .field("filename_database", &self.filename_database)
-            .field("filename_journal", &self.filename_journal)
-            .field("filename_wal", &self.filename_wal)
-            .field("create_filename", &self.create_filename)
-            .field("free_filename", &self.free_filename)
-            .field("database_file_object", &self.database_file_object)
-            .field("txn_state", &self.txn_state)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for sqlite3_api_routines {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_api_routines {
     fn eq(&self, other: &Self) -> bool {
-        self.aggregate_context == other.aggregate_context
-            && self.aggregate_count == other.aggregate_count
-            && self.bind_blob == other.bind_blob
-            && self.bind_double == other.bind_double
-            && self.bind_int == other.bind_int
-            && self.bind_int64 == other.bind_int64
-            && self.bind_null == other.bind_null
-            && self.bind_parameter_count == other.bind_parameter_count
-            && self.bind_parameter_index == other.bind_parameter_index
-            && self.bind_parameter_name == other.bind_parameter_name
-            && self.bind_text == other.bind_text
-            && self.bind_text16 == other.bind_text16
-            && self.bind_value == other.bind_value
-            && self.busy_handler == other.busy_handler
-            && self.busy_timeout == other.busy_timeout
-            && self.changes == other.changes
-            && self.close == other.close
-            && self.collation_needed == other.collation_needed
-            && self.collation_needed16 == other.collation_needed16
-            && self.column_blob == other.column_blob
-            && self.column_bytes == other.column_bytes
-            && self.column_bytes16 == other.column_bytes16
-            && self.column_count == other.column_count
-            && self.column_database_name == other.column_database_name
-            && self.column_database_name16 == other.column_database_name16
-            && self.column_decltype == other.column_decltype
-            && self.column_decltype16 == other.column_decltype16
-            && self.column_double == other.column_double
-            && self.column_int == other.column_int
-            && self.column_int64 == other.column_int64
-            && self.column_name == other.column_name
-            && self.column_name16 == other.column_name16
-            && self.column_origin_name == other.column_origin_name
-            && self.column_origin_name16 == other.column_origin_name16
-            && self.column_table_name == other.column_table_name
-            && self.column_table_name16 == other.column_table_name16
-            && self.column_text == other.column_text
-            && self.column_text16 == other.column_text16
-            && self.column_type == other.column_type
-            && self.column_value == other.column_value
-            && self.commit_hook == other.commit_hook
-            && self.complete == other.complete
-            && self.complete16 == other.complete16
-            && self.create_collation == other.create_collation
-            && self.create_collation16 == other.create_collation16
-            && self.create_function == other.create_function
-            && self.create_function16 == other.create_function16
-            && self.create_module == other.create_module
-            && self.data_count == other.data_count
-            && self.db_handle == other.db_handle
-            && self.declare_vtab == other.declare_vtab
-            && self.enable_shared_cache == other.enable_shared_cache
-            && self.errcode == other.errcode
-            && self.errmsg == other.errmsg
-            && self.errmsg16 == other.errmsg16
-            && self.exec == other.exec
-            && self.expired == other.expired
-            && self.finalize == other.finalize
-            && self.free == other.free
-            && self.free_table == other.free_table
-            && self.get_autocommit == other.get_autocommit
-            && self.get_auxdata == other.get_auxdata
-            && self.get_table == other.get_table
-            && self.global_recover == other.global_recover
-            && self.interruptx == other.interruptx
-            && self.last_insert_rowid == other.last_insert_rowid
-            && self.libversion == other.libversion
-            && self.libversion_number == other.libversion_number
-            && self.malloc == other.malloc
-            && self.mprintf == other.mprintf
-            && self.open == other.open
-            && self.open16 == other.open16
-            && self.prepare == other.prepare
-            && self.prepare16 == other.prepare16
-            && self.profile == other.profile
-            && self.progress_handler == other.progress_handler
-            && self.realloc == other.realloc
-            && self.reset == other.reset
-            && self.result_blob == other.result_blob
-            && self.result_double == other.result_double
-            && self.result_error == other.result_error
-            && self.result_error16 == other.result_error16
-            && self.result_int == other.result_int
-            && self.result_int64 == other.result_int64
-            && self.result_null == other.result_null
-            && self.result_text == other.result_text
-            && self.result_text16 == other.result_text16
-            && self.result_text16be == other.result_text16be
-            && self.result_text16le == other.result_text16le
-            && self.result_value == other.result_value
-            && self.rollback_hook == other.rollback_hook
-            && self.set_authorizer == other.set_authorizer
-            && self.set_auxdata == other.set_auxdata
-            && self.xsnprintf == other.xsnprintf
-            && self.step == other.step
-            && self.table_column_metadata == other.table_column_metadata
-            && self.thread_cleanup == other.thread_cleanup
-            && self.total_changes == other.total_changes
-            && self.trace == other.trace
-            && self.transfer_bindings == other.transfer_bindings
-            && self.update_hook == other.update_hook
-            && self.user_data == other.user_data
-            && self.value_blob == other.value_blob
-            && self.value_bytes == other.value_bytes
-            && self.value_bytes16 == other.value_bytes16
-            && self.value_double == other.value_double
-            && self.value_int == other.value_int
-            && self.value_int64 == other.value_int64
-            && self.value_numeric_type == other.value_numeric_type
-            && self.value_text == other.value_text
-            && self.value_text16 == other.value_text16
-            && self.value_text16be == other.value_text16be
-            && self.value_text16le == other.value_text16le
-            && self.value_type == other.value_type
-            && self.vmprintf == other.vmprintf
-            && self.overload_function == other.overload_function
-            && self.prepare_v2 == other.prepare_v2
-            && self.prepare16_v2 == other.prepare16_v2
-            && self.clear_bindings == other.clear_bindings
-            && self.create_module_v2 == other.create_module_v2
-            && self.bind_zeroblob == other.bind_zeroblob
-            && self.blob_bytes == other.blob_bytes
-            && self.blob_close == other.blob_close
-            && self.blob_open == other.blob_open
-            && self.blob_read == other.blob_read
-            && self.blob_write == other.blob_write
-            && self.create_collation_v2 == other.create_collation_v2
-            && self.file_control == other.file_control
-            && self.memory_highwater == other.memory_highwater
-            && self.memory_used == other.memory_used
-            && self.mutex_alloc == other.mutex_alloc
-            && self.mutex_enter == other.mutex_enter
-            && self.mutex_free == other.mutex_free
-            && self.mutex_leave == other.mutex_leave
-            && self.mutex_try == other.mutex_try
-            && self.open_v2 == other.open_v2
-            && self.release_memory == other.release_memory
-            && self.result_error_nomem == other.result_error_nomem
-            && self.result_error_toobig == other.result_error_toobig
-            && self.sleep == other.sleep
-            && self.soft_heap_limit == other.soft_heap_limit
-            && self.vfs_find == other.vfs_find
-            && self.vfs_register == other.vfs_register
-            && self.vfs_unregister == other.vfs_unregister
-            && self.xthreadsafe == other.xthreadsafe
-            && self.result_zeroblob == other.result_zeroblob
-            && self.result_error_code == other.result_error_code
-            && self.test_control == other.test_control
-            && self.randomness == other.randomness
-            && self.context_db_handle == other.context_db_handle
-            && self.extended_result_codes == other.extended_result_codes
-            && self.limit == other.limit
-            && self.next_stmt == other.next_stmt
-            && self.sql == other.sql
-            && self.status == other.status
-            && self.backup_finish == other.backup_finish
-            && self.backup_init == other.backup_init
-            && self.backup_pagecount == other.backup_pagecount
-            && self.backup_remaining == other.backup_remaining
-            && self.backup_step == other.backup_step
-            && self.compileoption_get == other.compileoption_get
-            && self.compileoption_used == other.compileoption_used
-            && self.create_function_v2 == other.create_function_v2
-            && self.db_config == other.db_config
-            && self.db_mutex == other.db_mutex
-            && self.db_status == other.db_status
-            && self.extended_errcode == other.extended_errcode
-            && self.log == other.log
-            && self.soft_heap_limit64 == other.soft_heap_limit64
-            && self.sourceid == other.sourceid
-            && self.stmt_status == other.stmt_status
-            && self.strnicmp == other.strnicmp
-            && self.unlock_notify == other.unlock_notify
-            && self.wal_autocheckpoint == other.wal_autocheckpoint
-            && self.wal_checkpoint == other.wal_checkpoint
-            && self.wal_hook == other.wal_hook
-            && self.blob_reopen == other.blob_reopen
-            && self.vtab_config == other.vtab_config
-            && self.vtab_on_conflict == other.vtab_on_conflict
-            && self.close_v2 == other.close_v2
-            && self.db_filename == other.db_filename
-            && self.db_readonly == other.db_readonly
-            && self.db_release_memory == other.db_release_memory
-            && self.errstr == other.errstr
-            && self.stmt_busy == other.stmt_busy
-            && self.stmt_readonly == other.stmt_readonly
-            && self.stricmp == other.stricmp
-            && self.uri_boolean == other.uri_boolean
-            && self.uri_int64 == other.uri_int64
-            && self.uri_parameter == other.uri_parameter
-            && self.xvsnprintf == other.xvsnprintf
-            && self.wal_checkpoint_v2 == other.wal_checkpoint_v2
-            && self.auto_extension == other.auto_extension
-            && self.bind_blob64 == other.bind_blob64
-            && self.bind_text64 == other.bind_text64
-            && self.cancel_auto_extension == other.cancel_auto_extension
-            && self.load_extension == other.load_extension
-            && self.malloc64 == other.malloc64
-            && self.msize == other.msize
-            && self.realloc64 == other.realloc64
-            && self.reset_auto_extension == other.reset_auto_extension
-            && self.result_blob64 == other.result_blob64
-            && self.result_text64 == other.result_text64
-            && self.strglob == other.strglob
-            && self.value_dup == other.value_dup
-            && self.value_free == other.value_free
-            && self.result_zeroblob64 == other.result_zeroblob64
-            && self.bind_zeroblob64 == other.bind_zeroblob64
-            && self.value_subtype == other.value_subtype
-            && self.result_subtype == other.result_subtype
-            && self.status64 == other.status64
-            && self.strlike == other.strlike
-            && self.db_cacheflush == other.db_cacheflush
-            && self.system_errno == other.system_errno
-            && self.trace_v2 == other.trace_v2
-            && self.expanded_sql == other.expanded_sql
-            && self.set_last_insert_rowid == other.set_last_insert_rowid
-            && self.prepare_v3 == other.prepare_v3
-            && self.prepare16_v3 == other.prepare16_v3
-            && self.bind_pointer == other.bind_pointer
-            && self.result_pointer == other.result_pointer
-            && self.value_pointer == other.value_pointer
-            && self.vtab_nochange == other.vtab_nochange
-            && self.value_nochange == other.value_nochange
-            && self.vtab_collation == other.vtab_collation
-            && self.keyword_count == other.keyword_count
-            && self.keyword_name == other.keyword_name
-            && self.keyword_check == other.keyword_check
-            && self.str_new == other.str_new
-            && self.str_finish == other.str_finish
-            && self.str_appendf == other.str_appendf
-            && self.str_vappendf == other.str_vappendf
-            && self.str_append == other.str_append
-            && self.str_appendall == other.str_appendall
-            && self.str_appendchar == other.str_appendchar
-            && self.str_reset == other.str_reset
-            && self.str_errcode == other.str_errcode
-            && self.str_length == other.str_length
-            && self.str_value == other.str_value
-            && self.create_window_function == other.create_window_function
-            && self.normalized_sql == other.normalized_sql
-            && self.stmt_isexplain == other.stmt_isexplain
-            && self.value_frombind == other.value_frombind
-            && self.drop_modules == other.drop_modules
-            && self.hard_heap_limit64 == other.hard_heap_limit64
-            && self.uri_key == other.uri_key
-            && self.filename_database == other.filename_database
-            && self.filename_journal == other.filename_journal
-            && self.filename_wal == other.filename_wal
-            && self.create_filename == other.create_filename
-            && self.free_filename == other.free_filename
-            && self.database_file_object == other.database_file_object
-            && self.txn_state == other.txn_state
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_api_routines>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1377,10 +821,11 @@ impl ::core::cmp::PartialEq for sqlite3_api_routines {
 impl ::core::cmp::Eq for sqlite3_api_routines {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_api_routines {
-    type Abi = Self;
+impl ::core::default::Default for sqlite3_api_routines {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1641,532 +1086,24 @@ pub struct sqlite3_api_routines {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_api_routines {}
+impl ::core::marker::Copy for sqlite3_api_routines {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for sqlite3_api_routines {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for sqlite3_api_routines {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_api_routines {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_api_routines")
-            .field("aggregate_context", &self.aggregate_context)
-            .field("aggregate_count", &self.aggregate_count)
-            .field("bind_blob", &self.bind_blob)
-            .field("bind_double", &self.bind_double)
-            .field("bind_int", &self.bind_int)
-            .field("bind_int64", &self.bind_int64)
-            .field("bind_null", &self.bind_null)
-            .field("bind_parameter_count", &self.bind_parameter_count)
-            .field("bind_parameter_index", &self.bind_parameter_index)
-            .field("bind_parameter_name", &self.bind_parameter_name)
-            .field("bind_text", &self.bind_text)
-            .field("bind_text16", &self.bind_text16)
-            .field("bind_value", &self.bind_value)
-            .field("busy_handler", &self.busy_handler)
-            .field("busy_timeout", &self.busy_timeout)
-            .field("changes", &self.changes)
-            .field("close", &self.close)
-            .field("collation_needed", &self.collation_needed)
-            .field("collation_needed16", &self.collation_needed16)
-            .field("column_blob", &self.column_blob)
-            .field("column_bytes", &self.column_bytes)
-            .field("column_bytes16", &self.column_bytes16)
-            .field("column_count", &self.column_count)
-            .field("column_database_name", &self.column_database_name)
-            .field("column_database_name16", &self.column_database_name16)
-            .field("column_decltype", &self.column_decltype)
-            .field("column_decltype16", &self.column_decltype16)
-            .field("column_double", &self.column_double)
-            .field("column_int", &self.column_int)
-            .field("column_int64", &self.column_int64)
-            .field("column_name", &self.column_name)
-            .field("column_name16", &self.column_name16)
-            .field("column_origin_name", &self.column_origin_name)
-            .field("column_origin_name16", &self.column_origin_name16)
-            .field("column_table_name", &self.column_table_name)
-            .field("column_table_name16", &self.column_table_name16)
-            .field("column_text", &self.column_text)
-            .field("column_text16", &self.column_text16)
-            .field("column_type", &self.column_type)
-            .field("column_value", &self.column_value)
-            .field("commit_hook", &self.commit_hook)
-            .field("complete", &self.complete)
-            .field("complete16", &self.complete16)
-            .field("create_collation", &self.create_collation)
-            .field("create_collation16", &self.create_collation16)
-            .field("create_function", &self.create_function)
-            .field("create_function16", &self.create_function16)
-            .field("create_module", &self.create_module)
-            .field("data_count", &self.data_count)
-            .field("db_handle", &self.db_handle)
-            .field("declare_vtab", &self.declare_vtab)
-            .field("enable_shared_cache", &self.enable_shared_cache)
-            .field("errcode", &self.errcode)
-            .field("errmsg", &self.errmsg)
-            .field("errmsg16", &self.errmsg16)
-            .field("exec", &self.exec)
-            .field("expired", &self.expired)
-            .field("finalize", &self.finalize)
-            .field("free", &self.free)
-            .field("free_table", &self.free_table)
-            .field("get_autocommit", &self.get_autocommit)
-            .field("get_auxdata", &self.get_auxdata)
-            .field("get_table", &self.get_table)
-            .field("global_recover", &self.global_recover)
-            .field("interruptx", &self.interruptx)
-            .field("last_insert_rowid", &self.last_insert_rowid)
-            .field("libversion", &self.libversion)
-            .field("libversion_number", &self.libversion_number)
-            .field("malloc", &self.malloc)
-            .field("mprintf", &self.mprintf)
-            .field("open", &self.open)
-            .field("open16", &self.open16)
-            .field("prepare", &self.prepare)
-            .field("prepare16", &self.prepare16)
-            .field("profile", &self.profile)
-            .field("progress_handler", &self.progress_handler)
-            .field("realloc", &self.realloc)
-            .field("reset", &self.reset)
-            .field("result_blob", &self.result_blob)
-            .field("result_double", &self.result_double)
-            .field("result_error", &self.result_error)
-            .field("result_error16", &self.result_error16)
-            .field("result_int", &self.result_int)
-            .field("result_int64", &self.result_int64)
-            .field("result_null", &self.result_null)
-            .field("result_text", &self.result_text)
-            .field("result_text16", &self.result_text16)
-            .field("result_text16be", &self.result_text16be)
-            .field("result_text16le", &self.result_text16le)
-            .field("result_value", &self.result_value)
-            .field("rollback_hook", &self.rollback_hook)
-            .field("set_authorizer", &self.set_authorizer)
-            .field("set_auxdata", &self.set_auxdata)
-            .field("xsnprintf", &self.xsnprintf)
-            .field("step", &self.step)
-            .field("table_column_metadata", &self.table_column_metadata)
-            .field("thread_cleanup", &self.thread_cleanup)
-            .field("total_changes", &self.total_changes)
-            .field("trace", &self.trace)
-            .field("transfer_bindings", &self.transfer_bindings)
-            .field("update_hook", &self.update_hook)
-            .field("user_data", &self.user_data)
-            .field("value_blob", &self.value_blob)
-            .field("value_bytes", &self.value_bytes)
-            .field("value_bytes16", &self.value_bytes16)
-            .field("value_double", &self.value_double)
-            .field("value_int", &self.value_int)
-            .field("value_int64", &self.value_int64)
-            .field("value_numeric_type", &self.value_numeric_type)
-            .field("value_text", &self.value_text)
-            .field("value_text16", &self.value_text16)
-            .field("value_text16be", &self.value_text16be)
-            .field("value_text16le", &self.value_text16le)
-            .field("value_type", &self.value_type)
-            .field("vmprintf", &self.vmprintf)
-            .field("overload_function", &self.overload_function)
-            .field("prepare_v2", &self.prepare_v2)
-            .field("prepare16_v2", &self.prepare16_v2)
-            .field("clear_bindings", &self.clear_bindings)
-            .field("create_module_v2", &self.create_module_v2)
-            .field("bind_zeroblob", &self.bind_zeroblob)
-            .field("blob_bytes", &self.blob_bytes)
-            .field("blob_close", &self.blob_close)
-            .field("blob_open", &self.blob_open)
-            .field("blob_read", &self.blob_read)
-            .field("blob_write", &self.blob_write)
-            .field("create_collation_v2", &self.create_collation_v2)
-            .field("file_control", &self.file_control)
-            .field("memory_highwater", &self.memory_highwater)
-            .field("memory_used", &self.memory_used)
-            .field("mutex_alloc", &self.mutex_alloc)
-            .field("mutex_enter", &self.mutex_enter)
-            .field("mutex_free", &self.mutex_free)
-            .field("mutex_leave", &self.mutex_leave)
-            .field("mutex_try", &self.mutex_try)
-            .field("open_v2", &self.open_v2)
-            .field("release_memory", &self.release_memory)
-            .field("result_error_nomem", &self.result_error_nomem)
-            .field("result_error_toobig", &self.result_error_toobig)
-            .field("sleep", &self.sleep)
-            .field("soft_heap_limit", &self.soft_heap_limit)
-            .field("vfs_find", &self.vfs_find)
-            .field("vfs_register", &self.vfs_register)
-            .field("vfs_unregister", &self.vfs_unregister)
-            .field("xthreadsafe", &self.xthreadsafe)
-            .field("result_zeroblob", &self.result_zeroblob)
-            .field("result_error_code", &self.result_error_code)
-            .field("test_control", &self.test_control)
-            .field("randomness", &self.randomness)
-            .field("context_db_handle", &self.context_db_handle)
-            .field("extended_result_codes", &self.extended_result_codes)
-            .field("limit", &self.limit)
-            .field("next_stmt", &self.next_stmt)
-            .field("sql", &self.sql)
-            .field("status", &self.status)
-            .field("backup_finish", &self.backup_finish)
-            .field("backup_init", &self.backup_init)
-            .field("backup_pagecount", &self.backup_pagecount)
-            .field("backup_remaining", &self.backup_remaining)
-            .field("backup_step", &self.backup_step)
-            .field("compileoption_get", &self.compileoption_get)
-            .field("compileoption_used", &self.compileoption_used)
-            .field("create_function_v2", &self.create_function_v2)
-            .field("db_config", &self.db_config)
-            .field("db_mutex", &self.db_mutex)
-            .field("db_status", &self.db_status)
-            .field("extended_errcode", &self.extended_errcode)
-            .field("log", &self.log)
-            .field("soft_heap_limit64", &self.soft_heap_limit64)
-            .field("sourceid", &self.sourceid)
-            .field("stmt_status", &self.stmt_status)
-            .field("strnicmp", &self.strnicmp)
-            .field("unlock_notify", &self.unlock_notify)
-            .field("wal_autocheckpoint", &self.wal_autocheckpoint)
-            .field("wal_checkpoint", &self.wal_checkpoint)
-            .field("wal_hook", &self.wal_hook)
-            .field("blob_reopen", &self.blob_reopen)
-            .field("vtab_config", &self.vtab_config)
-            .field("vtab_on_conflict", &self.vtab_on_conflict)
-            .field("close_v2", &self.close_v2)
-            .field("db_filename", &self.db_filename)
-            .field("db_readonly", &self.db_readonly)
-            .field("db_release_memory", &self.db_release_memory)
-            .field("errstr", &self.errstr)
-            .field("stmt_busy", &self.stmt_busy)
-            .field("stmt_readonly", &self.stmt_readonly)
-            .field("stricmp", &self.stricmp)
-            .field("uri_boolean", &self.uri_boolean)
-            .field("uri_int64", &self.uri_int64)
-            .field("uri_parameter", &self.uri_parameter)
-            .field("xvsnprintf", &self.xvsnprintf)
-            .field("wal_checkpoint_v2", &self.wal_checkpoint_v2)
-            .field("auto_extension", &self.auto_extension)
-            .field("bind_blob64", &self.bind_blob64)
-            .field("bind_text64", &self.bind_text64)
-            .field("cancel_auto_extension", &self.cancel_auto_extension)
-            .field("load_extension", &self.load_extension)
-            .field("malloc64", &self.malloc64)
-            .field("msize", &self.msize)
-            .field("realloc64", &self.realloc64)
-            .field("reset_auto_extension", &self.reset_auto_extension)
-            .field("result_blob64", &self.result_blob64)
-            .field("result_text64", &self.result_text64)
-            .field("strglob", &self.strglob)
-            .field("value_dup", &self.value_dup)
-            .field("value_free", &self.value_free)
-            .field("result_zeroblob64", &self.result_zeroblob64)
-            .field("bind_zeroblob64", &self.bind_zeroblob64)
-            .field("value_subtype", &self.value_subtype)
-            .field("result_subtype", &self.result_subtype)
-            .field("status64", &self.status64)
-            .field("strlike", &self.strlike)
-            .field("db_cacheflush", &self.db_cacheflush)
-            .field("system_errno", &self.system_errno)
-            .field("trace_v2", &self.trace_v2)
-            .field("expanded_sql", &self.expanded_sql)
-            .field("set_last_insert_rowid", &self.set_last_insert_rowid)
-            .field("prepare_v3", &self.prepare_v3)
-            .field("prepare16_v3", &self.prepare16_v3)
-            .field("bind_pointer", &self.bind_pointer)
-            .field("result_pointer", &self.result_pointer)
-            .field("value_pointer", &self.value_pointer)
-            .field("vtab_nochange", &self.vtab_nochange)
-            .field("value_nochange", &self.value_nochange)
-            .field("vtab_collation", &self.vtab_collation)
-            .field("keyword_count", &self.keyword_count)
-            .field("keyword_name", &self.keyword_name)
-            .field("keyword_check", &self.keyword_check)
-            .field("str_new", &self.str_new)
-            .field("str_finish", &self.str_finish)
-            .field("str_appendf", &self.str_appendf)
-            .field("str_vappendf", &self.str_vappendf)
-            .field("str_append", &self.str_append)
-            .field("str_appendall", &self.str_appendall)
-            .field("str_appendchar", &self.str_appendchar)
-            .field("str_reset", &self.str_reset)
-            .field("str_errcode", &self.str_errcode)
-            .field("str_length", &self.str_length)
-            .field("str_value", &self.str_value)
-            .field("create_window_function", &self.create_window_function)
-            .field("normalized_sql", &self.normalized_sql)
-            .field("stmt_isexplain", &self.stmt_isexplain)
-            .field("value_frombind", &self.value_frombind)
-            .field("drop_modules", &self.drop_modules)
-            .field("hard_heap_limit64", &self.hard_heap_limit64)
-            .field("uri_key", &self.uri_key)
-            .field("filename_database", &self.filename_database)
-            .field("filename_journal", &self.filename_journal)
-            .field("filename_wal", &self.filename_wal)
-            .field("create_filename", &self.create_filename)
-            .field("free_filename", &self.free_filename)
-            .field("database_file_object", &self.database_file_object)
-            .field("txn_state", &self.txn_state)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for sqlite3_api_routines {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_api_routines {
     fn eq(&self, other: &Self) -> bool {
-        self.aggregate_context == other.aggregate_context
-            && self.aggregate_count == other.aggregate_count
-            && self.bind_blob == other.bind_blob
-            && self.bind_double == other.bind_double
-            && self.bind_int == other.bind_int
-            && self.bind_int64 == other.bind_int64
-            && self.bind_null == other.bind_null
-            && self.bind_parameter_count == other.bind_parameter_count
-            && self.bind_parameter_index == other.bind_parameter_index
-            && self.bind_parameter_name == other.bind_parameter_name
-            && self.bind_text == other.bind_text
-            && self.bind_text16 == other.bind_text16
-            && self.bind_value == other.bind_value
-            && self.busy_handler == other.busy_handler
-            && self.busy_timeout == other.busy_timeout
-            && self.changes == other.changes
-            && self.close == other.close
-            && self.collation_needed == other.collation_needed
-            && self.collation_needed16 == other.collation_needed16
-            && self.column_blob == other.column_blob
-            && self.column_bytes == other.column_bytes
-            && self.column_bytes16 == other.column_bytes16
-            && self.column_count == other.column_count
-            && self.column_database_name == other.column_database_name
-            && self.column_database_name16 == other.column_database_name16
-            && self.column_decltype == other.column_decltype
-            && self.column_decltype16 == other.column_decltype16
-            && self.column_double == other.column_double
-            && self.column_int == other.column_int
-            && self.column_int64 == other.column_int64
-            && self.column_name == other.column_name
-            && self.column_name16 == other.column_name16
-            && self.column_origin_name == other.column_origin_name
-            && self.column_origin_name16 == other.column_origin_name16
-            && self.column_table_name == other.column_table_name
-            && self.column_table_name16 == other.column_table_name16
-            && self.column_text == other.column_text
-            && self.column_text16 == other.column_text16
-            && self.column_type == other.column_type
-            && self.column_value == other.column_value
-            && self.commit_hook == other.commit_hook
-            && self.complete == other.complete
-            && self.complete16 == other.complete16
-            && self.create_collation == other.create_collation
-            && self.create_collation16 == other.create_collation16
-            && self.create_function == other.create_function
-            && self.create_function16 == other.create_function16
-            && self.create_module == other.create_module
-            && self.data_count == other.data_count
-            && self.db_handle == other.db_handle
-            && self.declare_vtab == other.declare_vtab
-            && self.enable_shared_cache == other.enable_shared_cache
-            && self.errcode == other.errcode
-            && self.errmsg == other.errmsg
-            && self.errmsg16 == other.errmsg16
-            && self.exec == other.exec
-            && self.expired == other.expired
-            && self.finalize == other.finalize
-            && self.free == other.free
-            && self.free_table == other.free_table
-            && self.get_autocommit == other.get_autocommit
-            && self.get_auxdata == other.get_auxdata
-            && self.get_table == other.get_table
-            && self.global_recover == other.global_recover
-            && self.interruptx == other.interruptx
-            && self.last_insert_rowid == other.last_insert_rowid
-            && self.libversion == other.libversion
-            && self.libversion_number == other.libversion_number
-            && self.malloc == other.malloc
-            && self.mprintf == other.mprintf
-            && self.open == other.open
-            && self.open16 == other.open16
-            && self.prepare == other.prepare
-            && self.prepare16 == other.prepare16
-            && self.profile == other.profile
-            && self.progress_handler == other.progress_handler
-            && self.realloc == other.realloc
-            && self.reset == other.reset
-            && self.result_blob == other.result_blob
-            && self.result_double == other.result_double
-            && self.result_error == other.result_error
-            && self.result_error16 == other.result_error16
-            && self.result_int == other.result_int
-            && self.result_int64 == other.result_int64
-            && self.result_null == other.result_null
-            && self.result_text == other.result_text
-            && self.result_text16 == other.result_text16
-            && self.result_text16be == other.result_text16be
-            && self.result_text16le == other.result_text16le
-            && self.result_value == other.result_value
-            && self.rollback_hook == other.rollback_hook
-            && self.set_authorizer == other.set_authorizer
-            && self.set_auxdata == other.set_auxdata
-            && self.xsnprintf == other.xsnprintf
-            && self.step == other.step
-            && self.table_column_metadata == other.table_column_metadata
-            && self.thread_cleanup == other.thread_cleanup
-            && self.total_changes == other.total_changes
-            && self.trace == other.trace
-            && self.transfer_bindings == other.transfer_bindings
-            && self.update_hook == other.update_hook
-            && self.user_data == other.user_data
-            && self.value_blob == other.value_blob
-            && self.value_bytes == other.value_bytes
-            && self.value_bytes16 == other.value_bytes16
-            && self.value_double == other.value_double
-            && self.value_int == other.value_int
-            && self.value_int64 == other.value_int64
-            && self.value_numeric_type == other.value_numeric_type
-            && self.value_text == other.value_text
-            && self.value_text16 == other.value_text16
-            && self.value_text16be == other.value_text16be
-            && self.value_text16le == other.value_text16le
-            && self.value_type == other.value_type
-            && self.vmprintf == other.vmprintf
-            && self.overload_function == other.overload_function
-            && self.prepare_v2 == other.prepare_v2
-            && self.prepare16_v2 == other.prepare16_v2
-            && self.clear_bindings == other.clear_bindings
-            && self.create_module_v2 == other.create_module_v2
-            && self.bind_zeroblob == other.bind_zeroblob
-            && self.blob_bytes == other.blob_bytes
-            && self.blob_close == other.blob_close
-            && self.blob_open == other.blob_open
-            && self.blob_read == other.blob_read
-            && self.blob_write == other.blob_write
-            && self.create_collation_v2 == other.create_collation_v2
-            && self.file_control == other.file_control
-            && self.memory_highwater == other.memory_highwater
-            && self.memory_used == other.memory_used
-            && self.mutex_alloc == other.mutex_alloc
-            && self.mutex_enter == other.mutex_enter
-            && self.mutex_free == other.mutex_free
-            && self.mutex_leave == other.mutex_leave
-            && self.mutex_try == other.mutex_try
-            && self.open_v2 == other.open_v2
-            && self.release_memory == other.release_memory
-            && self.result_error_nomem == other.result_error_nomem
-            && self.result_error_toobig == other.result_error_toobig
-            && self.sleep == other.sleep
-            && self.soft_heap_limit == other.soft_heap_limit
-            && self.vfs_find == other.vfs_find
-            && self.vfs_register == other.vfs_register
-            && self.vfs_unregister == other.vfs_unregister
-            && self.xthreadsafe == other.xthreadsafe
-            && self.result_zeroblob == other.result_zeroblob
-            && self.result_error_code == other.result_error_code
-            && self.test_control == other.test_control
-            && self.randomness == other.randomness
-            && self.context_db_handle == other.context_db_handle
-            && self.extended_result_codes == other.extended_result_codes
-            && self.limit == other.limit
-            && self.next_stmt == other.next_stmt
-            && self.sql == other.sql
-            && self.status == other.status
-            && self.backup_finish == other.backup_finish
-            && self.backup_init == other.backup_init
-            && self.backup_pagecount == other.backup_pagecount
-            && self.backup_remaining == other.backup_remaining
-            && self.backup_step == other.backup_step
-            && self.compileoption_get == other.compileoption_get
-            && self.compileoption_used == other.compileoption_used
-            && self.create_function_v2 == other.create_function_v2
-            && self.db_config == other.db_config
-            && self.db_mutex == other.db_mutex
-            && self.db_status == other.db_status
-            && self.extended_errcode == other.extended_errcode
-            && self.log == other.log
-            && self.soft_heap_limit64 == other.soft_heap_limit64
-            && self.sourceid == other.sourceid
-            && self.stmt_status == other.stmt_status
-            && self.strnicmp == other.strnicmp
-            && self.unlock_notify == other.unlock_notify
-            && self.wal_autocheckpoint == other.wal_autocheckpoint
-            && self.wal_checkpoint == other.wal_checkpoint
-            && self.wal_hook == other.wal_hook
-            && self.blob_reopen == other.blob_reopen
-            && self.vtab_config == other.vtab_config
-            && self.vtab_on_conflict == other.vtab_on_conflict
-            && self.close_v2 == other.close_v2
-            && self.db_filename == other.db_filename
-            && self.db_readonly == other.db_readonly
-            && self.db_release_memory == other.db_release_memory
-            && self.errstr == other.errstr
-            && self.stmt_busy == other.stmt_busy
-            && self.stmt_readonly == other.stmt_readonly
-            && self.stricmp == other.stricmp
-            && self.uri_boolean == other.uri_boolean
-            && self.uri_int64 == other.uri_int64
-            && self.uri_parameter == other.uri_parameter
-            && self.xvsnprintf == other.xvsnprintf
-            && self.wal_checkpoint_v2 == other.wal_checkpoint_v2
-            && self.auto_extension == other.auto_extension
-            && self.bind_blob64 == other.bind_blob64
-            && self.bind_text64 == other.bind_text64
-            && self.cancel_auto_extension == other.cancel_auto_extension
-            && self.load_extension == other.load_extension
-            && self.malloc64 == other.malloc64
-            && self.msize == other.msize
-            && self.realloc64 == other.realloc64
-            && self.reset_auto_extension == other.reset_auto_extension
-            && self.result_blob64 == other.result_blob64
-            && self.result_text64 == other.result_text64
-            && self.strglob == other.strglob
-            && self.value_dup == other.value_dup
-            && self.value_free == other.value_free
-            && self.result_zeroblob64 == other.result_zeroblob64
-            && self.bind_zeroblob64 == other.bind_zeroblob64
-            && self.value_subtype == other.value_subtype
-            && self.result_subtype == other.result_subtype
-            && self.status64 == other.status64
-            && self.strlike == other.strlike
-            && self.db_cacheflush == other.db_cacheflush
-            && self.system_errno == other.system_errno
-            && self.trace_v2 == other.trace_v2
-            && self.expanded_sql == other.expanded_sql
-            && self.set_last_insert_rowid == other.set_last_insert_rowid
-            && self.prepare_v3 == other.prepare_v3
-            && self.prepare16_v3 == other.prepare16_v3
-            && self.bind_pointer == other.bind_pointer
-            && self.result_pointer == other.result_pointer
-            && self.value_pointer == other.value_pointer
-            && self.vtab_nochange == other.vtab_nochange
-            && self.value_nochange == other.value_nochange
-            && self.vtab_collation == other.vtab_collation
-            && self.keyword_count == other.keyword_count
-            && self.keyword_name == other.keyword_name
-            && self.keyword_check == other.keyword_check
-            && self.str_new == other.str_new
-            && self.str_finish == other.str_finish
-            && self.str_appendf == other.str_appendf
-            && self.str_vappendf == other.str_vappendf
-            && self.str_append == other.str_append
-            && self.str_appendall == other.str_appendall
-            && self.str_appendchar == other.str_appendchar
-            && self.str_reset == other.str_reset
-            && self.str_errcode == other.str_errcode
-            && self.str_length == other.str_length
-            && self.str_value == other.str_value
-            && self.create_window_function == other.create_window_function
-            && self.normalized_sql == other.normalized_sql
-            && self.stmt_isexplain == other.stmt_isexplain
-            && self.value_frombind == other.value_frombind
-            && self.drop_modules == other.drop_modules
-            && self.hard_heap_limit64 == other.hard_heap_limit64
-            && self.uri_key == other.uri_key
-            && self.filename_database == other.filename_database
-            && self.filename_journal == other.filename_journal
-            && self.filename_wal == other.filename_wal
-            && self.create_filename == other.create_filename
-            && self.free_filename == other.free_filename
-            && self.database_file_object == other.database_file_object
-            && self.txn_state == other.txn_state
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_api_routines>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2174,8 +1111,10 @@ impl ::core::cmp::PartialEq for sqlite3_api_routines {
 impl ::core::cmp::Eq for sqlite3_api_routines {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_api_routines {
-    type Abi = Self;
+impl ::core::default::Default for sqlite3_api_routines {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn sqlite3_auto_extension(xentrypoint: isize) -> i32 {
@@ -2191,7 +1130,6 @@ pub unsafe fn sqlite3_auto_extension(xentrypoint: isize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_backup(pub u8);
 #[inline]
 pub unsafe fn sqlite3_backup_finish(p: *mut sqlite3_backup) -> i32 {
@@ -2473,7 +1411,6 @@ pub unsafe fn sqlite3_bind_zeroblob64(param0: *mut sqlite3_stmt, param1: i32, pa
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_blob(pub u8);
 #[inline]
 pub unsafe fn sqlite3_blob_bytes(param0: *mut sqlite3_blob) -> i32 {
@@ -3032,7 +1969,6 @@ pub unsafe fn sqlite3_config(param0: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_context(pub u8);
 #[inline]
 pub unsafe fn sqlite3_context_db_handle(param0: *mut sqlite3_context) -> *mut sqlite3 {
@@ -3507,30 +2443,29 @@ pub unsafe fn sqlite3_extended_result_codes(param0: *mut sqlite3, onoff: i32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_file {
     pub pMethods: *mut sqlite3_io_methods,
 }
-impl sqlite3_file {}
+impl ::core::marker::Copy for sqlite3_file {}
+impl ::core::clone::Clone for sqlite3_file {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_file {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_file {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_file>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_file {}
 impl ::core::default::Default for sqlite3_file {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_file {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_file").field("pMethods", &self.pMethods).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_file {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMethods == other.pMethods
-    }
-}
-impl ::core::cmp::Eq for sqlite3_file {}
-unsafe impl ::windows::core::Abi for sqlite3_file {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3707,7 +2642,6 @@ pub unsafe fn sqlite3_hard_heap_limit64(n: i64) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info {
@@ -3726,46 +2660,31 @@ pub struct sqlite3_index_info {
     pub colUsed: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_index_info {}
+impl ::core::marker::Copy for sqlite3_index_info {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for sqlite3_index_info {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for sqlite3_index_info {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for sqlite3_index_info {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_index_info {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_index_info")
-            .field("nConstraint", &self.nConstraint)
-            .field("aConstraint", &self.aConstraint)
-            .field("nOrderBy", &self.nOrderBy)
-            .field("aOrderBy", &self.aOrderBy)
-            .field("aConstraintUsage", &self.aConstraintUsage)
-            .field("idxNum", &self.idxNum)
-            .field("idxStr", &self.idxStr)
-            .field("needToFreeIdxStr", &self.needToFreeIdxStr)
-            .field("orderByConsumed", &self.orderByConsumed)
-            .field("estimatedCost", &self.estimatedCost)
-            .field("estimatedRows", &self.estimatedRows)
-            .field("idxFlags", &self.idxFlags)
-            .field("colUsed", &self.colUsed)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for sqlite3_index_info {
-    fn eq(&self, other: &Self) -> bool {
-        self.nConstraint == other.nConstraint && self.aConstraint == other.aConstraint && self.nOrderBy == other.nOrderBy && self.aOrderBy == other.aOrderBy && self.aConstraintUsage == other.aConstraintUsage && self.idxNum == other.idxNum && self.idxStr == other.idxStr && self.needToFreeIdxStr == other.needToFreeIdxStr && self.orderByConsumed == other.orderByConsumed && self.estimatedCost == other.estimatedCost && self.estimatedRows == other.estimatedRows && self.idxFlags == other.idxFlags && self.colUsed == other.colUsed
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for sqlite3_index_info {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_index_info {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_0 {
@@ -3775,32 +2694,31 @@ pub struct sqlite3_index_info_0 {
     pub iTermOffset: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_index_info_0 {}
+impl ::core::marker::Copy for sqlite3_index_info_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for sqlite3_index_info_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for sqlite3_index_info_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for sqlite3_index_info_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_index_info_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_index_constraint").field("iColumn", &self.iColumn).field("op", &self.op).field("usable", &self.usable).field("iTermOffset", &self.iTermOffset).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for sqlite3_index_info_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.iColumn == other.iColumn && self.op == other.op && self.usable == other.usable && self.iTermOffset == other.iTermOffset
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for sqlite3_index_info_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_index_info_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_1 {
@@ -3808,32 +2726,31 @@ pub struct sqlite3_index_info_1 {
     pub omit: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_index_info_1 {}
+impl ::core::marker::Copy for sqlite3_index_info_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for sqlite3_index_info_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for sqlite3_index_info_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for sqlite3_index_info_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_index_info_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_index_constraint_usage").field("argvIndex", &self.argvIndex).field("omit", &self.omit).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for sqlite3_index_info_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.argvIndex == other.argvIndex && self.omit == other.omit
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for sqlite3_index_info_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_index_info_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_2 {
@@ -3841,30 +2758,30 @@ pub struct sqlite3_index_info_2 {
     pub desc: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_index_info_2 {}
+impl ::core::marker::Copy for sqlite3_index_info_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for sqlite3_index_info_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for sqlite3_index_info_2 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_index_info_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_index_orderby").field("iColumn", &self.iColumn).field("desc", &self.desc).finish()
-    }
+unsafe impl ::windows::core::Abi for sqlite3_index_info_2 {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.iColumn == other.iColumn && self.desc == other.desc
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_2>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_2 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_index_info_2 {
-    type Abi = Self;
+impl ::core::default::Default for sqlite3_index_info_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn sqlite3_initialize() -> i32 {
@@ -3892,7 +2809,6 @@ pub unsafe fn sqlite3_interrupt(param0: *mut sqlite3) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_io_methods {
     pub iVersion: i32,
@@ -3915,45 +2831,25 @@ pub struct sqlite3_io_methods {
     pub xFetch: isize,
     pub xUnfetch: isize,
 }
-impl sqlite3_io_methods {}
+impl ::core::marker::Copy for sqlite3_io_methods {}
+impl ::core::clone::Clone for sqlite3_io_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_io_methods {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_io_methods {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_io_methods>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_io_methods {}
 impl ::core::default::Default for sqlite3_io_methods {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_io_methods {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_io_methods")
-            .field("iVersion", &self.iVersion)
-            .field("xClose", &self.xClose)
-            .field("xRead", &self.xRead)
-            .field("xWrite", &self.xWrite)
-            .field("xTruncate", &self.xTruncate)
-            .field("xSync", &self.xSync)
-            .field("xFileSize", &self.xFileSize)
-            .field("xLock", &self.xLock)
-            .field("xUnlock", &self.xUnlock)
-            .field("xCheckReservedLock", &self.xCheckReservedLock)
-            .field("xFileControl", &self.xFileControl)
-            .field("xSectorSize", &self.xSectorSize)
-            .field("xDeviceCharacteristics", &self.xDeviceCharacteristics)
-            .field("xShmMap", &self.xShmMap)
-            .field("xShmLock", &self.xShmLock)
-            .field("xShmBarrier", &self.xShmBarrier)
-            .field("xShmUnmap", &self.xShmUnmap)
-            .field("xFetch", &self.xFetch)
-            .field("xUnfetch", &self.xUnfetch)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_io_methods {
-    fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion && self.xClose == other.xClose && self.xRead == other.xRead && self.xWrite == other.xWrite && self.xTruncate == other.xTruncate && self.xSync == other.xSync && self.xFileSize == other.xFileSize && self.xLock == other.xLock && self.xUnlock == other.xUnlock && self.xCheckReservedLock == other.xCheckReservedLock && self.xFileControl == other.xFileControl && self.xSectorSize == other.xSectorSize && self.xDeviceCharacteristics == other.xDeviceCharacteristics && self.xShmMap == other.xShmMap && self.xShmLock == other.xShmLock && self.xShmBarrier == other.xShmBarrier && self.xShmUnmap == other.xShmUnmap && self.xFetch == other.xFetch && self.xUnfetch == other.xUnfetch
-    }
-}
-impl ::core::cmp::Eq for sqlite3_io_methods {}
-unsafe impl ::windows::core::Abi for sqlite3_io_methods {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4104,7 +3000,6 @@ pub unsafe fn sqlite3_malloc64(param0: u64) -> *mut ::core::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_mem_methods {
     pub xMalloc: isize,
@@ -4116,25 +3011,25 @@ pub struct sqlite3_mem_methods {
     pub xShutdown: isize,
     pub pAppData: *mut ::core::ffi::c_void,
 }
-impl sqlite3_mem_methods {}
+impl ::core::marker::Copy for sqlite3_mem_methods {}
+impl ::core::clone::Clone for sqlite3_mem_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_mem_methods {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_mem_methods {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_mem_methods>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_mem_methods {}
 impl ::core::default::Default for sqlite3_mem_methods {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_mem_methods {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_mem_methods").field("xMalloc", &self.xMalloc).field("xFree", &self.xFree).field("xRealloc", &self.xRealloc).field("xSize", &self.xSize).field("xRoundup", &self.xRoundup).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("pAppData", &self.pAppData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_mem_methods {
-    fn eq(&self, other: &Self) -> bool {
-        self.xMalloc == other.xMalloc && self.xFree == other.xFree && self.xRealloc == other.xRealloc && self.xSize == other.xSize && self.xRoundup == other.xRoundup && self.xInit == other.xInit && self.xShutdown == other.xShutdown && self.pAppData == other.pAppData
-    }
-}
-impl ::core::cmp::Eq for sqlite3_mem_methods {}
-unsafe impl ::windows::core::Abi for sqlite3_mem_methods {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn sqlite3_memory_alarm(param0: isize, param1: *mut ::core::ffi::c_void, param2: i64) -> i32 {
@@ -4175,7 +3070,6 @@ pub unsafe fn sqlite3_memory_used() -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_module {
     pub iVersion: i32,
@@ -4203,73 +3097,25 @@ pub struct sqlite3_module {
     pub xRollbackTo: isize,
     pub xShadowName: isize,
 }
-impl sqlite3_module {}
+impl ::core::marker::Copy for sqlite3_module {}
+impl ::core::clone::Clone for sqlite3_module {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_module {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_module {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_module>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_module {}
 impl ::core::default::Default for sqlite3_module {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_module {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_module")
-            .field("iVersion", &self.iVersion)
-            .field("xCreate", &self.xCreate)
-            .field("xConnect", &self.xConnect)
-            .field("xBestIndex", &self.xBestIndex)
-            .field("xDisconnect", &self.xDisconnect)
-            .field("xDestroy", &self.xDestroy)
-            .field("xOpen", &self.xOpen)
-            .field("xClose", &self.xClose)
-            .field("xFilter", &self.xFilter)
-            .field("xNext", &self.xNext)
-            .field("xEof", &self.xEof)
-            .field("xColumn", &self.xColumn)
-            .field("xRowid", &self.xRowid)
-            .field("xUpdate", &self.xUpdate)
-            .field("xBegin", &self.xBegin)
-            .field("xSync", &self.xSync)
-            .field("xCommit", &self.xCommit)
-            .field("xRollback", &self.xRollback)
-            .field("xFindFunction", &self.xFindFunction)
-            .field("xRename", &self.xRename)
-            .field("xSavepoint", &self.xSavepoint)
-            .field("xRelease", &self.xRelease)
-            .field("xRollbackTo", &self.xRollbackTo)
-            .field("xShadowName", &self.xShadowName)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_module {
-    fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion
-            && self.xCreate == other.xCreate
-            && self.xConnect == other.xConnect
-            && self.xBestIndex == other.xBestIndex
-            && self.xDisconnect == other.xDisconnect
-            && self.xDestroy == other.xDestroy
-            && self.xOpen == other.xOpen
-            && self.xClose == other.xClose
-            && self.xFilter == other.xFilter
-            && self.xNext == other.xNext
-            && self.xEof == other.xEof
-            && self.xColumn == other.xColumn
-            && self.xRowid == other.xRowid
-            && self.xUpdate == other.xUpdate
-            && self.xBegin == other.xBegin
-            && self.xSync == other.xSync
-            && self.xCommit == other.xCommit
-            && self.xRollback == other.xRollback
-            && self.xFindFunction == other.xFindFunction
-            && self.xRename == other.xRename
-            && self.xSavepoint == other.xSavepoint
-            && self.xRelease == other.xRelease
-            && self.xRollbackTo == other.xRollbackTo
-            && self.xShadowName == other.xShadowName
-    }
-}
-impl ::core::cmp::Eq for sqlite3_module {}
-unsafe impl ::windows::core::Abi for sqlite3_module {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4299,7 +3145,6 @@ pub unsafe fn sqlite3_msize(param0: *mut ::core::ffi::c_void) -> u64 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_mutex(pub u8);
 #[inline]
 pub unsafe fn sqlite3_mutex_alloc(param0: i32) -> *mut sqlite3_mutex {
@@ -4353,7 +3198,6 @@ pub unsafe fn sqlite3_mutex_leave(param0: *mut sqlite3_mutex) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_mutex_methods {
     pub xMutexInit: isize,
@@ -4366,25 +3210,25 @@ pub struct sqlite3_mutex_methods {
     pub xMutexHeld: isize,
     pub xMutexNotheld: isize,
 }
-impl sqlite3_mutex_methods {}
+impl ::core::marker::Copy for sqlite3_mutex_methods {}
+impl ::core::clone::Clone for sqlite3_mutex_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_mutex_methods {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_mutex_methods {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_mutex_methods>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_mutex_methods {}
 impl ::core::default::Default for sqlite3_mutex_methods {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_mutex_methods {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_mutex_methods").field("xMutexInit", &self.xMutexInit).field("xMutexEnd", &self.xMutexEnd).field("xMutexAlloc", &self.xMutexAlloc).field("xMutexFree", &self.xMutexFree).field("xMutexEnter", &self.xMutexEnter).field("xMutexTry", &self.xMutexTry).field("xMutexLeave", &self.xMutexLeave).field("xMutexHeld", &self.xMutexHeld).field("xMutexNotheld", &self.xMutexNotheld).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_mutex_methods {
-    fn eq(&self, other: &Self) -> bool {
-        self.xMutexInit == other.xMutexInit && self.xMutexEnd == other.xMutexEnd && self.xMutexAlloc == other.xMutexAlloc && self.xMutexFree == other.xMutexFree && self.xMutexEnter == other.xMutexEnter && self.xMutexTry == other.xMutexTry && self.xMutexLeave == other.xMutexLeave && self.xMutexHeld == other.xMutexHeld && self.xMutexNotheld == other.xMutexNotheld
-    }
-}
-impl ::core::cmp::Eq for sqlite3_mutex_methods {}
-unsafe impl ::windows::core::Abi for sqlite3_mutex_methods {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn sqlite3_mutex_try(param0: *mut sqlite3_mutex) -> i32 {
@@ -4494,9 +3338,7 @@ pub unsafe fn sqlite3_overload_function<'a, Param1: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_pcache(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_pcache_methods {
     pub pArg: *mut ::core::ffi::c_void,
@@ -4511,27 +3353,26 @@ pub struct sqlite3_pcache_methods {
     pub xTruncate: isize,
     pub xDestroy: isize,
 }
-impl sqlite3_pcache_methods {}
+impl ::core::marker::Copy for sqlite3_pcache_methods {}
+impl ::core::clone::Clone for sqlite3_pcache_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_pcache_methods {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_pcache_methods {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_pcache_methods>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_pcache_methods {}
 impl ::core::default::Default for sqlite3_pcache_methods {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for sqlite3_pcache_methods {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_pcache_methods").field("pArg", &self.pArg).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("xCreate", &self.xCreate).field("xCachesize", &self.xCachesize).field("xPagecount", &self.xPagecount).field("xFetch", &self.xFetch).field("xUnpin", &self.xUnpin).field("xRekey", &self.xRekey).field("xTruncate", &self.xTruncate).field("xDestroy", &self.xDestroy).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_pcache_methods {
-    fn eq(&self, other: &Self) -> bool {
-        self.pArg == other.pArg && self.xInit == other.xInit && self.xShutdown == other.xShutdown && self.xCreate == other.xCreate && self.xCachesize == other.xCachesize && self.xPagecount == other.xPagecount && self.xFetch == other.xFetch && self.xUnpin == other.xUnpin && self.xRekey == other.xRekey && self.xTruncate == other.xTruncate && self.xDestroy == other.xDestroy
-    }
-}
-impl ::core::cmp::Eq for sqlite3_pcache_methods {}
-unsafe impl ::windows::core::Abi for sqlite3_pcache_methods {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_pcache_methods2 {
     pub iVersion: i32,
@@ -4548,51 +3389,50 @@ pub struct sqlite3_pcache_methods2 {
     pub xDestroy: isize,
     pub xShrink: isize,
 }
-impl sqlite3_pcache_methods2 {}
+impl ::core::marker::Copy for sqlite3_pcache_methods2 {}
+impl ::core::clone::Clone for sqlite3_pcache_methods2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_pcache_methods2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_pcache_methods2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_pcache_methods2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_pcache_methods2 {}
 impl ::core::default::Default for sqlite3_pcache_methods2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for sqlite3_pcache_methods2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_pcache_methods2").field("iVersion", &self.iVersion).field("pArg", &self.pArg).field("xInit", &self.xInit).field("xShutdown", &self.xShutdown).field("xCreate", &self.xCreate).field("xCachesize", &self.xCachesize).field("xPagecount", &self.xPagecount).field("xFetch", &self.xFetch).field("xUnpin", &self.xUnpin).field("xRekey", &self.xRekey).field("xTruncate", &self.xTruncate).field("xDestroy", &self.xDestroy).field("xShrink", &self.xShrink).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_pcache_methods2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion && self.pArg == other.pArg && self.xInit == other.xInit && self.xShutdown == other.xShutdown && self.xCreate == other.xCreate && self.xCachesize == other.xCachesize && self.xPagecount == other.xPagecount && self.xFetch == other.xFetch && self.xUnpin == other.xUnpin && self.xRekey == other.xRekey && self.xTruncate == other.xTruncate && self.xDestroy == other.xDestroy && self.xShrink == other.xShrink
-    }
-}
-impl ::core::cmp::Eq for sqlite3_pcache_methods2 {}
-unsafe impl ::windows::core::Abi for sqlite3_pcache_methods2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_pcache_page {
     pub pBuf: *mut ::core::ffi::c_void,
     pub pExtra: *mut ::core::ffi::c_void,
 }
-impl sqlite3_pcache_page {}
+impl ::core::marker::Copy for sqlite3_pcache_page {}
+impl ::core::clone::Clone for sqlite3_pcache_page {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_pcache_page {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_pcache_page {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_pcache_page>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_pcache_page {}
 impl ::core::default::Default for sqlite3_pcache_page {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_pcache_page {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_pcache_page").field("pBuf", &self.pBuf).field("pExtra", &self.pExtra).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_pcache_page {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuf == other.pBuf && self.pExtra == other.pExtra
-    }
-}
-impl ::core::cmp::Eq for sqlite3_pcache_page {}
-unsafe impl ::windows::core::Abi for sqlite3_pcache_page {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5069,7 +3909,6 @@ pub unsafe fn sqlite3_rollback_hook(param0: *mut sqlite3, param1: isize, param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_rtree_geometry {
     pub pContext: *mut ::core::ffi::c_void,
@@ -5078,25 +3917,25 @@ pub struct sqlite3_rtree_geometry {
     pub pUser: *mut ::core::ffi::c_void,
     pub xDelUser: isize,
 }
-impl sqlite3_rtree_geometry {}
+impl ::core::marker::Copy for sqlite3_rtree_geometry {}
+impl ::core::clone::Clone for sqlite3_rtree_geometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_rtree_geometry {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_rtree_geometry {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_rtree_geometry>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_rtree_geometry {}
 impl ::core::default::Default for sqlite3_rtree_geometry {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_rtree_geometry {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_rtree_geometry").field("pContext", &self.pContext).field("nParam", &self.nParam).field("aParam", &self.aParam).field("pUser", &self.pUser).field("xDelUser", &self.xDelUser).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_rtree_geometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContext == other.pContext && self.nParam == other.nParam && self.aParam == other.aParam && self.pUser == other.pUser && self.xDelUser == other.xDelUser
-    }
-}
-impl ::core::cmp::Eq for sqlite3_rtree_geometry {}
-unsafe impl ::windows::core::Abi for sqlite3_rtree_geometry {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5126,7 +3965,6 @@ pub unsafe fn sqlite3_rtree_query_callback<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_rtree_query_info {
     pub pContext: *mut ::core::ffi::c_void,
@@ -5146,42 +3984,25 @@ pub struct sqlite3_rtree_query_info {
     pub rScore: f64,
     pub apSqlParam: *mut *mut sqlite3_value,
 }
-impl sqlite3_rtree_query_info {}
+impl ::core::marker::Copy for sqlite3_rtree_query_info {}
+impl ::core::clone::Clone for sqlite3_rtree_query_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_rtree_query_info {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_rtree_query_info {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_rtree_query_info>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_rtree_query_info {}
 impl ::core::default::Default for sqlite3_rtree_query_info {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_rtree_query_info {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_rtree_query_info")
-            .field("pContext", &self.pContext)
-            .field("nParam", &self.nParam)
-            .field("aParam", &self.aParam)
-            .field("pUser", &self.pUser)
-            .field("xDelUser", &self.xDelUser)
-            .field("aCoord", &self.aCoord)
-            .field("anQueue", &self.anQueue)
-            .field("nCoord", &self.nCoord)
-            .field("iLevel", &self.iLevel)
-            .field("mxLevel", &self.mxLevel)
-            .field("iRowid", &self.iRowid)
-            .field("rParentScore", &self.rParentScore)
-            .field("eParentWithin", &self.eParentWithin)
-            .field("eWithin", &self.eWithin)
-            .field("rScore", &self.rScore)
-            .field("apSqlParam", &self.apSqlParam)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_rtree_query_info {
-    fn eq(&self, other: &Self) -> bool {
-        self.pContext == other.pContext && self.nParam == other.nParam && self.aParam == other.aParam && self.pUser == other.pUser && self.xDelUser == other.xDelUser && self.aCoord == other.aCoord && self.anQueue == other.anQueue && self.nCoord == other.nCoord && self.iLevel == other.iLevel && self.mxLevel == other.mxLevel && self.iRowid == other.iRowid && self.rParentScore == other.rParentScore && self.eParentWithin == other.eParentWithin && self.eWithin == other.eWithin && self.rScore == other.rScore && self.apSqlParam == other.apSqlParam
-    }
-}
-impl ::core::cmp::Eq for sqlite3_rtree_query_info {}
-unsafe impl ::windows::core::Abi for sqlite3_rtree_query_info {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5262,30 +4083,29 @@ pub unsafe fn sqlite3_sleep(param0: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct sqlite3_snapshot {
     pub hidden: [u8; 48],
 }
-impl sqlite3_snapshot {}
+impl ::core::marker::Copy for sqlite3_snapshot {}
+impl ::core::clone::Clone for sqlite3_snapshot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for sqlite3_snapshot {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for sqlite3_snapshot {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_snapshot>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for sqlite3_snapshot {}
 impl ::core::default::Default for sqlite3_snapshot {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for sqlite3_snapshot {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_snapshot").field("hidden", &self.hidden).finish()
-    }
-}
-impl ::core::cmp::PartialEq for sqlite3_snapshot {
-    fn eq(&self, other: &Self) -> bool {
-        self.hidden == other.hidden
-    }
-}
-impl ::core::cmp::Eq for sqlite3_snapshot {}
-unsafe impl ::windows::core::Abi for sqlite3_snapshot {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5395,7 +4215,6 @@ pub unsafe fn sqlite3_step(param0: *mut sqlite3_stmt) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_stmt(pub u8);
 #[inline]
 pub unsafe fn sqlite3_stmt_busy(param0: *mut sqlite3_stmt) -> i32 {
@@ -5450,7 +4269,6 @@ pub unsafe fn sqlite3_stmt_status(param0: *mut sqlite3_stmt, op: i32, resetflg: 
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_str(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5874,7 +4692,6 @@ pub unsafe fn sqlite3_user_data(param0: *mut sqlite3_context) -> *mut ::core::ff
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct sqlite3_value(pub u8);
 #[inline]
 pub unsafe fn sqlite3_value_blob(param0: *mut sqlite3_value) -> *mut ::core::ffi::c_void {
@@ -6111,7 +4928,6 @@ pub unsafe fn sqlite3_value_type(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vfs {
@@ -6139,74 +4955,30 @@ pub struct sqlite3_vfs {
     pub xNextSystemCall: isize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_vfs {}
+impl ::core::marker::Copy for sqlite3_vfs {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for sqlite3_vfs {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for sqlite3_vfs {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_vfs {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_vfs")
-            .field("iVersion", &self.iVersion)
-            .field("szOsFile", &self.szOsFile)
-            .field("mxPathname", &self.mxPathname)
-            .field("pNext", &self.pNext)
-            .field("zName", &self.zName)
-            .field("pAppData", &self.pAppData)
-            .field("xOpen", &self.xOpen)
-            .field("xDelete", &self.xDelete)
-            .field("xAccess", &self.xAccess)
-            .field("xFullPathname", &self.xFullPathname)
-            .field("xDlOpen", &self.xDlOpen)
-            .field("xDlError", &self.xDlError)
-            .field("xDlSym", &self.xDlSym)
-            .field("xDlClose", &self.xDlClose)
-            .field("xRandomness", &self.xRandomness)
-            .field("xSleep", &self.xSleep)
-            .field("xCurrentTime", &self.xCurrentTime)
-            .field("xGetLastError", &self.xGetLastError)
-            .field("xCurrentTimeInt64", &self.xCurrentTimeInt64)
-            .field("xSetSystemCall", &self.xSetSystemCall)
-            .field("xGetSystemCall", &self.xGetSystemCall)
-            .field("xNextSystemCall", &self.xNextSystemCall)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for sqlite3_vfs {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_vfs {
     fn eq(&self, other: &Self) -> bool {
-        self.iVersion == other.iVersion
-            && self.szOsFile == other.szOsFile
-            && self.mxPathname == other.mxPathname
-            && self.pNext == other.pNext
-            && self.zName == other.zName
-            && self.pAppData == other.pAppData
-            && self.xOpen == other.xOpen
-            && self.xDelete == other.xDelete
-            && self.xAccess == other.xAccess
-            && self.xFullPathname == other.xFullPathname
-            && self.xDlOpen == other.xDlOpen
-            && self.xDlError == other.xDlError
-            && self.xDlSym == other.xDlSym
-            && self.xDlClose == other.xDlClose
-            && self.xRandomness == other.xRandomness
-            && self.xSleep == other.xSleep
-            && self.xCurrentTime == other.xCurrentTime
-            && self.xGetLastError == other.xGetLastError
-            && self.xCurrentTimeInt64 == other.xCurrentTimeInt64
-            && self.xSetSystemCall == other.xSetSystemCall
-            && self.xGetSystemCall == other.xGetSystemCall
-            && self.xNextSystemCall == other.xNextSystemCall
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_vfs>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vfs {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_vfs {
-    type Abi = Self;
+impl ::core::default::Default for sqlite3_vfs {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6278,7 +5050,6 @@ pub unsafe fn sqlite3_vsnprintf<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vtab {
@@ -6287,30 +5058,30 @@ pub struct sqlite3_vtab {
     pub zErrMsg: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_vtab {}
+impl ::core::marker::Copy for sqlite3_vtab {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for sqlite3_vtab {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for sqlite3_vtab {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_vtab {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_vtab").field("pModule", &self.pModule).field("nRef", &self.nRef).field("zErrMsg", &self.zErrMsg).finish()
-    }
+unsafe impl ::windows::core::Abi for sqlite3_vtab {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_vtab {
     fn eq(&self, other: &Self) -> bool {
-        self.pModule == other.pModule && self.nRef == other.nRef && self.zErrMsg == other.zErrMsg
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_vtab>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vtab {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_vtab {
-    type Abi = Self;
+impl ::core::default::Default for sqlite3_vtab {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6339,37 +5110,36 @@ pub unsafe fn sqlite3_vtab_config(param0: *mut sqlite3, op: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vtab_cursor {
     pub pVtab: *mut sqlite3_vtab,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl sqlite3_vtab_cursor {}
+impl ::core::marker::Copy for sqlite3_vtab_cursor {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for sqlite3_vtab_cursor {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for sqlite3_vtab_cursor {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for sqlite3_vtab_cursor {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("sqlite3_vtab_cursor").field("pVtab", &self.pVtab).finish()
-    }
+unsafe impl ::windows::core::Abi for sqlite3_vtab_cursor {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_vtab_cursor {
     fn eq(&self, other: &Self) -> bool {
-        self.pVtab == other.pVtab
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_vtab_cursor>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vtab_cursor {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for sqlite3_vtab_cursor {
-    type Abi = Self;
+impl ::core::default::Default for sqlite3_vtab_cursor {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn sqlite3_vtab_nochange(param0: *mut sqlite3_context) -> i32 {

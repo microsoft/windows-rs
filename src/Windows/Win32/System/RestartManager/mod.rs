@@ -1,60 +1,29 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RM_APP_STATUS(pub i32);
-pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
-pub const RmStatusRunning: RM_APP_STATUS = RM_APP_STATUS(1i32);
-pub const RmStatusStopped: RM_APP_STATUS = RM_APP_STATUS(2i32);
-pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4i32);
-pub const RmStatusRestarted: RM_APP_STATUS = RM_APP_STATUS(8i32);
-pub const RmStatusErrorOnStop: RM_APP_STATUS = RM_APP_STATUS(16i32);
-pub const RmStatusErrorOnRestart: RM_APP_STATUS = RM_APP_STATUS(32i32);
-pub const RmStatusShutdownMasked: RM_APP_STATUS = RM_APP_STATUS(64i32);
-pub const RmStatusRestartMasked: RM_APP_STATUS = RM_APP_STATUS(128i32);
-impl ::core::convert::From<i32> for RM_APP_STATUS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RM_APP_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RM_APP_TYPE(pub i32);
-pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
-pub const RmMainWindow: RM_APP_TYPE = RM_APP_TYPE(1i32);
-pub const RmOtherWindow: RM_APP_TYPE = RM_APP_TYPE(2i32);
-pub const RmService: RM_APP_TYPE = RM_APP_TYPE(3i32);
-pub const RmExplorer: RM_APP_TYPE = RM_APP_TYPE(4i32);
-pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5i32);
-pub const RmCritical: RM_APP_TYPE = RM_APP_TYPE(1000i32);
-impl ::core::convert::From<i32> for RM_APP_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RM_APP_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RM_FILTER_ACTION(pub i32);
-pub const RmInvalidFilterAction: RM_FILTER_ACTION = RM_FILTER_ACTION(0i32);
-pub const RmNoRestart: RM_FILTER_ACTION = RM_FILTER_ACTION(1i32);
-pub const RmNoShutdown: RM_FILTER_ACTION = RM_FILTER_ACTION(2i32);
-impl ::core::convert::From<i32> for RM_FILTER_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RM_FILTER_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RM_APP_STATUS = i32;
+pub const RmStatusUnknown: RM_APP_STATUS = 0i32;
+pub const RmStatusRunning: RM_APP_STATUS = 1i32;
+pub const RmStatusStopped: RM_APP_STATUS = 2i32;
+pub const RmStatusStoppedOther: RM_APP_STATUS = 4i32;
+pub const RmStatusRestarted: RM_APP_STATUS = 8i32;
+pub const RmStatusErrorOnStop: RM_APP_STATUS = 16i32;
+pub const RmStatusErrorOnRestart: RM_APP_STATUS = 32i32;
+pub const RmStatusShutdownMasked: RM_APP_STATUS = 64i32;
+pub const RmStatusRestartMasked: RM_APP_STATUS = 128i32;
+pub type RM_APP_TYPE = i32;
+pub const RmUnknownApp: RM_APP_TYPE = 0i32;
+pub const RmMainWindow: RM_APP_TYPE = 1i32;
+pub const RmOtherWindow: RM_APP_TYPE = 2i32;
+pub const RmService: RM_APP_TYPE = 3i32;
+pub const RmExplorer: RM_APP_TYPE = 4i32;
+pub const RmConsole: RM_APP_TYPE = 5i32;
+pub const RmCritical: RM_APP_TYPE = 1000i32;
+pub type RM_FILTER_ACTION = i32;
+pub const RmInvalidFilterAction: RM_FILTER_ACTION = 0i32;
+pub const RmNoRestart: RM_FILTER_ACTION = 1i32;
+pub const RmNoShutdown: RM_FILTER_ACTION = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_FILTER_INFO {
@@ -64,26 +33,31 @@ pub struct RM_FILTER_INFO {
     pub Anonymous: RM_FILTER_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RM_FILTER_INFO {}
+impl ::core::marker::Copy for RM_FILTER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RM_FILTER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RM_FILTER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_FILTER_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RM_FILTER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_FILTER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_FILTER_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_FILTER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union RM_FILTER_INFO_0 {
@@ -92,43 +66,38 @@ pub union RM_FILTER_INFO_0 {
     pub strServiceShortName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RM_FILTER_INFO_0 {}
+impl ::core::marker::Copy for RM_FILTER_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RM_FILTER_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RM_FILTER_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RM_FILTER_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_FILTER_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RM_FILTER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_FILTER_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_FILTER_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_FILTER_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_FILTER_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RM_FILTER_TRIGGER(pub i32);
-pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(0i32);
-pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(1i32);
-pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(2i32);
-pub const RmFilterTriggerService: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(3i32);
-impl ::core::convert::From<i32> for RM_FILTER_TRIGGER {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RM_FILTER_TRIGGER {
-    type Abi = Self;
-}
+pub type RM_FILTER_TRIGGER = i32;
+pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = 0i32;
+pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = 1i32;
+pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = 2i32;
+pub const RmFilterTriggerService: RM_FILTER_TRIGGER = 3i32;
 pub const RM_INVALID_PROCESS: i32 = -1i32;
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_PROCESS_INFO {
@@ -141,62 +110,41 @@ pub struct RM_PROCESS_INFO {
     pub bRestartable: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RM_PROCESS_INFO {}
+impl ::core::marker::Copy for RM_PROCESS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RM_PROCESS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RM_PROCESS_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RM_PROCESS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_PROCESS_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RM_PROCESS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_PROCESS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RM_PROCESS_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RM_PROCESS_INFO").field("Process", &self.Process).field("strAppName", &self.strAppName).field("strServiceShortName", &self.strServiceShortName).field("ApplicationType", &self.ApplicationType).field("AppStatus", &self.AppStatus).field("TSSessionId", &self.TSSessionId).field("bRestartable", &self.bRestartable).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_PROCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Process == other.Process && self.strAppName == other.strAppName && self.strServiceShortName == other.strServiceShortName && self.ApplicationType == other.ApplicationType && self.AppStatus == other.AppStatus && self.TSSessionId == other.TSSessionId && self.bRestartable == other.bRestartable
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_PROCESS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_PROCESS_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RM_REBOOT_REASON(pub i32);
-pub const RmRebootReasonNone: RM_REBOOT_REASON = RM_REBOOT_REASON(0i32);
-pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = RM_REBOOT_REASON(1i32);
-pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = RM_REBOOT_REASON(2i32);
-pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = RM_REBOOT_REASON(4i32);
-pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = RM_REBOOT_REASON(8i32);
-pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = RM_REBOOT_REASON(16i32);
-impl ::core::convert::From<i32> for RM_REBOOT_REASON {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RM_REBOOT_REASON {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RM_SHUTDOWN_TYPE(pub i32);
-pub const RmForceShutdown: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(1i32);
-pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(16i32);
-impl ::core::convert::From<i32> for RM_SHUTDOWN_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RM_SHUTDOWN_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RM_REBOOT_REASON = i32;
+pub const RmRebootReasonNone: RM_REBOOT_REASON = 0i32;
+pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = 1i32;
+pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = 2i32;
+pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = 4i32;
+pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = 8i32;
+pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = 16i32;
+pub type RM_SHUTDOWN_TYPE = i32;
+pub const RmForceShutdown: RM_SHUTDOWN_TYPE = 1i32;
+pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_UNIQUE_PROCESS {
@@ -204,30 +152,30 @@ pub struct RM_UNIQUE_PROCESS {
     pub ProcessStartTime: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RM_UNIQUE_PROCESS {}
+impl ::core::marker::Copy for RM_UNIQUE_PROCESS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RM_UNIQUE_PROCESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for RM_UNIQUE_PROCESS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RM_UNIQUE_PROCESS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RM_UNIQUE_PROCESS").field("dwProcessId", &self.dwProcessId).field("ProcessStartTime", &self.ProcessStartTime).finish()
-    }
+unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RM_UNIQUE_PROCESS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwProcessId == other.dwProcessId && self.ProcessStartTime == other.ProcessStartTime
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_UNIQUE_PROCESS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RM_UNIQUE_PROCESS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
-    type Abi = Self;
+impl ::core::default::Default for RM_UNIQUE_PROCESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;
 #[cfg(feature = "Win32_Foundation")]

@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallNamedPipeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpnamedpipename: Param0, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL {
@@ -237,55 +237,17 @@ pub unsafe fn ImpersonateNamedPipeClient<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NAMED_PIPE_MODE(pub u32);
-pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-pub const PIPE_NOWAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(1u32);
-pub const PIPE_READMODE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-pub const PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(2u32);
-pub const PIPE_CLIENT_END: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-pub const PIPE_SERVER_END: NAMED_PIPE_MODE = NAMED_PIPE_MODE(1u32);
-pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
-pub const PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-pub const PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(8u32);
-impl ::core::convert::From<u32> for NAMED_PIPE_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NAMED_PIPE_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NAMED_PIPE_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NAMED_PIPE_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NAMED_PIPE_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NAMED_PIPE_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NAMED_PIPE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type NAMED_PIPE_MODE = u32;
+pub const PIPE_WAIT: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_NOWAIT: NAMED_PIPE_MODE = 1u32;
+pub const PIPE_READMODE_BYTE: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = 2u32;
+pub const PIPE_CLIENT_END: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_SERVER_END: NAMED_PIPE_MODE = 1u32;
+pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = 4u32;
+pub const PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 0u32;
+pub const PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 8u32;
 pub const NMPWAIT_NOWAIT: u32 = 1u32;
 pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
 pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;

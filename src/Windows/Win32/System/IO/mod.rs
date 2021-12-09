@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: LPOVERLAPPED_COMPLETION_ROUTINE, flags: u32) -> super::super::Foundation::BOOL {
@@ -141,7 +141,6 @@ pub unsafe fn GetQueuedCompletionStatusEx<'a, Param0: ::windows::core::IntoParam
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED {
@@ -151,26 +150,31 @@ pub struct OVERLAPPED {
     pub hEvent: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl OVERLAPPED {}
+impl ::core::marker::Copy for OVERLAPPED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OVERLAPPED {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OVERLAPPED {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OVERLAPPED {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union OVERLAPPED_0 {
@@ -178,26 +182,31 @@ pub union OVERLAPPED_0 {
     pub Pointer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl OVERLAPPED_0 {}
+impl ::core::marker::Copy for OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OVERLAPPED_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OVERLAPPED_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OVERLAPPED_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OVERLAPPED_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OVERLAPPED_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED_0_0 {
@@ -205,32 +214,31 @@ pub struct OVERLAPPED_0_0 {
     pub OffsetHigh: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl OVERLAPPED_0_0 {}
+impl ::core::marker::Copy for OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OVERLAPPED_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OVERLAPPED_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OVERLAPPED_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OVERLAPPED_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OVERLAPPED_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.OffsetHigh == other.OffsetHigh
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OVERLAPPED_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED_ENTRY {
@@ -240,30 +248,30 @@ pub struct OVERLAPPED_ENTRY {
     pub dwNumberOfBytesTransferred: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl OVERLAPPED_ENTRY {}
+impl ::core::marker::Copy for OVERLAPPED_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OVERLAPPED_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for OVERLAPPED_ENTRY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OVERLAPPED_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OVERLAPPED_ENTRY").field("lpCompletionKey", &self.lpCompletionKey).field("lpOverlapped", &self.lpOverlapped).field("Internal", &self.Internal).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).finish()
-    }
+unsafe impl ::windows::core::Abi for OVERLAPPED_ENTRY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.lpCompletionKey == other.lpCompletionKey && self.lpOverlapped == other.lpOverlapped && self.Internal == other.Internal && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_ENTRY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OVERLAPPED_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED_ENTRY {
-    type Abi = Self;
+impl ::core::default::Default for OVERLAPPED_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

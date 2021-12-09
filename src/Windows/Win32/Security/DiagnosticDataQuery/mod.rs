@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
@@ -9,32 +8,31 @@ pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     pub uploadSizeBytes: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_DATA_EVENT_BINARY_STATS {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_EVENT_BINARY_STATS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_EVENT_BINARY_STATS").field("moduleName", &self.moduleName).field("friendlyModuleName", &self.friendlyModuleName).field("eventCount", &self.eventCount).field("uploadSizeBytes", &self.uploadSizeBytes).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.moduleName == other.moduleName && self.friendlyModuleName == other.friendlyModuleName && self.eventCount == other.eventCount && self.uploadSizeBytes == other.uploadSizeBytes
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
@@ -42,64 +40,62 @@ pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     pub name: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION").field("id", &self.id).field("name", &self.name).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.name == other.name
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     pub name: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION").field("name", &self.name).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
@@ -108,85 +104,82 @@ pub struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     pub description: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION").field("privacyTag", &self.privacyTag).field("name", &self.name).field("description", &self.description).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.privacyTag == other.privacyTag && self.name == other.name && self.description == other.description
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     pub privacyTag: i32,
     pub eventCount: u32,
 }
-impl DIAGNOSTIC_DATA_EVENT_TAG_STATS {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_TAG_STATS {}
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_EVENT_TAG_STATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TAG_STATS {}
 impl ::core::default::Default for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_EVENT_TAG_STATS").field("privacyTag", &self.privacyTag).field("eventCount", &self.eventCount).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.privacyTag == other.privacyTag && self.eventCount == other.eventCount
-    }
-}
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TAG_STATS {}
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     pub hoursOfHistoryToKeep: u32,
     pub maxStoreMegabytes: u32,
     pub requestedMaxStoreMegabytes: u32,
 }
-impl DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
 impl ::core::default::Default for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION").field("hoursOfHistoryToKeep", &self.hoursOfHistoryToKeep).field("maxStoreMegabytes", &self.maxStoreMegabytes).field("requestedMaxStoreMegabytes", &self.requestedMaxStoreMegabytes).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.hoursOfHistoryToKeep == other.hoursOfHistoryToKeep && self.maxStoreMegabytes == other.maxStoreMegabytes && self.requestedMaxStoreMegabytes == other.requestedMaxStoreMegabytes
-    }
-}
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub optInLevel: u32,
@@ -195,27 +188,26 @@ pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub totalEventCountLast24Hours: u32,
     pub averageDailyEvents: f32,
 }
-impl DIAGNOSTIC_DATA_GENERAL_STATS {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_GENERAL_STATS {}
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_GENERAL_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_GENERAL_STATS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_GENERAL_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_GENERAL_STATS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_GENERAL_STATS {}
 impl ::core::default::Default for DIAGNOSTIC_DATA_GENERAL_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_GENERAL_STATS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_GENERAL_STATS").field("optInLevel", &self.optInLevel).field("transcriptSizeBytes", &self.transcriptSizeBytes).field("oldestEventTimestamp", &self.oldestEventTimestamp).field("totalEventCountLast24Hours", &self.totalEventCountLast24Hours).field("averageDailyEvents", &self.averageDailyEvents).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_GENERAL_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.optInLevel == other.optInLevel && self.transcriptSizeBytes == other.transcriptSizeBytes && self.oldestEventTimestamp == other.oldestEventTimestamp && self.totalEventCountLast24Hours == other.totalEventCountLast24Hours && self.averageDailyEvents == other.averageDailyEvents
-    }
-}
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_GENERAL_STATS {}
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_GENERAL_STATS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_RECORD {
@@ -235,47 +227,31 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub extra3: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_DATA_RECORD {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_RECORD {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_RECORD>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_DATA_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_RECORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_RECORD")
-            .field("rowId", &self.rowId)
-            .field("timestamp", &self.timestamp)
-            .field("eventKeywords", &self.eventKeywords)
-            .field("fullEventName", &self.fullEventName)
-            .field("providerGroupGuid", &self.providerGroupGuid)
-            .field("producerName", &self.producerName)
-            .field("privacyTags", &self.privacyTags)
-            .field("privacyTagCount", &self.privacyTagCount)
-            .field("categoryIds", &self.categoryIds)
-            .field("categoryIdCount", &self.categoryIdCount)
-            .field("isCoreData", &self.isCoreData)
-            .field("extra1", &self.extra1)
-            .field("extra2", &self.extra2)
-            .field("extra3", &self.extra3)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.rowId == other.rowId && self.timestamp == other.timestamp && self.eventKeywords == other.eventKeywords && self.fullEventName == other.fullEventName && self.providerGroupGuid == other.providerGroupGuid && self.producerName == other.producerName && self.privacyTags == other.privacyTags && self.privacyTagCount == other.privacyTagCount && self.categoryIds == other.categoryIds && self.categoryIdCount == other.categoryIdCount && self.isCoreData == other.isCoreData && self.extra1 == other.extra1 && self.extra2 == other.extra2 && self.extra3 == other.extra3
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_RECORD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
@@ -289,32 +265,31 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub coreDataOnly: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
+impl ::core::marker::Copy for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_DATA_SEARCH_CRITERIA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_SEARCH_CRITERIA").field("producerNames", &self.producerNames).field("producerNameCount", &self.producerNameCount).field("textToMatch", &self.textToMatch).field("categoryIds", &self.categoryIds).field("categoryIdCount", &self.categoryIdCount).field("privacyTags", &self.privacyTags).field("privacyTagCount", &self.privacyTagCount).field("coreDataOnly", &self.coreDataOnly).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    fn eq(&self, other: &Self) -> bool {
-        self.producerNames == other.producerNames && self.producerNameCount == other.producerNameCount && self.textToMatch == other.textToMatch && self.categoryIds == other.categoryIds && self.categoryIdCount == other.categoryIdCount && self.privacyTags == other.privacyTags && self.privacyTagCount == other.privacyTagCount && self.coreDataOnly == other.coreDataOnly
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_REPORT_DATA {
@@ -337,115 +312,85 @@ pub struct DIAGNOSTIC_REPORT_DATA {
     pub reportKey: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DIAGNOSTIC_REPORT_DATA {}
+impl ::core::marker::Copy for DIAGNOSTIC_REPORT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAGNOSTIC_REPORT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_REPORT_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAGNOSTIC_REPORT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DIAGNOSTIC_REPORT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_REPORT_DATA")
-            .field("signature", &self.signature)
-            .field("bucketId", &self.bucketId)
-            .field("reportId", &self.reportId)
-            .field("creationTime", &self.creationTime)
-            .field("sizeInBytes", &self.sizeInBytes)
-            .field("cabId", &self.cabId)
-            .field("reportStatus", &self.reportStatus)
-            .field("reportIntegratorId", &self.reportIntegratorId)
-            .field("fileNames", &self.fileNames)
-            .field("fileCount", &self.fileCount)
-            .field("friendlyEventName", &self.friendlyEventName)
-            .field("applicationName", &self.applicationName)
-            .field("applicationPath", &self.applicationPath)
-            .field("description", &self.description)
-            .field("bucketIdString", &self.bucketIdString)
-            .field("legacyBucketId", &self.legacyBucketId)
-            .field("reportKey", &self.reportKey)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.signature == other.signature && self.bucketId == other.bucketId && self.reportId == other.reportId && self.creationTime == other.creationTime && self.sizeInBytes == other.sizeInBytes && self.cabId == other.cabId && self.reportStatus == other.reportStatus && self.reportIntegratorId == other.reportIntegratorId && self.fileNames == other.fileNames && self.fileCount == other.fileCount && self.friendlyEventName == other.friendlyEventName && self.applicationName == other.applicationName && self.applicationPath == other.applicationPath && self.description == other.description && self.bucketIdString == other.bucketIdString && self.legacyBucketId == other.legacyBucketId && self.reportKey == other.reportKey
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAGNOSTIC_REPORT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIAGNOSTIC_REPORT_PARAMETER {
     pub name: [u16; 129],
     pub value: [u16; 260],
 }
-impl DIAGNOSTIC_REPORT_PARAMETER {}
+impl ::core::marker::Copy for DIAGNOSTIC_REPORT_PARAMETER {}
+impl ::core::clone::Clone for DIAGNOSTIC_REPORT_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_PARAMETER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_PARAMETER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_REPORT_PARAMETER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIAGNOSTIC_REPORT_PARAMETER {}
 impl ::core::default::Default for DIAGNOSTIC_REPORT_PARAMETER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_PARAMETER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_REPORT_PARAMETER").field("name", &self.name).field("value", &self.value).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.value == other.value
-    }
-}
-impl ::core::cmp::Eq for DIAGNOSTIC_REPORT_PARAMETER {}
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_PARAMETER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DIAGNOSTIC_REPORT_SIGNATURE {
     pub eventName: [u16; 65],
     pub parameters: [DIAGNOSTIC_REPORT_PARAMETER; 10],
 }
-impl DIAGNOSTIC_REPORT_SIGNATURE {}
+impl ::core::marker::Copy for DIAGNOSTIC_REPORT_SIGNATURE {}
+impl ::core::clone::Clone for DIAGNOSTIC_REPORT_SIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_SIGNATURE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_SIGNATURE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAGNOSTIC_REPORT_SIGNATURE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DIAGNOSTIC_REPORT_SIGNATURE {}
 impl ::core::default::Default for DIAGNOSTIC_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_SIGNATURE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_REPORT_SIGNATURE").field("eventName", &self.eventName).field("parameters", &self.parameters).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.eventName == other.eventName && self.parameters == other.parameters
-    }
-}
-impl ::core::cmp::Eq for DIAGNOSTIC_REPORT_SIGNATURE {}
-unsafe impl ::windows::core::Abi for DIAGNOSTIC_REPORT_SIGNATURE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DdqAccessLevel(pub i32);
-pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
-pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
-pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
-impl ::core::convert::From<i32> for DdqAccessLevel {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DdqAccessLevel {
-    type Abi = Self;
-}
+pub type DdqAccessLevel = i32;
+pub const NoData: DdqAccessLevel = 0i32;
+pub const CurrentUserData: DdqAccessLevel = 1i32;
+pub const AllUserData: DdqAccessLevel = 2i32;
 #[inline]
 pub unsafe fn DdqCancelDiagnosticRecordOperation<'a, Param0: ::windows::core::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>>(hsession: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
