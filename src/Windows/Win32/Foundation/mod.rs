@@ -2099,10 +2099,10 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
 #[repr(transparent)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
-    fn is_invalid(&self) -> bool {
+    pub fn is_invalid(&self) -> bool {
         self.0 == 0 || self.0 == -1
     }
-    fn ok(self) -> ::windows::core::Result<Self> {
+    pub fn ok(self) -> ::windows::core::Result<Self> {
         if self.is_invalid() {
             Err(::windows::core::Error::from_win32())
         } else {
