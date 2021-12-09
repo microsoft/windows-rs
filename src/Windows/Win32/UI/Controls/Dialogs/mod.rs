@@ -2793,7 +2793,7 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgExA(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXA>) -> ::windows::core::HRESULT;
+            fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::HRESULT;
         }
         PrintDlgExA(::core::mem::transmute(ppd)).ok()
     }
@@ -2807,7 +2807,7 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgExW(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXW>) -> ::windows::core::HRESULT;
+            fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::HRESULT;
         }
         PrintDlgExW(::core::mem::transmute(ppd)).ok()
     }

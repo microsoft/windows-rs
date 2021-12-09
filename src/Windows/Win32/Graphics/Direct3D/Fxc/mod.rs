@@ -105,8 +105,8 @@ pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADE
         extern "system" {
             fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DCompressShaders(::core::mem::transmute(unumshaders), ::core::mem::transmute(pshaderdata), ::core::mem::transmute(uflags), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DCompressShaders(::core::mem::transmute(unumshaders), ::core::mem::transmute(pshaderdata), ::core::mem::transmute(uflags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -119,8 +119,8 @@ pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::core::Result<super::ID3DB
         extern "system" {
             fn D3DCreateBlob(size: usize, ppblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DCreateBlob(::core::mem::transmute(size), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DCreateBlob(::core::mem::transmute(size), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -134,8 +134,8 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::core::Res
         extern "system" {
             fn D3DCreateFunctionLinkingGraph(uflags: u32, ppfunctionlinkinggraph: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Direct3D11::ID3D11FunctionLinkingGraph as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DCreateFunctionLinkingGraph(::core::mem::transmute(uflags), &mut result__).from_abi::<super::super::Direct3D11::ID3D11FunctionLinkingGraph>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DCreateFunctionLinkingGraph(::core::mem::transmute(uflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Direct3D11::ID3D11FunctionLinkingGraph>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -149,8 +149,8 @@ pub unsafe fn D3DCreateLinker() -> ::windows::core::Result<super::super::Direct3
         extern "system" {
             fn D3DCreateLinker(pplinker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Direct3D11::ID3D11Linker as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DCreateLinker(&mut result__).from_abi::<super::super::Direct3D11::ID3D11Linker>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DCreateLinker(::core::mem::transmute(&mut result__)).from_abi::<super::super::Direct3D11::ID3D11Linker>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -177,8 +177,8 @@ pub unsafe fn D3DDisassemble<'a, Param3: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn D3DDisassemble(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DDisassemble(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), szcomments.into_param().abi(), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DDisassemble(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), szcomments.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -192,8 +192,8 @@ pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn D3DDisassemble10Effect(peffect: ::windows::core::RawPtr, flags: u32, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DDisassemble10Effect(peffect.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DDisassemble10Effect(peffect.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -220,8 +220,8 @@ pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: 
         extern "system" {
             fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, pppart: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DGetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DGetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -234,8 +234,8 @@ pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize:
         extern "system" {
             fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppdebuginfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DGetDebugInfo(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DGetDebugInfo(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -248,8 +248,8 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_
         extern "system" {
             fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DGetInputAndOutputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DGetInputAndOutputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -262,8 +262,8 @@ pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, src
         extern "system" {
             fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DGetInputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DGetInputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -276,8 +276,8 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, sr
         extern "system" {
             fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DGetOutputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DGetOutputSignatureBlob(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -304,8 +304,8 @@ pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize:
         extern "system" {
             fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize, ppmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Direct3D11::ID3D11Module as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DLoadModule(::core::mem::transmute(psrcdata), ::core::mem::transmute(cbsrcdatasize), &mut result__).from_abi::<super::super::Direct3D11::ID3D11Module>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DLoadModule(::core::mem::transmute(psrcdata), ::core::mem::transmute(cbsrcdatasize), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Direct3D11::ID3D11Module>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -333,8 +333,8 @@ pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn D3DReadFileToBlob(pfilename: super::super::super::Foundation::PWSTR, ppcontents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DReadFileToBlob(pfilename.into_param().abi(), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DReadFileToBlob(pfilename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -373,8 +373,8 @@ pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: 
         extern "system" {
             fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize, ppnewshader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DSetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), ::core::mem::transmute(ppart), ::core::mem::transmute(partsize), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DSetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), ::core::mem::transmute(ppart), ::core::mem::transmute(partsize), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -387,8 +387,8 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, byteco
         extern "system" {
             fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32, ppstrippedblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::ID3DBlob as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        D3DStripShader(::core::mem::transmute(pshaderbytecode), ::core::mem::transmute(bytecodelength), ::core::mem::transmute(ustripflags), &mut result__).from_abi::<super::ID3DBlob>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        D3DStripShader(::core::mem::transmute(pshaderbytecode), ::core::mem::transmute(bytecodelength), ::core::mem::transmute(ustripflags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

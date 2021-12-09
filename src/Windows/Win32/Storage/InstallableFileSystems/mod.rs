@@ -452,8 +452,8 @@ pub unsafe fn FilterConnectCommunicationPort<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn FilterConnectCommunicationPort(lpportname: super::super::Foundation::PWSTR, dwoptions: u32, lpcontext: *const ::core::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, hport: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        FilterConnectCommunicationPort(lpportname.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(lpcontext), ::core::mem::transmute(wsizeofcontext), ::core::mem::transmute(lpsecurityattributes), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        FilterConnectCommunicationPort(lpportname.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(lpcontext), ::core::mem::transmute(wsizeofcontext), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -467,8 +467,8 @@ pub unsafe fn FilterCreate<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn FilterCreate(lpfiltername: super::super::Foundation::PWSTR, hfilter: *mut HFILTER) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HFILTER as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        FilterCreate(lpfiltername.into_param().abi(), &mut result__).from_abi::<HFILTER>(result__)
+        let mut result__: HFILTER = ::core::mem::zeroed();
+        FilterCreate(lpfiltername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<HFILTER>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -592,8 +592,8 @@ pub unsafe fn FilterInstanceCreate<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn FilterInstanceCreate(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, hinstance: *mut HFILTER_INSTANCE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HFILTER_INSTANCE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), &mut result__).from_abi::<HFILTER_INSTANCE>(result__)
+        let mut result__: HFILTER_INSTANCE = ::core::mem::zeroed();
+        FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<HFILTER_INSTANCE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1787,8 +1787,8 @@ pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
         }
-        let mut result__: <CF_CONNECTION_KEY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CfConnectSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), &mut result__).from_abi::<CF_CONNECTION_KEY>(result__)
+        let mut result__: CF_CONNECTION_KEY = ::core::mem::zeroed();
+        CfConnectSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), ::core::mem::transmute(&mut result__)).from_abi::<CF_CONNECTION_KEY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1871,8 +1871,8 @@ pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::System::CorrelationVector::CORRELATION_VECTOR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CfGetCorrelationVector(filehandle.into_param().abi(), &mut result__).from_abi::<super::super::System::CorrelationVector::CORRELATION_VECTOR>(result__)
+        let mut result__: super::super::System::CorrelationVector::CORRELATION_VECTOR = ::core::mem::zeroed();
+        CfGetCorrelationVector(filehandle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::CorrelationVector::CORRELATION_VECTOR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1954,8 +1954,8 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
         extern "system" {
             fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <CF_PLATFORM_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CfGetPlatformInfo(&mut result__).from_abi::<CF_PLATFORM_INFO>(result__)
+        let mut result__: CF_PLATFORM_INFO = ::core::mem::zeroed();
+        CfGetPlatformInfo(::core::mem::transmute(&mut result__)).from_abi::<CF_PLATFORM_INFO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1997,8 +1997,8 @@ pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::core::HRESULT;
         }
-        let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CfGetTransferKey(filehandle.into_param().abi(), &mut result__).from_abi::<i64>(result__)
+        let mut result__: i64 = ::core::mem::zeroed();
+        CfGetTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2040,8 +2040,8 @@ pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn CfOpenFileWithOplock(filepath: super::super::Foundation::PWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CfOpenFileWithOplock(filepath.into_param().abi(), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        CfOpenFileWithOplock(filepath.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2054,8 +2054,8 @@ pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <CF_SYNC_PROVIDER_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CfQuerySyncProviderStatus(connectionkey.into_param().abi(), &mut result__).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
+        let mut result__: CF_SYNC_PROVIDER_STATUS = ::core::mem::zeroed();
+        CfQuerySyncProviderStatus(connectionkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

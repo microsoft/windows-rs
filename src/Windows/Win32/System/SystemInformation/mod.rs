@@ -309,8 +309,8 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
         extern "system" {
             fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows::core::HRESULT;
         }
-        let mut result__: <f64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetIntegratedDisplaySize(&mut result__).from_abi::<f64>(result__)
+        let mut result__: f64 = ::core::mem::zeroed();
+        GetIntegratedDisplaySize(::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -836,8 +836,8 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::c
         extern "system" {
             fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        IsWow64GuestMachineSupported(::core::mem::transmute(wowguestmachine), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        IsWow64GuestMachineSupported(::core::mem::transmute(wowguestmachine), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

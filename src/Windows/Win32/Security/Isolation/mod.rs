@@ -8,8 +8,8 @@ pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn CreateAppContainerProfile(pszappcontainername: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, pszdescription: super::super::Foundation::PWSTR, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PSID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), ::core::mem::transmute(pcapabilities), ::core::mem::transmute(dwcapabilitycount), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
+        let mut result__: super::super::Foundation::PSID = ::core::mem::zeroed();
+        CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), ::core::mem::transmute(pcapabilities), ::core::mem::transmute(dwcapabilitycount), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -37,8 +37,8 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::c
         extern "system" {
             fn DeriveAppContainerSidFromAppContainerName(pszappcontainername: super::super::Foundation::PWSTR, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PSID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DeriveAppContainerSidFromAppContainerName(pszappcontainername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
+        let mut result__: super::super::Foundation::PSID = ::core::mem::zeroed();
+        DeriveAppContainerSidFromAppContainerName(pszappcontainername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52,8 +52,8 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
         extern "system" {
             fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: super::super::Foundation::PSID, pszrestrictedappcontainername: super::super::Foundation::PWSTR, ppsidrestrictedappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PSID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into_param().abi(), pszrestrictedappcontainername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
+        let mut result__: super::super::Foundation::PSID = ::core::mem::zeroed();
+        DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into_param().abi(), pszrestrictedappcontainername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -67,8 +67,8 @@ pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn GetAppContainerFolderPath(pszappcontainersid: super::super::Foundation::PWSTR, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetAppContainerFolderPath(pszappcontainersid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        GetAppContainerFolderPath(pszappcontainersid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -96,8 +96,8 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::
         extern "system" {
             fn GetAppContainerRegistryLocation(desiredaccess: u32, phappcontainerkey: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::System::Registry::HKEY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetAppContainerRegistryLocation(::core::mem::transmute(desiredaccess), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
+        let mut result__: super::super::System::Registry::HKEY = ::core::mem::zeroed();
+        GetAppContainerRegistryLocation(::core::mem::transmute(desiredaccess), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Registry::HKEY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -163,8 +163,8 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::s
         extern "system" {
             fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        IsProcessInIsolatedContainer(&mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        IsProcessInIsolatedContainer(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -178,8 +178,8 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result
         extern "system" {
             fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        IsProcessInIsolatedWindowsEnvironment(&mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        IsProcessInIsolatedWindowsEnvironment(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -193,8 +193,8 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> 
         extern "system" {
             fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        IsProcessInWDAGContainer(::core::mem::transmute(reserved), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        IsProcessInWDAGContainer(::core::mem::transmute(reserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -9,8 +9,8 @@ pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <ICreateDeviceAccessAsync as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(desiredaccess), &mut result__).from_abi::<ICreateDeviceAccessAsync>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(&mut result__)).from_abi::<ICreateDeviceAccessAsync>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

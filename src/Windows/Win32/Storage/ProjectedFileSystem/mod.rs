@@ -785,8 +785,8 @@ pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        PrjClearNegativePathCache(namespacevirtualizationcontext.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        PrjClearNegativePathCache(namespacevirtualizationcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -813,8 +813,8 @@ pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMES
         extern "system" {
             fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_UPDATE_FAILURE_CAUSES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        PrjDeleteFile(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(updateflags), &mut result__).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
+        let mut result__: PRJ_UPDATE_FAILURE_CAUSES = ::core::mem::zeroed();
+        PrjDeleteFile(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(updateflags), ::core::mem::transmute(&mut result__)).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -911,8 +911,8 @@ pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn PrjGetOnDiskFileState(destinationfilename: super::super::Foundation::PWSTR, filestate: *mut PRJ_FILE_STATE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_FILE_STATE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        PrjGetOnDiskFileState(destinationfilename.into_param().abi(), &mut result__).from_abi::<PRJ_FILE_STATE>(result__)
+        let mut result__: PRJ_FILE_STATE = ::core::mem::zeroed();
+        PrjGetOnDiskFileState(destinationfilename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<PRJ_FILE_STATE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -925,8 +925,8 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::core::Into
         extern "system" {
             fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_VIRTUALIZATION_INSTANCE_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.into_param().abi(), &mut result__).from_abi::<PRJ_VIRTUALIZATION_INSTANCE_INFO>(result__)
+        let mut result__: PRJ_VIRTUALIZATION_INSTANCE_INFO = ::core::mem::zeroed();
+        PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<PRJ_VIRTUALIZATION_INSTANCE_INFO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -954,8 +954,8 @@ pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), ::core::mem::transmute(callbacks), ::core::mem::transmute(instancecontext), ::core::mem::transmute(options), &mut result__).from_abi::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>(result__)
+        let mut result__: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = ::core::mem::zeroed();
+        PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), ::core::mem::transmute(callbacks), ::core::mem::transmute(instancecontext), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -982,8 +982,8 @@ pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::core::IntoParam<'a, P
         extern "system" {
             fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PRJ_UPDATE_FAILURE_CAUSES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize), ::core::mem::transmute(updateflags), &mut result__).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
+        let mut result__: PRJ_UPDATE_FAILURE_CAUSES = ::core::mem::zeroed();
+        PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into_param().abi(), destinationfilename.into_param().abi(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize), ::core::mem::transmute(updateflags), ::core::mem::transmute(&mut result__)).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

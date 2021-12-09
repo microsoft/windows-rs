@@ -567,8 +567,8 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
         extern "system" {
             fn AVIGetFromClipboard(lppf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IAVIFile as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        AVIGetFromClipboard(&mut result__).from_abi::<IAVIFile>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        AVIGetFromClipboard(::core::mem::transmute(&mut result__)).from_abi::<IAVIFile>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -610,8 +610,8 @@ pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::core::IntoParam<
         extern "system" {
             fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IAVIStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        AVIMakeStreamFromClipboard(::core::mem::transmute(cfformat), hglobal.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        AVIMakeStreamFromClipboard(::core::mem::transmute(cfformat), hglobal.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2413,8 +2413,8 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
         extern "system" {
             fn EditStreamClone(pavi: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IAVIStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        EditStreamClone(pavi.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        EditStreamClone(pavi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2746,8 +2746,8 @@ impl IAVIEditStream {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAVIStream> {
-        let mut result__: <IAVIStream as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAVIStream>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAVIStream>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()> {
@@ -2883,8 +2883,8 @@ pub struct IAVIPersistFile(::windows::core::IUnknown);
 impl IAVIPersistFile {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
@@ -2904,8 +2904,8 @@ impl IAVIPersistFile {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCurFile(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()

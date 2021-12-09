@@ -183,8 +183,8 @@ pub unsafe fn GetProcessDpiAwareness<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn GetProcessDpiAwareness(hprocess: super::super::Foundation::HANDLE, value: *mut PROCESS_DPI_AWARENESS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <PROCESS_DPI_AWARENESS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetProcessDpiAwareness(hprocess.into_param().abi(), &mut result__).from_abi::<PROCESS_DPI_AWARENESS>(result__)
+        let mut result__: PROCESS_DPI_AWARENESS = ::core::mem::zeroed();
+        GetProcessDpiAwareness(hprocess.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<PROCESS_DPI_AWARENESS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

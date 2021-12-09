@@ -1180,7 +1180,7 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> JsErrorCode;
+            fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode;
         }
         ::core::mem::transmute(JsValueToVariant(::core::mem::transmute(object), ::core::mem::transmute(variant)))
     }
@@ -1204,7 +1204,7 @@ pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsVariantToValue(variant: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+            fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value)))
     }

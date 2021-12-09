@@ -1238,8 +1238,8 @@ pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*m
         extern "system" {
             fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut KeyCredentialManagerInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        KeyCredentialManagerGetInformation(&mut result__).from_abi::<*mut KeyCredentialManagerInfo>(result__)
+        let mut result__: *mut KeyCredentialManagerInfo = ::core::mem::zeroed();
+        KeyCredentialManagerGetInformation(::core::mem::transmute(&mut result__)).from_abi::<*mut KeyCredentialManagerInfo>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

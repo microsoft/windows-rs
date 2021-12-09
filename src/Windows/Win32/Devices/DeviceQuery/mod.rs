@@ -257,8 +257,8 @@ pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32,
         extern "system" {
             fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HDEVQUERY__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DevCreateObjectQuery(::core::mem::transmute(objecttype), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), &mut result__).from_abi::<*mut HDEVQUERY__>(result__)
+        let mut result__: *mut HDEVQUERY__ = ::core::mem::zeroed();
+        DevCreateObjectQuery(::core::mem::transmute(objecttype), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<*mut HDEVQUERY__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -272,8 +272,8 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
         extern "system" {
             fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HDEVQUERY__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DevCreateObjectQueryEx(::core::mem::transmute(objecttype), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(cextendedparametercount), ::core::mem::transmute(pextendedparameters), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), &mut result__).from_abi::<*mut HDEVQUERY__>(result__)
+        let mut result__: *mut HDEVQUERY__ = ::core::mem::zeroed();
+        DevCreateObjectQueryEx(::core::mem::transmute(objecttype), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(cextendedparametercount), ::core::mem::transmute(pextendedparameters), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<*mut HDEVQUERY__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -287,8 +287,8 @@ pub unsafe fn DevCreateObjectQueryFromId<'a, Param1: ::windows::core::IntoParam<
         extern "system" {
             fn DevCreateObjectQueryFromId(objecttype: DEV_OBJECT_TYPE, pszobjectid: super::super::Foundation::PWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HDEVQUERY__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DevCreateObjectQueryFromId(::core::mem::transmute(objecttype), pszobjectid.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), &mut result__).from_abi::<*mut HDEVQUERY__>(result__)
+        let mut result__: *mut HDEVQUERY__ = ::core::mem::zeroed();
+        DevCreateObjectQueryFromId(::core::mem::transmute(objecttype), pszobjectid.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<*mut HDEVQUERY__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -302,8 +302,8 @@ pub unsafe fn DevCreateObjectQueryFromIdEx<'a, Param1: ::windows::core::IntoPara
         extern "system" {
             fn DevCreateObjectQueryFromIdEx(objecttype: DEV_OBJECT_TYPE, pszobjectid: super::super::Foundation::PWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HDEVQUERY__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DevCreateObjectQueryFromIdEx(::core::mem::transmute(objecttype), pszobjectid.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(cextendedparametercount), ::core::mem::transmute(pextendedparameters), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), &mut result__).from_abi::<*mut HDEVQUERY__>(result__)
+        let mut result__: *mut HDEVQUERY__ = ::core::mem::zeroed();
+        DevCreateObjectQueryFromIdEx(::core::mem::transmute(objecttype), pszobjectid.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(cextendedparametercount), ::core::mem::transmute(pextendedparameters), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<*mut HDEVQUERY__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -317,8 +317,8 @@ pub unsafe fn DevCreateObjectQueryFromIds<'a, Param1: ::windows::core::IntoParam
         extern "system" {
             fn DevCreateObjectQueryFromIds(objecttype: DEV_OBJECT_TYPE, pszzobjectids: super::super::Foundation::PWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HDEVQUERY__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DevCreateObjectQueryFromIds(::core::mem::transmute(objecttype), pszzobjectids.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), &mut result__).from_abi::<*mut HDEVQUERY__>(result__)
+        let mut result__: *mut HDEVQUERY__ = ::core::mem::zeroed();
+        DevCreateObjectQueryFromIds(::core::mem::transmute(objecttype), pszzobjectids.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<*mut HDEVQUERY__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -332,8 +332,8 @@ pub unsafe fn DevCreateObjectQueryFromIdsEx<'a, Param1: ::windows::core::IntoPar
         extern "system" {
             fn DevCreateObjectQueryFromIdsEx(objecttype: DEV_OBJECT_TYPE, pszzobjectids: super::super::Foundation::PWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
         }
-        let mut result__: <*mut HDEVQUERY__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        DevCreateObjectQueryFromIdsEx(::core::mem::transmute(objecttype), pszzobjectids.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(cextendedparametercount), ::core::mem::transmute(pextendedparameters), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), &mut result__).from_abi::<*mut HDEVQUERY__>(result__)
+        let mut result__: *mut HDEVQUERY__ = ::core::mem::zeroed();
+        DevCreateObjectQueryFromIdsEx(::core::mem::transmute(objecttype), pszzobjectids.into_param().abi(), ::core::mem::transmute(queryflags), ::core::mem::transmute(crequestedproperties), ::core::mem::transmute(prequestedproperties), ::core::mem::transmute(cfilterexpressioncount), ::core::mem::transmute(pfilter), ::core::mem::transmute(cextendedparametercount), ::core::mem::transmute(pextendedparameters), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<*mut HDEVQUERY__>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

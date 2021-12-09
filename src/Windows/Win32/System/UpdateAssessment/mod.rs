@@ -4,8 +4,8 @@ pub struct IWaaSAssessor(::windows::core::IUnknown);
 impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
-        let mut result__: <OSUpdateAssessment as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<OSUpdateAssessment>(result__)
+        let mut result__: OSUpdateAssessment = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<OSUpdateAssessment>(result__)
     }
 }
 impl ::core::convert::From<IWaaSAssessor> for ::windows::core::IUnknown {

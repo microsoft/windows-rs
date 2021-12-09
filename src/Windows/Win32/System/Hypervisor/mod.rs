@@ -5588,8 +5588,8 @@ pub unsafe fn WHvAcceptPartitionMigration<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundation::HANDLE, partition: *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WHV_PARTITION_HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvAcceptPartitionMigration(migrationhandle.into_param().abi(), &mut result__).from_abi::<WHV_PARTITION_HANDLE>(result__)
+        let mut result__: WHV_PARTITION_HANDLE = ::core::mem::zeroed();
+        WHvAcceptPartitionMigration(migrationhandle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<WHV_PARTITION_HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5616,8 +5616,8 @@ pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, 
         extern "system" {
             fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32, vpciresource: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvAllocateVpciResource(::core::mem::transmute(providerid), ::core::mem::transmute(flags), ::core::mem::transmute(resourcedescriptor), ::core::mem::transmute(resourcedescriptorsizeinbytes), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        WHvAllocateVpciResource(::core::mem::transmute(providerid), ::core::mem::transmute(flags), ::core::mem::transmute(resourcedescriptor), ::core::mem::transmute(resourcedescriptorsizeinbytes), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5683,8 +5683,8 @@ pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HAND
         extern "system" {
             fn WHvCreatePartition(partition: *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WHV_PARTITION_HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvCreatePartition(&mut result__).from_abi::<WHV_PARTITION_HANDLE>(result__)
+        let mut result__: WHV_PARTITION_HANDLE = ::core::mem::zeroed();
+        WHvCreatePartition(::core::mem::transmute(&mut result__)).from_abi::<WHV_PARTITION_HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5842,8 +5842,8 @@ pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, co
         extern "system" {
             fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WHV_EMULATOR_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvEmulatorTryIoEmulation(::core::mem::transmute(emulator), ::core::mem::transmute(context), ::core::mem::transmute(vpcontext), ::core::mem::transmute(ioinstructioncontext), &mut result__).from_abi::<WHV_EMULATOR_STATUS>(result__)
+        let mut result__: WHV_EMULATOR_STATUS = ::core::mem::zeroed();
+        WHvEmulatorTryIoEmulation(::core::mem::transmute(emulator), ::core::mem::transmute(context), ::core::mem::transmute(vpcontext), ::core::mem::transmute(ioinstructioncontext), ::core::mem::transmute(&mut result__)).from_abi::<WHV_EMULATOR_STATUS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5856,8 +5856,8 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, 
         extern "system" {
             fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WHV_EMULATOR_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvEmulatorTryMmioEmulation(::core::mem::transmute(emulator), ::core::mem::transmute(context), ::core::mem::transmute(vpcontext), ::core::mem::transmute(mmioinstructioncontext), &mut result__).from_abi::<WHV_EMULATOR_STATUS>(result__)
+        let mut result__: WHV_EMULATOR_STATUS = ::core::mem::zeroed();
+        WHvEmulatorTryMmioEmulation(::core::mem::transmute(emulator), ::core::mem::transmute(context), ::core::mem::transmute(vpcontext), ::core::mem::transmute(mmioinstructioncontext), ::core::mem::transmute(&mut result__)).from_abi::<WHV_EMULATOR_STATUS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5935,8 +5935,8 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput<'a, Param0: ::windows::core::Int
         extern "system" {
             fn WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE, vpindex: u32, eax: u32, ecx: u32, cpuidoutput: *mut WHV_CPUID_OUTPUT) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WHV_CPUID_OUTPUT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvGetVirtualProcessorCpuidOutput(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(eax), ::core::mem::transmute(ecx), &mut result__).from_abi::<WHV_CPUID_OUTPUT>(result__)
+        let mut result__: WHV_CPUID_OUTPUT = ::core::mem::zeroed();
+        WHvGetVirtualProcessorCpuidOutput(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(eax), ::core::mem::transmute(ecx), ::core::mem::transmute(&mut result__)).from_abi::<WHV_CPUID_OUTPUT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6369,8 +6369,8 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::core::I
         extern "system" {
             fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvSignalVirtualProcessorSynicEvent(partition.into_param().abi(), synicevent.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        WHvSignalVirtualProcessorSynicEvent(partition.into_param().abi(), synicevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6384,8 +6384,8 @@ pub unsafe fn WHvStartPartitionMigration<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE, migrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WHvStartPartitionMigration(partition.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        WHvStartPartitionMigration(partition.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

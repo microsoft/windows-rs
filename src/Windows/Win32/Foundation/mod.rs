@@ -6786,7 +6786,7 @@ pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReAllocString(pbstr: *mut ::core::mem::ManuallyDrop<BSTR>, psz: PWSTR) -> i32;
+            fn SysReAllocString(pbstr: *mut BSTR, psz: PWSTR) -> i32;
         }
         ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi()))
     }
@@ -6799,7 +6799,7 @@ pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, PWS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReAllocStringLen(pbstr: *mut ::core::mem::ManuallyDrop<BSTR>, psz: PWSTR, len: u32) -> i32;
+            fn SysReAllocStringLen(pbstr: *mut BSTR, psz: PWSTR, len: u32) -> i32;
         }
         ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), ::core::mem::transmute(len)))
     }

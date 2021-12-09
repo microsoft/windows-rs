@@ -238,8 +238,8 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERT
         extern "system" {
             fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WEB_SOCKET_HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WebSocketCreateClientHandle(::core::mem::transmute(pproperties), ::core::mem::transmute(ulpropertycount), &mut result__).from_abi::<WEB_SOCKET_HANDLE>(result__)
+        let mut result__: WEB_SOCKET_HANDLE = ::core::mem::zeroed();
+        WebSocketCreateClientHandle(::core::mem::transmute(pproperties), ::core::mem::transmute(ulpropertycount), ::core::mem::transmute(&mut result__)).from_abi::<WEB_SOCKET_HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -252,8 +252,8 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERT
         extern "system" {
             fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WEB_SOCKET_HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WebSocketCreateServerHandle(::core::mem::transmute(pproperties), ::core::mem::transmute(ulpropertycount), &mut result__).from_abi::<WEB_SOCKET_HANDLE>(result__)
+        let mut result__: WEB_SOCKET_HANDLE = ::core::mem::zeroed();
+        WebSocketCreateServerHandle(::core::mem::transmute(pproperties), ::core::mem::transmute(ulpropertycount), ::core::mem::transmute(&mut result__)).from_abi::<WEB_SOCKET_HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

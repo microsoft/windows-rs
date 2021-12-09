@@ -14,8 +14,8 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::core::Into
         extern "system" {
             fn RegisterLicenseKeyWithExpiration(licensekey: super::super::Foundation::PWSTR, validityindays: u32, status: *mut LicenseProtectionStatus) -> ::windows::core::HRESULT;
         }
-        let mut result__: <LicenseProtectionStatus as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), ::core::mem::transmute(validityindays), &mut result__).from_abi::<LicenseProtectionStatus>(result__)
+        let mut result__: LicenseProtectionStatus = ::core::mem::zeroed();
+        RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), ::core::mem::transmute(validityindays), ::core::mem::transmute(&mut result__)).from_abi::<LicenseProtectionStatus>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
